@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/353 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/22.html" title="demo">demo</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>demo (#22) - Routing from point to point - Code not working (#353) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Routing from point to point - Code not working
+            </div>
+            <div class="body">
+              <p>
+Hello!
+</p>
+<p>
+At first i have to say thank you for making this project come so far!
+I am searching for a solution to route from a Point on a line to another
+point on a line. I wonder why this hasnt been implemented yet in
+pgrouting, because i think its (one of the) most used feature! I found two different ways to achieve this, but both ways dont work for me. What i
+got till now is routing with different algorithms on Openstreetmap data
+from and to vertices and edges. I have sucessfully calculated the
+nearest points on the nearest edge to my start and endpoints. I tried to
+fill the missing last part of the route with the tutorial from here :
+<a href="../../wiki/LoadingtheCode5.html">http://pgrouting.postlbs.org/wiki/LoadingtheCode5</a>
+But i could not get it working. The function throws errors on the
+following SQL statement:
+</p>
+<pre class="wiki">SELECT
+astext(give_we_wkt(".$startEdge['gid'].",".$ergebnis_nebengeometrie_anfang_gid.",'".
+$point_on_line_anfang."'))
+</pre><p>
+It says, that st_intersects is neither false nor true on:
+</p>
+<pre class="wiki">SELECT INTO p ST_intersects(line,buffer($3,0.001));
+FEHLER:  Funktion st_intersects(text, geometry) ist nicht eindeutig
+ZEILE 1: SELECT ST_intersects( $1 ,buffer( $2 ,0.001))
+</pre><p>
+I found out that there are multiple problems in the give_we_wkt function.
+First problem is, that the creation of the linestring ('line') in the
+functioncode fails. Here is the code:
+</p>
+<pre class="wiki">line:= line || X(endgeometry[j])||' '||Y(endgeometry[j])||', '||X(endgeometry[j-1])||' '||Y(endgeometry[j-1]);
+</pre><p>
+The problem is, that endgeometry[j-1] returns &lt;NULL&gt;, and because of that the line becomes NULL. If i use endgeometry[j-0.5] instead it works, but i dont know if this is a good idea. After correcting this the function still throws erros, because the second parameter seems to be parsed incorrectly. if i call the sql manually like this:
+</p>
+<pre class="wiki">SELECT ST_intersects('LINESTRING(6.6463522 50.9528275, 6.6463522 50.9528275)',buffer('01010000003435BD6FE4CA1B405949C4F07B7D4940' ,0.001));
+</pre><p>
+it works. But the give_we_wkt function seems to fill in the second parameter without the "'" and fails.
+</p>
+<p>
+Then i found the "routing_core_smart.sql" wrapper, and tried to solve my problem with it. But also i cant get this working. After adding the function and calling the following:
+</p>
+<pre class="wiki">SELECT gid, AsText(the_geom) AS the_geom
+      FROM shootingstar_sp_smart('ways', 293, 761, 0.1, 'length','to_cost', true, true);
+</pre><p>
+I got the answer, that the function doesnt exist:
+</p>
+<pre class="wiki">FEHLER:  Funktion shootingstar_sp_smart(unknown, integer, integer, numeric, unknown, unknown, boolean, boolean) existiert nicht
+ZEILE 2:       FROM shootingstar_sp_smart('ways', 293, 761, 0.1, 'len...
+</pre><p>
+Could someone please help me with this? I dont know how to solve this problems and i am no expert in postgresql and postgis at the moment.
+</p>
+<p>
+Is there maybe another / easier solution to route from one point to another?
+</p>
+<p>
+Im using Postgis 1.5 and Postgresql 8.4
+</p>
+<p>
+Thanks for answers in adavance!
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            routingfan
+          </div>
+          <div class="time">
+            04/15/10 19:19:21 (7 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/353?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/353?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1464"></a>
+        <div class="id">
+          Message #1464
+        </div>
+        <div class="body">
+            <p>
+Sorry, i did a mistake (edges instead of coordinates) in the last part.
+My query for the shootingstar_sp_smart looks like this:
+</p>
+<p>
+SELECT gid, <a class="missing wiki">AsText?</a>(the_geom) AS wkt FROM shootingstar_sp_smart('ways', 6.95160982151212, 50.9798034072931, 6.9481370410188, 50.9803448637419,0.1,'length','to_cost',false,false);
+</p>
+<p>
+And it returns:
+</p>
+<p>
+PL/pgSQL function "shootingstar_sp_smart" line 5 at FOR-über-EXECUTE-Anweisung
+</p>
+<p>
+I have no clue whats wrong. please point me into the right direction!
+Thanks!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            routingfan
+          </div>
+          <div class="time">
+            04/17/10 06:43:31 (7 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1467"></a>
+        <div class="id">
+          Message #1467
+        </div>
+        <div class="body">
+            <p>
+shootingstar_sp_smart is just a wrapper we made to split the road links and add the missing parts. But it's not a function that is well documented, I must admit.
+</p>
+<p>
+What you need is an extra table with network information:
+</p>
+<pre class="wiki">SELECT add_network_info(&lt;table&gt;);
+</pre><blockquote>
+<p>
+Because virtual links have to be added to the network, and it would take quite some time to count all the links in your network for every request, if your network is large. So this table stores some network parameters.
+</p>
+</blockquote>
+<p>
+Maybe this thread provides some more information:
+<a href="../message/1411.html#1411">http://pgrouting.postlbs.org/discussion/message/1411#1411</a>
+</p>
+<p>
+Hope that helps.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/17/10 21:29:07 (7 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1468"></a>
+        <div class="id">
+          Message #1468
+        </div>
+        <div class="body">
+            <p>
+Thanks for your answer!
+I forgot to mention, that i already used the function
+SELECT add_network_info(&lt;table&gt;);
+</p>
+<p>
+But the problem still is the same. Do i have any problems in my query?
+And do you have an idea with the give_we_wkt function?
+</p>
+<p>
+Thanks again!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            routingfan
+          </div>
+          <div class="time">
+            04/17/10 21:49:44 (7 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/353?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/353?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

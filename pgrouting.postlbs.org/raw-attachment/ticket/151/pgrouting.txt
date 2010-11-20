@@ -1,0 +1,53 @@
+ ./configure --with-cgal=/usr/local/cgal --with-gaul=/usr/local/gaul --with-boost=/usr/local/boost
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables...
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... yes
+configure: checking for BOOST ...
+configure: checking for astar_search.hpp in /usr/local/boost/include/boost/graph ...
+configure: checking for CGAL ...
+find: /usr/share/CGAL: No such file or directory
+find: /usr/local/cgal/make: No such file or directory
+configure: checking for GAUL ...
+configure: creating ./config.status
+config.status: creating Makefile
+[root@mapxl routing]# make
+make: pg_config: Command not found
+Makefile:55: no file name for `include'
+g++  -O2 -g -fpic -I/usr/local/boost/include/boost/graph -c boost_wrapper.cpp
+In file included from boost_wrapper.cpp:30:
+dijkstra.h:25:22: postgres.h: No such file or directory
+In file included from boost_wrapper.cpp:30:
+dijkstra.h:32: error: `float8' does not name a type
+dijkstra.h:33: error: `float8' does not name a type
+dijkstra.h:40: error: `float8' does not name a type
+boost_wrapper.cpp:56: error: `float8' does not name a type
+boost_wrapper.cpp: In function `int boost_dijkstra(edge_t*, unsigned int, int, int, bool, bool, path_element_t**, int*, char**)':
+boost_wrapper.cpp:85: error: 'struct Vertex' has no member named 'cost'
+boost_wrapper.cpp:85: error: 'struct edge' has no member named 'cost'
+boost_wrapper.cpp:95: error: 'struct Vertex' has no member named 'cost'
+boost_wrapper.cpp:95: error: 'struct edge' has no member named 'reverse_cost'
+boost_wrapper.cpp:99: error: 'struct Vertex' has no member named 'cost'
+boost_wrapper.cpp:99: error: 'struct edge' has no member named 'cost'
+boost_wrapper.cpp:121: error: `float8' was not declared in this scope
+boost_wrapper.cpp:121: error: template argument 1 is invalid
+boost_wrapper.cpp:121: error: template argument 2 is invalid
+boost_wrapper.cpp:121: error: invalid type in declaration before '(' token
+boost_wrapper.cpp:124: error: `cost' is not a member of `Vertex'
+boost_wrapper.cpp:125: error: invalid types `int[int]' for array subscript
+boost_wrapper.cpp:160: error: 'struct path_element' has no member named 'cost'
+boost_wrapper.cpp:160: error: invalid types `int[boost_dijkstra::vertex_descriptor]' for array subscript
+boost_wrapper.cpp:181: error: 'struct path_element' has no member named 'cost'
+boost_wrapper.cpp:181: error: 'struct Vertex' has no member named 'cost'
+make: *** [boost_wrapper.o] Error 1

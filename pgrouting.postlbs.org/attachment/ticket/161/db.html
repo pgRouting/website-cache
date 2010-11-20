@@ -1,0 +1,2280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/161/db.patch by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Attachment – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../../wiki/TracGuide.html" />
+        <link rel="alternate" href="../../../raw-attachment/ticket/161/db.patch" type="text/x-diff; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="../../../ticket/161.html" title="Ticket #161" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/diff.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/code.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../../chrome/common/js/diff.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="last first"><a href="../../../ticket/161.html">Back to Ticket #161</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="attachment">
+        <h1><a href="../../../ticket/161.html">Ticket #161</a>: db.patch</h1>
+        <table id="info" summary="Description">
+          <tbody>
+            <tr>
+              <th scope="col">
+                File db.patch, <span title="18653 bytes">18.2 KB</span>
+                (added by anton,  <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-07-14T10%3A52%3A54%2B0900&amp;precision=second" title="2009-07-14T10:52:54+0900 in Timeline">16 months</a> ago)
+              </th>
+            </tr>
+            <tr>
+              <td class="message searchable">
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="preview" class="searchable">
+    <div class="diff">
+  <ul class="entries">
+      <li class="entry">
+        <h2>
+          <a>src/OSMDocument.h</a>
+        </h2>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File src/OSMDocument.h (revision 334)">
+                  </th>
+                  <th title="File src/OSMDocument.h (working copy)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>21</th><th>21</th><td class="l"><span>#ifndef OSMDOCUMENT_H</span> </td>
+                  </tr><tr>
+                          <th>22</th><th>22</th><td class="l"><span>#define OSMDOCUMENT_H</span> </td>
+                  </tr><tr>
+                          <th>23</th><th>23</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>24</th><th> </th><td class="l"><span>#include "Configuration.h"</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>24</th><td class="r"><span>#include "Configuration.h"</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>25</th><td class="r"><span>#include "Export2DB.h"</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>25</th><th>26</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>26</th><th>27</th><td class="l"><span>namespace osm</span> </td>
+                  </tr><tr>
+                          <th>27</th><th>28</th><td class="l"><span>{</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L37">…</a></th>
+                  <th><a href="#L38">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>37</th><th>38</th><td class="l"><span>{</span> </td>
+                  </tr><tr>
+                          <th>38</th><th>39</th><td class="l"><span>public:</span> </td>
+                  </tr><tr>
+                          <th>39</th><th>40</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; //! Map, which saves the parsed nodes</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>40</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; <del></del>std::map&lt;long long, Node*&gt; m_Nodes;</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>41</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; <ins>//</ins>std::map&lt;long long, Node*&gt; m_Nodes;</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>41</th><th>42</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; //! parsed ways</span> </td>
+                  </tr><tr>
+                          <th>42</th><th>43</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Way*&gt; m_Ways;</span> </td>
+                  </tr><tr>
+                          <th>43</th><th>44</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; //! splitted ways</span> </td>
+                  </tr><tr>
+                          <th>44</th><th>45</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Way*&gt; m_SplittedWays;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>45</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; Configuration&amp; m_rConfig;</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>46</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; Configuration&amp; m_rConfig;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>47</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; Export2DB&amp; m_db;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>48</th><td class="r"><span></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>49</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; unsigned int m_stage;</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>46</th><th>50</th><td class="l"><span>public:</span> </td>
+                  </tr><tr>
+                          <th>47</th><th>51</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>48</th><th>52</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; //! Constructor</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>49</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; OSMDocument( Configuration&amp; config<del></del>);</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>53</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; OSMDocument( Configuration&amp; config<ins>, Export2DB&amp; db, unsigned int stage = 0</ins>);</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>50</th><th>54</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; //! Destructor</span> </td>
+                  </tr><tr>
+                          <th>51</th><th>55</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; virtual ~OSMDocument();</span> </td>
+                  </tr><tr>
+                          <th>52</th><th>56</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; //! add node to the map</span> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>src/Export2DB.cpp</a>
+        </h2>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File src/Export2DB.cpp (revision 334)">
+                  </th>
+                  <th title="File src/Export2DB.cpp (working copy)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>26</th><th>26</th><td class="l"><span>Export2DB::Export2DB(std::string host, std::string user, std::string dbname, std::string port, std::string passwd)</span> </td>
+                  </tr><tr>
+                          <th>27</th><th>27</th><td class="l"><span>:mycon(0)</span> </td>
+                  </tr><tr>
+                          <th>28</th><th>28</th><td class="l"><span>{</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>29</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>29</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>30</th><th>30</th><td class="l"><span>this-&gt;conninf="host="+host+" user="+user+" dbname="+ dbname +" port="+port;</span> </td>
+                  </tr><tr>
+                          <th>31</th><th>31</th><td class="l"><span>if(!passwd.empty())</span> </td>
+                  </tr><tr>
+                          <th>32</th><th>32</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; this-&gt;conninf+=" password="+passwd;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>33</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>33</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>34</th><th>34</th><td class="l"><span>}</span> </td>
+                  </tr><tr>
+                          <th>35</th><th>35</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>36</th><th>36</th><td class="l"><span>Export2DB::~Export2DB()</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L43">…</a></th>
+                  <th><a href="#L43">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>43</th><th>43</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; conninf&lt;&lt; endl;</span> </td>
+                  </tr><tr>
+                          <th>44</th><th>44</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; //mycon =PQconnectdb("user=postgres dbname=template1 hostaddr=127.0.0.1 port=5432");</span> </td>
+                  </tr><tr>
+                          <th>45</th><th>45</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; mycon =PQconnectdb(conninf.c_str());</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>46</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>46</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>47</th><th>47</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; ConnStatusType type =PQstatus(mycon);</span> </td>
+                  </tr><tr>
+                          <th>48</th><th>48</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(type==CONNECTION_BAD)</span> </td>
+                  </tr><tr>
+                          <th>49</th><th>49</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L74">…</a></th>
+                  <th><a href="#L74">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>74</th><th>74</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; result = PQexec(mycon, "CREATE TABLE types (id integer, name char(200));");</span> </td>
+                  </tr><tr>
+                          <th>75</th><th>75</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "Types table created" &lt;&lt; std::endl;</span> </td>
+                  </tr><tr>
+                          <th>76</th><th>76</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; result = PQexec(mycon, "CREATE TABLE classes (id integer, type_id integer, name char(200), cost double precision);");</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>77</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "Classes table created" &lt;&lt; std::endl;<del>&nbsp; &nbsp; &nbsp; </del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>77</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "Classes table created" &lt;&lt; std::endl;<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>78</th><th>78</th><td class="l"><span>}</span> </td>
+                  </tr><tr>
+                          <th>79</th><th>79</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>80</th><th>80</th><td class="l"><span>void Export2DB::dropTables()</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L87">…</a></th>
+                  <th><a href="#L87">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>87</th><th>87</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; char tmp_id[20];</span> </td>
+                  </tr><tr>
+                          <th>88</th><th>88</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; char tmp_lon[15];</span> </td>
+                  </tr><tr>
+                          <th>89</th><th>89</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; char tmp_lat[15];</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>90</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>90</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>91</th><th>91</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; sprintf(tmp_id,"%lld",id);</span> </td>
+                  </tr><tr>
+                          <th>92</th><th>92</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; gcvt(lon,12,tmp_lon);</span> </td>
+                  </tr><tr>
+                          <th>93</th><th>93</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; gcvt(lat,12,tmp_lat);</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>94</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>94</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>95</th><th>95</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::string query = "INSERT into nodes(id,lon,lat) values(";</span> </td>
+                  </tr><tr>
+                          <th>96</th><th>96</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; query+= tmp_id;</span> </td>
+                  </tr><tr>
+                          <th>97</th><th>97</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; query+=",";</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L99">…</a></th>
+                  <th><a href="#L99">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>99</th><th>99</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; query+=",";</span> </td>
+                  </tr><tr>
+                          <th>100</th><th>100</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; query+= tmp_lat;</span> </td>
+                  </tr><tr>
+                          <th>101</th><th>101</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; query+=");";</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>102</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>102</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>103</th><th>103</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; PGresult *result = PQexec(mycon, query.c_str());</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>104</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; PQclear(result);</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>104</th><th>105</th><td class="l"><span>}</span> </td>
+                  </tr><tr>
+                          <th>105</th><th>106</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>106</th><th>107</th><td class="l"><span>void Export2DB::exportWay(Way* way)</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L109">…</a></th>
+                  <th><a href="#L110">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>109</th><th>110</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; if(!way-&gt;name.empty())</span> </td>
+                  </tr><tr>
+                          <th>110</th><th>111</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; query+=", name";</span> </td>
+                  </tr><tr>
+                          <th>111</th><th>112</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; query+=") values(";</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>112</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr><tr>
+                        <th>113</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; query+=boost::lexical_cast&lt;std::string&gt;(way-&gt;id) + ", (SELECT id FROM classes WHERE name ='" + boost::lexical_cast&lt;std::string&gt;(way-&gt;clss) + "')," + boost::lexical_cast&lt;std::string&gt;(way-&gt;length) + ","<del>&nbsp;</del></span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>113</th><td class="r"><span></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>114</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; query+=boost::lexical_cast&lt;std::string&gt;(way-&gt;id) + ", (SELECT id FROM classes WHERE name ='" + boost::lexical_cast&lt;std::string&gt;(way-&gt;clss) + "')," + boost::lexical_cast&lt;std::string&gt;(way-&gt;length) + ","<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>114</th><th>115</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ boost::lexical_cast&lt;std::string&gt;(way-&gt;m_NodeRefs.front()-&gt;lon) + ","+ boost::lexical_cast&lt;std::string&gt;(way-&gt;m_NodeRefs.front()-&gt;lat) + ","</span> </td>
+                  </tr><tr>
+                          <th>115</th><th>116</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ boost::lexical_cast&lt;std::string&gt;(way-&gt;m_NodeRefs.back()-&gt;lon)&nbsp; + ","+ boost::lexical_cast&lt;std::string&gt;(way-&gt;m_NodeRefs.back()-&gt;lat) + ",";</span> </td>
+                  </tr><tr>
+                          <th>116</th><th>117</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; query+="GeometryFromText('" + way-&gt;geom +"', 4326)";</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L122">…</a></th>
+                  <th><a href="#L123">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>122</th><th>123</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; else</span> </td>
+                  </tr><tr>
+                          <th>123</th><th>124</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>124</th><th>125</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; query+=", "+ boost::lexical_cast&lt;std::string&gt;(way-&gt;length);</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>125</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; }<del>&nbsp; &nbsp; &nbsp; &nbsp;</del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>126</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; }<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>126</th><th>127</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>127</th><th>128</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; if(!way-&gt;name.empty())</span> </td>
+                  </tr><tr>
+                          <th>128</th><th>129</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; query+=",$$"+ way-&gt;name +"$$";</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L134">…</a></th>
+                  <th><a href="#L135">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>134</th><th>135</th><td class="l"><span>void Export2DB::exportType(Type* type)</span> </td>
+                  </tr><tr>
+                          <th>135</th><th>136</th><td class="l"><span>{</span> </td>
+                  </tr><tr>
+                          <th>136</th><th>137</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::string query = "INSERT into types(id, name) values(";</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>137</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>138</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>138</th><th>139</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; query+=boost::lexical_cast&lt;std::string&gt;(type-&gt;id) + ", '" + type-&gt;name +"');";</span> </td>
+                  </tr><tr>
+                          <th>139</th><th>140</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; PGresult *result = PQexec(mycon, query.c_str());</span> </td>
+                  </tr><tr>
+                          <th>140</th><th>141</th><td class="l"><span>}</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L142">…</a></th>
+                  <th><a href="#L143">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>142</th><th>143</th><td class="l"><span>void Export2DB::exportClass(Type* type, Class* clss)</span> </td>
+                  </tr><tr>
+                          <th>143</th><th>144</th><td class="l"><span>{</span> </td>
+                  </tr><tr>
+                          <th>144</th><th>145</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::string query = "INSERT into classes(id, type_id, name) values(";</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>145</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>146</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>146</th><th>147</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; query+=boost::lexical_cast&lt;std::string&gt;(clss-&gt;id) + ", " + boost::lexical_cast&lt;std::string&gt;(type-&gt;id) + ", '" + clss-&gt;name +"');";</span> </td>
+                  </tr><tr>
+                          <th>147</th><th>148</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; PGresult *result = PQexec(mycon, query.c_str());</span> </td>
+                  </tr><tr>
+                          <th>148</th><th>149</th><td class="l"><span>}</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L155">…</a></th>
+                  <th><a href="#L156">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>155</th><th>156</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; result = PQexec(mycon,"CREATE INDEX target_idx ON ways(target);");</span> </td>
+                  </tr><tr>
+                          <th>156</th><th>157</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; result = PQexec(mycon,"CREATE INDEX geom_idx ON ways USING GIST(the_geom GIST_GEOMETRY_OPS);");</span> </td>
+                  </tr><tr>
+                          <th>157</th><th>158</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; result = PQexec(mycon,"SELECT assign_vertex_id('ways', 0.00001, 'the_geom', 'gid');");</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>158</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>159</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>159</th><th>160</th><td class="l"><span>}</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>161</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>162</th><td class="r"><ins>Node* Export2DB::findNode(long long nodeRefId) {</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>163</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; std::string query = "SELECT id,lon,lat FROM nodes WHERE id ='" + boost::lexical_cast&lt;std::string&gt;(nodeRefId) + "';";</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>164</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; PGresult *result = PQexec(mycon, query.c_str());</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>165</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>166</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; if (PQresultStatus(result) != PGRES_TUPLES_OK) {</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>167</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "SELECT id,lon,lat FROM nodes WHERE id ='" &lt;&lt; boost::lexical_cast&lt;std::string&gt;(nodeRefId) &lt;&lt; "'; "&lt;&lt; PQerrorMessage(mycon) &lt;&lt; std::endl;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>168</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PQclear(result);</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>169</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return NULL;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>170</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; }</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>171</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>172</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; if (PQntuples(result) == 0)</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>173</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; {</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>174</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "SELECT id,lon,lat FROM nodes WHERE id ='" &lt;&lt; boost::lexical_cast&lt;std::string&gt;(nodeRefId) &lt;&lt; "'; gave zero rows result" &lt;&lt; std::endl;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>175</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PQclear(result);</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>176</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return NULL;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>177</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; }</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>178</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>179</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; int id_f = PQfnumber(result, "id");</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>180</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; int lon_f = PQfnumber(result, "lon");</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>181</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; int lat_f = PQfnumber(result, "lat");</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>182</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>183</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; char *id_ptr = PQgetvalue(result, 0, id_f);</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>184</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; char *lon_ptr = PQgetvalue(result, 0, lon_f);</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>185</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; char *lat_ptr = PQgetvalue(result, 0, lat_f);</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>186</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>187</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; //std::cout &lt;&lt; "Found node: id=" &lt;&lt; id_ptr &lt;&lt; ", lon=" &lt;&lt; lon_ptr &lt;&lt; ", lat=" &lt;&lt; lat_ptr &lt;&lt; std::endl;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>188</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>189</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; Node* node = new Node(atol(id_ptr), atof(lat_ptr), atof(lon_ptr));</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>190</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>191</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; PQclear(result);</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>192</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>193</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; return node;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>194</th><td class="r"><ins>}</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>195</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>src/Export2DB.h</a>
+        </h2>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File src/Export2DB.h (revision 334)">
+                  </th>
+                  <th title="File src/Export2DB.h (working copy)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>32</th><th>32</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>33</th><th>33</th><td class="l"><span>/**</span> </td>
+                  </tr><tr>
+                          <th>34</th><th>34</th><td class="l"><span>&nbsp;* This class connects to a postgresql database. For using this class,</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>35</th><th> </th><td class="l"><span>&nbsp;* you also need to install postgis and pgrouting<del>&nbsp;</del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>35</th><td class="r"><span>&nbsp;* you also need to install postgis and pgrouting<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>36</th><th>36</th><td class="l"><span>&nbsp;*/</span> </td>
+                  </tr><tr>
+                          <th>37</th><th>37</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>38</th><th>38</th><td class="l"><span>class Export2DB</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L44">…</a></th>
+                  <th><a href="#L44">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>44</th><th>44</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param host Host address of the database</span> </td>
+                  </tr><tr>
+                          <th>45</th><th>45</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param user a user, who has write access to the database</span> </td>
+                  </tr><tr>
+                          <th>46</th><th>46</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* @param dbname name of the database</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>47</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*<del>&nbsp;</del></span> </td>
+                      </tr><tr>
+                        <th>48</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/<del>&nbsp;</del></span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>47</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*<ins></ins></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>48</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>49</th><th>49</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; Export2DB(std::string host, std::string user, std::string dbname, std::string port, std::string password);</span> </td>
+                  </tr><tr>
+                          <th>50</th><th>50</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; /**</span> </td>
+                  </tr><tr>
+                          <th>51</th><th>51</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* Destructor</span> </td>
+                  </tr><tr>
+                          <th>52</th><th>52</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* closes the connection to the database</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>53</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/<del>&nbsp; </del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>53</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>54</th><th>54</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; ~Export2DB();</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>55</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>55</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>56</th><th>56</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; //! connects to database</span> </td>
+                  </tr><tr>
+                          <th>57</th><th>57</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; int connect();</span> </td>
+                  </tr><tr>
+                          <th>58</th><th>58</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; //! creates needed tables</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L65">…</a></th>
+                  <th><a href="#L65">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>65</th><th>65</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; void exportType(Type* type);</span> </td>
+                  </tr><tr>
+                          <th>66</th><th>66</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; void exportClass(Type* type, Class* clss);</span> </td>
+                  </tr><tr>
+                          <th>67</th><th>67</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>68</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; Node* findNode(long long nodeRefId);</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>68</th><th>69</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>69</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; /** </span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>70</th><td class="r"><span></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>71</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; /**</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>70</th><th>72</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* creates the topology</span> </td>
+                  </tr><tr>
+                          <th>71</th><th>73</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* Be careful, it takes some time.</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>72</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*<del>&nbsp;</del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>74</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>73</th><th>75</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* for example:</span> </td>
+                  </tr><tr>
+                          <th>74</th><th>76</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* complete germany: OSM file with a size of 1,1 GiB.</span> </td>
+                  </tr><tr>
+                          <th>75</th><th>77</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* Export and create topology:</span> </td>
+                  </tr><tr>
+                          <th>76</th><th>78</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* time took circa 30 hours on an Intel Xeon 2,4 GHz with 2 GiB Ram.</span> </td>
+                  </tr><tr>
+                          <th>77</th><th>79</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* But only for the streettypes "motorway", "primary" and "secondary"</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>78</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/<del>&nbsp;</del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>80</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>79</th><th>81</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; void createTopology();</span> </td>
+                  </tr><tr>
+                          <th>80</th><th>82</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; //! Be careful! It deletes the created tables!</span> </td>
+                  </tr><tr>
+                          <th>81</th><th>83</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; void dropTables();</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>82</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>84</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>83</th><th>85</th><td class="l"><span>private:</span> </td>
+                  </tr><tr>
+                          <th>84</th><th>86</th><td class="l"><span>PGconn *mycon;</span> </td>
+                  </tr><tr>
+                          <th>85</th><th>87</th><td class="l"><span>std::string conninf;</span> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>src/osm2pgrouting.cpp</a>
+        </h2>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File src/osm2pgrouting.cpp (revision 334)">
+                  </th>
+                  <th title="File src/osm2pgrouting.cpp (working copy)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>17</th><th>17</th><td class="l"><span>&nbsp;*&nbsp; &nbsp;Free Software Foundation, Inc.,&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*</span> </td>
+                  </tr><tr>
+                          <th>18</th><th>18</th><td class="l"><span>&nbsp;*&nbsp; &nbsp;59 Temple Place - Suite 330, Boston, MA&nbsp; 02111-1307, USA.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*</span> </td>
+                  </tr><tr>
+                          <th>19</th><th>19</th><td class="l"><span>&nbsp;***************************************************************************/</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>20</th><th> </th><td class="l"><span>&nbsp;</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>20</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>21</th><th>21</th><td class="l"><span>#include "stdafx.h"</span> </td>
+                  </tr><tr>
+                          <th>22</th><th>22</th><td class="l"><span>#include "Configuration.h"</span> </td>
+                  </tr><tr>
+                          <th>23</th><th>23</th><td class="l"><span>#include "ConfigurationParserCallback.h"</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L43">…</a></th>
+                  <th><a href="#L43">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>43</th><th>43</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; "-port &lt;port&gt; -- port of your database (default: 5432)" &lt;&lt; endl;</span> </td>
+                  </tr><tr>
+                          <th>44</th><th>44</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; "-passwd &lt;passwd&gt; --&nbsp; password for database access" &lt;&lt; endl;</span> </td>
+                  </tr><tr>
+                          <th>45</th><th>45</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; "-clean -- drop peviously created tables" &lt;&lt; endl;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>46</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>46</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>47</th><th>47</th><td class="l"><span>}</span> </td>
+                  </tr><tr>
+                          <th>48</th><th>48</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>49</th><th>49</th><td class="l"><span>int main(int argc, char* argv[])</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L55">…</a></th>
+                  <th><a href="#L55">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>55</th><th>55</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::string port="5432";</span> </td>
+                  </tr><tr>
+                          <th>56</th><th>56</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::string dbname;</span> </td>
+                  </tr><tr>
+                          <th>57</th><th>57</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::string passwd;</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>58</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; std::string stage;</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>58</th><th>59</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; bool clean = false;</span> </td>
+                  </tr><tr>
+                          <th>59</th><th>60</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; if(argc &gt;=7 &amp;&amp; argc &lt;=13)</span> </td>
+                  </tr><tr>
+                          <th>60</th><th>61</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L62">…</a></th>
+                  <th><a href="#L63">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>62</th><th>63</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; while( i&lt;argc)</span> </td>
+                  </tr><tr>
+                          <th>63</th><th>64</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>64</th><th>65</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(strcmp(argv[i],"-file")==0)</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>65</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<del>&nbsp; &nbsp; &nbsp; &nbsp;</del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>66</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>66</th><th>67</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i++;</span> </td>
+                  </tr><tr>
+                          <th>67</th><th>68</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; file = argv[i];</span> </td>
+                  </tr><tr>
+                          <th>68</th><th>69</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>69</th><th>70</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>70</th><th>71</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else if(strcmp(argv[i],"-conf")==0)</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>71</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<del>&nbsp; &nbsp; &nbsp; &nbsp;</del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>72</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>72</th><th>73</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i++;</span> </td>
+                  </tr><tr>
+                          <th>73</th><th>74</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cFile = argv[i];</span> </td>
+                  </tr><tr>
+                          <th>74</th><th>75</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>75</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>76</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>76</th><th>77</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else if(strcmp(argv[i],"-host")==0)</span> </td>
+                  </tr><tr>
+                          <th>77</th><th>78</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>78</th><th>79</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i++;</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L102">…</a></th>
+                  <th><a href="#L103">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>102</th><th>103</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>103</th><th>104</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clean = true;</span> </td>
+                  </tr><tr>
+                          <th>104</th><th>105</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>106</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else if(strcmp(argv[i],"-stage")==0)</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>107</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>108</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i++;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>109</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stage = argv[i];</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>110</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>105</th><th>111</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else</span> </td>
+                  </tr><tr>
+                          <th>106</th><th>112</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>107</th><th>113</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; "unknown paramer: " &lt;&lt; argv[i] &lt;&lt; endl;</span> </td>
+                  </tr><tr>
+                          <th>108</th><th>114</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _error();</span> </td>
+                  </tr><tr>
+                          <th>109</th><th>115</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 1;</span> </td>
+                  </tr><tr>
+                          <th>110</th><th>116</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>111</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>117</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>112</th><th>118</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i++;</span> </td>
+                  </tr><tr>
+                          <th>113</th><th>119</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>114</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>120</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>115</th><th>121</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>116</th><th>122</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; else</span> </td>
+                  </tr><tr>
+                          <th>117</th><th>123</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>118</th><th>124</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _error();</span> </td>
+                  </tr><tr>
+                          <th>119</th><th>125</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 1;</span> </td>
+                  </tr><tr>
+                          <th>120</th><th>126</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>121</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>127</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>122</th><th>128</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; if(file.empty() || cFile.empty() || dbname.empty() || user.empty())</span> </td>
+                  </tr><tr>
+                          <th>123</th><th>129</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>124</th><th>130</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _error();</span> </td>
+                  </tr><tr>
+                          <th>125</th><th>131</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 1;</span> </td>
+                  </tr><tr>
+                          <th>126</th><th>132</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>127</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>133</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>128</th><th>134</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; Export2DB test(host, user, dbname, port, passwd);</span> </td>
+                  </tr><tr>
+                          <th>129</th><th>135</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; if(test.connect()==1)</span> </td>
+                  </tr><tr>
+                          <th>130</th><th>136</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 1;</span> </td>
+                  </tr><tr>
+                          <th>131</th><th>137</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>132</th><th>138</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>133</th><th>139</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; XMLParser parser;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>134</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>140</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>135</th><th>141</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; "Trying to load config file " &lt;&lt; cFile.c_str() &lt;&lt; endl;</span> </td>
+                  </tr><tr>
+                          <th>136</th><th>142</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>137</th><th>143</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; Configuration* config = new Configuration();</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L144">…</a></th>
+                  <th><a href="#L150">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>144</th><th>150</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>145</th><th>151</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; "Trying to load data" &lt;&lt; endl;</span> </td>
+                  </tr><tr>
+                          <th>146</th><th>152</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>147</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; OSMDocument* document = new OSMDocument( *config<del></del> );</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>153</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; OSMDocument* document = new OSMDocument( *config<ins>, test, atoi(stage.c_str())</ins> );</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>148</th><th>154</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; OSMDocumentParserCallback callback( *document );</span> </td>
+                  </tr><tr>
+                          <th>149</th><th>155</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>150</th><th>156</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; "Trying to parse data" &lt;&lt; endl;</span> </td>
+                  </tr><tr>
+                          <th>151</th><th>157</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>152</th><th>158</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; ret = parser.Parse( callback, file.c_str() );</span> </td>
+                  </tr><tr>
+                          <th>153</th><th>159</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; if( ret!=0 ) return 1;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>154</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>160</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>155</th><th>161</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; "Split ways" &lt;&lt; endl;</span> </td>
+                  </tr><tr>
+                          <th>156</th><th>162</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>157</th><th>163</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; document-&gt;SplitWays();</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L159">…</a></th>
+                  <th><a href="#L165">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>159</th><th>165</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>160</th><th>166</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>161</th><th>167</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if( clean )</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>162</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                      </tr><tr>
+                        <th>163</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; test.dropTables();</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>168</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                      </tr><tr>
+                        <th> </th><th>169</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (atoi(stage.c_str()) &lt; 1) {</span> </td>
+                      </tr><tr>
+                        <th> </th><th>170</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; test.dropTables();</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>171</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>164</th><th>172</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>165</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>173</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>166</th><th>174</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; test.createTables();</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>167</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>175</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>168</th><th>176</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::map&lt;std::string, Type*&gt;&amp; types= config-&gt;m_Types;</span> </td>
+                  </tr><tr>
+                          <th>169</th><th>177</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::map&lt;std::string, Type*&gt;::iterator tIt(types.begin());</span> </td>
+                  </tr><tr>
+                          <th>170</th><th>178</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::map&lt;std::string, Type*&gt;::iterator tLast(types.end());</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>171</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>179</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>172</th><th>180</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; while(tIt!=tLast)</span> </td>
+                  </tr><tr>
+                          <th>173</th><th>181</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>174</th><th>182</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Type* type = (*tIt++).second;</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L184">…</a></th>
+                  <th><a href="#L192">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>184</th><th>192</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; test.exportClass(type, clss);</span> </td>
+                  </tr><tr>
+                          <th>185</th><th>193</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>186</th><th>194</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody><tbody class="rem">
+                  <tr class="last first">
+                          <th>187</th><th> </th><td class="l"><del>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </del> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>188</th><th>195</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>189</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::map&lt;long long, Node*&gt;&amp; nodes= document-&gt;m_Nodes;</span> </td>
+                      </tr><tr>
+                        <th>190</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::map&lt;long long, Node*&gt;::iterator it(nodes.begin());</span> </td>
+                      </tr><tr>
+                        <th>191</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::map&lt;long long, Node*&gt;::iterator last(nodes.end());</span> </td>
+                      </tr><tr>
+                        <th>192</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr><tr>
+                        <th>193</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; while(it!=last)</span> </td>
+                      </tr><tr>
+                        <th>194</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                      </tr><tr>
+                        <th>195</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Node* node = (*it++).second;</span> </td>
+                      </tr><tr>
+                        <th>196</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; test.exportNode(node-&gt;id,node-&gt;lon, node-&gt;lat, node-&gt;numsOfUse);</span> </td>
+                      </tr><tr>
+                        <th>197</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                      </tr><tr>
+                        <th>198</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>196</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>197</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //std::map&lt;long long, Node*&gt;&amp; nodes= document-&gt;m_Nodes;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>198</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //std::map&lt;long long, Node*&gt;::iterator it(nodes.begin());</span> </td>
+                      </tr><tr>
+                        <th> </th><th>199</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //std::map&lt;long long, Node*&gt;::iterator last(nodes.end());</span> </td>
+                      </tr><tr>
+                        <th> </th><th>200</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>201</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //while(it!=last)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>202</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //{</span> </td>
+                      </tr><tr>
+                        <th> </th><th>203</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //&nbsp; &nbsp; &nbsp; Node* node = (*it++).second;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>204</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //&nbsp; &nbsp; &nbsp; test.exportNode(node-&gt;id,node-&gt;lon, node-&gt;lat, node-&gt;numsOfUse);</span> </td>
+                      </tr><tr>
+                        <th> </th><th>205</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //}</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>206</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>199</th><th>207</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Way*&gt;&amp; ways= document-&gt;m_SplittedWays;</span> </td>
+                  </tr><tr>
+                          <th>200</th><th>208</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Way*&gt;::iterator it_way( ways.begin() );</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>201</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Way*&gt;::iterator last_way( ways.end() );<del>&nbsp; &nbsp; &nbsp;</del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>209</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Way*&gt;::iterator last_way( ways.end() );<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>202</th><th>210</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; while( it_way!=last_way )</span> </td>
+                  </tr><tr>
+                          <th>203</th><th>211</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>204</th><th>212</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Way* pWay = *it_way++;</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L206">…</a></th>
+                  <th><a href="#L214">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>206</th><th>214</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>207</th><th>215</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; "create topology" &lt;&lt; endl;</span> </td>
+                  </tr><tr>
+                          <th>208</th><th>216</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; test.createTopology();</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>209</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; }<del>&nbsp; &nbsp; &nbsp; &nbsp;</del></span> </td>
+                      </tr><tr>
+                        <th>210</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>217</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; }<ins></ins></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>218</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>211</th><th>219</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; //#############</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>212</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>220</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>213</th><th>221</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; /*</span> </td>
+                  </tr><tr>
+                          <th>214</th><th>222</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Way*&gt;&amp; ways= document.m_Ways;</span> </td>
+                  </tr><tr>
+                          <th>215</th><th>223</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Way*&gt;::iterator it( ways.begin() );</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L217">…</a></th>
+                  <th><a href="#L225">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>217</th><th>225</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; while( it!=last )</span> </td>
+                  </tr><tr>
+                          <th>218</th><th>226</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>219</th><th>227</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Way* pWay = *it;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>220</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>228</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>221</th><th>229</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if( !pWay-&gt;name.empty() )</span> </td>
+                  </tr><tr>
+                          <th>222</th><th>230</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>223</th><th>231</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if( pWay-&gt;m_NodeRefs.empty() )</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L229">…</a></th>
+                  <th><a href="#L237">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>229</th><th>237</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Node* n0 = pWay-&gt;m_NodeRefs.front();</span> </td>
+                  </tr><tr>
+                          <th>230</th><th>238</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Node* n1 = pWay-&gt;m_NodeRefs.back();</span> </td>
+                  </tr><tr>
+                          <th>231</th><th>239</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //if(n1-&gt;numsOfUse==1)</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>232</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //cout &lt;&lt; "way-id: " &lt;&lt; pWay-&gt;id &lt;&lt; " name: " &lt;&lt; pWay-&gt;name &lt;&lt;endl;<del>&nbsp;</del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>240</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //cout &lt;&lt; "way-id: " &lt;&lt; pWay-&gt;id &lt;&lt; " name: " &lt;&lt; pWay-&gt;name &lt;&lt;endl;<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>233</th><th>241</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //std::cout &lt;&lt; n0-&gt;lon &lt;&lt; " "&nbsp; &lt;&lt; n0-&gt;lat &lt;&lt; " " &lt;&lt; n1-&gt;lon &lt;&lt; " " &lt;&lt; n1-&gt;lat &lt;&lt; " " &lt;&lt; pWay-&gt;name.c_str() &lt;&lt; " highway: " &lt;&lt; pWay-&gt;highway.c_str() &lt;&lt; " Start numberOfUse: " &lt;&lt; n0-&gt;numsOfUse &lt;&lt; " End numberOfUse: " &lt;&lt; n1-&gt;numsOfUse&nbsp; &lt;&lt; " ID: " &lt;&lt; n1-&gt;id &lt;&lt;&nbsp; endl;</span> </td>
+                  </tr><tr>
+                          <th>234</th><th>242</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>235</th><th>243</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L241">…</a></th>
+                  <th><a href="#L249">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>241</th><th>249</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ++it;</span> </td>
+                  </tr><tr>
+                          <th>242</th><th>250</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>243</th><th>251</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; */</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>244</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>252</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>245</th><th>253</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; "#########################" &lt;&lt; endl;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>246</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>254</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>247</th><th>255</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; "size of streets: " &lt;&lt; document-&gt;m_Ways.size() &lt;&lt;&nbsp; &nbsp; &nbsp; &nbsp;endl;</span> </td>
+                  </tr><tr>
+                          <th>248</th><th>256</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; cout &lt;&lt; "size of splitted ways : " &lt;&lt; document-&gt;m_SplittedWays.size() &lt;&lt;&nbsp; &nbsp; &nbsp; &nbsp; endl;</span> </td>
+                  </tr><tr>
+                          <th>249</th><th>257</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>src/OSMDocumentParserCallback.cpp</a>
+        </h2>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File src/OSMDocumentParserCallback.cpp (revision 334)">
+                  </th>
+                  <th title="File src/OSMDocumentParserCallback.cpp (working copy)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>30</th><th>30</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>31</th><th>31</th><td class="l"><span>namespace osm</span> </td>
+                  </tr><tr>
+                          <th>32</th><th>32</th><td class="l"><span>{</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>33</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr><tr>
+                        <th>34</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>33</th><td class="r"><span></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>34</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>35</th><th>35</th><td class="l"><span>/**</span> </td>
+                  </tr><tr>
+                          <th>36</th><th>36</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; Parser callback for OSMDocument files</span> </td>
+                  </tr><tr>
+                          <th>37</th><th>37</th><td class="l"><span>*/</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L46">…</a></th>
+                  <th><a href="#L46">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>46</th><th>46</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if( strcmp(name,"ref")==0 )</span> </td>
+                  </tr><tr>
+                          <th>47</th><th>47</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>48</th><th>48</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; long long nodeRefId = atol( value );</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>49</th><th> </th><td class="l"><span><del>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m_pActWay-&gt;AddNodeRef( m_rDocument.FindNode( nodeRefId )</del> );</span> </td>
+                      </tr><tr>
+                        <th>50</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <del>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Node * node = m_rDocument.FindNode( nodeRefId );</del></span> </td>
+                      </tr><tr>
+                        <th>51</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <del>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(node != 0 ){</del></span> </td>
+                      </tr><tr>
+                        <th>52</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <del>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </del>node-&gt;numsOfUse+=1;</span> </td>
+                      </tr><tr>
+                        <th>53</th><th> </th><td class="l"><span><del>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </del>}else {</span> </td>
+                      </tr><tr>
+                        <th>54</th><th> </th><td class="l"><span><del>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </del>std::cout &lt;&lt; "Reference nd=" &lt;&lt; nodeRefId &lt;&lt; " has no corresponding Node Entry (Maybe Node entry after Reference?)" &lt;&lt; std::endl;</span> </td>
+                      </tr><tr>
+                        <th>55</th><th> </th><td class="l"><span><del>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </del>}</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>49</th><td class="r"><span><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Node * node = m_rDocument.FindNode( nodeRefId</ins> );</span> </td>
+                      </tr><tr>
+                        <th> </th><th>50</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <ins>if(node != 0 ){</ins></span> </td>
+                      </tr><tr>
+                        <th> </th><th>51</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <ins>&nbsp; &nbsp; &nbsp; &nbsp; m_pActWay-&gt;AddNodeRef( node );</ins></span> </td>
+                      </tr><tr>
+                        <th> </th><th>52</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <ins>&nbsp; &nbsp; &nbsp; &nbsp; </ins>node-&gt;numsOfUse+=1;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>53</th><td class="r"><span><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </ins>}else {</span> </td>
+                      </tr><tr>
+                        <th> </th><th>54</th><td class="r"><span><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </ins>std::cout &lt;&lt; "Reference nd=" &lt;&lt; nodeRefId &lt;&lt; " has no corresponding Node Entry (Maybe Node entry after Reference?)" &lt;&lt; std::endl;</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>55</th><td class="r"><span><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </ins>}</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>56</th><th>56</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>57</th><th>57</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>58</th><th>58</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L86">…</a></th>
+                  <th><a href="#L86">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>86</th><th>86</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>87</th><th>87</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; else if( strcmp(name,"tag") == 0 )</span> </td>
+                  </tr><tr>
+                          <th>88</th><th>88</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>89</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // &lt;tag k="name" v="Pf<del>ä</del>nderweg"/&gt;</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>89</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // &lt;tag k="name" v="Pf<ins>ï¿œ</ins>nderweg"/&gt;</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>90</th><th>90</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (atts != NULL)</span> </td>
+                  </tr><tr>
+                          <th>91</th><th>91</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>92</th><th>92</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::string k;</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L113">…</a></th>
+                  <th><a href="#L113">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>113</th><th>113</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>114</th><th>114</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else if( m_pActWay &amp;&amp; k.compare("oneway")==0 )</span> </td>
+                  </tr><tr>
+                          <th>115</th><th>115</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>116</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m_pActWay-&gt;oneway = true;<del>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>116</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m_pActWay-&gt;oneway = true;<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>117</th><th>117</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cout&lt;&lt;"Edge "&lt;&lt;m_pActWay-&gt;id&lt;&lt;" is oneway"&lt;&lt;std::endl;</span> </td>
+                  </tr><tr>
+                          <th>118</th><th>118</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>119</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                      </tr><tr>
+                        <th>120</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>119</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>121</th><th>120</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //else if( m_pActWay &amp;&amp; k.compare("highway")==0 )</span> </td>
+                  </tr><tr>
+                          <th>122</th><th>121</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else if( m_pActWay &amp;&amp; m_rDocument.m_rConfig.m_Types.count(k) )</span> </td>
+                  </tr><tr>
+                          <th>123</th><th>122</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L150">…</a></th>
+                  <th><a href="#L149">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>150</th><th>149</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if( id&gt;0 )</span> </td>
+                  </tr><tr>
+                          <th>151</th><th>150</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>152</th><th>151</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m_pActWay = new Way( id, visibility );</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>153</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>152</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>154</th><th>153</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>155</th><th>154</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>156</th><th>155</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L167">…</a></th>
+                  <th><a href="#L166">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>167</th><th>166</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>168</th><th>167</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //#ifdef RESTRICT</span> </td>
+                  </tr><tr>
+                          <th>169</th><th>168</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //_FILTER</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>170</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>169</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>171</th><th>170</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if( m_rDocument.m_rConfig.m_Types.count(m_pActWay-&gt;type) &amp;&amp; m_rDocument.m_rConfig.m_Types[m_pActWay-&gt;type]-&gt;m_Classes.count(m_pActWay-&gt;clss) )</span> </td>
+                  </tr><tr>
+                          <th>172</th><th>171</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>173</th><th>172</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //#endif</span> </td>
+                  </tr><tr>
+                          <th>174</th><th>173</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cout&lt;&lt;"We need a way of type "&lt;&lt;m_pActWay-&gt;type&lt;&lt;" and class "&lt;&lt; m_pActWay-&gt;clss&lt;&lt;std::endl;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>175</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>174</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>176</th><th>175</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m_rDocument.AddWay( m_pActWay );</span> </td>
+                  </tr><tr>
+                          <th>177</th><th>176</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>178</th><th>177</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //#ifdef RESTRICT</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L183">…</a></th>
+                  <th><a href="#L182">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>183</th><th>182</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; delete m_pActWay;</span> </td>
+                  </tr><tr>
+                          <th>184</th><th>183</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>185</th><th>184</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //#endif</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>186</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>185</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>187</th><th>186</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m_pActWay = 0;</span> </td>
+                  </tr><tr>
+                          <th>188</th><th>187</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>189</th><th>188</th><td class="l"><span>}</span> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>src/OSMDocument.cpp</a>
+        </h2>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File src/OSMDocument.cpp (revision 334)">
+                  </th>
+                  <th title="File src/OSMDocument.cpp (working copy)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>29</th><th>29</th><td class="l"><span>namespace osm</span> </td>
+                  </tr><tr>
+                          <th>30</th><th>30</th><td class="l"><span>{</span> </td>
+                  </tr><tr>
+                          <th>31</th><th>31</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>32</th><th> </th><td class="l"><span>OSMDocument::OSMDocument( Configuration&amp; config ) : m_rConfig( config )</span> </td>
+                      </tr><tr>
+                        <th>33</th><th> </th><td class="l"><span>{</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>32</th><td class="r"><span>OSMDocument::OSMDocument( Configuration&amp; config, Export2DB&amp; db, unsigned int stage) : m_rConfig( config ), m_db(db), m_stage(stage)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>33</th><td class="r"><span>{</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>34</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "Doing from stage " &lt;&lt; m_stage &lt;&lt; std::endl;</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>34</th><th>35</th><td class="l"><span>}</span> </td>
+                  </tr><tr>
+                          <th>35</th><th>36</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>36</th><th>37</th><td class="l"><span>OSMDocument::~OSMDocument()</span> </td>
+                  </tr><tr>
+                          <th>37</th><th>38</th><td class="l"><span>{</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>38</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; <del></del>ez_mapdelete( m_Nodes );</span> </td>
+                      </tr><tr>
+                        <th>39</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; ez_vectordelete( m_Ways );<del>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </del></span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>39</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; <ins>//</ins>ez_mapdelete( m_Nodes );</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>40</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; ez_vectordelete( m_Ways );<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>40</th><th>41</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; ez_vectordelete( m_SplittedWays );</span> </td>
+                  </tr><tr>
+                          <th>41</th><th>42</th><td class="l"><span>}</span> </td>
+                  </tr><tr>
+                          <th>42</th><th>43</th><td class="l"><span>void OSMDocument::AddNode( Node* n )</span> </td>
+                  </tr><tr>
+                          <th>43</th><th>44</th><td class="l"><span>{</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>44</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; m_Nodes[n-&gt;id] = n;</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>45</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; //m_Nodes[n-&gt;id] = n;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>46</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; if (m_stage &lt; 2) {</span> </td>
+                      </tr><tr>
+                        <th> </th><th>47</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m_db.exportNode(n-&gt;id,n-&gt;lon, n-&gt;lat, n-&gt;numsOfUse);</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>48</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; };</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>45</th><th>49</th><td class="l"><span>}</span> </td>
+                  </tr><tr>
+                          <th>46</th><th>50</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>47</th><th>51</th><td class="l"><span>void OSMDocument::AddWay( Way* w )</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L49">…</a></th>
+                  <th><a href="#L53">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>49</th><th>53</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; m_Ways.push_back( w );</span> </td>
+                  </tr><tr>
+                          <th>50</th><th>54</th><td class="l"><span>}</span> </td>
+                  </tr><tr>
+                          <th>51</th><th>55</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>52</th><th> </th><td class="l"><span>Node* OSMDocument::FindNode( long long nodeRefId )<del>&nbsp;</del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>56</th><td class="r"><span>Node* OSMDocument::FindNode( long long nodeRefId )<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>53</th><th>57</th><td class="l"><span>const</span> </td>
+                  </tr><tr>
+                          <th>54</th><th>58</th><td class="l"><span>{</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>55</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::map&lt;long long, Node*&gt;::const_iterator&nbsp; it = m_Nodes.find( nodeRefId );</span> </td>
+                      </tr><tr>
+                        <th>56</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; return (it!=m_Nodes.end() ) ? it-&gt;second : 0;</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>59</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; //std::map&lt;long long, Node*&gt;::const_iterator&nbsp; it = m_Nodes.find( nodeRefId );</span> </td>
+                      </tr><tr>
+                        <th> </th><th>60</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; //return (it!=m_Nodes.end() ) ? it-&gt;second : 0;</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>61</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; return m_db.findNode(nodeRefId);</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>57</th><th>62</th><td class="l"><span>}</span> </td>
+                  </tr><tr>
+                          <th>58</th><th>63</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>59</th><th>64</th><td class="l"><span>void OSMDocument::SplitWays()</span> </td>
+                  </tr><tr>
+                          <th>60</th><th>65</th><td class="l"><span>{</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>61</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>66</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>62</th><th>67</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Way*&gt;::const_iterator it(m_Ways.begin());</span> </td>
+                  </tr><tr>
+                          <th>63</th><th>68</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Way*&gt;::const_iterator last(m_Ways.end());</span> </td>
+                  </tr><tr>
+                          <th>64</th><th>69</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L68">…</a></th>
+                  <th><a href="#L73">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>68</th><th>73</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; while(it!=last)</span> </td>
+                  </tr><tr>
+                          <th>69</th><th>74</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>70</th><th>75</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Way* currentWay = *it++;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>71</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr><tr>
+                        <th>72</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Node*&gt;::const_iterator it_node( currentWay-&gt;m_NodeRefs.begin());<del>&nbsp; &nbsp; </del></span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>76</th><td class="r"><span></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>77</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Node*&gt;::const_iterator it_node( currentWay-&gt;m_NodeRefs.begin());<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>73</th><th>78</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::vector&lt;Node*&gt;::const_iterator last_node( currentWay-&gt;m_NodeRefs.end());</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>74</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>79</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>75</th><th>80</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Node* backNode = currentWay-&gt;m_NodeRefs.back();</span> </td>
+                  </tr><tr>
+                          <th>76</th><th>81</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>77</th><th>82</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>78</th><th>83</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>79</th><th>84</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; while(it_node!=last_node)</span> </td>
+                  </tr><tr>
+                          <th>80</th><th>85</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>81</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>86</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>82</th><th>87</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Node* node = *it_node++;</span> </td>
+                  </tr><tr>
+                          <th>83</th><th>88</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Node* secondNode=0;</span> </td>
+                  </tr><tr>
+                          <th>84</th><th>89</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Node* lastNode=0;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>85</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>90</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>86</th><th>91</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Way* splitted_way = new Way( ++id, currentWay-&gt;visible );</span> </td>
+                  </tr><tr>
+                          <th>87</th><th>92</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; splitted_way-&gt;name=currentWay-&gt;name;</span> </td>
+                  </tr><tr>
+                          <th>88</th><th>93</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; splitted_way-&gt;type=currentWay-&gt;type;</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L90">…</a></th>
+                  <th><a href="#L95">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>90</th><th>95</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; splitted_way-&gt;oneway=currentWay-&gt;oneway;</span> </td>
+                  </tr><tr>
+                          <th>91</th><th>96</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>92</th><th>97</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; //GeometryFromText('MULTILINESTRING(('||x1||' '||y1||','||x2||' '||y2||'))',4326);</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>93</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>98</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>94</th><th>99</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; splitted_way-&gt;geom="MULTILINESTRING(("+ boost::lexical_cast&lt;std::string&gt;(node-&gt;lon) + " " + boost::lexical_cast&lt;std::string&gt;(node-&gt;lat) +",";</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>95</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>100</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>96</th><th>101</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; splitted_way-&gt;AddNodeRef(node);</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>97</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>102</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>98</th><th>103</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bool found=false;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>99</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>104</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>100</th><th>105</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(it_node!=last_node)</span> </td>
+                  </tr><tr>
+                          <th>101</th><th>106</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr><tr>
+                          <th>102</th><th>107</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; while(it_node!=last_node &amp;&amp; !found)</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L112">…</a></th>
+                  <th><a href="#L117">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>112</th><th>117</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; length*=-1;</span> </td>
+                  </tr><tr>
+                          <th>113</th><th>118</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; splitted_way-&gt;length+=length;</span> </td>
+                  </tr><tr>
+                          <th>114</th><th>119</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; splitted_way-&gt;geom+= boost::lexical_cast&lt;std::string&gt;(secondNode-&gt;lon) + " " + boost::lexical_cast&lt;std::string&gt;(secondNode-&gt;lat) + "))";</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>115</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>120</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>116</th><th>121</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>117</th><th>122</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else if(backNode==(*it_node))</span> </td>
+                  </tr><tr>
+                          <th>118</th><th>123</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L131">…</a></th>
+                  <th><a href="#L136">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>131</th><th>136</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>132</th><th>137</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>133</th><th>138</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>134</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>139</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>135</th><th>140</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(splitted_way-&gt;m_NodeRefs.front()!=splitted_way-&gt;m_NodeRefs.back())</span> </td>
+                  </tr><tr>
+                          <th>136</th><th>141</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m_SplittedWays.push_back(splitted_way);</span> </td>
+                  </tr><tr>
+                          <th>137</th><th>142</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L139">…</a></th>
+                  <th><a href="#L144">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>139</th><th>144</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; delete splitted_way;</span> </td>
+                  </tr><tr>
+                          <th>140</th><th>145</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; splitted_way=0;</span> </td>
+                  </tr><tr>
+                          <th>141</th><th>146</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>142</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>147</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>143</th><th>148</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr><tr>
+                          <th>144</th><th>149</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>145</th><th>150</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>Makefile</a>
+        </h2>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File Makefile (revision 334)">
+                  </th>
+                  <th title="File Makefile (working copy)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>9</th><th>9</th><td class="l"><span>MAIN = src/osm2pgrouting.cpp</span> </td>
+                  </tr><tr>
+                          <th>10</th><th>10</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>11</th><th>11</th><td class="l"><span>all:</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>12</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; $(CC) -c $(SRC) $(INC) -ggdb3</span> </td>
+                      </tr><tr>
+                        <th>13</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; $(CC) -c $(DEPS) $(INC) -ggdb3</span> </td>
+                      </tr><tr>
+                        <th>14</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; $(CC) -o osm2pgrouting $(MAIN) *.o $(INC) -lexpat -ggdb3 -lpq</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>12</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; $(CC) -c -O3 $(SRC) $(INC)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>13</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; $(CC) -c -O3 $(DEPS) $(INC)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>14</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; $(CC) -o osm2pgrouting $(MAIN) *.o $(INC) -lexpat -lpq</span> </td>
+                      </tr><tr>
+                        <th> </th><th>15</th><td class="r"><span>#&nbsp; &nbsp; &nbsp; &nbsp;$(CC) -c $(SRC) $(INC) -ggdb3</span> </td>
+                      </tr><tr>
+                        <th> </th><th>16</th><td class="r"><span>#&nbsp; &nbsp; &nbsp; &nbsp;$(CC) -c $(DEPS) $(INC) -ggdb3</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>17</th><td class="r"><span>#&nbsp; &nbsp; &nbsp; &nbsp;$(CC) -o osm2pgrouting $(MAIN) *.o $(INC) -lexpat -ggdb3 -lpq</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>15</th><th>18</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; rm *.o</span> </td>
+                  </tr><tr>
+                          <th>16</th><th>19</th><td class="l"><span>clean:</span> </td>
+                  </tr><tr>
+                          <th>17</th><th>20</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; rm osm2pgrouting</span> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+  </ul>
+</div>
+        </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="../../../raw-attachment/ticket/161/db.patch">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("db.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/161/db.patch by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

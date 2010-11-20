@@ -1,0 +1,743 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/53 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - Error installing pgrouting-1.0 with driving distance package on opensuse and ubuntu (#53) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Error installing pgrouting-1.0 with driving distance package on opensuse and ubuntu
+            </div>
+            <div class="body">
+              <p>
+After building and compiling I get the following error message in pgadmin-1.6.3 when I try to import the sql file 'routing_dd.sql' for the driving_distance algorithm:
+</p>
+<p>
+ERROR: Could not load library /usr/lib/postgresql/librouting_dd.so: undefined symbol: _ZN4CGAL17precondition_failEPKcS1_i
+</p>
+<p>
+The libraries 'librouting.so' and 'librouting_dd.so' are located in 'usr/lib/postgresql'. Importing the sqls for the core algorithms (astar, sstar, etc.) works well.
+</p>
+<p>
+Any ideas?
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            10/16/07 21:34:59 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/53?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/53?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message200"></a>
+        <div class="id">
+          Message #200
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+It looks like there is a problem with finding of CGAL. Make sure that CGAL library and headers are reachable.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/17/07 08:57:02 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message202"></a>
+        <div class="id">
+          Message #202
+        </div>
+        <div class="body">
+            <p>
+I´ve copied all CGAL libs (*.so) from "/opt/xyz/built/CGAL-3.3.1/lib/i686_Linux-2.6_g++-4.1.2"
+to "/usr/lib/postgresql" and to "/usr/lib" too (to make sure). CGAL headers are in "/usr/include/CGAL". I´ve restarted postgresql, but I still get the same error message. Maybe an incompatiblity issue? I´m using opensuse-10.2 an postgres-8.1.9.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            10/17/07 16:29:59 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message203"></a>
+        <div class="id">
+          Message #203
+        </div>
+        <div class="body">
+            <p>
+Can you tell me how did you compile CGAL? Did you use interactive installation?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/17/07 16:34:41 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message204"></a>
+        <div class="id">
+          Message #204
+        </div>
+        <div class="body">
+            <p>
+I used the command from online manual: "/opt/xyz/built/CGAL-3.3.1# ./install_cgal --prefix=/usr --with-boost=n --without-autofind -ni /usr/bin/g++" No interaction was needed.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            10/17/07 17:12:53 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message205"></a>
+        <div class="id">
+          Message #205
+        </div>
+        <div class="body">
+            <p>
+Well, I didn't try it with CGAL version 3.3.1 yet. Just give me few days and I will try it, 'cause I think it could be a reason.
+</p>
+<p>
+Can you try to downgrade to CGAL version 3.2.1?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/18/07 10:25:13 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message269"></a>
+        <div class="id">
+          Message #269
+        </div>
+        <div class="body">
+            <p>
+I have the similar error.
+I used CGAL version 3.2.1.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            akkcy
+          </div>
+          <div class="time">
+            11/28/07 14:28:51 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message283"></a>
+        <div class="id">
+          Message #283
+        </div>
+        <div class="body">
+            <p>
+I´ve downgraded to CGAL-3.2.1, as you said. Here comes a similiar error:
+</p>
+<p>
+ERROR:  could not load library "/usr/lib/postgresql/librouting_dd.so": /usr/lib/postgresql/librouting_dd.so: undefined symbol: _ZN4CGALmiERKNS_8MP_FloatES2_
+</p>
+<p>
+So, what do I wrong? :-(
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            12/10/07 03:52:58 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message285"></a>
+        <div class="id">
+          Message #285
+        </div>
+        <div class="body">
+            <p>
+Well, this error sounds better :)
+</p>
+<p>
+For me it looks like it can not find libCGAL.so file.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/10/07 13:16:00 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message289"></a>
+        <div class="id">
+          Message #289
+        </div>
+        <div class="body">
+            <p>
+Can you post your system, path configuration for cgal, versions of your postgresql server, postgis and needed libraries, please? I´ve no idea, what to do now... :-(
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            12/10/07 20:54:35 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message292"></a>
+        <div class="id">
+          Message #292
+        </div>
+        <div class="body">
+            <p>
+We tested it with many OSes (CentOS 5, Ubuntu 7.04 and 7.10, Windows XP) and with different versions of PostgreSQL (8.1.4, 8.1.9, 8.2.5) and PostGIS (1.2.1 and 1.3.2). But we use only 3.2.1 version of CGAL.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/11/07 00:29:59 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message293"></a>
+        <div class="id">
+          Message #293
+        </div>
+        <div class="body">
+            <p>
+And where do have located your CGAL libs? In /usr/lib/postgresql or /usr/lib or /usr/lib/CGAL?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            12/11/07 00:33:57 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message299"></a>
+        <div class="id">
+          Message #299
+        </div>
+        <div class="body">
+            <p>
+In case of CentOS they are in /usr/local/lib. But cmake searches for them at /usr/lib, usr/lib/CGAL, /usr/local/lib, /usr/local/lib/CGAL, /usr/lib64, /usr/lib64/CGAL, /usr/local/lib64 and /usr/local/lib64/CGAL.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/11/07 09:57:45 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message353"></a>
+        <div class="id">
+          Message #353
+        </div>
+        <div class="body">
+            <p>
+Ok, tested the build process now for different clean (!) linux distributions in my VMware-Player:
+</p>
+<p>
+opensuse-10.3, ubuntu-7.4 and ubuntu-7.10
+</p>
+<p>
+...and end up always in the same error situation:
+</p>
+<p>
+opensuse-10.3:
+</p>
+<p>
+ERROR: could not load library "/usr/lib/postgresql/routing_dd.so": /usr/lib/postgresql/routing_dd.so: undefined symbol: _ZN4CGALmiERKNS_8MP_FloatES2_
+</p>
+<p>
+ubuntu-7.04, ubuntu-7.10:
+</p>
+<p>
+ERROR:  could not load library "/usr/lib/postgresql/8.2/lib/routing_dd.so": /usr/lib/postgresql/8.2/lib/routing_dd.so: undefined symbol: _ZN4CGALmiERKNS_8MP_FloatES2_
+</p>
+<p>
+In case of ubuntu-7.04 (the easiest one) I did simply the following:
+</p>
+<p>
+1. install packages:
+</p>
+<p>
+#sudo apt-get install postgresql-server-dev-8.2 postgresql-8.2
+</p>
+<p>
+#sudo apt-get install build-essential subversion cmake libboost-graph* libgeos-dev proj flex
+</p>
+<p>
+#sudo apt-get install libcgal1 libcgal-dev (system uses CGAL-3.2.1 here and puts it to /usr/lib!!!)
+</p>
+<p>
+2. build postgis-1.3.2 (no errors!!!)
+</p>
+<p>
+3. build pgrouting-1.01
+</p>
+<ul><li>with target "routing" (no errors!!!)
+</li><li>with target "routing_dd" (CGAL was found, no errors!!!)
+</li></ul><p>
+4. copy "librouting_dd.so" from usr/lib to /usr/lib/postgresql/8.2/lib and rename it to "routing_dd.so"
+</p>
+<p>
+5. psql -U postgres -f /usr/share/postlbs/routing.sql template-postgis-1.3.2-pgrouting-1.01 (no errors!!!)
+</p>
+<p>
+6. psql -U postgres -f /usr/share/postlbs/routing_dd.sql template-postgis-1.3.2-pgrouting-1.01 (here comes the above error!!!)
+</p>
+<p>
+Here is the default pg_config created by ubuntu package installer:
+</p>
+<p>
+BINDIR = /usr/lib/postgresql/8.2/bin
+DOCDIR = /usr/share/doc/postgresql-doc-8.2
+INCLUDEDIR = /usr/include/postgresql
+PKGINCLUDEDIR = /usr/include/postgresql
+INCLUDEDIR-SERVER = /usr/include/postgresql/8.2/server
+LIBDIR = /usr/lib
+PKGLIBDIR = /usr/lib/postgresql/8.2/lib
+LOCALEDIR = /usr/share/locale
+MANDIR = /usr/share/postgresql/8.2/man
+SHAREDIR = /usr/share/postgresql/8.2
+SYSCONFDIR = /etc/postgresql
+PGXS = /usr/lib/postgresql/8.2/lib/pgxs/src/makefiles/pgxs.mk
+CONFIGURE = '--build=i486-linux-gnu' '--prefix=/usr' '--includedir=/usr/include' '--mandir=/usr/share/man' '--infodir=/usr/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--libexecdir=/usr/lib/postgresql-8.2' '--disable-maintainer-mode' '--disable-dependency-tracking' '--srcdir=.' '--mandir=/usr/share/postgresql/8.2/man' '--with-docdir=/usr/share/doc/postgresql-doc-8.2' '--datadir=/usr/share/postgresql/8.2' '--bindir=/usr/lib/postgresql/8.2/bin' '--includedir=/usr/include/postgresql/' '--enable-nls' '--enable-integer-datetimes' '--enable-thread-safety' '--enable-debug' '--disable-rpath' '--with-tcl' '--with-perl' '--with-python' '--with-pam' '--with-krb5' '--with-openssl' '--with-gnu-ld' '--with-tclconfig=/usr/lib/tcl8.4' '--with-tkconfig=/usr/lib/tk8.4' '--with-includes=/usr/include/tcl8.4' '--with-pgport=5432' 'CFLAGS=-g -Wall -O2 -fPIC' 'LDFLAGS=-Wl,--as-needed' 'CC=cc' 'CPPFLAGS=' 'build_alias=i486-linux-gnu'
+CC = cc
+CPPFLAGS = -D_GNU_SOURCE -I/usr/include/tcl8.4
+CFLAGS = -g -Wall -O2 -fPIC -Wall -Wmissing-prototypes -Wpointer-arith -Winline -Wdeclaration-after-statement -Wendif-labels -fno-strict-aliasing -g
+CFLAGS_SL = -fpic
+LDFLAGS = -Wl,--as-needed
+LDFLAGS_SL =
+LIBS = -lpgport -lpam -lssl -lcrypto -lkrb5 -lcom_err -lz -lreadline -lcrypt -ldl -lm
+VERSION = PostgreSQL 8.2.5
+</p>
+<p>
+So, what do I wrong? I coudn´t reproduce your test results with three different distributions for the driving distance routing_dd library. Any help/suggestion would be appreaciated! :-)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            01/13/08 10:33:33 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message356"></a>
+        <div class="id">
+          Message #356
+        </div>
+        <div class="body">
+            <p>
+Gosh! We still have routing_dd.so instead of librouting_dd.so! I will fix it immediately.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            01/15/08 10:28:44 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message357"></a>
+        <div class="id">
+          Message #357
+        </div>
+        <div class="body">
+            <p>
+Did you ever tried to run "install_cgal -i" and then check dependencies?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            01/15/08 10:43:43 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message361"></a>
+        <div class="id">
+          Message #361
+        </div>
+        <div class="body">
+            <p>
+No, I did not. I strictly followed your install instructions. Ubuntu downloads lots of additional libraries during installing packages libcgal1 libcgal-dev (CGAL-3.2.1). So, I think there is everything in place right now. :-/
+</p>
+<p>
+Starting "install_cgal -i" on opensuse I get the following screen:
+</p>
+<blockquote>
+<p>
+**   OS:          i686_Linux-2.6                              **
+**   Compiler:    GNU 4.2.1                                   **
+**   Support for: BOOST and BOOST_PROGRAM_OPTIONS.            **
+**                                                            **
+**   Compiler is NOT supported by CGAL.                       **
+**   The setup has been tested ok.                            **
+**                                                            **
+**   Libs built:          10 Jan 18:08                        **
+**                                                            **
+**   &lt;C&gt;  Compiler Menu                                       **
+**   &lt;S&gt;  Support Menu                                        **
+**   &lt;T&gt;  Test (and save) setup                               **
+**   &lt;A&gt;  Run all setup tests (no cache)                      **
+**                                                            **
+**   &lt;B&gt;  Build CGAL Libraries                                **
+**   &lt;I&gt;  Install Menu                                        **
+**                                                            **
+**   &lt;Q&gt;  Back to OS                                          **
+**                                                            **
+**   Your Choice:                                             **
+</p>
+</blockquote>
+<p>
+So, could it be a compiler version problem? opensuse-10.3 uses gnu-4.2.1, ubuntu-7.04 uses gnu-4.1.2. Which compiler version do you use?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            01/15/08 18:00:37 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message362"></a>
+        <div class="id">
+          Message #362
+        </div>
+        <div class="body">
+            <p>
+Well, yeah, I believe in Ubuntu also, but we are trying to find the reason of failure, right? I need to determine the reason of CGAL inconsistance in your case.
+</p>
+<p>
+So, please, try to uninstall all CGAL related packages, then download the source code from www.cgal.org and try to run "install_cgal -i".
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            01/15/08 18:07:59 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message363"></a>
+        <div class="id">
+          Message #363
+        </div>
+        <div class="body">
+            <p>
+Sorry, I edited my post above one more time. As you can see, my compiler version is NOT supported by cgal interactive mode on opensuse. I try to install g++-4.1.1 instead of g++-4.2.1 and will try again. Do you agree? In opensuse I have only the downloaded cgal source package, because cgal does not exist in opensuse package manager repository.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            01/15/08 18:47:17 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message385"></a>
+        <div class="id">
+          Message #385
+        </div>
+        <div class="body">
+            <p>
+Okay, I´ve compiled CGAL-3.2.1 with g++-3.4 and built pgRouting again on ubuntu-7.04, because CGAL-3.2.1 obviously does only work correctly with g++-4.x compilers (see "install_cgal -i"). No chance, same error, what could be the next step? :-/
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            01/20/08 20:47:28 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message389"></a>
+        <div class="id">
+          Message #389
+        </div>
+        <div class="body">
+            <p>
+Can you try the VM we made for a FOSS4G workshop?
+</p>
+<p>
+It is here - <a class="ext-link" href="http://files.postlbs.org/foss4g2007/W-12/foss4g_w12.zip"><span class="icon"> </span>http://files.postlbs.org/foss4g2007/W-12/foss4g_w12.zip</a>
+</p>
+<p>
+It is Xubuntu and it has all libraries installed.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            01/21/08 11:26:19 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/53?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/53?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

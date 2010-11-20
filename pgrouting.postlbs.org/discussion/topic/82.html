@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/82 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/22.html" title="demo">demo</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>demo (#22) - Showing the route. (#82) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Showing the route.
+            </div>
+            <div class="body">
+              <p>
+I made the (06.index.html) page almost work. I think my issues are more with Openlayers than with pgrounting but help will be apreciated.
+</p>
+<p>
+I made the db enviroment work already.
+</p>
+<p>
+I have a few questions.
+1) I can´t see the route.
+I put an alert on the displayRoute function and get an edges.length value
+I pun another alert on "var g = parser.read"
+and got MULTILINESTRING(-13731833.8094298, 6144839.91418116, -13731811.9796777, 6144974.53872339))
+so i think im getting the route.
+I try changing the color, strokewidth for the var result_style but still cant see the route.
+</p>
+<p>
+2) The start and stop points features are too small, i try changing
+start_style = <a class="missing wiki">OpenLayers?</a>.Util.applDefaults({
+</p>
+<blockquote>
+<p>
+externalGraphic: "./img/marker-green.png"
+---because i dont know where is start.png.
+graphicwidth:50,
+graphicheight:50, almost double size
+</p>
+</blockquote>
+<p>
+3) What is the layer downtown for? I only see a big black square on the middle of the map.
+</p>
+<p>
+4) What use is the navigate option? i got a hand cursor but i cant move the map.
+</p>
+<p>
+Thanks in advice
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            juan.oropeza
+          </div>
+          <div class="time">
+            12/14/07 06:17:32 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/82?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/82?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message318"></a>
+        <div class="id">
+          Message #318
+        </div>
+        <div class="body">
+            <p>
+Sorry, I can't help here. Let's wait for Daniel.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/14/07 10:00:02 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message323"></a>
+        <div class="id">
+          Message #323
+        </div>
+        <div class="body">
+            <p>
+When daniel return?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            juan.oropeza
+          </div>
+          <div class="time">
+            12/18/07 01:11:36 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message325"></a>
+        <div class="id">
+          Message #325
+        </div>
+        <div class="body">
+            <p>
+Hi Juan,
+</p>
+<p>
+Sorry for let you wait so long. Orkney office moved last weekend with all the servers, so a lot to prepare before and setup after.
+</p>
+<p>
+Well, this <a class="missing wiki">OpenLayers?</a> demo has been written by some people of Camptocamp, so it's not exactly the way how I would write it and I didn't look at each detail. Did you try the files from the downloaded ZIP file? If there was a bug, then it might not have been changed there, but the online tutorial should be correct. Just copy and past from the TRAC pages directly should be more safe.
+</p>
+<ol><li>As far as I remember this was a bug (or something changed with the <a class="missing wiki">OpenLayers?</a> API). <br /> <tt> features.push(g); </tt> is enough there. <br /> It should be changed already on the <a class="wiki" href="../../wiki/Workshop-DrawRoute.html">Wiki page</a>.
+</li><li>The markers directory can be defined in the <a class="missing wiki">OpenLayers?</a> CSS file.
+</li><li>"Downtown" layer draws a rectangle, which shows the extent of the sample routing data. (We didn't create a topology for the complete Geobase data at the workshop.)
+</li><li>If "Navigate" is enabled, then clicking on the map shouldn't draw a point.
+</li></ol><p>
+Maybe you want to take a look at more up-to-date (extended) examples:
+</p>
+<ul><li><a class="ext-link" href="http://wrs.postlbs.org/geobase.html"><span class="icon"> </span>http://wrs.postlbs.org/geobase.html</a>
+</li><li><a class="ext-link" href="http://boston.freemap.in/routing.html"><span class="icon"> </span>http://boston.freemap.in/routing.html</a> (was made by Christopher during the FOSS4G workshop)
+</li></ul>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            12/18/07 12:50:50 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message367"></a>
+        <div class="id">
+          Message #367
+        </div>
+        <div class="body">
+            <p>
+Thanks for you reply, i was on vacations, but now im back on the horse and want finish my trial.
+</p>
+<p>
+I was trying get root priveligies on foss4g image but i can't.
+When i use 'su -' command and use 'foos4g' as password
+i got 'su: Authentication failure'
+</p>
+<p>
+What is the correct password?
+</p>
+<p>
+Im trying to instal the VMware-tools and require super user priveligies.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            juan.oropeza
+          </div>
+          <div class="time">
+            01/16/08 23:35:11 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message368"></a>
+        <div class="id">
+          Message #368
+        </div>
+        <div class="body">
+            <p>
+In Ubuntu the "root" account is disabled by default and "su" command doesn't work. <br />
+You can type a command as super user with "sudo [command]". The password then is "foss4g" (<a class="wiki" href="../../wiki/Workshop-WorkplaceAccess.html">Workplace</a>).<br />
+A little trick to become "root" is "sudo su -", but usually this shouldn't be necessary.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            01/17/08 08:23:05 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message384"></a>
+        <div class="id">
+          Message #384
+        </div>
+        <div class="body">
+            <p>
+Ok, all your help finally work for me (Yahhooo!!)
+I have all the samples working.
+Now i setup my own data from caracas (ccs)
+</p>
+<p>
+I load the data on a new database.
+Did the same steps and im able to get routes using the query i saw on topic 71.
+</p>
+<p>
+SELECT * FROM shortest_path_shooting_star('SELECT gid as id, source, target, cost, reverse_cost, x1, y1, x2, y2, rule, to_cost FROM roads_edges order by gid', 9, 10, false, true);
+</p>
+<p>
+Even the query use one way streets restrictions in the proper way.
+</p>
+<p>
+The new questions:
+</p>
+<hr />
+<p>
+The query you have on the workshop for shooting star have a column [the_geom].
+1) How i create that column? i have [x1, y1, x2, y2] on the database
+</p>
+<p>
+The ax_routing.php use it to calculate distance from the Point[x,y]
+</p>
+<p>
+SELECT gid, source, target, the_geom, distance(the_geom, <a class="missing wiki">GeometryFromText?</a>( 'POINT(-66.807175 10.493085)', 54004)) AS dist
+FROM ccsroad
+WHERE the_geom &amp;&amp; setsrid( 'BOX3D(-66.907175 10.393085, -66.707175 10.593085)'::box3d, 54004)
+ORDER BY dist LIMIT 1
+</p>
+<p>
+2) My maps use WGS84, do i have to change the value 54004 to create the Geometry?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            juan.oropeza
+          </div>
+          <div class="time">
+            01/18/08 23:50:55 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message388"></a>
+        <div class="id">
+          Message #388
+        </div>
+        <div class="body">
+            <p>
+For a new question, what about a new topic? ;-)
+</p>
+<ol><li>Didn't you import your data as shape file? Then "the_geom" column should already exist. For routing itself you even don't need the geometry information, but you might need it for visualization, finding closest links as you mentioned, etc.. Well, I recommend you to take a look at the PostGIS documentation at <a class="ext-link" href="http://www.postgis.org/"><span class="icon"> </span>http://www.postgis.org</a> if you want to create a geometry column.
+</li></ol><ol start="2"><li>Using "the_geom" as well as [x1, y1, x2, y2], they both must have the same projection as the map. If not, you need to reproject either for each query or you do it once for your complete data.
+</li></ol>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            01/21/08 09:20:30 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/82?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/82?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

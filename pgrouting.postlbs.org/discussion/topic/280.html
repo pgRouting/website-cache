@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/280 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/16.html" title="dijkstra">dijkstra</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>dijkstra (#16) - Error function "assign_vertex_id" (#280) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Error function "assign_vertex_id"
+            </div>
+            <div class="body">
+              <p>
+Enter your message here...
+</p>
+<p>
+Hi, everybody!
+</p>
+<p>
+I am working the project for my graduation. When i prepare data for dijkstra algorithm , i run function "assign_vertex_id"  for data table  "duong_pho_line"
+</p>
+<p>
+"SELECT assign_vertex_id('duong_pho_line', 0.001, 'the_geom', 'gid');
+UPDATE duong_pho_line SET length = length(the_geom);"
+</p>
+<p>
+But having announce :
+</p>
+<p>
+"ERROR: cannot EXECUTE a null querystring
+SQL state: 22004
+Context: PL/pgSQL function "assign_vertex_id" line 65 at EXECUTE statement"
+</p>
+<p>
+My table data is :
+CREATE TABLE duong_pho_line
+(
+</p>
+<blockquote>
+<p>
+gid serial NOT NULL,
+id character varying(250),
+"type" character varying(250),
+the_geom geometry,
+)
+</p>
+</blockquote>
+<p>
+I dont know what is the reason. My time is not much!
+</p>
+<p>
+Please help me for fixed problem!
+Thanks!
+All information contact to Email : tuongvan10121987@…
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            tuongvan10121987
+          </div>
+          <div class="time">
+            07/12/09 14:23:10 (17 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/280?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/280?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message983"></a>
+        <div class="id">
+          Message #983
+        </div>
+        <div class="body">
+            <p>
+We discussed this situation few times here already, if you search through the forum, you will for sure find those topics.
+</p>
+<p>
+In few words - check geometry_column entry for your 'duong_pho_line' table, check your data projection units (0.001 might be to small value for meters or miles).
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/13/09 10:18:00 (17 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message987"></a>
+        <div class="id">
+          Message #987
+        </div>
+        <div class="body">
+            <p>
+Enter your message here...
+After i assign label for source and target, i check value of my street table.
+But having a problem : Some source label and target label is the same.
+Please tell me what's wrong happened to it!
+Qsoks!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            tuongvan10121987
+          </div>
+          <div class="time">
+            07/21/09 23:56:52 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message988"></a>
+        <div class="id">
+          Message #988
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ After i assign label for source and target, i check value of my street table.
+ But having a problem : Some source label and target label is the same.
+ Please tell me what's wrong happened to it!
+ Qsoks!
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            tuongvan10121987
+          </div>
+          <div class="time">
+            07/21/09 23:57:50 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/280?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/280?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

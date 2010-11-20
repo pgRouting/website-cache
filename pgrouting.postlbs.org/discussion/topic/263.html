@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/263 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/15.html" title="others">others</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>others (#15) - Can't display routing map (#263) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Can't display routing map
+            </div>
+            <div class="body">
+              <p>
+I use postgresql8.3.3, postgis1.3.5for postgresql8.3.3 and pgrouting 1.02 on base WindowXP. I have used eclipse-jee-ganymede-SR2-win32 connect database postgresql is success. But when i show my map by HandleDB.java. My data map can't show. This is my Handle.java
+</p>
+<p>
+package servlet;
+</p>
+<p>
+import org.postgis.*;
+import java.sql.*;
+import java.util.<a class="missing wiki">LinkedList?</a>;
+import java.util.List;
+import java.util.<a class="missing wiki">ListIterator?</a>;
+import java.util.<a class="missing wiki">StringTokenizer?</a>;
+</p>
+<p>
+public class HandleDB {
+</p>
+<blockquote>
+<p>
+private final String HOST = "localhost";
+private final String PORT = "5432";
+private final String DATABASE = "testdb";
+private final String USER = "postgres";
+private final String PASSWORD = "chipcoi86";
+private final String TABLE = "quan10";
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+public java.sql.Connection connect(){
+</p>
+<blockquote>
+<p>
+java.sql.Connection conn = null;
+try{
+</p>
+<blockquote>
+<p>
+/*
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul><li>Load the JDBC driver and establish a connection
+*/
+</li></ul><blockquote>
+<blockquote>
+<blockquote>
+<p>
+Class.forName("org.postgresql.Driver");
+String url = "jdbc:postgresql://" + HOST + ":" + PORT + "/" + DATABASE;
+conn = <a class="missing wiki">DriverManager?</a>.getConnection(url, USER, PASSWORD);
+/*
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul><li>Create a statement and execute a select query.
+*/
+</li></ul><blockquote>
+<blockquote>
+<blockquote>
+<p>
+return conn;
+</p>
+</blockquote>
+<p>
+}catch(Exception e){
+</p>
+<blockquote>
+<p>
+e.printStackTrace();
+return null;
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+/*
+</p>
+</blockquote>
+<ul><li>
+*/
+</li></ul><blockquote>
+<p>
+public int findNearestEdge(String point, java.sql.Connection conn){
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<p>
+<a class="missing wiki">StringTokenizer?</a> poi = new <a class="missing wiki">StringTokenizer?</a>(point," ");
+String[] arr = new String<a class="changeset" href="../../changeset/2.html" title="initial">[2]</a>;
+int i = 0;
+//push all the words to the array String
+while(poi.hasMoreTokens()){
+</p>
+<blockquote>
+<p>
+arr[i] = String.valueOf(poi.nextElement());
+i ++;
+</p>
+</blockquote>
+<p>
+}
+Double x = Double.valueOf(arr<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>);
+Double y = Double.valueOf(arr<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>);
+Double shr1 = x - 200;
+Double shr2 = y - 200;
+Double ext1 = x + 200;
+Double ext2 = y + 200;
+</p>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<p>
+String sql = "Select gid, source, target, the_geom, " +
+</p>
+<blockquote>
+<p>
+"distance(the_geom, <a class="missing wiki">GeometryFromText?</a>('POINT(" +
+point + ")', 4326)) as dist From " + TABLE + " where the_geom &amp;&amp; setsrid(" +
+</p>
+<blockquote>
+<p>
+"'BOX3D(" + shr1 + " " + shr2 + ", " + ext1 + " " + ext2
++ ")'::box3d, 4326) order by dist LIMIT 1";
+</p>
+</blockquote>
+</blockquote>
+<p>
+try{
+</p>
+<blockquote>
+<p>
+Statement s = conn.createStatement();
+<a class="missing wiki">ResultSet?</a> r = s.executeQuery(sql);
+while(r.next()){
+</p>
+<blockquote>
+<p>
+/*
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul><li>retrieve source index or target index
+*/
+</li></ul><blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+return r.getInt("source");
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+}catch(Exception e){
+</p>
+<blockquote>
+<p>
+System.out.println(e);
+</p>
+</blockquote>
+<p>
+}
+return 0;
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+/*
+</p>
+</blockquote>
+<ul><li>
+*/
+</li></ul><blockquote>
+<p>
+public List&lt;String&gt; runalgorithm (String algorithm, int startindex, int targetindex, java.sql.Connection conn){
+</p>
+<blockquote>
+<p>
+String sql = null;
+</p>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<p>
+if (algorithm.equals("Dijkstra")){
+</p>
+<blockquote>
+<p>
+sql = "Select rt.gid, <a class="missing wiki">AsText?</a>(rt.the_geom) As wkt, length(rt.the_geom) As length, " +
+</p>
+<blockquote>
+<p>
+TABLE + ".gid " + "From " + TABLE + " ,(Select gid, the_geom From dijkstra_sp_delta( " +
+</p>
+<blockquote>
+<p>
+"'" + TABLE +  "', " + startindex + " , " + targetindex + " ,200)) as rt Where " +
+</p>
+<blockquote>
+<p>
+TABLE + ".gid=rt.gid";
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+}else if (algorithm.equals("AStar")){
+</p>
+<blockquote>
+<blockquote>
+<p>
+sql = "Select rt.gid, <a class="missing wiki">AsText?</a>(rt.the_geom) As wkt, length(rt.the_geom) as length, "
+</p>
+<blockquote>
+<p>
++ TABLE + ".gid " + "From " + TABLE + " ,(Select gid,the_geom From astar_sp_delta( " +
+</p>
+<blockquote>
+<p>
+"'" + TABLE + "', " + startindex + " , " + targetindex + " ,200)) as rt Where "
++ TABLE + ".gid= rt.gid";
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+}else if (algorithm.equals("<a class="wiki" href="../../wiki/ShootingStar.html">ShootingStar</a>")){
+</p>
+<blockquote>
+<blockquote>
+<p>
+sql = "Select rt.gid, <a class="missing wiki">AsText?</a>(rt.the_geom) As wkt, length(rt.the_geom) as length, "
+</p>
+<blockquote>
+<p>
++ TABLE + ".gid " + "From " + TABLE + " ,(Select gid,the_geom From shootingstar_sp( " +
+</p>
+<blockquote>
+<p>
+"'" + TABLE + "', " + startindex + " , " + targetindex + " ,200, 'length', false, false)) " +
+</p>
+<blockquote>
+<p>
+"as rt Where "
+</p>
+</blockquote>
+<p>
++ TABLE + ".gid= rt.gid";
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<p>
+try{
+</p>
+<blockquote>
+<p>
+Statement s = conn.createStatement();
+<a class="missing wiki">ResultSet?</a> r = s.executeQuery(sql);
+List&lt;String&gt; ls = new <a class="missing wiki">LinkedList?</a>&lt;String&gt;();
+while(r.next()){
+</p>
+<blockquote>
+<p>
+/*
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul><li>
+*/
+</li></ul><blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+ls.add(String.valueOf(r.getObject(2)));
+</p>
+</blockquote>
+<p>
+}
+return ls;
+</p>
+</blockquote>
+<p>
+}catch(Exception e){
+</p>
+<blockquote>
+<p>
+System.out.println(e);
+return null;
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+/*
+</p>
+</blockquote>
+<ul><li>
+*/
+</li></ul><blockquote>
+<p>
+public static void main(String args[]){
+</p>
+<blockquote>
+<p>
+HandleDB db = new HandleDB();
+java.sql.Connection con = db.connect();
+int source = db.findNearestEdge("601058.1172986914 1191974.429544109", con);
+System.out.print(source);
+List&lt;String&gt; result = db.runalgorithm ("<a class="wiki" href="../../wiki/ShootingStar.html">ShootingStar</a>", 1, 30, con);
+</p>
+</blockquote>
+<p>
+<a class="missing wiki">ListIterator?</a>&lt;String&gt; li = result.listIterator();
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+while(li.hasNext()){
+</p>
+<blockquote>
+<p>
+System.out.println(" " + li.next());
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+}
+</p>
+<p>
+Eclipse alway said that"The requested resource () is not available.". my project run on Apache Tomcat Server 6.0
+</p>
+<p>
+I don't know why. Please, help me.Sorry, my english very bad.
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            lanhlung696
+          </div>
+          <div class="time">
+            05/10/09 12:16:27 (19 months ago)
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

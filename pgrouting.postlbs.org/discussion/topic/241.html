@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/241 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/22.html" title="demo">demo</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>demo (#22) - ERROR:  could not access file "$libdir/librouting (#241) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              ERROR:  could not access file "$libdir/librouting
+            </div>
+            <div class="body">
+              <p>
+Dear Forum,
+</p>
+<p>
+I have some problems to get the $libdir/librouting.
+</p>
+<p>
+With the code out of the svn-repository I do;
+</p>
+<p>
+cmake -DWITH_DD=ON .
+</p>
+<p>
+And get:
+Boost headers were found here: /usr/include
+Output directory for libraries is set to sh: pg_config: command not found
+Installation directory for libraries is set to sh: pg_config: command not found and for SQL files is set to /usr/share/postlbs
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/anonymous/pgrouting
+</p>
+<p>
+If I do a make
+</p>
+<p>
+I get in red-colour: "Linking CXX shared library ../../../lib/librouting_dd.so
+" what seems to be an error ?? (Because of the red colour?)
+</p>
+<p>
+I find librouting_dd.so in /home/anonymous/pgrouting/lib
+</p>
+<p>
+and I write that path in my /etc/ld_so_config (and do ldconfig after that), but somehow pgrouting does not find that library if I try to load in
+routing_core.sql?
+</p>
+<p>
+Does anybody know how to fix that please?
+Thano you very much, Kai
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            04/04/09 19:50:47 (20 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/241?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/241?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message848"></a>
+        <div class="id">
+          Message #848
+        </div>
+        <div class="body">
+            <p>
+Maybe you're installing with the same CMake profile as before ... there is a cache file, which I don't remember the name now, which is created when you run cmake first time.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/04/09 20:12:57 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message849"></a>
+        <div class="id">
+          Message #849
+        </div>
+        <div class="body">
+            <p>
+Hi Daniel, thank you for answering but unfortunately that wasn`t what the erroc creates (I deleted all the code and checked out a "clean" one again).
+</p>
+<p>
+Hmmmm.....really not easy.
+</p>
+<p>
+What I really don`t understand after a cmake .
+</p>
+<p>
+is:
+"Output directory for libraries is set to sh: pg_config: command not found" ?
+</p>
+<p>
+Might it has something to do with that I set a new path to cmake/FindPostgreSQL.cmake (I set there  /usr/local/pgsql/include/server
+because otherwise my source-code-installation of postgresql is not found) ?
+</p>
+<p>
+And I wonder how I can find out the path for $libdir in routing_core.sql (I mean for which path $libdir stands for?)?
+</p>
+<p>
+Could be a solution to set the path static in the installation-files (but in which one?)?
+</p>
+<p>
+Best regards, Kai
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            04/04/09 21:02:38 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message850"></a>
+        <div class="id">
+          Message #850
+        </div>
+        <div class="body">
+            <p>
+Did you see this?
+<a href="../../wiki/1.x/InstallationManual.html#Step2:CompilingthepgRoutinglibrary">http://pgrouting.postlbs.org/wiki/1.x/InstallationManual#Step2:CompilingthepgRoutinglibrary</a>
+</p>
+<pre class="wiki">   1. Add the library path (ie. /usr/local/pgsql/lib) to /etc/ld.co.conf
+   2. Run ldconfig
+</pre><p>
+I remember there was a certain command for Debian-ish Linux. Did you run ldconfig afterall?
+</p>
+<p>
+Another point, did you install postgresql-server-dev-8.x?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/04/09 21:13:26 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message851"></a>
+        <div class="id">
+          Message #851
+        </div>
+        <div class="body">
+            <p>
+Its really a miracle, meanwhile I have in my ld.so.conf.d:
+</p>
+<p>
+/lib/i486-linux-gnu
+</p>
+<p>
+/usr/lib/i486-linux-gnu
+</p>
+<p>
+/usr/lib
+</p>
+<p>
+/home/anonymous/CGAL-3.3.1
+</p>
+<p>
+/usr/local/lib
+</p>
+<p>
+/usr/local
+</p>
+<p>
+/usr/local/pgsql/bin/pg_config
+</p>
+<p>
+/home/anonymous/pgrouting/lib
+</p>
+<p>
+/usr/local/pgsql/lib
+</p>
+<p>
+And I did an ldconfig.
+</p>
+<p>
+but I still get an:
+</p>
+<p>
+psql:/usr/share/postlbs/routing_core.sql:53: ERROR:  could not access file "$libdir/librouting": Datei oder Verzeichnis nicht gefunden
+</p>
+<p>
+With the library path you mean the path to PostgreSQL or pgrouting?
+</p>
+<p>
+After cmake, make, make install I do a updateb and then a locate librouting
+</p>
+<p>
+and I get:
+</p>
+<p>
+/home/anonymous/pgrouting/trunk/extra/driving_distance/src/CMakeFiles/CMakeRelink.dir/librouting_dd.so
+</p>
+<p>
+/home/anonymous/pgrouting/trunk/lib/librouting_dd.so
+</p>
+<p>
+/home/anonymous/pgrouting/trunk/lib/librouting.so
+</p>
+<p>
+/usr/lib/librouting_dd.so
+</p>
+<p>
+/usr/lib/librouting.so
+</p>
+<p>
+/usr/local/sh: pg_config: command not found/librouting_dd.so
+</p>
+<p>
+/usr/local/sh: pg_config: command not found/librouting.so
+</p>
+<p>
+This all worked on debian etch when I installed with apt-get install postgres......
+</p>
+<p>
+But I installed now  postgresql-8.3.7.tar.gz (only that). PostgreSQL works fine, so does PostGIS, but no success with pgRouting.
+Puh......., really difficult, well I will do on.........
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            04/05/09 18:31:10 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message852"></a>
+        <div class="id">
+          Message #852
+        </div>
+        <div class="body">
+            <p>
+After a cmake shouldn't that be the problem:
+</p>
+<p>
+Output directory for libraries is set to sh: pg_config: command not found
+Installation directory for libraries is set to sh: pg_config: command not found
+</p>
+<p>
+It doesn`t know where to write to libraries to??? (Maybe)?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            04/05/09 18:45:52 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message853"></a>
+        <div class="id">
+          Message #853
+        </div>
+        <div class="body">
+            <p>
+GREAT :-) !
+I have got it, indeed it was a pg_config-problem.
+</p>
+<p>
+I did now:
+</p>
+<p>
+export PATH="$PATH:/usr/local/pgsql/bin"
+</p>
+<p>
+and then the pg_config-Command works.
+Thanks for the help, now up to the next steps :-)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            04/05/09 19:48:38 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/241?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/241?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

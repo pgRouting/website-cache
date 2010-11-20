@@ -1,0 +1,11 @@
+--- routing_core_wrappers_forthem.sql	2007-12-12 11:50:03.000000000 +1000
++++ routing_core_wrappers_forthem-new.sql	2007-12-12 11:51:37.000000000 +1000
+@@ -302,8 +302,6 @@
+ DECLARE 
+ BEGIN
+ 	EXECUTE 'SELECT update_cost_from_distance('||quote_literal(geom_table)||','||quote_literal(geocol)||','||quote_literal(geodistfn)||',''cost'')';
+-	RETURN;
+-END;
+ $$
+ LANGUAGE 'plpgsql' VOLATILE STRICT; 
+ 

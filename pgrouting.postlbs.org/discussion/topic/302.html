@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/302 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/23.html" title="data">data</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>data (#23) - how to draw a polyline route, curved line route??? (#302) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              how to draw a polyline route, curved line route???
+            </div>
+            <div class="body">
+              <p>
+Hi everyone, I'm working on Fridastreet Data that get from:
+<a class="ext-link" href="http://frida.intevation.org/"><span class="icon"> </span>http://frida.intevation.org/</a>
+</p>
+<p>
+I used PostGIS function to find route between 2 node, it worked.
+I want to draw the route on map using some added GIS Library (GIS.NET) but I can only draw a direct route, because i lookup start point and end point of the route then draw as a line.
+But some routes is polyline route or curved route.
+</p>
+<p>
+How can i solve this problems?
+thanks
+</p>
+<p>
+PS:
+when i import frida data to <a class="missing wiki">PostGres?</a> i have 4 table: fridastreets, geometry_columns, spatial_ref_sys, vertices_tmp
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            hplancelot
+          </div>
+          <div class="time">
+            10/01/09 18:13:56 (14 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/302?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/302?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1112"></a>
+        <div class="id">
+          Message #1112
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+I don't think I understood you well.
+</p>
+<p>
+pgRouting doesn't create any new geometry - it selects lines you have in you edge table. So, it is up to your data set if your lines are curved or not.
+</p>
+<p>
+Anton.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/02/09 13:13:20 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1114"></a>
+        <div class="id">
+          Message #1114
+        </div>
+        <div class="body">
+            <p>
+hi,
+i had frida data downloaded from internet as *.shp,
+i do as instruction to import data to PostGreSQL.
+after importing successfully, my <a class="missing wiki">PostGre?</a> database (routingdb) has 4 tables:
+fridastreets table:
+<a class="ext-link" href="http://img136.imageshack.us/img136/9920/74547054.jpg"><span class="icon"> </span>http://img136.imageshack.us/img136/9920/74547054.jpg</a>
+geometry_columns table:
+<a class="ext-link" href="http://img209.imageshack.us/img209/8518/13054529.jpg"><span class="icon"> </span>http://img209.imageshack.us/img209/8518/13054529.jpg</a>
+spatial_ref_sys table:
+<a class="ext-link" href="http://img202.imageshack.us/img202/6148/42018779.jpg"><span class="icon"> </span>http://img202.imageshack.us/img202/6148/42018779.jpg</a>
+vertices_tmp table:
+<a class="ext-link" href="http://img208.imageshack.us/img208/9949/57762023.jpg"><span class="icon"> </span>http://img208.imageshack.us/img208/9949/57762023.jpg</a>
+</p>
+<p>
+i used x1,y1,x2,y2 from fridastreets table to draw direct line to show a street
+</p>
+<p>
+so that i don't know how to work with curved line?
+where can i know a street is a curved line or not???
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            hplancelot
+          </div>
+          <div class="time">
+            10/04/09 02:15:06 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1115"></a>
+        <div class="id">
+          Message #1115
+        </div>
+        <div class="body">
+            <p>
+Can you also please post a screenshot of you shortest path result?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/05/09 09:18:36 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1117"></a>
+        <div class="id">
+          Message #1117
+        </div>
+        <div class="body">
+            <p>
+hi,<br />
+my algorithm is:<br />
+</p>
+<p>
+- find a nearest node of start point (node A)<br />
+</p>
+<p>
+- find a nearest node of destination point (node B)<br />
+</p>
+<p>
+- use shortest_path_astar2_as_geometry_internal_id function to find edges that lead from node A to node B, the result i put in a dataset (routeDS)<br />
+</p>
+<p>
+- for each edge in routeDS i find x1,y1,x2,y2 from fridastreets table, then i draw a line from (x1,y1) to (x2,y2) on the map
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            hplancelot
+          </div>
+          <div class="time">
+            10/05/09 22:28:09 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1121"></a>
+        <div class="id">
+          Message #1121
+        </div>
+        <div class="body">
+            <p>
+OK, I think I got it. So, you draw your route segments as straight lines between source and target vertices of each edge in the result, right?
+</p>
+<p>
+Do you have the_geom column in your table? I think you have. What you need to do is to draw the geometry stored in that column, but instead of that you create new geometries which are just straight lines.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/07/09 10:21:02 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1122"></a>
+        <div class="id">
+          Message #1122
+        </div>
+        <div class="body">
+            <p>
+yes, i knew me well
+</p>
+<p>
+i have the_geom columns in fridastreets table, some data looks like:
+</p>
+<p>
+01050000000100000001020000001A000000AE47E17AA72B4A41AE47E11A9A1E564148E17A74BE2B4A41F6285CEF8A1E5641B81E854BD42B4A4114AE47617B1E56415C8FC235DA2B4A4185EB5128771E5641B81E85CBF92B4A418FC2F588631E56411F85EB31FE2B4A417B14AEF7601E564185EB51D81E2C4A4185EB5128501E56417B14AE473E2C4A417B14AEB7431E5641C3F5289C462C4A41713D0AB7401E5641B81E85AB512C4A418FC2F5783D1E564114AE47A1682C4A415C8FC235371E5641A4703D4A802C4A4114AE4701311E5641AE47E15A962C4A4185EB51D82C1E564166666666A22C4A41295C8F022B1E564152B81E65BC2C4A41F6285C7F271E5641295C8F42CE2C4A41713D0A77251E564185EB51D8DB2C4A41B81E855B241E5641B81E854BF72C4A41E17A149E221E564152B81E050C2D4A4114AE47F1211E5641713D0A77282D4A41F6285CFF211E5641713D0A174D2D4A41B81E856B231E56410AD7A3507A2D4A417B14AEA7241E5641713D0A37AC2D4A4114AE47A1241E5641713D0AD7D42D4A41E17A14FE231E5641C3F528FCF92D4A410AD7A360221E56419A9999D93C2E4A4152B81E551E1E5641<br />
+<br />
+<br />
+but i don't know how to use this data, how to draw this type of data on my map??<br />
+my map library is GIS.NET got from <a class="ext-link" href="http://www.geoframework.com/"><span class="icon"> </span>http://www.geoframework.com</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            hplancelot
+          </div>
+          <div class="time">
+            10/07/09 13:53:41 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1123"></a>
+        <div class="id">
+          Message #1123
+        </div>
+        <div class="body">
+            <p>
+PostGIS stores geometry data in WKB (Well Known Binary) format. It also can be converted to WKT, GeoJSON and GML. It is better to ask GIS.NET people if it can support one of those formats.
+</p>
+<p>
+Anton.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/07/09 14:39:25 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1127"></a>
+        <div class="id">
+          Message #1127
+        </div>
+        <div class="body">
+            <p>
+thanks for your help. now i can work well with my data.
+Have a good time :D
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            hplancelot
+          </div>
+          <div class="time">
+            10/08/09 17:47:20 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/302?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/302?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

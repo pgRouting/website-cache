@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/37 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/13.html" title="developer">developer</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>developer (#13) - FGS Compatibility (#37) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              FGS Compatibility
+            </div>
+            <div class="body">
+              <p>
+The last week I have been setting up an environment for pgRouting on a Mandriva 2007 (didn't work) and 2007.1 box. Considering most of the needed software is either not available as an rpm, or useless (e.g. the mapserver package of 2007.1 does not support postgis :S ) I had to compile most of the stuff myself, not so much of a problem really, except that it is a lof of work and I'll have to do it all over again installing it on another machine. Besides that I also discovered that mapserver is not able to compile the PHP bindings due to the changes Mandriva made to the php-devel files &gt;:(
+</p>
+<p>
+I saw that there seems to be a dandy fullblown self-installer for mapserver available, including with all it's dependancies and chameleon as well, named FGS.
+</p>
+<p>
+Has anyone over here already tried pgRouting together with this package? Or is there a module/package of pgRouting available for FGS? It it would be really neat is setting up pgRouting with FGS is possible. This would make setting up production and dev environments a breeze!
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            jos
+          </div>
+          <div class="time">
+            08/14/07 23:27:37 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/37?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/37?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message197"></a>
+        <div class="id">
+          Message #197
+        </div>
+        <div class="body">
+            <p>
+Maybe you should directly use the <a class="ext-link" href="http://geolive.cartography.st/geolive"><span class="icon"> </span>GeoLive</a> environment which allready include the pgrouting library (version 1.0.0a) and all the dependencies required.
+</p>
+<p>
+To install geolive on your madriva installation the futher "easy" steps are requiered :
+</p>
+<ul><li>uncompress the <a class="ext-link" href="http://www.geolabs.fr/downloads/geolive-server-1.0.4.tar.bz2"><span class="icon"> </span>geolive-server-1.0.4.tar.bz2</a> tarball where you want to store the chrooted environment, in this instructions we choose the path : /home/golive,
+</li><li>mount some directories to be able to comunicate with your current environment (a kernel 2.6.10 version at least is required) :
+<pre class="wiki">mount -o bind /dev /home/geolive/dev
+# the following line is not required but make you able to communicate with apps trough unix sockets like Xorg for example ...
+mount -o bind /tmp /home/geolive/tmp
+mount -t proc none /home/geolive/proc
+mount -t sysfs none /home/geolive/sys
+# The following line is not requiered but make you able to use some apps like screen for example
+mount -t devpts none /home/geolive/dev/pts
+</pre></li><li>to be able to get access to internet you also need to copy some stuff from your current installation into the geolive environment :
+<pre class="wiki">cp /etc/resolv.conf /home/geolive/etc/
+cp /etc/hosts /home/geolive/etc
+</pre></li><li>if you want to get the correct mount points available on your current environment and not the wrong mtab allready available in the geolive environment please use the following syntaxe :
+<pre class="wiki">cp /etc/mtab /home/geolive/etc/
+</pre></li><li>use this command line to enter in your "brand new" <a class="ext-link" href="http://geolive.cartography.st/geolive"><span class="icon"> </span>GeoLive</a> environment :
+<pre class="wiki">chroot /home/geolive/ /bin/geolive
+</pre></li></ul><p>
+Now you should get a message from your new environment which tell you that you're now in the geolive environment.
+</p>
+<p>
+Here is the result I've get on an installation we've made for our client on his webserver, so you should get something similar :
+</p>
+<pre class="wiki">ns39591 ~ # chroot /home/geolabs/ /bin/geolive
+&gt;&gt;&gt; Regenerating /etc/ld.so.cache...
+Bienvenue dans l'environnement GeoLive-1.0
+(GeoLive-1.0) ns39591 / #
+</pre><p>
+I do my apologize cause right know the system will talk to you in french but some stuff are still in the english language and if you use the utf8 encoding you won't get into trouble ...
+</p>
+<p>
+Then you only need to create you're pgdata and so on following for example the workshop available on this site from the geolive environment to get your pgrouting installation available. Furthermore if you've mounted the tmp directory as mentioned before then you should be able to connect using some client to connect from your mandriva installation to your geolive environment or respectively from geolive to your allready installed mandriva.
+</p>
+<p>
+Now you just need to make something else : enjoy your <a class="ext-link" href="http://geolive.cartography.st/geolive/"><span class="icon"> </span>GeoLive</a> easy and quick installation you've made :)
+</p>
+<p>
+If something goes wrong please give us feedback here or on the track system we use for the <a class="ext-link" href="http://geolive.cartography.st/geolive/"><span class="icon"> </span>GeoLive</a> environment.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            djay
+          </div>
+          <div class="time">
+            10/01/07 22:52:15 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/37?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/37?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

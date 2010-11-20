@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/117 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - Problems adding routing_core (#117) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Problems adding routing_core
+            </div>
+            <div class="body">
+              <p>
+Finally i fight all night with the server and run cmake and make with no problems.
+</p>
+<p>
+I create postgres table and add postgis functions with no problems, following the ubuntu 7.10 tutorial, but when i try to add routing functions psql said:
+</p>
+<p>
+root@gis:/export/gis/pgrouting# psql -U postgres -f /usr/share/postlbs/routing_core.sql bsas
+CREATE TYPE
+CREATE TYPE
+psql:/usr/share/postlbs/routing_core.sql:32: ERROR:  could not access file "$libdir/librouting": No such file or directory
+psql:/usr/share/postlbs/routing_core.sql:43: ERROR:  could not access file "$libdir/librouting": No such file or directory
+psql:/usr/share/postlbs/routing_core.sql:53: ERROR:  could not access file "$libdir/librouting": No such file or directory
+CREATE FUNCTION
+</p>
+<p>
+what is the error in the "$libdir/librouting" line?
+Any have an idea?
+</p>
+<p>
+Thanks!
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            davidsussi
+          </div>
+          <div class="time">
+            02/21/08 16:27:12 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/117?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/117?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message428"></a>
+        <div class="id">
+          Message #428
+        </div>
+        <div class="body">
+            <p>
+Are you using Ubuntu 7.10 as well? <br />
+Are you using the SVN trunk version?
+</p>
+<p>
+If you're using the trunk version, try once:
+</p>
+<pre class="wiki"># cmake .
+# make
+# make install
+</pre>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/22/08 10:52:05 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message429"></a>
+        <div class="id">
+          Message #429
+        </div>
+        <div class="body">
+            <p>
+The Ubuntu is the 7.10 Gutsy Gibbon
+cmake . make and make install works okay in trunk version but said the same error described above.
+</p>
+<p>
+Any idea?
+</p>
+<p>
+Thanks!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            davidsussi
+          </div>
+          <div class="time">
+            02/22/08 15:04:16 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message430"></a>
+        <div class="id">
+          Message #430
+        </div>
+        <div class="body">
+            <p>
+Well, could you find the routing library copied somewhere on your system, ie. in "/usr/lib/pgsql/"? You could link it then to a directory, which is your standard directory for libraries. The default directory usually depends on your system settings.
+</p>
+<p>
+There were some problems in previous releases with certain system configurations, and the path for libraries wasn't recognized correctly. This should have been solved with the current version in SVN trunk directory. Are you using a 64bit or 32bit system?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/22/08 16:15:05 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/117?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/117?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,885 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/215 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:16:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #215 (Undefined symbols on OSX)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="214.html" title="Ticket #214" />
+        <link rel="last" href="218.html" title="Ticket #218" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/215?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/215?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/215?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="next" href="216.html" title="Ticket #216" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="1.html" title="Ticket #1" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="214.html" title="Ticket #214">Previous Ticket</a></span></li><li class="last"><span><a class="next" href="216.html" title="Ticket #216">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #215
+          <span class="status">(new bug report)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-09-04T09%3A47%3A08%2B0900&amp;precision=second" title="2010-09-04T09:47:08+0900 in Timeline">3 months</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-09-05T00%3A45%3A41%2B0900&amp;precision=second" title="2010-09-05T00:45:41+0900 in Timeline">3 months</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">Undefined symbols on OSX</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">hamannj</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">somebody
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      major
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="missing milestone"></a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      pgRouting package
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                      undefined symbols
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+I can configure and build the dependencies, but when I attempt to cmake
+</p>
+<p>
+sudo /usr/local/bin/cmake DPOSTGRESQL_INCLUDE_DIR=/usr/local/pgsql/include/server
+DPOSTGRESQL_LIBRARIES=/usr/local/pgsql/lib  .
+</p>
+<p>
+I get the following message:
+</p>
+<p>
+Jeff-Hamanns-MacBook-Pro:pgrouting hamannj$ /usr/local/bin/cmake -DPOSTGRESQL_INCLUDE_DIR=/usr/local/pgsql/include/server -DPOSTGRESQL_LIBRARIES=/usr/local/pgsql/lib  .
+CMake Warning (dev) at CMakeLists.txt:12 (add_subdirectory):
+</p>
+<blockquote>
+<p>
+The source directory
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+/Users/hamannj/Documents/temp-lamo/pgrouting/cmake
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+does not contain a CMakeLists.txt file.
+</p>
+</blockquote>
+<blockquote>
+<p>
+CMake does not support this case but it used to work accidentally and is
+being allowed for compatibility.
+</p>
+</blockquote>
+<blockquote>
+<p>
+Policy CMP0014 is not set: Input directories must have CMakeLists.txt.  Run
+"cmake --help-policy CMP0014" for policy details.  Use the cmake_policy
+command to set the policy and suppress this warning.
+</p>
+</blockquote>
+<p>
+This warning is for project developers.  Use -Wno-dev to suppress it.
+</p>
+<p>
+Boost headers were found here: /usr/local/include
+Output directory for libraries is set to /usr/local/pgsql/lib
+Installation directory for libraries is set to /usr/local/pgsql/lib and for SQL files is set to /usr/share/postlbs
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/hamannj/Documents/temp-lamo/pgrouting
+</p>
+<p>
+Which, looks daunting, but ignor-able. 
+</p>
+<p>
+Then, when I attempt to run make, I get a bunch of Undefined symbols:
+</p>
+<p>
+Jeff-Hamanns-MacBook-Pro:pgrouting hamannj$ make
+Scanning dependencies of target routing
+[ 16%] Building C object core/src/CMakeFiles/routing.dir/dijkstra.o
+[ 33%] Building C object core/src/CMakeFiles/routing.dir/astar.o
+[ 50%] Building C object core/src/CMakeFiles/routing.dir/shooting_star.o
+[ 66%] Building CXX object core/src/CMakeFiles/routing.dir/boost_wrapper.o
+[ 83%] Building CXX object core/src/CMakeFiles/routing.dir/astar_boost_wrapper.o
+[100%] Building CXX object core/src/CMakeFiles/routing.dir/shooting_star_boost_wrapper.o
+In file included from /Users/hamannj/Documents/temp-lamo/pgrouting/core/src/shooting_star_boost_wrapper.cpp:26:
+/usr/local/include/boost/vector_property_map.hpp:15:4: warning: #warning "This header is deprecated. Please use: boost/property_map/vector_property_map.hpp"
+In file included from /Users/hamannj/Documents/temp-lamo/pgrouting/core/src/shooting_star_relax.hpp:18,
+</p>
+<blockquote>
+<p>
+from /Users/hamannj/Documents/temp-lamo/pgrouting/core/src/shooting_star_search.hpp:22,
+from /Users/hamannj/Documents/temp-lamo/pgrouting/core/src/shooting_star_boost_wrapper.cpp:27:
+</p>
+</blockquote>
+<p>
+/usr/local/include/boost/property_map.hpp:15:4: warning: #warning "This header is deprecated. Please use: boost/property_map/property_map.hpp"
+In file included from /Users/hamannj/Documents/temp-lamo/pgrouting/core/src/edge_visitors.hpp:6,
+</p>
+<blockquote>
+<p>
+from /Users/hamannj/Documents/temp-lamo/pgrouting/core/src/shooting_star_search.hpp:28,
+from /Users/hamannj/Documents/temp-lamo/pgrouting/core/src/shooting_star_boost_wrapper.cpp:27:
+</p>
+</blockquote>
+<p>
+/usr/local/include/boost/property_map.hpp:15:4: warning: #warning "This header is deprecated. Please use: boost/property_map/property_map.hpp"
+In file included from /Users/hamannj/Documents/temp-lamo/pgrouting/core/src/edge_visitors.hpp:9,
+</p>
+<blockquote>
+<p>
+from /Users/hamannj/Documents/temp-lamo/pgrouting/core/src/shooting_star_search.hpp:28,
+from /Users/hamannj/Documents/temp-lamo/pgrouting/core/src/shooting_star_boost_wrapper.cpp:27:
+</p>
+</blockquote>
+<p>
+/usr/local/include/boost/graph/detail/is_same.hpp:17:4: warning: #warning "This header is deprecated. Please use: boost/type_traits/is_same.hpp"
+Linking CXX shared library ../../lib/librouting.dylib
+Undefined symbols:
+</p>
+<blockquote>
+<p>
+"_SPI_freetuptable", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_heap_formtuple", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_elog_start", referenced from:
+</p>
+<blockquote>
+<p>
+_finish in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_finish in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_finish in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_pfree", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_Float8GetDatum", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_init_MultiFuncCall", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_BlessTupleDesc", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_SPI_prepare", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_SPI_fnumber", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_MemoryContextAlloc", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_errmsg", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_repalloc", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_end_MultiFuncCall", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_SPI_getvalue", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_per_MultiFuncCall", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_errstart", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_SPI_cursor_fetch", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_SPI_gettypeid", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_SPI_cursor_open", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_SPI_getbinval", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_errfinish", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_SPI_finish", referenced from:
+</p>
+<blockquote>
+<p>
+_finish in dijkstra.o
+_finish in astar.o
+_finish in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_RelationNameGetTupleDesc", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_CurrentMemoryContext", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_SPI_connect", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_elog_finish", referenced from:
+</p>
+<blockquote>
+<p>
+_finish in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_finish in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_finish in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_errcode", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_SPI_tuptable", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_pg_detoast_datum", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+<p>
+"_SPI_processed", referenced from:
+</p>
+<blockquote>
+<p>
+_shortest_path in dijkstra.o
+_shortest_path_astar in astar.o
+_shortest_path_shooting_star in shooting_star.o
+</p>
+</blockquote>
+</blockquote>
+<p>
+ld: symbol(s) not found
+collect2: ld returned 1 exit status
+make<a class="changeset" href="../changeset/2.html" title="initial">[2]</a>: *** [lib/librouting.dylib] Error 1
+make<a class="changeset" href="../changeset/1.html" title="Initial import">[1]</a>: *** [core/src/CMakeFiles/routing.dir/all] Error 2
+make: *** [all] Error 2
+Jeff-Hamanns-MacBook-Pro:pgrouting hamannj$ 
+</p>
+<p>
+I'm trying to build the results using GCC (not XCode) or anything specific to the Mac, and have little experience with cmake. 
+</p>
+<p>
+Jeff-Hamanns-MacBook-Pro:pgrouting hamannj$ uname -a
+Darwin Jeff-Hamanns-<a class="missing wiki">MacBook?</a>-Pro.local 10.4.0 Darwin Kernel Version 10.4.0: Fri Apr 23 18:28:53 PDT 2010; root:xnu-1504.7.4~1/RELEASE_I386 i386
+Jeff-Hamanns-MacBook-Pro:pgrouting hamannj$ pg_config
+BINDIR = /usr/local/pgsql/bin
+DOCDIR = /usr/local/pgsql/share/doc
+HTMLDIR = /usr/local/pgsql/share/doc
+INCLUDEDIR = /usr/local/pgsql/include
+PKGINCLUDEDIR = /usr/local/pgsql/include
+INCLUDEDIR-SERVER = /usr/local/pgsql/include/server
+LIBDIR = /usr/local/pgsql/lib
+PKGLIBDIR = /usr/local/pgsql/lib
+LOCALEDIR = /usr/local/pgsql/share/locale
+MANDIR = /usr/local/pgsql/share/man
+SHAREDIR = /usr/local/pgsql/share
+SYSCONFDIR = /usr/local/pgsql/etc
+PGXS = /usr/local/pgsql/lib/pgxs/src/makefiles/pgxs.mk
+CONFIGURE = 'CC=gcc -arch i386 -O1 -g3' 'CXX=g++ -arch i386 -O1 -g3' 'OBJC=gcc -arch i386 -O1 -g3' 'F77=gfortran -arch i386 -O1 -g3' 'FC=gfortran -arch i386 -O1 -g3' '--with-python' '--with-openssl' '--enable-debug' '--enable-cassert' 'CFLAGS=-O1 -g3'
+CC = gcc -arch i386 -O1 -g3 -no-cpp-precomp
+CPPFLAGS = 
+CFLAGS = -O1 -g3 -Wall -Wmissing-prototypes -Wpointer-arith -Wdeclaration-after-statement -Wendif-labels -fno-strict-aliasing -fwrapv -g
+CFLAGS_SL = 
+LDFLAGS = -Wl,-dead_strip_dylibs
+LDFLAGS_SL = 
+LIBS = -lpgport -lssl -lcrypto -lz -lreadline -lm 
+VERSION = PostgreSQL 8.4.4
+Jeff-Hamanns-MacBook-Pro:pgrouting hamannj$ 
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-09-05T00%3A45%3A41%2B0900&amp;precision=second" title="2010-09-05T00:45:41+0900 in Timeline">3 months</a> ago by daniel
+                </h3>
+      <div class="comment searchable">
+        <p>
+You're using Mac OS X, right?<br />
+I think only a small percentage of pgRouting users is running it on Mac, and because I don't own a Mac it's hard to debug it.
+</p>
+<p>
+Have you read this forum post? <a href="../discussion/message/1474.html">http://pgrouting.postlbs.org/discussion/message/1474</a> <br />
+</p>
+<p>
+Also there are pgRouting binaries for Mac OS X: <a class="ext-link" href="http://pgrouting.darwinports.com/"><span class="icon"> </span>http://pgrouting.darwinports.com/</a> <br />
+If it's similar to Linux packaging you might be able to get some info about compiling the source in the packaging files itself.
+</p>
+<p>
+Other possibility is to ask on the mailing list, because not so many users might follow the bug reports.
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/215?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/215?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/215?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("215.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/215 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:16:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

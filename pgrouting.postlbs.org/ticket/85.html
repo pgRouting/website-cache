@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/85 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:16:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #85 (cmake build problem)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="84.html" title="Ticket #84" />
+        <link rel="last" href="218.html" title="Ticket #218" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/85?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/85?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/85?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="next" href="86.html" title="Ticket #86" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="1.html" title="Ticket #1" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="84.html" title="Ticket #84">Previous Ticket</a></span></li><li class="last"><span><a class="next" href="86.html" title="Ticket #86">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #85
+          <span class="status">(assigned bug report)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T16%3A01%3A21%2B0900&amp;precision=second" title="2007-11-16T16:01:21+0900 in Timeline">3 years</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-21T11%3A08%3A57%2B0900&amp;precision=second" title="2007-12-21T11:08:57+0900 in Timeline">3 years</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">cmake build problem</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">rodj59</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">anton
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      major
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="milestone" href="../milestone/Version%201.html">Version 1.1</a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      pgRouting package
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      1.0
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+During build can't find headers, after build can't locate libraries. Think it was the "extras" having trouble. In some places the includes would be properly set, in others they wouldn't. 
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Attachments</h2>
+          <div id="attachments">
+            <dl class="attachments">
+                <dt>
+      <a href="../attachment/ticket/85/cmakeout1.html" title="View attachment">cmakeout1.txt</a>
+      <a href="../raw-attachment/ticket/85/cmakeout1.txt" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="124 bytes">124 bytes</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T16%3A06%3A53%2B0900&amp;precision=second" title="2007-11-16T16:06:53+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/85/cmakout2.html" title="View attachment">cmakout2.txt</a>
+      <a href="../raw-attachment/ticket/85/cmakout2.txt" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="224 bytes">224 bytes</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T16%3A07%3A54%2B0900&amp;precision=second" title="2007-11-16T16:07:54+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/85/makeout1.html" title="View attachment">makeout1.txt</a>
+      <a href="../raw-attachment/ticket/85/makeout1.txt" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="68 bytes">68 bytes</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T16%3A08%3A34%2B0900&amp;precision=second" title="2007-11-16T16:08:34+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/85/makeout2.html" title="View attachment">makeout2.txt</a>
+      <a href="../raw-attachment/ticket/85/makeout2.txt" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="22392 bytes">21.9 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T16%3A09%3A10%2B0900&amp;precision=second" title="2007-11-16T16:09:10+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/85/routing_diff.html" title="View attachment">routing_diff.txt</a>
+      <a href="../raw-attachment/ticket/85/routing_diff.txt" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="61175 bytes">59.7 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T17%3A14%3A34%2B0900&amp;precision=second" title="2007-11-16T17:14:34+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dd>
+                  Diff on build directories, one with both DD &amp; TSP flags set, other with just TSP flag.
+                </dd>
+            </dl>
+          </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T16%3A06%3A53%2B0900&amp;precision=second" title="2007-11-16T16:06:53+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/85/cmakeout1.html"><em>cmakeout1.txt</em></a>
+              <a href="../raw-attachment/ticket/85/cmakeout1.txt" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T16%3A07%3A54%2B0900&amp;precision=second" title="2007-11-16T16:07:54+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/85/cmakout2.html"><em>cmakout2.txt</em></a>
+              <a href="../raw-attachment/ticket/85/cmakout2.txt" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T16%3A08%3A34%2B0900&amp;precision=second" title="2007-11-16T16:08:34+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/85/makeout1.html"><em>makeout1.txt</em></a>
+              <a href="../raw-attachment/ticket/85/makeout1.txt" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T16%3A09%3A10%2B0900&amp;precision=second" title="2007-11-16T16:09:10+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/85/makeout2.html"><em>makeout2.txt</em></a>
+              <a href="../raw-attachment/ticket/85/makeout2.txt" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T16%3A26%3A30%2B0900&amp;precision=second" title="2007-11-16T16:26:30+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+Discovered the system builds OK without the driving distance -DWITH_DD=ON flag turned on.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T16%3A37%3A58%2B0900&amp;precision=second" title="2007-11-16T16:37:58+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+As a further twist, even though it crashes the rest of the build, the <a class="wiki" href="../wiki/DrivingDistance.html">DrivingDistance</a> directory will actually compile on its own.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T16%3A53%3A05%2B0900&amp;precision=second" title="2007-11-16T16:53:05+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>owner</strong>
+            changed from <em>somebody</em> to <em>anton</em>
+        </li><li>
+          <strong>status</strong>
+              changed from <em>new</em> to <em>assigned</em>
+        </li><li>
+          <strong>component</strong>
+              changed from <em>A*</em> to <em>pgRouting package</em>
+        </li><li>
+          <strong>milestone</strong>
+              set to <em>Version 1.1</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T17%3A14%3A34%2B0900&amp;precision=second" title="2007-11-16T17:14:34+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/85/routing_diff.html"><em>routing_diff.txt</em></a>
+              <a href="../raw-attachment/ticket/85/routing_diff.txt" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Diff on build directories, one with both DD &amp; TSP flags set, other with just TSP flag.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T17%3A17%3A14%2B0900&amp;precision=second" title="2007-11-16T17:17:14+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+Noticed same symptom occurs after cmake is run twice in the same directory.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:5">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-16T18%3A59%3A00%2B0900&amp;precision=second" title="2007-11-16T18:59:00+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+Looks like problem is failure to locate the c++ header files which are in /usr/include/c++/4.1.2/ .
+Can't find any way to force cmake to feed this to the makefiles.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:6">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-18T14%3A39%3A43%2B0900&amp;precision=second" title="2007-11-18T14:39:43+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+'$libdir/routing_tsp' in librouting_tsp.sql should be changed to $libdir/librouting_tsp or vice-versa.
+</p>
+<p>
+Script installs librouting_tsp.so into /usr/lib ; should go into /usr/lib/postgresql since that's where it expects to find it. When moved &amp; renamed crashes with the following message:-
+sql:/usr/share/postgresql/routing_tsp.sql:28: ERROR:  could not load library "/usr/lib/postgresql/librouting_tsp.so": /usr/lib/postgresql/librouting_tsp.so: undefined symbol: ga_select_one_randomrank
+</p>
+<p>
+Here is the ldd output:-
+</p>
+<blockquote>
+<p>
+transport@rod1:~$ ldd /usr/lib/postgresql/librouting_tsp.so
+</p>
+<blockquote>
+<p>
+linux-gate.so.1 =&gt;  (0xffffe000)
+/lib/libsafe.so.2 (0xb7f67000)
+libstdc++.so.6 =&gt; /usr/X11R6/lib/libstdc++.so.6 (0xb7e56000)
+libm.so.6 =&gt; /lib/libm.so.6 (0xb7e2f000)
+libgcc_s.so.1 =&gt; /usr/X11R6/lib/libgcc_s.so.1 (0xb7e24000)
+libc.so.6 =&gt; /lib/libc.so.6 (0xb7ce2000)
+libdl.so.2 =&gt; /lib/libdl.so.2 (0xb7cde000)
+/lib/ld-linux.so.2 (0x80000000)
+</p>
+</blockquote>
+</blockquote>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:7">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-18T19%3A35%3A27%2B0900&amp;precision=second" title="2007-11-18T19:35:27+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+What needs to end up in link.txt under routing_tsp.dir is something like this :-
+</p>
+<p>
+/usr/bin/gcc  -O2 -Wall -Wmissing-prototypes -Wpointer-arith -Winline -Wdeclaration-after-statement -Wendif-labels -fno-strict-aliasing -fpic -shared -Wl,-soname,librouting.so.0   -L/usr/lib  -Wl,-rpath,'/usr/lib' -lstdc++ -L/usr/local/lib -lgaul_util -lgaul -L/usr/src/disks/DB/GPS/PostgresRouting/CGAL-3.3.1/lib/i686_Linux-2.6_g++-4.1.2 -lCGAL   -o /usr/lib/librouting_tsp.so "CMakeFiles/routing_tsp.dir/tsp.o" "CMakeFiles/routing_tsp.dir/tsp_solver.o" 
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:8">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-21T11%3A08%3A57%2B0900&amp;precision=second" title="2007-12-21T11:08:57+0900 in Timeline">3 years</a> ago by kyngchaos
+                </h3>
+      <div class="comment searchable">
+        <p>
+I ran into similar (same?) problems on OSX.  Here is what I came up with to get the include and link options where they need to be.  It's a quick hack, and there may be better ways to do this in cmake. And on OSX, there are some additional problems (tickets: <a class="new ticket" href="89.html" title="bug report: find postgres cmake module does not check default postgres prefix (new)">#89</a>, <a class="new ticket" href="90.html" title="bug report: cmake CONFIGURE_FILE error (new)">#90</a>, <a class="new ticket" href="91.html" title="bug report: pgrouting module does not link properly on OSX (new)">#91</a>).
+</p>
+<p>
+extra/driving_distance/src/CMakeLists.txt: replace the ADD_LIBRARY() with
+</p>
+<pre class="wiki">INCLUDE_DIRECTORIES(${CGAL_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
+LINK_DIRECTORIES(${CGAL_LIBRARIES})
+
+ADD_LIBRARY(routing_dd MODULE alpha.c alpha_drivedist.cpp alpha.h boost_drivedist.cpp drivedist.c drivedist.h)
+
+TARGET_LINK_LIBRARIES(routing_dd CGAL)
+</pre><p>
+extra/tsp/src/CMakeLists.txt: replace the ADD_LIBRARY() with
+</p>
+<pre class="wiki">INCLUDE_DIRECTORIES(${GAUL_LIBRARIES}/../include)
+LINK_DIRECTORIES(${GAUL_LIBRARIES})
+
+ADD_LIBRARY(routing_tsp MODULE tsp.c tsp.h tsp_solver.cpp)
+
+TARGET_LINK_LIBRARIES(routing_tsp gaul gaul_util)
+</pre><p>
+The Gaul include dir would be more elegant if there was a GAUL_INCLUDE_DIR variable.
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/85?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/85?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/85?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("85.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/85 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:16:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

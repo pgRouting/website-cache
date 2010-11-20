@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/17/routing_cgal.patch by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Attachment – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../../wiki/TracGuide.html" />
+        <link rel="alternate" href="../../../raw-attachment/ticket/17/routing_cgal.patch" type="text/x-diff; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="../../../ticket/17.html" title="Ticket #17" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/diff.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/code.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../../chrome/common/js/diff.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="last first"><a href="../../../ticket/17.html">Back to Ticket #17</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="attachment">
+        <h1><a href="../../../ticket/17.html">Ticket #17</a>: routing_cgal.patch</h1>
+        <table id="info" summary="Description">
+          <tbody>
+            <tr>
+              <th scope="col">
+                File routing_cgal.patch, <span title="863 bytes">0.8 KB</span>
+                (added by djay,  <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-06-20T03%3A33%3A50%2B0900&amp;precision=second" title="2007-06-20T03:33:50+0900 in Timeline">3 years</a> ago)
+              </th>
+            </tr>
+            <tr>
+              <td class="message searchable">
+                <p>
+routing_cgal.patch
+</p>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="preview" class="searchable">
+    <div class="diff">
+  <ul class="entries">
+      <li class="entry">
+        <h2>
+          <a>work/routing/configure.in</a>
+        </h2>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File ./pgrouting-1.0.0a/work/routing/configure.in 2006-12-20 06:14:57.000000000 +0100">
+                      old
+                  </th>
+                  <th title="File ./pgrouting-1.0.0d/work/routing/configure.in 2007-06-19 20:33:56.000000000 +0200">
+                      new
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>68</th><th>68</th><td class="l"><span>&nbsp; &nbsp; AC_MSG_ERROR(** $CGAL_DIR/include/CGAL can not be found **)</span> </td>
+                  </tr><tr>
+                          <th>69</th><th>69</th><td class="l"><span>&nbsp; else</span> </td>
+                  </tr><tr>
+                          <th>70</th><th>70</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>71</th><th> </th><td class="l"><span>&nbsp; &nbsp; CGAL_MKF=`find /usr/share/CGAL -name makefile_* -print`</span> </td>
+                      </tr><tr>
+                        <th>72</th><th> </th><td class="l"><span>&nbsp; &nbsp; if test -z $CGAL_MKF; then</span> </td>
+                      </tr><tr>
+                        <th>73</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; CGAL_MKF=`find $CGAL_DIR/make -name makefile_* -print`</span> </td>
+                      </tr><tr>
+                        <th>74</th><th> </th><td class="l"><span>&nbsp; &nbsp; fi</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>71</th><td class="r"><span>&nbsp; &nbsp; CGAL_PATH="${CGAL_DIR}/share/CGAL ${CGAL_DIR}/share/cgal $CGAL_DIR/make"</span> </td>
+                      </tr><tr>
+                        <th> </th><th>72</th><td class="r"><span>&nbsp; &nbsp; CGAL_MKF_NAME="cgal.mk makefile"</span> </td>
+                      </tr><tr>
+                        <th> </th><th>73</th><td class="r"><span>&nbsp; &nbsp; for i in ${CGAL_MKF_NAME}; do</span> </td>
+                      </tr><tr>
+                        <th> </th><th>74</th><td class="r"><span>&nbsp; &nbsp; &nbsp; for j in ${CGAL_PATH}; do</span> </td>
+                      </tr><tr>
+                        <th> </th><th>75</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; CGAL_MKF=$(find ${j} -name ${i}* -print 2&gt; /dev/null)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>76</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; if test -n "$CGAL_MKF"; then</span> </td>
+                      </tr><tr>
+                        <th> </th><th>77</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break</span> </td>
+                      </tr><tr>
+                        <th> </th><th>78</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; fi</span> </td>
+                      </tr><tr>
+                        <th> </th><th>79</th><td class="r"><span>&nbsp; &nbsp; &nbsp; done</span> </td>
+                      </tr><tr>
+                        <th> </th><th>80</th><td class="r"><span>&nbsp; &nbsp; &nbsp; if test -n "$CGAL_MKF"; then</span> </td>
+                      </tr><tr>
+                        <th> </th><th>81</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; break</span> </td>
+                      </tr><tr>
+                        <th> </th><th>82</th><td class="r"><span>&nbsp; &nbsp; &nbsp; fi</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>83</th><td class="r"><span>&nbsp; &nbsp; done</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>75</th><th>84</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>76</th><th>85</th><td class="l"><span>&nbsp; &nbsp; AC_SUBST(CGAL_MKF,&nbsp; $CGAL_MKF)</span> </td>
+                  </tr><tr>
+                          <th>77</th><th>86</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+  </ul>
+</div>
+        </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="../../../raw-attachment/ticket/17/routing_cgal.patch">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("routing_cgal.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/17/routing_cgal.patch by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

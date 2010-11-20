@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/83 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/13.html" title="developer">developer</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>developer (#13) - status of the pgrouting (#83) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              status of the pgrouting
+            </div>
+            <div class="body">
+              <p>
+Hello, Guys,
+</p>
+<p>
+Can you outline how far away pgRouting Project can produce a scalable and usable routing solution to achieve the following typical routing goal?
+</p>
+<p>
+-- Shortest/Quickest path routing for a large data set (e.g. a US state) given a good GIS data
+</p>
+<p>
+Understand that you can do Shortest routing for a small area. Is it right that the critical item still be to create a large topology in postgis db?
+</p>
+<p>
+Thanks,
+Steve
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            steve
+          </div>
+          <div class="time">
+            12/14/07 16:09:58 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/83?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/83?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message319"></a>
+        <div class="id">
+          Message #319
+        </div>
+        <div class="body">
+            <p>
+Hi Steve,
+</p>
+<p>
+Sure, topology creation takes days sometimes. But it is not the main problem, 'cause you need to do it only once. Shortest path performance for long distances is still an issue.
+</p>
+<p>
+The performance depends on so many things like network density and size, PostgreSQL settings, the hardware you use etc.
+</p>
+<p>
+Current pgRouting version works quite well within entire Tokyo road network (which is pretty dense). But it is still impossible to get a result for entire country in reasonable time.
+</p>
+<p>
+We have plans to implement some solutions for long-distance routing (for example layering or higway hierarchy search), but we don't have enought resources, so it is still in the queue.
+</p>
+<p>
+If you want to implement it by yourself - please contribute it to pgRouting, 'cause the demand is quite hight.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/14/07 17:09:26 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message332"></a>
+        <div class="id">
+          Message #332
+        </div>
+        <div class="body">
+            <p>
+Thank you Anton for your info. Can you give estimate of the effort to implement long-distance routing? Can you outline what work is required? Sure I may consider to contribute. But i want some information first.
+</p>
+<p>
+Thanks,
+Steve
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            steve
+          </div>
+          <div class="time">
+            12/23/07 04:39:59 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message333"></a>
+        <div class="id">
+          Message #333
+        </div>
+        <div class="body">
+            <p>
+Well, there are few ways of how to implement long distance routing. It could be just simple layering (first search for a next edge which leads to the next level; for example, a highway ramp; and then use next, more sparce level until you'll find the closest ramp to the destination point) or something more complicated as HH* algorithm (Highway Hierarchies).
+</p>
+<p>
+Simple layering may take few weeks to implement and it needs to write SQL wrapper only.
+</p>
+<p>
+HH* is more effective but more complex and can take few months to implement the algorithm from the scratch.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/24/07 09:36:55 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message400"></a>
+        <div class="id">
+          Message #400
+        </div>
+        <div class="body">
+            <p>
+Hello, Anton
+</p>
+<p>
+What is your private email address? About routing via HH, I would like to discuss with you more to have the ball rolling. Yancho and others are interested. I have also contacted some experts in the filed. Some of them have agreed to help.
+</p>
+<p>
+Thanks,
+Steve
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            steve
+          </div>
+          <div class="time">
+            01/28/08 03:25:34 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message401"></a>
+        <div class="id">
+          Message #401
+        </div>
+        <div class="body">
+            <p>
+Great!
+</p>
+<p>
+My email is anton &lt;dot&gt; patrushev &lt;at&gt; gmail &lt;dot&gt; com.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            01/28/08 08:32:22 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message347"></a>
+        <div class="id">
+          Message #347
+        </div>
+        <div class="body">
+            <p>
+Steve, if you want I am interested in helping out on using layers for highways.
+</p>
+<p>
+What about joining IRC on freenode and contact me, many channels : #qgis #openlayers #mapserver #php #postgresql #postgis #grass .. or else contact me on gmail mpulis [a t] gmail [ d o t ] com .
+</p>
+<p>
+BTW guys why pgrouting does not have a Freenode IRC channel?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            01/07/08 19:37:37 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message351"></a>
+        <div class="id">
+          Message #351
+        </div>
+        <div class="body">
+            <p>
+Let's see if some pgRouting guys get together there: <a class="ext-link" href="irc://irc.freenode.net/pgrouting"><span class="icon"> </span>irc://irc.freenode.net/pgrouting</a>
+</p>
+<p>
+Nice to see an active community growing!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            01/10/08 18:19:04 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message396"></a>
+        <div class="id">
+          Message #396
+        </div>
+        <div class="body">
+            <p>
+#pgRouting always empty .. come fill it up guys :P
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            01/26/08 20:31:21 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message348"></a>
+        <div class="id">
+          Message #348
+        </div>
+        <div class="body">
+            <p>
+Hi, Yancho
+</p>
+<p>
+Sure. I will contact you by email. The Trac used by pgRouting appears to be pretty good for tracking the project.
+</p>
+<p>
+Anyway, I am in the process of contacting more people for contributing the project --Multiple point routing using highway hierarchies. This should be very visible and interesting project. If completed, it will be the solid step forward for breaking through the monopoly of commercial routing providers like ESRI/MapQuest/MapInfo/MicroSoft, enabling services not only to individual users but for thousands of businesses across the world!
+</p>
+<p>
+Hoping more people will be interested.
+</p>
+<p>
+Steve at soniyatech dot com
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            steve
+          </div>
+          <div class="time">
+            01/08/08 08:24:27 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/83?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/83?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

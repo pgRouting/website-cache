@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/browser/tools/routingservice/branches/wrs-2.0/lib/org/json/JSONStringer.java by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 05:45:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      /tools/routingservice/branches/wrs-2.0/lib/org/json/JSONStringer.java – pgRouting
+    </title>
+        <link rel="search" href="../../../../../../../../search.html" />
+        <link rel="help" href="../../../../../../../../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/browser/tools/routingservice/branches/wrs-2.0/lib/org/json/JSONStringer.java?format=txt" type="text/plain" title="Plain Text" /><link rel="alternate" href="../../../../../../../../export/358/tools/routingservice/branches/wrs-2.0/lib/org/json/JSONStringer.java" type="text/x-java; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="../json.html" title="Parent directory" />
+        <link rel="start" href="../../../../../../../../wiki.html" />
+        <link rel="stylesheet" href="../../../../../../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../../../../../../chrome/common/css/code.css" type="text/css" /><link rel="stylesheet" href="../../../../../../../../chrome/common/css/browser.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../../../../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../../../../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../../../../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../../../../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../../../../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../../../../../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".trac-toggledeleted").show().click(function() {
+                  $(this).siblings().find(".trac-deleted").toggle();
+                  return false;
+        }).click();
+        $("#jumploc input").hide();
+        $("#jumploc select").change(function () {
+          this.parentNode.parentNode.submit();
+        });
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../../../../../../index.html"><img src="../../../../../../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../../../../../../login.html">Login</a></li><li><a href="../../../../../../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../../../../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../../../../../../wiki.html">Home</a></li><li><a href="../../../../../../../../timeline.html">Timeline</a></li><li><a href="../../../../../../../../roadmap.html">Roadmap</a></li><li class="active"><a href="../../../../../../../../browser.html">Browse Source</a></li><li><a href="../../../../../../../../report.html">View Tickets</a></li><li><a href="../../../../../../../../search.html">Search</a></li><li class="last"><a href="../../../../../../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../../../../../../../changeset/290/tools/routingservice/branches/wrs-2.0/lib/org/json/JSONStringer-2.html">Last Change</a></li><li><a href="http://pgrouting.postlbs.org/browser/tools/routingservice/branches/wrs-2.0/lib/org/json/JSONStringer.java?annotate=blame&amp;rev=290" title="Annotate each line with the last changed revision (this can be time consuming...)">Annotate</a></li><li class="last"><a href="../../../../../../../../log/tools/routingservice/branches/wrs-2.0/lib/org/json/JSONStringer-2.html">Revision Log</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="browser">
+      <h1>
+    <a class="pathentry first" title="Go to root directory" href="../../../../../../../../browser.html">root</a><span class="pathentry sep">/</span><a class="pathentry" title="View tools" href="../../../../../../../tools.html">tools</a><span class="pathentry sep">/</span><a class="pathentry" title="View routingservice" href="../../../../../../routingservice.html">routingservice</a><span class="pathentry sep">/</span><a class="pathentry" title="View branches" href="../../../../../branches.html">branches</a><span class="pathentry sep">/</span><a class="pathentry" title="View wrs-2.0" href="../../../../wrs-2.html">wrs-2.0</a><span class="pathentry sep">/</span><a class="pathentry" title="View lib" href="../../../lib.html">lib</a><span class="pathentry sep">/</span><a class="pathentry" title="View org" href="../../org.html">org</a><span class="pathentry sep">/</span><a class="pathentry" title="View json" href="../json.html">json</a><span class="pathentry sep">/</span><a class="pathentry" title="View JSONStringer.java" href="JSONStringer-2.html">JSONStringer.java</a>
+    <br style="clear: both" />
+  </h1>
+      <div id="jumprev">
+        <form action="#" method="get">
+          <div>
+            <label for="rev">
+              View revision:</label>
+            <input type="text" id="rev" name="rev" size="6" />
+          </div>
+        </form>
+      </div>
+      <div id="jumploc">
+        <form action="#" method="get">
+          <div class="buttons">
+            <label for="preselected">Visit:</label>
+            <select id="preselected" name="preselected">
+              <option selected="selected"></option>
+              <optgroup label="branches">
+                <option value="/browser/trunk">trunk</option><option value="/browser/branches/anton">branches/anton</option><option value="/browser/branches/daniel">branches/daniel</option><option value="/browser/branches/debug">branches/debug</option><option value="/browser/branches/pgrouting-extra">branches/pgrouting-extra</option><option value="/browser/branches/pgrouting-light">branches/pgrouting-light</option><option value="/browser/branches/workshop">branches/workshop</option>
+              </optgroup><optgroup label="tags">
+                <option value="/browser/tags/release-1.0?rev=58">tags/release-1.0</option><option value="/browser/tags/release-1.0-beta?rev=52">tags/release-1.0-beta</option><option value="/browser/tags/release-1.0-rc1?rev=51">tags/release-1.0-rc1</option><option value="/browser/tags/release-1.02?rev=162">tags/release-1.02</option><option value="/browser/tags/release-1.03?rev=218">tags/release-1.03</option>
+              </optgroup>
+            </select>
+            <input type="submit" value="Go!" title="Jump to the chosen preselected path" />
+          </div>
+        </form>
+      </div>
+      <table id="info" summary="Revision info">
+        <tr>
+          <th scope="col">
+            Revision <a href="../../../../../../../../changeset/290.html">290</a>, <span title="3188 bytes">3.1 KB</span>
+            (checked in by anton, <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-10T14%3A41%3A38%2B0900&amp;precision=second" title="2009-04-10T14:41:38+0900 in Timeline">20 months</a> ago)
+          </th>
+        </tr>
+        <tr>
+          <td class="message searchable">
+              <p>
+First working version with JSON input and GML output for route service<br />
+</p>
+          </td>
+        </tr>
+      </table>
+      <div id="preview" class="searchable">
+    <table class="code"><thead><tr><th class="lineno" title="Line numbers">Line</th><th class="content"> </th></tr></thead><tbody><tr><th id="L1"><a href="#L1">1</a></th><td>package org.json;</td></tr><tr><th id="L2"><a href="#L2">2</a></th><td></td></tr><tr><th id="L3"><a href="#L3">3</a></th><td>/*</td></tr><tr><th id="L4"><a href="#L4">4</a></th><td>Copyright (c) 2006 JSON.org</td></tr><tr><th id="L5"><a href="#L5">5</a></th><td></td></tr><tr><th id="L6"><a href="#L6">6</a></th><td>Permission is hereby granted, free of charge, to any person obtaining a copy</td></tr><tr><th id="L7"><a href="#L7">7</a></th><td>of this software and associated documentation files (the "Software"), to deal</td></tr><tr><th id="L8"><a href="#L8">8</a></th><td>in the Software without restriction, including without limitation the rights</td></tr><tr><th id="L9"><a href="#L9">9</a></th><td>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</td></tr><tr><th id="L10"><a href="#L10">10</a></th><td>copies of the Software, and to permit persons to whom the Software is</td></tr><tr><th id="L11"><a href="#L11">11</a></th><td>furnished to do so, subject to the following conditions:</td></tr><tr><th id="L12"><a href="#L12">12</a></th><td></td></tr><tr><th id="L13"><a href="#L13">13</a></th><td>The above copyright notice and this permission notice shall be included in all</td></tr><tr><th id="L14"><a href="#L14">14</a></th><td>copies or substantial portions of the Software.</td></tr><tr><th id="L15"><a href="#L15">15</a></th><td></td></tr><tr><th id="L16"><a href="#L16">16</a></th><td>The Software shall be used for Good, not Evil.</td></tr><tr><th id="L17"><a href="#L17">17</a></th><td></td></tr><tr><th id="L18"><a href="#L18">18</a></th><td>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</td></tr><tr><th id="L19"><a href="#L19">19</a></th><td>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</td></tr><tr><th id="L20"><a href="#L20">20</a></th><td>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</td></tr><tr><th id="L21"><a href="#L21">21</a></th><td>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</td></tr><tr><th id="L22"><a href="#L22">22</a></th><td>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</td></tr><tr><th id="L23"><a href="#L23">23</a></th><td>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</td></tr><tr><th id="L24"><a href="#L24">24</a></th><td>SOFTWARE.</td></tr><tr><th id="L25"><a href="#L25">25</a></th><td>*/</td></tr><tr><th id="L26"><a href="#L26">26</a></th><td></td></tr><tr><th id="L27"><a href="#L27">27</a></th><td>import java.io.StringWriter;</td></tr><tr><th id="L28"><a href="#L28">28</a></th><td></td></tr><tr><th id="L29"><a href="#L29">29</a></th><td>/**</td></tr><tr><th id="L30"><a href="#L30">30</a></th><td> * JSONStringer provides a quick and convenient way of producing JSON text.</td></tr><tr><th id="L31"><a href="#L31">31</a></th><td> * The texts produced strictly conform to JSON syntax rules. No whitespace is</td></tr><tr><th id="L32"><a href="#L32">32</a></th><td> * added, so the results are ready for transmission or storage. Each instance of</td></tr><tr><th id="L33"><a href="#L33">33</a></th><td> * JSONStringer can produce one JSON text.</td></tr><tr><th id="L34"><a href="#L34">34</a></th><td> * &lt;p&gt;</td></tr><tr><th id="L35"><a href="#L35">35</a></th><td> * A JSONStringer instance provides a &lt;code&gt;value&lt;/code&gt; method for appending</td></tr><tr><th id="L36"><a href="#L36">36</a></th><td> * values to the</td></tr><tr><th id="L37"><a href="#L37">37</a></th><td> * text, and a &lt;code&gt;key&lt;/code&gt;</td></tr><tr><th id="L38"><a href="#L38">38</a></th><td> * method for adding keys before values in objects. There are &lt;code&gt;array&lt;/code&gt;</td></tr><tr><th id="L39"><a href="#L39">39</a></th><td> * and &lt;code&gt;endArray&lt;/code&gt; methods that make and bound array values, and</td></tr><tr><th id="L40"><a href="#L40">40</a></th><td> * &lt;code&gt;object&lt;/code&gt; and &lt;code&gt;endObject&lt;/code&gt; methods which make and bound</td></tr><tr><th id="L41"><a href="#L41">41</a></th><td> * object values. All of these methods return the JSONWriter instance,</td></tr><tr><th id="L42"><a href="#L42">42</a></th><td> * permitting cascade style. For example, &lt;pre&gt;</td></tr><tr><th id="L43"><a href="#L43">43</a></th><td> * myString = new JSONStringer()</td></tr><tr><th id="L44"><a href="#L44">44</a></th><td> *     .object()</td></tr><tr><th id="L45"><a href="#L45">45</a></th><td> *         .key("JSON")</td></tr><tr><th id="L46"><a href="#L46">46</a></th><td> *         .value("Hello, World!")</td></tr><tr><th id="L47"><a href="#L47">47</a></th><td> *     .endObject()</td></tr><tr><th id="L48"><a href="#L48">48</a></th><td> *     .toString();&lt;/pre&gt; which produces the string &lt;pre&gt;</td></tr><tr><th id="L49"><a href="#L49">49</a></th><td> * {"JSON":"Hello, World!"}&lt;/pre&gt;</td></tr><tr><th id="L50"><a href="#L50">50</a></th><td> * &lt;p&gt;</td></tr><tr><th id="L51"><a href="#L51">51</a></th><td> * The first method called must be &lt;code&gt;array&lt;/code&gt; or &lt;code&gt;object&lt;/code&gt;.</td></tr><tr><th id="L52"><a href="#L52">52</a></th><td> * There are no methods for adding commas or colons. JSONStringer adds them for</td></tr><tr><th id="L53"><a href="#L53">53</a></th><td> * you. Objects and arrays can be nested up to 20 levels deep.</td></tr><tr><th id="L54"><a href="#L54">54</a></th><td> * &lt;p&gt;</td></tr><tr><th id="L55"><a href="#L55">55</a></th><td> * This can sometimes be easier than using a JSONObject to build a string.</td></tr><tr><th id="L56"><a href="#L56">56</a></th><td> * @author JSON.org</td></tr><tr><th id="L57"><a href="#L57">57</a></th><td> * @version 2008-09-18</td></tr><tr><th id="L58"><a href="#L58">58</a></th><td> */</td></tr><tr><th id="L59"><a href="#L59">59</a></th><td>public class JSONStringer extends JSONWriter {</td></tr><tr><th id="L60"><a href="#L60">60</a></th><td>    /**</td></tr><tr><th id="L61"><a href="#L61">61</a></th><td>     * Make a fresh JSONStringer. It can be used to build one JSON text.</td></tr><tr><th id="L62"><a href="#L62">62</a></th><td>     */</td></tr><tr><th id="L63"><a href="#L63">63</a></th><td>    public JSONStringer() {</td></tr><tr><th id="L64"><a href="#L64">64</a></th><td>        super(new StringWriter());</td></tr><tr><th id="L65"><a href="#L65">65</a></th><td>    }</td></tr><tr><th id="L66"><a href="#L66">66</a></th><td></td></tr><tr><th id="L67"><a href="#L67">67</a></th><td>    /**</td></tr><tr><th id="L68"><a href="#L68">68</a></th><td>     * Return the JSON text. This method is used to obtain the product of the</td></tr><tr><th id="L69"><a href="#L69">69</a></th><td>     * JSONStringer instance. It will return &lt;code&gt;null&lt;/code&gt; if there was a</td></tr><tr><th id="L70"><a href="#L70">70</a></th><td>     * problem in the construction of the JSON text (such as the calls to</td></tr><tr><th id="L71"><a href="#L71">71</a></th><td>     * &lt;code&gt;array&lt;/code&gt; were not properly balanced with calls to</td></tr><tr><th id="L72"><a href="#L72">72</a></th><td>     * &lt;code&gt;endArray&lt;/code&gt;).</td></tr><tr><th id="L73"><a href="#L73">73</a></th><td>     * @return The JSON text.</td></tr><tr><th id="L74"><a href="#L74">74</a></th><td>     */</td></tr><tr><th id="L75"><a href="#L75">75</a></th><td>    public String toString() {</td></tr><tr><th id="L76"><a href="#L76">76</a></th><td>        return this.mode == 'd' ? this.writer.toString() : null;</td></tr><tr><th id="L77"><a href="#L77">77</a></th><td>    }</td></tr><tr><th id="L78"><a href="#L78">78</a></th><td>}</td></tr></tbody></table>
+      </div>
+      <div id="help">
+        <strong>Note:</strong> See <a href="../../../../../../../../wiki/TracBrowser.html">TracBrowser</a>
+        for help on using the browser.
+      </div>
+      <div id="anydiff">
+        <form action="http://pgrouting.postlbs.org/diff" method="get">
+          <div class="buttons">
+            <input type="hidden" name="new_path" value="/tools/routingservice/branches/wrs-2.0/lib/org/json/JSONStringer.java" />
+            <input type="hidden" name="old_path" value="/tools/routingservice/branches/wrs-2.0/lib/org/json/JSONStringer.java" />
+            <input type="hidden" name="new_rev" />
+            <input type="hidden" name="old_rev" />
+            <input type="submit" value="View changes..." title="Select paths and revs for Diff" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/browser/tools/routingservice/branches/wrs-2.0/lib/org/json/JSONStringer.java?format=txt">Plain Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="../../../../../../../../export/358/tools/routingservice/branches/wrs-2.0/lib/org/json/JSONStringer.java">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../../../../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../../../../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("JSONStringer-2.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/browser/tools/routingservice/branches/wrs-2.0/lib/org/json/JSONStringer.java by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 05:45:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

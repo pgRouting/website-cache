@@ -1,0 +1,694 @@
+Index: src/OSMDocument.h
+===================================================================
+--- src/OSMDocument.h	(revision 334)
++++ src/OSMDocument.h	(working copy)
+@@ -21,7 +21,8 @@
+ #ifndef OSMDOCUMENT_H
+ #define OSMDOCUMENT_H
+ 
+-#include "Configuration.h"
++#include "Configuration.h"
++#include "Export2DB.h"
+ 
+ namespace osm
+ {
+@@ -37,16 +38,19 @@
+ {
+ public:
+ 	//! Map, which saves the parsed nodes
+-	std::map<long long, Node*> m_Nodes;
++	//std::map<long long, Node*> m_Nodes;
+ 	//! parsed ways
+ 	std::vector<Way*> m_Ways;
+ 	//! splitted ways
+ 	std::vector<Way*> m_SplittedWays;
+-	Configuration& m_rConfig;
++	Configuration& m_rConfig;
++	Export2DB& m_db;
++
++	unsigned int m_stage;
+ public:
+ 
+ 	//! Constructor
+-	OSMDocument( Configuration& config);
++	OSMDocument( Configuration& config, Export2DB& db, unsigned int stage = 0);
+ 	//! Destructor
+ 	virtual ~OSMDocument();
+ 	//! add node to the map
+Index: src/Export2DB.cpp
+===================================================================
+--- src/Export2DB.cpp	(revision 334)
++++ src/Export2DB.cpp	(working copy)
+@@ -26,11 +26,11 @@
+ Export2DB::Export2DB(std::string host, std::string user, std::string dbname, std::string port, std::string passwd)
+ :mycon(0)
+ {
+-	
++
+ this->conninf="host="+host+" user="+user+" dbname="+ dbname +" port="+port;
+ if(!passwd.empty())
+ 	this->conninf+=" password="+passwd;
+-	
++
+ }
+ 
+ Export2DB::~Export2DB()
+@@ -43,7 +43,7 @@
+ 	cout << conninf<< endl;
+ 	//mycon =PQconnectdb("user=postgres dbname=template1 hostaddr=127.0.0.1 port=5432");
+ 	mycon =PQconnectdb(conninf.c_str());
+-	
++
+ 	ConnStatusType type =PQstatus(mycon);
+ 		if(type==CONNECTION_BAD)
+ 		{
+@@ -74,7 +74,7 @@
+ 	result = PQexec(mycon, "CREATE TABLE types (id integer, name char(200));");
+ 	std::cout << "Types table created" << std::endl;
+ 	result = PQexec(mycon, "CREATE TABLE classes (id integer, type_id integer, name char(200), cost double precision);");
+-	std::cout << "Classes table created" << std::endl;	
++	std::cout << "Classes table created" << std::endl;
+ }
+ 
+ void Export2DB::dropTables()
+@@ -87,11 +87,11 @@
+ 	char tmp_id[20];
+ 	char tmp_lon[15];
+ 	char tmp_lat[15];
+-	
++
+ 	sprintf(tmp_id,"%lld",id);
+ 	gcvt(lon,12,tmp_lon);
+ 	gcvt(lat,12,tmp_lat);
+-	
++
+ 	std::string query = "INSERT into nodes(id,lon,lat) values(";
+ 				query+= tmp_id;
+ 				query+=",";
+@@ -99,8 +99,9 @@
+ 				query+=",";
+ 				query+= tmp_lat;
+ 				query+=");";
+-	
++
+ 	PGresult *result = PQexec(mycon, query.c_str());
++	PQclear(result);
+ }
+ 
+ void Export2DB::exportWay(Way* way)
+@@ -109,8 +110,8 @@
+ 	if(!way->name.empty())
+ 		query+=", name";
+ 	query+=") values(";
+-	
+-	query+=boost::lexical_cast<std::string>(way->id) + ", (SELECT id FROM classes WHERE name ='" + boost::lexical_cast<std::string>(way->clss) + "')," + boost::lexical_cast<std::string>(way->length) + "," 
++
++	query+=boost::lexical_cast<std::string>(way->id) + ", (SELECT id FROM classes WHERE name ='" + boost::lexical_cast<std::string>(way->clss) + "')," + boost::lexical_cast<std::string>(way->length) + ","
+ 		 + boost::lexical_cast<std::string>(way->m_NodeRefs.front()->lon) + ","+ boost::lexical_cast<std::string>(way->m_NodeRefs.front()->lat) + ","
+ 		 + boost::lexical_cast<std::string>(way->m_NodeRefs.back()->lon)  + ","+ boost::lexical_cast<std::string>(way->m_NodeRefs.back()->lat) + ",";
+ 	query+="GeometryFromText('" + way->geom +"', 4326)";
+@@ -122,7 +123,7 @@
+ 	else
+ 	{
+ 	    query+=", "+ boost::lexical_cast<std::string>(way->length);
+-	}	
++	}
+ 
+ 	if(!way->name.empty())
+ 		query+=",$$"+ way->name +"$$";
+@@ -134,7 +135,7 @@
+ void Export2DB::exportType(Type* type)
+ {
+ 	std::string query = "INSERT into types(id, name) values(";
+-	
++
+ 	query+=boost::lexical_cast<std::string>(type->id) + ", '" + type->name +"');";
+ 	PGresult *result = PQexec(mycon, query.c_str());
+ }
+@@ -142,7 +143,7 @@
+ void Export2DB::exportClass(Type* type, Class* clss)
+ {
+ 	std::string query = "INSERT into classes(id, type_id, name) values(";
+-	
++
+ 	query+=boost::lexical_cast<std::string>(clss->id) + ", " + boost::lexical_cast<std::string>(type->id) + ", '" + clss->name +"');";
+ 	PGresult *result = PQexec(mycon, query.c_str());
+ }
+@@ -155,5 +156,40 @@
+ 	result = PQexec(mycon,"CREATE INDEX target_idx ON ways(target);");
+         result = PQexec(mycon,"CREATE INDEX geom_idx ON ways USING GIST(the_geom GIST_GEOMETRY_OPS);");
+ 	result = PQexec(mycon,"SELECT assign_vertex_id('ways', 0.00001, 'the_geom', 'gid');");
+-	
++
+ }
++
++Node* Export2DB::findNode(long long nodeRefId) {
++	std::string query = "SELECT id,lon,lat FROM nodes WHERE id ='" + boost::lexical_cast<std::string>(nodeRefId) + "';";
++	PGresult *result = PQexec(mycon, query.c_str());
++
++	if (PQresultStatus(result) != PGRES_TUPLES_OK) {
++		std::cout << "SELECT id,lon,lat FROM nodes WHERE id ='" << boost::lexical_cast<std::string>(nodeRefId) << "'; "<< PQerrorMessage(mycon) << std::endl;
++	    PQclear(result);
++	    return NULL;
++	}
++
++	if (PQntuples(result) == 0)
++	{
++		std::cout << "SELECT id,lon,lat FROM nodes WHERE id ='" << boost::lexical_cast<std::string>(nodeRefId) << "'; gave zero rows result" << std::endl;
++		PQclear(result);
++		return NULL;
++	}
++
++	int id_f = PQfnumber(result, "id");
++	int lon_f = PQfnumber(result, "lon");
++	int lat_f = PQfnumber(result, "lat");
++
++	char *id_ptr = PQgetvalue(result, 0, id_f);
++	char *lon_ptr = PQgetvalue(result, 0, lon_f);
++	char *lat_ptr = PQgetvalue(result, 0, lat_f);
++
++	//std::cout << "Found node: id=" << id_ptr << ", lon=" << lon_ptr << ", lat=" << lat_ptr << std::endl;
++
++	Node* node = new Node(atol(id_ptr), atof(lat_ptr), atof(lon_ptr));
++
++	PQclear(result);
++
++	return node;
++}
++
+Index: src/Export2DB.h
+===================================================================
+--- src/Export2DB.h	(revision 334)
++++ src/Export2DB.h	(working copy)
+@@ -32,7 +32,7 @@
+ 
+ /**
+  * This class connects to a postgresql database. For using this class,
+- * you also need to install postgis and pgrouting 
++ * you also need to install postgis and pgrouting
+  */
+ 
+ class Export2DB
+@@ -44,15 +44,15 @@
+ 	 * @param host Host address of the database
+ 	 * @param user a user, who has write access to the database
+ 	 * @param dbname name of the database
+-	 * 
+-	 */ 
++	 *
++	 */
+  	Export2DB(std::string host, std::string user, std::string dbname, std::string port, std::string password);
+  	/**
+  	 * Destructor
+  	 * closes the connection to the database
+- 	 */  
++ 	 */
+  	~Export2DB();
+- 	
++
+  	//! connects to database
+  	int connect();
+  	//! creates needed tables
+@@ -65,21 +65,23 @@
+  	void exportType(Type* type);
+  	void exportClass(Type* type, Class* clss);
+ 
++ 	Node* findNode(long long nodeRefId);
+ 
+- 	/** 
++
++ 	/**
+  	 * creates the topology
+  	 * Be careful, it takes some time.
+- 	 * 
++ 	 *
+  	 * for example:
+  	 * complete germany: OSM file with a size of 1,1 GiB.
+  	 * Export and create topology:
+  	 * time took circa 30 hours on an Intel Xeon 2,4 GHz with 2 GiB Ram.
+  	 * But only for the streettypes "motorway", "primary" and "secondary"
+- 	 */ 
++ 	 */
+  	void createTopology();
+  	//! Be careful! It deletes the created tables!
+  	void dropTables();
+- 	
++
+ private:
+ PGconn *mycon;
+ std::string conninf;
+Index: src/osm2pgrouting.cpp
+===================================================================
+--- src/osm2pgrouting.cpp	(revision 334)
++++ src/osm2pgrouting.cpp	(working copy)
+@@ -17,7 +17,7 @@
+  *   Free Software Foundation, Inc.,                                       *
+  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+  ***************************************************************************/
+- 
++
+ #include "stdafx.h"
+ #include "Configuration.h"
+ #include "ConfigurationParserCallback.h"
+@@ -43,7 +43,7 @@
+ 				cout << "-port <port> -- port of your database (default: 5432)" << endl;
+ 				cout << "-passwd <passwd> --  password for database access" << endl;
+ 				cout << "-clean -- drop peviously created tables" << endl;
+-					
++
+ }
+ 
+ int main(int argc, char* argv[])
+@@ -55,6 +55,7 @@
+ 	std::string port="5432";
+ 	std::string dbname;
+ 	std::string passwd;
++	std::string stage;
+ 	bool clean = false;
+ 	if(argc >=7 && argc <=13)
+ 	{
+@@ -62,17 +63,17 @@
+ 		while( i<argc)
+ 		{
+ 			if(strcmp(argv[i],"-file")==0)
+-			{	
++			{
+ 				i++;
+ 				file = argv[i];
+ 			}
+ 
+ 			else if(strcmp(argv[i],"-conf")==0)
+-			{	
++			{
+ 				i++;
+ 				cFile = argv[i];
+ 			}
+-				
++
+ 			else if(strcmp(argv[i],"-host")==0)
+ 			{
+ 				i++;
+@@ -102,36 +103,41 @@
+ 			{
+ 				clean = true;
+ 			}
++			else if(strcmp(argv[i],"-stage")==0)
++			{
++				i++;
++				stage = argv[i];
++			}
+ 			else
+ 			{
+ 				cout << "unknown paramer: " << argv[i] << endl;
+ 				_error();
+ 				return 1;
+ 			}
+-			
++
+ 			i++;
+ 		}
+-		
++
+ 	}
+ 	else
+ 	{
+ 		_error();
+ 		return 1;
+ 	}
+-	
++
+ 	if(file.empty() || cFile.empty() || dbname.empty() || user.empty())
+ 	{
+ 		_error();
+ 		return 1;
+ 	}
+-	
++
+ 	Export2DB test(host, user, dbname, port, passwd);
+ 	if(test.connect()==1)
+ 		return 1;
+ 
+ 
+ 	XMLParser parser;
+-	
++
+ 	cout << "Trying to load config file " << cFile.c_str() << endl;
+ 
+ 	Configuration* config = new Configuration();
+@@ -144,14 +150,14 @@
+ 
+ 	cout << "Trying to load data" << endl;
+ 
+-	OSMDocument* document = new OSMDocument( *config );
++	OSMDocument* document = new OSMDocument( *config, test, atoi(stage.c_str()) );
+         OSMDocumentParserCallback callback( *document );
+ 
+ 	cout << "Trying to parse data" << endl;
+ 
+ 	ret = parser.Parse( callback, file.c_str() );
+ 	if( ret!=0 ) return 1;
+-	
++
+ 	cout << "Split ways" << endl;
+ 
+ 	document->SplitWays();
+@@ -159,16 +165,18 @@
+ 	{
+ 
+ 		if( clean )
+-		{
+-			test.dropTables();
++		{
++			if (atoi(stage.c_str()) < 1) {
++				test.dropTables();
++			}
+ 		}
+-		
++
+ 		test.createTables();
+-		
++
+ 		std::map<std::string, Type*>& types= config->m_Types;
+ 		std::map<std::string, Type*>::iterator tIt(types.begin());
+ 		std::map<std::string, Type*>::iterator tLast(types.end());
+-		
++
+ 		while(tIt!=tLast)
+ 		{
+ 			Type* type = (*tIt++).second;
+@@ -184,21 +192,21 @@
+ 				test.exportClass(type, clss);
+ 			}
+ 		}
+-		
+ 
+-		std::map<long long, Node*>& nodes= document->m_Nodes;
+-		std::map<long long, Node*>::iterator it(nodes.begin());
+-		std::map<long long, Node*>::iterator last(nodes.end());
+-		
+-		while(it!=last)
+-		{
+-			Node* node = (*it++).second;
+-			test.exportNode(node->id,node->lon, node->lat, node->numsOfUse);
+-		}
+-		
++
++		//std::map<long long, Node*>& nodes= document->m_Nodes;
++		//std::map<long long, Node*>::iterator it(nodes.begin());
++		//std::map<long long, Node*>::iterator last(nodes.end());
++
++		//while(it!=last)
++		//{
++		//	Node* node = (*it++).second;
++		//	test.exportNode(node->id,node->lon, node->lat, node->numsOfUse);
++		//}
++
+ 		std::vector<Way*>& ways= document->m_SplittedWays;
+ 		std::vector<Way*>::iterator it_way( ways.begin() );
+-		std::vector<Way*>::iterator last_way( ways.end() );	
++		std::vector<Way*>::iterator last_way( ways.end() );
+ 		while( it_way!=last_way )
+ 		{
+ 			Way* pWay = *it_way++;
+@@ -206,10 +214,10 @@
+ 		}
+ 		cout << "create topology" << endl;
+ 		test.createTopology();
+-	}	
+-	
++	}
++
+ 	//#############
+-	
++
+ 	/*
+ 	std::vector<Way*>& ways= document.m_Ways;
+ 	std::vector<Way*>::iterator it( ways.begin() );
+@@ -217,7 +225,7 @@
+ 	while( it!=last )
+ 	{
+ 		Way* pWay = *it;
+-		
++
+ 		if( !pWay->name.empty() )
+ 		{
+ 			if( pWay->m_NodeRefs.empty() )
+@@ -229,7 +237,7 @@
+ 				Node* n0 = pWay->m_NodeRefs.front();
+ 				Node* n1 = pWay->m_NodeRefs.back();
+ 				//if(n1->numsOfUse==1)
+-				//cout << "way-id: " << pWay->id << " name: " << pWay->name <<endl; 
++				//cout << "way-id: " << pWay->id << " name: " << pWay->name <<endl;
+ 				//std::cout << n0->lon << " "  << n0->lat << " " << n1->lon << " " << n1->lat << " " << pWay->name.c_str() << " highway: " << pWay->highway.c_str() << " Start numberOfUse: " << n0->numsOfUse << " End numberOfUse: " << n1->numsOfUse  << " ID: " << n1->id <<  endl;
+ 			}
+ 		}
+@@ -241,9 +249,9 @@
+ 		++it;
+ 	}
+ 	*/
+-	
++
+ 	cout << "#########################" << endl;
+-	
++
+ 	cout << "size of streets: " << document->m_Ways.size() <<	endl;
+ 	cout << "size of splitted ways : " << document->m_SplittedWays.size() <<	endl;
+ 
+Index: src/OSMDocumentParserCallback.cpp
+===================================================================
+--- src/OSMDocumentParserCallback.cpp	(revision 334)
++++ src/OSMDocumentParserCallback.cpp	(working copy)
+@@ -30,8 +30,8 @@
+ 
+ namespace osm
+ {
+-	
+-	
++
++
+ /**
+ 	Parser callback for OSMDocument files
+ */
+@@ -46,13 +46,13 @@
+ 			if( strcmp(name,"ref")==0 )
+ 			{
+ 				long long nodeRefId = atol( value );
+-                                m_pActWay->AddNodeRef( m_rDocument.FindNode( nodeRefId ) );
+-                                  Node * node = m_rDocument.FindNode( nodeRefId );
+-                                  if(node != 0 ){
+-                                    node->numsOfUse+=1;
+-                                  }else {
+-                                    std::cout << "Reference nd=" << nodeRefId << " has no corresponding Node Entry (Maybe Node entry after Reference?)" << std::endl;
+-                                  }
++				Node * node = m_rDocument.FindNode( nodeRefId );
++                if(node != 0 ){
++                	m_pActWay->AddNodeRef( node );
++                	node->numsOfUse+=1;
++				}else {
++					std::cout << "Reference nd=" << nodeRefId << " has no corresponding Node Entry (Maybe Node entry after Reference?)" << std::endl;
++				}
+ 			}
+ 		}
+ 	}
+@@ -86,7 +86,7 @@
+ 	}
+ 	else if( strcmp(name,"tag") == 0 )
+ 	{
+-		// <tag k="name" v="Pfänderweg"/>
++		// <tag k="name" v="Pfï¿½nderweg"/>
+ 		if (atts != NULL)
+ 		{
+ 			std::string k;
+@@ -113,11 +113,10 @@
+ 				}
+ 				else if( m_pActWay && k.compare("oneway")==0 )
+ 				{
+-					m_pActWay->oneway = true;					
++					m_pActWay->oneway = true;
+ 					std::cout<<"Edge "<<m_pActWay->id<<" is oneway"<<std::endl;
+ 
+-				}-				
++				}
+ 				//else if( m_pActWay && k.compare("highway")==0 )
+ 				else if( m_pActWay && m_rDocument.m_rConfig.m_Types.count(k) )
+ 				{
+@@ -150,7 +149,7 @@
+ 			if( id>0 )
+ 			{
+ 				m_pActWay = new Way( id, visibility );
+-				
++
+ 			}
+ 		}
+ 	}
+@@ -167,12 +166,12 @@
+ 	{
+ 		//#ifdef RESTRICT
+ 		//_FILTER
+-		
++
+ 		if( m_rDocument.m_rConfig.m_Types.count(m_pActWay->type) && m_rDocument.m_rConfig.m_Types[m_pActWay->type]->m_Classes.count(m_pActWay->clss) )
+ 		{
+ 		//#endif
+ 		std::cout<<"We need a way of type "<<m_pActWay->type<<" and class "<< m_pActWay->clss<<std::endl;
+-		
++
+ 			m_rDocument.AddWay( m_pActWay );
+ 
+ 		//#ifdef RESTRICT
+@@ -183,7 +182,7 @@
+ 			delete m_pActWay;
+ 		}
+ 		//#endif
+-		
++
+ 		m_pActWay = 0;
+ 	}
+ }
+Index: src/OSMDocument.cpp
+===================================================================
+--- src/OSMDocument.cpp	(revision 334)
++++ src/OSMDocument.cpp	(working copy)
+@@ -29,19 +29,23 @@
+ namespace osm
+ {
+ 
+-OSMDocument::OSMDocument( Configuration& config ) : m_rConfig( config )
+-{
++OSMDocument::OSMDocument( Configuration& config, Export2DB& db, unsigned int stage) : m_rConfig( config ), m_db(db), m_stage(stage)
++{
++	std::cout << "Doing from stage " << m_stage << std::endl;
+ }
+ 
+ OSMDocument::~OSMDocument()
+ {
+-	ez_mapdelete( m_Nodes );
+-	ez_vectordelete( m_Ways );		
++	//ez_mapdelete( m_Nodes );
++	ez_vectordelete( m_Ways );
+ 	ez_vectordelete( m_SplittedWays );
+ }
+ void OSMDocument::AddNode( Node* n )
+ {
+-	m_Nodes[n->id] = n;
++	//m_Nodes[n->id] = n;
++	if (m_stage < 2) {
++		m_db.exportNode(n->id,n->lon, n->lat, n->numsOfUse);
++	};
+ }
+ 
+ void OSMDocument::AddWay( Way* w )
+@@ -49,16 +53,17 @@
+ 	m_Ways.push_back( w );
+ }
+ 
+-Node* OSMDocument::FindNode( long long nodeRefId ) 
++Node* OSMDocument::FindNode( long long nodeRefId )
+ const
+ {
+-	std::map<long long, Node*>::const_iterator  it = m_Nodes.find( nodeRefId );
+-	return (it!=m_Nodes.end() ) ? it->second : 0;
++	//std::map<long long, Node*>::const_iterator  it = m_Nodes.find( nodeRefId );
++	//return (it!=m_Nodes.end() ) ? it->second : 0;
++	return m_db.findNode(nodeRefId);
+ }
+ 
+ void OSMDocument::SplitWays()
+ {
+-	
++
+ 	std::vector<Way*>::const_iterator it(m_Ways.begin());
+ 	std::vector<Way*>::const_iterator last(m_Ways.end());
+ 
+@@ -68,21 +73,21 @@
+ 	while(it!=last)
+ 	{
+ 		Way* currentWay = *it++;
+-		
+-		std::vector<Node*>::const_iterator it_node( currentWay->m_NodeRefs.begin());	
++
++		std::vector<Node*>::const_iterator it_node( currentWay->m_NodeRefs.begin());
+ 		std::vector<Node*>::const_iterator last_node( currentWay->m_NodeRefs.end());
+-		
++
+ 		Node* backNode = currentWay->m_NodeRefs.back();
+ 
+ 
+ 
+ 		while(it_node!=last_node)
+ 		{
+-			
++
+ 			Node* node = *it_node++;
+ 			Node* secondNode=0;
+ 			Node* lastNode=0;
+-			
++
+ 			Way* splitted_way = new Way( ++id, currentWay->visible );
+ 			splitted_way->name=currentWay->name;
+ 			splitted_way->type=currentWay->type;
+@@ -90,13 +95,13 @@
+ 			splitted_way->oneway=currentWay->oneway;
+ 
+ 	//GeometryFromText('MULTILINESTRING(('||x1||' '||y1||','||x2||' '||y2||'))',4326);
+-			
++
+ 			splitted_way->geom="MULTILINESTRING(("+ boost::lexical_cast<std::string>(node->lon) + " " + boost::lexical_cast<std::string>(node->lat) +",";
+-			
++
+ 			splitted_way->AddNodeRef(node);
+-			
++
+ 			bool found=false;
+-			
++
+ 			if(it_node!=last_node)
+ 			{
+ 				while(it_node!=last_node && !found)
+@@ -112,7 +117,7 @@
+ 							length*=-1;
+ 						splitted_way->length+=length;
+ 						splitted_way->geom+= boost::lexical_cast<std::string>(secondNode->lon) + " " + boost::lexical_cast<std::string>(secondNode->lat) + "))";
+-						
++
+ 					}
+ 					else if(backNode==(*it_node))
+ 					{
+@@ -131,7 +136,7 @@
+ 					}
+ 				}
+ 			}
+-				
++
+ 			if(splitted_way->m_NodeRefs.front()!=splitted_way->m_NodeRefs.back())
+ 				m_SplittedWays.push_back(splitted_way);
+ 			else
+@@ -139,7 +144,7 @@
+ 				delete splitted_way;
+ 				splitted_way=0;
+ 			}
+-				
++
+ 		}
+ 
+ 	}
+Index: Makefile
+===================================================================
+--- Makefile	(revision 334)
++++ Makefile	(working copy)
+@@ -9,9 +9,12 @@
+ MAIN = src/osm2pgrouting.cpp
+ 
+ all:
+-	$(CC) -c $(SRC) $(INC) -ggdb3
+-	$(CC) -c $(DEPS) $(INC) -ggdb3
+-	$(CC) -o osm2pgrouting $(MAIN) *.o $(INC) -lexpat -ggdb3 -lpq
++	$(CC) -c -O3 $(SRC) $(INC)
++	$(CC) -c -O3 $(DEPS) $(INC)
++	$(CC) -o osm2pgrouting $(MAIN) *.o $(INC) -lexpat -lpq
++#	$(CC) -c $(SRC) $(INC) -ggdb3
++#	$(CC) -c $(DEPS) $(INC) -ggdb3
++#	$(CC) -o osm2pgrouting $(MAIN) *.o $(INC) -lexpat -ggdb3 -lpq
+ 	rm *.o
+ clean:
+ 	rm osm2pgrouting

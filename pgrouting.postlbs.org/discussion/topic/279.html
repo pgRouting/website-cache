@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/279 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/24.html" title="osm2pgrouting">osm2pgrouting</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>osm2pgrouting (#24) - Add column (#279) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Add column
+            </div>
+            <div class="body">
+              <p>
+Hi, I'm using osm2pgrouting to migrate map routing, but also make anothers functionalities such as search location by door number. I found that the ways splitted doesn't have the id of osm way, that is neccesary to relate other objects to the way directly from osm.
+</p>
+<p>
+Then I realize that I could add osm_id column to the ways table and insert data inthere.
+</p>
+<p>
+I put the patch on this file. It simply:
+</p>
+<ul><li>Add osm_id to Way model
+</li><li>Set osm_id on parsing
+</li><li>Insert osm_id in model generation
+</li></ul><p>
+<a class="ext-link" href="http://drop.io/etnalubma/asset/osm-column-patch"><span class="icon"> </span>http://drop.io/etnalubma/asset/osm-column-patch</a>
+</p>
+<p>
+Is this patch correct?
+Could I add to trunk version? Or is there some reason for the curent behavior?
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            etnalubma
+          </div>
+          <div class="time">
+            07/11/09 03:26:09 (17 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/279?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/279?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message982"></a>
+        <div class="id">
+          Message #982
+        </div>
+        <div class="body">
+            <p>
+Yes, it makes sense! Thank you! We just didn't think about linking results back to osm data. I'll put it to the trunk.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/13/09 10:13:58 (17 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1608"></a>
+        <div class="id">
+          Message #1608
+        </div>
+        <div class="body">
+            <p>
+It looks like this osm_id functionality is not yet in trunk. And I just went to apply the patch above to the latest osm2pgrouting I checked out of svn and it fails. I guess the latest osm2pgrouting revision has changed since July 2009?
+</p>
+<p>
+Anyone else having this problem? I may just be making a mistake...
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ja3n
+          </div>
+          <div class="time">
+            08/18/10 23:42:44 (3 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1609"></a>
+        <div class="id">
+          Message #1609
+        </div>
+        <div class="body">
+            <p>
+Actually, it does look like the latest revision (357, I think) does have the osm_id code. (The patch applies to revision 336.) However, the osm_id field is not appearing in my ways table.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ja3n
+          </div>
+          <div class="time">
+            08/19/10 01:47:39 (3 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1612"></a>
+        <div class="id">
+          Message #1612
+        </div>
+        <div class="body">
+            <p>
+It has changed recently a bit but very small change, adding some include.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            08/19/10 09:42:32 (3 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1614"></a>
+        <div class="id">
+          Message #1614
+        </div>
+        <div class="body">
+            <p>
+I created a new version of osm2pgrouting that adds a new way_tag table. See Ticket <a class="new ticket" href="../../ticket/214.html" title="bug report: Cycleway ways are not being imported under some conditions (new)">#214</a> for details. Let me know if I should create a branch or just upload the new version as an attachment to the ticket.
+</p>
+<p>
+Thanks,
+Jordan
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ja3n
+          </div>
+          <div class="time">
+            08/24/10 02:32:41 (3 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1615"></a>
+        <div class="id">
+          Message #1615
+        </div>
+        <div class="body">
+            <p>
+Hi Jordan,
+</p>
+<p>
+Thanks for your effort!
+</p>
+<p>
+I know that I have written this a couple of times now already and nothing has changed, but we want to move pgRouting to OSGeo servers (or somewhere else if there is nothing going forward). Personally I would like to use <a class="missing wiki">GitHub?</a> or so, which would make it easy for anybody to contribute code and patches, but there is no general agreement yet.
+</p>
+<p>
+For now it would be probably best to attach a patch if possible. In two weeks will be FOSS4G conference and I hope to be able to talk to some people directly to speed-up server migration.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            08/24/10 12:21:54 (3 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1617"></a>
+        <div class="id">
+          Message #1617
+        </div>
+        <div class="body">
+            <p>
+Great. I added the patch to Ticket <a class="new ticket" href="../../ticket/214.html" title="bug report: Cycleway ways are not being imported under some conditions (new)">#214</a>. Let me know what you think.
+</p>
+<p>
+By the way, I don't think the trunk version (revision 357) that this is based on has the osm_id column patch. I haven't gone back to look at earlier revisions to see if maybe it was there and then got rolled back b/c of another change.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ja3n
+          </div>
+          <div class="time">
+            08/25/10 23:04:10 (3 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/279?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/279?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

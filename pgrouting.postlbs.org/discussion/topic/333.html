@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/333 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/23.html" title="data">data</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>data (#23) - Newbie questions (Navteq data) (#333) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Newbie questions (Navteq data)
+            </div>
+            <div class="body">
+              <p>
+Hi all
+</p>
+<p>
+I'm new to all of this so please excuse any "stupid" questions.
+</p>
+<p>
+Setup: Windows XP SP3 with postgresql 8.4.2 with postgis-pg84-1.4.1-1, pgRouting-1.03_pg-8.4.2 from binary
+Data: Navteq NAVSTREETS imported from shapefiles
+</p>
+<p>
+I have a few things I'll be doing with our data but the primary task is to create a mapping from some foreign data links to ours. The links are described with a start and end point and a distance. So roughly speaking I'll find the nearest link to the start and end points and find the shortest path between them to figure out what links the link maps to. For the most part it will be only a few links (median appears to be .5 mile, max 10 miles on open roads, most hops I have seen is about 35).
+</p>
+<p>
+So first, if you have any suggestions about which algorithm to use, please let me know, but I am currently thinking A* with a bounding box of the start/end points plus some buffer based on the distance expected. I am hoping any of them are a good fit for this, although obviously looking for the fastest.
+</p>
+<p>
+Second, I followed the tutorials and tried the dijkstra algorithm (A* setup still running right now) and didn't get good results. Instead of a nice short route I expected I got a whole bunch of random links over a very wide area.
+</p>
+<p>
+Looking at a very simple example, it appears to be because the navteq geometry isn't always aligned with the same left to right start/end orientation. Instead it has two fields showing what nodes it connects to and a field indicating the direction. One of the nodes is called a reference node, the other a non-reference node. The direction can either be both ways or towards the reference node,or from the reference node. I'd like opinions, but it appears I need to swap the source and target for the ones with a direction towards the reference node for them to be consistent. I am not sure about the both ways ones, other than I need to split those up into two directed links for other reasons already so I will probably do that first.
+</p>
+<p>
+But since the data already has the nodes defined I was thinking of generating the source/target ids based off that instead of the geometry anyway as it is supposed to be precise. However I have the same challenges with the nodes and directions I think.
+</p>
+<p>
+Also some randoms questions if you don't mind
+</p>
+<p>
+Which is the best place to get help - here or the mailing list?
+</p>
+<p>
+When I installed I didn't have lwpostgis.sql so I used postgis.sql - is this ok?
+</p>
+<p>
+I can't seem to find how many meters or feet are in a degree (EPSG:4326). I'd like to get a better feel for the tolerance numbers.
+</p>
+<p>
+TIA,
+charles
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            cgalpin
+          </div>
+          <div class="time">
+            02/13/10 04:11:11 (9 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/333?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/333?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1378"></a>
+        <div class="id">
+          Message #1378
+        </div>
+        <div class="body">
+            <p>
+Hi Cahrles,
+</p>
+<p>
+Indeed, many questions in one topic. Hope not to forget to answer the important ones.
+</p>
+<ul><li>Algorithms don't really matter that much (as wee actually expected). It's all about how much data you select from the database to take into account. So don't forget the bounding box if your data is large and don't forget an index on the right attributes
+</li><li>I prefer Shootings Star because it routes from road link to road link intead of from node to node. But it's personal preference.
+</li><li>Wrapper functions give you a more nicely formatted result
+</li><li>If the topological information of the Navteq data is correct and fits with what pgRouting requires, then you don't need to run the "assign_vertex_id" topology function. Nevertheless I often do it, because it also renumbers the start/end nodes and it's good to have them start with 1 and don't become too high.
+</li><li>I don't know about postgis.sql, because I don't know well about Windows version ;-)
+</li><li>For me feet are something hard to imagine, but the conversion between degree and meter depends a bit where you are located. For the tolerance level for good data it should be fine to take a few meters. Or if it's correct for sure, just make it much smaller. Degrees should be always a very small number.
+</li><li>It could be a good idea to post to the mailing list, because people then get notified by email, so the chance is higher to get an answer from other people as well, I suppose.
+</li></ul>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/13/10 08:58:20 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1381"></a>
+        <div class="id">
+          Message #1381
+        </div>
+        <div class="body">
+            <p>
+Thanks Daniel
+</p>
+<p>
+I guess I'll try the mailing list if I have any more questions as I would like notification - I only now checked for a response :)
+</p>
+<p>
+I re-ran assign_vertex_id (it doesn't reset the sequence btw) with a tolerance of 0.00001 and got better results I think. Not sure exactly how many meters this is (NJ, USA) nor how to validate the results either (maybe run with another algorithm and compare), but i'm more optimistic about this.
+</p>
+<p>
+Also still confused about the start/end points not being the same direction but I guess if it works, it works :)
+</p>
+<p>
+thanks again,
+charles
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            cgalpin
+          </div>
+          <div class="time">
+            02/15/10 22:38:21 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1382"></a>
+        <div class="id">
+          Message #1382
+        </div>
+        <div class="body">
+            <p>
+I did some calculations and at least at the equator the earth's circumference is about 40,000km so a degree is about 111km. A tolerance of 0.00001 would give me 1.1m (but in NJ I assume something around 1.5m maybe). Close enough to get an idea of what the numbers mean, thanks.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            cgalpin
+          </div>
+          <div class="time">
+            02/15/10 23:05:25 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/333?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/333?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

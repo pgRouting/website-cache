@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch03 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      WorkshopFOSS4G2008/ch03 – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch03?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../WorkshopFOSS4G2008.html" title="View parent page" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../WorkshopFOSS4G2008.html">Up</a></li><li><a href="../WikiStart.html">Start Page</a></li><li><a href="../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch03?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch03?action=diff&amp;version=1">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View WorkshopFOSS4G2008" href="../WorkshopFOSS4G2008.html">WorkshopFOSS4G2008</a><span class="pathentry sep">/</span><a class="pathentry" title="View WorkshopFOSS4G2008/ch03" href="ch03.html">ch03</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="AboutMapFish">About <a class="missing wiki">MapFish?</a></h1>
+<p>
+<a class="missing wiki">MapFish?</a> is an easy-to-use and extensible web 2.0 mapping application framework.
+<a class="missing wiki">MapFish?</a> is composed of two parts: <a class="missing wiki">MapFish?</a> Client and <a class="missing wiki">MapFish?</a> Server. <a class="missing wiki">MapFish?</a> Client is a <a class="missing wiki">JavaScript?</a> framework based on <a class="missing wiki">OpenLayers?</a> for the mapping part, and on ExtJS for the GUI (widgets) part. <a class="missing wiki">MapFish?</a> Server is responsible for server side treatments and composed from several modules which can be implemented in several languages such as Python, Java, PHP.
+<a class="missing wiki">MapFish?</a> is intended to be easy to use either as a standalone application or as an add on to an already existing web application. For example the printing server modules implements high ends functionnalities such as raster/vector multi sources combinations, integration of complex table.
+Some other OSGeo projects like Geoserver plan to integrate this function and are very pleased to use <a class="missing wiki">MapFish?</a> for that purpose.
+</p>
+<p>
+As a standalone application, <a class="missing wiki">MapFish?</a> offers ways to simply configure some parameters and
+quickly have a working web mapping application. As a framework, <a class="missing wiki">MapFish?</a> lets you develop
+advanced and customized webmapping applications. <a class="missing wiki">MapFish?</a> API also allows maps to be simply
+included in an already existing website such as CMS or Information System oriented applications.
+<a class="missing wiki">MapFish?</a> takes advantage of the Open Source philosophy by nicely aggregating several existing OS libraries such as SQLAlchemy, GeoJSON, Shapely and JTS.
+</p>
+<p>
+The strengths of <a class="missing wiki">MapFish?</a> reside in the integration of several components and the support of the latest Web 2.0 technology. This allows the creation of advanced Mapping solutions.
+There is plans to use <a class="missing wiki">MapFish?</a> modular architecture to use some component for standalone integration into other project or applications (<a class="missing wiki">MapFish?</a> core libs).
+</p>
+<p>
+An administration tool, named geoadminsuite, is under creation and will simplify the configuration
+work and will allow to create new <a class="missing wiki">MapFish?</a> applications.
+</p>
+<p>
+Detailed information about how to install and use <a class="missing wiki">MapFish?</a> is available at th following address: 
+</p>
+<ul><li><a class="ext-link" href="https://www.mapfish.org/"><span class="icon"> </span>https://www.mapfish.org</a>
+</li><li><a class="ext-link" href="https://trac.mapfish.org/trac/mapfish/"><span class="icon"> </span>https://trac.mapfish.org/trac/mapfish/</a>
+</li></ul><p>
+A working minimal <a class="missing wiki">MapFish?</a> instance is running on the workshop virtual server at the address 
+</p>
+<pre class="wiki">http://localhost/foss4g08_routing/
+</pre><p>
+You'll have to zoom in the Cape Town area and select the start and end point on the map, using the tool present on the Routing panel. It will only give result for the Cape Town area.
+</p>
+<p>
+Here is some detailed information about how to use the routing system specifically used in this workshop and installed on the workshop virtual machine.
+</p>
+<p>
+The Mapfish project can be found at:
+</p>
+<pre class="wiki">/var/www/foss4g08_routing
+</pre><p>
+From that directory, there are several levels of directories used by the deploy system.
+</p>
+<p>
+The interesting stuff about how routing part is working will be found in:
+</p>
+<pre class="wiki">/var/www/foss4g08_routing/foss4g08_routing/foss4g08_routing/foss4g08_routing/
+</pre><p>
+From that point, the file public/index.html contains the <a class="missing wiki">JavaScript?</a> code to handle the routing part on the client side, including the panel.
+</p>
+<pre class="wiki">//////////////////////////////////// MapFish routing code
+       var routing = new mapfish.Routing('routing', map, {
+           fetchRoute: function(button, event) {
+          var form = button.ownerCt.getForm();
+          if (form.isValid()) {
+              mapfish.Routing.prototype.fetchRoute.call(this,
+                                                       form.getValues());
+          }
+          this.parser = new OpenLayers.Format.GeoJSON({
+              internalProjection: this.map.projection,
+              externalProjection: this.map.displayProjection
+          });
+      }
+  });
+  var selectPointLayer = new OpenLayers.Layer.Vector("point select", {
+      displayInLayerSwitcher: false
+  });
+  map.addLayer(selectPointLayer);
+  selectPointControl = new
+                       OpenLayers.Control.DrawFeature(selectPointLayer,
+                                          OpenLayers.Handler.Point, {
+      featureAdded: pointSelected
+  });
+  map.addControl(selectPointControl);
+  var dragFeature = new OpenLayers.Control.DragFeature(selectPointLayer,
+{
+      onComplete: pointSelected
+  });
+  map.addControl(dragFeature);
+  dragFeature.activate();
+  //////////////////////////////////// Ext Panel code
+  var treePanel = {
+      title: 'Layer Tree',
+      xtype: 'layertree'
+  };
+  var routingPanel = {
+      title: 'Routing',
+      xtype: 'form',
+      defaultType: 'combo',
+      defaults: {
+          width: 160,
+          listWidth: 160,
+          allowBlank: false,
+          onTriggerClick: selectPoint,
+          triggerClass: 'x-form-search-trigger'
+      },
+      items: [{
+          fieldLabel: 'Departure',
+          name: 'source'
+      }, {
+          fieldLabel: 'Arrival',
+          name: 'target'
+      }],
+      buttons: [{
+          text: 'Show Itinerary',
+          handler: routing.fetchRoute,
+          scope: routing
+      }]
+  };
+  var panel = new Ext.Panel({
+      el: 'panel',
+      layout: 'accordion',
+      frame: false,
+      autoHeight: true,
+      defaults: {
+          border: false,
+          frame: false,
+          autoHeight: true,
+          bodyStyle: 'padding: 5px',
+          map: map
+      },
+      items: [treePanel, routingPanel]
+  });
+  panel.render();
+}
+</pre><p>
+The file public/osm.js contains the <a class="missing wiki">JavaScript?</a> code to be able to use <a class="missing wiki">OpenStreetMap?</a> tile with <a class="missing wiki">MapFish/OpenLayers?</a>.
+</p>
+<p>
+On the server side, the file controllers/routing.py contains the code that handles the nearest edge calculation, the routing calculation with the route returns as a geojson object.
+</p>
+<pre class="wiki">class RoutingController(BaseController):
+     def index(self):
+           # find the nearest node
+           source = self._nearestEdge(request.params['source']).source
+           target = self._nearestEdge(request.params['target']).target
+           # defines the shortest path function result
+           sp_result_type = [column('vertex_id'), column('edge_id'),
+                                                                   column('cost')]
+           # the shortest path function
+           sp_func = func.shortest_path("SELECT gid AS id, source, target, length
+                                             AS cost FROM ways",
+                                             source, target, False, False)
+           # query the database
+           route = g.routing_engine.execute(select(sp_result_type,
+                                                 from_obj=sp_func))
+           ways = model.Session.query(osm.Way).filter(osm.Way.gid.in_([i.edge_id
+                                                                      for i in route]))
+           result = FeatureCollection([line.toFeature() for line in ways if line])
+           return dumps(result)
+     def _nearestEdge(self, wkt):
+           distance = func.distance(osm.ways_table.c.the_geom,
+                                         func.GeometryFromText(wkt,
+                                                                   4326)).label('dist')
+           # find the nearest way
+           return model.Session.query(osm.ways_table, distance).order_by('dist')
+                                                                                    [0]
+</pre><p>
+You can modify the routing function by modifying func.shortest_path.
+</p>
+<p>
+The file model/osm.py contains the definition for the routing table used by the ORM, which is in this case composed one single table:
+</p>
+<pre class="wiki">from foss4g08_routing.lib.base import *
+from sqlalchemy import Table, Column, MetaData, types
+from sqlalchemy.orm import mapper
+from mapfish.sqlalchemygeom import Geometry, GeometryTableMixIn
+ways_table = Table('ways', MetaData(g.routing_engine),
+                          Column('gid', types.Integer, primary_key=True),
+                          Column('the_geom', Geometry()),
+                          Column('source', types.Integer),
+                          Column('target', types.Integer))
+class Way(GeometryTableMixIn):
+     __table__ = ways_table
+mapper = mapper(Way, ways_table)
+</pre>
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch03?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("ch03.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch03 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

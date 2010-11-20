@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/message/1725 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li><a href="../forum/24.html" title="osm2pgrouting">osm2pgrouting</a></li><li class="last"><a href="../topic/391.html" title="cycle routing">cycle routing</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>osm2pgrouting (#24) - cycle routing (#391) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              cycle routing
+            </div>
+            <div class="body">
+              <p>
+Hello,
+</p>
+<p>
+As I see osm2pgrouting don't support cycle routing, is it true?
+It is possible to contribute to add this support ?
+How ?
+</p>
+<p>
+CU
+Stéphane
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            sbrunner
+          </div>
+          <div class="time">
+            10/15/10 02:54:06 (5 weeks ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/391?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/391?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1701"></a>
+        <div class="id">
+          Message #1701
+        </div>
+        <div class="body">
+            <p>
+You mean it doesn't support import of cycling roads?<br />
+It actually imports the tags that you define in the configuration XML file. So all you need to do is to make sure that you find all tags that cyclists can use. If you import too many roads, you can then later also exclude them with your pgRouting query).
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/15/10 07:19:35 (5 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1706"></a>
+        <div class="id">
+          Message #1706
+        </div>
+        <div class="body">
+            <p>
+Than how to deal with tags mix like oneway=yes and cycleway=opposite ?
+</p>
+<p>
+CU
+Stéphane
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            sbrunner
+          </div>
+          <div class="time">
+            10/16/10 03:53:46 (5 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1707"></a>
+        <div class="id">
+          Message #1707
+        </div>
+        <div class="body">
+            <p>
+Sorry, I'm not very familiar with the cycling tags in OSM. If it doesn't make sense, it's a data issue IMO. If you have a good proposal for some cycling configuration XML, you're welcome to share and discuss (I think the mailing list is the better way if you want to talk to more users).
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/17/10 06:30:57 (5 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1725"></a>
+        <div class="id">
+          Message #1725
+        </div>
+        <div class="body">
+            <p>
+Hello,
+</p>
+<p>
+osm2pgrouting does support bicycle routing. You just have to: 1) Set up your XML configuration file appropriately (the default is missing a number of tags, as you mention); 2) Do a little post-processing in postgresql to update costs and reverse_costs accordingly.
+</p>
+<p>
+For example, our website <a class="ext-link" href="http://www.ridethecity.com/brisbane"><span class="icon"> </span>http://www.ridethecity.com/brisbane</a> is 100% OSM data and was populated 100% from osm2pgrouting (with some post-processing update queries to adjust costs from the tags' classes associated with the ways).
+</p>
+<p>
+By the way, I uploaded a patch that makes osm2pgrouting work better for cycling by importing ALL the tags associated with each way (instead of just one). See ticket <a class="new ticket" href="../../ticket/214.html" title="bug report: Cycleway ways are not being imported under some conditions (new)">#214</a>.
+</p>
+<p>
+I've made another update to osm2pgrouting that I'm testing now that will be useful to everyone. The existing version of osm2pgrouting doesn't deal with OSM relations so I've created a version that imports a relations table and a table that links them to ways. I use this now for bicycle routes that are maintained as relations, but it would also be useful to be able to import turn restrictions from OSM for use with the pgRouting shooting star heuristic. The post-processing on that would be a little complicated, but should be possible.
+</p>
+<p>
+Thanks,
+Jordan
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ja3n
+          </div>
+          <div class="time">
+            10/27/10 01:41:42 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/391?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/391?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

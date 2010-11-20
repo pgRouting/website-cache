@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/87 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/13.html" title="developer">developer</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>developer (#13) - Altering the search Algorithm parameters (#87) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Altering the search Algorithm parameters
+            </div>
+            <div class="body">
+              <p>
+Hey all,
+</p>
+<p>
+We are using <a class="missing wiki">PgRouting?</a> and it's been working fine for us, but we are having to do a lot of routing. The fact that it can do a route in less than a second is fine, but we are needing to do a few hundred routes.
+</p>
+<p>
+We have the list of points and right now are just calling the routing algorithms a few hundred times. We are thinking about altering the source code to accept a variable number of points and then return the route going across all of the points (in sequence).
+</p>
+<p>
+Any thoughts on doing it this way? Any test methods we can use in comparison to make sure we didn't mess anything up? Has anyone implemented this already and we just don't know about it?
+</p>
+<p>
+- Brian
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            peckb1
+          </div>
+          <div class="time">
+            12/21/07 03:23:53 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/87?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/87?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message330"></a>
+        <div class="id">
+          Message #330
+        </div>
+        <div class="body">
+            <p>
+No, we don't know about any existing solution for that. And we'll be VERY happy if you will implement it and contribute your source code to pgRouting!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/21/07 12:12:45 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message334"></a>
+        <div class="id">
+          Message #334
+        </div>
+        <div class="body">
+            <p>
+Anton and Brian -
+</p>
+<p>
+It appears that the routing for multiple stop points (what you need) and taking consideration of Highway Hierarchies (what i need) is really useful for this project.
+</p>
+<p>
+I was wondering if we can putting together a team to have it implemented.
+</p>
+<p>
+Thanks,
+Steve
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            steve
+          </div>
+          <div class="time">
+            12/24/07 17:48:58 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message336"></a>
+        <div class="id">
+          Message #336
+        </div>
+        <div class="body">
+            <p>
+That's great! We would be happy to make such team!
+</p>
+<p>
+I can give you commit rights for a sandbox or any other SVN branch.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/25/07 09:32:25 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message337"></a>
+        <div class="id">
+          Message #337
+        </div>
+        <div class="body">
+            <p>
+Thanks Anton for your support. It appears that the Brian's team is going to do something. I really like to know what Brian's team is up to and if we can work together.
+</p>
+<p>
+At the same time, I would like to do some research for the exports in this field, especially the university professors and their students. I then would like to contact them. The goal is to get more people involved. I have some targets already.
+</p>
+<p>
+On technical front, I believe what we need as technical resource is as follows:
+1) Existing pgrouting work as foundation
+2) An Highway Hierarchies Algorithm
+3) OpenLS core Service part 5 ADTs as routing domain parameters
+4) OpenLS conforming routing service access via openLayers and <a class="wiki" href="../../wiki/MapServer.html">MapServer</a>.
+</p>
+<p>
+Thanks,
+Steve
+<a class="ext-link" href="http://www.soniyatech.com/"><span class="icon"> </span>http://www.soniyatech.com</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            steve
+          </div>
+          <div class="time">
+            12/25/07 11:07:40 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message341"></a>
+        <div class="id">
+          Message #341
+        </div>
+        <div class="body">
+            <p>
+Lets come back to this discussion after 10th of January when I'll come back from holidays.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/28/07 12:46:56 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/87?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/87?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

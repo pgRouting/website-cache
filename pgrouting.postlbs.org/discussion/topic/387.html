@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/387 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/23.html" title="data">data</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>data (#23) - assing_vertex_id is not working on my data :( (#387) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              assing_vertex_id is not working on my data :(
+            </div>
+            <div class="body">
+              <p>
+hallo<br />
+I followed steps describe on FOSS4G 2007 VICTORIA dataset but with my own data and everything goes fine until I should use assign_vertex_id.<br />
+</p>
+<p>
+<strong>I use:</strong>
+<br />
+SELECT assign_vertex_id('newtable', 0.001, 'the_geom', 'gid');<br />
+<br />
+<strong>recieved:</strong><br />
+ERROR:  Function assign_vertex_id(unknown, numeric, unknown, unknown) do not exist
+</p>
+<p>
+LINE 1: SELECT assign_vertex_id('newtable', 0.001, 'the_geom', 'gid'...<br />
+</p>
+<blockquote>
+<p>
+<sup>
+</sup></p>
+</blockquote>
+<p>
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.<br />
+<br />
+</p>
+<p>
+<strong>My table :</strong><br />
+<br />
+</p>
+<pre class="wiki">                                 Table "public.newtable"
+  Column  |          Type          |                      Modificators
+-----------+-----------------------+--------------------------------------------------------
+ gid       | integer               | not null default nextval('newtable_gid_seq'::regclass)
+ fcc       | smallint              |
+ road_id   | bigint                |
+ on        | character varying(50) |
+ df        | smallint              |
+ fw        | smallint              |
+ sl        | smallint              |
+ fy        | smallint              |
+ ds        | smallint              |
+ fc        | smallint              |
+ rn        | character varying(10) |
+ rne       | character varying(16) |
+ toll_road | smallint              |
+ toll      | smallint              |
+ urban     | smallint              |
+ oc_admin8 | character varying(6)  |
+ oc_admin9 | character varying(6)  |
+ level_b   | smallint              |
+ level_m   | smallint              |
+ level_e   | smallint              |
+ bt        | smallint              |
+ nc        | smallint              |
+ oneway    | character varying(2)  |
+ meter     | double precision      |
+ the_geom  | geometry              |
+ source    | integer               |
+ target    | integer               |
+ length    | double precision      |
+Indexes:
+    "newtable_pkey" PRIMARY KEY, btree (gid)
+Constrains:
+    "enforce_dims_the_geom" CHECK (ndims(the_geom) = 2)
+    "enforce_geotype_the_geom" CHECK (geometrytype(the_geom) = 'MULTILINESTRING'::text OR the_geom IS NULL)
+    "enforce_srid_the_geom" CHECK (srid(the_geom) = 54004)
+</pre><p>
+<br />
+</p>
+<p>
+can you help me please ?
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/04/10 02:10:01 (7 weeks ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/387?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/387?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1656"></a>
+        <div class="id">
+          Message #1656
+        </div>
+        <div class="body">
+            <p>
+Is the function available in your database? Here are all required steps: <a class="ext-link" href="http://download.osgeo.org/pgrouting/foss4g2010/workshop/docs/html/chapters/osm2pgrouting.html#create-routing-database"><span class="icon"> </span>http://download.osgeo.org/pgrouting/foss4g2010/workshop/docs/html/chapters/osm2pgrouting.html#create-routing-database</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/04/10 15:26:13 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1657"></a>
+        <div class="id">
+          Message #1657
+        </div>
+        <div class="body">
+            <p>
+hallo Daniel<br />
+</p>
+<p>
+thank for advice.<br />
+</p>
+<p>
+so I tried it again acoording your description.<br />
+</p>
+<p>
+Only make small difference that I used lwpostgis.sql except of postgis.sql because I havent got it in system. Is it ok?<br />
+</p>
+<p>
+Also I used shp2pgsql -s 54004 -i -I /sample.shp test_table &gt; sample.sql to create import sql.<br />
+</p>
+<p>
+Next should I follow this ?:<br />
+</p>
+<p>
+psql -U postgres test_db \i /sample.sql
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/04/10 16:16:41 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1658"></a>
+        <div class="id">
+          Message #1658
+        </div>
+        <div class="body">
+            <p>
+It depends on your version of PostGIS if you have postgis.sql or not.
+</p>
+<p>
+If your data is available as SHP file, then it's OK to import it the way you wrote. If you have OSM data, you should use some tool like osm2pgrouting or osm2po (there are even more).
+</p>
+<p>
+I actually recommend you to do the 2010 workshop and not the one of 2007, because a couple of things are outdated. Once you understand how it works, you can use any data.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/05/10 05:10:50 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1663"></a>
+        <div class="id">
+          Message #1663
+        </div>
+        <div class="body">
+            <p>
+thanks Daniel<br />
+I find out that somehow my the_geom column was empty therefore assign_vertesx didnt work :). <br />
+Now I sucesfuly import my data into database.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/06/10 02:45:51 (6 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/387?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/387?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

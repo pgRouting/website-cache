@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/108 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:17:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #108 (Shooting_Star not accepting a JOINing query)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="148.html" title="Ticket #148" />
+        <link rel="last" href="109.html" title="Ticket #109" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/108?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/108?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/108?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="up" href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1" />
+        <link rel="next" href="136.html" title="Ticket #136" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="138.html" title="Ticket #138" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="148.html" title="Ticket #148">Previous Ticket</a></span></li><li><a href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1">Back to Query</a></li><li class="last"><span><a class="next" href="136.html" title="Ticket #136">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #108
+          <span class="status">(closed feature request: fixed)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-10T00%3A11%3A21%2B0900&amp;precision=second" title="2008-04-10T00:11:21+0900 in Timeline">3 years</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-06-02T08%3A48%3A21%2B0900&amp;precision=second" title="2008-06-02T08:48:21+0900 in Timeline">2 years</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">Shooting_Star not accepting a JOINing query</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">yancho</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">anton
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      major
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="milestone" href="../milestone/Version%202.html">Version 2.0</a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      Shooting*
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      1.01
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                      shooting star query where join
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+Hi,
+</p>
+<p>
+anton, I tried changing the Shooting Star function like you told me to accept a WHERE clause, and am calling for it via another function.
+</p>
+<p>
+This is how I am calling it :
+</p>
+<pre class="wiki">      var_params_shootingstar := 
+          $v$
+                WHERE
+                       t1.status = TRUE,
+                       AND    (
+                                (
+                                  (
+                                    SELECT
+                                          z( pointn( geometryn(d3.the_geom,1), 1) ) AS z
+                                          FROM streets_3d d3
+                                               WHERE d3.gid = t1.gid 
+                                   ) / $v$ || var_rain_cm || $v$
+                                  ) &gt;= $v$ || rain_ratio || $v$
+                                ),
+                        AND     ( 
+                                   $v$ || var_ratio_cartype_rain || $v$ &lt;= 10
+                                ) ,
+                    
+           $v$;
+
+       RAISE NOTICE 'Where clause : %', var_params_shootingstar;
+
+       var_text_shootingstar :=
+        $qt$
+          SELECT gid, the_geom
+              FROM shootingstar_sp_where_new
+              (
+                'streets',
+        $qt$ || var_gid_a || $qt$,
+        $qt$ || var_gid_b || $qt$,
+                5000,
+                'length',
+                true,
+                true,
+	$qt$ || quote_literal(var_params_shootingstar) || $qt$
+              )
+        $qt$;
+      
+      RAISE NOTICE 'SQL Query : %',var_text_shootingstar;
+  
+      var_id := 0;
+
+      FOR rec_shooting_star IN
+       	    EXECUTE var_text_shootingstar
+</pre><p>
+The query part which I added the WHERE clause is :
+</p>
+<pre class="wiki">	query := 'SELECT gid, the_geom FROM ' || 
+          'shortest_path_shooting_star(''SELECT t1.gid as id, t1.source::integer, ' || 
+          't1.target::integer, t1.'||cost_column||'::double precision as cost, ' || 
+          't1.x1::double precision, t1.y1::double precision, t1.x2::double ' ||
+          't1.precision, t1.y2::double precision, t1.rule::varchar, ' ||
+	  't1.to_cost::double precision ';
+	  
+	IF rc THEN query := query || ' , t1.reverse_cost ';  
+	END IF;
+	  
+	query := query || 'FROM ' || quote_ident(geom_table) || ' AS t1 ' || query_text || ' AND setSRID(''''BOX3D('||
+          ll_x-delta||' '||ll_y-delta||','||ur_x+delta||' '||
+          ur_y+delta||')''''::BOX3D, ' || srid || ') &amp;&amp; the_geom'', ' || 
+          quote_literal(sourceid) || ' , ' || 
+          quote_literal(targetid) || ' , '''||text(dir)||''', '''||text(rc)||''' ) , ' || 
+          quote_ident(geom_table) || ' where edge_id = gid ' ;
+
+	RAISE NOTICE 'Query is : %', query;
+</pre><p>
+When I am running my function, this is what I am getting :
+</p>
+<pre class="wiki">NOTICE:  SQL Query : 
+          SELECT gid, the_geom
+              FROM shootingstar_sp_where_new
+              (
+                'streets',
+        36368,
+        39134,
+                5000,
+                'length',
+                true,
+                true,
+                '',
+	'
+                WHERE
+                       t1.status = TRUE,
+                       AND    (
+                                (
+                                  (
+                                    SELECT
+                                          z( pointn( geometryn(d3.the_geom,1), 1) ) AS z
+                                          FROM streets_3d d3
+                                               WHERE d3.gid = t1.gid 
+                                   ) / 0.0001
+                                  ) &gt;= 1
+                                ),
+                        AND     ( 
+                                   0 &lt;= 10
+                                ) ,
+                    
+           '
+              )
+        
+NOTICE:  Query is : SELECT gid, the_geom FROM shortest_path_shooting_star('SELECT t1.gid as id, t1.source::integer, t1.target::integer, t1.length::double precision as cost, t1.x1::double precision, t1.y1::double precision, t1.x2::double t1.precision, t1.y2::double precision, t1.rule::varchar, t1.to_cost::double precision  , t1.reverse_cost FROM streets AS t1  
+                WHERE
+                       t1.status = TRUE,
+                       AND    (
+                                (
+                                  (
+                                    SELECT
+                                          z( pointn( geometryn(d3.the_geom,1), 1) ) AS z
+                                          FROM streets_3d d3
+                                               WHERE d3.gid = t1.gid 
+                                   ) / 0.0001
+                                  ) &gt;= 1
+                                ),
+                        AND     ( 
+                                   0 &lt;= 10
+                                ) ,
+                    
+            AND setSRID(''BOX3D(630264.299796684 224548.091433566,643684.863573708 241417.300516518)''::BOX3D, -1) &amp;&amp; the_geom', '36368' , '39134' , 'true', 'true' ) , streets where edge_id = gid 
+CONTEXT:  PL/pgSQL function "give_most_fuel_friendly" line 127 at for over execute statement
+
+ERROR: syntax error at or near "t1"
+SQL state: 42601
+Context: PL/pgSQL function "shootingstar_sp_where_new" line 116 at for over execute statement
+PL/pgSQL function "give_most_fuel_friendly" line 127 at for over execute statement
+
+</pre><p>
+Any idea what I can do please? I think it is a bug in the shootingstar function since it seems it doesn't accept a join to another table :|
+</p>
+<p>
+I am all the days on IRC, so if you can try to log in so we can discuss better it would be really nice of you.
+</p>
+<p>
+Thanks
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-10T11%3A10%3A17%2B0900&amp;precision=second" title="2008-04-10T11:10:17+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>owner</strong>
+            changed from <em>somebody</em> to <em>anton</em>
+        </li><li>
+          <strong>status</strong>
+              changed from <em>new</em> to <em>assigned</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Hi Matthew,
+</p>
+<p>
+Please look at the sandbox/wrappers/routing_core_smart.sql file - there you can see how do I join the table and the result of the function.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-10T17%3A06%3A16%2B0900&amp;precision=second" title="2008-04-10T17:06:16+0900 in Timeline">3 years</a> ago by yancho
+                </h3>
+      <div class="comment searchable">
+        <p>
+Thanks anton :)
+</p>
+<p>
+I gave it a look, but its quite a long one. Do you remember what is the function that does the joining please? Thanks
+</p>
+<p>
+On mine what I did was do a column join and did the query on the same table
+</p>
+<p>
+Thanks for your support! :)
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-11T13%3A46%3A18%2B0900&amp;precision=second" title="2008-04-11T13:46:18+0900 in Timeline">3 years</a> ago by daniel
+                </h3>
+      <div class="comment searchable">
+        <p>
+Hi Matthew,
+</p>
+<p>
+does this help you?
+<a href="../wiki/SQLTipsAndTricks.html">http://pgrouting.postlbs.org/wiki/SQLTipsAndTricks</a>
+</p>
+<p>
+It's probably a good idea to extend the Wiki with some SQL recipies.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-11T16%3A11%3A21%2B0900&amp;precision=second" title="2008-04-11T16:11:21+0900 in Timeline">3 years</a> ago by yancho
+                </h3>
+      <div class="comment searchable">
+        <p>
+Hi Daniel,
+</p>
+<p>
+Yep seems it does the trick :) Thanks alot. Will use it if the need arises. What I did was make a view which connects the columns itself so I did a work around :)
+</p>
+<p>
+Thanks
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:5">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-05-14T15%3A29%3A26%2B0900&amp;precision=second" title="2008-05-14T15:29:26+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>assigned</em> to <em>closed</em>
+        </li><li>
+          <strong>resolution</strong>
+              set to <em>fixed</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:7">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-06-02T08%3A47%3A37%2B0900&amp;precision=second" title="2008-06-02T08:47:37+0900 in Timeline">2 years</a> ago by daniel
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>closed</em> to <em>reopened</em>
+        </li><li>
+          <strong>resolution</strong>
+              <em>fixed</em> deleted
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Spam problem
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:8">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-06-02T08%3A48%3A21%2B0900&amp;precision=second" title="2008-06-02T08:48:21+0900 in Timeline">2 years</a> ago by daniel
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>reopened</em> to <em>closed</em>
+        </li><li>
+          <strong>resolution</strong>
+              set to <em>fixed</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+No, sorry, it was really fixed already.
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/108?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/108?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/108?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("108.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/108 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:17:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

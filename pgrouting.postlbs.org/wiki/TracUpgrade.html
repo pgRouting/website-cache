@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracUpgrade by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracUpgrade – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/TracUpgrade?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/TracUpgrade?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/TracUpgrade?action=diff&amp;version=3">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h1 id="UpgradeInstructions">Upgrade Instructions</h1>
+<p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ul><li class="False"><a class="False" href="TracGuide.html">Index</a></li><li class="False"><a class="False" href="TracInstall.html">Installation</a></li><li class="False"><a class="False" href="TracInterfaceCustomization.html">Customization</a></li><li class="False"><a class="False" href="TracPlugins.html">Plugins</a></li><li class="active"><a class="False" href="TracUpgrade.html">Upgrading</a></li><li class="False"><a class="False" href="TracIni.html">Configuration</a></li><li class="False"><a class="False" href="TracAdmin.html">Administration</a></li><li class="False"><a class="False" href="TracBackup.html">Backup</a></li><li class="False"><a class="False" href="TracLogging.html">Logging</a></li><li class="False"><a class="False" href="TracPermissions.html">Permissions</a></li><li class="False"><a class="False" href="TracWiki.html">The Wiki</a></li><li class="False"><a class="False" href="WikiFormatting.html">Wiki Formatting</a></li><li class="False"><a class="False" href="TracTimeline.html">Timeline</a></li><li class="False"><a class="False" href="TracBrowser.html">Repository Browser</a></li><li class="False"><a class="False" href="TracRevisionLog.html">Revision Log</a></li><li class="False"><a class="False" href="TracChangeset.html">Changesets</a></li><li class="False"><a class="False" href="TracTickets.html">Tickets</a></li><li class="False"><a class="False" href="TracWorkflow.html">Workflow</a></li><li class="False"><a class="False" href="TracRoadmap.html">Roadmap</a></li><li class="False"><a class="False" href="TracQuery.html">Ticket Queries</a></li><li class="False"><a class="False" href="TracReports.html">Reports</a></li><li class="False"><a class="False" href="TracRss.html">RSS Support</a></li><li class="False"><a class="False" href="TracNotification.html">Notification</a></li></ul></div><p>
+</p>
+<p>
+A <a class="wiki" href="TracEnvironment.html">Trac environment</a> needs to be upgraded before it can be used with Trac 0.11. This document describes the steps necessary to upgrade an environment.
+</p>
+<p>
+Environment upgrades are not necessary for minor version releases unless otherwise noted. 
+</p>
+<h2 id="Instructions">Instructions</h2>
+<p>
+Typically, there are four steps involved in upgrading to a newer version of Trac:
+</p>
+<h3 id="UpdatetheTracCode">Update the Trac Code</h3>
+<p>
+Get the new version as described in <a class="wiki" href="TracInstall.html">TracInstall</a>, or your operating system specific procedure.
+</p>
+<p>
+If you do a manual (not operating system specific) upgrade, you should also stop any running Trac server before the installation. Doing "hot" upgrades is not advised, especially not on Windows (<a class="ext-link" href="http://trac.edgewall.org/intertrac/ticket%3A7625" title="ticket:7625 in Trac project trac"><span class="icon"> </span>#7265</a>).
+</p>
+<p>
+You may also want to remove the pre-existing Trac code by deleting the <tt>trac</tt> directory from the Python <tt>lib/site-packages</tt> directory, or remove Trac .eggs from former versions.
+The location of the site-packages directory depends on the operating system, and the location in which Python was installed. However, the following locations are common:
+</p>
+<ul><li>If you’re using Linux: /usr/lib/python2.X/site-packages
+</li><li>If you’re using Windows: C:\Python2.X\lib\site-packages
+</li><li>If you’re using MacOSX: /Library/Python/2.X/site-packages
+</li></ul><p>
+You may also want to remove the Trac <tt>cgi-bin</tt>, <tt>htdocs</tt>, <tt>templates</tt> and <tt>wiki-default</tt> directories that are commonly found in a directory called <tt>share/trac</tt> (the exact location depends on your platform).
+</p>
+<p>
+This cleanup is not mandatory, but it makes it easier to troubleshoot issues later on, as you won't waste your time looking at code or templates from a previous release that are not being used anymore... As usual, make a backup before actually deleting things.
+</p>
+<p>
+If you had the webadmin plugin installed, you can now uninstall it as it is now part of the Trac code base.
+</p>
+<h3 id="UpgradetheTracEnvironment">Upgrade the Trac Environment</h3>
+<p>
+After restarting, Trac should show the instances which need a manual upgrade via the automated upgrade scripts to ease the pain. These scripts are run via <a class="wiki" href="TracAdmin.html">trac-admin</a>:
+</p>
+<pre class="wiki">trac-admin /path/to/projenv upgrade
+</pre><p>
+This command will do nothing if the environment is already up-to-date.
+</p>
+<p>
+Note that if you are using a PostgreSQL database, this command will fail with the message that the environment can only be backed up when you use an SQLite database. This means that you will have to backup the repository and the database manually. Then, to perform the actual upgrade, run:
+</p>
+<pre class="wiki">trac-admin /path/to/projenv upgrade --no-backup
+</pre><p>
+If you are using custom CSS styles or modified templates in the templates directory of the <a class="wiki" href="TracEnvironment.html">TracEnvironment</a>, you will need to convert them to the Genshi way of doing things. To continue to use your style sheet, follow the instructions at <a class="wiki" href="TracInterfaceCustomization.html#SiteAppearance">TracInterfaceCustomization#SiteAppearance</a>.
+</p>
+<h3 id="UpdatetheTracDocumentation">Update the Trac Documentation</h3>
+<p>
+Every <a class="wiki" href="TracEnvironment.html">Trac environment</a> includes a copy of the Trac documentation for the installed version. As you probably want to keep the included documentation in sync with the installed version of Trac, <a class="wiki" href="TracAdmin.html">trac-admin</a> provides a command to upgrade the documentation:
+</p>
+<pre class="wiki">trac-admin /path/to/projenv wiki upgrade
+</pre><p>
+Note that this procedure will of course leave your <tt>WikiStart</tt> page intact.
+</p>
+<h3 id="SiteTemplates">Site Templates</h3>
+<p>
+The templating engine has changed in 0.11, please look at <a class="wiki" href="TracInterfaceCustomization.html">TracInterfaceCustomization</a> for more information.
+</p>
+<h3 id="TracMacrosPlugins">Trac Macros, Plugins</h3>
+<p>
+The Trac macros will need to be adapted, as the old-style wiki-macros are not supported anymore (due to the drop of <a class="ext-link" href="http://trac.edgewall.org/intertrac/ClearSilver" title="ClearSilver in Trac project trac"><span class="icon"> </span>ClearSilver</a> and the HDF); they need to be converted to the new-style macros, see <a class="wiki" href="WikiMacros.html">WikiMacros</a>. When they are converted to the new style, they need to be placed into the plugins directory instead and not wiki-macros, which is no longer scanned for macros or plugins.
+</p>
+<h3 id="ForCGIusers">For CGI users</h3>
+<p>
+For those who run Trac under the CGI environment, run this command in order to obtain the trac.cgi file:
+</p>
+<pre class="wiki">trac-admin /path/to/env deploy /deploy/directory/path
+</pre><p>
+This will create a deploy directory with the following two subdirectories: <tt>cgi-bin</tt> and <tt>htdocs</tt>. Then update your Apache configuration file <tt>httpd.conf</tt> with this new <tt>trac.cgi</tt> location and <tt>htdocs</tt> location.
+</p>
+<h3 id="RestarttheWebServer">Restart the Web Server</h3>
+<p>
+If you are not running <a class="wiki" href="TracCgi.html">CGI</a>, reload the new Trac code by restarting your web server.
+</p>
+<h2 id="KnownIssues">Known Issues</h2>
+<h3 id="parentdir">parent dir</h3>
+<p>
+If you use a trac parent env configuration and one of the plugins in one child does not work, none of the children work.
+</p>
+<h3 id="somecoremoduleswontload">some core modules won't load</h3>
+<p>
+This can happen in particular with Python 2.3 on Windows when upgrading without uninstalling first.
+Some modules were previously capitalized and were changed to lower case, e.g. trac/About.py became trac/about.py. You may find such messages in the Trac log:
+</p>
+<pre class="wiki">ERROR: Skipping "trac.about = trac.about": (can't import "No module named about")
+</pre><p>
+Remove the <tt>Lib/site-packages/trac</tt> folder and reinstall.
+</p>
+<h3 id="WikiUpgrade">Wiki Upgrade</h3>
+<p>
+<tt>trac-admin</tt> will not delete or remove pages that were in version 0.10 but now are not in version 0.11, such as <a class="wiki" href="WikiMacros.html">WikiMacros</a>.
+</p>
+<h2 id="ChangingDatabaseBackend">Changing Database Backend</h2>
+<h2 id="SQLitetoPostgreSQL">SQLite to PostgreSQL</h2>
+<p>
+The <a class="ext-link" href="http://trac-hacks.org/wiki/SqliteToPgScript"><span class="icon"> </span>sqlite2pg</a> script on <a class="ext-link" href="http://trac-hacks.org/"><span class="icon"> </span>trac-hacks.org</a> has been written to assist in migrating a SQLite database to a PostgreSQL database
+</p>
+<h2 id="OlderVersions">Older Versions</h2>
+<p>
+For upgrades from versions older than Trac 0.10, refer first to <a class="ext-link" href="http://trac.edgewall.org/intertrac/wiki%3A0.10/TracUpgrade" title="wiki:0.10/TracUpgrade in Trac project trac"><span class="icon"> </span>trac:wiki:0.10/TracUpgrade</a>.
+</p>
+<p>
+Note that downgrading from Trac 0.11 to Trac 0.10.4 or 0.10.5 is easy, but has to be done manually, e.g.
+</p>
+<pre class="wiki">$ sqlite3 db/trac.db "update system set value=20 where name='database_version'"
+</pre><p>
+(upgrade can be redone the normal way later on)
+</p>
+<hr />
+<p>
+See also: <a class="wiki" href="TracGuide.html">TracGuide</a>, <a class="wiki" href="TracInstall.html">TracInstall</a>
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/TracUpgrade?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TracUpgrade.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracUpgrade by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

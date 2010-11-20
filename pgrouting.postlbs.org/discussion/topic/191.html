@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/191 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/15.html" title="others">others</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>others (#15) - Map matching (#191) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Map matching
+            </div>
+            <div class="body">
+              <p>
+Please, do any one know if there is any function in postgresql for map matching or also known as map snapping.The Gps Unit (x,y) points are a little bit off the road. i want to know on how i can match the GPS (x,y) to the closext point on the map. i have tried several ways but the points(x,y) i am getting are not accurate.
+your urgent assitance is appreciated.
+Thank you
+</p>
+<p>
+Ilotus
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ilotus
+          </div>
+          <div class="time">
+            12/18/08 10:52:02 (2 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/191?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/191?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message672"></a>
+        <div class="id">
+          Message #672
+        </div>
+        <div class="body">
+            <p>
+You could try this: <a href="../../browser/trunk/core/sql/matching.html">http://pgrouting.postlbs.org/browser/trunk/core/sql/matching.sql</a>
+</p>
+<p>
+It should be close to what you're looking for. <br />
+It's currently in "trunk", so if you find any improvements or errors, please let us know about it.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            12/19/08 09:49:09 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message673"></a>
+        <div class="id">
+          Message #673
+        </div>
+        <div class="body">
+            <p>
+Hello daniel,
+Thank you for your response. i have gone through the functions -(matching.sql).
+please can you give me more insight on how i can implement these functions.
+any simple example will be highly appreciated.
+Thank you and look forward to your kind reply.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ilotus
+          </div>
+          <div class="time">
+            12/19/08 12:49:45 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message674"></a>
+        <div class="id">
+          Message #674
+        </div>
+        <div class="body">
+            <p>
+I used this query to "match" a line with a road network:
+</p>
+<pre class="wiki">SELECT * FROM match_line_as_linestring(
+                   'my_network_table',
+	            setsrid(GeometryFromText('LINESTRING(x1 y1, x2 y2, ... ),4326),
+	            0.01, 0.01, false, false
+            );
+</pre>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            12/19/08 12:57:08 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message676"></a>
+        <div class="id">
+          Message #676
+        </div>
+        <div class="body">
+            <p>
+Hello daniel,
+Thank you once again. i have tried the same querry and it returns a linestring. actually, i want to pass a point i.e longitude, latitude from the gps unit, to get a matching point(x,y) on the map. do you have any idea on how to do that?
+secondly,does it mean i need to create a linestring from a point(x,y), knowing full well that a linestring comprises of two or more points?
+</p>
+<p>
+The scenario is like this; i have a gps unit but most times the recieved (lat lon) is not exactly on the road. so i want to correct this by obtaining the accurate point from the map, so that i can make use of the corrected point while rendering the map.
+so is there anyway, i can get a matching point from the linestring obtained?
+thank you for your kind assistance and hope to hear from you on this.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ilotus
+          </div>
+          <div class="time">
+            12/19/08 13:52:02 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message677"></a>
+        <div class="id">
+          Message #677
+        </div>
+        <div class="body">
+            <p>
+The function I mentioned above returns a single linestring (path) and tries to match it with the network. <br />
+What you need is probably much more simple. You just want to find the nearest road link to your actual GPS point, right?
+</p>
+<p>
+This you can do with PostGIS only and it doesn't require pgRouting. Look at this example from the last year's workshop:
+<a href="../../wiki/Workshop-ClosestEdge.html">http://pgrouting.postlbs.org/wiki/Workshop-ClosestEdge</a> <br />
+The query searches for all links within a bounding box around your point, orders them by distance and returns the one on the top.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            12/19/08 14:04:29 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/191?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/191?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

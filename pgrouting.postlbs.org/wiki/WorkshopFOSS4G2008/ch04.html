@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch04 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      WorkshopFOSS4G2008/ch04 – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch04?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../WorkshopFOSS4G2008.html" title="View parent page" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../WorkshopFOSS4G2008.html">Up</a></li><li><a href="../WikiStart.html">Start Page</a></li><li><a href="../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch04?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch04?action=diff&amp;version=2">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View WorkshopFOSS4G2008" href="../WorkshopFOSS4G2008.html">WorkshopFOSS4G2008</a><span class="pathentry sep">/</span><a class="pathentry" title="View WorkshopFOSS4G2008/ch04" href="ch04.html">ch04</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="AboutOpenStreetMap">About <a class="missing wiki">OpenStreetMap?</a></h1>
+<p>
+"<a class="missing wiki">OpenStreetMap?</a> is a project aimed squarely at creating and providing free 
+geographic data such as street maps to anyone who wants them." 
+"The project was started because most maps you think of as free actually have 
+legal or technical restrictions on their use, holding back people from using 
+them in creative, productive or unexpected ways." 
+[Source: http://wiki.openstreetmap.org/index.php/Press]
+</p>
+<p>
+<a class="missing wiki">OpenStreetMap?</a> uses a topological data structure:
+</p>
+<ul><li>Nodes are points with a geographic position.
+</li><li>Ways are lists of nodes, representing a polyline or polygon.
+</li><li>Relations are groups of nodes, ways and other relations which can be assigned certain properties.
+</li><li>Tags can be applied to nodes, ways or relations and consist of name=value pairs.
+</li></ul><p>
+ 
+This is how nodes, ways and relations are described in the <a class="missing wiki">OpenStreetMap?</a> XML
+file:
+</p>
+<pre class="wiki">&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;osm version='0.5' generator='JOSM'&gt;
+  ...
+  &lt;node id='252791067' timestamp='2008-03-18T19:45:06+00:00' user='Russell Cloran' visible='true' lat='-33.9291602' lon='18.4251865'&gt;
+    &lt;tag k='created_by' v='JOSM' /&gt;
+  &lt;/node&gt;
+  &lt;node id='252791066' timestamp='2008-03-18T19:45:05+00:00' user='Russell Cloran' visible='true' lat='-33.9305174' lon='18.4265772'&gt;
+    &lt;tag k='created_by' v='JOSM' /&gt;
+  &lt;/node&gt;
+  &lt;node id='252791065' timestamp='2008-03-18T19:45:04+00:00' user='Russell Cloran' visible='true' lat='-33.930418' lon='18.4231201'&gt;
+    &lt;tag k='created_by' v='JOSM' /&gt;
+  &lt;/node&gt;
+  ...
+  &lt;node id='260366643' timestamp='2008-04-28T10:59:11+01:00' user='Adrian Frith' visible='true' lat='-33.9287313' lon='18.415251'&gt;
+    &lt;tag k='created_by' v='JOSM' /&gt;
+    &lt;tag k='name' v='South African Museum' /&gt;
+    &lt;tag k='tourism' v='museum' /&gt;
+  &lt;/node&gt;
+  ...
+  &lt;way id='26358722' timestamp='2008-08-17T15:41:55+01:00' user='Adrian Frith' visible='true'&gt;
+    &lt;nd ref='288787699' /&gt;
+    &lt;nd ref='288787695' /&gt;
+    &lt;tag k='highway' v='residential' /&gt;
+    &lt;tag k='name' v='Guinea Fowl Crescent' /&gt;
+  &lt;/way&gt;
+  &lt;way id='26358723' timestamp='2008-08-17T15:41:56+01:00' user='Adrian Frith' visible='true'&gt;
+    &lt;nd ref='288787696' /&gt;
+    &lt;nd ref='288787723' /&gt;
+    &lt;nd ref='288787724' /&gt;
+    &lt;nd ref='288787728' /&gt;
+    &lt;nd ref='288787725' /&gt;
+    &lt;nd ref='288787677' /&gt;
+    &lt;tag k='highway' v='residential' /&gt;
+    &lt;tag k='name' v='Old Farm Road' /&gt;
+  &lt;/way&gt;
+  ...
+  &lt;relation id='27924' timestamp='2008-08-17T09:53:48+01:00' user='Adrian Frith' visible='true'&gt;
+    &lt;member type='way' ref='4994378' role='outer' /&gt;
+    &lt;member type='way' ref='5022484' role='innner' /&gt;
+    &lt;tag k='type' v='multipolygon' /&gt;
+  &lt;/relation&gt;
+  &lt;relation id='22713' timestamp='2008-07-27T22:49:25+01:00' user='Adrian Frith' visible='true'&gt;
+    &lt;member type='way' ref='25817796' role='outer' /&gt;
+    &lt;member type='way' ref='25817797' role='inner' /&gt;
+    &lt;tag k='type' v='multipolygon' /&gt;
+  &lt;/relation&gt;
+  ...
+&lt;/osm&gt;
+</pre><p>
+The OSM data can be downloaded from <a class="missing wiki">OpenStreetMap?</a> website using an API (see <a class="ext-link" href="http://wiki.openstreetmap.org/index.php/OSM_Protocol_Version_0.5"><span class="icon"> </span>http://wiki.openstreetmap.org/index.php/OSM_Protocol_Version_0.5</a>), or with some other OSM tools, for example JOSM editor.
+</p>
+<p>
+<strong>Update:</strong> <a class="missing wiki">CloudMade?</a> offers extracts of maps from different places around the world. For South Africa go to <a class="ext-link" href="http://download.cloudmade.com/africa/south_africa"><span class="icon"> </span>http://download.cloudmade.com/africa/south_africa</a> 
+</p>
+<p>
+Note: The API has a download size limitation, which can make it a bit inconvenient to download extensive areas with many features.
+</p>
+<p>
+When using the osm2pgrouting converter (<a class="wiki" href="ch10.html">see later</a>), we take only nodes and ways 
+of types and classes specified in "mapconfig.xml" file to be converted to 
+pgRouting table format:
+</p>
+<pre class="wiki">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;configuration&gt;
+  &lt;type name="highway" id="1"&gt;
+    &lt;class name="motorway" id="101" /&gt;
+    &lt;class name="motorway_link" id="102" /&gt;
+    &lt;class name="motorway_junction" id="103" /&gt;
+    ...
+    &lt;class name="road" id="100" /&gt;
+  &lt;/type&gt;    
+  &lt;type name="junction" id="4"&gt;
+    &lt;class name="roundabout" id="401" /&gt;
+  &lt;/type&gt;  
+&lt;/configuration&gt;  
+</pre><p>
+Detailed description of all possible types and classes can be found here:
+<a class="ext-link" href="http://wiki.openstreetmap.org/index.php/Map_features"><span class="icon"> </span>http://wiki.openstreetmap.org/index.php/Map_features</a>.
+</p>
+<p>
+For Cape Town the <a class="missing wiki">OpenStreetMap?</a> data is very comprehensive with many details.
+A compilation of the greater Cape Town area created with JOSM is available as
+capetown_20080829.osm.
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch04?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("ch04.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch04 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,1291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/190 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:01:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #190 (First edge and last edge don't respect the one way restriction)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="178.html" title="Ticket #178" />
+        <link rel="last" href="218.html" title="Ticket #218" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/190?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/190?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/190?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="next" href="192.html" title="Ticket #192" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="1.html" title="Ticket #1" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="178.html" title="Ticket #178">Previous Ticket</a></span></li><li class="last"><span><a class="next" href="192.html" title="Ticket #192">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #190
+          <span class="status">(accepted bug report)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-23T00%3A39%3A25%2B0900&amp;precision=second" title="2009-10-23T00:39:25+0900 in Timeline">13 months</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-10-30T17%3A25%3A55%2B0900&amp;precision=second" title="2010-10-30T17:25:55+0900 in Timeline">3 weeks</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">First edge and last edge don't respect the one way restriction</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">carlofrancesco</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">anton
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      major
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="missing milestone"></a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      Shooting*
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      trunk
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                      oneway restriction  shortest_path_shooting_star
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+As told here <a href="../discussion/topic/308.html#message1160">http://pgrouting.postlbs.org/discussion/topic/308#message1160</a> shortest_path_shooting_star algorithm doesn't respect  one-way restriction of the first and last edge:
+</p>
+<p>
+look at this image: <a class="ext-link" href="http://img132.imageshack.us/img132/8185/error2ia.jpg"><span class="icon"> </span>http://img132.imageshack.us/img132/8185/error2ia.jpg</a>
+</p>
+<p>
+edge_id|vertex_id|cost|street
+4311;790;1001000138.79372;790;"RE G. (VIA)"
+4150;501;61.479488767088;501;"PACCHIOTTI G. (VIA)"
+6114;856;1001000142.27532;856;"LIONETTO (STR. DEL)"
+</p>
+<p>
+Query is 
+</p>
+<p>
+SELECT ".TABLE.".*, <a class="missing wiki">AsText?</a>?(".TABLE.".the_geom) AS wkt FROM ".TABLE.", shortest_path_shooting_star('SELECT gid as id, source, target, cost, reverse_cost,
+</p>
+<blockquote>
+<p>
+x1, y1, x2, y2, rule, to_cost FROM ".TABLE."', ".$startEdgegid?.", ".$endEdgegid?.", true, true) as rt
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+WHERE ".TABLE.".gid=rt.edge_id;
+</p>
+</blockquote>
+</blockquote>
+
+              </div>
+            </div>
+        </div>
+          <h2>Attachments</h2>
+          <div id="attachments">
+            <dl class="attachments">
+                <dt>
+      <a href="../attachment/ticket/190/Strade_Select.sql.tar.html" title="View attachment">Strade_Select.sql.tar.bz2</a>
+      <a href="../raw-attachment/ticket/190/Strade_Select.sql.tar.bz2" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="185183 bytes">180.8 KB</span>) - added by <em>carlofrancesco</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-17T18%3A08%3A07%2B0900&amp;precision=second" title="2009-11-17T18:08:07+0900 in Timeline">12 months</a> ago.
+    </dt>
+                <dd>
+                  Strade_select doesn't working with shooting star
+                </dd>
+            </dl>
+          </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-26T09%3A59%3A14%2B0900&amp;precision=second" title="2009-10-26T09:59:14+0900 in Timeline">13 months</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+Can you please tell me the pgRouting version number? Did you try latest version from SVN?
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  <span class="threading">
+                      follow-up:
+      <a href="#comment:3"><small>↓ 3</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-26T17%3A54%3A56%2B0900&amp;precision=second" title="2009-10-26T17:54:56+0900 in Timeline">13 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+Version : latest svn - revision 352
+</p>
+<p>
+shortest_path instead is not affected by this bug, but obviously it doesn't consider first edge but first node.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:2"><small>↑ 2</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-26T18%3A52%3A28%2B0900&amp;precision=second" title="2009-10-26T18:52:28+0900 in Timeline">13 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+Same thing if i don't consider the graph "directed", considering only costs and reverse_costs.<br />
+query:<br />
+</p>
+<p>
+set enable_hashjoin=false;set enable_mergejoin=false;<br />
+</p>
+<p>
+SELECT rt.cost,strade_select.*<br />
+FROM strade_select, shortest_path_shooting_star('SELECT gid as id, source, target,  cost, reverse_cost,x1, y1, x2, y2, rule, to_cost FROM strade_select', 5788, 5448, false, true) as rt
+</p>
+<blockquote>
+<p>
+WHERE strade_select.gid=rt.edge_id;
+</p>
+</blockquote>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-26T19%3A34%3A16%2B0900&amp;precision=second" title="2009-10-26T19:34:16+0900 in Timeline">13 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+this image can tell you more: <a class="ext-link" href="http://img245.imageshack.us/img245/4746/exampleq.jpg"><span class="icon"> </span>http://img245.imageshack.us/img245/4746/exampleq.jpg</a> <br />
+routing works well in the first 2 and last images; doesn't works in the 3rd. Infact in the 3rd example the cost for last edge is 1000033.04920574 (33.04920574 +  1000000)
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:5">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-27T09%3A21%3A49%2B0900&amp;precision=second" title="2009-10-27T09:21:49+0900 in Timeline">13 months</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>owner</strong>
+            changed from <em>somebody</em> to <em>anton</em>
+        </li><li>
+          <strong>status</strong>
+              changed from <em>new</em> to <em>accepted</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Oh, now I got it!
+</p>
+<p>
+We are using Boost Graph Library for creating a graph for shortest path computation. All edge ids in that graph should be unique for proper Shooting* computation, So for each edge we create 2 - one for normal direction (from source to target) and one for reverse direction (from target to source). For reverse direction edge we also calculate new unique id, which is calculated as max_id + id. OK, there is no any problem when edges like this are in the middle of a path, but if you start with an edge to calculate a shortest path with Shooting* (same with target edge) you specify an id, which might happen to be an id of reverse direction edge with really hight cost in case of one way street.
+</p>
+<p>
+To fix this bug I'm going to check if there is an alternative for choosen source and target edges with lower costs before path calculation. Please wait for a while - I need some time to brush up my Shooting* skills :)
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:6">
+                  <span class="threading">
+                      follow-up:
+      <a href="#comment:7"><small>↓ 7</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-27T16%3A28%3A51%2B0900&amp;precision=second" title="2009-10-27T16:28:51+0900 in Timeline">13 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+Changing from directed graph to undirected and using cost and reverse_cost seems that only last edge doesn't respect the one-way direction. The first edge always respect it. I'm trying many times, but seems it works. Problem remain on the last edge
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:7">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:6"><small>↑ 6</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-27T17%3A39%3A29%2B0900&amp;precision=second" title="2009-10-27T17:39:29+0900 in Timeline">13 months</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+Wait, undirected graph has same cost for both directions, so there shouldn't be any problem with it.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:8">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-27T17%3A53%3A42%2B0900&amp;precision=second" title="2009-10-27T17:53:42+0900 in Timeline">13 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+Yes my fault sorry. The last edge problem is not solved by these querys:
+</p>
+<p>
+set enable_hashjoin=false;set enable_mergejoin=false;SELECT ".TABLE.".*, <a class="missing wiki">AsText?</a>(".TABLE.".the_geom) AS wkt, rt.cost as costo FROM ".TABLE.", shortest_path_shooting_star('SELECT gid as id, source, target,  cost, reverse_cost,
+</p>
+<blockquote>
+<p>
+x1, y1, x2, y2, rule, to_cost FROM ".TABLE."', ".$startEdge<a class="missing wiki">gid?</a>.", ".$endEdge<a class="missing wiki">gid?</a>.", <strong>false</strong>, true) as rt
+</p>
+<blockquote>
+<p>
+WHERE ".TABLE.".gid=rt.edge_id;
+</p>
+</blockquote>
+</blockquote>
+<p>
+or this:
+</p>
+<p>
+set enable_hashjoin=false;set enable_mergejoin=false;SELECT ".TABLE.".*, <a class="missing wiki">AsText?</a>(".TABLE.".the_geom) AS wkt, rt.cost as costo FROM ".TABLE.", shortest_path_shooting_star('SELECT gid as id, source, target,  cost, reverse_cost,
+</p>
+<blockquote>
+<p>
+x1, y1, x2, y2, rule, to_cost FROM ".TABLE."', ".$startEdge<a class="missing wiki">gid?</a>.", ".$endEdge<a class="missing wiki">gid?</a>.", <strong>true</strong>, true) as rt
+</p>
+<blockquote>
+<p>
+WHERE ".TABLE.".gid=rt.edge_id;
+</p>
+</blockquote>
+</blockquote>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:9">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-29T11%3A18%3A40%2B0900&amp;precision=second" title="2009-10-29T11:18:40+0900 in Timeline">13 months</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+Can you please try the newest version from SVN now?
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:10">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-29T20%3A41%3A36%2B0900&amp;precision=second" title="2009-10-29T20:41:36+0900 in Timeline">13 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+ERROR:  Error computing path: Source edge not found
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:11">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-29T20%3A46%3A14%2B0900&amp;precision=second" title="2009-10-29T20:46:14+0900 in Timeline">13 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+same problem regenrating tables from zero doing this:
+</p>
+<p>
+##Prepare the new table for Dijkstra by adding source, target, and length columns. In this 
+#example “length” will be the cost of the edges.:
+ALTER TABLE strade_select ADD COLUMN source integer;
+ALTER TABLE strade_select ADD COLUMN target integer;
+ALTER TABLE strade_select ADD COLUMN length double precision;
+</p>
+<p>
+##Create the network topology in the “strade_select” table. Also populate the “length” field
+##which is to be the edge cost in the network topology.
+</p>
+<p>
+SELECT assign_vertex_id('strade_select', 0.00001, 'the_geom', 'gid');
+UPDATE strade_select SET length = length(the_geom);
+</p>
+<p>
+CREATE INDEX source_idx ON strade_select(source);
+</p>
+<p>
+CREATE INDEX target_idx ON strade_select(target);
+</p>
+<p>
+CREATE INDEX geom_idx ON strade_select USING GIST(the_geom GIST_GEOMETRY_OPS);
+</p>
+<p>
+ALTER TABLE strade_select ADD COLUMN cost double precision;
+ALTER TABLE strade_select ADD COLUMN reverse_cost double precision;
+UPDATE strade_select  SET cost=length(the_geom), reverse_cost=length(the_geom);
+</p>
+<p>
+#Prepare routing table for A-Star
+</p>
+<blockquote>
+<p>
+Add x1, y1 and x2, y2 column
+</p>
+</blockquote>
+<p>
+ALTER  TABLE strade_select   ADD  COLUMN x1 double precision;
+ALTER  TABLE strade_select   ADD  COLUMN y1 double precision;
+ALTER  TABLE strade_select   ADD  COLUMN x2 double precision;
+ALTER  TABLE strade_select   ADD  COLUMN y2 double precision;
+UPDATE  strade_select  SET  x1  = x(startpoint(the_geom));
+UPDATE  strade_select  SET  y1  = y(startpoint(the_geom));
+UPDATE  strade_select  SET  x2  = x(endpoint(the_geom));
+UPDATE  strade_select  SET  y2  = y(endpoint(the_geom));
+</p>
+<p>
+##Prepare routing table for Shooting-Star
+ALTER TABLE strade_select ADD COLUMN to_cost double precision;
+ALTER TABLE strade_select ADD COLUMN rule text;
+</p>
+<p>
+#query
+set enable_hashjoin=false;set enable_mergejoin=false;
+SELECT strade_select.*, <a class="missing wiki">AsText?</a>(strade_select.the_geom)
+</p>
+<blockquote>
+<p>
+AS wkt FROM strade_select, shortest_path_shooting_star('SELECT gid as id, source, target, cost, reverse_cost,
+</p>
+<blockquote>
+<p>
+x1, y1, x2, y2, rule, to_cost FROM strade_select', 1244, 1290, true, true) as rt
+</p>
+<blockquote>
+<p>
+WHERE strade_select.gid=rt.edge_id;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:12">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-30T18%3A16%3A23%2B0900&amp;precision=second" title="2009-10-30T18:16:23+0900 in Timeline">13 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+I can confirm that installing all from scratch shooting_star doesn't work. Alway result query is :
+</p>
+<p>
+ERROR: Error computing path: Source edge not found 
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:13">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-03T20%3A22%3A24%2B0900&amp;precision=second" title="2009-11-03T20:22:24+0900 in Timeline">13 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+I have updated to revision 354, and now shooting star works again with same problem for the first and last edge.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:14">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-17T06%3A00%3A36%2B0900&amp;precision=second" title="2009-11-17T06:00:36+0900 in Timeline">12 months</a> ago by jcelda
+                </h3>
+      <div class="comment searchable">
+        <p>
+Dear collegues,
+</p>
+<p>
+We are using pg_routing at www.icv.gva.es for experimental routing, and I appreciate a problem, surely related to this ticket issue.
+</p>
+<p>
+In my roadmap (entire graph of valencian community roads network, spain) I noticed that the first edge *always* act as "one way direction".
+</p>
+<p>
+If you are insterested on it, I can prepare some sample pictures and data to testcasing the issue.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:15">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-17T12%3A51%3A56%2B0900&amp;precision=second" title="2009-11-17T12:51:56+0900 in Timeline">12 months</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+I am aware about this problem and I am really sorry about this. The problem is with the graph construction, not with the algorithm itself. Unfortunately, I can fix this problem right now, because currently I have no access to any sample data to test and debug. It would be really great if you could provide me small piece of data I can install on my laptop together with sample queries.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-17T18%3A08%3A07%2B0900&amp;precision=second" title="2009-11-17T18:08:07+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/190/Strade_Select.sql.tar.html"><em>Strade_Select.sql.tar.bz2</em></a>
+              <a href="../raw-attachment/ticket/190/Strade_Select.sql.tar.bz2" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Strade_select doesn't working with shooting star
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:16">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-17T18%3A15%3A37%2B0900&amp;precision=second" title="2009-11-17T18:15:37+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+I have attached  Strade_Select.sql.tar.bz2. Unbzip this and do this:<br />
+<br />
+createdb -U postgres edimap<br />
+createlang -U postgres plpgsql edimap<br />
+psql -U postgres -f /usr/share/postgresql-8.3-postgis/lwpostgis.sql -d edimap<br />
+psql -U postgres -f /usr/share/postgresql-8.3-postgis/spatial_ref_sys.sql -d edimap<br />
+psql -U postgres -f /usr/share/postlbs/routing_core.sql -d edimap<br />
+psql -U postgres -f /usr/share/postlbs/routing_core_wrappers.sql -d edimap<br />
+psql -U postgres -f /usr/share/postlbs/routing_topology.sql -d edimap<br />
+psql -U postgres -f /usr/share/postlbs/routing_tsp.sql -d edimap<br />
+psql -U postgres -f /usr/share/postlbs/routing_tsp_wrappers.sql -d edimap<br />
+psql -U postgres -f /usr/share/postlbs/routing_dd.sql -d edimap<br />
+psql -U postgres -f /usr/share/postlbs/routing_dd_wrappers.sql -d edimap<br />
+<br />
+psql -U postgres -f Strade_Select.sql -d edimap<br />
+<br />
+<br />
+##Prepare the new table for Dijkstra by adding source, target, and length columns. In this example “length” will be the cost of the edges.:<br />
+ALTER TABLE strade_select ADD COLUMN source integer;<br />
+ALTER TABLE strade_select ADD COLUMN target integer;<br />
+ALTER TABLE strade_select ADD COLUMN length double precision;<br />
+<br />
+<br />
+##Create the network topology in the “totalpro” table. Also populate the “length” field which is to be the edge cost in the network topology.<br />
+<br />
+SELECT assign_vertex_id('strade_select', 0.00001, 'the_geom', 'gid');<br />
+UPDATE strade_select SET length = length(the_geom);<br />
+<br />
+CREATE INDEX source_idx ON strade_select(source);<br />
+<br />
+CREATE INDEX target_idx ON strade_select(target);<br />
+<br />
+CREATE INDEX geom_idx ON strade_select USING GIST(the_geom GIST_GEOMETRY_OPS);<br />
+<br />
+##After create edge costs<br />
+<br />
+ALTER TABLE strade_select ADD COLUMN cost double precision;<br />
+ALTER TABLE strade_select ADD COLUMN reverse_cost double precision;<br />
+UPDATE strade_select  SET cost=length(the_geom), reverse_cost=length(the_geom)<br />
+<br />
+##Update with oneway defined in the coloumn "direzione"<br />
+## direzione=-1: oneway  against edge direction<br />
+## direzione=1: oneway in the same edge direction<br />
+<br />
+UPDATE strade_select SET reverse_cost=reverse_cost + 1000000 WHERE direzione = 1;<br />
+UPDATE strade_select SET cost=cost + 1000000 WHERE direzione = -1;<br />
+#######################<br />
+<span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><span class="underline"></span><br />
+<br />
+<br />
+<br />
+#Prepare routing table for A-Star Adding x1, y1 and x2, y2 column<br />
+<br />
+ALTER  TABLE strade_select   ADD  COLUMN x1 double precision;<br />
+ALTER  TABLE strade_select   ADD  COLUMN y1 double precision;<br />
+ALTER  TABLE strade_select   ADD  COLUMN x2 double precision;<br />
+ALTER  TABLE strade_select   ADD  COLUMN y2 double precision;<br />
+UPDATE  strade_select  SET  x1  = x(startpoint(the_geom));<br />
+UPDATE  strade_select  SET  y1  = y(startpoint(the_geom));<br />
+UPDATE  strade_select  SET  x2  = x(endpoint(the_geom));<br />
+UPDATE  strade_select  SET  y2  = y(endpoint(the_geom));<br />
+<br />
+###Prepare routing table for Shooting-Star<br />
+ALTER TABLE strade_select ADD COLUMN to_cost double precision;<br />
+ALTER TABLE strade_select ADD COLUMN rule text;
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:17">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-17T18%3A19%3A42%2B0900&amp;precision=second" title="2009-11-17T18:19:42+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+Update: query that doesn't works for me:
+</p>
+<p>
+set enable_hashjoin=false;set enable_mergejoin=false;<br />
+</p>
+<p>
+SELECT rt.cost,strade_select.*
+FROM strade_select, shortest_path_shooting_star('SELECT gid as id, source, target,  cost, reverse_cost, x1, y1, x2, y2, rule, to_cost FROM strade_select', 856, 575, true, true) as rt
+</p>
+<blockquote>
+<p>
+WHERE strade_select.gid=rt.edge_id;
+</p>
+</blockquote>
+<p>
+Two edge id that doesn't works to me are from 856 to 575. There are others. If you do not have my same topology, you have to find two one way streets, and make route between them
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:18">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-25T14%3A43%3A20%2B0900&amp;precision=second" title="2009-11-25T14:43:20+0900 in Timeline">12 months</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+Please see <a class="changeset" href="../changeset/355.html" title="Partial fix for #190">[355]</a> - the bug is partially fixed. The route is correct now, but the cost in output is always a value of 'cost' column even if 'reverse_cost' was used in the calculation. Give me a little bit more time to fix this, but I encourage you to try it in the current stage.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:19">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-25T18%3A30%3A41%2B0900&amp;precision=second" title="2009-11-25T18:30:41+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+I have updated to revision 355. Now it doesn't consider reverse_cost but only cost. It doesn't work on my map. Example of query (on my map i have shared here)
+</p>
+<p>
+set enable_hashjoin=false;set enable_mergejoin=false;
+</p>
+<p>
+SELECT rt.cost,strade_select.* FROM strade_select, shortest_path_shooting_star
+('SELECT gid as id, source, target, cost, reverse_cost, x1, y1,
+</p>
+<blockquote>
+<p>
+x2, y2, rule, to_cost FROM strade_select', 500, 502, true, true) as rt
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+WHERE strade_select.gid=rt.edge_id;
+</p>
+</blockquote>
+</blockquote>
+<p>
+It goes against two one-ways... (on a primary way he goes aganist all edges)
+In general all route don't work. I have only updated pgrouting. I have to do something else? (eg. update boost graph library or other things)
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:20">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-25T18%3A58%3A42%2B0900&amp;precision=second" title="2009-11-25T18:58:42+0900 in Timeline">12 months</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+It seems strange because for me it works, the paths are correct, but yes - as I told it outputs wrong cost sometimes.
+</p>
+<p>
+OK, can you please upload full dump of your table with your topology? Now we have different vertex ids, so I want to test it with exactly the same queries you are trying to run.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:21">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-25T21%3A45%3A49%2B0900&amp;precision=second" title="2009-11-25T21:45:49+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+what i'm doing:
+</p>
+<p>
+1) rm /usr/lib/postgresql/8.3/lib/librouting.so /usr/share/postlbs/routing_core.sql /usr/share/postlbs/routing_core_wrappers.sql /usr/share/postlbs/routing_topology.sql /usr/share/postlbs/matching.sql /usr/lib/postgresql/8.3/lib/librouting_tsp.so /usr/lib/postgresql/8.3/lib/librouting_tsp.so /usr/share/postlbs/routing_tsp.sql /usr/share/postlbs/routing_tsp_wrappers.sql /usr/lib/postgresql/8.3/lib/librouting_dd.so /usr/share/postlbs/routing_dd.sql /usr/share/postlbs/routing_dd_wrappers.sql
+</p>
+<p>
+2)svn checkout <a href="../svn/pgrouting/trunk/index.html">http://pgrouting.postlbs.org/svn/pgrouting/trunk</a> pgrouting
+cd pgrouting/
+cmake -DWITH_TSP=ON -DWITH_DD=ON .
+make
+sudo make install
+</p>
+<p>
+3)pg_dump -U postgres  edimap &gt; /root/Scrivania/edimap.sql (i'll attach it on this tiket)
+to restore it psql edimap &lt; /root/Scrivania/edimap.sql
+</p>
+<p>
+4)example of a query that doesn't work:
+</p>
+<p>
+set enable_hashjoin=false;set enable_mergejoin=false;
+</p>
+<p>
+SELECT rt.cost,strade_select.* FROM strade_select, shortest_path_shooting_star ('SELECT gid as id, source, target, cost, reverse_cost, x1, y1,
+</p>
+<blockquote>
+<p>
+x2, y2, rule, to_cost FROM strade_select', 790, 3771, true, true) as rt
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+WHERE strade_select.gid=rt.edge_id;
+</p>
+</blockquote>
+</blockquote>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:22">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-25T21%3A56%3A13%2B0900&amp;precision=second" title="2009-11-25T21:56:13+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+Compressed is 650 Kb... i have to find an service that host my file
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:23">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-25T21%3A59%3A55%2B0900&amp;precision=second" title="2009-11-25T21:59:55+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+here dump of my DB <a class="ext-link" href="http://89.97.190.173/edimap.sql.bz2"><span class="icon"> </span>http://89.97.190.173/edimap.sql.bz2</a>
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:24">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-25T22%3A29%3A50%2B0900&amp;precision=second" title="2009-11-25T22:29:50+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+example: set enable_hashjoin=false;set enable_mergejoin=false;
+</p>
+<p>
+SELECT rt.cost,strade_select.* FROM strade_select, shortest_path_shooting_star ('SELECT gid as id, source, target, cost, reverse_cost, x1, y1,
+</p>
+<blockquote>
+<p>
+x2, y2, rule, to_cost FROM strade_select', 843, 416, true, true) as rt
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+WHERE strade_select.gid=rt.edge_id;
+</p>
+</blockquote>
+</blockquote>
+<p>
+i don't know if it consider at random cost or reverse_cost. It displays only costs. In this case the route is wrong because all edges are traversed against one-way direction
+</p>
+<p>
+1000116.22245978;843;"RE G. (VIA)";-1
+1000116.22245978;843;"RE G. (VIA)";-1
+40.237235941973;561;"VALGIOIE (VIA)";0
+196.529918305235;502;"LIONETTO (STR. DEL)";1
+21.2494715007809;842;"LIONETTO (STR. DEL)";1
+10.605542846196;6755;"FRANCIA (C.SO)";0
+18.1006571444934;536;"POZZO STRADA (VIA)";0
+59.9363024515402;467;"POZZO STRADA (VIA)";0
+97.7238665913425;554;"SARRE (VIA)";0
+66.9111540706219;563;"QUART (VIA)";0
+105.823782069828;559;"S. ANTONINO (VIA)";0
+130.59957886609;416;"SAGRA DI S. MICHELE (VIA)";1
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:25">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-25T22%3A37%3A06%2B0900&amp;precision=second" title="2009-11-25T22:37:06+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+This query fault on first edge
+</p>
+<p>
+set enable_hashjoin=false;set enable_mergejoin=false;
+</p>
+<p>
+SELECT rt.cost,strade_select.* FROM strade_select, shortest_path_shooting_star ('SELECT gid as id, source, target, cost, reverse_cost, x1, y1,
+</p>
+<blockquote>
+<p>
+x2, y2, rule, to_cost FROM strade_select', 430, 500, true, true) as rt
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+WHERE strade_select.gid=rt.edge_id;
+</p>
+</blockquote>
+</blockquote>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:26">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-26T12%3A41%3A00%2B0900&amp;precision=second" title="2009-11-26T12:41:00+0900 in Timeline">12 months</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+I tried your query and it works for me.
+</p>
+<pre class="wiki">test=# select * from shortest_path_shooting_star('select gid as id, 
+source, target, cost, reverse_cost, rule, to_cost,x1,y1,x2,y2 from 
+strade_select',430,500,true,true);
+ vertex_id | edge_id |       cost       
+-----------+---------+------------------
+      1044 |     430 | 1000188.76949661
+      1501 |     805 | 44.6598253467252
+      1474 |     779 |  77.033116571413
+      1473 |    1018 |  99.205481396254
+      1037 |     500 | 1000145.45188208
+(5 rows)
+</pre><p>
+As I told you, it DISPLAYS always 'cost' value, but USES 'cost' or 'reverse_cost' when it's needed. I need some more time to fix the cost display issue.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:27">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-26T18%3A42%3A48%2B0900&amp;precision=second" title="2009-11-26T18:42:48+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+Yes, it is the same for me. But for edge_id = 430 (first edge) it considers COST. Infact to go from 430 to 805 (they have same endpoint )  I have to go from:<br />
+</p>
+<p>
+<a class="missing wiki">StartPoint?</a> 430, <a class="missing wiki">EndPoint?</a> 430 ---------------&gt; Endpoint 805, <a class="missing wiki">StartPoint?</a> 805.<br />
+</p>
+<p>
+So I have to consider Cost of 430 ------------&gt; Reverse_Cost 805<br />
+</p>
+<p>
+Ok ?<br />
+</p>
+<p>
+So first edge (gid=430) consider cost an it has a value of 1000188.76949661
+</p>
+<blockquote>
+<p>
+gid |      x1      |    y1     |     x2      |   y2    |       cost       |   reverse_cost   
+</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>
+430 | 391843.90625 |   4992550 | 391921.6875 | 4992722 | 1000188.76949661 | 188.769496613098
+805 |  391963.1875 | 4992705.5 | 391921.6875 | 4992722 | 44.6598253467252 | 44.6598253467252
+</p>
+</blockquote>
+<p>
+ 
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:28">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-26T18%3A47%3A33%2B0900&amp;precision=second" title="2009-11-26T18:47:33+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+ 
+Yes, it is the same for me. But for edge_id = 430 (first edge) it
+</p>
+<blockquote>
+<p>
+considers COST. Infact to go from 430 to 805 (they have same endpoint )  I
+have to go from:<br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+<a class="missing wiki">StartPoint?</a> 430, <a class="missing wiki">EndPoint?</a> 430 ---------------&gt; Endpoint 805, <a class="missing wiki">StartPoint?</a>
+805.<br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+So I have to consider Cost of 430 ------------&gt; Reverse_Cost 805<br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+Ok ?<br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+So for the first edge (gid=430) pgrouting considers COST and it has a value of 1000188.76949661<br />
+</p>
+</blockquote>
+<p>
+{{{edimap=# select gid,x1,y1,x2,y2,cost,reverse_cost from strade_select where gid = 430 or gid=805;
+</p>
+<blockquote>
+<p>
+gid |      x1      |    y1     |     x2      |   y2    |       cost       |   reverse_cost   
+</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>
+805 |  391963.1875 | 4992705.5 | 391921.6875 | 4992722 | 44.6598253467252 | 44.6598253467252
+430 | 391843.90625 |   4992550 | 391921.6875 | 4992722 | 1000188.76949661 | 188.769496613098
+</p>
+</blockquote>
+<p>
+(2 rows)
+}}}
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:29">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-26T19%3A02%3A12%2B0900&amp;precision=second" title="2009-11-26T19:02:12+0900 in Timeline">12 months</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+OK, once again. It doesn't CONSIDER only cost, it SHOWS only cost. The route is calculated now with taking one way streets for start and end in account. It takes cost or reverse_cost when it is needed. But when it OUTPUTS the result it SHOWS only cost (even if reverse_cost was used for the calculation). It is also a bug and I'm going to fix it ASAP, I just wanted to make sure that a route (an order of visited edges) is correct now.
+</p>
+<p>
+OK, now we could make sure that the path is correct, so now I start fixing the cost issue.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:30">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-11-26T19%3A28%3A10%2B0900&amp;precision=second" title="2009-11-26T19:28:10+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+I have understood it... I know infact for the edge 500 pgrounting says cost=1000188.76949661 but he is correctly considering reverse cost=188.769496613098 
+How i can say it? In this way:
+</p>
+<pre class="wiki">select gid,x1,y1,x2,y2,cost,reverse_cost from strade_select where gid = 1018 or gid=500;
+ gid  |      x1      |    y1     |      x2      |    y2     |       cost       |   reverse_cost   
+------+--------------+-----------+--------------+-----------+------------------+------------------
+ 1018 | 392137.40625 | 4992680.5 |  392038.8125 | 4992691.5 |  99.205481396254 |  99.205481396254
+  500 | 392116.90625 | 4992536.5 | 392137.40625 | 4992680.5 | 1000145.45188208 | 145.451882077889
+(2 rows)
+</pre><p>
+So startpoint of 1018 = endpoint 500. So? So I have to go from:
+enpoint 1018 - startpoint 1018 ------&gt; endpoint 500 - startpoint 500
+in other words I'm considering:
+Reverse_Cost 1018 ------&gt; Reverse cost 500
+</p>
+<p>
+And what about for 430-&gt;805? Just same thing:
+</p>
+<pre class="wiki">
+edimap=# select gid,x1,y1,x2,y2,cost,reverse_cost from strade_select where gid = 430 or gid=805;
+ gid |      x1      |    y1     |     x2      |   y2    |       cost       |   reverse_cost   
+-----+--------------+-----------+-------------+---------+------------------+------------------
+ 805 |  391963.1875 | 4992705.5 | 391921.6875 | 4992722 | 44.6598253467252 | 44.6598253467252
+ 430 | 391843.90625 |   4992550 | 391921.6875 | 4992722 | 1000188.76949661 | 188.769496613098
+
+
+</pre><p>
+Endpoint of 430 is the SAME of endpoint of 805. So? So the path is this:
+</p>
+<p>
+startpoint 430 - endpoint 430 --------------&gt; endpoint 805 - startpoint 805
+in other words i'm considering:
+COST 430 -&gt; REVERSE_COST 805
+</p>
+<p>
+In this pgrouting faults. I KNOW THAT SOMETIMES HE SHOWS COST BUT IT IS CONSIDERING REVERSE_COST BUT IN THIS CASE HE SHOWS COST AND  IT IS CONSIDERING COST and it is 1000188.76949661. TAHT'S NORMAL BECAUSE IN THE PATH FROM 430 TO 805 I TRAVERSE 430 IN THE SAME DIRECTION OF THE EDGE SO I MUST CONSIDER COST.
+</p>
+<p>
+In the example 1018 -&gt; 500 instead both 1018 and 500 are traversed against their edges direction.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:31">
+                  <span class="threading">
+                      follow-up:
+      <a href="#comment:33"><small>↓ 33</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-12-01T18%3A06%3A45%2B0900&amp;precision=second" title="2009-12-01T18:06:45+0900 in Timeline">12 months</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+Hi Mr. Anton. Try from 451 to 575 all edge are taken against one-way direction (infact reverse_cost is 100000000)
+</p>
+<pre class="wiki">
+set enable_hashjoin=false;set enable_mergejoin=false;
+
+SELECT rt.cost,strade_select.* FROM strade_select, shortest_path_shooting_star ('SELECT gid as id, source, target, cost, reverse_cost, x1, y1,
+
+    x2, y2, rule, to_cost FROM strade_select', 451, 575, true, true) as rt
+
+        WHERE strade_select.gid=rt.edge_id;
+
+
+</pre>
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:32">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-10-29T20%3A54%3A34%2B0900&amp;precision=second" title="2010-10-29T20:54:34+0900 in Timeline">3 weeks</a> ago by Dzouzeph
+                </h3>
+      <div class="comment searchable">
+        <p>
+Can I ask you if you solved problem you mentioned here somehow? I had same problem and dont know how to solve it.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:33">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:31"><small>↑ 31</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-10-30T17%3A25%3A55%2B0900&amp;precision=second" title="2010-10-30T17:25:55+0900 in Timeline">3 weeks</a> ago by carlofrancesco
+                </h3>
+      <div class="comment searchable">
+        <p>
+Replying to <a href="190.html#comment:31" title="Comment 31 for Ticket #190">carlofrancesco</a>:
+</p>
+<blockquote class="citation">
+<p>
+ Hi Mr. Anton. Try from 451 to 575 all edge are taken against one-way direction (infact reverse_cost is 100000000)
+ {{{
+ 
+ set enable_hashjoin=false;set enable_mergejoin=false;
+ 
+ SELECT rt.cost,strade_select.* FROM strade_select, shortest_path_shooting_star ('SELECT gid as id, source, target, cost, reverse_cost, x1, y1,
+ 
+     x2, y2, rule, to_cost FROM strade_select', 451, 575, true, true) as rt
+ 
+         WHERE strade_select.gid=rt.edge_id;
+ 
+ 
+ }}}
+</p>
+</blockquote>
+<p>
+I haven't resolved yet. I'm using A-star now instead of shooting star. In other post Anton explained the reasons of the problem. When i have time i will investigate again.
+Bye !
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/190?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/190?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/190?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("190.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/190 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:01:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

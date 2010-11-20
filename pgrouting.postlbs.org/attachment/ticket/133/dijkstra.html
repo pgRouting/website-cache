@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/133/dijkstra.sql by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Attachment – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../../wiki/TracGuide.html" />
+        <link rel="alternate" href="../../../raw-attachment/ticket/133/dijkstra.sql" type="text/x-sql; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="../../../ticket/133.html" title="Ticket #133" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/code.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="last first"><a href="../../../ticket/133.html">Back to Ticket #133</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="attachment">
+        <h1><a href="../../../ticket/133.html">Ticket #133</a>: dijkstra.sql</h1>
+        <table id="info" summary="Description">
+          <tbody>
+            <tr>
+              <th scope="col">
+                File dijkstra.sql, <span title="2141 bytes">2.1 KB</span>
+                (added by daniel,  <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-12-11T19%3A46%3A19%2B0900&amp;precision=second" title="2008-12-11T19:46:19+0900 in Timeline">2 years</a> ago)
+              </th>
+            </tr>
+            <tr>
+              <td class="message searchable">
+                <p>
+Dijkstra modified
+</p>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="preview" class="searchable">
+    <table class="code"><thead><tr><th class="lineno" title="Line numbers">Line</th><th class="content"> </th></tr></thead><tbody><tr><th id="L1"><a href="#L1">1</a></th><td>-- Function: dijkstra_sp(character varying, integer, integer)</td></tr><tr><th id="L2"><a href="#L2">2</a></th><td></td></tr><tr><th id="L3"><a href="#L3">3</a></th><td>CREATE OR REPLACE FUNCTION dijkstra_sp(geom_table character varying, source integer, target integer)</td></tr><tr><th id="L4"><a href="#L4">4</a></th><td>  RETURNS SETOF geoms AS</td></tr><tr><th id="L5"><a href="#L5">5</a></th><td>$BODY$</td></tr><tr><th id="L6"><a href="#L6">6</a></th><td>DECLARE </td></tr><tr><th id="L7"><a href="#L7">7</a></th><td>        r record;</td></tr><tr><th id="L8"><a href="#L8">8</a></th><td>        g_rec record;</td></tr><tr><th id="L9"><a href="#L9">9</a></th><td>        p_rec record;</td></tr><tr><th id="L10"><a href="#L10">10</a></th><td>        path_result record;</td></tr><tr><th id="L11"><a href="#L11">11</a></th><td>        v_id integer;</td></tr><tr><th id="L12"><a href="#L12">12</a></th><td>        e_id integer;</td></tr><tr><th id="L13"><a href="#L13">13</a></th><td>        geom geoms;</td></tr><tr><th id="L14"><a href="#L14">14</a></th><td>        id integer;</td></tr><tr><th id="L15"><a href="#L15">15</a></th><td>        g_schema text;</td></tr><tr><th id="L16"><a href="#L16">16</a></th><td>        g_table text;</td></tr><tr><th id="L17"><a href="#L17">17</a></th><td>        pos int;        </td></tr><tr><th id="L18"><a href="#L18">18</a></th><td>BEGIN</td></tr><tr><th id="L19"><a href="#L19">19</a></th><td></td></tr><tr><th id="L20"><a href="#L20">20</a></th><td>        pos := strpos(geom_table,'.');</td></tr><tr><th id="L21"><a href="#L21">21</a></th><td></td></tr><tr><th id="L22"><a href="#L22">22</a></th><td>        if pos=0 then </td></tr><tr><th id="L23"><a href="#L23">23</a></th><td>           g_schema := 'public';</td></tr><tr><th id="L24"><a href="#L24">24</a></th><td>           g_table := geom_table; </td></tr><tr><th id="L25"><a href="#L25">25</a></th><td>        else </td></tr><tr><th id="L26"><a href="#L26">26</a></th><td>           g_schema = substr(geom_table,0,pos);</td></tr><tr><th id="L27"><a href="#L27">27</a></th><td>           pos := pos + 1; </td></tr><tr><th id="L28"><a href="#L28">28</a></th><td>           g_table = substr(geom_table,pos);</td></tr><tr><th id="L29"><a href="#L29">29</a></th><td>        END IF;</td></tr><tr><th id="L30"><a href="#L30">30</a></th><td></td></tr><tr><th id="L31"><a href="#L31">31</a></th><td>        select into g_rec f_geometry_column, type as geom_type </td></tr><tr><th id="L32"><a href="#L32">32</a></th><td>          from public.geometry_columns </td></tr><tr><th id="L33"><a href="#L33">33</a></th><td>          where f_table_schema = g_schema </td></tr><tr><th id="L34"><a href="#L34">34</a></th><td>            and f_table_name = g_table;</td></tr><tr><th id="L35"><a href="#L35">35</a></th><td></td></tr><tr><th id="L36"><a href="#L36">36</a></th><td>       select into p_rec col.column_name as pkey </td></tr><tr><th id="L37"><a href="#L37">37</a></th><td>         from information_schema.table_constraints as key, information_schema.key_column_usage as col </td></tr><tr><th id="L38"><a href="#L38">38</a></th><td>         where key.table_schema = g_schema::name </td></tr><tr><th id="L39"><a href="#L39">39</a></th><td>           and key.table_name = g_table::name </td></tr><tr><th id="L40"><a href="#L40">40</a></th><td>           and key.constraint_type='PRIMARY KEY' </td></tr><tr><th id="L41"><a href="#L41">41</a></th><td>           and key.table_catalog = col.table_catalog </td></tr><tr><th id="L42"><a href="#L42">42</a></th><td>           and key.table_schema = col.table_schema </td></tr><tr><th id="L43"><a href="#L43">43</a></th><td>           and key.table_name = col.table_name;</td></tr><tr><th id="L44"><a href="#L44">44</a></th><td></td></tr><tr><th id="L45"><a href="#L45">45</a></th><td>        id :=0;</td></tr><tr><th id="L46"><a href="#L46">46</a></th><td>        </td></tr><tr><th id="L47"><a href="#L47">47</a></th><td>        FOR path_result IN EXECUTE 'SELECT '||p_rec.pkey||' as gid,'||g_rec.f_geometry_column||' as the_geom FROM ' ||</td></tr><tr><th id="L48"><a href="#L48">48</a></th><td>          'shortest_path(''SELECT '||p_rec.pkey||' as id, source::integer, target::integer, ' || </td></tr><tr><th id="L49"><a href="#L49">49</a></th><td>          'length::double precision as cost FROM ' ||</td></tr><tr><th id="L50"><a href="#L50">50</a></th><td>          quote_ident(g_schema)||'.'||quote_ident(g_table) || ''', ' || quote_literal(source) || </td></tr><tr><th id="L51"><a href="#L51">51</a></th><td>          ' , ' || quote_literal(target) || ' , false, false), ' || </td></tr><tr><th id="L52"><a href="#L52">52</a></th><td>          quote_ident(g_schema)||'.'||quote_ident(g_table) || ' where edge_id = '||p_rec.pkey</td></tr><tr><th id="L53"><a href="#L53">53</a></th><td>        LOOP</td></tr><tr><th id="L54"><a href="#L54">54</a></th><td></td></tr><tr><th id="L55"><a href="#L55">55</a></th><td>                 geom.gid      := path_result.gid;</td></tr><tr><th id="L56"><a href="#L56">56</a></th><td>                 geom.the_geom := path_result.the_geom;</td></tr><tr><th id="L57"><a href="#L57">57</a></th><td>                 id := id+1;</td></tr><tr><th id="L58"><a href="#L58">58</a></th><td>                 geom.id       := id;</td></tr><tr><th id="L59"><a href="#L59">59</a></th><td>                 </td></tr><tr><th id="L60"><a href="#L60">60</a></th><td>                 RETURN NEXT geom;</td></tr><tr><th id="L61"><a href="#L61">61</a></th><td></td></tr><tr><th id="L62"><a href="#L62">62</a></th><td>        END LOOP;</td></tr><tr><th id="L63"><a href="#L63">63</a></th><td>        RETURN;</td></tr><tr><th id="L64"><a href="#L64">64</a></th><td>END;</td></tr><tr><th id="L65"><a href="#L65">65</a></th><td>$BODY$</td></tr><tr><th id="L66"><a href="#L66">66</a></th><td>  LANGUAGE 'plpgsql' VOLATILE STRICT</td></tr><tr><th id="L67"><a href="#L67">67</a></th><td>  COST 100</td></tr><tr><th id="L68"><a href="#L68">68</a></th><td>  ROWS 1000;</td></tr><tr><th id="L69"><a href="#L69">69</a></th><td></td></tr></tbody></table>
+        </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="../../../raw-attachment/ticket/133/dijkstra.sql">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("dijkstra.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/133/dijkstra.sql by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

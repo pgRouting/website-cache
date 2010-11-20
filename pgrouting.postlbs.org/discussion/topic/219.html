@@ -1,0 +1,629 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/219 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - error installing pgRouting 1.03 on freeBSD 7.1 (#219) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              error installing pgRouting 1.03 on freeBSD 7.1
+            </div>
+            <div class="body">
+              <p>
+Hello!
+I had an installation errors of pgRouting on freeBSD.
+Please explain me how to compile project without errors.
+Thanks in advance.
+</p>
+<p>
+installation log:
+</p>
+<pre class="wiki">bsd# cmake -DWITH_TSP=ON -DWITH_DD=ON .
+-- The C compiler identification is GNU
+-- The CXX compiler identification is GNU
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Found PostgreSQL: /usr/X11R6/include/postgresql/
+server, /usr/local/lib/libpq.so
+-- Boost version: 1.34.1
+-- Found the following Boost libraries:
+Boost headers were found here: /usr/local/include
+Output directory for libraries is set to /usr/local/lib/postgresql
+-- Found PGROUTING_CORE core: /usr/home/sov/Desktop/pgrouting/core/src
+Installation directory for libraries is set to /usr/local/lib/postgresql and for SQL files is set to /usr/share/postlbs
+-- Found GAUL: /usr/local/lib/libgaul.so, /usr/local/lib/libgaul_util.so
+Installation directory for libraries is set to /usr/local/lib/postgresql
+-- Found CGAL: /usr/local/include, /usr/local/lib/libCGAL.so
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /usr/home/sov/Desktop/pgrouting
+bsd# make
+Scanning dependencies of target routing_tsp
+[  8%] Building C object extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o
+[ 16%] Building CXX object extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o
+In file included from /usr/local/include/gaul/memory_util.h:44,
+                 from /usr/local/include/gaul/compatibility.h:69,
+                 from /usr/local/include/gaul.h:50,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/memory_chunks.h:64: error: '_Bool' does not name a type
+/usr/local/include/gaul/memory_chunks.h:65: error: '_Bool' does not name a type
+/usr/local/include/gaul/memory_chunks.h:71: error: '_Bool' does not name a type
+/usr/local/include/gaul/memory_chunks.h:72: error: '_Bool' does not name a type
+/usr/local/include/gaul/memory_chunks.h:73: error: '_Bool' does not name a type
+/usr/local/include/gaul/memory_chunks.h:78: error: '_Bool' does not name a type
+/usr/local/include/gaul/memory_chunks.h:79: error: '_Bool' does not name a type
+/usr/local/include/gaul/memory_chunks.h:85: error: '_Bool' does not name a type
+/usr/local/include/gaul/memory_chunks.h:86: error: '_Bool' does not name a type
+/usr/local/include/gaul/memory_chunks.h:87: error: '_Bool' does not name a type
+In file included from /usr/local/include/gaul/memory_util.h:45,
+                 from /usr/local/include/gaul/compatibility.h:69,
+                 from /usr/local/include/gaul.h:50,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/avltree.h:53: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul/avltree.h:53: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul/avltree.h:53: error: 'AVLTraverseFunc' was not declared in this scope
+/usr/local/include/gaul/avltree.h:54: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul/avltree.h:54: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul/avltree.h:54: error: 'AVLMatchFunc' was not declared in this scope
+/usr/local/include/gaul/avltree.h:72: error: '_Bool' does not name a type
+/usr/local/include/gaul/avltree.h:82: error: 'AVLMatchFunc' has not been declared
+/usr/local/include/gaul/avltree.h:84: error: 'AVLTraverseFunc' has not been declared
+/usr/local/include/gaul/avltree.h:90: error: '_Bool' does not name a type
+In file included from /usr/local/include/gaul/compatibility.h:69,
+                 from /usr/local/include/gaul.h:50,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/memory_util.h:198: error: '_Bool' does not name a type
+In file included from /usr/local/include/gaul.h:51,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/linkedlist.h:44: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul/linkedlist.h:44: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul/linkedlist.h:44: error: 'LLForeachFunc' was not declared in this scope
+/usr/local/include/gaul/linkedlist.h:86: error: '_Bool' does not name a type
+/usr/local/include/gaul/linkedlist.h:118: error: '_Bool' does not name a type
+/usr/local/include/gaul/linkedlist.h:119: error: '_Bool' does not name a type
+/usr/local/include/gaul/linkedlist.h:128: error: '_Bool' does not name a type
+In file included from /usr/local/include/gaul.h:52,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/log_util.h:77: error: '_Bool' has not been declared
+In file included from /usr/local/include/gaul.h:54,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/random_util.h:88: error: '_Bool' does not name a type
+/usr/local/include/gaul/random_util.h:95: error: '_Bool' does not name a type
+/usr/local/include/gaul/random_util.h:96: error: '_Bool' does not name a type
+/usr/local/include/gaul/random_util.h:109: error: '_Bool' does not name a type
+/usr/local/include/gaul/random_util.h:146: error: '_Bool' does not name a type
+In file included from /usr/local/include/gaul.h:55,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/table_util.h:72: error: '_Bool' does not name a type
+/usr/local/include/gaul/table_util.h:85: error: '_Bool' does not name a type
+In file included from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul.h:124: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:124: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:124: error: 'GAgeneration_hook' was not declared in this scope
+/usr/local/include/gaul.h:127: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:127: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:127: error: 'GAiteration_hook' was not declared in this scope
+/usr/local/include/gaul.h:141: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:141: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:141: error: 'GAchromosome_constructor' was not declared in this scope
+/usr/local/include/gaul.h:164: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:164: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:164: error: 'GAevaluate' was not declared in this scope
+/usr/local/include/gaul.h:166: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:166: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:166: error: 'GAseed' was not declared in this scope
+/usr/local/include/gaul.h:170: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:170: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:170: error: 'GAselect_one' was not declared in this scope
+/usr/local/include/gaul.h:172: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:172: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:172: error: 'GAselect_two' was not declared in this scope
+/usr/local/include/gaul.h:195: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:195: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:195: error: 'GAtabu_accept' was not declared in this scope
+/usr/local/include/gaul.h:196: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:196: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:196: error: 'GAsa_accept' was not declared in this scope
+/usr/local/include/gaul.h:197: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:197: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:197: error: 'GAmutate_allele' was not declared in this scope
+/usr/local/include/gaul.h:198: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:198: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:198: error: 'GAto_double' was not declared in this scope
+/usr/local/include/gaul.h:199: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:199: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:199: error: 'GAfrom_double' was not declared in this scope
+/usr/local/include/gaul.h:201: error: ISO C++ forbids declaration of '_Bool' with no type
+/usr/local/include/gaul.h:201: error: typedef '_Bool' is initialized (use __typeof__ instead)
+/usr/local/include/gaul.h:201: error: 'GAscan_chromosome' was not declared in this scope
+/usr/local/include/gaul.h:222: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:223: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:225: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:226: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:233: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:234: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:235: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:239: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:240: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:241: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:242: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:245: error: '_Bool' has not been declared
+/usr/local/include/gaul.h:292: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:293: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:294: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:295: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:297: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:302: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:306: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:319: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:321: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:328: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:329: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:330: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:331: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:332: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:333: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:334: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:335: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:336: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:337: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:338: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:339: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:340: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:341: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:342: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:343: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:344: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:345: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:346: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:347: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:348: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:349: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:350: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:351: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:352: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:430: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:431: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:432: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:433: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:434: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:435: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:436: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:437: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:438: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:439: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:440: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:460: error: 'GAgeneration_hook' has not been declared
+/usr/local/include/gaul.h:461: error: 'GAiteration_hook' has not been declared
+/usr/local/include/gaul.h:464: error: 'GAevaluate' has not been declared
+/usr/local/include/gaul.h:465: error: 'GAseed' has not been declared
+/usr/local/include/gaul.h:467: error: 'GAselect_one' has not been declared
+/usr/local/include/gaul.h:468: error: 'GAselect_two' has not been declared
+/usr/local/include/gaul.h:477: error: 'GAgeneration_hook' has not been declared
+/usr/local/include/gaul.h:478: error: 'GAiteration_hook' has not been declared
+/usr/local/include/gaul.h:481: error: 'GAevaluate' has not been declared
+/usr/local/include/gaul.h:482: error: 'GAseed' has not been declared
+/usr/local/include/gaul.h:484: error: 'GAselect_one' has not been declared
+/usr/local/include/gaul.h:485: error: 'GAselect_two' has not been declared
+/usr/local/include/gaul.h:493: error: 'GAgeneration_hook' has not been declared
+/usr/local/include/gaul.h:494: error: 'GAiteration_hook' has not been declared
+/usr/local/include/gaul.h:497: error: 'GAevaluate' has not been declared
+/usr/local/include/gaul.h:498: error: 'GAseed' has not been declared
+/usr/local/include/gaul.h:500: error: 'GAselect_one' has not been declared
+/usr/local/include/gaul.h:501: error: 'GAselect_two' has not been declared
+/usr/local/include/gaul.h:509: error: 'GAgeneration_hook' has not been declared
+/usr/local/include/gaul.h:510: error: 'GAiteration_hook' has not been declared
+/usr/local/include/gaul.h:513: error: 'GAevaluate' has not been declared
+/usr/local/include/gaul.h:514: error: 'GAseed' has not been declared
+/usr/local/include/gaul.h:516: error: 'GAselect_one' has not been declared
+/usr/local/include/gaul.h:517: error: 'GAselect_two' has not been declared
+/usr/local/include/gaul.h:525: error: 'GAgeneration_hook' has not been declared
+/usr/local/include/gaul.h:526: error: 'GAiteration_hook' has not been declared
+/usr/local/include/gaul.h:529: error: 'GAevaluate' has not been declared
+/usr/local/include/gaul.h:530: error: 'GAseed' has not been declared
+/usr/local/include/gaul.h:532: error: 'GAselect_one' has not been declared
+/usr/local/include/gaul.h:533: error: 'GAselect_two' has not been declared
+/usr/local/include/gaul.h:541: error: 'GAgeneration_hook' has not been declared
+/usr/local/include/gaul.h:542: error: 'GAiteration_hook' has not been declared
+/usr/local/include/gaul.h:545: error: 'GAevaluate' has not been declared
+/usr/local/include/gaul.h:546: error: 'GAseed' has not been declared
+/usr/local/include/gaul.h:548: error: 'GAselect_one' has not been declared
+/usr/local/include/gaul.h:549: error: 'GAselect_two' has not been declared
+/usr/local/include/gaul.h:557: error: 'GAgeneration_hook' has not been declared
+/usr/local/include/gaul.h:558: error: 'GAiteration_hook' has not been declared
+/usr/local/include/gaul.h:561: error: 'GAevaluate' has not been declared
+/usr/local/include/gaul.h:562: error: 'GAseed' has not been declared
+/usr/local/include/gaul.h:564: error: 'GAselect_one' has not been declared
+/usr/local/include/gaul.h:565: error: 'GAselect_two' has not been declared
+/usr/local/include/gaul.h:583: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:584: error: '_Bool' does not name a type
+/usr/local/include/gaul.h:586: error: '_Bool' does not name a type
+In file included from /usr/local/include/gaul/ga_core.h:99,
+                 from /usr/local/include/gaul.h:619,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/ga_bitstring.h:56: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_bitstring.h:78: error: '_Bool' does not name a type
+In file included from /usr/local/include/gaul/ga_core.h:100,
+                 from /usr/local/include/gaul.h:619,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/ga_chromo.h:38: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_chromo.h:48: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_chromo.h:58: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_chromo.h:68: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_chromo.h:78: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_chromo.h:85: error: '_Bool' does not name a type
+In file included from /usr/local/include/gaul/ga_core.h:101,
+                 from /usr/local/include/gaul.h:619,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/ga_climbing.h:43: error: 'GAmutate_allele' has not been declared
+In file included from /usr/local/include/gaul/ga_core.h:104,
+                 from /usr/local/include/gaul.h:619,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/ga_gradient.h:44: error: expected ',' or '...' before 'to_double'
+/usr/local/include/gaul/ga_gradient.h:48: error: ISO C++ forbids declaration of 'GAto_double' with no type
+In file included from /usr/local/include/gaul/ga_core.h:106,
+                 from /usr/local/include/gaul.h:619,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/ga_qsort.h:53: error: '_Bool' does not name a type
+In file included from /usr/local/include/gaul/ga_core.h:108,
+                 from /usr/local/include/gaul.h:619,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/ga_sa.h:43: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_sa.h:44: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_sa.h:47: error: 'GAsa_accept' has not been declared
+In file included from /usr/local/include/gaul/ga_core.h:109,
+                 from /usr/local/include/gaul.h:619,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/ga_similarity.h:43: error: '_Bool' does not name a type
+In file included from /usr/local/include/gaul/ga_core.h:110,
+                 from /usr/local/include/gaul.h:619,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/ga_systematicsearch.h:44: error: 'GAscan_chromosome' has not been declared
+In file included from /usr/local/include/gaul/ga_core.h:111,
+                 from /usr/local/include/gaul.h:619,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/ga_simplex.h:46: error: expected ',' or '...' before 'to_double'
+/usr/local/include/gaul/ga_simplex.h:47: error: ISO C++ forbids declaration of 'GAto_double' with no type
+In file included from /usr/local/include/gaul/ga_core.h:112,
+                 from /usr/local/include/gaul.h:619,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/ga_tabu.h:43: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_tabu.h:46: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_tabu.h:49: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_tabu.h:52: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_tabu.h:55: error: '_Bool' does not name a type
+/usr/local/include/gaul/ga_tabu.h:59: error: 'GAtabu_accept' has not been declared
+In file included from /usr/local/include/gaul.h:619,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/ga_core.h:161: error: 'GAtabu_accept' does not name a type
+/usr/local/include/gaul/ga_core.h:175: error: 'GAsa_accept' does not name a type
+/usr/local/include/gaul/ga_core.h:183: error: 'GAmutate_allele' does not name a type
+/usr/local/include/gaul/ga_core.h:196: error: 'GAto_double' does not name a type
+/usr/local/include/gaul/ga_core.h:197: error: 'GAfrom_double' does not name a type
+/usr/local/include/gaul/ga_core.h:230: error: 'GAto_double' does not name a type
+/usr/local/include/gaul/ga_core.h:231: error: 'GAfrom_double' does not name a type
+/usr/local/include/gaul/ga_core.h:240: error: 'GAscan_chromosome' does not name a type
+/usr/local/include/gaul/ga_core.h:338: error: 'GAgeneration_hook' does not name a type
+/usr/local/include/gaul/ga_core.h:339: error: 'GAiteration_hook' does not name a type
+/usr/local/include/gaul/ga_core.h:344: error: 'GAchromosome_constructor' does not name a type
+/usr/local/include/gaul/ga_core.h:351: error: 'GAevaluate' does not name a type
+/usr/local/include/gaul/ga_core.h:352: error: 'GAseed' does not name a type
+/usr/local/include/gaul/ga_core.h:354: error: 'GAselect_one' does not name a type
+/usr/local/include/gaul/ga_core.h:355: error: 'GAselect_two' does not name a type
+/usr/local/include/gaul/ga_core.h:401: error: '_Bool' does not name a type
+In file included from /usr/local/include/gaul.h:622,
+                 from /usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:24:
+/usr/local/include/gaul/ga_intrinsics.h:58: error: '_Bool' does not name a type
+/usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:41: error: '_Bool' does not name a type
+/usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:65: error: '_Bool' does not name a type
+/usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp: In function 'void tsp_mutate(population*, entity*, entity*)':
+/usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:173: error: 'random_boolean_prob' was not declared in this scope
+/usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp: In function 'void tsp_crossover(population*, entity*, entity*, entity*, entity*)':
+/usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:189: error: 'random_boolean' was not declared in this scope
+/usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp: In function 'int find_tsp_solution(int, float (*)[40], int*, int, float*, char*)':
+/usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:263: error: 'ga_extinction' was not declared in this scope
+/usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:273: error: 'tsp_score' was not declared in this scope
+/usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:274: error: 'tsp_seed' was not declared in this scope
+/usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:276: error: 'ga_select_one_randomrank' was not declared in this scope
+/usr/home/sov/Desktop/pgrouting/extra/tsp/src/tsp_solver.cpp:277: error: 'ga_select_two_randomrank' was not declared in this scope
+*** Error code 1
+Stop in /usr/home/sov/Desktop/pgrouting.
+*** Error code 1
+Stop in /usr/home/sov/Desktop/pgrouting.
+*** Error code 1
+Stop in /usr/home/sov/Desktop/pgrouting.
+bsd#
+</pre>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            sov
+          </div>
+          <div class="time">
+            02/12/09 09:34:03 (22 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/219?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/219?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message782"></a>
+        <div class="id">
+          Message #782
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+Unfortunately I have no experience with pgRouting on freeBSD (so you're very welcome to add a howto wiki page if you could make it work ;-)
+</p>
+<p>
+Because TSP and Driving Distance often make troubles because of their dependencies, could you try to run cmake at first without those "extras", like
+</p>
+<pre class="wiki">bsd# cmake .
+</pre><p>
+PS: Also could you post code within <tt> {{{ ... </tt> }}} (TRAC syntax for code blocks). This makes it better readable. Thanks.
+</p>
+<p>
+This (hopefully) reduces the errors.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/12/09 10:05:46 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message783"></a>
+        <div class="id">
+          Message #783
+        </div>
+        <div class="body">
+            <p>
+<strong>successful</strong> building pgRouting on freeBSD without extras
+</p>
+<pre class="wiki">bsd# cd Desktop/pgrouting
+bsd# cmake .
+-- The C compiler identification is GNU
+-- The CXX compiler identification is GNU
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Found PostgreSQL: /usr/local/include/postgresql/server, /usr/local/lib/libpq.so
+-- Boost version: 1.34.1
+-- Found the following Boost libraries:
+Boost headers were found here: /usr/local/include
+Output directory for libraries is set to /usr/local/lib/postgresql
+-- Found PGROUTING_CORE core: /usr/home/sov/Desktop/pgrouting/core/src
+Installation directory for libraries is set to /usr/local/lib/postgresql and for SQL files is set to /usr/share/postlbs
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /usr/home/sov/Desktop/pgrouting
+bsd# make
+Scanning dependencies of target routing
+[ 16%] Building C object core/src/CMakeFiles/routing.dir/dijkstra.o
+[ 33%] Building C object core/src/CMakeFiles/routing.dir/astar.o
+[ 50%] Building C object core/src/CMakeFiles/routing.dir/shooting_star.o
+[ 66%] Building CXX object core/src/CMakeFiles/routing.dir/boost_wrapper.o
+[ 83%] Building CXX object core/src/CMakeFiles/routing.dir/astar_boost_wrapper.o
+[100%] Building CXX object core/src/CMakeFiles/routing.dir/shooting_star_boost_wrapper.o
+Linking CXX shared library ../../lib/librouting.so
+[100%] Built target routing
+bsd#
+</pre><p>
+And what about dependencies version for extras in this case?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            sov
+          </div>
+          <div class="time">
+            02/12/09 14:40:09 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message784"></a>
+        <div class="id">
+          Message #784
+        </div>
+        <div class="body">
+            <p>
+Nice to see that it worked.
+</p>
+<p>
+For "extras" Travelling Salesperson Problem  or Driving Distance you need additional libraries such as "Gaul" and "Cgal". It can make troubles to install them and have them in the right directory then to be found by cmake.
+</p>
+<p>
+You proceed like in this howto: <a class="wiki" href="../../wiki/1.x/InstallationUbuntu804.html">1.x/InstallationUbuntu804</a>. Maybe you can't follow 100% with FreeBSD, I don't know.
+If you need both "TSP" and "DD" better start with TSP, because the chance that Gaul installs without problems is higher than with CGAL.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/12/09 15:17:37 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message785"></a>
+        <div class="id">
+          Message #785
+        </div>
+        <div class="body">
+            <p>
+As you can see in my first post, cmake found CGAL and GAUL libraries and configured correctly.
+</p>
+<p>
+Then I followed your counsel:
+<tt>cmake -DWITH_TSP=ON .</tt>
+but build failed.
+</p>
+<p>
+I used two different way of installing GAUL:
+</p>
+<p>
+1) manual download from <a class="ext-link" href="http://gaul.sourceforge.net/"><span class="icon"> </span>http://gaul.sourceforge.net</a>
+</p>
+<pre class="wiki"># ./configure –enable-slang=no
+# make
+# make install
+</pre><p>
+2) use freeBSD ports
+</p>
+<pre class="wiki"># cd /usr/ports/devel/gaul
+# make install clean
+</pre><p>
+As I understand compilation log says what GAUL's header files are incompatible with ISO C++, isn't it?
+</p>
+<p>
+From gaul.sourceforge.net:
+"...it should be fairly trivial to use GAUL on any POSIX compliant systems."
+It seems strange.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            sov
+          </div>
+          <div class="time">
+            02/12/09 16:14:15 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/219?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/219?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/67 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/22.html" title="demo">demo</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>demo (#22) - Routing on the Fly - using <a class="missing wiki">OpenLayers?</a> (#67) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Routing on the Fly - using <a class="missing wiki">OpenLayers?</a>
+            </div>
+            <div class="body">
+              <p>
+Hi guys :)
+</p>
+<p>
+I am trying to make an on-the-fly route display and am following this tutorial : <a href="../../wiki/WorkshopFOSS4G2007.html#OpenLayersroutingmap">http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2007#OpenLayersroutingmap</a>
+</p>
+<p>
+I managed to send the request to the PHP page to generate and XML response and a copy of this response can be found here : <a class="ext-link" href="http://yancho.pastebin.com/f41432b0d"><span class="icon"> </span>http://yancho.pastebin.com/f41432b0d</a> . The URL which is sending the data is : <a class="ext-link" href="http://yancho.no-ip.org/~yancho/routing.php?startpoint=642983.5%20225176.75&amp;finalpoint=641780.375%20224942.375&amp;method=SPA&amp;region=streets&amp;srid=-1&amp;_="><span class="icon"> </span>http://yancho.no-ip.org/~yancho/routing.php?startpoint=642983.5%20225176.75&amp;finalpoint=641780.375%20224942.375&amp;method=SPA&amp;region=streets&amp;srid=-1&amp;_=</a>  And these are the headers of the reply according to <a class="missing wiki">FireBug?</a> : <a class="ext-link" href="http://yancho.pastebin.com/f18cadf12"><span class="icon"> </span>http://yancho.pastebin.com/f18cadf12</a>
+</p>
+<p>
+Small Extract Of the XML Output :
+</p>
+<p>
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes" ?&gt;
+&lt;route&gt;
+&lt;edge id='1'&gt;
+&lt;id&gt;3612&lt;/id&gt;
+&lt;wkt&gt;MULTILINESTRING((642847.022664808 225275.125294559,642901.453947967 225273.479351758))&lt;/wkt&gt;
+&lt;length&gt;0.054&lt;/length&gt;
+&lt;/edge&gt;
+</p>
+<p>
+But the problem is when I get to display the route. When I click on Compute Route, on my site : <a class="ext-link" href="http://yancho.no-ip.org/~yancho/openl.html"><span class="icon"> </span>http://yancho.no-ip.org/~yancho/openl.html</a>
+</p>
+<p>
+I get this error :
+</p>
+<p>
+String contains an invalid character" code: "5
+<a class="ext-link" href="http://yancho.no-ip.org/~yancho/OpenLayers.js"><span class="icon"> </span>http://yancho.no-ip.org/~yancho/OpenLayers.js</a>
+Line 554
+</p>
+<p>
+And further investigations in <a class="missing wiki">FireBug?</a> shows :
+</p>
+<p>
+String contains an invalid character" code: "5
+emptyFunction()<a class="missing wiki">OpenLayers?</a>.js (line 189)
+getImagesLocation()<a class="missing wiki">OpenLayers?</a>.js (line 101)
+emptyFunction()<a class="missing wiki">OpenLayers?</a>.js (line 189)
+dispatch("routing.php ", Object method=get)<a class="missing wiki">OpenLayers?</a>.js (line 191)
+Class()<a class="missing wiki">OpenLayers?</a>.js (line 57)
+nullHandler("routing.php", "startpoint=642983.5%20225176.75&amp;finalpoint=641780.375%20224942.375&amp;method=SPA&amp;region=streets&amp;srid=-1 ", null, displayRoute(response), undefined)<a class="missing wiki">OpenLayers?</a>.js (line 187)
+compute()openl.html (line 152)
+onclick(click clientX=0, clientY=0)openl.html (line 1)
+[Break on this error] if(style.cursor){node.setAttributeNS (null,"cursor",style.cursor);}},createNode:f...
+</p>
+<p>
+Any idea how I can fix my code please? A copy of the code can be seen highlighted here : <a class="ext-link" href="http://yancho.pastebin.com/f335b8727"><span class="icon"> </span>http://yancho.pastebin.com/f335b8727</a>
+</p>
+<p>
+Thanks for your continous help. Much Appreciated
+</p>
+<p>
+Matthew
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/22/07 18:18:23 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/67?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/67?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message257"></a>
+        <div class="id">
+          Message #257
+        </div>
+        <div class="body">
+            <p>
+For sure I can say, that this is not a problem with your PHP script, but something goes wrong with the <a class="missing wiki">OpenLayers?</a> part. The created XML file with the route looks fine. Did you ask the <a class="missing wiki">OpenLayers?</a> list?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            11/22/07 19:21:46 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message258"></a>
+        <div class="id">
+          Message #258
+        </div>
+        <div class="body">
+            <p>
+Thanks daniel for your support .. yes I did ask but didn't get much answers, and was doubting if it was a <a class="missing wiki">OpenLayers?</a> problem or else something else.
+</p>
+<p>
+Thanks mate :)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/22/07 19:24:01 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message259"></a>
+        <div class="id">
+          Message #259
+        </div>
+        <div class="body">
+            <p>
+Do you use the latest version of <a class="missing wiki">OpenLayers?</a>?
+The version of the FOSS4G2007 workshop is not the latest one.
+</p>
+<p>
+You can take a look at this demo of Christopher Schmidt. It's an extended version, which he made during the workshop.
+<a class="ext-link" href="http://boston.freemap.in/routing.html"><span class="icon"> </span>http://boston.freemap.in/routing.html</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            11/22/07 19:29:05 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message260"></a>
+        <div class="id">
+          Message #260
+        </div>
+        <div class="body">
+            <p>
+Hmm well I downloaded the <a class="missing wiki">OpenLayers?</a>.js from their server but used your tutorial to build the source code .. I'll compare it a bith with chris then :)
+</p>
+<p>
+Thanks for the tip!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/22/07 19:30:57 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message261"></a>
+        <div class="id">
+          Message #261
+        </div>
+        <div class="body">
+            <p>
+You could link to his <a class="missing wiki">OpenLayers?</a> library to make sure it is not a version problem. If it works with his <a class="missing wiki">OpenLayers?</a>.js, then it might be a version incompatibility.
+</p>
+<p>
+If you find out that our tutorial doesn't work anymore with <a class="missing wiki">OpenLayers?</a> 2.5, please let me know.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            11/22/07 19:35:59 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message262"></a>
+        <div class="id">
+          Message #262
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+I tried to link to his <a class="missing wiki">OpenLayers?</a>.js script but same error occured :(
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/22/07 19:45:10 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message263"></a>
+        <div class="id">
+          Message #263
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+Just would like to say that finally with the help of crschmidt and pgiraud from #<a class="missing wiki">OpenLayers?</a> , I managed to get the routing working.
+</p>
+<p>
+I would like to say that the tutorial has some old things that I suggest should be changed to reflect the new <a class="missing wiki">OpenLayers?</a>.js
+</p>
+<p>
+function displayRoute(response) {
+</p>
+<blockquote>
+<p>
+if (response &amp;&amp; response.responseXML) {
+</p>
+<blockquote>
+<p>
+// erase the previous results
+result.removeFeatures(result.features);
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// parse the features
+var edges = response.responseXML.getElementsByTagName('edge');
+var features = [];
+for (var i = 0; i &lt; edges.length; i++) {
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+var wkt = edges[i].getElementsByTagName('wkt')<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>.textContent;
+var g = parser.read(wkt);
+features.push(g);
+</p>
+</blockquote>
+<p>
+}
+result.addFeatures(features);
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+In the function on the wiki, there is features.push(new <a class="missing wiki">OpenLayers?</a>.Feature.Vector(g)); which now should just be changed with features.push(g); since g is already a Feature.Vector array so no need to mention it again.
+</p>
+<p>
+Thanks alot for your support, and hope this thread helps others with my problem :)
+</p>
+<p>
+Cheers
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/24/07 02:18:36 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message264"></a>
+        <div class="id">
+          Message #264
+        </div>
+        <div class="body">
+            <p>
+Thank you! I updated the tutorial page.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            11/25/07 19:26:16 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/67?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/67?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

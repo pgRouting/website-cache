@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/118 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - pgRouting on NetBSD 4.0 (sparc) (#118) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              pgRouting on NetBSD 4.0 (sparc)
+            </div>
+            <div class="body">
+              <p>
+Hello,
+</p>
+<p>
+I'm testing pgRouting on NetBSD 4.0 (<a class="missing wiki">HyperSparc?</a>/SMP, 512 MB) and I obtain a "signal 11" (segmentation fault) when I try to use :
+</p>
+<p>
+routing=# select shortest_path_astar(
+</p>
+<blockquote>
+<p>
+'select gid::int4 as id, source::int4, target::int4,
+length::double precision as cost, x1, y1, x2, y2,
+reverse_length::double precision as reverse_cost
+from streets_68420_edges', 138, 255, false, true);
+</p>
+</blockquote>
+<p>
+...
+NOTICE:  Conting tuples number
+</p>
+<p>
+NOTICE:  Path count 48
+NOTICE:  Strange stuff doing
+</p>
+<p>
+NOTICE:  Trying to allocate some memory
+</p>
+<p>
+NOTICE:  Before allocation
+</p>
+<p>
+NOTICE:  After allocation
+</p>
+<p>
+NOTICE:  Heap making
+</p>
+<p>
+server closed the connection unexpectedly
+</p>
+<blockquote>
+<p>
+This probably means the server terminated abnormally
+before or while processing the request.
+</p>
+</blockquote>
+<p>
+The connection to the server was lost. Attempting reset: Failed.
+!&gt;
+</p>
+<p>
+Segfault is returned by line 553 in astar.c file. I don't know how fix this bug. Path computation works fine and sometimes, pgRouting does not crash and returns data to psql.
+</p>
+<p>
+PostgreSQL log file contains :
+LOG:  server process (PID 11565) was terminated by signal 11
+LOG:  terminating any other active server processes
+FATAL:  the database system is in recovery mode
+LOG:  all server processes terminated; reinitializing
+LOG:  database system was interrupted at 2008-02-26 09:27:51 CET
+LOG:  checkpoint record is at 2/2FD03048
+LOG:  redo record is at 2/2FD03048; undo record is at 0/0; shutdown TRUE
+LOG:  next transaction ID: 0/12848; next OID: 34432
+LOG:  next <a class="missing wiki">MultiXactId?</a>: 1; next <a class="missing wiki">MultiXactOffset?</a>: 0
+LOG:  database system was not properly shut down; automatic recovery in progress
+LOG:  record with zero length at 2/2FD03098
+LOG:  redo is not required
+LOG:  database system is ready
+</p>
+<p>
+I use a out of the box PostgreSQL server (8.2.6) :
+riemann:<a href="../../home/pgrouting/data.html">/home/pgrouting/data</a> &gt; LANG=C psql -d routing
+Welcome to psql 8.2.6, the PostgreSQL interactive terminal.
+</p>
+<p>
+Type:  \copyright for distribution terms
+</p>
+<blockquote>
+<p>
+\h for help with SQL commands
+\? for help with psql commands
+\g or terminate with semicolon to execute query
+\q to quit
+</p>
+</blockquote>
+<p>
+routing=# SELECT postgis_full_version();
+</p>
+<blockquote>
+<p>
+postgis_full_version
+</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>
+POSTGIS="1.3.2" GEOS="3.0.0-CAPI-1.4.1" PROJ="Rel. 4.6.0, 21 Dec 2007" USE_STATS
+</p>
+</blockquote>
+<p>
+(1 row)
+</p>
+<p>
+routing=#
+</p>
+<p>
+postgres writes a core file. When I open this file with gdb, I obtain :
+...
+(gdb) backtrace
+<a class="missing ticket">#0</a>  0x208518f4 in memcpy () from /usr/lib/libc.so.12
+<a class="assigned ticket" href="../../ticket/1.html" title="feature request: TSP should return to start point (assigned)">#1</a>  0x000422a0 in heap_formtuple ()
+<a class="closed ticket" href="../../ticket/2.html" title="feature request: New vertices renumbering for A* (closed: wontfix)">#2</a>  0x20d12c1c in shortest_path_astar ()
+</p>
+<blockquote>
+<p>
+at /home/pgrouting/src/pgrouting/core/src/astar.c:548
+</p>
+</blockquote>
+<p>
+<a class="closed ticket" href="../../ticket/3.html" title="task: Create Wiki pages (closed: fixed)">#3</a>  0x0010bcfc in <a class="missing wiki">ExecMakeFunctionResult?</a> ()
+<a class="closed ticket" href="../../ticket/4.html" title="feature request: Building pgrouting 1.0.0.a on win32 error with tsp_solver.cpp (closed: fixed)">#4</a>  0x0010a328 in <a class="missing wiki">ExecProject?</a> ()
+<a class="closed ticket" href="../../ticket/5.html" title="feature request: OSX - unwind_resume link error (closed: invalid)">#5</a>  0x00119df8 in <a class="missing wiki">ExecResult?</a> ()
+<a class="closed ticket" href="../../ticket/6.html" title="task: Testing 1.0.0a (closed: fixed)">#6</a>  0x00109a7c in <a class="missing wiki">ExecProcNode?</a> ()
+<a class="closed ticket" href="../../ticket/7.html" title="feature request: Patch for Win32 for PgRouting 1.0.0.a (closed: fixed)">#7</a>  0x00108a88 in <a class="missing wiki">ExecutorRun?</a> ()
+<a class="closed ticket" href="../../ticket/8.html" title="task: New directory structure (closed: fixed)">#8</a>  0x00198fa8 in <a class="missing wiki">PortalRunSelect?</a> ()
+<a class="closed ticket" href="../../ticket/9.html" title="feature request: New vertices renumbering for Dijkstra (closed: wontfix)">#9</a>  0x0019a1e0 in <a class="missing wiki">PortalRun?</a> ()
+<a class="closed ticket" href="../../ticket/10.html" title="bug report: geometry and unique ID columns hardwired into scripts (closed: wontfix)">#10</a> 0x00195bf0 in exec_simple_query ()
+<a class="closed ticket" href="../../ticket/11.html" title="bug report: assign_vertex_id fails srid constraint (closed: fixed)">#11</a> 0x00197334 in <a class="missing wiki">PostgresMain?</a> ()
+<a class="closed ticket" href="../../ticket/12.html" title="bug report: Failed installion of pgRouting-1.0.0a on linux (closed: invalid)">#12</a> 0x0016c730 in <a class="missing wiki">ServerLoop?</a> ()
+<a class="closed ticket" href="../../ticket/13.html" title="feature request: Start A* star search from nearest edge (closed: fixed)">#13</a> 0x0016d3f4 in <a class="missing wiki">PostmasterMain?</a> ()
+<a class="closed ticket" href="../../ticket/14.html" title="bug report: brackets in Travelling SalesPerson (closed: fixed)">#14</a> 0x0012914c in main ()
+<a class="closed ticket" href="../../ticket/15.html" title="bug report: No shortest path of edges with same source and target node (closed: fixed)">#15</a> 0x00040638 in <span class="underline">_start ()
+</span></p>
+<p>
+Thus, I have added :
+</p>
+<blockquote>
+<p>
+printf("Values : %p\n", values);
+printf("Nulls  : %p\n", nulls);
+printf("%d %d %f\n", path[call_cntr].vertex_id, path[call_cntr].edge_id, path[call_cntr].cost);
+</p>
+</blockquote>
+<p>
+before tuple = heap_formtuple(tuple_desc, values, nulls); and I obtain :
+</p>
+<p>
+NOTICE:  Heap making
+Values : 0x3ec018
+Nulls  : 0x3ec030
+138 118 158.112807
+LOG:  server process (PID 8880) was terminated by signal 11
+</p>
+<p>
+Heap_formtuple arguments seem to be correct. I don't know how check tuple_desc.
+</p>
+<p>
+I'm sure that this postgresql server works fine (no disk or memory trouble). PostgreSQL only crashes when I use a pgRouting function. pgRouting was built with :
+</p>
+<p>
+riemann:<a href="../../home/pgrouting/data.html">/home/pgrouting/data</a> &gt; gcc -v
+Using built-in specs.
+Target: sparc--netbsdelf
+Configured with: /usr/src/tools/gcc/../../gnu/dist/gcc4/configure --enable-long-long --disable-multilib --enable-threads --disable-symvers --build=i386-unknown-netbsdelf4.99.3 --host=sparc--netbsdelf --target=sparc--netbsdelf
+Thread model: posix
+gcc version 4.1.2 20061021 prerelease (NetBSD nb3 20061125)
+riemann:<a href="../../home/pgrouting/data.html">/home/pgrouting/data</a> &gt; g++ -v
+Using built-in specs.
+Target: sparc--netbsdelf
+Configured with: /usr/src/tools/gcc/../../gnu/dist/gcc4/configure --enable-long-long --disable-multilib --enable-threads --disable-symvers --build=i386-unknown-netbsdelf4.99.3 --host=sparc--netbsdelf --target=sparc--netbsdelf
+Thread model: posix
+gcc version 4.1.2 20061021 prerelease (NetBSD nb3 20061125)
+riemann:<a href="../../home/pgrouting/data.html">/home/pgrouting/data</a> &gt;
+</p>
+<p>
+PostgreSQL and all other required tools were built with the same compiler.
+</p>
+<p>
+Can someone help me ?
+</p>
+<p>
+Thanks in advance,
+</p>
+<p>
+JKB
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            JKB
+          </div>
+          <div class="time">
+            02/26/08 18:31:50 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/118?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/118?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message433"></a>
+        <div class="id">
+          Message #433
+        </div>
+        <div class="body">
+            <p>
+BUG FOUND AND FIXED :
+</p>
+<p>
+There are _four_ fields in path_result. Thus you have to initialize _four_ columns and not _three_. You have to fix palloc() too.
+</p>
+<blockquote>
+<p>
+DBG("After allocation\n");
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+values<a class="missing changeset" title="No changeset 0 in the repository">[0]</a> = call_cntr;
+nulls<a class="missing changeset" title="No changeset 0 in the repository">[0]</a> = ' ';
+values<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a> = Int32GetDatum(path[call_cntr].vertex_id);
+nulls<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a> = ' ';
+values<a class="changeset" href="../../changeset/2.html" title="initial">[2]</a> = Int32GetDatum(path[call_cntr].edge_id);
+nulls<a class="changeset" href="../../changeset/2.html" title="initial">[2]</a> = ' ';
+values<a class="changeset" href="../../changeset/3.html" title="initial">[3]</a> = Float8GetDatum(path[call_cntr].cost);
+nulls<a class="changeset" href="../../changeset/3.html" title="initial">[3]</a> = ' ';
+</p>
+</blockquote>
+<blockquote>
+<p>
+DBG("Heap making\n");
+</p>
+</blockquote>
+<p>
+You have to fix all routines. I think that postgis prototypes has changed.
+</p>
+<p>
+Regards,
+</p>
+<p>
+JKB
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            JKB
+          </div>
+          <div class="time">
+            02/26/08 19:37:31 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message437"></a>
+        <div class="id">
+          Message #437
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+I have a problem with you fix.
+</p>
+<p>
+I applied the changes you suggested and it was working with x86 and gcc. I even commited it to SVN, but after some testing time I found out that all algorithms now crash from time to time. So, I rolled back to the previous version.
+</p>
+<p>
+I added the block you suggested to the souce code and commented it out with some description.
+</p>
+<p>
+I think it needs more debugging.
+</p>
+<p>
+Thanks anyway.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            03/05/08 17:23:02 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message442"></a>
+        <div class="id">
+          Message #442
+        </div>
+        <div class="body">
+            <p>
+Hello,
+</p>
+<p>
+I don't understand. I use this patch since three weeks without trouble. Note that I only fix dijkstra.c and shortest_path_astar.c. I have uploaded my tree and you can download it at <a class="ext-link" href="http://www.systella.fr/~bertrand/pgRouting-JKB.tgz"><span class="icon"> </span>http://www.systella.fr/~bertrand/pgRouting-JKB.tgz</a>
+</p>
+<p>
+It was tested with :
+postgis-1.3.2
+postgresql 8.2 and 8.3
+</p>
+<p>
+on Linux i386, amd64, sparc64 and NetBSD 4.0 sparc32
+</p>
+<p>
+Regards,
+</p>
+<p>
+JKB
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            JKB
+          </div>
+          <div class="time">
+            03/20/08 02:34:24 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message443"></a>
+        <div class="id">
+          Message #443
+        </div>
+        <div class="body">
+            <p>
+Hello,
+</p>
+<p>
+I don't understand. I use this patch since three weeks without trouble. Note that I only fix dijkstra.c and shortest_path_astar.c. I have uploaded my tree and you can download it at <a class="ext-link" href="http://www.systella.fr/~bertrand/pgRouting-JKB.tgz"><span class="icon"> </span>http://www.systella.fr/~bertrand/pgRouting-JKB.tgz</a>
+</p>
+<p>
+It was tested with :
+postgis-1.3.2
+postgresql 8.2 and 8.3
+</p>
+<p>
+on Linux i386, amd64, sparc64 and NetBSD 4.0 sparc32
+</p>
+<p>
+Regards,
+</p>
+<p>
+JKB
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            JKB
+          </div>
+          <div class="time">
+            03/22/08 05:51:43 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/118?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/118?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

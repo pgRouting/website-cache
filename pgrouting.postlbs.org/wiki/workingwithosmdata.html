@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/workingwithosmdata by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      workingwithosmdata – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/workingwithosmdata?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/workingwithosmdata?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/workingwithosmdata?action=diff&amp;version=9">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h2 id="WorkingwithOpenStreetMap-data">Working with Open Street Map-data</h2>
+<p>
+In that case as an example from Osnabrück.......(in lower saxony(Germany))
+</p>
+<p>
+Getting your own <a class="missing wiki">OpenStreetMap?</a>-Routing-data is not the easiest step in the world.
+You know that you need data with a real topology?
+</p>
+<p>
+In generel Shapefiles should have one, but be very carefull with OSM-Shapefiles.
+For most thing they work very nice, you get them e.g. from here:
+<a class="ext-link" href="http://download.geofabrik.de/osm/"><span class="icon"> </span>http://download.geofabrik.de/osm/</a>
+</p>
+<p>
+But please don`t use these Shapefiles (and shp2pgsql) for a routing and have a look at that discussion:
+</p>
+<p>
+<a class="ext-link" href="http://lists.postlbs.org/pipermail/pgrouting-users/2009-April/000096.html"><span class="icon"> </span>http://lists.postlbs.org/pipermail/pgrouting-users/2009-April/000096.html</a>
+</p>
+<p>
+Many thanks to Daniel KASTL who brought the needed information:
+</p>
+<pre class="wiki">.......shp2pgsql imports the geometry correctly, but the topology function will not work with how OSM represents their ways, 
+ because ways consist (can consist) of more than one edge often.
+
+osm2pgrouting cares about this and splits a way into more edges if they cross each other. It then automatically does 
+the assign_vertex topology script and adds a few more tables to keep information about road types and classes.
+</pre><p>
+To get your own data you need to work with .osm (XML) files.
+</p>
+<p>
+Please download the .osm-data from lower saxony (niedersachsen.osm.bz2) , e.g. from here:
+</p>
+<p>
+<a class="ext-link" href="http://download.geofabrik.de/osm/europe/germany/"><span class="icon"> </span>http://download.geofabrik.de/osm/europe/germany/</a>
+</p>
+<p>
+And then install osmosis, a very nice tool to work with osm-data, 
+The wiki-site for osmosis you find here:
+</p>
+<p>
+<a class="ext-link" href="http://wiki.openstreetmap.org/wiki/Osmosis"><span class="icon"> </span>http://wiki.openstreetmap.org/wiki/Osmosis</a>
+</p>
+<p>
+You need to extract the data from Osnabrück out of Lower saxony, it works like that:
+</p>
+<p>
+<a class="ext-link" href="http://www.selbstverwaltung-bundesweit.de/screenshot_osmosis.PNG"><span class="icon"> </span>http://www.selbstverwaltung-bundesweit.de/screenshot_osmosis.PNG</a>
+(screenshot on a windows-system),
+</p>
+<p>
+the command is
+</p>
+<pre class="wiki">osmosis --read-xml niedersachsen.osm --bb left=7.917 right=8.1694 top=52.3537 bottom=52.3537 --write-xml osnabrueck.osm
+
+</pre><p>
+Now, you have the "real"-OSM-XML-Data from Osnabrück but without a topology.
+</p>
+<p>
+For that you need the tool "osm2pgrouting"
+</p>
+<p>
+<a href="tools/osm2pgrouting.html">http://pgrouting.postlbs.org/wiki/tools/osm2pgrouting</a> (follow the installation on that side)
+</p>
+<p>
+After you have loaded the .osm-File in the database via osm2pgrouting, the table-structure should look like:
+</p>
+<p>
+<a style="padding:0; border:none" href="http://www.kneipenculture.de/database.png"><img src="http://www.kneipenculture.de/database.png" alt="http://www.kneipenculture.de/database.png " title="http://www.kneipenculture.de/database.png " /></a>
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/workingwithosmdata?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("workingwithosmdata.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/workingwithosmdata by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

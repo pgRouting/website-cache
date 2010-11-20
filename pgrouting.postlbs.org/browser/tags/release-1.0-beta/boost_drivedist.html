@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/browser/tags/release-1.0-beta/boost_drivedist.cpp by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:30:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      /tags/release-1.0-beta/boost_drivedist.cpp – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/browser/tags/release-1.0-beta/boost_drivedist.cpp?format=txt" type="text/plain" title="Plain Text" /><link rel="alternate" href="../../../export/358/tags/release-1.0-beta/boost_drivedist.cpp" type="text/x-c++src; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="../release-2.html" title="Parent directory" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/code.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/browser.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".trac-toggledeleted").show().click(function() {
+                  $(this).siblings().find(".trac-deleted").toggle();
+                  return false;
+        }).click();
+        $("#jumploc input").hide();
+        $("#jumploc select").change(function () {
+          this.parentNode.parentNode.submit();
+        });
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li class="active"><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../../changeset/39/tags/1.0.0b/boost_drivedist.html">Last Change</a></li><li><a href="http://pgrouting.postlbs.org/browser/tags/1.0.0b/boost_drivedist.cpp?annotate=blame&amp;rev=39" title="Annotate each line with the last changed revision (this can be time consuming...)">Annotate</a></li><li class="last"><a href="../../../log/tags/release-1.0-beta/boost_drivedist.html">Revision Log</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="browser">
+      <h1>
+    <a class="pathentry first" title="Go to root directory" href="../../../browser.html">root</a><span class="pathentry sep">/</span><a class="pathentry" title="View tags" href="../../tags.html">tags</a><span class="pathentry sep">/</span><a class="pathentry" title="View release-1.0-beta" href="../release-2.html">release-1.0-beta</a><span class="pathentry sep">/</span><a class="pathentry" title="View boost_drivedist.cpp" href="boost_drivedist.html">boost_drivedist.cpp</a>
+    <br style="clear: both" />
+  </h1>
+      <div id="jumprev">
+        <form action="#" method="get">
+          <div>
+            <label for="rev">
+              View revision:</label>
+            <input type="text" id="rev" name="rev" size="6" />
+          </div>
+        </form>
+      </div>
+      <div id="jumploc">
+        <form action="#" method="get">
+          <div class="buttons">
+            <label for="preselected">Visit:</label>
+            <select id="preselected" name="preselected">
+              <option selected="selected"></option>
+              <optgroup label="branches">
+                <option value="/browser/trunk">trunk</option><option value="/browser/branches/anton">branches/anton</option><option value="/browser/branches/daniel">branches/daniel</option><option value="/browser/branches/debug">branches/debug</option><option value="/browser/branches/pgrouting-extra">branches/pgrouting-extra</option><option value="/browser/branches/pgrouting-light">branches/pgrouting-light</option><option value="/browser/branches/workshop">branches/workshop</option>
+              </optgroup><optgroup label="tags">
+                <option value="/browser/tags/release-1.0?rev=58">tags/release-1.0</option><option value="/browser/tags/release-1.0-beta?rev=52">tags/release-1.0-beta</option><option value="/browser/tags/release-1.0-rc1?rev=51">tags/release-1.0-rc1</option><option value="/browser/tags/release-1.02?rev=162">tags/release-1.02</option><option value="/browser/tags/release-1.03?rev=218">tags/release-1.03</option>
+              </optgroup>
+            </select>
+            <input type="submit" value="Go!" title="Jump to the chosen preselected path" />
+          </div>
+        </form>
+      </div>
+      <table id="info" summary="Revision info">
+        <tr>
+          <th scope="col">
+            Revision <a href="../../../changeset/39.html">39</a>, <span title="4706 bytes">4.6 KB</span>
+            (checked in by anton, <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-10-02T17%3A03%3A54%2B0900&amp;precision=second" title="2007-10-02T17:03:54+0900 in Timeline">3 years</a> ago)
+          </th>
+        </tr>
+        <tr>
+          <td class="message searchable">
+              <p>
+1.0.0b tag added<br />
+</p>
+          </td>
+        </tr>
+      </table>
+      <div id="preview" class="searchable">
+    <table class="code"><thead><tr><th class="lineno" title="Line numbers">Line</th><th class="content"> </th></tr></thead><tbody><tr><th id="L1"><a href="#L1">1</a></th><td>/*</td></tr><tr><th id="L2"><a href="#L2">2</a></th><td> * Drivedist algorithm for PostgreSQL</td></tr><tr><th id="L3"><a href="#L3">3</a></th><td> *</td></tr><tr><th id="L4"><a href="#L4">4</a></th><td> * Copyright (c) 2006 Mario H. Basa, Orkney, Inc.</td></tr><tr><th id="L5"><a href="#L5">5</a></th><td> *</td></tr><tr><th id="L6"><a href="#L6">6</a></th><td> * This program is free software; you can redistribute it and/or modify</td></tr><tr><th id="L7"><a href="#L7">7</a></th><td> * it under the terms of the GNU General Public License as published by</td></tr><tr><th id="L8"><a href="#L8">8</a></th><td> * the Free Software Foundation; either version 2 of the License, or</td></tr><tr><th id="L9"><a href="#L9">9</a></th><td> * (at your option) any later version.</td></tr><tr><th id="L10"><a href="#L10">10</a></th><td> *</td></tr><tr><th id="L11"><a href="#L11">11</a></th><td> * This program is distributed in the hope that it will be useful,</td></tr><tr><th id="L12"><a href="#L12">12</a></th><td> * but WITHOUT ANY WARRANTY; without even the implied warranty of</td></tr><tr><th id="L13"><a href="#L13">13</a></th><td> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</td></tr><tr><th id="L14"><a href="#L14">14</a></th><td> * GNU General Public License for more details.</td></tr><tr><th id="L15"><a href="#L15">15</a></th><td> *</td></tr><tr><th id="L16"><a href="#L16">16</a></th><td> * You should have received a copy of the GNU General Public License</td></tr><tr><th id="L17"><a href="#L17">17</a></th><td> * along with this program; if not, write to the Free Software</td></tr><tr><th id="L18"><a href="#L18">18</a></th><td> * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.</td></tr><tr><th id="L19"><a href="#L19">19</a></th><td> *</td></tr><tr><th id="L20"><a href="#L20">20</a></th><td> */</td></tr><tr><th id="L21"><a href="#L21">21</a></th><td></td></tr><tr><th id="L22"><a href="#L22">22</a></th><td>#include &lt;boost/config.hpp&gt;</td></tr><tr><th id="L23"><a href="#L23">23</a></th><td>#include &lt;iostream&gt;</td></tr><tr><th id="L24"><a href="#L24">24</a></th><td>#include &lt;fstream&gt;</td></tr><tr><th id="L25"><a href="#L25">25</a></th><td></td></tr><tr><th id="L26"><a href="#L26">26</a></th><td>#include &lt;boost/graph/graph_traits.hpp&gt;</td></tr><tr><th id="L27"><a href="#L27">27</a></th><td>#include &lt;boost/graph/adjacency_list.hpp&gt;</td></tr><tr><th id="L28"><a href="#L28">28</a></th><td>#include &lt;boost/graph/dijkstra_shortest_paths.hpp&gt;</td></tr><tr><th id="L29"><a href="#L29">29</a></th><td></td></tr><tr><th id="L30"><a href="#L30">30</a></th><td>#include "drivedist.h"</td></tr><tr><th id="L31"><a href="#L31">31</a></th><td></td></tr><tr><th id="L32"><a href="#L32">32</a></th><td>using namespace std;</td></tr><tr><th id="L33"><a href="#L33">33</a></th><td>using namespace boost;</td></tr><tr><th id="L34"><a href="#L34">34</a></th><td></td></tr><tr><th id="L35"><a href="#L35">35</a></th><td></td></tr><tr><th id="L36"><a href="#L36">36</a></th><td>// Maximal number of nodes in the path (to avoid infinite loops)</td></tr><tr><th id="L37"><a href="#L37">37</a></th><td>#define MAX_NODES 1000000</td></tr><tr><th id="L38"><a href="#L38">38</a></th><td></td></tr><tr><th id="L39"><a href="#L39">39</a></th><td>struct Edge</td></tr><tr><th id="L40"><a href="#L40">40</a></th><td>{</td></tr><tr><th id="L41"><a href="#L41">41</a></th><td>  int id;</td></tr><tr><th id="L42"><a href="#L42">42</a></th><td>  float8 cost;</td></tr><tr><th id="L43"><a href="#L43">43</a></th><td>};</td></tr><tr><th id="L44"><a href="#L44">44</a></th><td></td></tr><tr><th id="L45"><a href="#L45">45</a></th><td>struct Vertex</td></tr><tr><th id="L46"><a href="#L46">46</a></th><td>{</td></tr><tr><th id="L47"><a href="#L47">47</a></th><td>  int id;</td></tr><tr><th id="L48"><a href="#L48">48</a></th><td>  int edge_id;</td></tr><tr><th id="L49"><a href="#L49">49</a></th><td>};</td></tr><tr><th id="L50"><a href="#L50">50</a></th><td></td></tr><tr><th id="L51"><a href="#L51">51</a></th><td>template &lt;class G, class E&gt;</td></tr><tr><th id="L52"><a href="#L52">52</a></th><td>static void</td></tr><tr><th id="L53"><a href="#L53">53</a></th><td>graph_add_edge(G &amp;graph, int id, int source, int target, float8 cost)</td></tr><tr><th id="L54"><a href="#L54">54</a></th><td>{</td></tr><tr><th id="L55"><a href="#L55">55</a></th><td>  E e;</td></tr><tr><th id="L56"><a href="#L56">56</a></th><td>  bool inserted;</td></tr><tr><th id="L57"><a href="#L57">57</a></th><td>  </td></tr><tr><th id="L58"><a href="#L58">58</a></th><td>  if (cost &lt; 0) // edges are not inserted in the graph if cost is negative</td></tr><tr><th id="L59"><a href="#L59">59</a></th><td>    return;</td></tr><tr><th id="L60"><a href="#L60">60</a></th><td>  </td></tr><tr><th id="L61"><a href="#L61">61</a></th><td>  tie(e, inserted) = add_edge(source, target, graph);</td></tr><tr><th id="L62"><a href="#L62">62</a></th><td>  </td></tr><tr><th id="L63"><a href="#L63">63</a></th><td>  graph[e].cost = cost;</td></tr><tr><th id="L64"><a href="#L64">64</a></th><td>  graph[e].id = id;</td></tr><tr><th id="L65"><a href="#L65">65</a></th><td></td></tr><tr><th id="L66"><a href="#L66">66</a></th><td>  typedef typename graph_traits&lt;G&gt;::vertex_descriptor Vertex;</td></tr><tr><th id="L67"><a href="#L67">67</a></th><td>  Vertex s = vertex(source, graph);</td></tr><tr><th id="L68"><a href="#L68">68</a></th><td>  Vertex t = vertex(target, graph);</td></tr><tr><th id="L69"><a href="#L69">69</a></th><td>  graph[s].id = source;</td></tr><tr><th id="L70"><a href="#L70">70</a></th><td>  graph[t].id = target;</td></tr><tr><th id="L71"><a href="#L71">71</a></th><td>  graph[s].edge_id = id;</td></tr><tr><th id="L72"><a href="#L72">72</a></th><td>  graph[t].edge_id = id;</td></tr><tr><th id="L73"><a href="#L73">73</a></th><td></td></tr><tr><th id="L74"><a href="#L74">74</a></th><td>}</td></tr><tr><th id="L75"><a href="#L75">75</a></th><td></td></tr><tr><th id="L76"><a href="#L76">76</a></th><td>int</td></tr><tr><th id="L77"><a href="#L77">77</a></th><td>boost_dijkstra_dist(edge_t *edges, unsigned int count, int source_vertex_id,</td></tr><tr><th id="L78"><a href="#L78">78</a></th><td>                    double rdistance, bool directed, bool has_reverse_cost,</td></tr><tr><th id="L79"><a href="#L79">79</a></th><td>                    path_element_t **path, int *path_count, char **err_msg) </td></tr><tr><th id="L80"><a href="#L80">80</a></th><td>{</td></tr><tr><th id="L81"><a href="#L81">81</a></th><td>  typedef adjacency_list &lt; listS, vecS, undirectedS, Vertex, Edge &gt; graph_t;</td></tr><tr><th id="L82"><a href="#L82">82</a></th><td>  typedef graph_traits &lt; graph_t &gt;::vertex_descriptor vertex_descriptor;</td></tr><tr><th id="L83"><a href="#L83">83</a></th><td>  typedef graph_traits &lt; graph_t &gt;::edge_descriptor edge_descriptor;</td></tr><tr><th id="L84"><a href="#L84">84</a></th><td></td></tr><tr><th id="L85"><a href="#L85">85</a></th><td>  const unsigned int num_nodes = 1;</td></tr><tr><th id="L86"><a href="#L86">86</a></th><td>  </td></tr><tr><th id="L87"><a href="#L87">87</a></th><td>  graph_t graph( num_nodes );</td></tr><tr><th id="L88"><a href="#L88">88</a></th><td>  </td></tr><tr><th id="L89"><a href="#L89">89</a></th><td>  property_map&lt;graph_t, edge_weight_t&gt;::type weightmap = </td></tr><tr><th id="L90"><a href="#L90">90</a></th><td>    get(edge_weight, graph);</td></tr><tr><th id="L91"><a href="#L91">91</a></th><td>  </td></tr><tr><th id="L92"><a href="#L92">92</a></th><td>  for (std::size_t j = 0; j &lt; count; ++j)</td></tr><tr><th id="L93"><a href="#L93">93</a></th><td>    {</td></tr><tr><th id="L94"><a href="#L94">94</a></th><td>      graph_add_edge&lt;graph_t, edge_descriptor&gt;</td></tr><tr><th id="L95"><a href="#L95">95</a></th><td>        (graph, edges[j].id, edges[j].source, </td></tr><tr><th id="L96"><a href="#L96">96</a></th><td>         edges[j].target, edges[j].cost);      </td></tr><tr><th id="L97"><a href="#L97">97</a></th><td>                                        </td></tr><tr><th id="L98"><a href="#L98">98</a></th><td>      if (!directed || (directed &amp;&amp; has_reverse_cost))</td></tr><tr><th id="L99"><a href="#L99">99</a></th><td>        {</td></tr><tr><th id="L100"><a href="#L100">100</a></th><td>          if (has_reverse_cost)</td></tr><tr><th id="L101"><a href="#L101">101</a></th><td>            {</td></tr><tr><th id="L102"><a href="#L102">102</a></th><td>              graph_add_edge&lt;graph_t, edge_descriptor&gt;</td></tr><tr><th id="L103"><a href="#L103">103</a></th><td>                (graph, edges[j].id, edges[j].target, </td></tr><tr><th id="L104"><a href="#L104">104</a></th><td>                 edges[j].source, edges[j].reverse_cost);      </td></tr><tr><th id="L105"><a href="#L105">105</a></th><td>            }</td></tr><tr><th id="L106"><a href="#L106">106</a></th><td>          else </td></tr><tr><th id="L107"><a href="#L107">107</a></th><td>            {</td></tr><tr><th id="L108"><a href="#L108">108</a></th><td>              graph_add_edge&lt;graph_t, edge_descriptor&gt;</td></tr><tr><th id="L109"><a href="#L109">109</a></th><td>                (graph, edges[j].id, edges[j].target, </td></tr><tr><th id="L110"><a href="#L110">110</a></th><td>                 edges[j].source, edges[j].cost);      </td></tr><tr><th id="L111"><a href="#L111">111</a></th><td>            }</td></tr><tr><th id="L112"><a href="#L112">112</a></th><td>        }</td></tr><tr><th id="L113"><a href="#L113">113</a></th><td>    }</td></tr><tr><th id="L114"><a href="#L114">114</a></th><td></td></tr><tr><th id="L115"><a href="#L115">115</a></th><td>  vertex_descriptor source_vertex = vertex( source_vertex_id, graph );</td></tr><tr><th id="L116"><a href="#L116">116</a></th><td>  </td></tr><tr><th id="L117"><a href="#L117">117</a></th><td>  std::vector&lt;vertex_descriptor&gt; predecessors(num_vertices(graph));</td></tr><tr><th id="L118"><a href="#L118">118</a></th><td>  std::vector&lt;float8&gt; distances(num_vertices(graph));</td></tr><tr><th id="L119"><a href="#L119">119</a></th><td>  </td></tr><tr><th id="L120"><a href="#L120">120</a></th><td>  dijkstra_shortest_paths(graph, source_vertex,</td></tr><tr><th id="L121"><a href="#L121">121</a></th><td>                          predecessor_map(&amp;predecessors[0])</td></tr><tr><th id="L122"><a href="#L122">122</a></th><td>                          .weight_map(get(&amp;Edge::cost, graph))</td></tr><tr><th id="L123"><a href="#L123">123</a></th><td>                          .distance_map(&amp;distances[0]));</td></tr><tr><th id="L124"><a href="#L124">124</a></th><td></td></tr><tr><th id="L125"><a href="#L125">125</a></th><td>  </td></tr><tr><th id="L126"><a href="#L126">126</a></th><td>  graph_traits &lt; graph_t &gt;::vertex_iterator vi, vend;</td></tr><tr><th id="L127"><a href="#L127">127</a></th><td>  vector&lt;path_element&gt; path_vector;</td></tr><tr><th id="L128"><a href="#L128">128</a></th><td>  int j=0;</td></tr><tr><th id="L129"><a href="#L129">129</a></th><td>  </td></tr><tr><th id="L130"><a href="#L130">130</a></th><td>  for(tie(vi, vend) = vertices(graph); vi != vend; vi++) {</td></tr><tr><th id="L131"><a href="#L131">131</a></th><td>                </td></tr><tr><th id="L132"><a href="#L132">132</a></th><td>    if( (double)distances[*vi] &lt;= rdistance ) {</td></tr><tr><th id="L133"><a href="#L133">133</a></th><td>      </td></tr><tr><th id="L134"><a href="#L134">134</a></th><td>      path_element pe;</td></tr><tr><th id="L135"><a href="#L135">135</a></th><td></td></tr><tr><th id="L136"><a href="#L136">136</a></th><td>      graph_traits&lt;graph_t&gt;::vertex_descriptor s;</td></tr><tr><th id="L137"><a href="#L137">137</a></th><td></td></tr><tr><th id="L138"><a href="#L138">138</a></th><td>      s = vertex(*vi, graph);</td></tr><tr><th id="L139"><a href="#L139">139</a></th><td></td></tr><tr><th id="L140"><a href="#L140">140</a></th><td>      pe.vertex_id = graph[s].id;</td></tr><tr><th id="L141"><a href="#L141">141</a></th><td>      pe.edge_id   = graph[s].edge_id;</td></tr><tr><th id="L142"><a href="#L142">142</a></th><td>      pe.cost      = distances[*vi];</td></tr><tr><th id="L143"><a href="#L143">143</a></th><td>        </td></tr><tr><th id="L144"><a href="#L144">144</a></th><td>      path_vector.push_back( pe );</td></tr><tr><th id="L145"><a href="#L145">145</a></th><td>    }   </td></tr><tr><th id="L146"><a href="#L146">146</a></th><td>  }</td></tr><tr><th id="L147"><a href="#L147">147</a></th><td>  </td></tr><tr><th id="L148"><a href="#L148">148</a></th><td>  if( path_vector.size() == 0 ) {</td></tr><tr><th id="L149"><a href="#L149">149</a></th><td>    *err_msg = "No path found";</td></tr><tr><th id="L150"><a href="#L150">150</a></th><td>    return 0;          </td></tr><tr><th id="L151"><a href="#L151">151</a></th><td>  }</td></tr><tr><th id="L152"><a href="#L152">152</a></th><td>  </td></tr><tr><th id="L153"><a href="#L153">153</a></th><td>  vector&lt;path_element&gt;::iterator itr;</td></tr><tr><th id="L154"><a href="#L154">154</a></th><td>  *path = (path_element_t *) malloc( sizeof(path_element_t) * </td></tr><tr><th id="L155"><a href="#L155">155</a></th><td>                                     (path_vector.size() + 1) );</td></tr><tr><th id="L156"><a href="#L156">156</a></th><td>  *path_count = path_vector.size();</td></tr><tr><th id="L157"><a href="#L157">157</a></th><td>  </td></tr><tr><th id="L158"><a href="#L158">158</a></th><td>  for(j=0,itr=path_vector.begin();itr != path_vector.end();itr++,j++) {</td></tr><tr><th id="L159"><a href="#L159">159</a></th><td>    path_element pe = *itr;</td></tr><tr><th id="L160"><a href="#L160">160</a></th><td>    (*path)[j].vertex_id = pe.vertex_id;</td></tr><tr><th id="L161"><a href="#L161">161</a></th><td>    (*path)[j].edge_id   = pe.edge_id;</td></tr><tr><th id="L162"><a href="#L162">162</a></th><td>    (*path)[j].cost      = pe.cost;</td></tr><tr><th id="L163"><a href="#L163">163</a></th><td>  }</td></tr><tr><th id="L164"><a href="#L164">164</a></th><td>  </td></tr><tr><th id="L165"><a href="#L165">165</a></th><td>  return EXIT_SUCCESS;</td></tr><tr><th id="L166"><a href="#L166">166</a></th><td>}</td></tr><tr><th id="L167"><a href="#L167">167</a></th><td></td></tr></tbody></table>
+      </div>
+      <div id="help">
+        <strong>Note:</strong> See <a href="../../../wiki/TracBrowser.html">TracBrowser</a>
+        for help on using the browser.
+      </div>
+      <div id="anydiff">
+        <form action="http://pgrouting.postlbs.org/diff" method="get">
+          <div class="buttons">
+            <input type="hidden" name="new_path" value="/tags/release-1.0-beta/boost_drivedist.cpp" />
+            <input type="hidden" name="old_path" value="/tags/release-1.0-beta/boost_drivedist.cpp" />
+            <input type="hidden" name="new_rev" />
+            <input type="hidden" name="old_rev" />
+            <input type="submit" value="View changes..." title="Select paths and revs for Diff" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/browser/tags/release-1.0-beta/boost_drivedist.cpp?format=txt">Plain Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="../../../export/358/tags/release-1.0-beta/boost_drivedist.cpp">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("boost_drivedist.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/browser/tags/release-1.0-beta/boost_drivedist.cpp by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:30:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

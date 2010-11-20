@@ -1,0 +1,591 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/225 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/18.html" title="shootingstar">shootingstar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>shootingstar (#18) - wrong values for vertex_id in result set (#225) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              wrong values for vertex_id in result set
+            </div>
+            <div class="body">
+              <p>
+I've tested shortest_path functions with all three algorithms but shortest_path_shooting_star() gives me wrong values for column 'vertex_id'  and many of them are inexistent too (column edge_id is correct)! I've noticed that with a refresh of source/target index the result is different but with an analyze/reindex the problem is not fixed.
+I've in vertices_tmp table 34470 (counted) records but in 'vertex_id' I also have values bigger than 40100. Values 'source' and 'target' in ways are assigned correctly.
+Example query (it's the default):
+</p>
+<p>
+SELECT * FROM shortest_path_shooting_star('SELECT gid as id, source, target, length as cost, reverse_cost, x1, y1, x2, y2, rule, to_cost FROM ways', 8668, 9329, true, true) AS rt
+</p>
+<p>
+Result: records with 'edge_id' from 8668 to 9329 but wrong 'vertex_id' values
+</p>
+<p>
+The other question is: why only with this function (for Dijkstra and A* is ok) there isn't last record (perhaps it depends from above problem..)?
+See <a href="../../wiki/ShootingStar.html">http://pgrouting.postlbs.org/wiki/ShootingStar</a> --&gt; "There is one more row after the last edge, which contains the vertex identifier of the target path"
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            d.l.g.
+          </div>
+          <div class="time">
+            02/18/09 05:47:53 (21 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/225?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/225?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message797"></a>
+        <div class="id">
+          Message #797
+        </div>
+        <div class="body">
+            <p>
+Did you take <strong>edge</strong> ID's as source and target for Shooting*?<br />
+A* and Dijkstra route from vertex to vertex, Shooting* does from edge to edge.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/18/09 09:55:48 (21 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message799"></a>
+        <div class="id">
+          Message #799
+        </div>
+        <div class="body">
+            <p>
+Yeah, for Shooting* I take edge ID's and the route is correct, BUT in the column 'vertex_id' there are wrong values (and many inexistent)! I don't know why..
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            d.l.g.
+          </div>
+          <div class="time">
+            02/18/09 12:12:36 (21 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message800"></a>
+        <div class="id">
+          Message #800
+        </div>
+        <div class="body">
+            <p>
+How if you use a wrapper like in this example: <a class="wiki" href="../../wiki/WorkshopFOSS4G2008/ch09.html#WrapperfunctionWITHboundingbox">WorkshopFOSS4G2008/ch09#WrapperfunctionWITHboundingbox</a>
+</p>
+<p>
+Or could you post a part of your query result here to take a look.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/18/09 13:35:08 (21 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message801"></a>
+        <div class="id">
+          Message #801
+        </div>
+        <div class="body">
+            <p>
+This is an example (from capetown osm data Workshop). There are 30523 vertices_tmp, 40585 ways. Edge ID's are<br /> start edge: gid=<strong>8668</strong> source=4874 target=5384 <br />
+end edge: gid=<strong>9329</strong> source=5808 target=5809 <br />
+</p>
+<p>
+<strong>1)</strong> <br />
+<strong>Query:</strong>  SELECT * FROM shortest_path_shooting_star('SELECT gid as id, source, target, length as cost, reverse_cost, x1, y1, x2, y2, rule, to_cost FROM ways', 8668, 9329, true, true) AS rt
+<br />
+<strong>Result:</strong>  edge_id is correct and ordered but vertex_id is wrong. And there isn't last record with vertex_id information and edge_id=-1
+</p>
+<p>
+<strong>vertex_id;edge_id;cost</strong><br />
+62377;<strong>8668</strong>;0.0654576907903706<br />
+63148;8678;0.0515517672118488<br />
+62563;8679;0.0599572230296121<br />
+63065;8583;0.0240581101489102<br />
+63066;8641;0.367604621725962<br />
+62504;8068;2.54257394441227<br />
+6287;14192;0.366230316241358<br />
+6288;14193;0.122676124453466<br />
+... too long ...<br />
+7504;15196;0.0601016954845696<br />
+7502;15195;0.0582438615163934<br />
+7500;<strong>9329</strong>;0.122223878355237<br />
+</p>
+<p>
+<strong>2)</strong><br />
+<strong>Query:</strong>  SELECT id, gid, astext(the_geom) AS the_geom FROM shootingstar_sp('ways', 8668, 9329, 0.1, 'length', true, true)
+<br />
+<strong>Result:</strong>  gid is correct BUT sequence order is wrong and there is no information about what is verse of route through
+</p>
+<p>
+<strong>id;gid;the_geom</strong><br />
+1;8068;"MULTILINESTRING((18.507268 -33.9032955,18.5061376 -33.9042989, ... ... -33.9163336,18.487808 -33.9165848,18.4866554 -33.9168498,18.485293 -33.9170886))"<br />
+2;8583;"MULTILINESTRING((18.5101669 -33.9010915,18.5103726 -33.9012244))"<br />
+3;8641;"MULTILINESTRING((18.5103726 -33.9012244,18.510195 -33.9013665,18.509783 -33.9015786, ... ...,18.5084994 -33.9023657,18.507268 -33.9032955))"<br />
+4;<strong>8668</strong>;"MULTILINESTRING((18.5086566 -33.900111,18.509212 -33.9004771))"<br />
+5;8678;"MULTILINESTRING((18.509212 -33.9004771,18.5096535 -33.9007611))"<br />
+6;8679;"MULTILINESTRING((18.5096535 -33.9007611,18.5101669 -33.9010915))"<br />
+7;<strong>9329</strong>;"MULTILINESTRING((18.4775889 -33.9113361,18.4778618 -33.9102605))"<br />
+8;11677;"MULTILINESTRING((18.4819419 -33.9152779,18.4817537 -33.9152288,18.4815011 -33.9151872,18.4812016 -33.9151522,18.4809908 -33.915136))"<br />
+..too long ..<br />
+27;15197;"MULTILINESTRING((18.4788437 -33.9115559,18.47946 -33.9116637))"<br />
+28;15198;"MULTILINESTRING((18.47946 -33.9116637,18.4801123 -33.9117777))"<br />
+29;15199;"MULTILINESTRING((18.4801123 -33.9117777,18.4806015 -33.9118703))"
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            d.l.g.
+          </div>
+          <div class="time">
+            02/19/09 02:01:11 (21 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message803"></a>
+        <div class="id">
+          Message #803
+        </div>
+        <div class="body">
+            <p>
+First, good to tell me that this is the workshop OSM data, isn't it? Since I have it here, too, I just run the queries and got this result:
+</p>
+<pre class="wiki">foss4g2008=# SELECT * FROM shortest_path_shooting_star('SELECT gid as id, source, target, length as cost, reverse_cost, x1, y1, x2, y2, rule, to_cost FROM ways', 8668, 9329, true, true) AS rt;
+ vertex_id | edge_id |        cost
+-----------+---------+---------------------
+     11830 |    8668 |  0.0654576907903706
+     12711 |    8678 |  0.0515517672118488
+     12029 |    8679 |  0.0599572230296121
+     12616 |    8583 |  0.0240581101489102
+       222 |    8641 |   0.367604621725962
+     11968 |    8068 |    2.54257394441227
+     11970 |   14192 |   0.366230316241358
+     19129 |   14193 |   0.122676124453466
+     19131 |   14373 |  0.0563407200514377
+     17482 |   12683 | 0.00113917433024668
+     17484 |   13062 |  0.0422598477798289
+     17472 |   12671 |  0.0193726470392315
+     17473 |   13071 |  0.0446155127331235
+     17447 |   12649 | 0.00205514258475668
+     17448 |   12650 |   0.191796437357105
+     17450 |   12651 |  0.0511130097404378
+     16307 |   11677 |  0.0891714420210499
+     16309 |   11956 |  0.0109351598604472
+     16435 |   11957 |  0.0412586339214844
+     16652 |   11958 |   0.141871421129324
+     16654 |   11959 |  0.0523265052359561
+     16656 |   11960 |  0.0987089357557738
+     16658 |   11961 |  0.0287839186074424
+     16660 |   15199 |  0.0463029271616241
+     12509 |   15198 |  0.0615147968770334
+     13411 |   15197 |  0.0581220082351489
+     13451 |   15196 |  0.0601016954845696
+     13468 |   15195 |  0.0582438615163934
+     13481 |    9329 |   0.122223878355237
+(29 rows)
+</pre><pre class="wiki">foss4g2008=# SELECT id, gid, astext(the_geom) AS the_geom FROM shootingstar_sp('ways', 8668, 9329, 0.1, 'length', true, true);
+ id |  gid  | the_geom
+----+-------+-------------------------------------------------------------------------------
+  1 |  8668 | MULTILINESTRING((18.5086566 -33.900111,18.509212 -33.9004771))
+  2 |  8678 | MULTILINESTRING((18.509212 -33.9004771,18.5096535 -33.9007611))
+  3 |  8679 | MULTILINESTRING((18.5096535 -33.9007611,18.5101669 -33.9010915))
+  4 |  8583 | MULTILINESTRING((18.5101669 -33.9010915,18.5103726 -33.9012244))
+  5 |  8641 | MULTILINESTRING((18.5103726 -33.9012244,18.510195 ...))
+  6 |  8068 | MULTILINESTRING((18.507268 -33.9032955,18.5061376 ...))
+  7 | 14192 | MULTILINESTRING((18.485293 -33.9170886,18.4847866 ...))
+  8 | 14193 | MULTILINESTRING((18.4813775 -33.9176272,18.4813278 ...))
+  9 | 14373 | MULTILINESTRING((18.4800485 -33.9175977,18.4798743 ...))
+ 10 | 12683 | MULTILINESTRING((18.4806523 -33.917673,18.4806434 -33.9176659))
+ 11 | 13062 | MULTILINESTRING((18.4806434 -33.9176659,18.4804931 ...))
+ 12 | 12671 | MULTILINESTRING((18.4803551 -33.9173706,18.4802371 -33.9172265))
+ 13 | 13071 | MULTILINESTRING((18.4802371 -33.9172265,18.4801785 -33.9171482,18.4801431 -33.9170615,18.4801219 -33.9169498,18.4801334 ...))
+ 14 | 12649 | MULTILINESTRING((18.4801334 -33.9168346,18.4801355 -33.9168162))
+ 15 | 12650 | MULTILINESTRING((18.4801355 -33.9168162,18.4801766 ...))
+ 16 | 12651 | MULTILINESTRING((18.4817187 -33.9156986,18.4818119 ...))
+ 17 | 11677 | MULTILINESTRING((18.4819419 -33.9152779,18.4817537 -33.9152288,18.4815011 -33.9151872,18.4812016 -33.9151522,18.4809908 ...))
+ 18 | 11956 | MULTILINESTRING((18.4809908 -33.915136,18.4809379 -33.915048))
+ 19 | 11957 | MULTILINESTRING((18.4809379 -33.915048,18.4807831 -33.9146999))
+ 20 | 11958 | MULTILINESTRING((18.4807831 -33.9146999,18.4803655 ...))
+ 21 | 11959 | MULTILINESTRING((18.4803612 -33.913473,18.4803569 ...))
+ 22 | 11960 | MULTILINESTRING((18.4803869 -33.9130029,18.4805586 -33.9121267))
+ 23 | 11961 | MULTILINESTRING((18.4805586 -33.9121267,18.4805972 ...))
+ 24 | 15199 | MULTILINESTRING((18.4801123 -33.9117777,18.4806015 -33.9118703))
+ 25 | 15198 | MULTILINESTRING((18.47946 -33.9116637,18.4801123 -33.9117777))
+ 26 | 15197 | MULTILINESTRING((18.4788437 -33.9115559,18.47946 -33.9116637))
+ 27 | 15196 | MULTILINESTRING((18.4782068 -33.9114429,18.4788437 -33.9115559))
+ 28 | 15195 | MULTILINESTRING((18.4775889 -33.9113361,18.4782068 -33.9114429))
+ 29 |  9329 | MULTILINESTRING((18.4775889 -33.9113361,18.4778618 -33.9102605))
+(29 rows)
+</pre><p>
+This looks actually OK. Serial ID's can be different values when you start inserting data and the sequence is already a certain value.
+</p>
+<p>
+If there is something that looks not OK in my result, please let me know. Could be that I still didn't exactly understand the question yet.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/19/09 10:35:35 (21 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message806"></a>
+        <div class="id">
+          Message #806
+        </div>
+        <div class="body">
+            <p>
+Your data seems to be correct but my problem is independent from serial ID's.
+</p>
+<p>
+<strong>1)</strong> Could you control if in your result (first row) vertex_id=<strong>11830</strong> is correct? It should be in field source (or target) at gid=<strong>8668</strong>. <br />Have you noted that there isn't <strong>last</strong> record with vertex_id information and edge_id=<strong>-1</strong> ?<br />
+This is another example from FOSS4G2008_japan VMware image on db='osm_full': so data are from capetown and I have not changed anything. You can control that edge ID's are<br />
+start edge: gid=8668 source=4596 target=5085<br />
+end edge: gid=9329 source=5501 target=5502<br />
+Query is the same as in (1) above<br />
+</p>
+<p>
+vertex_id | edge_id | cost<br />
+10615 |    8668 |  ...<br />
+...
+</p>
+<p>
+vertex_id=<strong>10615</strong> id different from 4596 or 5085! and last record missed
+</p>
+<p>
+<strong>2)</strong> You can see that your data are ordered while mine are unordered because my result not starts from edge_id=<strong>8668</strong> and not end to <strong>9329</strong><br />
+It seems as if in some internal query of shooting_star_sp function there is a JOIN (or WHERE condition) that reorder final result (or perhaps not..)<br />
+I've also tried this query for db=osm_full and result is the same:<br />
+</p>
+<p>
+id | gid  | the_geom<br />
+1 | 8068 | ...<br />
+...
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            d.l.g.
+          </div>
+          <div class="time">
+            02/20/09 01:34:35 (21 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message976"></a>
+        <div class="id">
+          Message #976
+        </div>
+        <div class="body">
+            <p>
+Hi!
+I got the same problem.
+anybody get the answer ?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            marcandre
+          </div>
+          <div class="time">
+            07/09/09 23:50:06 (17 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message977"></a>
+        <div class="id">
+          Message #977
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ Hi!
+ I have the same problem.
+ anybody get the answer ?
+</p>
+</blockquote>
+<p>
+( sorry for the poor english )
+</p>
+<blockquote class="citation">
+<p>
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            marcandre
+          </div>
+          <div class="time">
+            07/10/09 00:29:32 (17 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message978"></a>
+        <div class="id">
+          Message #978
+        </div>
+        <div class="body">
+            <p>
+Can you please be more specific?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/10/09 18:12:34 (17 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message979"></a>
+        <div class="id">
+          Message #979
+        </div>
+        <div class="body">
+            <p>
+it seems to be the same problem.
+in my result with shortest_path_shooting_star(),
+the vertex_id are not good
+it supposed to be the source's id of the vertex
+in my table used in my request, the vertex "54400059" has for source's id "298"
+and in my result the vertex "54400059" has for vertex_id "2271"
+none of the result has the good vertex_id.
+</p>
+<p>
+i use assign_vertex_id() for the construction of the table vertices_tmp
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            marcandre
+          </div>
+          <div class="time">
+            07/10/09 22:31:27 (17 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message981"></a>
+        <div class="id">
+          Message #981
+        </div>
+        <div class="body">
+            <p>
+Ah, I see. Shhoting* is edge-based algorithm, so there should not be any vertex_id column in a result. I added it for the compatibility - didn't want to create one more type for output, so it shares one with Dijkstra/A*. Please don't look at vertex_id column, use edge_id instead. Later you can get real vertex ids by linking your result with your original table and refer to source and target columns.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/13/09 10:10:09 (17 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message984"></a>
+        <div class="id">
+          Message #984
+        </div>
+        <div class="body">
+            <p>
+ahhhh !!
+it's ok
+</p>
+<p>
+thanks
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            marcandre
+          </div>
+          <div class="time">
+            07/13/09 22:39:16 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/225?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/225?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

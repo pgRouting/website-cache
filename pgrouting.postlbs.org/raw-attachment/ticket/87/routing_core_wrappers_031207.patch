@@ -1,0 +1,107 @@
+--- /mnt/hd/usr/share/postgresql/routing_core_wrappers.sql	2007-11-24 01:27:52.000000000 +1000
++++ /usr/share/postgresql/routing_core_wrappers_forthem.sql	2007-12-03 21:29:40.000000000 +1000
+@@ -280,6 +280,37 @@
+ $$
+ DECLARE 
+ BEGIN
++	EXECUTE 'select update_cost_from_distance('||quote_literal(geom_table) ||',''the_geom'',''length'')';
++	RETURN;
++END;
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT; 
++CREATE OR REPLACE FUNCTION update_cost_from_distance(geom_table varchar,geocol varchar) 
++       RETURNS VOID AS
++$$
++DECLARE 
++BEGIN
++	EXECUTE 'select update_cost_from_distance('||quote_literal(geom_table) ||','||quote_literal(geocol)||',''length'')';
++	RETURN;
++END;
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT; 
++
++CREATE OR REPLACE FUNCTION update_cost_from_distance(geom_table varchar,geocol varchar,geodistfn varchar) 
++       RETURNS VOID AS
++$$
++DECLARE 
++BEGIN
++	EXECUTE 'SELECT update_cost_from_distance('||quote_literal(geom_table)||','||quote_literal(geocol)||','||quote_literal(geodistfn)||',''cost'')';
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT; 
++
++
++CREATE OR REPLACE FUNCTION update_cost_from_distance(geom_table varchar,geocol varchar,geodistfn varchar,costcol varchar) 
++       RETURNS VOID AS
++$$
++DECLARE 
++BEGIN
+ 	BEGIN
+ 	  EXECUTE 'CREATE INDEX ' || quote_ident(geom_table) || 
+                   '_edge_id_idx ON ' || quote_ident(geom_table) || 
+@@ -289,16 +320,63 @@
+ 		RAISE NOTICE 'Not creating index, already there';
+ 	END;
+ 
++    BEGIN
++		EXECUTE 'ALTER TABLE '||quote_ident(geom_table)||'_edges  add column '||quote_ident(costcol)||' double precision';
++	EXCEPTION
++		WHEN DUPLICATE_COLUMN THEN
++		RAISE NOTICE 'Not creating cost column, already there';
++	END;
+ 	EXECUTE 'UPDATE ' || quote_ident(geom_table) || 
+-              '_edges SET cost = (SELECT sum( length( g.the_geom ) ) FROM ' || 
++              '_edges SET '||quote_ident(costcol)||' = (SELECT sum( '||quote_ident(geodistfn)||'( g.'||quote_ident(geocol)||' ) ) FROM ' || 
+               quote_ident(geom_table) || 
+               ' g WHERE g.edge_id = id GROUP BY id)';
+-
+-	RETURN;
+ END;
+ $$
+ LANGUAGE 'plpgsql' VOLATILE STRICT; 
+ 
++CREATE OR REPLACE FUNCTION time_wgs84(geom geometry,tname varchar,geocol varchar)
++RETURNS DOUBLE PRECISION AS
++$$
++DECLARE
++	len DOUBLE PRECISION;
++	speed DOUBLE PRECISION;
++	astxt varchar;
++BEGIN
++		SELECT length_wgs84(geom) into len;
++		SELECT astext(geom) into astxt;  -- someone might know a better way to do this ???
++		EXECUTE 'SELECT speed FROM '||quote_ident(tname)||' where astext('||quote_ident(geocol)||') = '||quote_literal(astxt) INTO speed ;
++		return (len/1000.0)/speed;
++END
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT;
++
++--
++-- A demo only function, neet to specify table name & geometry column name for particlar app.
++--
++CREATE OR REPLACE FUNCTION time_wgs84(geom geometry)
++RETURNS DOUBLE PRECISION AS
++$$
++DECLARE
++	ans DOUBLE PRECISION;
++BEGIN
++		SELECT  time_wgs84(geom,'splitroadnet','wkb_geometry') into ans;
++		return ans;
++END
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT;
++
++
++CREATE OR REPLACE FUNCTION length_wgs84(geom geometry)
++RETURNS DOUBLE PRECISION AS
++$$
++DECLARE
++	ans DOUBLE PRECISION;
++BEGIN
++		SELECT st_length_spheroid(geom,'SPHEROID["WGS_1984",6378173,298.257223563]') INTO ans;
++		return ans ;
++END
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT;
+ 
+ CREATE TYPE geoms AS
+ (

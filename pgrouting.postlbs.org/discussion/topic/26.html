@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/26 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - problem installing routing (#26) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              problem installing routing
+            </div>
+            <div class="body">
+              <p>
+hi,
+I have Postgresql, <a class="missing wiki">PostGis?</a>, Geos, proj4, boost, gaul, CGAL on my ubuntu.
+Now I type ./configure for routing and I haven't problem, then I type make and I have this problem :
+</p>
+<p>
+federico@federico-laptop:~/Desktop/pg_routing/routing$ ./configure
+--prefix=/usr/local/routing --with-cgal=/usr/local/cgal/ --with-gaul=/usr/local/gaul/
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables...
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... yes
+configure: checking for BOOST ...
+configure: checking for astar_search.hpp in /usr/include/boost/graph ...
+configure: checking for CGAL ...
+find: /usr/share/CGAL: No such file or directory
+find: /usr/local/cgal//make: No such file or directory
+configure: checking for GAUL ...
+configure: creating ./config.status
+config.status: creating Makefile
+federico@federico-laptop:~/Desktop/pg_routing/routing$ make
+Makefile:56: /usr/lib/postgresql/8.1/lib/pgxs/src/makefiles/pgxs.mk: Nessun file o directory
+make: *** No rule to make target `/usr/lib/postgresql/8.1/lib/pgxs/src/makefiles/pgxs.mk'. Stop.
+federico@federico-laptop:~/Desktop/pg_routing/routing$
+</p>
+<p>
+what's the problem.
+</p>
+<blockquote>
+<p>
+ciao
+</p>
+</blockquote>
+<p>
+federico
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            federico
+          </div>
+          <div class="time">
+            07/06/07 16:43:59 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/26?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/26?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message93"></a>
+        <div class="id">
+          Message #93
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+Can you confirm that you really have the '/usr/lib/postgresql/8.1/lib/pgxs/src/makefiles/pgxs.mk' file?
+</p>
+<p>
+It also couldn't find GAUL library instalation.
+</p>
+<p>
+Not good...
+</p>
+<p>
+Can you try to check out the project from SVN? The SVN version has modified configure script.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/06/07 17:10:20 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message94"></a>
+        <div class="id">
+          Message #94
+        </div>
+        <div class="body">
+            <p>
+Yes, I have pgxs.mk file but in other path:
+/usr/local/src/postgresql-8.1.5/src/makefiles/pgxs.mk
+/usr/local/pgsql/lib/pgxs/src/makefiles/pgxs.mk
+</p>
+<p>
+For the problem with GAUL library I don't know what's the problem. :(
+</p>
+<p>
+Where I can find the SVN version?
+thanks
+federico
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            federico
+          </div>
+          <div class="time">
+            07/09/07 17:40:06 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message95"></a>
+        <div class="id">
+          Message #95
+        </div>
+        <div class="body">
+            <p>
+Well, if you will run 'pg_config --pgxs' command (which is used for pgRouting configuration), it will tell you the location of the 'pgxs.mk' file. If it doesn't match with actual location, it means that there is something wrong with your PostgreSQL installation.
+</p>
+<p>
+To get the version from SVN try to execute 'svn co <a href="../../svn/pgrouting/index.html">http://pgrouting.postlbs.org/svn/pgrouting</a>'
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/09/07 17:50:46 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/26?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/26?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

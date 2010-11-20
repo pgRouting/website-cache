@@ -1,0 +1,204 @@
+--- /home/ftp/transport/Desktop/routing_core_originalsubmit.sql	2007-12-14 20:05:12.000000000 +1000
++++ /usr/share/postgresql/routing_core.sql	2007-12-14 19:56:03.000000000 +1000
+@@ -20,8 +20,6 @@
+ 
+ CREATE TYPE path_result AS (vertex_id integer, edge_id integer, cost float8);
+ CREATE TYPE vertex_result AS (x float8, y float8);
+-
+------------------------------------------------------------------------
+ -- Core function for shortest_path computation
+ -- See README for description
+ -----------------------------------------------------------------------
+@@ -91,7 +89,7 @@
+        RETURNS void AS
+ $$
+ BEGIN
+-		EXECUTE 'SELECT create_graph_tables('''||quote_ident(geom_table)||''',''int4'',' || '''gid'' ,''source_id'',''target_id'')';
++		EXECUTE 'SELECT create_graph_tables('||quote_literal(geom_table)||',''int4'',' || '''gid'' ,''source_id'',''target_id'')';
+ END;
+ $$
+ LANGUAGE 'plpgsql' VOLATILE STRICT;
+@@ -101,7 +99,7 @@
+        RETURNS void AS
+ $$
+ BEGIN
+-		EXECUTE 'SELECT create_graph_tables('''||quote_ident(geom_table)||''','''||quote_ident(column_type)||''',' || '''gid'' ,''source_id'',''target_id'')';
++		EXECUTE 'SELECT create_graph_tables('||quote_literal(geom_table)||','||quote_literal(column_type)||',' || '''gid'' ,''source_id'',''target_id'')';
+ END;
+ $$
+ LANGUAGE 'plpgsql' VOLATILE STRICT;
+@@ -111,7 +109,7 @@
+        RETURNS void AS
+ $$
+ BEGIN
+-		EXECUTE 'SELECT create_graph_tables('''||quote_literal(geom_table)||''','''||quote_literal(column_type)||''',''' || quote_literal(id_name) || ''' ,''source_id'',''target_id'')';
++		EXECUTE 'SELECT create_graph_tables('||quote_literal(geom_table)||','||quote_literal(column_type)||',' || quote_literal(id_name) || ' ,''source_id'',''target_id'')';
+ 	RETURN;
+ END;
+ $$
+@@ -206,7 +204,7 @@
+ -- This function uses the internal vertices identifiers.
+ -----------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION shortest_path_as_geometry_internal_id(
+-       geom_table varchar, source int4, target int4) 
++       geom_table varchar, source int4, target int4,geomcol varchar,costcol varchar) 
+        RETURNS SETOF GEOMS AS
+ $$
+ DECLARE 
+@@ -215,21 +213,20 @@
+ 	v_id integer;
+ 	e_id integer;
+ 	geom geoms;
++	query text;
+ BEGIN
+-	
+-	FOR path_result IN EXECUTE 'SELECT gid,the_geom FROM ' ||
+-          'shortest_path(''SELECT gid as id, source::integer, target::integer, ' || 
+-          'length::double precision as cost FROM ' ||
+-	  quote_ident(geom_table) || ''', ' || quote_literal(source) || 
+-          ' , ' || quote_literal(target) || ' , false, false), ' || 
+-          quote_ident(geom_table) || ' where edge_id = gid ' 
++		
++	query := 'SELECT a.edge_id as gid,'||quote_ident(geomcol)||' as the_geom FROM ' ||
++          'shortest_path(''SELECT source ,id,  target, ' || quote_ident(costcol)||
++          ' as cost from '||quote_ident(geom_table)||'_edges'','||source||','||target||',false,false)' ||
++			' a, '||quote_ident(geom_table)||' b where b.edge_id = a.edge_id';
++	  
++	FOR path_result IN EXECUTE query
+         LOOP
+-
+                  geom.gid      := path_result.gid;
+                  geom.the_geom := path_result.the_geom;
+                  
+                  RETURN NEXT geom;
+-
+ 	END LOOP;
+ 	RETURN;
+ END;
+@@ -237,7 +234,9 @@
+ LANGUAGE 'plpgsql' VOLATILE STRICT; 
+ 
+ CREATE OR REPLACE FUNCTION shortest_path_as_geometry_internal_id_directed(
+-       geom_table varchar, source int4, target int4, dir boolean, rc boolean) 
++       geom_table varchar, source int4, target int4, dir boolean, rc boolean
++	   ,geomcol varchar,costcol varchar,rcostcol varchar) 
++
+        RETURNS SETOF GEOMS AS
+ $$
+ DECLARE 
+@@ -249,16 +248,24 @@
+ 	query text;
+ BEGIN
+ 	
+-	query := 'SELECT gid,the_geom FROM ' ||
+-          'shortest_path(''SELECT gid as id, source::integer, target::integer, ' || 
+-          'length::double precision as cost ';
++	query := 'SELECT a.edge_id as gid,'||quote_ident(geomcol)||' as the_geom FROM ' ||
++          'shortest_path(''SELECT source ,id,  target, ' || quote_ident(costcol)||
++          ' as cost ';
++		
++
++--	query := 'SELECT gid,the_geom FROM ' ||
++--          'shortest_path(''SELECT gid as id, source::integer, target::integer, ' || 
++--          'length::double precision as cost ';
++--	query := query || 'FROM ' ||  quote_ident(geom_table) || ''', ' || quote_literal(source) || 
++--          ' , ' || quote_literal(target) || ' , '''||dir||''', '''||rc||'''), ' || 
++--         quote_ident(geom_table) || ' where edge_id = gid ';
+ 	  
+-	IF rc THEN query := query || ', reverse_cost ';  
++	IF rc THEN 
++		query := query || 
++		','||quote_ident(rcostcol)||' as reverse_cost ';
+ 	END IF;
+-	
+-	query := query || 'FROM ' ||  quote_ident(geom_table) || ''', ' || quote_literal(source) || 
+-          ' , ' || quote_literal(target) || ' , '''||dir||''', '''||rc||'''), ' || 
+-          quote_ident(geom_table) || ' where edge_id = gid ';
++	query := query || ' from '||quote_ident(geom_table)||'_edges'','||quote_literal(source)||','||quote_literal(target)||','||dir||','||rc||') a, ' || quote_ident(geom_table)||' b where a.edge_id = b.edge_id ';
++
+ 
+ 	FOR path_result IN EXECUTE query
+         LOOP
+@@ -279,7 +286,16 @@
+ --  the result as a set of (gid integer, the_geom gemoetry) records.
+ -----------------------------------------------------------------------
+ CREATE OR REPLACE FUNCTION shortest_path_as_geometry(geom_table varchar, 
+-       geom_source anyelement,geom_target anyelement) 
++       geom_source anyelement,geom_target anyelement)
++       RETURNS SETOF GEOMS AS 
++$$
++select * from shortest_path_as_geometry($1,$2,$3,'the_geom')
++$$
++LANGUAGE 'sql' VOLATILE STRICT; 
++
++
++CREATE OR REPLACE FUNCTION shortest_path_as_geometry(geom_table varchar, 
++       geom_source anyelement,geom_target anyelement,geomcol varchar,costcol varchar) 
+        RETURNS SETOF GEOMS AS
+ $$
+ DECLARE 
+@@ -292,7 +308,7 @@
+ 	geom geoms;
+ BEGIN
+ 	FOR r IN EXECUTE 'SELECT id FROM ' || quote_ident(geom_table) || 
+-           '_vertices WHERE geom_id = ' || quote_literal(geom_source) LOOP
++           '_vertices WHERE id = ' || quote_literal(geom_source) LOOP
+ 
+ 		source = r.id;
+ 
+@@ -303,7 +319,7 @@
+ 	END IF;
+ 
+ 	FOR r IN EXECUTE 'SELECT id FROM ' || quote_ident(geom_table) || 
+-            '_vertices WHERE geom_id = ' || quote_literal(geom_target) LOOP
++            '_vertices WHERE id = ' || quote_literal(geom_target) LOOP
+ 		target = r.id;
+ 	END LOOP;
+ 
+@@ -313,7 +329,7 @@
+ 	
+ 	FOR geom IN SELECT * FROM 
+           shortest_path_as_geometry_internal_id(geom_table, 
+-                                                source, target) LOOP
++                                                source, target,geomcol,costcol) LOOP
+ 		RETURN NEXT geom;
+ 	END LOOP;
+ 
+@@ -322,5 +338,35 @@
+ $$
+ LANGUAGE 'plpgsql' VOLATILE STRICT; 
+ 
+-
+-
++--
++-- Sometimes imported graphs have problems: unremedied the distances can be multiplied
++-- class is the column name which determines primary precedence with lower values 
++-- having higher priority. Only one record is kept for each distinct geometry.
++-- pkey is the unique primary key for the 'tab' geotable.
++--
++CREATE OR REPLACE FUNCTION remove_duplicate_geoms(tab varchar,geocol varchar,class varchar,pkey varchar)
++    RETURNS void AS
++$$
++DECLARE
++    row record;
++    row2 record;
++BEGIN
++    -- find duplicate rows having the same geometry,choose the lowest class to keep
++    FOR row IN EXECUTE 
++	    'select astext('||quote_ident(geocol)||') as geom,min('||quote_ident(class)||') as class from '||
++		quote_ident(tab)||' group by '||quote_ident(geocol)
++		|| ' having count('||quote_ident(class)||') > 1'
++    LOOP
++		-- given the lowest class for each, get the primary key of one &  delete the rest
++		EXECUTE 'select min('||quote_ident(pkey)||') as key from '||quote_ident(tab)||' where '||quote_ident(class)||
++		' = '||row.class||' and astext('||quote_ident(geocol)||') = '''||row.geom||''' limit 1' 
++	    INTO row2;
++		EXECUTE 'delete from '||quote_ident(tab)||' where astext('||quote_ident(geocol)||') = '''||row.geom||
++		''' and '||quote_ident(pkey)||' != '||row2.key;
++    END LOOP;
++	-- don't ask me ???
++    EXECUTE 'delete from '||quote_ident(tab)||' where astext('||quote_ident(geocol)||') = '''||row.geom||
++		''' and '||quote_ident(pkey)||' != '||row2.key;
++END;
++$$
++LANGUAGE 'plpgsql' ;

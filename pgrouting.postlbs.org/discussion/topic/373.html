@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/373 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/23.html" title="data">data</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>data (#23) - Shortest Route Search Not Working (#373) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Shortest Route Search Not Working
+            </div>
+            <div class="body">
+              <p>
+Hello,
+</p>
+<p>
+I am trying to have routing working for city of Toronto data.
+But,nothing shows up and a problem is seen in the <a class="missing wiki">FindNearestEdge?</a>() method.
+</p>
+<p>
+One example request sent to the routing php is as follows:
+routing.php?startpoint=-8837720.7293944 5412947.799546&amp;finalpoint=-8836963.525083 5412307.6394342&amp;method=SPD&amp;srid=900913
+</p>
+<p>
+My understanding is that projection for the pgRouting database is 4326 and for the tiles displayed in <a class="missing wiki">OpenLayers?</a> it is 900913. (In the code both the html and php projection values are set to 900913. However I am clear as to how to make the projection changes -- whether modify the pgRouting database or change <a class="missing wiki">OpenLayers?</a> HTML page).
+</p>
+<p>
+Further details are below
+</p>
+<hr />
+<p>
+- The tiles were rendered through generate_tiles.py script of postgis database for Toronto routes. I found Ontario.osm and then extracted city of Toronto osm data and created the pgRouting database. Now my map displayed the tiles correctly in 900913 projection.
+</p>
+<p>
+- I am not sure but maybe the pgRouting database is 4326 projection, because for A* the x1,y1... are shown in latlng. ...?
+</p>
+<p>
+The HTML page is very similar to: <a href="../../wiki/Workshop-RoutingRequest.html">http://pgrouting.postlbs.org/wiki/Workshop-RoutingRequest</a>
+Except that instead of 54004 projection, I use 9000913 projection.
+</p>
+<p>
+The php page is same as <a href="../../wiki/Workshop-ClosestEdge.html">http://pgrouting.postlbs.org/wiki/Workshop-ClosestEdge</a>
+Again I have set projection to 900913 here.
+</p>
+<blockquote>
+<p>
+Code snippet:
+</p>
+</blockquote>
+<p>
+...
+</p>
+<blockquote>
+<p>
+$sql = "SELECT gid, source, target, the_geom,astext(the_geom),
+</p>
+<blockquote>
+<p>
+distance(the_geom, <a class="missing wiki">GeometryFromText?</a>(
+</p>
+<blockquote>
+<p>
+'POINT(".$lonlat<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>." ".$lonlat<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>.")', 900913)) AS dist
+</p>
+</blockquote>
+</blockquote>
+<p>
+FROM ".TABLE."
+WHERE the_geom &amp;&amp; setsrid(
+</p>
+<blockquote>
+<blockquote>
+<p>
+'BOX3D(".($lonlat<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>-200)."
+</p>
+<blockquote>
+<p>
+".($lonlat<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>-200).",
+".($lonlat<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>+200)."
+".($lonlat<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>+200).")'::box3d, 900913)
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+ORDER BY dist LIMIT 1";
+</p>
+</blockquote>
+<p>
+...
+</p>
+<p>
+The problem is when I php script runs, findNearestEdge() method doesn't work and one warning as followed shown:
+</p>
+<p>
+PHP Warning:  pg_fetch_result(): Unable to jump to row 0 on PostgreSQL result index 3
+...
+</p>
+<p>
+I am not sure of the problem. Please if you have ideas let me know.
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yShoaib
+          </div>
+          <div class="time">
+            07/16/10 07:03:24 (4 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/373?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/373?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1591"></a>
+        <div class="id">
+          Message #1591
+        </div>
+        <div class="body">
+            <p>
+Which Tutorial do you use?<br />
+In case you tried Workshop "FOSS4G2007" it's better to take a look at <a href="../../wiki/WorkshopOL2.html">http://pgrouting.postlbs.org/wiki/WorkshopOL2.7andOSM</a> <br />
+Kai Behncke rewrote the workshop because since 2007 a couple of things changed with <a class="missing wiki">OpenLayers?</a>. For example there was no 900913 that time.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            07/16/10 14:29:56 (4 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/373?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/373?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

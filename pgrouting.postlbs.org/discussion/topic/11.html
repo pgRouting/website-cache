@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/11 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/17.html" title="astar">astar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>astar (#17) - Problem with A* and own data (#11) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Problem with A* and own data
+            </div>
+            <div class="body">
+              <p>
+Dear list,
+</p>
+<p>
+I have downloaded the code for the routing as in <a class="ext-link" href="http://demo.orkney.jp/routing/"><span class="icon"> </span>http://demo.orkney.jp/routing/</a>
+and try to test the Shortest Path using A* on Windows XP.
+</p>
+<p>
+With the kanagawa-data this works without any problems.:-)
+</p>
+<p>
+I try now to use my own data in the UMN <a class="wiki" href="../../wiki/MapServer.html">MapServer</a>.
+I loaded these data successfully in PostGIS and produced x1,x2,y1,y2-data and the length.
+The source and target-value I have as well (I got them by: SELECT assign_vertex_id('fridastreets', 0.3); ).
+</p>
+<p>
+In the <a class="wiki" href="../../wiki/MapServer.html">MapServer</a> the streets are visualized correctly.
+But now comes the problem:
+</p>
+<p>
+In the PHP-Mascript-File (sp_os.phtml) I wrote:
+</p>
+<p>
+function changeVal(typer) {
+.....
+.....
+</p>
+<blockquote>
+<p>
+}
+else {
+</p>
+<blockquote>
+<p>
+switch( sel ) {
+</p>
+<blockquote>
+<p>
+case 1:
+</p>
+<blockquote>
+<p>
+valX =  3436399.4;
+valY =  5791415.09545;
+break;
+</p>
+</blockquote>
+<p>
+case 2:
+</p>
+<blockquote>
+<p>
+valX = 3436631.78;
+valY = 5791605.22455;
+break;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+default:
+</p>
+<blockquote>
+<p>
+valX = 0;
+valY = 0;
+</p>
+</blockquote>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+</blockquote>
+<p>
+The coordinates are correct vertex-coordinates of street-segments.
+</p>
+<p>
+Later on I wrote:
+</p>
+<blockquote>
+<p>
+&lt;form name="routing" method="get" action="sp_os.phtml"&gt;
+&lt;input type=hidden name="cx1" value=0&gt;
+&lt;input type=hidden name="cy1" value=0&gt;
+&lt;input type=hidden name="cx2" value=0&gt;
+&lt;input type=hidden name="cy2" value=0&gt;
+</p>
+<blockquote>
+<p>
+&lt;select name=start onChange="changeVal(1);"&gt;
+</p>
+<blockquote>
+<p>
+&lt;option value=0     &gt;Choose...&lt;/option&gt;
+&lt;option value=8516  &gt;Punkt 1 OS&lt;/option&gt;
+&lt;option value=8529  &gt;Punkt 2 OS&lt;/option&gt;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+If I want to get a route from Punkt 1 OS to Punkt 2 OS
+</p>
+<blockquote>
+<p>
+I always get the following PostGIS-error-message:
+</p>
+</blockquote>
+<p>
+Warning: <a class="wiki" href="../../wiki/MapServer.html">Error</a>: msPOSTGISLayerWhichShapes(): Error executing POSTGIS SQL statement (in FETCH ALL): DECLARE mycursor BINARY CURSOR FOR SELECT asbinary(force_collection(force_2d(the_geom)),'NDR'),gid::text from (select gid, the_geom from shortest_path_astar2_as_geometry_internal_id('fridastreets', 8516, 8529, 3436399.39999, 5791415.09545, 3436631.78001, 5791605.22455)) as g WHERE the_geom &amp;&amp; setSRID('BOX3D(3436399.39999444 5791415.09545,3436631.78000556 5791605.22455)'::BOX3D, -1 ) -ERROR: Start vertex was not found. CONTEXT: PL/pgSQL function "shortest_path_astar2_as_geometry_internal_id_directed" line 47 at for over execute statement PL/pgSQL function "shortest_path_astar2_as_geometry_internal_id" line 21 at for over execute statement in C:\ms4w\Apache\htdocs\routing\phtmls\sp_os.phtml on line 79
+</p>
+<p>
+Has anybody an idea?
+Thank you very much, Kai
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            05/31/07 01:28:36 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/11?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/11?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message32"></a>
+        <div class="id">
+          Message #32
+        </div>
+        <div class="body">
+            <p>
+Kai,
+</p>
+<p>
+We need the boundary box (which is set by two last parameters of shortest_path_astar2_as_geometry_internal_id) to reduce the number of edges to load. It looks like you have specified EXACT coordinates of your start and end points as coners of the box. That's why the function cannot find a start vertex - it lays at the border of the boundary box!
+</p>
+<p>
+Try to specify the coordinates which are a little bit more far from your points or use shortest_path_astar1_as_geometry_internal_id instead where you need only a distance between your start/end point and a border of the boundary box.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            05/31/07 09:41:40 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message46"></a>
+        <div class="id">
+          Message #46
+        </div>
+        <div class="body">
+            <p>
+Hi anton,
+thank you again very much, merci beaucoup :-)
+I will check this out.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            05/31/07 16:08:09 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message49"></a>
+        <div class="id">
+          Message #49
+        </div>
+        <div class="body">
+            <p>
+I changed the coordinates and set them far away (2000 meters) from the start and end-vertices, so the bounding-box is much bigger now, but I get the same error-message.
+Might it have something to do with the way to calculate the source and target_id?
+I use "SELECT assign_vertex_id('fridastreets', 5);"
+</p>
+<p>
+The values are written in the database and a new table "vertices_tmp" (with single coordinates) is written.
+Is that table needed somehow?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            06/03/07 22:49:13 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/11?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/11?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

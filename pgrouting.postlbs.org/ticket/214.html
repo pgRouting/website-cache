@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/214 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:01:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #214 (Cycleway ways are not being imported under some conditions)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="213.html" title="Ticket #213" />
+        <link rel="last" href="218.html" title="Ticket #218" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/214?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/214?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/214?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="next" href="215.html" title="Ticket #215" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="1.html" title="Ticket #1" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="213.html" title="Ticket #213">Previous Ticket</a></span></li><li class="last"><span><a class="next" href="215.html" title="Ticket #215">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #214
+          <span class="status">(new bug report)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-08-19T10%3A24%3A10%2B0900&amp;precision=second" title="2010-08-19T10:24:10+0900 in Timeline">3 months</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-08-24T02%3A25%3A58%2B0900&amp;precision=second" title="2010-08-24T02:25:58+0900 in Timeline">3 months</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">Cycleway ways are not being imported under some conditions</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">ja3n</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">somebody
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      minor
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="missing milestone"></a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      osm2pgrouting
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      trunk
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+Under some conditions, cycleways e.g. &lt;tag k="cycleway" v="lane"/&gt; are not being imported into the ways table. Since most cycleways are tagged to ways that are also tagged as highways, this is not a critical issue. However, if you associate costs with class_id's this can be a problem.
+</p>
+<p>
+I've attached two osm2pgrouting config files: mapconfig.xml and bikes.xml. If you run osm2pgrouting with the bikes.xml file, cycleways will be imported into your ways table. if you use the mapconfig.xml file, you get highways, but no cycleways.
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Attachments</h2>
+          <div id="attachments">
+            <dl class="attachments">
+                <dt>
+      <a href="../attachment/ticket/214/mapconfig.html" title="View attachment">mapconfig.xml</a>
+      <a href="../raw-attachment/ticket/214/mapconfig.xml" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="1727 bytes">1.7 KB</span>) - added by <em>ja3n</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-08-19T10%3A27%3A28%2B0900&amp;precision=second" title="2010-08-19T10:27:28+0900 in Timeline">3 months</a> ago.
+    </dt>
+                <dd>
+                  mapconfig.xml (cycleway types missing)
+                </dd>
+                <dt>
+      <a href="../attachment/ticket/214/bikes.html" title="View attachment">bikes.xml</a>
+      <a href="../raw-attachment/ticket/214/bikes.xml" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="270 bytes">270 bytes</span>) - added by <em>ja3n</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-08-19T10%3A27%3A56%2B0900&amp;precision=second" title="2010-08-19T10:27:56+0900 in Timeline">3 months</a> ago.
+    </dt>
+                <dd>
+                  bikes.xml (cycleway types imported OK)
+                </dd>
+                <dt>
+      <a href="../attachment/ticket/214/pgrouting_way_tag.html" title="View attachment">pgrouting_way_tag.patch</a>
+      <a href="../raw-attachment/ticket/214/pgrouting_way_tag.patch" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="34136 bytes">33.3 KB</span>) - added by <em>ja3n</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-08-25T23%3A00%3A07%2B0900&amp;precision=second" title="2010-08-25T23:00:07+0900 in Timeline">3 months</a> ago.
+    </dt>
+                <dd>
+                  Patch to add way_tag table (works w/ trunk revision 357)
+                </dd>
+            </dl>
+          </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-08-19T10%3A27%3A28%2B0900&amp;precision=second" title="2010-08-19T10:27:28+0900 in Timeline">3 months</a> ago by ja3n
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/214/mapconfig.html"><em>mapconfig.xml</em></a>
+              <a href="../raw-attachment/ticket/214/mapconfig.xml" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+mapconfig.xml (cycleway types missing)
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-08-19T10%3A27%3A56%2B0900&amp;precision=second" title="2010-08-19T10:27:56+0900 in Timeline">3 months</a> ago by ja3n
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/214/bikes.html"><em>bikes.xml</em></a>
+              <a href="../raw-attachment/ticket/214/bikes.xml" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+bikes.xml (cycleway types imported OK)
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-08-20T00%3A13%3A00%2B0900&amp;precision=second" title="2010-08-20T00:13:00+0900 in Timeline">3 months</a> ago by ja3n
+                </h3>
+      <div class="comment searchable">
+        <p>
+Another example of this problem is where you have &lt;tag k="highway" v="footway"/&gt; and &lt;tag k="bicycle" v="yes"/&gt; on the same way. osm2pgrouting keeps the &lt;tag k="highway" v="footway"/&gt; tag, but does not keep the &lt;tag k="bicycle" v="yes"/&gt; tag. So you lose the fact that some footways are accessible by bicycle.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-08-20T00%3A40%3A18%2B0900&amp;precision=second" title="2010-08-20T00:40:18+0900 in Timeline">3 months</a> ago by ja3n
+                </h3>
+      <div class="comment searchable">
+        <p>
+It looks like when osm2pgrouting calls pCallback-&gt;<a class="missing wiki">EndElement?</a> in these cases, the class and type are empty. I get a bunch of output that says "We DON'T need a way of type  and class ".
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-08-24T02%3A25%3A58%2B0900&amp;precision=second" title="2010-08-24T02:25:58+0900 in Timeline">3 months</a> ago by ja3n
+                </h3>
+      <div class="comment searchable">
+        <p>
+I spent a little time on this over the weekend.
+</p>
+<p>
+The current implementation of osm2pgrouting accepts the first acceptable tag as the class_id for the way. That makes some sense, but is not ideal if you derive routing information from multiple tags e.g. bicycle=yes is really only useful in combination with other tags. For example, a way with highway=motorway and bicycle=yes means something completely different from a ways with tags highway=footway and bicycle=yes. 
+</p>
+<p>
+I created a version of osm2pgrouting that works a little better for my case (where I want to preserve multiple tags per way), and may work better for others too. It creates a way_tag table that maintains relationships between ways and the type_ids and class_ids. 
+</p>
+<p>
+Then I can do selects like:
+</p>
+<pre class="wiki">UPDATE ways SET facility = 'I' 
+WHERE gid in (SELECT way_id FROM way_tag 
+WHERE class_id = 202 OR class_id = 414 or class_id = 417 or class_id = 419 or class_id = 420 or class_id = 305 or class_id = 413) 
+AND gid in (SELECT way_id from way_tag WHERE class_id = 101 OR type_id = 3 or type_id = 2);
+</pre><p>
+The SQL above basically sets a bike facility type (which is something I add to my table after running osm2pgrouting) that must match more than one class_id or type_id. I use this bike facility type in future routing calculations.
+</p>
+<p>
+I'm not sure if I am able to create a branch off of trunk in svn, but I'm happy to do so (or to otherwise provide this version to Daniel or someone else for review).
+</p>
+<p>
+Note that I've also incorporated Ticket <a class="assigned ticket" href="208.html" title="defect: osm2pgrouting fails to load duplicate classes (assigned)">#208</a>, and made a couple minor changes. 1) I made the name field in the ways table character varying(200) rather than char(200); 2) I checked tables using IF EXISTS before dropping them.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-08-25T23%3A00%3A07%2B0900&amp;precision=second" title="2010-08-25T23:00:07+0900 in Timeline">3 months</a> ago by ja3n
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/214/pgrouting_way_tag.html"><em>pgrouting_way_tag.patch</em></a>
+              <a href="../raw-attachment/ticket/214/pgrouting_way_tag.patch" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Patch to add way_tag table (works w/ trunk revision 357)
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/214?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/214?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/214?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("214.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/214 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:01:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

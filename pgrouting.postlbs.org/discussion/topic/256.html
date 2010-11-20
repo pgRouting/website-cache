@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/256 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/18.html" title="shootingstar">shootingstar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>shootingstar (#18) - Complex Route (#256) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Complex Route
+            </div>
+            <div class="body">
+              <p>
+This query is specifically asking if the following is possible using the pgRouting shooting star methodology. I've tried for a number of days to implement the following on a large topology but with no consistent success, maybe because I don't fully understand how to implement all the network rules. Alternatively, I just can't see past my own cloud of confusion and the following is not possible, in which case I would really appreciate help to either get this solution working or hints on following an alternative direction.
+</p>
+<p>
+The broad problem is dealing with defining a road network route based on photographically tagged gps tracks, i.e. each gps point on a given track has a photograph attached to it. I want to search a route but my constraints not only include direction and turning but also consistency. From reading the shooting star tutorials re contraints and especially the roundabouts issues I think it should be able to complete this task, I just can't seem to get it to work properly.
+</p>
+<p>
+To define the problem I'll include a really simple version of the network and define all the constraints in text.
+</p>
+<p>
+The sample topology, without constraints, is as follows:
+*****************************************************************************
+CREATE TABLE "<a class="missing wiki">TopoTest?</a>" (
+</p>
+<blockquote>
+<p>
+id integer NOT NULL,
+"Detail" character varying(80),
+the_geom geometry,
+source integer,
+target integer,
+x1 double precision,
+y1 double precision,
+x2 double precision,
+y2 double precision,
+reverse_cost double precision,
+cost double precision DEFAULT 1 NOT NULL,
+to_cost double precision,
+rule text,
+gid integer,
+CONSTRAINT enforce_dims_the_geom CHECK ((ndims(the_geom) = 2)),
+CONSTRAINT enforce_geotype_the_geom CHECK (((geometrytype(the_geom) = 'LINESTRING'::text) OR (the_geom IS NULL))),
+CONSTRAINT enforce_srid_the_geom CHECK ((srid(the_geom) = 4326))
+</p>
+</blockquote>
+<p>
+);
+</p>
+<p>
+COPY "<a class="missing wiki">TopoTest?</a>" (id, "Detail", the_geom, source, target, x1, y1, x2, y2, reverse_cost, cost, to_cost, rule, gid) FROM stdin;
+0        R11        0102000020E610000002000000A08E7A498E5F1AC0A5F51C88C0B04A401427A6D2625F1AC01E87AA5FC8B04A40        1        2        -6.5933162194302497        53.38087560094872        -6.593150416747239        53.381114919915703        1        1        \N        \N        0
+1        R12        0102000020E610000003000000007F9E3B635F1AC01E87AA5FC8B04A403E7C952A1F5F1AC0D47A0EBCC4B04A409A40389CDF5E1AC0CFDB6CF6C9B04A40        2        3        -6.5931519809234942        53.381114919915703        -6.5926498803456983        53.381163409379603        1        1        \N        \N        1
+2        R13        0102000020E6100000020000009A40389CDF5E1AC0CFDB6CF6C9B04A4023816BBCB35E1AC00B75E308D3B04A40        3        4        -6.5926498803456983        53.381163409379603        -6.5924825134864333        53.381440268576704        1        1        \N        \N        2
+3        R21        0102000020E610000002000000BF5526CC925F1AC06CD34716D1B04A40007F9E3B635F1AC01E87AA5FC8B04A40        5        2        -6.5933334253690523        53.381380829879021        -6.5931519809234942        53.381114919915703        1        1        \N        \N        3
+4        R22        0102000020E610000003000000ECD696A4635F1AC01E87AA5FC8B04A40ED71B70E2B5F1AC07367CACECBB04A409A40389CDF5E1AC0CFDB6CF6C9B04A40        2        3        -6.5931535450997494        53.381114919915703        -6.5926498803456983        53.381163409379603        1        1        \N        \N        4
+5        R23        0102000020E6100000020000009A40389CDF5E1AC0CFDB6CF6C9B04A4036933213A95E1AC0818FCF3FC1B04A40        3        6        -6.5926498803456983        53.381163409379603        -6.5924418449038082        53.380897499416285        1        1        \N        \N        5
+\.
+</p>
+<p>
+ALTER TABLE ONLY "<a class="missing wiki">TopoTest?</a>"
+</p>
+<blockquote>
+<p>
+ADD CONSTRAINT "<a class="missing wiki">TopoTest?</a>_pkey" PRIMARY KEY (id);
+</p>
+</blockquote>
+<p>
+*****************************************************************************
+</p>
+<p>
+This topology defines two GPS tracks R1, in line sections R11, R12 and R13, and R2, in line sections R21, R22, R23. I've built the lines to define where the track intersections fall. Both tracks are related to a series of photographs and both have different temporal periods. Sections R12 and R22 have the same physical geography, I just defined them differently to control the route consistency issues.
+</p>
+<p>
+Constraints are as follows:
+If I want to travel from R21 to R23 I want to ensure I go through R22, same idea for route1. Both routes have no forward or reverse costs so going from R12 to R13 through R12 should be the same result as going in reverse. In these cases I was trying to define rules where going from R12 to R13 would have a high to_cost for R22 thus forcing the route through R12. Should this work and if so does it need to be duplicated for the reverse direction?
+</p>
+<p>
+Next, a constraint exists where you cannot traverse right from R21 to R11 and left from R11 to R21. Not sure if this can be done with only one intersection to build the rule on, I can't make it work based on the tutorial example.
+</p>
+<p>
+Next and last constraint involves searching across different routes. I want to maintain the start route through the network until it is no longer available. Example: Route from R21 to R13 should go through R22, whereas route from R13 to R21 should go through R12 etc. Thus the start route is maintained through the network for as long as it is available.
+</p>
+<p>
+Any help, advice or information would be greatly appreciated, especially in consideration that the real network is alot more complex with many more R12/R22 type topology section included.
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            diplonics
+          </div>
+          <div class="time">
+            04/29/09 23:20:16 (19 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/256?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/256?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message922"></a>
+        <div class="id">
+          Message #922
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+You know, seeing is believing :)
+Sometimes an image worth a thousand words. Can you please make simple pictures describing all your cases, because I'm not sure I understand you well.
+</p>
+<p>
+From the first glance - yes, it is possible to use Shooting* for your needs, but I would prefer to see pictures to make sure.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            04/30/09 09:41:55 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message925"></a>
+        <div class="id">
+          Message #925
+        </div>
+        <div class="body">
+            <p>
+Hi Anton,
+</p>
+<blockquote>
+<p>
+Images available at:
+</p>
+</blockquote>
+<p>
+<a class="ext-link" href="http://img524.imageshack.us/gal.php?g=routetracks.jpg"><span class="icon"> </span>http://img524.imageshack.us/gal.php?g=routetracks.jpg</a>
+</p>
+<p>
+Hope these help explain it.
+</p>
+<p>
+3 images contained showing first the original GPS tracks and how they overlap.
+Second contains original routes and the topology I built to describe the routes.
+Third the topology only.
+</p>
+<p>
+In image 1 the Yellow route is route one, travelling from right to left and back. In the topology I've defined this in 3 sections R11, R12 and R13.
+The Red route is route two, travelling from top to bottom and back. In the topology I've defined this in 3 sections R21, R22 and R23.
+These routes are real road networks where the red route comes in from the north turns left along a street then right off it and back. The yellow route comes in from the east along the street and continues west and back again. Both routes traverse the same street section in the middle.
+</p>
+<p>
+The topology intersections are built at an arbitrary point where the routes merge, i.e. the two points where the red route meets the yellow route and where it splits again.
+Each topology section can be traversed in both directions.
+</p>
+<p>
+Some examples of possible routes:
+-If I want to traverse the red route in either direction I should get a network path of sections R21-&gt;R22-&gt;R23 or R23-&gt;R22-&gt;R21.
+</p>
+<p>
+-If I want to traverse the yellow route from the left but turn right onto the red route to the bottom I should get a network path of R11-&gt;R12-&gt;R23. The rules I applied are:
+</p>
+<blockquote>
+<p>
+GID   - to_cost - rule
+</p>
+</blockquote>
+<p>
+5(R23) -  1000   -  0,4 (R11,R22)
+</p>
+<p>
+Using:
+SELECT * FROM  shortest_path_shooting_star(
+'SELECT id, gid, source, target, cost, x1, y1, x2, y2, rule, to_cost, reverse_cost FROM "<a class="missing wiki">TopoTest?</a>" ORDER BY gid'
+,0,5,true,true);
+</p>
+<p>
+Result is: 0-&gt;1-&gt;4-&gt;5 (R11-&gt;R12-&gt;R22-&gt;R23). Should not get edge 4(R22).
+</p>
+<p>
+-If I want to traverse the red route from the bottom but continue straight onto the yellow route instead of right onto the red route to the top I should get a network path of R23-&gt;R22-&gt;R11. The rules I applied are:
+</p>
+<blockquote>
+<p>
+GID   - to_cost - rule
+</p>
+</blockquote>
+<blockquote>
+<p>
+0(R11) -  1000   -  5,1 (R23,R12)
+</p>
+</blockquote>
+<p>
+Using:
+SELECT * FROM  shortest_path_shooting_star(
+'SELECT id, gid, source, target, cost, x1, y1, x2, y2, rule, to_cost, reverse_cost FROM "<a class="missing wiki">TopoTest?</a>" ORDER BY gid'
+,5,0,true,true);
+</p>
+<p>
+Result is: 5 (R23). Should get edge 5-&gt;4-&gt;0 (R23-&gt;R22-&gt;R11).
+</p>
+<p>
+An example of an impossible route:
+-If I want to traverse the yellow route from the left, turning left onto the red route to the top, this should not be possible, i.e. R11-&gt;R21 is not possible. The rules I applied to the previous posts data set to control this are:
+</p>
+<blockquote>
+<p>
+GID    - to_cost - rule
+</p>
+</blockquote>
+<blockquote>
+<p>
+0 (R11)-  1000   -  3 (R21)
+</p>
+</blockquote>
+<blockquote>
+<p>
+3 (R21)-  1000   -  0 (R11)
+</p>
+</blockquote>
+<p>
+however using:
+SELECT * FROM  shortest_path_shooting_star(
+'SELECT id, gid, source, target, cost, x1, y1, x2, y2, rule, to_cost, reverse_cost FROM "<a class="missing wiki">TopoTest?</a>" ORDER BY gid'
+,3,0,true,true);
+</p>
+<p>
+I get edge 3-&gt;1-&gt;5 (R21-&gt;R12-&gt;R23) which to me has no logic.
+Reverse the route, 0-&gt;3 (R11-&gt;R21), and I get a logical result 0-&gt;3 (R11-&gt;R21), but this should not be possible.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            diplonics
+          </div>
+          <div class="time">
+            04/30/09 19:56:29 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/256?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/256?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

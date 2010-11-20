@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/80 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/13.html" title="developer">developer</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>developer (#13) - TSP throughput &amp; parallelzation (#80) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              TSP throughput &amp; parallelzation
+            </div>
+            <div class="body">
+              <p>
+Hello,
+</p>
+<p>
+has anybody tested the throughput of TSP algorithm against other products?
+</p>
+<p>
+Do you know if it is possible to parallelize several TSP calculations at the same time, when you have a powerful server with several CPUs, instead of queueing them?
+</p>
+<p>
+Congratulation for the project,
+</p>
+<p>
+Miguel
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            mmontesinos
+          </div>
+          <div class="time">
+            12/13/07 02:58:55 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/80?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/80?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message314"></a>
+        <div class="id">
+          Message #314
+        </div>
+        <div class="body">
+            <p>
+I don't think you can parallelize it, 'cause how can you run several queries within one PostgreSQL instance? Or do you mean you can install few instances?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/13/07 09:21:11 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message316"></a>
+        <div class="id">
+          Message #316
+        </div>
+        <div class="body">
+            <p>
+Hi, I'm a coworker of Miguel. Well, in fact he is my employer :P
+</p>
+<p>
+He means that we want to parallelize several requests of the TSP in a Java development through a JDBC connection, thus we can run several requests to the same postgresql server.
+</p>
+<p>
+For instance in Oracle you cannot parallize the TSP calculation because the network object is not thread safe (different threads can not modify the network object on the same time) but we don't know how it's resolved that in pgRouting at this time.
+</p>
+<p>
+Cheers.
+Jorge
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            jsanz
+          </div>
+          <div class="time">
+            12/14/07 02:05:26 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message317"></a>
+        <div class="id">
+          Message #317
+        </div>
+        <div class="body">
+            <p>
+Ah, I see!
+</p>
+<p>
+Well, it is thread-safe, you can use it the way you like. Actually, we are doing quite similar thing with shorteat path functions and Java-based web service.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/14/07 09:59:16 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message320"></a>
+        <div class="id">
+          Message #320
+        </div>
+        <div class="body">
+            <p>
+Thanks Daniel,
+</p>
+<p>
+(just to be sure of) May I assume that we can launch parallel queries (through different JDBC connections) so that each of them is able to instance a different TSP calculation?
+</p>
+<p>
+Is it also possible to make any modification to the network "in-memory", so that every parallel query can make modifications to the network, and use it for a TSP?
+</p>
+<p>
+Maybe it's a special case we have: We want to calculate routes with TSP with a street cartography, but we have the requirement to use adresses based on street/number, no just nodes at the intersections. What we were doing now with Oracle was to geocodificate the adresses to points (made by us, no database capability needing ), insert those nodes in the network loaded in memory (so that the network nodes are not growing for every route calculation) and launch TSP.
+</p>
+<p>
+Or maybe, we should look for an alternate way to clean nodes periodically (???)
+</p>
+<p>
+I haven't given much details, but we want to migrate a solution we have, to use 100% FOSSGIS, and at the moment we still have Oracle as a component (and very expensive, BTW)
+</p>
+<p>
+Thank you very much for your support.
+</p>
+<p>
+Miguel Montesinos
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            mmontesinos
+          </div>
+          <div class="time">
+            12/14/07 20:21:29 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message321"></a>
+        <div class="id">
+          Message #321
+        </div>
+        <div class="body">
+            <p>
+(Lookin around) Daniel? Where is he? Can you see him?
+</p>
+<p>
+pgRouting load the network by request, so it is impossible to keep the network data "in-memory" and of course it is impossible to modify it. And that's why it is thread-safe.
+</p>
+<p>
+We have pgGeocoder - geocoding solution for US/Canadian addresses. It is still in the early development stage, but it is used by <a class="missing wiki">MapMobility?</a> - Canadian maps provider. If you are interested, we can provide some consultation and come out with complete solution.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/16/07 22:56:34 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/80?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/80?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

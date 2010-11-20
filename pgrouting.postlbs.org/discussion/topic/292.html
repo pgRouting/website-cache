@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/292 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/15.html" title="others">others</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>others (#15) - pgrouting - ssd - performance (#292) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              pgrouting - ssd - performance
+            </div>
+            <div class="body">
+              <p>
+First thanks to all contributors for this excellent routing engine. In the last few weeks i started to pĺay around with my new SSD (Solid State Disk) and pgrouting - i really wanted to find out how fast pgrouting can be -  and it can be really fast! So I would like to report some of my ideas, solutions and problems:
+</p>
+<p>
+<strong>My Workstation:</strong>
+Ubuntu 8.04 64.Bit i7 Quad Core ~6GB RAM <br />
+Disk (used for pgrouting tablespace): Solid State Disk 2,5" S-ATA INTEL X25-E<br />
+Dataset: Openstreetmap - Austria (using osm2pgrouting)
+</p>
+<hr />
+<p>
+I have to admit, that I didn't use any benchmark software or other utilities to analyze the system performance - main reason: I don't know a tool which can be used for that purpose. So I mainly played around with the sql queries and looked how fast they are (postgres provides 'ANALYZE' which helped out a little bit). Also for testing i made a small mapping application unsing Openlayers and a 'google-like' routing handling. The route is computed while dragging the start/endpiont.
+</p>
+<hr />
+<p>
+By using the SSD it was possible to limit the maximum request latency to ~1 second (using A*) - for short route calculation its much faster of course. At the next step I started to use wrapper functions, which are the key to speed up pgrouting. To reduce the number of vertex's, i applied the assumption, that you usually use the highway or any other road with a high functional road class (FRC) for long routes. For this reason i computed three bounding boxes out of the start point and endpoint geometry:<br />
+</p>
+<p>
+<a style="padding:0; border:none" href="http://img385.imageshack.us/img385/1064/maps.png"><img src="http://img385.imageshack.us/img385/1064/maps.png" alt="http://img385.imageshack.us/img385/1064/maps.png" title="http://img385.imageshack.us/img385/1064/maps.png" /></a><br />
+</p>
+<p>
+Bounding box 1 and 3 is computed by applying a buffer to the start/end geometry - it is used to load all classes of roads (e.g class_id IS NOT NULL)
+Bounding box 2 is computed by applying a buffer to the line connecting start/end geometry - it is used to load only high road classes (e.g. class_id &lt; 107, which are the red an the blue lines). This wrapper function really boosted the performance of my pgrouting application. I have to fix some minor problems in the wrapper function - than I will upload it.
+</p>
+<p>
+<strong>My Results:</strong> <br />
+</p>
+<p>
+Long routes (~1000km) - latency &lt; ~500 ms<br />
+Middle routes (~500km) - latency &lt; ~330 ms<br />
+short routes (~100 km) - latency &lt; ~120 ms<br />
+</p>
+<p>
+In the moment I'm focusing on how to speed up the process of displaying your route result with Openlayers - one of my ideas is to use the PostGIS Function "ST_Simplify" to reduce the number of vertex's...
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            peter
+          </div>
+          <div class="time">
+            09/03/09 01:47:23 (15 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/292?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/292?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1053"></a>
+        <div class="id">
+          Message #1053
+        </div>
+        <div class="body">
+            <p>
+Hi Peter,
+</p>
+<p>
+It is great (here I mean REALLY great) to know about your studies. We were thinking about something similar, but it was quite difficult (and very much data-depending) to find connection points of entire network used in smaller buffers and highway network. How you solved this problem?
+</p>
+<p>
+And of course your contribution of the wrapper is more than welcomed!
+</p>
+<p>
+Thank you!
+</p>
+<p>
+Anton.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            09/07/09 12:40:37 (15 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1055"></a>
+        <div class="id">
+          Message #1055
+        </div>
+        <div class="body">
+            <p>
+Hey Anton,
+</p>
+<p>
+see the wrapper function below - hopefully it will answer you question. I have to apologize many important parameters are hard coded - i will change that soon.
+</p>
+<pre class="wiki">CREATE OR REPLACE FUNCTION routing_smart_calc2(geometry, geometry)
+  RETURNS SETOF geometry AS
+	$BODY$
+	DECLARE
+		start_vertex_id INTEGER;
+		end_vertex_id INTEGER;
+		start_point ALIAS FOR $1;
+		end_point ALIAS FOR $2;
+		query TEXT;
+		start_bbox TEXT;
+		end_bbox TEXT;
+		h_bbox	TEXT;
+		tmp_rec RECORD;
+		x_delta float;
+		y_delta float;
+		h_delta float;
+			h_delta_x_adapted float;
+			h_delta_y_adapted float;
+			x_y_ratio float;
+		X_1 float;
+		x_2 float;
+		y_1 float;
+		y_2 float;
+	BEGIN
+		x_delta := 0.07;
+		y_delta := 0.07;
+		h_delta := 0.14;
+		--&gt; Find nearest edge for StartPoint
+		SELECT INTO start_vertex_id * FROM (
+					SELECT target FROM
+					(SELECT target,source,the_geom,ST_Distance(ST_SetSRID(ST_AsText(start_point),4326),the_geom) as distance FROM route_table
+						WHERE ST_DWithin(ST_SetSRID(ST_AsText(start_point),4326), the_geom, 0.04)
+						ORDER BY distance  LIMIT 1) base)t;
+		x_1 := ST_X(start_point);
+		y_1 := ST_Y(start_point);
+		--RAISE NOTICE '%',  start_vertex;
+		--&gt; Compute BBOX f. Start Vertex
+		start_bbox := 'ST_SetSRID(''''BOX3D( ' || x_1 - x_delta || ' ' || y_1 - y_delta || ',' ||
+					 x_1 + x_delta || ' ' || y_1 + y_delta ||')''''::box3d,4326)';
+		--&gt; Find near Vertex for EndPoint
+		SELECT INTO end_vertex_id * FROM (
+					SELECT target FROM
+					(SELECT target,source,the_geom,ST_Distance(ST_SetSRID(ST_AsText(end_point),4326),the_geom) as distance FROM route_table
+						WHERE ST_DWithin(ST_SetSRID(ST_AsText(end_point),4326), the_geom, 0.04)
+						ORDER BY distance  LIMIT 1) base)t;
+		x_2 := ST_X(end_point);
+		y_2 := ST_Y(end_point);
+		--RAISE NOTICE '%',  end_vertex;
+		end_bbox := 'ST_SetSRID(''''BOX3D( ' || x_2 - x_delta || ' ' || y_2 - y_delta || ',' ||
+					 x_2 + x_delta || ' ' || y_2 + y_delta ||')''''::box3d,4326)';
+		/* Calculate BBOX for HighwayNetwork */
+		IF x_1 &gt; x_2 THEN /* Swap horizontal to provide in correct BBOX Format (LL/UR) */
+			x_2 = ST_X(start_point);
+			x_1 = ST_X(end_point);
+		END IF;
+		IF y_1 &gt; y_2 THEN /* Swap vertical to provide in correct BBOX Format (LL/UR) */
+			y_2= ST_Y(start_point);
+			y_1= ST_Y(end_point);
+		END IF;
+		/* Adapt BBOX depending on the x-Width, y-Width ratio */
+		--RAISE NOTICE '% % % %', x_1,y_1,x_2,y_2;
+		x_y_ratio = (x_1-x_2)/(y_1-y_2);
+		h_delta_x_adapted := h_delta;
+		h_delta_y_adapted := h_delta;
+		if x_y_ratio &lt;= 1.0 THEN
+		 h_delta_x_adapted  = h_delta * (1-((x_1-x_2)/(y_1-y_2)));
+		ELSE
+		 h_delta_y_adapted  := h_delta * (1-((y_1-y_2)/(x_1-x_2)));
+		END IF;
+		--RAISE NOTICE 'X: %, Y: %', h_delta_x_adapted,h_delta_y_adapted;
+		h_bbox	:= 'ST_SetSRID(''''BOX3D( ' || x_1 - h_delta_x_adapted  || ' ' || y_1 - h_delta_y_adapted  || ',' ||
+					 x_2 + h_delta_x_adapted || ' ' || y_2 + h_delta_y_adapted  ||')''''::box3d,4326)';
+		--RAISE NOTICE '%', start_bbox;
+		--RAISE NOTICE '%', end_bbox;
+		--RAISE NOTICE '%', h_bbox;
+		query := 'SELECT * FROM shortest_path_astar ' ||
+				'(''SELECT gid as id,source,target,to_cost as cost,reverse_cost,x1,x2,y1,y2 FROM route_table ' ||
+				'WHERE (class_id &lt; 108 AND the_geom &amp;&amp; ' || h_bbox || ') OR (the_geom &amp;&amp; ' || start_bbox || ')OR(the_geom &amp;&amp; '|| end_bbox ||')'',' ||
+				 start_vertex_id || ' , ' || end_vertex_id || ', true,true),route_table WHERE edge_id = gid;';
+		--RAISE NOTICE '%',query;
+		FOR tmp_rec IN EXECUTE query
+		LOOP
+		RETURN NEXT tmp_rec.the_geom;
+		END LOOP;
+	END;
+	$BODY$
+  LANGUAGE 'plpgsql' VOLATILE STRICT
+  COST 100
+  ROWS 100;
+ALTER FUNCTION routing_smart_calc2(geometry, geometry) OWNER TO postgres;
+</pre><p>
+Just some words to the code. The first two queries are really stupid - the select always the target node of the closest edge. (of course i will improve that)
+</p>
+<pre class="wiki">		SELECT INTO end_vertex_id * FROM (
+					SELECT target FROM
+					(SELECT target,source,the_geom,ST_Distance(ST_SetSRID(ST_AsText(end_point),4326),the_geom) as distance FROM route_table
+						WHERE ST_DWithin(ST_SetSRID(ST_AsText(end_point),4326), the_geom, 0.04)
+						ORDER BY distance  LIMIT 1) base)t;
+</pre><p>
+In the next step the bounding box for the start and end node are computed by applying a fixed buffer (x_delta,y_delta). Changing this number has a great impact on performance and the possibility that a route can be found.
+</p>
+<pre class="wiki">end_bbox := 'ST_SetSRID(''''BOX3D( ' || x_2 - x_delta || ' ' || y_2 - y_delta || ',' ||
+					 x_2 + x_delta || ' ' || y_2 + y_delta ||')''''::box3d,4326)';
+</pre><p>
+Next the bbox for the line connecting the start and endnode is computed by applying a buffer, but before some minor intelligence is needed: if the end and start have either the same or close lat or lon values (in other words both points lie either on a horizontal or vertical line) the bbox usually gets to thin. So i implemented a small function (just the ratio of the differences between the start and endpoint) to adapt the bbox
+</p>
+<pre class="wiki">		x_y_ratio = (x_1-x_2)/(y_1-y_2);
+		h_delta_x_adapted := h_delta;
+		h_delta_y_adapted := h_delta;
+		if x_y_ratio &lt;= 1.0 THEN
+		 h_delta_x_adapted  = h_delta * (1-((x_1-x_2)/(y_1-y_2)));
+		ELSE
+		 h_delta_y_adapted  := h_delta * (1-((y_1-y_2)/(x_1-x_2)));
+		END IF;
+</pre><p>
+After all three bounding boxes have been successfully computed, they are used to generate the query:
+</p>
+<pre class="wiki">		query := 'SELECT * FROM shortest_path_astar ' ||
+				'(''SELECT gid as id,source,target,to_cost as cost,reverse_cost,x1,x2,y1,y2 FROM route_table ' ||
+				'WHERE (class_id &lt; 108 AND the_geom &amp;&amp; ' || h_bbox || ') OR (the_geom &amp;&amp; ' || start_bbox || ')OR(the_geom &amp;&amp; '|| end_bbox ||')'',' ||
+				 start_vertex_id || ' , ' || end_vertex_id || ', true,true),route_table WHERE edge_id = gid;'
+</pre><p>
+Most important is the WHERE - Clause in the Select Statement for the shortest_path_astar function. It consists out of three elements:
+</p>
+<pre class="wiki">'WHERE (class_id &lt; 108 AND the_geom &amp;&amp; ' || h_bbox || ') OR (the_geom &amp;&amp; ' || start_bbox || ')OR(the_geom &amp;&amp; '|| end_bbox ||')'
+</pre><p>
+The first part selects all roads with small class_ids (in my case this are highways, trunks, primary) which are inside the large h_bbox bounding box
+</p>
+<pre class="wiki">(class_id &lt; 108 AND the_geom &amp;&amp; ' || h_bbox || ')
+</pre><p>
+The second and third element select the edges which are around the computed bounding box for the start and end node
+</p>
+<pre class="wiki">(the_geom &amp;&amp; '|| end_bbox ||')
+</pre><p>
+Anton, I think you will be disappointed because this function is really stupid - but it worked for me very well. Of course there is a lot of room for improvements, i've already got a lot of ideas. I will report more soon.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            peter
+          </div>
+          <div class="time">
+            09/08/09 01:16:23 (15 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1057"></a>
+        <div class="id">
+          Message #1057
+        </div>
+        <div class="body">
+            <p>
+Hi Peter,
+</p>
+<p>
+OK, I got you idea. It is not really stupid or I have to admit that I was also stupid because some time ago I had similar idea :)
+</p>
+<p>
+The problem with some kinds of highways is that you can enter or leave them only using gates or ramps, which makes things more complicated.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            09/08/09 14:19:59 (15 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1059"></a>
+        <div class="id">
+          Message #1059
+        </div>
+        <div class="body">
+            <p>
+Just to give the function or approach I am dealing with a name: it is a very rudimentary way of implementing highway hierarchies. I found a  couple of interesting articles concerning highway hierarchies. One very detailed (i haven't read it yet completely) is the PhD Thesis of Mr. Schultes:<br />
+</p>
+<p>
+<a class="ext-link" href="http://algo2.iti.uka.de/schultes/hwy/"><span class="icon"> </span>http://algo2.iti.uka.de/schultes/hwy/</a><br />
+</p>
+<p>
+Has someone done some research (regarding the implementation in pgrouting) on Transit-Node Routing,Highway-Node Routing yet? Is Matthias Stumpp in the Google Sommer of Code working on this topics?
+</p>
+<p>
+I think I have to read through the pgrouting source code to do some work on this topics.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            peter
+          </div>
+          <div class="time">
+            09/09/09 04:12:27 (15 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1060"></a>
+        <div class="id">
+          Message #1060
+        </div>
+        <div class="body">
+            <p>
+Yes, I know about this work, but it is based on bi-directional level-avared shortest path algorithm and another algorithm (HH*) which creates a hierarchy of roads.
+</p>
+<p>
+We even had short discusion with Dominik. Too bad he is not going to continue his studies :(
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            09/09/09 16:43:02 (15 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1124"></a>
+        <div class="id">
+          Message #1124
+        </div>
+        <div class="body">
+            <p>
+nice idea. i had also a similar one :)
+i played a bit around with your function and have also some ideas to improve it. have you worked on on it ?
+</p>
+<p>
+btw: with class_id &lt; 108  , needet roundabouts are missing
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ole
+          </div>
+          <div class="time">
+            10/07/09 17:11:49 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1126"></a>
+        <div class="id">
+          Message #1126
+        </div>
+        <div class="body">
+            <p>
+Unfortunately I had no chance to work on pgRouting much, but I hope I will have much more time soon.
+</p>
+<p>
+class_ids are almost arbitrary, you can change them the way you like.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/08/09 11:41:09 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1128"></a>
+        <div class="id">
+          Message #1128
+        </div>
+        <div class="body">
+            <p>
+hey ole, thanks for the hint with the missing roundabout class - i didn't release it. To be honest I haven't worked on it much. Of what kind of improvements do you think?
+</p>
+<p>
+My next steps would concern the queries of finding the closest node. I figured out, that using a static buffer can slow down the whole function or lead to empty result sets. So I will/would work on:<br />
+1. improving the "closest node" queries by making them more flexible (first step would be to start with a small buffer an increase it if the result is null).
+2. Using the preprocessing function described in the PhD Thesis of Mr. Schultes would be a challenging task - a fellow student of mine is working on that.
+</p>
+<p>
+I am exited to hear about your ideas...
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            peter
+          </div>
+          <div class="time">
+            10/09/09 03:33:02 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1147"></a>
+        <div class="id">
+          Message #1147
+        </div>
+        <div class="body">
+            <p>
+maybe a more intelligent highway boundingbox. like an ellipse or something instead of a rectangle..the box gets too big if the two points are far from another.
+</p>
+<p>
+i also testet the routing on a ssd drive, a huge improvement, but i have still a latency of about 5 seconds for 1000km. what else did you do to reach such small latency ?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ole
+          </div>
+          <div class="time">
+            10/20/09 18:44:11 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1166"></a>
+        <div class="id">
+          Message #1166
+        </div>
+        <div class="body">
+            <p>
+hey ole - i had the same idea clipping the data with a elliptic "boundingbox", but unfortunately this was much slower than using a rectangular boundingbox. I computed the line between the start and the target vertex and applied a buffer using ST_buffer function - result is polygon...
+</p>
+<p>
+What kind of data are you using, how dense is you graphẞ I used the osm data for Austria - which is not a very dense road network, compared to countries like Germany. Have you tried decreasing the buffer parameters, or changing the function for h_delta_x_adapted/h_delta_y_adapted values.
+</p>
+<p>
+How do you measure the latency, I used the ANALYZE functionality, which does not consider the time to display the data - so really showing the route takes usually twice the time.
+</p>
+<p>
+Apart from that I cant remember doing something special - of course created all the necessary indexes and imported only the data necessary (so now foot ways etc). And I played around with the postgres parameters like shared buffer - but could not measure a great effect.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            peter
+          </div>
+          <div class="time">
+            10/24/09 05:14:00 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1178"></a>
+        <div class="id">
+          Message #1178
+        </div>
+        <div class="body">
+            <p>
+hi!,
+i measured latency in pgAdminIII, without visualizing the route. iam importing austria too now... i testet it on germany.
+</p>
+<p>
+there is another problem with the code above:
+<a style="padding:0; border:none" href="http://img8.imageshack.us/img8/2007/routingsmartcalc2proble.png"><img src="http://img8.imageshack.us/img8/2007/routingsmartcalc2proble.png" alt="http://img8.imageshack.us/img8/2007/routingsmartcalc2proble.png" title="http://img8.imageshack.us/img8/2007/routingsmartcalc2proble.png" /></a>
+</p>
+<p>
+on the right side, a highway is cut. have to expand the bbox.
+</p>
+<p>
+the elliptic bbox cant work anyway if you want to route from south portugal to south italy for example.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ole
+          </div>
+          <div class="time">
+            10/26/09 20:38:11 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1185"></a>
+        <div class="id">
+          Message #1185
+        </div>
+        <div class="body">
+            <p>
+I came up with another idea - using boundingboxes is´nt the best way if reducing the set of edges. It would be great to preprocess your graph so you know which edges have to be considered for a certain start/end vertex.
+</p>
+<p>
+if you assume that the least sigificant functional road class (c_0) is enclosed by roads of a higher functional road class (c_123), it would be satisfactory to load only the set of edges (c_o[]) which are enlcosed by a higher road class (c_123[]).
+E.g. residential roads are enclosed by a mix of secondary, secondary_link and tertiary roads. The set of enclosed edges could be found by applying a flooding algorithm.
+</p>
+<p>
+Of course this solutions has some weak spots - errors in the functional classification of roads are critical. For short distance routes this assumption my be not right. But I could imagine that this preprocessing would boost the perormance of pgrouting a lot.. may be I have time figuring it out next month.
+</p>
+<p>
+What do you think of that?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            peter
+          </div>
+          <div class="time">
+            10/28/09 22:06:21 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1182"></a>
+        <div class="id">
+          Message #1182
+        </div>
+        <div class="body">
+            <p>
+hi, you are absolutely right - the current settings have thier disadvantage in clipping away important edges. This is always a question about performance and error rate.
+</p>
+<p>
+One solution would be to calculate another much larger boundingbox for highways only. For Austria I tried loading all highway edges (there are not that much), this solved the problem concerning cutting away important edges, but had also a negative effect on the latency.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            peter
+          </div>
+          <div class="time">
+            10/28/09 03:35:05 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1196"></a>
+        <div class="id">
+          Message #1196
+        </div>
+        <div class="body">
+            <p>
+we have also a concept for a "superway" network.. but not implementet.
+i think we both are working on the same thing. iam in a research group at the university of applied sciences(htw saarland)
+are you working privatly with pgrouting ? maybe we can share some work. drop me a line and we can talk german :)
+</p>
+<p>
+oliver.bindel[-at-]htw-saarland.de
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ole
+          </div>
+          <div class="time">
+            11/03/09 20:46:29 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/292?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/292?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

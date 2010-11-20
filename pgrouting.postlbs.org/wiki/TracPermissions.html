@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracPermissions by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracPermissions – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/TracPermissions?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/TracPermissions?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/TracPermissions?action=diff&amp;version=3">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h1 id="TracPermissions">Trac Permissions</h1>
+<p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ul><li class="False"><a class="False" href="TracGuide.html">Index</a></li><li class="False"><a class="False" href="TracInstall.html">Installation</a></li><li class="False"><a class="False" href="TracInterfaceCustomization.html">Customization</a></li><li class="False"><a class="False" href="TracPlugins.html">Plugins</a></li><li class="False"><a class="False" href="TracUpgrade.html">Upgrading</a></li><li class="False"><a class="False" href="TracIni.html">Configuration</a></li><li class="False"><a class="False" href="TracAdmin.html">Administration</a></li><li class="False"><a class="False" href="TracBackup.html">Backup</a></li><li class="False"><a class="False" href="TracLogging.html">Logging</a></li><li class="active"><a class="False" href="TracPermissions.html">Permissions</a></li><li class="False"><a class="False" href="TracWiki.html">The Wiki</a></li><li class="False"><a class="False" href="WikiFormatting.html">Wiki Formatting</a></li><li class="False"><a class="False" href="TracTimeline.html">Timeline</a></li><li class="False"><a class="False" href="TracBrowser.html">Repository Browser</a></li><li class="False"><a class="False" href="TracRevisionLog.html">Revision Log</a></li><li class="False"><a class="False" href="TracChangeset.html">Changesets</a></li><li class="False"><a class="False" href="TracTickets.html">Tickets</a></li><li class="False"><a class="False" href="TracWorkflow.html">Workflow</a></li><li class="False"><a class="False" href="TracRoadmap.html">Roadmap</a></li><li class="False"><a class="False" href="TracQuery.html">Ticket Queries</a></li><li class="False"><a class="False" href="TracReports.html">Reports</a></li><li class="False"><a class="False" href="TracRss.html">RSS Support</a></li><li class="False"><a class="False" href="TracNotification.html">Notification</a></li></ul></div><p>
+</p>
+<p>
+Trac uses a simple, case sensitive, permission system to control what users can and can't access.
+</p>
+<p>
+Permission privileges are managed using the <a class="wiki" href="TracAdmin.html">trac-admin</a> tool or (new in version 0.11) the <i>General / Permissions</i> panel in the <i>Admin</i> tab of the web interface.
+</p>
+<p>
+In addition to the default permission policy described in this page, it is possible to activate additional permission policies by enabling plugins and listing them in the <tt>[trac] permission_policies</tt> configuration entry in the <a class="wiki" href="TracIni.html">TracIni</a>. See <a class="wiki" href="TracFineGrainedPermissions.html">TracFineGrainedPermissions</a> for more details.
+</p>
+<p>
+Non-authenticated users accessing the system are assigned the name "anonymous". Assign permissions to the "anonymous" user to set privileges for anonymous/guest users. The parts of Trac that a user does not have the privileges for will not be displayed in the navigation.
+In addition to these privileges, users can be granted additional individual rights in effect when authenticated and logged into the system. All logged in users belong to the virtual group "authenticated", which inherits permissions from "anonymous".
+</p>
+<h2 id="GraphicalAdminTab">Graphical Admin Tab</h2>
+<p>
+<i>This feature is new in version 0.11.</i>
+</p>
+<p>
+To access this tab, a user must have <tt>TRAC_ADMIN privileges</tt>. This can be performed as follows (more on the trac-admin script below):
+</p>
+<pre class="wiki">  $ trac-admin /path/to/projenv permission add bob TRAC_ADMIN
+</pre><p>
+Then, the user will be able to see the Admin tab, and can then access the permissions menu. This menu will allow you to perform all the following actions, but from the browser without requiring root access to the server (just the correct permissions for your user account).
+</p>
+<p>
+An easy way to quickly secure a new Trac install is to run the above command on the anonymous user, install the <a class="ext-link" href="http://trac-hacks.org/wiki/AccountManagerPlugin"><span class="icon"> </span>AccountManagerPlugin</a>, create a new admin account graphically and then remove the TRAC_ADMIN permission from the anonymous user.
+</p>
+<h2 id="AvailablePrivileges">Available Privileges</h2>
+<p>
+To enable all privileges for a user, use the <tt>TRAC_ADMIN</tt> permission. Having <tt>TRAC_ADMIN</tt> is like being <tt>root</tt> on a *NIX system: it will allow you to perform any operation.
+</p>
+<p>
+Otherwise, individual privileges can be assigned to users for the various different functional areas of Trac (<strong>note that the privilege names are case-sensitive</strong>):
+</p>
+<h3 id="RepositoryBrowser">Repository Browser</h3>
+<table class="wiki">
+<tr><td> <tt>BROWSER_VIEW</tt> </td><td> View directory listings in the <a class="wiki" href="TracBrowser.html">repository browser</a> 
+</td></tr><tr><td> <tt>LOG_VIEW</tt> </td><td> View revision logs of files and directories in the <a class="wiki" href="TracBrowser.html">repository browser</a> 
+</td></tr><tr><td> <tt>FILE_VIEW</tt> </td><td> View files in the <a class="wiki" href="TracBrowser.html">repository browser</a> 
+</td></tr><tr><td> <tt>CHANGESET_VIEW</tt> </td><td> View <a class="wiki" href="TracChangeset.html">repository check-ins</a> 
+</td></tr></table>
+<h3 id="TicketSystem">Ticket System</h3>
+<table class="wiki">
+<tr><td> <tt>TICKET_VIEW</tt> </td><td> View existing <a class="wiki" href="TracTickets.html">tickets</a> and perform <a class="wiki" href="TracQuery.html">ticket queries</a> 
+</td></tr><tr><td> <tt>TICKET_CREATE</tt> </td><td> Create new <a class="wiki" href="TracTickets.html">tickets</a> 
+</td></tr><tr><td> <tt>TICKET_APPEND</tt> </td><td> Add comments or attachments to <a class="wiki" href="TracTickets.html">tickets</a> 
+</td></tr><tr><td> <tt>TICKET_CHGPROP</tt> </td><td> Modify <a class="wiki" href="TracTickets.html">ticket</a> properties (priority, assignment, keywords, etc.) except description field, cc field add/remove when logged in or set email to pref 
+</td></tr><tr><td> <tt>TICKET_MODIFY</tt> </td><td> Includes both <tt>TICKET_APPEND</tt> and <tt>TICKET_CHGPROP</tt>, and in addition allows resolving <a class="wiki" href="TracTickets.html">tickets</a> 
+</td></tr><tr><td> <tt>TICKET_EDIT_CC</tt> </td><td> Full modify cc field 
+</td></tr><tr><td> <tt>TICKET_EDIT_DESCRIPTION</tt> </td><td> Modify description field 
+</td></tr><tr><td> <tt>TICKET_ADMIN</tt> </td><td> All <tt>TICKET_*</tt> permissions, plus the deletion of ticket attachments and modification of the description field 
+</td></tr></table>
+<p>
+Attention: the "view tickets" button appears with the <tt>REPORT_VIEW</tt> permission.
+</p>
+<h3 id="Roadmap">Roadmap</h3>
+<table class="wiki">
+<tr><td> <tt>MILESTONE_VIEW</tt> </td><td> View a milestone 
+</td></tr><tr><td> <tt>MILESTONE_CREATE</tt> </td><td> Create a new milestone 
+</td></tr><tr><td> <tt>MILESTONE_MODIFY</tt> </td><td> Modify existing milestones 
+</td></tr><tr><td> <tt>MILESTONE_DELETE</tt> </td><td> Delete milestones 
+</td></tr><tr><td> <tt>MILESTONE_ADMIN</tt> </td><td> All <tt>MILESTONE_*</tt> permissions 
+</td></tr><tr><td> <tt>ROADMAP_VIEW</tt> </td><td> View the <a class="wiki" href="TracRoadmap.html">roadmap</a> page, is not (yet) the same as MILESTONE_VIEW, see <a class="missing ticket">#4292</a> 
+</td></tr><tr><td> <tt>ROADMAP_ADMIN</tt> </td><td> to be removed with <a class="missing ticket">#3022</a>, replaced by MILESTONE_ADMIN 
+</td></tr></table>
+<h3 id="Reports">Reports</h3>
+<table class="wiki">
+<tr><td> <tt>REPORT_VIEW</tt> </td><td> View <a class="wiki" href="TracReports.html">reports</a>, i.e. the "view tickets" link. 
+</td></tr><tr><td> <tt>REPORT_SQL_VIEW</tt> </td><td> View the underlying SQL query of a <a class="wiki" href="TracReports.html">report</a> 
+</td></tr><tr><td> <tt>REPORT_CREATE</tt> </td><td> Create new <a class="wiki" href="TracReports.html">reports</a> 
+</td></tr><tr><td> <tt>REPORT_MODIFY</tt> </td><td> Modify existing <a class="wiki" href="TracReports.html">reports</a> 
+</td></tr><tr><td> <tt>REPORT_DELETE</tt> </td><td> Delete <a class="wiki" href="TracReports.html">reports</a> 
+</td></tr><tr><td> <tt>REPORT_ADMIN</tt> </td><td> All <tt>REPORT_*</tt> permissions 
+</td></tr></table>
+<h3 id="WikiSystem">Wiki System</h3>
+<table class="wiki">
+<tr><td> <tt>WIKI_VIEW</tt> </td><td> View existing <a class="wiki" href="TracWiki.html">wiki</a> pages 
+</td></tr><tr><td> <tt>WIKI_CREATE</tt> </td><td> Create new <a class="wiki" href="TracWiki.html">wiki</a> pages 
+</td></tr><tr><td> <tt>WIKI_MODIFY</tt> </td><td> Change <a class="wiki" href="TracWiki.html">wiki</a> pages 
+</td></tr><tr><td> <tt>WIKI_DELETE</tt> </td><td> Delete <a class="wiki" href="TracWiki.html">wiki</a> pages and attachments 
+</td></tr><tr><td> <tt>WIKI_ADMIN</tt> </td><td> All <tt>WIKI_*</tt> permissions, plus the management of <i>readonly</i> pages. 
+</td></tr></table>
+<h3 id="Permissions">Permissions</h3>
+<table class="wiki">
+<tr><td> <tt>PERMISSION_GRANT</tt> </td><td> add/grant a permission 
+</td></tr><tr><td> <tt>PERMISSION_REVOKE</tt> </td><td> remove/revoke a permission 
+</td></tr><tr><td> <tt>PERMISSION_ADMIN</tt> </td><td> All <tt>PERMISSION_*</tt> permissions 
+</td></tr></table>
+<h3 id="Others">Others</h3>
+<table class="wiki">
+<tr><td> <tt>TIMELINE_VIEW</tt> </td><td> View the <a class="wiki" href="TracTimeline.html">timeline</a> page 
+</td></tr><tr><td> <tt>SEARCH_VIEW</tt> </td><td> View and execute <a class="wiki" href="TracSearch.html">search</a> queries 
+</td></tr><tr><td> <tt>CONFIG_VIEW</tt> </td><td> Enables additional pages on <i>About Trac</i> that show the current configuration or the list of installed plugins 
+</td></tr><tr><td> <tt>EMAIL_VIEW</tt> </td><td> Shows email addresses even if <a class="missing wiki">`trac show_email_addresses` configuration option is `false`?</a> 
+</td></tr></table>
+<h2 id="GrantingPrivileges">Granting Privileges</h2>
+<p>
+You grant privileges to users using <a class="wiki" href="TracAdmin.html">trac-admin</a>. The current set of privileges can be listed with the following command:
+</p>
+<pre class="wiki">  $ trac-admin /path/to/projenv permission list
+</pre><p>
+This command will allow the user <i>bob</i> to delete reports:
+</p>
+<pre class="wiki">  $ trac-admin /path/to/projenv permission add bob REPORT_DELETE
+</pre><p>
+The <tt>permission add</tt> command also accepts multiple privilege names:
+</p>
+<pre class="wiki">  $ trac-admin /path/to/projenv permission add bob REPORT_DELETE WIKI_CREATE
+</pre><p>
+Or add all privileges:
+</p>
+<pre class="wiki">  $ trac-admin /path/to/projenv permission add bob TRAC_ADMIN
+</pre><h2 id="PermissionGroups">Permission Groups</h2>
+<p>
+There are two built-in groups, "authenticated" and "anonymous".<br />
+Any user who has not logged in is automatically in the "anonymous" group.<br />
+Any user who has logged in is also in the "authenticated" group.<br />
+The "authenticated" group inherits permissions from the "anonymous" group.<br />
+eg. if the "anonymous" group has permission WIKI_MODIFY, it's not necessary to add the WIKI_MODIFY permisison to the "authenticated" group as well.
+</p>
+<p>
+Custom groups may be defined that inherit permissions from the two built-in groups.
+</p>
+<p>
+Permissions can be grouped together to form roles such as <i>developer</i>, <i>admin</i>, etc.
+</p>
+<pre class="wiki">  $ trac-admin /path/to/projenv permission add developer WIKI_ADMIN
+  $ trac-admin /path/to/projenv permission add developer REPORT_ADMIN
+  $ trac-admin /path/to/projenv permission add developer TICKET_MODIFY
+  $ trac-admin /path/to/projenv permission add bob developer
+  $ trac-admin /path/to/projenv permission add john developer
+</pre><p>
+Group membership can be checked by doing a <tt>permission list</tt> with no further arguments; the resulting output will include group memberships. <strong>Use lowercase for group names, as uppercase is reserved for permissions</strong>.
+</p>
+<h2 id="AddingaNewGroupandPermissions">Adding a New Group and Permissions</h2>
+<p>
+Permission groups can be created by assigning a user to a group you wish to create, then assign permissions to that group.
+</p>
+<p>
+The following will add <i>bob</i> to the new group called <i>beta_testers</i> and then will assign WIKI_ADMIN permissions to that group. (Thus, <i>bob</i> will inherit the WIKI_ADMIN permission)
+</p>
+<pre class="wiki">   $ trac-admin /path/to/projenv permission add bob beta_testers
+   $ trac-admin /path/to/projenv permission add beta_testers WIKI_ADMIN
+
+</pre><h2 id="RemovingPermissions">Removing Permissions</h2>
+<p>
+Permissions can be removed using the 'remove' command. For example:
+</p>
+<p>
+This command will prevent the user <i>bob</i> from deleting reports:
+</p>
+<pre class="wiki">  $ trac-admin /path/to/projenv permission remove bob REPORT_DELETE
+</pre><p>
+Just like <tt>permission add</tt>, this command accepts multiple privilege names.
+</p>
+<p>
+You can also remove all privileges for a specific user:
+</p>
+<pre class="wiki">  $ trac-admin /path/to/projenv permission remove bob '*'
+</pre><p>
+Or one privilege for all users:
+</p>
+<pre class="wiki">  $ trac-admin /path/to/projenv permission remove '*' REPORT_ADMIN
+</pre><h2 id="DefaultPermissions">Default Permissions</h2>
+<p>
+By default on a new Trac installation, the <tt>anonymous</tt> user will have <i>view</i> access to everything in Trac, but will not be able to create or modify anything.
+On the other hand, the <tt>authenticated</tt> users will have the permissions to <i>create and modify tickets and wiki pages</i>.
+</p>
+<dl><dt><strong>anonymous</strong></dt><dd>
+BROWSER_VIEW 
+CHANGESET_VIEW 
+FILE_VIEW 
+LOG_VIEW 
+MILESTONE_VIEW 
+REPORT_SQL_VIEW 
+REPORT_VIEW 
+ROADMAP_VIEW 
+SEARCH_VIEW 
+TICKET_VIEW 
+TIMELINE_VIEW
+WIKI_VIEW 
+</dd></dl>
+<dl><dt><strong>authenticated</strong></dt><dd>
+TICKET_CREATE 
+TICKET_MODIFY 
+WIKI_CREATE 
+WIKI_MODIFY  
+</dd></dl>
+<hr />
+<p>
+See also: <a class="wiki" href="TracAdmin.html">TracAdmin</a>, <a class="wiki" href="TracGuide.html">TracGuide</a> and <a class="wiki" href="TracFineGrainedPermissions.html">TracFineGrainedPermissions</a>
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/TracPermissions?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TracPermissions.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracPermissions by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

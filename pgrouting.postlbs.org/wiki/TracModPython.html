@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracModPython by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracModPython – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/TracModPython?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/TracModPython?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/TracModPython?action=diff&amp;version=3">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h1 id="Tracandmod_python">Trac and mod_python</h1>
+<p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ul><li class="False"><a class="False" href="TracGuide.html">Index</a></li><li class="False"><a class="False" href="TracInstall.html">Installation</a></li><li class="False"><a class="False" href="TracInterfaceCustomization.html">Customization</a></li><li class="False"><a class="False" href="TracPlugins.html">Plugins</a></li><li class="False"><a class="False" href="TracUpgrade.html">Upgrading</a></li><li class="False"><a class="False" href="TracIni.html">Configuration</a></li><li class="False"><a class="False" href="TracAdmin.html">Administration</a></li><li class="False"><a class="False" href="TracBackup.html">Backup</a></li><li class="False"><a class="False" href="TracLogging.html">Logging</a></li><li class="False"><a class="False" href="TracPermissions.html">Permissions</a></li><li class="False"><a class="False" href="TracWiki.html">The Wiki</a></li><li class="False"><a class="False" href="WikiFormatting.html">Wiki Formatting</a></li><li class="False"><a class="False" href="TracTimeline.html">Timeline</a></li><li class="False"><a class="False" href="TracBrowser.html">Repository Browser</a></li><li class="False"><a class="False" href="TracRevisionLog.html">Revision Log</a></li><li class="False"><a class="False" href="TracChangeset.html">Changesets</a></li><li class="False"><a class="False" href="TracTickets.html">Tickets</a></li><li class="False"><a class="False" href="TracWorkflow.html">Workflow</a></li><li class="False"><a class="False" href="TracRoadmap.html">Roadmap</a></li><li class="False"><a class="False" href="TracQuery.html">Ticket Queries</a></li><li class="False"><a class="False" href="TracReports.html">Reports</a></li><li class="False"><a class="False" href="TracRss.html">RSS Support</a></li><li class="False"><a class="False" href="TracNotification.html">Notification</a></li></ul></div><p>
+</p>
+<p>
+Trac supports <a class="ext-link" href="http://www.modpython.org/"><span class="icon"> </span>mod_python</a>, which speeds up Trac's response times considerably, especially compared to <a class="wiki" href="TracCgi.html">CGI</a>, and permits use of many Apache features not possible with <a class="wiki" href="TracStandalone.html">tracd</a>/mod_proxy.
+</p>
+<p>
+These instructions are for Apache 2; if you are still using Apache 1.3, you may have some luck with <a class="missing wiki">TracModPython2.7?</a>.
+</p>
+<h2 id="Simpleconfiguration">Simple configuration</h2>
+<p>
+If you just installed mod_python, you may have to add a line to load the module in the Apache configuration:
+</p>
+<pre class="wiki">LoadModule python_module modules/mod_python.so
+</pre><p>
+<i>Note: The exact path to the module depends on how the HTTPD installation is laid out.</i>
+</p>
+<p>
+On Debian using apt-get
+</p>
+<pre class="wiki">apt-get install libapache2-mod-python libapache2-mod-python-doc
+</pre><p>
+(Still on Debian) after you have installed mod_python, you must enable the modules in apache2 (equivalent of the above Load Module directive):
+</p>
+<pre class="wiki">a2enmod mod_python
+</pre><p>
+On Fedora use, using yum:
+</p>
+<pre class="wiki">yum install mod_python
+</pre><p>
+You can test your mod_python installation by adding the following to your httpd.conf.  You should remove this when you are done testing for security reasons. Note: mod_python.testhandler is only available in mod_python 3.2+.
+</p>
+<div class="code"><pre>&lt;Location /mpinfo&gt;
+   SetHandler mod_python
+   PythonInterpreter main_interpreter
+   PythonHandler mod_python.testhandler
+&lt;/Location&gt;
+</pre></div><p>
+A simple setup of Trac on mod_python looks like this:
+</p>
+<div class="code"><pre>&lt;Location /projects/myproject&gt;
+   SetHandler mod_python
+   PythonInterpreter main_interpreter
+   PythonHandler trac.web.modpython_frontend 
+   PythonOption TracEnv /var/trac/myproject
+   PythonOption TracUriRoot /projects/myproject
+&lt;/Location&gt;
+</pre></div><p>
+The option <strong><tt>TracUriRoot</tt></strong> may or may not be necessary in your setup. Try your configuration without it; if the URLs produced by Trac look wrong, if Trac does not seem to recognize URLs correctly, or you get an odd "No handler matched request to..." error, add the <strong><tt>TracUriRoot</tt></strong> option.  You will notice that the <tt>Location</tt> and <strong><tt>TracUriRoot</tt></strong> have the same path.
+</p>
+<p>
+The options available are
+</p>
+<pre class="wiki">    # For a single project
+    PythonOption TracEnv /var/trac/myproject
+    # For multiple projects
+    PythonOption TracEnvParentDir /var/trac/myprojects
+    # For the index of multiple projects
+    PythonOption TracEnvIndexTemplate /srv/www/htdocs/trac/project_list_template.html
+    # A space delimitted list, with a "," between key and value pairs.
+    PythonOption TracTemplateVars key1,val1 key2,val2
+    # Useful to get the date in the wanted order
+    PythonOption TracLocale en_GB.UTF8
+    # See description above        
+    PythonOption TracUriRoot /projects/myproject
+</pre><h3 id="PythonEggCache">Python Egg Cache</h3>
+<p>
+Compressed python eggs like Genshi are normally extracted into a directory named <tt>.python-eggs</tt> in the users home directory. Since apache's home usually is not writable an alternate egg cache directory can be specified like this:
+</p>
+<pre class="wiki">PythonOption PYTHON_EGG_CACHE /var/trac/myprojects/egg-cache
+</pre><h3 id="ConfiguringAuthentication">Configuring Authentication</h3>
+<p>
+Creating password files and configuring authentication works similar to the process for <a class="wiki" href="TracCgi.html#AddingAuthentication">CGI</a>:
+</p>
+<div class="code"><pre>&lt;Location /projects/myproject/login&gt;
+  AuthType Basic
+  AuthName "myproject"
+  AuthUserFile /var/trac/myproject/.htpasswd
+  Require valid-user
+&lt;/Location&gt;
+</pre></div><p>
+Configuration for mod_ldap authentication in Apache is a bit tricky (httpd 2.2.x and OpenLDAP: slapd 2.3.19)
+</p>
+<p>
+1. You need to load the following modules in Apache httpd.conf
+</p>
+<pre class="wiki">LoadModule ldap_module modules/mod_ldap.so
+LoadModule authnz_ldap_module modules/mod_authnz_ldap.so
+</pre><p>
+2. Your httpd.conf also needs to look something like:
+</p>
+<div class="code"><pre>&lt;Location /trac/&gt;
+  SetHandler mod_python
+  PythonInterpreter main_interpreter
+  PythonHandler trac.web.modpython_frontend
+  PythonOption TracEnv /home/trac/
+  PythonOption TracUriRoot /trac/
+  Order deny,allow
+  Deny from all
+  Allow from 192.168.11.0/24
+  AuthType Basic
+  AuthName "Trac"
+  AuthBasicProvider "ldap"
+  AuthLDAPURL "ldap://127.0.0.1/dc=example,dc=co,dc=ke?uid?sub?(objectClass=inetOrgPerson)"
+  authzldapauthoritative Off
+  require valid-user
+&lt;/Location&gt;
+</pre></div><p>
+Or the LDAP interface to a Microsoft Active Directory:
+</p>
+<div class="code"><pre>&lt;Location /trac/&gt;
+  SetHandler mod_python
+  PythonInterpreter main_interpreter
+  PythonHandler trac.web.modpython_frontend
+  PythonOption TracEnv /home/trac/
+  PythonOption TracUriRoot /trac/
+  Order deny,allow
+  Deny from all
+  Allow from 192.168.11.0/24
+  AuthType Basic
+  AuthName "Trac"
+  AuthBasicProvider "ldap"
+  AuthLDAPURL "ldap://adserver.company.com:3268/DC=company,DC=com?sAMAccountName?sub?(objectClass=user)"
+  AuthLDAPBindDN       ldap-auth-user@company.com
+  AuthLDAPBindPassword "the_password"
+  authzldapauthoritative Off
+  # require valid-user
+  require ldap-group CN=Trac Users,CN=Users,DC=company,DC=com
+&lt;/Location&gt;
+</pre></div><p>
+Note 1: This is the case where the LDAP search will get around the multiple OUs, conecting to Global Catalog Server portion of AD (Notice the port is 3268, not the normal LDAP 389). The GCS is basically a "flattened" tree which allows searching for a user without knowing to which OU they belong.
+</p>
+<p>
+Note 2: Active Directory requires an authenticating user/password to access records (AuthLDAPBindDN and AuthLDAPBindPassword).
+</p>
+<p>
+Note 3: The directive "require ldap-group ..."  specifies an AD group whose members are allowed access.
+</p>
+<h3 id="SettingthePythonPath">Setting the PythonPath</h3>
+<p>
+If the Trac installation isn't installed in your Python path, you'll have to tell Apache where to find the Trac mod_python handler  using the <tt>PythonPath</tt> directive:
+</p>
+<div class="code"><pre>&lt;Location /projects/myproject&gt;
+  ...
+  PythonPath "sys.path + ['/path/to/trac']"
+  ...
+&lt;/Location&gt;
+</pre></div><p>
+Be careful about using the PythonPath directive, and <i>not</i> <tt>SetEnv PYTHONPATH</tt>, as the latter won't work.
+</p>
+<h2 id="Settingupmultipleprojects">Setting up multiple projects</h2>
+<p>
+The Trac mod_python handler supports a configuration option similar to Subversion's <tt>SvnParentPath</tt>, called <tt>TracEnvParentDir</tt>:
+</p>
+<div class="code"><pre>&lt;Location /projects&gt;
+  SetHandler mod_python
+  PythonInterpreter main_interpreter
+  PythonHandler trac.web.modpython_frontend 
+  PythonOption TracEnvParentDir /var/trac
+  PythonOption TracUriRoot /projects
+&lt;/Location&gt;
+</pre></div><p>
+When you request the <tt>/projects</tt> URL, you will get a listing of all subdirectories of the directory you set as <tt>TracEnvParentDir</tt> that look like Trac environment directories. Selecting any project in the list will bring you to the corresponding Trac environment.
+</p>
+<p>
+If you don't want to have the subdirectory listing as your projects home page you can use a
+</p>
+<div class="code"><pre>&lt;LocationMatch "/.+/"&gt;
+</pre></div><p>
+This will instruct Apache to use mod_python for all locations different from root while having the possibility of placing a custom home page for root in your DocumentRoot folder.
+</p>
+<p>
+You can also use the same authentication realm for all of the projects using a <tt>&lt;LocationMatch&gt;</tt> directive:
+</p>
+<div class="code"><pre>&lt;LocationMatch "/projects/[^/]+/login"&gt;
+  AuthType Basic
+  AuthName "Trac"
+  AuthUserFile /var/trac/.htpasswd
+  Require valid-user
+&lt;/LocationMatch&gt;
+</pre></div><h2 id="VirtualHostConfiguration">Virtual Host Configuration</h2>
+<p>
+Below is the sample configuration required to set up your trac as a virtual server (i.e. when you access it at the URLs like
+http://trac.mycompany.com):
+</p>
+<div class="code"><pre>&lt;VirtualHost * &gt;
+    DocumentRoot /var/www/myproject
+    ServerName trac.mycompany.com
+    &lt;Location /&gt;
+        SetHandler mod_python
+        PythonInterpreter main_interpreter
+        PythonHandler trac.web.modpython_frontend
+        PythonOption TracEnv /var/trac/myproject
+        PythonOption TracUriRoot /
+    &lt;/Location&gt;
+    &lt;Location /login&gt;
+        AuthType Basic
+        AuthName "MyCompany Trac Server"
+        AuthUserFile /var/trac/myproject/.htpasswd
+        Require valid-user
+    &lt;/Location&gt;
+&lt;/VirtualHost&gt;
+</pre></div><p>
+This does not seem to work in all cases. What you can do if it does not:
+</p>
+<ul><li>Try using <tt>&lt;LocationMatch&gt;</tt> instead of <tt>&lt;Location&gt;</tt>
+</li><li>&lt;Location /&gt; may, in your server setup, refer to the complete host instead of simple the root of the server. This means that everything (including the login directory referenced below) will be sent to python and authentication does not work (i.e. you get the infamous Authentication information missing error). If this applies to you, try using a sub-directory for trac instead of the root (i.e. /web/ and /web/login instead of / and /login).
+</li></ul><p>
+For a virtual host that supports multiple projects replace "<tt>TracEnv</tt>" /var/trac/myproject with "<tt>TracEnvParentDir</tt>" /var/trac/
+</p>
+<p>
+Note: DocumentRoot should not point to your Trac project env. As Asmodai wrote on #trac: "suppose there's a webserver bug that allows disclosure of DocumentRoot they could then leech the entire Trac environment".
+</p>
+<h2 id="Troubleshooting">Troubleshooting</h2>
+<p>
+In general, if you get server error pages, you can either check the Apache error log, or enable the <tt>PythonDebug</tt> option:
+</p>
+<div class="code"><pre>&lt;Location /projects/myproject&gt;
+  ...
+  PythonDebug on
+&lt;/Location&gt;
+</pre></div><p>
+For multiple projects, try restarting the server as well.
+</p>
+<h3 id="expat">Expat-related segmentation faults</h3>
+<p>
+This problem will most certainly hit you on Unix when using Python 2.4.
+In Python 2.4, some version of Expat (an XML parser library written in C) is used, 
+and if Apache is using another version, this results in segmentation faults.
+As Trac 0.11 is using Genshi, which will indirectly use Expat, that problem
+can now hit you even if everything was working fine before with Trac 0.10.
+</p>
+<p>
+See Graham Dumpleton's detailed <a class="ext-link" href="http://www.dscpl.com.au/wiki/ModPython/Articles/ExpatCausingApacheCrash"><span class="icon"> </span>explanation and workarounds</a> for the issue.
+</p>
+<h3 id="Formsubmissionproblems">Form submission problems</h3>
+<p>
+If you're experiencing problems submitting some of the forms in Trac (a common problem is that you get redirected to the start page after submission), check whether your <tt>DocumentRoot</tt> contains a folder or file with the same path that you mapped the mod_python handler to. For some reason, mod_python gets confused when it is mapped to a location that also matches a static resource.
+</p>
+<h3 id="Problemwithvirtualhostconfiguration">Problem with virtual host configuration</h3>
+<p>
+If the &lt;Location /&gt; directive is used, setting the <tt>DocumentRoot</tt> may result in a <i>403 (Forbidden)</i> error. Either remove the <tt>DocumentRoot</tt> directive, or make sure that accessing the directory it points is allowed (in a corresponding <tt>&lt;Directory&gt;</tt> block).
+</p>
+<p>
+Using &lt;Location /&gt; together with <tt>SetHandler</tt> resulted in having everything handled by mod_python, which leads to not being able download any CSS or images/icons. I used &lt;Location /trac&gt; <tt>SetHandler None</tt> &lt;/Location&gt; to circumvent the problem, though I do not know if this is the most elegant solution.
+</p>
+<h3 id="Using.htaccess">Using .htaccess</h3>
+<p>
+Although it may seem trivial to rewrite the above configuration as a directory in your document root with a <tt>.htaccess</tt> file, this does not work. Apache will append a "/" to any Trac URLs, which interferes with its correct operation.
+</p>
+<p>
+It may be possible to work around this with mod_rewrite, but I failed to get this working. In all, it is more hassle than it is worth. Stick to the provided instructions. :)
+</p>
+<p>
+A success story: For me it worked out-of-box, with following trivial config:
+</p>
+<pre class="wiki">SetHandler mod_python
+PythonInterpreter main_interpreter
+PythonHandler trac.web.modpython_frontend 
+PythonOption TracEnv /system/path/to/this/directory
+PythonOption TracUriRoot /path/on/apache
+
+AuthType Basic
+AuthName "ProjectName"
+AuthUserFile /path/to/.htpasswd
+Require valid-user
+</pre><p>
+The <a class="missing wiki">TracUriRoot?</a> is obviously the path you need to enter to the browser to get to the trac (e.g. domain.tld/projects/trac)
+</p>
+<h3 id="Additional.htaccesshelp">Additional .htaccess help</h3>
+<p>
+If you are using the .htaccess method you may have additional problems if your trac directory is inheriting .htaccess directives from another.  This may also help to add to your .htaccess file:
+</p>
+<pre class="wiki">&lt;IfModule mod_rewrite.c&gt;
+  RewriteEngine Off
+&lt;/IfModule&gt;
+</pre><h3 id="Win32Issues">Win32 Issues</h3>
+<p>
+If you run trac with mod_python &lt; 3.2 on Windows, uploading attachments will <strong>not</strong> work. This problem is resolved in mod_python 3.1.4 or later, so please upgrade mod_python to fix this.
+</p>
+<h3 id="OSXissues">OS X issues</h3>
+<p>
+When using mod_python on OS X you will not be able to restart Apache using <tt>apachectl restart</tt>. This is apparently fixed in mod_python 3.2, but there's also a patch available for earlier versions <a class="ext-link" href="http://www.dscpl.com.au/projects/vampire/patches.html"><span class="icon"> </span>here</a>.
+</p>
+<h3 id="SELinuxissues">SELinux issues</h3>
+<p>
+If Trac reports something like: <i>Cannot get shared lock on db.lock</i>
+The security context on the repository may need to be set:
+</p>
+<pre class="wiki">chcon -R -h -t httpd_sys_content_t PATH_TO_REPOSITORY
+</pre><p>
+See also [<a class="ext-link" href="http://subversion.tigris.org/faq.html#reposperms"><span class="icon"> </span>http://subversion.tigris.org/faq.html#reposperms</a>]
+</p>
+<h3 id="FreeBSDissues">FreeBSD issues</h3>
+<p>
+Pay attention to the version of the installed mod_python and sqlite packages. Ports have both the new and old ones, but earlier versions of pysqlite and mod_python won't integrate as the former requires threaded support in python, and the latter requires a threadless install.
+</p>
+<p>
+If you compiled and installed apache2, apache wouldn´t support threads (cause it doesn´t work very well on FreeBSD). You could force thread support when running ./configure for apache, using --enable-threads, but this isn´t recommendable.
+The best option [<a class="ext-link" href="http://modpython.org/pipermail/mod_python/2006-September/021983.html"><span class="icon"> </span>seems to be</a>] adding to /usr/local/apache2/bin/ennvars the line 
+</p>
+<pre class="wiki">export LD_PRELOAD=/usr/lib/libc_r.so
+</pre><h3 id="Subversionissues">Subversion issues</h3>
+<p>
+If you get the following Trac Error <tt>Unsupported version control system "svn"</tt> only under mod_python, though it works well on the command-line and even with <a class="wiki" href="TracStandalone.html">TracStandalone</a>, chances are that you forgot to add the path to the Python bindings with the <a class="wiki" href="TracModPython.html#ConfiguringPythonPath">PythonPath</a> directive. (The better way is to add a link to the bindings in the Python <tt>site-packages</tt> directory, or create a <tt>.pth</tt> file in that directory.)
+</p>
+<p>
+If this is not the case, it's possible that you're using Subversion libraries that are binary incompatible with the apache ones (an incompatibility of the <tt>apr</tt> libraries is usually the cause). In that case, you also won't be able to use the svn modules for Apache (<tt>mod_dav_svn</tt>).
+</p>
+<p>
+You also need a recent version of <tt>mod_python</tt> in order to avoid a runtime error (<tt>argument number 2: a 'apr_pool_t *' is expected</tt>) due to the default usage of multiple sub-interpreters. 3.2.8 <i>should</i> work, though it's probably better to use the workaround described in <a class="missing ticket">#3371</a>, in order to force the use of the main interpreter:
+</p>
+<pre class="wiki">PythonInterpreter main_interpreter
+</pre><p>
+This is anyway the recommended workaround for other well-known issues seen when using the Python bindings for Subversion within mod_python (<a class="missing ticket">#2611</a>, <a class="missing ticket">#3455</a>). See in particular Graham Dumpleton's comment in <a href="../ticket/3455.html#comment:9" title="Comment 9 for Ticket #3455">#3455</a> explaining the issue.
+</p>
+<h3 id="Pagelayoutissues">Page layout issues</h3>
+<p>
+If the formatting of the Trac pages look weird chances are that the style sheets governing the page layout are not handled properly by the web server. Try adding the following lines to your apache configuration:
+</p>
+<div class="code"><pre>Alias /myproject/css "/usr/share/trac/htdocs/css"
+&lt;Location /myproject/css&gt;
+    SetHandler None
+&lt;/Location&gt;
+</pre></div><p>
+Note: For the above configuration to have any effect it must be put after the configuration of your project root location, i.e. <tt>&lt;Location /myproject /&gt;</tt>.
+</p>
+<h3 id="HTTPSissues">HTTPS issues</h3>
+<p>
+If you want to run Trac fully under https you might find that it tries to redirect to plain http. In this case just add the following line to your apache configuration:
+</p>
+<div class="code"><pre>&lt;VirtualHost * &gt;
+    DocumentRoot /var/www/myproject
+    ServerName trac.mycompany.com
+    SetEnv HTTPS 1
+    ....
+&lt;/VirtualHost&gt;
+</pre></div><h3 id="Fedora7Issues">Fedora 7 Issues</h3>
+<p>
+Make sure you install the 'python-sqlite2' package as it seems to be required for <a class="wiki" href="TracModPython.html">TracModPython</a> but not for tracd
+</p>
+<h3 id="Segmentationfaultwithphp5-mhashorotherphp5modules">Segmentation fault with php5-mhash or other php5 modules</h3>
+<p>
+You may encounter segfaults (reported on debian etch) if php5-mhash module is installed. Try to remove it to see if this solves the problem. See debian bug report [<a class="ext-link" href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=411487"><span class="icon"> </span>http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=411487</a>]
+</p>
+<p>
+Some people also have troubles when using php5 compiled with its own 3rd party libraries instead of system libraries. Check here [<a class="ext-link" href="http://www.djangoproject.com/documentation/modpython/#if-you-get-a-segmentation-fault"><span class="icon"> </span>http://www.djangoproject.com/documentation/modpython/#if-you-get-a-segmentation-fault</a>]
+</p>
+<hr />
+<p>
+See also:  <a class="wiki" href="TracGuide.html">TracGuide</a>, <a class="wiki" href="TracInstall.html">TracInstall</a>, <a class="wiki" href="TracModWSGI.html">ModWSGI</a>, <a class="wiki" href="TracFastCgi.html">FastCGI</a>, <a class="wiki" href="TracModPython.html">ModPython</a>, <a class="ext-link" href="http://trac.edgewall.org/intertrac/TracNginxRecipe" title="TracNginxRecipe in Trac project trac"><span class="icon"> </span>TracNginxRecipe</a>
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/TracModPython?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TracModPython.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracModPython by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

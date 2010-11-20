@@ -1,0 +1,315 @@
+=== CMakeLists.txt
+==================================================================
+--- CMakeLists.txt	(revision 703)
++++ CMakeLists.txt	(local)
+@@ -5,9 +5,9 @@
+ # PGROUTING version number.
+ SET(PGROUTING_VERSION_MAJOR "1")
+ SET(PGROUTING_VERSION_MINOR "0")
+-SET(PGROUTING_VERSION_PATCH "0")
++SET(PGROUTING_VERSION_PATCH "1")
+ 
+-SET(PGROUTING_VERSION_STRING "${PGROUTING_VERSION_MAJOR}.${PGROUTING_VERSION_MINOR}.${PGROUTING_VERSION_PATCH}-RC1")
++SET(PGROUTING_VERSION_STRING "${PGROUTING_VERSION_MAJOR}.${PGROUTING_VERSION_MINOR}.${PGROUTING_VERSION_PATCH}")
+ 
+ add_subdirectory(cmake)
+ SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+@@ -15,10 +15,15 @@
+ include (MacroLibrary)
+ 
+ macro_optional_find_package(PostgreSQL)
++IF(NOT POSTGRESQL_FOUND)
++  MESSAGE(FATAL ERROR " Please check your Boost installation.") 
++ENDIF(NOT POSTGRESQL_FOUND)
+ 
+ FIND_PACKAGE(Boost)
+ IF(Boost_INCLUDE_DIRS)
+   MESSAGE("Boost headers were found here: ${Boost_INCLUDE_DIR}")
++ELSE(Boost_INCLUDE_DIRS)
++  MESSAGE(FATAL ERROR " Please check your Boost installation ") 
+ ENDIF(Boost_INCLUDE_DIRS)
+ 
+ EXEC_PROGRAM(pg_config
+@@ -57,48 +62,56 @@
+ OPTION(WITH_TSP "Build TSP library" OFF)
+ OPTION(WITH_DD "Build Driving distance library" OFF)
+ 
+-# Recurse into the subdirectories.  This does not actually
+-# cause another cmake executable to run.  The same process will walk through
+-# the project's entire directory structure.
+-SUBDIRS(core/src)
+-
+-IF(WITH_TSP)
+-ADD_SUBDIRECTORY(extra/tsp/src)
+-macro_optional_find_package(GAUL)
+-ENDIF(WITH_TSP)
+-
+-IF(WITH_DD)
+-ADD_SUBDIRECTORY(extra/driving_distance/src)
+-macro_optional_find_package(CGAL)
+-ENDIF(WITH_DD)
+-
+-#SET(LIBRARY_OUTPUT_PATH ${PGROUTING_BINARY_DIR}/lib)
+-
+ IF(UNIX)
+-  SET(LIBRARY_OUTPUT_PATH ${LIB_DIR})
++  SET(LIBRARY_INSTALL_PATH ${LIB_DIR})
+   SET(SQL_INSTALL_PATH /usr/share/postlbs)
+ ELSE(UNIX)
+-  SET(LIBRARY_OUTPUT_PATH ${PGROUTING_BINARY_DIR}/lib)
++  SET(LIBRARY_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)
+   SET(SQL_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)
+ ENDIF(UNIX)
+ 
+ SET(PGROUTING_INCLUDE_DIRECTORIES ${PGROUTING_SOURCE_DIR}/core ${PGROUTING_SOURCE_DIR}/core/src ${PGROUTING_SOURCE_DIR}/extra ${PGROUTING_SOURCE_DIR}/extra/tsp ${PGROUTING_SOURCE_DIR}/extra/tsp/src ${PGROUTING_SOURCE_DIR}/extra/driving_distance ${PGROUTING_SOURCE_DIR}/extra/driving_distance/src
+ )
+ 
+-INCLUDE_DIRECTORIES(. ${PGROUTING_INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS}/boost)
++INCLUDE_DIRECTORIES(. ${PGROUTING_INCLUDE_DIRECTORIES} ${POSTGRESQL_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
++IF(WIN32)
++  INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${POSTGRESQL_INCLUDE_DIR}/port/win32)
++ENDIF(WIN32)
+ 
++# we need link libpostgres.a on win32 env
++IF(WIN32)
++  LINK_DIRECTORIES(${LIB_DIR})
++  LINK_LIBRARIES(postgres)
++ENDIF(WIN32)
++
+ SET(CMAKE_C_FLAGS "-O2 -g")
+ SET(CMAKE_CXX_FLAGS "-O2 -g")
+ 
+-CONFIGURE_FILE(core/sql/routing_core.sql ${SQL_INSTALL_PATH}/routing_core.sql COPYONLY)
+-CONFIGURE_FILE(core/sql/routing_core_wrappers.sql ${SQL_INSTALL_PATH}/routing_core_wrappers.sql COPYONLY)
++# Recurse into the subdirectories.  This does not actually
++# cause another cmake executable to run.  The same process will walk through
++# the project's entire directory structure.
++SUBDIRS(core)
+ 
+ IF(WITH_TSP)
+-CONFIGURE_FILE(extra/tsp/sql/routing_tsp.sql ${SQL_INSTALL_PATH}/routing_tsp.sql COPYONLY)
+-CONFIGURE_FILE(extra/tsp/sql/routing_tsp_wrappers.sql ${SQL_INSTALL_PATH}/routing_tsp_wrappers.sql COPYONLY)
++  macro_optional_find_package(GAUL)
++  IF(NOT GAUL_FOUND)
++    message(FATAL ERROR " Please check your gaul installation, or set correct path to GAUL_INCLUDE_DIR and GAUL_LIBRARIES.")
++  ENDIF(NOT GAUL_FOUND)
++  INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${GAUL_INCLUDE_DIR})
++  LINK_LIBRARIES(${GAUL_LIBRARIES})
++  ADD_SUBDIRECTORY(extra/tsp)
+ ENDIF(WITH_TSP)
+ 
+ IF(WITH_DD)
+-CONFIGURE_FILE(extra/driving_distance/sql/routing_dd.sql ${SQL_INSTALL_PATH}/routing_dd.sql COPYONLY)
+-CONFIGURE_FILE(extra/driving_distance/sql/routing_dd_wrappers.sql ${SQL_INSTALL_PATH}/routing_dd_wrappers.sql COPYONLY)
++  macro_optional_find_package(CGAL)
++  IF(NOT CGAL_FOUND)
++    message(FATAL ERROR " Please check your CGAL installation, or set correct path to CGAL_INCLUDE_DIR and CGAL_LIBRARIES.")
++  ENDIF(NOT CGAL_FOUND)
++  INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${CGAL_INCLUDE_DIR})
++  LINK_LIBRARIES(${CGAL_LIBRARIES})
++  ADD_SUBDIRECTORY(extra/driving_distance)
+ ENDIF(WITH_DD)
++
++
++
++
+=== cmake/FindCGAL.cmake
+==================================================================
+--- cmake/FindCGAL.cmake	(revision 703)
++++ cmake/FindCGAL.cmake	(local)
+@@ -10,11 +10,11 @@
+ 
+ else(CGAL_INCLUDE_DIR AND CGAL_LIBRARIES)
+ 
+- FIND_PATH(CGAL_INCLUDE_DIR basic.h
+-      /usr/include/CGAL
+-      /usr/local/include/CGAL
+-      $ENV{ProgramFiles}/CGAL/*/include/CGAL
+-      $ENV{SystemDrive}/CGAL/*/include/CGAL
++ FIND_PATH(CGAL_INCLUDE_DIR CGAL/basic.h
++      /usr/include
++      /usr/local/include
++      $ENV{ProgramFiles}/CGAL/*/include
++      $ENV{SystemDrive}/CGAL/*/include
+       )
+ 
+   find_library(CGAL_LIBRARIES NAMES CGAL libCGAL
+@@ -25,8 +25,8 @@
+      /usr/lib64
+      /usr/local/lib64
+      /usr/lib64/CGAL
+-     $ENV{ProgramFiles}/CGAL/*/lib/ms
+-     $ENV{SystemDrive}/CGAL/*/lib/ms
++     $ENV{ProgramFiles}/CGAL/*/lib
++     $ENV{SystemDrive}/CGAL/*/lib
+      )
+       
+   if(CGAL_INCLUDE_DIR AND CGAL_LIBRARIES)
+=== cmake/FindGAUL.cmake
+==================================================================
+--- cmake/FindGAUL.cmake	(revision 703)
++++ cmake/FindGAUL.cmake	(local)
+@@ -5,11 +5,18 @@
+ #  GAUL_FOUND, If false, do not try to use GAUL.
+ #
+ 
+-if(GAUL_LIBRARIES)
++if(GAUL_INCLUDE_DIR AND GAUL_LIBRARIES)
+    set(GAUL_FOUND TRUE)
+ 
+-else(GAUL_LIBRARIES)
++else(GAUL_INCLUDE_DIR AND GAUL_LIBRARIES)
+ 
++  FIND_PATH(GAUL_INCLUDE_DIR gaul.h
++      /usr/include
++      /usr/local/include
++      $ENV{ProgramFiles}/gaul/*/include
++      $ENV{SystemDrive}/gaul/*/include
++      )
++
+   find_library(GAUL_LIBRARIES NAMES gaul gaul_util libgaul libgaul_util
+      PATHS
+      /usr/lib
+@@ -18,18 +25,18 @@
+      /usr/lib64
+      /usr/local/lib64
+      /usr/lib64/gaul
+-     $ENV{ProgramFiles}/GAUL/*/lib/ms
+-     $ENV{SystemDrive}/GAUL/*/lib/ms
++     $ENV{ProgramFiles}/GAUL/*/lib/
++     $ENV{SystemDrive}/GAUL/*/lib/
+      )
+       
+-  if(GAUL_LIBRARIES)
++  if(GAUL_INCLUDE_DIR AND GAUL_LIBRARIES)
+     set(GAUL_FOUND TRUE)
+     message(STATUS "Found GAUL: ${GAUL_LIBRARIES}")
+-  else(GAUL_LIBRARIES)
++  else(GAUL_INCLUDE_DIR AND GAUL_LIBRARIES)
+     set(GAUL_FOUND FALSE)
+     message(STATUS "GAUL not found.")
+-  endif(GAUL_LIBRARIES)
++  endif(GAUL_INCLUDE_DIR AND GAUL_LIBRARIES)
+ 
+-  mark_as_advanced(GAUL_LIBRARIES)
++  mark_as_advanced(GAUL_INCLUDE_DIR GAUL_LIBRARIES)
+ 
+-endif(GAUL_LIBRARIES)
++endif(GAUL_INCLUDE_DIR AND GAUL_LIBRARIES)
+=== core/CMakeLists.txt
+==================================================================
+--- core/CMakeLists.txt	(revision 703)
++++ core/CMakeLists.txt	(local)
+@@ -1 +1,2 @@
+-SUBDIRS(src)
++SUBDIRS(src sql)
++
+=== core/sql/CMakeLists.txt
+==================================================================
+--- core/sql/CMakeLists.txt	(revision 703)
++++ core/sql/CMakeLists.txt	(local)
+@@ -0,0 +1,3 @@
++INSTALL(FILES routing_core.sql DESTINATION ${SQL_INSTALL_PATH} )
++INSTALL(FILES routing_core_wrappers.sql DESTINATION ${SQL_INSTALL_PATH} )
++
+=== core/src/CMakeLists.txt
+==================================================================
+--- core/src/CMakeLists.txt	(revision 703)
++++ core/src/CMakeLists.txt	(local)
+@@ -1,4 +1,6 @@
++
++SET(LIBRARY_OUTPUT_PATH ../../lib/)
+ ADD_LIBRARY(routing SHARED dijkstra.c astar.c shooting_star.c boost_wrapper.cpp astar_boost_wrapper.cpp shooting_star_boost_wrapper.cpp)
++INSTALL(TARGETS routing DESTINATION ${LIBRARY_INSTALL_PATH})
+ 
+ 
+-
+=== extra/driving_distance/CMakeLists.txt
+==================================================================
+--- extra/driving_distance/CMakeLists.txt	(revision 703)
++++ extra/driving_distance/CMakeLists.txt	(local)
+@@ -1 +1 @@
+-SUBDIRS(src)
++SUBDIRS(src sql)
+=== extra/driving_distance/sql/CMakeLists.txt
+==================================================================
+--- extra/driving_distance/sql/CMakeLists.txt	(revision 703)
++++ extra/driving_distance/sql/CMakeLists.txt	(local)
+@@ -0,0 +1,3 @@
++INSTALL(FILES routing_dd.sql DESTINATION ${SQL_INSTALL_PATH})
++INSTALL(FILES routing_dd_wrappers.sql DESTINATION ${SQL_INSTALL_PATH})
++
+=== extra/driving_distance/src/CMakeLists.txt
+==================================================================
+--- extra/driving_distance/src/CMakeLists.txt	(revision 703)
++++ extra/driving_distance/src/CMakeLists.txt	(local)
+@@ -1,24 +1,5 @@
+-EXEC_PROGRAM(pg_config
+- ARGS --libdir
+- OUTPUT_VARIABLE LIB_DIR)
+-
+-IF(LIB_DIR)
+-  MESSAGE("Output directory for libraries is set to ${LIB_DIR}")
+-ELSE(LIB_DIR)
+-  SET(LIB_DIR ${PGROUTING_BINARY_DIR}/lib)
+-  MESSAGE("pg_config not found, output directory for libraries is set to ${PGROUTING_BINARY_DIR}/lib")
+-ENDIF(LIB_DIR)
+-
+-IF(UNIX)
+-  SET(LIBRARY_OUTPUT_PATH ${LIB_DIR})
+-  SET(SQL_INSTALL_PATH /usr/share/postlbs)
+-ELSE(UNIX)
+-  SET(LIBRARY_OUTPUT_PATH ${PGROUTING_BINARY_DIR}/lib)
+-  SET(SQL_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)
+-ENDIF(UNIX)
+-
++SET(LIBRARY_OUTPUT_PATH ../../../lib/)
+ ADD_LIBRARY(routing_dd SHARED alpha.c alpha_drivedist.cpp alpha.h boost_drivedist.cpp drivedist.c drivedist.h)
++INSTALL(TARGETS routing_dd DESTINATION ${LIBRARY_INSTALL_PATH})
+ 
+ 
+-
+-
+=== extra/tsp/CMakeLists.txt
+==================================================================
+--- extra/tsp/CMakeLists.txt	(revision 703)
++++ extra/tsp/CMakeLists.txt	(local)
+@@ -1 +1 @@
+-SUBDIRS(src)
++SUBDIRS(src sql)
+=== extra/tsp/sql/CMakeLists.txt
+==================================================================
+--- extra/tsp/sql/CMakeLists.txt	(revision 703)
++++ extra/tsp/sql/CMakeLists.txt	(local)
+@@ -0,0 +1,3 @@
++INSTALL(FILES routing_tsp.sql DESTINATION ${SQL_INSTALL_PATH})
++INSTALL(FILES routing_tsp_wrappers.sql DESTINATION ${SQL_INSTALL_PATH})
++
+=== extra/tsp/src/CMakeLists.txt
+==================================================================
+--- extra/tsp/src/CMakeLists.txt	(revision 703)
++++ extra/tsp/src/CMakeLists.txt	(local)
+@@ -1,20 +1,4 @@
+-EXEC_PROGRAM(pg_config
+- ARGS --libdir
+- OUTPUT_VARIABLE LIB_DIR)
+-
+-IF(LIB_DIR)
+-  MESSAGE("Output directory for libraries is set to ${LIB_DIR}")
+-ELSE(LIB_DIR)
+-  SET(LIB_DIR ${PGROUTING_BINARY_DIR}/lib)
+-  MESSAGE("pg_config not found, output directory for libraries is set to ${PGROUTING_BINARY_DIR}/lib")
+-ENDIF(LIB_DIR)
+-
+-IF(UNIX)
+-  SET(LIBRARY_OUTPUT_PATH ${LIB_DIR})
+-  SET(SQL_INSTALL_PATH /usr/share/postlbs)
+-ELSE(UNIX)
+-  SET(LIBRARY_OUTPUT_PATH ${PGROUTING_BINARY_DIR}/lib)
+-  SET(SQL_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)
+-ENDIF(UNIX)
+-
++SET(LIBRARY_OUTPUT_PATH ../../../lib/)
+ ADD_LIBRARY(routing_tsp SHARED tsp.c tsp.h tsp_solver.cpp)
++INSTALL(TARGETS routing_tsp DESTINATION ${LIBRARY_INSTALL_PATH})
++

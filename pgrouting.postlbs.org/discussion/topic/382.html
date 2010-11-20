@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/382 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/15.html" title="others">others</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>others (#15) - traveling a certain distance along a network (#382) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              traveling a certain distance along a network
+            </div>
+            <div class="body">
+              <p>
+hello, i am trying to start at a node and travel every possible path along a network for a certain distance.  does anyone know of anything out there that does this using pgrouting? if not, what do you suppose the best approach would be to start creating something that does that, (dijkstra, A*...)?  I am using qgis and python scripting to do some other goeprocessing and viewing data and wanted to ask here before i started so i might not have to reinvent the wheel.  thanks!
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            iant1212
+          </div>
+          <div class="time">
+            09/21/10 01:30:00 (2 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/382?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/382?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1621"></a>
+        <div class="id">
+          Message #1621
+        </div>
+        <div class="body">
+            <p>
+I think the function that suits best is the "Driving Distance" function. It travels along a network along every possible path and collects the nodes that have been passed. <br />
+This is probably what you're looking for. But the function goes one step further and calculates and returns a polygon containing the area that can be reached for a certain distance.
+</p>
+<p>
+This polygon calculation is kind of a headache already since it exists, because it introduced a not very convenient dependency to CGAL.<br />
+I think it would be also interesting to have a function that only returns the points. If you have a time and skills to look into this and modify the source code and send us a patch, we might add this functionality to pgRouting.
+</p>
+<p>
+Unfortunately we have no time at the moment to implement this from our side without a sponsor, but it shouldn't be too difficult, if you like to try. If you have questions, feel free to ask (Also asking on the mailing list is a good idea. Maybe someone did this already, but doesn't check the forum.)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            09/21/10 06:06:41 (2 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1623"></a>
+        <div class="id">
+          Message #1623
+        </div>
+        <div class="body">
+            <p>
+thanks,
+</p>
+<p>
+i looked into the driving_distance function and it looks great but i do have one question about it.  the documentation says that it is supposed to return edge_id for each edge crossed, but i'm not getting that to happen.
+</p>
+<p>
+i used this sql:
+</p>
+<pre class="wiki">DROP TABLE path1;
+CREATE OR REPLACE VIEW view1 AS
+SELECT * FROM driving_distance('SELECT gid AS id,source,target,
+         length::double precision AS cost
+         FROM lancroadsfeet', 684, 290, false, false);
+SELECT gid, the_geom, source, target INTO path1
+FROM lancroadsfeet lr, view1
+WHERE lr.gid = view1.edge_id;
+</pre><p>
+<br />
+there are 5 rows of results but the edge_id is duplicated twice..<br />
+<br />
+</p>
+<p>
+vertex_id-----edge_id---------cost<br />
+</p>
+<p>
+87----------137------286.245514070368<br />
+90----------228------55.2102527332564<br />
+</p>
+<p>
+92----------228 ------288.291891327063<br />
+</p>
+<p>
+611---------151------52.0779428964578<br />
+</p>
+<p>
+684---------151-------0<br />
+</p>
+<blockquote>
+<p>
+so when i render the table path1 i get<br />
+</p>
+</blockquote>
+<p>
+[<a class="ext-link" href="http://www.imageurlhost.com/images/u8e426jxvbfx5vln1j.png"><span class="icon"> </span>http://www.imageurlhost.com/images/u8e426jxvbfx5vln1j.png</a>]
+<br /><br />
+</p>
+<p>
+black text = length in feet (my cost value)<br />
+</p>
+<p>
+pink text = node id<br />
+</p>
+<p>
+call out text = edge_id<br />
+</p>
+<p>
+green lines = render of table named path1 created from sql<br />
+</p>
+<p>
+<br />
+does driving distance return only nodes or am i missing something? i am expecting to get edge_ids 1720, 151, 1319, 288
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            iant1212
+          </div>
+          <div class="time">
+            09/22/10 02:46:58 (2 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1624"></a>
+        <div class="id">
+          Message #1624
+        </div>
+        <div class="body">
+            <p>
+Yes, it returns only nodes and a cost of going from start point to the node. Edge ids are completely arbitrary, this column is kept for the type compatibility (confusing, I know).
+</p>
+<p>
+Anton.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            09/22/10 07:45:51 (2 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1627"></a>
+        <div class="id">
+          Message #1627
+        </div>
+        <div class="body">
+            <p>
+Hey Anton, why if the edge column is arbitrary not leave the edge column completely empty?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            09/22/10 18:41:18 (2 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1628"></a>
+        <div class="id">
+          Message #1628
+        </div>
+        <div class="body">
+            <p>
+thanks very much for the clarification.<br />
+<br />
+to get the edges i want i'm going to write some sql that will pair all the combinations of nodes that driving_distance returns.<br />
+<br />
+so if driving_distance returns nodes 1,2,3,4 i'll end up with:<br />
+1-2, 1-3, 1-4, 2-1 ... 4-2, 4-3<br />
+<br />
+then i'll look for those combinations in the source and target fields of my network table and return the_geom for those records that match.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            iant1212
+          </div>
+          <div class="time">
+            09/22/10 23:26:27 (2 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/382?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/382?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,1256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/383 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/16.html" title="dijkstra">dijkstra</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>dijkstra (#16) - nothing happen when the calculate route button is pressed (#383) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              nothing happen when the calculate route button is pressed
+            </div>
+            <div class="body">
+              <p>
+Hi All,
+</p>
+<p>
+I have just recently started using openlayers and think it is great.
+</p>
+<p>
+I have set up a map with several postgis layers in it using geoserver and openlayers. Now I would like to add a dynamic routing layer to the map using a user entered start and end point.  I followed the pgrouting example for doing this with openlayers on the pgrouting website but when it the calculate route button is pressed nothing happens. Im not sure if the ax_routing.php file is being run.  It is in the same directory as the html file.
+</p>
+<p>
+<strong>HTML file :</strong>
+</p>
+<p>
+&lt;html xmlns="<a class="ext-link" href="http://www.w3.org/1999/xhtml"><span class="icon"> </span>http://www.w3.org/1999/xhtml</a>"&gt;
+</p>
+<blockquote>
+<p>
+&lt;head&gt;
+</p>
+<blockquote>
+<p>
+&lt;style type="text/css"&gt;
+</p>
+<blockquote>
+<p>
+#map {
+</p>
+<blockquote>
+<p>
+width: 800px;
+height: 512px;
+border: 1px solid black;
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+&lt;/style&gt;
+&lt;script src="./OpenLayers-google/lib/OpenLayers.js"&gt;&lt;/script&gt;
+&lt;script src="<a class="ext-link" href="http://maps.google.com/maps?file=api&amp;v=2&amp;key=foobar"><span class="icon"> </span>http://maps.google.com/maps?file=api&amp;v=2&amp;key=foobar</a>"&gt;&lt;/script&gt;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+&lt;script type="text/javascript"&gt;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+var <a class="missing wiki">SinglePoint?</a> = <a class="missing wiki">OpenLayers?</a>.Class.create();
+<a class="missing wiki">SinglePoint?</a>.prototype = <a class="missing wiki">OpenLayers?</a>.Class.inherit(<a class="missing wiki">OpenLayers?</a>.Handler.Point, {
+</p>
+<blockquote>
+<p>
+createFeature: function(evt) {
+</p>
+<blockquote>
+<p>
+this.control.layer.removeFeatures(this.control.layer.features);
+<a class="missing wiki">OpenLayers?</a>.Handler.Point.prototype.createFeature.apply(this, arguments);
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+});
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+var start_style = <a class="missing wiki">OpenLayers?</a>.Util.applyDefaults({
+</p>
+<blockquote>
+<p>
+externalGraphic: "start.png",
+graphicWidth: 18,
+graphicHeight: 26,
+graphicYOffset: -26,
+graphicOpacity: 1
+</p>
+</blockquote>
+<p>
+}, <a class="missing wiki">OpenLayers?</a>.Feature.Vector.style<a class="missing wiki">default?</a>);
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+var stop_style = <a class="missing wiki">OpenLayers?</a>.Util.applyDefaults({
+</p>
+<blockquote>
+<p>
+externalGraphic: "stop.png",
+graphicWidth: 18,
+graphicHeight: 26,
+graphicYOffset: -26,
+graphicOpacity: 1
+</p>
+</blockquote>
+<p>
+}, <a class="missing wiki">OpenLayers?</a>.Feature.Vector.style<a class="missing wiki">default?</a>);
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+var result_style = <a class="missing wiki">OpenLayers?</a>.Util.applyDefaults({
+</p>
+<blockquote>
+<p>
+strokeWidth: 3,
+strokeColor: "#ff0000",
+fillOpacity: 0
+</p>
+</blockquote>
+<p>
+}, <a class="missing wiki">OpenLayers?</a>.Feature.Vector.style<a class="missing wiki">default?</a>);
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+// global variables
+var map, parser, start, stop, downtown, result, controls;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+function init() {
+</p>
+<blockquote>
+<p>
+map = new <a class="missing wiki">OpenLayers?</a>.Map('map', {projection: "EPSG: 54004",
+</p>
+<blockquote>
+<p>
+units: "m",
+maxResolution: 156543.0339,
+maxExtent: new <a class="missing wiki">OpenLayers?</a>.Bounds(-20037508,
+</p>
+<blockquote>
+<p>
+-136554022,
+20037508,
+136554022)
+</p>
+</blockquote>
+</blockquote>
+<p>
+});
+</p>
+</blockquote>
+<p>
+map.addControl(new <a class="missing wiki">OpenLayers?</a>.Control.<a class="missing wiki">LayerSwitcher?</a>());
+map.addControl(new <a class="missing wiki">OpenLayers?</a>.Control.<a class="missing wiki">MousePosition?</a>());
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+// create and add layers to the map
+var satellite = new <a class="missing wiki">OpenLayers?</a>.Layer.<a class="missing wiki">GoogleMercator?</a>("Google Satellite",
+</p>
+<blockquote>
+<p>
+{type: G_NORMAL_MAP});
+</p>
+</blockquote>
+<p>
+start = new <a class="missing wiki">OpenLayers?</a>.Layer.Vector("Start point", {style: start_style});
+stop = new <a class="missing wiki">OpenLayers?</a>.Layer.Vector("End point", {style: stop_style});
+downtown = new <a class="missing wiki">OpenLayers?</a>.Layer.Vector("Downtown data area",
+</p>
+<blockquote>
+<p>
+{style: result_style});
+</p>
+</blockquote>
+<p>
+result = new <a class="missing wiki">OpenLayers?</a>.Layer.Vector("Routing results",
+</p>
+<blockquote>
+<p>
+{style: result_style});
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+map.addLayers([satellite, start, stop, downtown,result]);
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+// create a feature from a wkt string and add it to the map
+parser = new <a class="missing wiki">OpenLayers?</a>.Format.WKT();
+var wkt = "POLYGON((-13737893 6151394, -13737893 6141906, -13728396 6141906, -13728396 6151394, -13737893 6151394))";
+var geometry = parser.read(wkt);
+var feature = new <a class="missing wiki">OpenLayers?</a>.Feature.Vector(geometry);
+downtown.addFeatures([feature]);
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+// set default position
+map.zoomToExtent(new <a class="missing wiki">OpenLayers?</a>.Bounds(-13737893,
+</p>
+<blockquote>
+<p>
+6141906,
+-13728396,
+6151394));
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+// controls
+controls = {
+</p>
+<blockquote>
+<p>
+start: new <a class="missing wiki">OpenLayers?</a>.Control.<a class="missing wiki">DrawFeature?</a>(start, <a class="missing wiki">SinglePoint?</a>),
+stop: new <a class="missing wiki">OpenLayers?</a>.Control.<a class="missing wiki">DrawFeature?</a>(stop, <a class="missing wiki">SinglePoint?</a>)
+</p>
+</blockquote>
+<p>
+}
+for (var key in controls) {
+</p>
+<blockquote>
+<blockquote>
+<p>
+map.addControl(controls[key]);
+</p>
+</blockquote>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+function toggleControl(element) {
+</p>
+<blockquote>
+<p>
+for (key in controls) {
+</p>
+<blockquote>
+<p>
+if (element.value == key &amp;&amp; element.checked) {
+</p>
+<blockquote>
+<p>
+controls[key].activate();
+</p>
+</blockquote>
+<p>
+} else {
+</p>
+<blockquote>
+<p>
+controls[key].deactivate();
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+function compute() {
+</p>
+<blockquote>
+<p>
+var startPoint = start.features<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>;
+var stopPoint = stop.features<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+if (startPoint &amp;&amp; stopPoint) {
+</p>
+<blockquote>
+<p>
+var result = {
+</p>
+<blockquote>
+<p>
+startpoint: startPoint.geometry.x + ' ' + startPoint.geometry.y,
+finalpoint: stopPoint.geometry.x + ' ' + stopPoint.geometry.y,
+method: <a class="missing wiki">OpenLayers?</a>.Util.getElement('method').value,
+region: "victoria",
+srid: "54004"
+</p>
+</blockquote>
+<p>
+};
+<a class="missing wiki">OpenLayers?</a>.loadURL("04.ax_routing.php",
+</p>
+<blockquote>
+<blockquote>
+<p>
+<a class="missing wiki">OpenLayers?</a>.Util.getParameterString(result),
+null,
+displayRoute);
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+function displayRoute(response) {
+</p>
+<blockquote>
+<p>
+if (response &amp;&amp; response.responseXML) {
+</p>
+<blockquote>
+<p>
+// erase the previous results
+result.removeFeatures(result.features);
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+// parse the features
+var edges = response.responseXML.getElementsByTagName('edge');
+var features = [];
+for (var i = 0; i &lt; edges.length; i++) {
+</p>
+<blockquote>
+<p>
+var g = parser.read(edges[i].getElementsByTagName('wkt')<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>.textContent);
+features.push(new <a class="missing wiki">OpenLayers?</a>.Feature.Vector(g));
+</p>
+</blockquote>
+<p>
+}
+result.addFeatures(features);
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+&lt;/script&gt;
+</p>
+</blockquote>
+<p>
+&lt;/head&gt;
+&lt;body onload="init()"&gt;
+</p>
+<blockquote>
+<p>
+&lt;div id="map"&gt;&lt;/div&gt;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+&lt;ul&gt;
+</p>
+<blockquote>
+<p>
+&lt;li&gt;
+</p>
+<blockquote>
+<p>
+&lt;input type="radio" name="control" id="noneToggle"
+</p>
+<blockquote>
+<p>
+onclick="toggleControl(this);" checked="checked" /&gt;
+</p>
+</blockquote>
+<p>
+&lt;label for="noneToggle"&gt;navigate&lt;/label&gt;
+</p>
+</blockquote>
+<p>
+&lt;/li&gt;
+&lt;li&gt;
+</p>
+<blockquote>
+<p>
+&lt;input type="radio" name="control" value="start" id="startToggle"
+</p>
+<blockquote>
+<p>
+onclick="toggleControl(this);" /&gt;
+</p>
+</blockquote>
+<p>
+&lt;label for="startToggle"&gt;set start point&lt;/label&gt;
+</p>
+</blockquote>
+<p>
+&lt;/li&gt;
+&lt;li&gt;
+</p>
+<blockquote>
+<p>
+&lt;input type="radio" name="control" value="stop" id="stopToggle"
+</p>
+<blockquote>
+<p>
+onclick="toggleControl(this);" /&gt;
+</p>
+</blockquote>
+<p>
+&lt;label for="stopToggle"&gt;set stop point&lt;/label&gt;
+</p>
+</blockquote>
+<p>
+&lt;/li&gt;
+</p>
+</blockquote>
+<p>
+&lt;/ul&gt;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+&lt;select id="method"&gt;
+</p>
+<blockquote>
+<p>
+&lt;option value="SPD"&gt;Shortest Path Dijkstra - undirected (BBox)&lt;/option&gt;
+&lt;option value="SPA"&gt;Shortest Path A Star - undirected&lt;/option&gt;
+&lt;option value="SPS"&gt;Shortest Path Shooting Star&lt;/option&gt;
+</p>
+</blockquote>
+<p>
+&lt;/select&gt;
+&lt;button onclick="compute()"&gt;Calculate Route&lt;/button&gt;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+&lt;/body&gt;
+</p>
+</blockquote>
+<p>
+&lt;/html&gt;
+</p>
+<p>
+<strong>PHP file :</strong>
+</p>
+<p>
+&lt;?php
+</p>
+<blockquote>
+<p>
+// Database connection settings
+define("PG_DB"  , "testdb");
+define("PG_HOST", "localhost");
+define("PG_USER", "postgres");
+define("PG_PORT", "5432");
+define("TABLE",   "victoria");
+</p>
+</blockquote>
+<blockquote>
+<p>
+$counter = $pathlength = 0;
+</p>
+</blockquote>
+<blockquote>
+<p>
+// Retrieve start point
+$start = split(' ',$_REQUEST<a class="missing wiki">startpoint?</a>);
+$startPoint = array($start<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>, $start<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>);
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+// Retrieve end point
+$end = split(' ',$_REQUEST<a class="missing wiki">finalpoint?</a>);
+$endPoint = array($end<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>, $end<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>);
+</p>
+</blockquote>
+<blockquote>
+<p>
+// Find the nearest edge
+$startEdge = findNearestEdge($startPoint);
+$endEdge   = findNearestEdge($endPoint);
+</p>
+</blockquote>
+<blockquote>
+<p>
+// FUNCTION findNearestEdge
+function findNearestEdge($lonlat) {
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<p>
+// Connect to database
+$con = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);
+</p>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<p>
+$sql = "SELECT gid, source, target, the_geom,
+</p>
+<blockquote>
+<p>
+distance(the_geom, <a class="missing wiki">GeometryFromText?</a>(
+</p>
+</blockquote>
+<p>
+'POINT(".$lonlat<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>." ".$lonlat<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>.")', 54004)) AS dist
+</p>
+</blockquote>
+<p>
+FROM ".TABLE."
+WHERE the_geom &amp;&amp; setsrid(
+</p>
+<blockquote>
+<p>
+'BOX3D(".($lonlat<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>-200)."
+</p>
+<blockquote>
+<p>
+".($lonlat<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>-200).",
+".($lonlat<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>+200)."
+".($lonlat<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>+200).")'::box3d, 54004)
+</p>
+</blockquote>
+</blockquote>
+<p>
+ORDER BY dist LIMIT 1";
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+$query = pg_query($con,$sql);
+</p>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<p>
+$edge<a class="missing wiki">gid?</a>      = pg_fetch_result($query, 0, 0);
+$edge<a class="missing wiki">source?</a>   = pg_fetch_result($query, 0, 1);
+$edge<a class="missing wiki">target?</a>   = pg_fetch_result($query, 0, 2);
+$edge<a class="missing wiki">the_geom?</a> = pg_fetch_result($query, 0, 3);
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// Close database connection
+pg_close($con);
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+return $edge;
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<blockquote>
+<p>
+// Select the routing algorithm
+switch($_REQUEST<a class="missing wiki">method?</a>) {
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+case 'SPD' : // Shortest Path Dijkstra
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+$sql = "SELECT rt.gid, <a class="missing wiki">AsText?</a>(rt.the_geom) AS wkt,
+</p>
+<blockquote>
+<p>
+length(rt.the_geom) AS length, ".TABLE.".id
+</p>
+</blockquote>
+<p>
+FROM ".TABLE.",
+</p>
+<blockquote>
+<blockquote>
+<p>
+(SELECT gid, the_geom
+</p>
+<blockquote>
+<p>
+FROM dijkstra_sp_delta(
+</p>
+<blockquote>
+<p>
+'".TABLE."',
+".$startEdge<a class="missing wiki">source?</a>.",
+".$endEdge<a class="missing wiki">target?</a>.",
+3000)
+</p>
+</blockquote>
+</blockquote>
+<p>
+) as rt
+</p>
+</blockquote>
+</blockquote>
+<p>
+WHERE ".TABLE.".gid=rt.gid;";
+</p>
+</blockquote>
+<p>
+break;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+case 'SPA' : // Shortest Path A*
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+$sql = "SELECT rt.gid, <a class="missing wiki">AsText?</a>(rt.the_geom) AS wkt,
+</p>
+<blockquote>
+<p>
+length(rt.the_geom) AS length, ".TABLE.".id
+</p>
+</blockquote>
+<p>
+FROM ".TABLE.",
+</p>
+<blockquote>
+<blockquote>
+<p>
+(SELECT gid, the_geom
+</p>
+<blockquote>
+<p>
+FROM astar_sp_delta(
+</p>
+<blockquote>
+<p>
+'".TABLE."',
+".$startEdge<a class="missing wiki">source?</a>.",
+".$endEdge<a class="missing wiki">target?</a>.",
+3000)
+</p>
+</blockquote>
+</blockquote>
+<p>
+) as rt
+</p>
+</blockquote>
+</blockquote>
+<p>
+WHERE ".TABLE.".gid=rt.gid;";
+</p>
+</blockquote>
+<p>
+break;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+case 'SPS' : // Shortest Path Shooting*
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+$sql = "SELECT rt.gid, <a class="missing wiki">AsText?</a>(rt.the_geom) AS wkt,
+</p>
+<blockquote>
+<p>
+length(rt.the_geom) AS length, ".TABLE.".id
+</p>
+</blockquote>
+<p>
+FROM ".TABLE.",
+</p>
+<blockquote>
+<blockquote>
+<p>
+(SELECT gid, the_geom
+</p>
+<blockquote>
+<p>
+FROM shootingstar_sp(
+</p>
+<blockquote>
+<p>
+'".TABLE."',
+".$startEdge<a class="missing wiki">gid?</a>.",
+".$endEdge<a class="missing wiki">gid?</a>.",
+3000, 'length', false, false)
+</p>
+</blockquote>
+</blockquote>
+<p>
+) as rt
+</p>
+</blockquote>
+</blockquote>
+<p>
+WHERE ".TABLE.".gid=rt.gid;";
+</p>
+</blockquote>
+<p>
+break;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+} // close switch
+</p>
+</blockquote>
+<blockquote>
+<p>
+// Database connection and query
+$dbcon = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);
+</p>
+</blockquote>
+<blockquote>
+<p>
+$query = pg_query($dbcon,$sql);
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+// Return route as XML
+$xml  = '&lt;?xml version="1.0" encoding="UTF-8" standalone="yes" ?&gt;'."\n";
+$xml .= "&lt;route&gt;\n";
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+// Add edges to XML file
+while($edge=pg_fetch_assoc($query)) {
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+$pathlength += $edge<a class="missing wiki">length?</a>;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+$xml .= "\t&lt;edge id='".++$counter."'&gt;\n";
+$xml .= "\t\t&lt;id&gt;".$edge<a class="missing wiki">id?</a>."&lt;/id&gt;\n";
+$xml .= "\t\t&lt;wkt&gt;".$edge<a class="missing wiki">wkt?</a>."&lt;/wkt&gt;\n";
+$xml .= "\t\t&lt;length&gt;".round(($pathlength/1000),3)."&lt;/length&gt;\n";
+$xml .= "\t&lt;/edge&gt;\n";
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+$xml .= "&lt;/route&gt;\n";
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+// Close database connection
+pg_close($dbcon);
+</p>
+</blockquote>
+<blockquote>
+<p>
+// Return routing result
+header('Content-type: text/xml',true);
+echo $xml;
+</p>
+</blockquote>
+<p>
+?&gt;
+</p>
+<p>
+thanks before, ridhwan
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ridhwanimad
+          </div>
+          <div class="time">
+            09/21/10 16:40:33 (2 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/383?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/383?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1622"></a>
+        <div class="id">
+          Message #1622
+        </div>
+        <div class="body">
+            <p>
+Hi Ridhwan,
+</p>
+<p>
+As far as I can see you use an old tutorial, which may not work anymore with newer versions of <a class="missing wiki">OpenLayers?</a>. I have heard about some issues.
+</p>
+<p>
+So I recommend you to look at the 2010 workshop, which is just available for two weeks now: <a href="../../wiki/WorkshopFOSS4G2010.html">http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2010</a>
+</p>
+<p>
+I think it has a more advanced PHP script and with <a class="missing wiki">GeoExt?</a> + <a class="missing wiki">OpenLayers?</a> your application looks much better.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            09/21/10 19:20:02 (2 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1625"></a>
+        <div class="id">
+          Message #1625
+        </div>
+        <div class="body">
+            <p>
+Dear Daniel,
+thank you for your answer. It really helped me.
+</p>
+<p>
+but, does it matter if the tutorial that I use is old version?
+</p>
+<p>
+actually, I just want to know how to connect between the PostgreSQL database that
+</p>
+<blockquote>
+<p>
+I created and Openlayers. Is there another way to my problems without having to
+</p>
+</blockquote>
+<p>
+change the tutorial that I use now?
+</p>
+<p>
+thanks before daniel
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ridhwanimad
+          </div>
+          <div class="time">
+            09/22/10 14:44:29 (2 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1626"></a>
+        <div class="id">
+          Message #1626
+        </div>
+        <div class="body">
+            <p>
+Well, I think the latest tutorial is just more up-to-date and some parts have changed through user feedback of previous workshops. So in General it's of better quality and contains less errors. Furthermore:
+</p>
+<ul><li>The 2007 workshop used a non-official SVN sandbox version of <a class="missing wiki">OpenLayers?</a>, 2010 workshop used the latest versions of <a class="missing wiki">GeoExt?</a>
+</li><li>Instead of some "self-made" XML output of the PHP script it's a lot easier to make use of GeoJSON format that now PostGIS supports (this wasn't the case in 2007)
+</li></ul><p>
+That's why I recommend you to take a look at the latest workshop, but once you understood how it works, it won't matter if you use <a class="missing wiki">GeoExt?</a> or not.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            09/22/10 18:38:57 (2 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1629"></a>
+        <div class="id">
+          Message #1629
+        </div>
+        <div class="body">
+            <p>
+I've downloaded the tutorial workshop2010 and when I read it, this tutorial requires linux (Ubuntu OS). This tutorial only practice how to install it on linux? how about windows?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ridhwanimad
+          </div>
+          <div class="time">
+            09/23/10 12:06:55 (2 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1630"></a>
+        <div class="id">
+          Message #1630
+        </div>
+        <div class="body">
+            <p>
+Can you explain to me how to use this tutorial? I really novice on the topic of GIS.
+I would be very happy if I could talk to you and ask about GIS. because I was confused to find a place to ask about this topic. My supervisor was not much help. I really want to understand this topic.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ridhwanimad
+          </div>
+          <div class="time">
+            09/23/10 12:22:51 (2 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1631"></a>
+        <div class="id">
+          Message #1631
+        </div>
+        <div class="body">
+            <p>
+Yes, the tutorial runs on Linux, but you can use a LiveDVD. It's all installed on the latest OSGeo LiveDVD. That means, you download the ISO image and create a DVD, or you use some software like <a class="missing wiki">VirtualBox?</a> and you can load the ISO image as a virtual drive.
+</p>
+<p>
+Then, you can run Linux without having to install anything. It's all ready to start.
+</p>
+<p>
+Here the documentation how to get started with the LiveDVD:
+</p>
+<ul><li><a class="ext-link" href="http://live.osgeo.org/quickstart/osgeolive_quickstart.html"><span class="icon"> </span>http://live.osgeo.org/quickstart/osgeolive_quickstart.html</a>
+</li><li><a class="ext-link" href="http://live.osgeo.org/quickstart/virtualbox_quickstart.html"><span class="icon"> </span>http://live.osgeo.org/quickstart/virtualbox_quickstart.html</a>
+</li></ul><p>
+It's really convenient, because you won't mess up your system ;-)
+</p>
+<p>
+On the LiveDVD you will then find the same documents like these, which provide an overview and quickstart document for pgRouting. At the end of the quickstart document there is a note, where to find the pgRouting workshop:
+</p>
+<ul><li><a class="ext-link" href="http://live.osgeo.org/overview/pgrouting_overview.html"><span class="icon"> </span>http://live.osgeo.org/overview/pgrouting_overview.html</a>
+</li><li><a class="ext-link" href="http://live.osgeo.org/quickstart/pgrouting_quickstart.html"><span class="icon"> </span>http://live.osgeo.org/quickstart/pgrouting_quickstart.html</a>
+</li></ul><p>
+Hope that helps.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            09/24/10 20:48:45 (8 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/383?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/383?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

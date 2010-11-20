@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/ja/tools/WebRoutingService by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      ja/tools/WebRoutingService – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/ja/tools/WebRoutingService?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../tools.html" title="View parent page" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../tools.html">Up</a></li><li><a href="../../WikiStart.html">Start Page</a></li><li><a href="../../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/ja/tools/WebRoutingService?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/ja/tools/WebRoutingService?action=diff&amp;version=2">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View ja" href="../../ja.html">ja</a><span class="pathentry sep">/</span><a class="pathentry" title="View ja/tools" href="../tools.html">tools</a><span class="pathentry sep">/</span><a class="pathentry" title="View ja/tools/WebRoutingService" href="WebRoutingService.html">WebRoutingService</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="WebRoutingServiceWRS">WebRouting Service (WRS)</h1>
+<p>
+[<a class="wiki" href="../../tools/WebRoutingService.html">English</a>]
+</p>
+<p>
+謝辞：この日本語訳は、日本ユニシス株式会社様から提供されたものです。
+</p>
+<h2 id="概要">概要</h2>
+<p>
+WebRoutingサービスは、HTTPプロトコルを通して容易に経路探索機能を使用するように設計されたWebサービスです。WebRoutingサービスは"リソース指向アーキテクチャ"(Leonard Richardson &amp; Sam Ruby著 RESTful Web Service 参照)であるREST(Representational State Transfer)に基づいています。WebRoutingサービスはJava言語で開発され、JavaクラスをRESTコンセプトにマッピングしたフレームワークであるRestletフレームワークを使用しています。
+</p>
+<p>
+手軽に使用されるように、WebRoutingサービスは多くの空間データフォーマットに対応しています。(Geojson, GML, KML,...)
+</p>
+<h2 id="インストールバージョン1.0">インストール (バージョン 1.0)</h2>
+<p>
+SVNリポジトリからプロジェクトをチェックアウトしてください:
+</p>
+<pre class="wiki">svn checkout http://pgrouting.postlbs.org/svn/pgrouting/branches/routingservice wrs
+</pre><h3 id="必要条件:">必要条件:</h3>
+<pre class="wiki"> * pgRounting 1.0
+ * Java Runtime Environment (JRE) 1.5 or higher
+</pre><p>
+Java技術により、WebRoutingサービスはJava実行環境のあるオペレーティング・システム(OS)にインストールすることができます。現在のところ、私たちはLinux環境でのみWebRoutingサービスをテストしています。クライアント側にはPOSTとGETリクエストをサーバに送信できるアプリケーションのみが必要です。
+</p>
+<h3 id="WebRoutingサービスのダウンロード:">WebRouting サービスのダウンロード:</h3>
+<p>
+WebRoutingサービスの最新リリースをダウンロードしてください。ダウンロード完了後、WebRoutingサービスをインストールしたいディレクトリにtarファイルを解凍してください。
+</p>
+<h3 id="設定:">設定:</h3>
+<p>
+WebRoutingサービスを開始する前に、サーバの設定が必要です。そのため、WebRoutingサービスディレクトリの直下にある"configuration.xml"ファイルを編集してください。
+</p>
+<h3 id="Linux上での起動方法:">Linux上での起動方法:</h3>
+<p>
+以上でWebRoutingサービスの起動準備は終了です。あとはシンプルなシェル・スクリプト:&#34;start.sh&#34;を呼び出します。エラーがなければ、インストールは完了し、WebRoutingサービスは開始されています。エラーの場合、二つの可能性が考えられます:
+</p>
+<ul><li>XML設定ファイルに誤りがあります。この場合は"設定"ステップに戻ってください。
+</li><li>JREが正しくインストールされていないか、JAVA_HOME環境変数が正しく定義されていません。
+</li></ul><pre class="wiki">./start.sh
+</pre><h2 id="使用方法">使用方法</h2>
+<p>
+インストールに問題がない場合は、早速リクエストを生成できますが、その前にWebRoutingサービス機能を見てみましょう。
+<br />
+WebRoutingサービスを呼び出すためには、2つの方法:GETリクエストとPOSTリクエストがあります。
+<br />
+</p>
+<p>
+両方とも、プロバイダー、サービス、入出力データ形式を指定したURLを与えなければなりません。URLの形式は次のようになります:
+</p>
+<pre class="wiki">http://ip_address:port_number/provider_name/format_for_input_data/service_name.format_for_output_data
+</pre><p>
+例:
+</p>
+<pre class="wiki">http://178.1.1.10:8182/geobase/geojson/shortest_path.kml
+</pre><p>
+この例では、geobaseプロバイダーのgeojason形式の入力データを用いてWebRoutingサービスを呼び出し、最短経路サービスの結果をKML形式で返すよう要求します。このように、URLには"何を持っているか"と"何が欲しいか"を指定します。
+次のステップは:指定されたサービスで使用されるパラメータの値を与えることです。一つのサービスに利用されるすべてのパラメータは、XML設定ファイルに指定されています。また、1つのパラメータが必須あるいはオプショナルであるかどうかも指定することができます。このステップは、GETまたはPOSTリクエストで行います。
+</p>
+<p>
+リクエストを生成する準備ができました。"tests"リポジトリ内の"test.html"ファイルを開いてください。このシンプルなページはWebRoutingサービスをテストするための簡単な方法を提供します。フォームを埋めるだけで、GET/POSTリクエストが自動的に生成されます。リクエストの結果は、Webページの下部に表示されます。
+</p>
+<p>
+動かない場合は、"インストール"ステップに戻ってください。
+</p>
+<h2 id="ビルド方法">ビルド方法</h2>
+<p>
+近日公開 :)
+</p>
+<hr />
+<p>
+この日本語訳の著作権は、日本ユニシス株式会社に帰属しています。また、この日本語訳は、GNU FDLのもとで提供されています。
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/ja/tools/WebRoutingService?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("WebRoutingService.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/ja/tools/WebRoutingService by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

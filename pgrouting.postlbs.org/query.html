@@ -1,0 +1,1590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/query by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:58:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Custom Query – pgRouting
+    </title>
+        <link rel="search" href="search.html" />
+        <link rel="help" href="wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;format=rss&amp;order=priority" type="application/rss+xml" class="rss" title="RSS Feed" /><link rel="alternate" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;format=csv&amp;order=priority" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;format=tab&amp;order=priority" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" />
+        <link rel="start" href="wiki.html" />
+        <link rel="stylesheet" href="chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="chrome/common/css/report.css" type="text/css" />
+        <link rel="shortcut icon" href="chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="chrome/common/js/jquery.js"></script><script type="text/javascript" src="chrome/common/js/trac.js"></script><script type="text/javascript" src="chrome/common/js/search.js"></script><script type="text/javascript" src="chrome/common/js/query.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="chrome/common/js/folding.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#group").change(function() {
+          $("#groupdesc").enable(this.selectedIndex != 0)
+        }).change();
+        $("fieldset legend.foldable").enableFolding(false);
+        /* Hide the filters for saved queries. */
+        if ( window.location.href.search(/[?&amp;]report=[0-9]+/) != -1 )
+          $("#filters").toggleClass("collapsed");
+        /* Hide the columns by default. */
+        $("#columns").toggleClass("collapsed");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="index.html"><img src="chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="login.html">Login</a></li><li><a href="prefs.html">Preferences</a></li><li class="last"><a href="register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="wiki.html">Home</a></li><li><a href="timeline.html">Timeline</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="browser.html">Browse Source</a></li><li class="active"><a href="report.html">View Tickets</a></li><li><a href="search.html">Search</a></li><li class="last"><a href="discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="report.html">Available Reports</a></li><li class="last">Custom Query</li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="query">
+      <h1>Custom Query
+      <span class="numrows">(55 matches)</span>
+    </h1>
+      <form id="query" method="post" action="http://pgrouting.postlbs.org/query"><div><input type="hidden" name="__FORM_TOKEN" value="b9b267db558556c38ca90a84" /></div>
+        <fieldset id="filters">
+          <legend class="foldable">Filters</legend>
+          <table summary="Query filters">
+            <tbody>
+              <tr style="height: 1px"><td colspan="4"></td></tr>
+            </tbody>
+                <tbody>
+                    <tr class="status">
+                          <th scope="row"><label>Status</label></th>
+                      <td class="filter" colspan="2">
+                            <input type="checkbox" id="status_accepted" name="status" value="accepted" checked="checked" />
+                            <label for="status_accepted">accepted</label>
+                            <input type="checkbox" id="status_assigned" name="status" value="assigned" checked="checked" />
+                            <label for="status_assigned">assigned</label>
+                            <input type="checkbox" id="status_closed" name="status" value="closed" />
+                            <label for="status_closed">closed</label>
+                            <input type="checkbox" id="status_new" name="status" value="new" checked="checked" />
+                            <label for="status_new">new</label>
+                            <input type="checkbox" id="status_reopened" name="status" value="reopened" checked="checked" />
+                            <label for="status_reopened">reopened</label>
+                      </td>
+                      <td class="actions"><input type="submit" name="rm_filter_status" value="-" /></td>
+                    </tr>
+                </tbody>
+            <tbody>
+              <tr class="actions">
+                <td class="actions" colspan="4" style="text-align: right">
+                  <label for="add_filter">Add filter</label> 
+                  <select name="add_filter" id="add_filter">
+                    <option></option>
+                    <option value="cc">
+                      Cc
+                    </option><option value="component">
+                      Component
+                    </option><option value="description">
+                      Description
+                    </option><option value="keywords">
+                      Keywords
+                    </option><option value="milestone">
+                      Milestone
+                    </option><option value="owner">
+                      Owner
+                    </option><option value="priority">
+                      Priority
+                    </option><option value="reporter">
+                      Reporter
+                    </option><option value="resolution">
+                      Resolution
+                    </option><option value="status" disabled="disabled">
+                      Status
+                    </option><option value="summary">
+                      Summary
+                    </option><option value="type">
+                      Type
+                    </option><option value="version">
+                      Version
+                    </option>
+                  </select>
+                  <input type="submit" name="add" value="+" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </fieldset>
+        <fieldset id="columns">
+          <legend class="foldable">Columns</legend>
+          <div>
+              <label>
+                <input type="checkbox" name="col" value="summary" checked="checked" />
+                Summary
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="status" checked="checked" />
+                Status
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="owner" checked="checked" />
+                Owner
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="type" checked="checked" />
+                Type
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="priority" checked="checked" />
+                Priority
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="milestone" checked="checked" />
+                Milestone
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="component" />
+                Component
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="version" />
+                Version
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="resolution" />
+                Resolution
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="reporter" />
+                Reporter
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="keywords" />
+                Keywords
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="cc" />
+                Cc
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="time" />
+                Created
+              </label>
+              <label>
+                <input type="checkbox" name="col" value="changetime" />
+                Modified
+              </label>
+          </div>
+        </fieldset>
+        <p class="option">
+          <label for="group">Group results by</label>
+          <select name="group" id="group">
+            <option></option>
+              <option value="component">Component</option>
+              <option value="milestone">Milestone</option>
+              <option value="owner">Owner</option>
+              <option value="priority">Priority</option>
+              <option value="reporter">Reporter</option>
+              <option value="resolution">Resolution</option>
+              <option value="status">Status</option>
+              <option value="type">Type</option>
+              <option value="version">Version</option>
+          </select>
+          <input type="checkbox" name="groupdesc" id="groupdesc" />
+          <label for="groupdesc">descending</label>
+        </p>
+        <p class="option">
+          Show under each result:
+            <label><input type="checkbox" name="row" value="description" />
+            Description</label>
+        </p>
+        <p class="option">
+          <label for="max">Max items per page</label>
+          <input type="text" name="max" id="max" size="10" value="100" />
+        </p>
+        <div class="buttons">
+          <input type="hidden" name="order" value="priority" />
+          <input type="submit" name="update" value="Update" />
+        </div>
+        <hr />
+      </form>
+      <script type="text/javascript">
+        var properties={
+          status: { type: "radio", label: "Status"
+          , options: [
+            "accepted",
+            "assigned",
+            "closed",
+            "new",
+            "reopened"
+            ]
+          },
+          description: { type: "textarea", label: "Description"
+          },
+          reporter: { type: "text", label: "Reporter"
+          },
+          cc: { type: "text", label: "Cc"
+          },
+          resolution: { type: "radio", label: "Resolution"
+          , options: [
+            "fixed",
+            "invalid",
+            "wontfix",
+            "duplicate",
+            "worksforme"
+            ]
+          },
+          component: { type: "select", label: "Component"
+          , options: [
+            "A*",
+            "Dijkstra",
+            "DrivingDistance",
+            "Others",
+            "Shooting*",
+            "TSP",
+            "WRS",
+            "Web-site",
+            "osm2pgrouting",
+            "pgRouting package"
+            ]
+          },
+          summary: { type: "text", label: "Summary"
+          },
+          priority: { type: "select", label: "Priority"
+          , options: [
+            "blocker",
+            "critical",
+            "major",
+            "minor",
+            "trivial"
+            ]
+          },
+          keywords: { type: "text", label: "Keywords"
+          },
+          version: { type: "select", label: "Version"
+          , options: [
+            "trunk",
+            "2.0",
+            "1.03",
+            "1.02",
+            "1.2",
+            "1.01",
+            "1.1",
+            "1.0.0b",
+            "1.0.0a",
+            "1.0"
+            ]
+          },
+          milestone: { type: "select", label: "Milestone"
+          , options: [
+            "Version 1.0",
+            "Version 1.1",
+            "Version 1.2",
+            "Version 2.0"
+            ]
+          },
+          owner: { type: "text", label: "Owner"
+          },
+          type: { type: "select", label: "Type"
+          , options: [
+            "bug report",
+            "feature request",
+            "task",
+            "defect"
+            ]
+          }
+        };
+        var modes = {
+          text: [
+            {text: "contains", value: "~"},
+            {text: "doesn\'t contain", value: "!~"},
+            {text: "begins with", value: "^"},
+            {text: "ends with", value: "$"},
+            {text: "is", value: ""},
+            {text: "is not", value: "!"}
+            ],
+          select: [
+            {text: "is", value: ""},
+            {text: "is not", value: "!"}
+            ],
+          textarea: [
+            {text: "contains", value: "~"},
+            {text: "doesn\'t contain", value: "!~"}
+            ]
+        };
+        initializeFilters();
+      </script>
+      <div>
+  
+
+  
+    <table class="listing tickets">
+      <thead>
+        <tr>
+          <th class="id">
+            <a title="Sort by Ticket" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;order=id">Ticket</a>
+          </th><th class="summary">
+            <a title="Sort by Summary" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;order=summary">Summary</a>
+          </th><th class="status">
+            <a title="Sort by Status" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;order=status">Status</a>
+          </th><th class="owner">
+            <a title="Sort by Owner" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;order=owner">Owner</a>
+          </th><th class="type">
+            <a title="Sort by Type" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;order=type">Type</a>
+          </th><th class="priority asc">
+            <a title="Sort by Priority (descending)" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;desc=1&amp;order=priority">Priority</a>
+          </th><th class="milestone">
+            <a title="Sort by Milestone" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;order=milestone">Milestone</a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+              <tr class="even prio2">
+                    <td class="id"><a href="ticket/88.html" title="View ticket">#88</a></td>
+                    <td class="summary">
+                      <a href="ticket/88.html" title="View ticket">Dijkstra crashes if a cost is negative</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      critical
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio2">
+                    <td class="id"><a href="ticket/153.html" title="View ticket">#153</a></td>
+                    <td class="summary">
+                      <a href="ticket/153.html" title="View ticket">Crash with points_as_polygon()</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      critical
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="even prio2">
+                    <td class="id"><a href="ticket/206.html" title="View ticket">#206</a></td>
+                    <td class="summary">
+                      <a href="ticket/206.html" title="View ticket">assign_vertex_id()</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      critical
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/23.html" title="View ticket">#23</a></td>
+                    <td class="summary">
+                      <a href="ticket/23.html" title="View ticket">tsp abnormal source_id and ids case</a>
+                    </td>
+                    <td class="status">
+                      assigned
+                    </td>
+                    <td class="owner">
+                      anton
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201-2.html">Version 1.2</a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/27.html" title="View ticket">#27</a></td>
+                    <td class="summary">
+                      <a href="ticket/27.html" title="View ticket">Support Topology for pgrouting</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      --
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201-2.html">Version 1.2</a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/85.html" title="View ticket">#85</a></td>
+                    <td class="summary">
+                      <a href="ticket/85.html" title="View ticket">cmake build problem</a>
+                    </td>
+                    <td class="status">
+                      assigned
+                    </td>
+                    <td class="owner">
+                      anton
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/86.html" title="View ticket">#86</a></td>
+                    <td class="summary">
+                      <a href="ticket/86.html" title="View ticket">TSP with time constraints</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/89.html" title="View ticket">#89</a></td>
+                    <td class="summary">
+                      <a href="ticket/89.html" title="View ticket">find postgres cmake module does not check default postgres prefix</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      --
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/90.html" title="View ticket">#90</a></td>
+                    <td class="summary">
+                      <a href="ticket/90.html" title="View ticket">cmake CONFIGURE_FILE error</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      --
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/94.html" title="View ticket">#94</a></td>
+                    <td class="summary">
+                      <a href="ticket/94.html" title="View ticket">Vertices check in TSP</a>
+                    </td>
+                    <td class="status">
+                      assigned
+                    </td>
+                    <td class="owner">
+                      anton
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201-2.html">Version 1.2</a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/97.html" title="View ticket">#97</a></td>
+                    <td class="summary">
+                      <a href="ticket/97.html" title="View ticket">Dijkstra and A* vertex ids problem</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/98.html" title="View ticket">#98</a></td>
+                    <td class="summary">
+                      <a href="ticket/98.html" title="View ticket">Ellipse as bounding box</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201-2.html">Version 1.2</a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/99.html" title="View ticket">#99</a></td>
+                    <td class="summary">
+                      <a href="ticket/99.html" title="View ticket">Add functions for version information</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/116.html" title="View ticket">#116</a></td>
+                    <td class="summary">
+                      <a href="ticket/116.html" title="View ticket">Win32 installer update</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      --
+                    </td>
+                    <td class="type">
+                      task
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/120.html" title="View ticket">#120</a></td>
+                    <td class="summary">
+                      <a href="ticket/120.html" title="View ticket">Check wiki pages for compiling on windows</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      task
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/124.html" title="View ticket">#124</a></td>
+                    <td class="summary">
+                      <a href="ticket/124.html" title="View ticket">Improve Support for Multiple Turn Restrictions</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/134.html" title="View ticket">#134</a></td>
+                    <td class="summary">
+                      <a href="ticket/134.html" title="View ticket">dijkstra path variable never freed</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/140.html" title="View ticket">#140</a></td>
+                    <td class="summary">
+                      <a href="ticket/140.html" title="View ticket">osm2pgrouting running out or memory</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/149.html" title="View ticket">#149</a></td>
+                    <td class="summary">
+                      <a href="ticket/149.html" title="View ticket">terminate called after throwing an instance of 'std::length_error' what():  vector::_M_fill_insert</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/150.html" title="View ticket">#150</a></td>
+                    <td class="summary">
+                      <a href="ticket/150.html" title="View ticket">Look for possible multicolumn indexes</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      task
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/152.html" title="View ticket">#152</a></td>
+                    <td class="summary">
+                      <a href="ticket/152.html" title="View ticket">TSP close Postgresql server connection</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/157.html" title="View ticket">#157</a></td>
+                    <td class="summary">
+                      <a href="ticket/157.html" title="View ticket">Shortest path search returns a list unordered cordinates.</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/161.html" title="View ticket">#161</a></td>
+                    <td class="summary">
+                      <a href="ticket/161.html" title="View ticket">osm2pgrouting patch by Vladislav Shikhov</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      task
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/163.html" title="View ticket">#163</a></td>
+                    <td class="summary">
+                      <a href="ticket/163.html" title="View ticket">Unable to compile on windows. multiple target patterns</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/176.html" title="View ticket">#176</a></td>
+                    <td class="summary">
+                      <a href="ticket/176.html" title="View ticket">osm2pgrouting patch from Daniel Wendt</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/177.html" title="View ticket">#177</a></td>
+                    <td class="summary">
+                      <a href="ticket/177.html" title="View ticket">wrong segment selected</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/178.html" title="View ticket">#178</a></td>
+                    <td class="summary">
+                      <a href="ticket/178.html" title="View ticket">Implement k-shortest path</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201-2.html">Version 1.2</a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/190.html" title="View ticket">#190</a></td>
+                    <td class="summary">
+                      <a href="ticket/190.html" title="View ticket">First edge and last edge don't respect the one way restriction</a>
+                    </td>
+                    <td class="status">
+                      accepted
+                    </td>
+                    <td class="owner">
+                      anton
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/192.html" title="View ticket">#192</a></td>
+                    <td class="summary">
+                      <a href="ticket/192.html" title="View ticket">compiling pgrouting</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      defect
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/193.html" title="View ticket">#193</a></td>
+                    <td class="summary">
+                      <a href="ticket/193.html" title="View ticket">For Windows x64</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/194.html" title="View ticket">#194</a></td>
+                    <td class="summary">
+                      <a href="ticket/194.html" title="View ticket">spam ticket to be deleted</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%202.html">Version 2.0</a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/197.html" title="View ticket">#197</a></td>
+                    <td class="summary">
+                      <a href="ticket/197.html" title="View ticket">[shootingstar] crash and weird results</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/198.html" title="View ticket">#198</a></td>
+                    <td class="summary">
+                      <a href="ticket/198.html" title="View ticket">critical bug in compute_alpha_shape</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/199.html" title="View ticket">#199</a></td>
+                    <td class="summary">
+                      <a href="ticket/199.html" title="View ticket">travelling sales person crash</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/205.html" title="View ticket">#205</a></td>
+                    <td class="summary">
+                      <a href="ticket/205.html" title="View ticket">driving distance wrapper is not correctly formed</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/207.html" title="View ticket">#207</a></td>
+                    <td class="summary">
+                      <a href="ticket/207.html" title="View ticket">dijkstra_sp only works if pk is named gid</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/209.html" title="View ticket">#209</a></td>
+                    <td class="summary">
+                      <a href="ticket/209.html" title="View ticket">Issue with 'make' - POSTGRESQL not found + other errors</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/210.html" title="View ticket">#210</a></td>
+                    <td class="summary">
+                      <a href="ticket/210.html" title="View ticket">TSP</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      defect
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/212.html" title="View ticket">#212</a></td>
+                    <td class="summary">
+                      <a href="ticket/212.html" title="View ticket">Oneway restriction doesn't work with shooting star algorithm</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      anton
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/215.html" title="View ticket">#215</a></td>
+                    <td class="summary">
+                      <a href="ticket/215.html" title="View ticket">Undefined symbols on OSX</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="id"><a href="ticket/217.html" title="View ticket">#217</a></td>
+                    <td class="summary">
+                      <a href="ticket/217.html" title="View ticket">pgrouting Installation problem with ubuntu 10.04</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="id"><a href="ticket/218.html" title="View ticket">#218</a></td>
+                    <td class="summary">
+                      <a href="ticket/218.html" title="View ticket">this manual page</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      task
+                    </td>
+                    <td class="priority">
+                      major
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="even prio4">
+                    <td class="id"><a href="ticket/1.html" title="View ticket">#1</a></td>
+                    <td class="summary">
+                      <a href="ticket/1.html" title="View ticket">TSP should return to start point</a>
+                    </td>
+                    <td class="status">
+                      assigned
+                    </td>
+                    <td class="owner">
+                      anton
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      minor
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201-2.html">Version 1.2</a>
+                    </td>
+              </tr>
+              <tr class="odd prio4">
+                    <td class="id"><a href="ticket/87.html" title="View ticket">#87</a></td>
+                    <td class="summary">
+                      <a href="ticket/87.html" title="View ticket">Bugs/mods in sql scripts</a>
+                    </td>
+                    <td class="status">
+                      assigned
+                    </td>
+                    <td class="owner">
+                      anton
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      minor
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="even prio4">
+                    <td class="id"><a href="ticket/91.html" title="View ticket">#91</a></td>
+                    <td class="summary">
+                      <a href="ticket/91.html" title="View ticket">pgrouting module does not link properly on OSX</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      --
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      minor
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio4">
+                    <td class="id"><a href="ticket/113.html" title="View ticket">#113</a></td>
+                    <td class="summary">
+                      <a href="ticket/113.html" title="View ticket">More comprehensive windows installation guide for pgRouting 1.0.2</a>
+                    </td>
+                    <td class="status">
+                      reopened
+                    </td>
+                    <td class="owner">
+                      --
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      minor
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio4">
+                    <td class="id"><a href="ticket/115.html" title="View ticket">#115</a></td>
+                    <td class="summary">
+                      <a href="ticket/115.html" title="View ticket">Enabling target vertex sets for functional nearest neighbor (FNN)</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      minor
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="odd prio4">
+                    <td class="id"><a href="ticket/117.html" title="View ticket">#117</a></td>
+                    <td class="summary">
+                      <a href="ticket/117.html" title="View ticket">Make heuristic function definition more flexible</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      minor
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%202.html">Version 2.0</a>
+                    </td>
+              </tr>
+              <tr class="even prio4">
+                    <td class="id"><a href="ticket/125.html" title="View ticket">#125</a></td>
+                    <td class="summary">
+                      <a href="ticket/125.html" title="View ticket">Use of SVN keywords to add version information</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      minor
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="odd prio4">
+                    <td class="id"><a href="ticket/131.html" title="View ticket">#131</a></td>
+                    <td class="summary">
+                      <a href="ticket/131.html" title="View ticket">Warnings when compile on Ubuntu 8.10</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      minor
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="even prio4">
+                    <td class="id"><a href="ticket/133.html" title="View ticket">#133</a></td>
+                    <td class="summary">
+                      <a href="ticket/133.html" title="View ticket">'the_geom' as a mandatory name</a>
+                    </td>
+                    <td class="status">
+                      assigned
+                    </td>
+                    <td class="owner">
+                      anton
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      minor
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="odd prio4">
+                    <td class="id"><a href="ticket/201.html" title="View ticket">#201</a></td>
+                    <td class="summary">
+                      <a href="ticket/201.html" title="View ticket">FUNCTION point_to_id has schema hardcoded as public</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      feature request
+                    </td>
+                    <td class="priority">
+                      minor
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/Version%201.html">Version 1.1</a>
+                    </td>
+              </tr>
+              <tr class="even prio4">
+                    <td class="id"><a href="ticket/208.html" title="View ticket">#208</a></td>
+                    <td class="summary">
+                      <a href="ticket/208.html" title="View ticket">osm2pgrouting fails to load duplicate classes</a>
+                    </td>
+                    <td class="status">
+                      assigned
+                    </td>
+                    <td class="owner">
+                      anton
+                    </td>
+                    <td class="type">
+                      defect
+                    </td>
+                    <td class="priority">
+                      minor
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="odd prio4">
+                    <td class="id"><a href="ticket/214.html" title="View ticket">#214</a></td>
+                    <td class="summary">
+                      <a href="ticket/214.html" title="View ticket">Cycleway ways are not being imported under some conditions</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      bug report
+                    </td>
+                    <td class="priority">
+                      minor
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+              <tr class="even prio5">
+                    <td class="id"><a href="ticket/162.html" title="View ticket">#162</a></td>
+                    <td class="summary">
+                      <a href="ticket/162.html" title="View ticket">Trying to use Win Binaries</a>
+                    </td>
+                    <td class="status">
+                      new
+                    </td>
+                    <td class="owner">
+                      somebody
+                    </td>
+                    <td class="type">
+                      task
+                    </td>
+                    <td class="priority">
+                      trivial
+                    </td>
+                    <td class="milestone">
+                      <a title="View milestone" href="milestone/index.html"></a>
+                    </td>
+              </tr>
+      </tbody>
+    </table>
+  
+</div>
+      <div class="buttons">
+      </div>
+      <div id="help">
+        <strong>Note:</strong> See <a href="wiki/TracQuery.html">TracQuery</a>
+        for help on using queries.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;format=rss&amp;order=priority" class="rss">RSS Feed</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;format=csv&amp;order=priority" class="csv">Comma-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/query?status=%21closed&amp;format=tab&amp;order=priority" class="tab">Tab-delimited Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("query.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/query by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:58:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

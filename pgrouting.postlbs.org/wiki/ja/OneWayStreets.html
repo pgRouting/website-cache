@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/ja/OneWayStreets by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      ja/OneWayStreets – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/ja/OneWayStreets?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../ja.html" title="View parent page" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../ja.html">Up</a></li><li><a href="../WikiStart.html">Start Page</a></li><li><a href="../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/ja/OneWayStreets?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/ja/OneWayStreets?action=diff&amp;version=2">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View ja" href="../ja.html">ja</a><span class="pathentry sep">/</span><a class="pathentry" title="View ja/OneWayStreets" href="OneWayStreets.html">OneWayStreets</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="一方通行の取扱方法">一方通行の取扱方法</h1>
+<p>
+ダイクストラとA*のアルゴリズムはともにグラフのエッジの両端にかかるコストを計算することができるため、一方通行の通りを持つ道路ネットワークの経路探索に利用できます。
+</p>
+<p>
+この小さな例は、その利用方法を図解しています。このサンプルデータは<a class="ext-link" href="http://openjump.org/"><span class="icon"> </span>OpenJump</a>を利用して作成され、またpgRoutingがインストールされている<a class="ext-link" href="http://www.postgis.org/"><span class="icon"> </span>PostGIS</a>データベースに格納されています。
+</p>
+<p>
+グラフは下図のようなものです。ほとんどのエッジが左から右にデジタイズされているにも関わらず、エッジ#2は右から左にデジタイズされていることに注意してください。これは一方通行の通りをシミュレートするために行いました。
+<br />
+<a style="padding:0; border:none" href="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_1.png"><img src="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_1.png" alt="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_1.png" title="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_1.png" /></a>
+</p>
+<p>
+経路探索アルゴリズムを用いてエッジの両端のコストを計算する際には、reverse_costフィールドが必要です。
+</p>
+<p>
+初めに、costとreverse_costの両方にエッジの長さをセットします。
+</p>
+<pre class="wiki">routing=# UPDATE rtest SET cost=length(the_geom), rcost=length(the_geom); 
+UPDATE 5
+</pre><p>
+次に、エッジ#2のreverse_costを増やすため、エッジ#2のreverse_costフィールドに1,000,000を追加します。
+</p>
+<pre class="wiki">routing=# UPDATE rtest SET rcost=rcost + 1000000 WHERE gid = 2;
+</pre><pre class="wiki">routing=# SELECT gid,cost,rcost,source,target FROM rtest ORDER BY gid;  
+
+gid |        cost      |         rcost       | source | target 
+----+------------------+---------------------+--------+--------
+ 1  | 90.4777391240398 | 90.4777391240398    |      1 |      2
+ 2  | 266.663211021467 | 000266.663211021467 |      3 |      2
+ 3  | 74.7975644284963 | 74.7975644284963    |      2 |      4
+ 4  | 264.887335603738 | 264.887335603738    |      4 |      5
+ 5  | 49.0618009646755 | 49.0618009646755    |      3 |      5
+(5 rows)
+</pre><p>
+ダイクストラとA*の両アルゴリズムの最後のパラメータは、グラフ上で経路を探索する際に逆方向コストを計算するかどうかを決定します。
+</p>
+<p>
+falseを設定した場合、両アルゴリズムはcostパラメータ(この場合は各エッジの長さ)のみを用いて探索を行います。falseを設定した場合、ノード#1からノード#3までの経路が次のように探索されます。
+</p>
+<pre class="wiki">routing=# SELECT * FROM shortest_path_astar('SELECT gid AS id,source::int4,
+    target::int4, cost::double precision, rcost::double precision AS reverse_cost,
+    x1,y1,x2,y2 FROM rtest',1,3,false,false);
+
+ vertex_id | edge_id |      cost
+-----------+---------+------------------
+       1   |     1   | 90.4777391240398
+       2   |     2   | 266.663211021467 
+       3   |    -1   |  0
+(3 rows)
+</pre><p>
+<a style="padding:0; border:none" href="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_2.png"><img src="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_2.png" alt="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_2.png" title="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_2.png" /></a>
+</p>
+<p>
+さて、reverseパラメータにtrueをセットした場合、これらのアルゴリズムはreverse_costを利用します。その結果エッジ#2のノード2が非常に高いコストを持っていることを発見し、別の経路を探索します。
+</p>
+<pre class="wiki">routing=# SELECT * FROM shortest_path_astar('SELECT gid AS id, source::int4,
+     target::int4, cost::double precision, rcost::double precision AS reverse_cost,
+     x1,y1,x2,y2 FROM rtest',1,3,false,true);
+
+vertex_id | edge_id |       cost
+----------+---------+------------------
+       1  |      1  |  90.4777391240398           
+       2  |      3  |  74.7975644284963           
+       4  |      4  |  264.887335603738
+       5  |      5  |  49.0618009646755
+       3  |     -1  |   0
+(5 rows)
+</pre><p>
+<a style="padding:0; border:none" href="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_3.png"><img src="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_3.png" alt="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_3.png" title="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_3.png" /></a>
+</p>
+<p>
+エッジの両端のコストを計算する能力を持つことは素晴らしい特徴ですが、パフォーマンスに影響を与えるため、本当に必要なときにだけ使用してください。
+</p>
+<pre class="wiki">routing=# EXPLAIN ANALYZE SELECT * FROM shortest_path_astar('SELECT gid
+    AS id,source::int4, target::int4, cost::double precision, rcost::double
+    precision AS reverse_cost,x1,y1,x2,y2 FROM rtest',1,3,false,false);
+
+                               QUERY PLAN 
+--------------------------------------------------------------------------------
+Function Scan on shortest_path_astar  (cost=0.00..12.50 rows=1000 width=16) 
+(actual time=0.954..0.958 rows=3 loops=1)  Total runtime: 1.020 ms
+(2 rows)
+</pre><p>
+ 
+</p>
+<pre class="wiki">routing=# EXPLAIN ANALYZE SELECT * FROM shortest_path_astar('SELECT gid
+    AS id, source::int4, target::int4, cost::double precision, rcost::double
+    precision AS reverse_cost,x1,y1,x2,y2 FROM rtest',1,3,false,true);
+
+                               QUERY PLAN 
+--------------------------------------------------------------------------------
+Function Scan on shortest_path_astar  (cost=0.00..12.50 rows=1000 width=16) 
+(actual time=11.088..11.093 rows=5 loops=1)  Total runtime: 11.155 ms(2 rows)
+</pre><p>
+終わり
+</p>
+<hr />
+<p>
+この日本語訳の著作権は、日本ユニシス株式会社に帰属しています。また、この日本語訳は、GNU FDLのもとで提供されています。
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/ja/OneWayStreets?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("OneWayStreets.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/ja/OneWayStreets by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

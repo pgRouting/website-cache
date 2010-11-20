@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracImport by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracImport – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/TracImport?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/TracImport?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/TracImport?action=diff&amp;version=3">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h1 id="Importingticketdata">Importing ticket data</h1>
+<h2 id="Bugzilla">Bugzilla</h2>
+<p>
+Ticket data can be imported from Bugzilla using the <a class="ext-link" href="http://trac.edgewall.org/browser/trunk/contrib/bugzilla2trac.py"><span class="icon"> </span>bugzilla2trac.py</a> script, available in the contrib/ directory of the Trac distribution.
+</p>
+<pre class="wiki">$ bugzilla2trac.py
+bugzilla2trac - Imports a bug database from Bugzilla into Trac.
+
+Usage: bugzilla2trac.py [options]
+
+Available Options:
+  --db &lt;MySQL dbname&gt;              - Bugzilla's database
+  --tracenv /path/to/trac/env      - full path to Trac db environment
+  -h | --host &lt;MySQL hostname&gt;     - Bugzilla's DNS host name
+  -u | --user &lt;MySQL username&gt;     - effective Bugzilla's database user
+  -p | --passwd &lt;MySQL password&gt;   - Bugzilla's user password
+  -c | --clean                     - remove current Trac tickets before importing
+  --help | help                    - this help info
+
+Additional configuration options can be defined directly in the script.
+</pre><p>
+Currently, the following data is imported from Bugzilla:
+</p>
+<ul><li>bugs
+</li><li>bug activity (field changes)
+</li><li>bug attachments
+</li><li>user names and passwords (put into a htpasswd file)
+</li></ul><p>
+The script provides a number of features to ease the conversion, such as:
+</p>
+<ul><li>PRODUCT_KEYWORDS:  Trac doesn't have the concept of products, so the script provides the ability to attach a ticket keyword instead.
+</li></ul><ul><li>IGNORE_COMMENTS:  Don't import Bugzilla comments that match a certain regexp.
+</li></ul><ul><li>STATUS_KEYWORDS:  Attach ticket keywords for the Bugzilla statuses not available in Trac.  By default, the 'VERIFIED' and 'RELEASED' Bugzilla statuses are translated into Trac keywords.
+</li></ul><p>
+For more details on the available options, see the configuration section at the top of the script.
+</p>
+<h2 id="Sourceforge">Sourceforge</h2>
+<p>
+Ticket data can be imported from Sourceforge using the <a class="ext-link" href="http://trac.edgewall.org/browser/trunk/contrib/sourceforge2trac.py"><span class="icon"> </span>sourceforge2trac.py</a> script, available in the contrib/ directory of the Trac distribution.
+</p>
+<h2 id="Mantis">Mantis</h2>
+<p>
+NB! The mantis2trac script now lives at <a class="ext-link" href="http://trac-hacks.org/wiki/MantisImportScript"><span class="icon"> </span>http://trac-hacks.org/wiki/MantisImportScript</a> . You can always get the latest version from <a class="ext-link" href="http://trac-hacks.org/changeset/latest/mantisimportscript?old_path=/&amp;filename=mantisimportscript&amp;format=zip"><span class="icon"> </span>http://trac-hacks.org/changeset/latest/mantisimportscript?old_path=/&amp;filename=mantisimportscript&amp;format=zip</a>
+</p>
+<p>
+Mantis bugs can be imported using the attached script.
+</p>
+<p>
+Currently, the following data is imported from Mantis:
+</p>
+<ul><li>bugs
+</li><li>bug comments
+</li><li>bug activity (field changes)
+</li><li>attachments (as long as the files live in the mantis db, not on the filesystem) 
+</li></ul><p>
+If you use the script, please read the NOTES section (at the top of the file) and make sure you adjust the config parameters for your environment.
+</p>
+<p>
+mantis2trac.py has the same parameters as the bugzilla2trac.py script:
+</p>
+<pre class="wiki">mantis2trac - Imports a bug database from Mantis into Trac.
+
+Usage: mantis2trac.py [options] 
+
+Available Options:
+  --db &lt;MySQL dbname&gt;              - Mantis database
+  --tracenv /path/to/trac/env      - Full path to Trac db environment
+  -h | --host &lt;MySQL hostname&gt;     - Mantis DNS host name
+  -u | --user &lt;MySQL username&gt;     - Effective Mantis database user
+  -p | --passwd &lt;MySQL password&gt;   - Mantis database user password
+  -c | --clean                     - Remove current Trac tickets before importing
+  --help | help                    - This help info
+
+Additional configuration options can be defined directly in the script.
+</pre><h2 id="Other">Other</h2>
+<p>
+Since trac uses a SQL database to store the data, you can import from other systems by examining the database tables. Just go into <a class="ext-link" href="http://www.sqlite.org/sqlite.html"><span class="icon"> </span>sqlite</a> command line to look at the tables and import into them from your application.
+</p>
+<h3 id="Usingacommadelimitedfile-CSV">Using a comma delimited file - CSV</h3>
+<p>
+See <a class="ext-link" href="http://trac.edgewall.org/attachment/wiki/TracSynchronize/csv2trac.2.py"><span class="icon"> </span>http://trac.edgewall.org/attachment/wiki/TracSynchronize/csv2trac.2.py</a> for details.  This approach is particularly useful if one needs to enter a large number of tickets by hand. (note that the ticket type type field, (task etc...) is also needed for this script to work with more recent Trac releases)
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/TracImport?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TracImport.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracImport by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

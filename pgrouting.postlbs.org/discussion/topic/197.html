@@ -1,0 +1,591 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/197 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/26.html" title="サポート">サポート</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>サポート (#26) - A*による経路探索でPostgreSQLがダウンします。 (#197) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              A*による経路探索でPostgreSQLがダウンします。
+            </div>
+            <div class="body">
+              <p>
+はじめまして。
+</p>
+<p>
+インストールが完了し、道路データもデータベースに登録済みです。
+</p>
+<p>
+そこで、pgroutingのA*アルゴリズムを使用するとPostgreSQLがダウンします。
+同様にダイクストラのアルゴリズムでも発生してしまいます。
+</p>
+<p>
+shooting*アルゴリズムでは問題なく経路検索でき、結果も正常に表示されます。
+</p>
+<p>
+どのアルゴリズムでもsourceノードとtargetノードは同一地点で行っています。
+</p>
+<p>
+原因を探ろうと、ログファイルなど調べましたがわかりませんでした。
+</p>
+<p>
+コマンドでSQL文を発行すると、以下のようなメッセージがでます。
+</p>
+<p>
+routing=&gt; select * FROM shortest_path_astar('SELECT gid as id, id1 as source, id2 as target, linklength::float8 as cost, x(<a class="missing wiki">StartPoint?</a>(the_geom)) as x1,　y(<a class="missing wiki">StartPoint?</a>(the_geom)) as y1, x(<a class="missing wiki">EndPoint?</a>(the_geom)) as x2,　y(<a class="missing wiki">EndPoint?</a>(the_geom)) as y2 FROM road_link', 600311666,　603193351,false,false);
+</p>
+<p>
+改善方法が分かる方がいらっしゃいましたら教えてください。
+</p>
+<p>
+よろしくお願いいたします。
+</p>
+<p>
+////////////////////////////////////////
+</p>
+<p>
+***サーバー環境***
+</p>
+<p>
+・CentOS 5.1
+・pgRouting-1.03
+・boost_1_36_0
+・cmake-2.6.2
+・geos-3.0.0
+・proj-4.6.0
+・PostgreSQL 8.3.1
+</p>
+<p>
+CPU : Intel(R) Core(TM) Duo CPU  T2500  @ 2.00GHz
+</p>
+<p>
+メモリ :
+</p>
+<blockquote>
+<p>
+total       used       free     shared    buffers     cached
+</p>
+</blockquote>
+<p>
+Mem:       2074604     332576    1742028          0      18852     263236
+-/+ buffers/cache:      50488    2024116
+Swap:      2031608          0    2031608
+</p>
+<p>
+////////////////////////////////////////
+</p>
+<p>
+*** /usr/local/pgsql/data/serverlogの内容 ***
+</p>
+<p>
+terminate called after throwing an instance of 'std::length_error'
+</p>
+<blockquote>
+<p>
+what():  vector::_M_fill_insert
+</p>
+</blockquote>
+<p>
+LOG:  server process (PID 3127) was terminated by signal 6: Aborted
+</p>
+<p>
+LOG:  terminating any other active server processes
+</p>
+<p>
+LOG:  all server processes terminated; reinitializing
+</p>
+<p>
+LOG:  database system was interrupted; last known up at 2008-12-26 00:36:02 JST
+</p>
+<p>
+LOG:  database system was not properly shut down; automatic recovery in progress
+</p>
+<p>
+LOG:  record with zero length at 2/4DEE74A4
+</p>
+<p>
+LOG:  redo is not required
+</p>
+<p>
+LOG:  autovacuum launcher started
+</p>
+<p>
+LOG:  database system is ready to accept connections
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            comogly
+          </div>
+          <div class="time">
+            12/26/08 02:15:51 (2 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/197?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/197?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message742"></a>
+        <div class="id">
+          Message #742
+        </div>
+        <div class="body">
+            <p>
+こんにちは。
+</p>
+<p>
+<del>※日本語でタイトルを入力すると、reply時にエラーが出るようです。administratorにお願いしてタイトルを英文に変えてもらいました。ご了承ください。</del>
+</p>
+<p>
+解決への的を射ていないかもしれませんが、
+</p>
+<p>
+・ほかのノード(source,target)を使っても、やっぱり失敗しますでしょうか。
+</p>
+<p>
+・costに使っている値（degree?, meter?）
+</p>
+<p>
+・座標系(SRID)
+</p>
+<p>
+などの情報はありますでしょうか。
+</p>
+<p>
+また、pgRoutingには、別途バウンディングボックスを指定してその範囲内で経路探索をする
+</p>
+<p>
+astar_sp_delta()
+</p>
+<p>
+というものもありますが、その結果はどのようになるでしょうか。
+</p>
+<p>
+使い方は、チュートリアルにも書いてありますが、
+</p>
+<p>
+<a href="../../wiki/WorkshopFOSS4G2008/ch08.html">http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch08</a>
+</p>
+<p>
+SELECT gid, <a class="missing wiki">AsText?</a>(the_geom) AS the_geom
+</p>
+<blockquote>
+<p>
+FROM astar_sp_delta('ways', 10, 20, 0.1);
+</p>
+</blockquote>
+<p>
+というような感じです。
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            jun
+          </div>
+          <div class="time">
+            01/05/09 18:37:11 (23 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message753"></a>
+        <div class="id">
+          Message #753
+        </div>
+        <div class="body">
+            <p>
+返信ありがとうございます。
+日本語でのタイトルの件は改善されてますね。感謝します。
+</p>
+<p>
+</p>
+<blockquote class="citation">
+<p>
+ ・ほかのノード(source,target)を使っても、やっぱり失敗しますでしょうか。
+</p>
+</blockquote>
+<p>
+特定のノードで成功するようです。
+ノード数をWHERE文を用いて制限することで成功するようになりました。
+</p>
+<blockquote class="citation">
+<p>
+ ・costに使っている値（degree?, meter?）
+</p>
+</blockquote>
+<p>
+meterです。
+</p>
+<blockquote class="citation">
+<p>
+ ・座標系(SRID)
+</p>
+</blockquote>
+<p>
+SRIDは”4612”のJGD2000を使ってます。
+</p>
+<blockquote class="citation">
+<p>
+pgRoutingには、別途バウンディングボックスを指定してその範囲内で経路探索をする
+ astar_sp_delta()
+ というものもありますが、その結果はどのようになるでしょうか。
+</p>
+</blockquote>
+<p>
+astar_sp_delta()の使い方が分からなかったので、とんでもないSQLを発行しているかもしれませんが、実行結果は以下のようになります。
+</p>
+<p>
+////////////////////////////////////////////////////////////////////////
+</p>
+<p>
+SELECT gid, <a class="missing wiki">AsText?</a>(the_geom) AS the_geom FROM astar_sp_delta('_astar', 135, 136, 0.1);
+</p>
+<p>
+ERROR:  cannot EXECUTE a null querystring
+</p>
+<p>
+CONTEXT:  PL/pgSQL function "astar_sp_delta_directed" line 75 at FOR over　EXECUTE statement
+</p>
+<p>
+PL/pgSQL function "astar_sp_delta" line 19 at FOR over EXECUTE statement
+</p>
+<p>
+/////////////////////////////////////////////////////////////////////////
+</p>
+<p>
+よろしくお願いします。
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            comogly
+          </div>
+          <div class="time">
+            01/13/09 18:23:02 (23 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message754"></a>
+        <div class="id">
+          Message #754
+        </div>
+        <div class="body">
+            <p>
+こんにちは。
+</p>
+<p>
+すみません、１箇所だけですが・・・。
+</p>
+<blockquote class="citation">
+<p>
+ astar_sp_delta()の使い方が分からなかったので、とんでもないSQLを発行しているかもしれませんが、実行結果は以下のようになります。
+ ////////////////////////////////////////////////////////////////////////
+ SELECT gid, <a class="missing wiki">AsText?</a>(the_geom) AS the_geom FROM astar_sp_delta('_astar', 135, 136, 0.1);
+ ERROR:  cannot EXECUTE a null querystring
+ CONTEXT:  PL/pgSQL function "astar_sp_delta_directed" line 75 at FOR over　EXECUTE statement
+ PL/pgSQL function "astar_sp_delta" line 19 at FOR over EXECUTE statement
+ /////////////////////////////////////////////////////////////////////////
+</p>
+</blockquote>
+<p>
+SELECT gid, <a class="missing wiki">AsText?</a>(the_geom) AS the_geom FROM astar_sp_delta('_astar', 135, 136, 0.1);
+</p>
+<p>
+としたときに、'_astar'はテーブル名、135と136はそれぞれソースとターゲットのID、0.1はバウンディングボックスのバッファ（ID=135とID=136で作られる矩形より、縦横0.1度分を広く取った矩形）ということになります。
+</p>
+<p>
+取り急ぎにて。
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            jun
+          </div>
+          <div class="time">
+            01/13/09 19:25:58 (23 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message755"></a>
+        <div class="id">
+          Message #755
+        </div>
+        <div class="body">
+            <p>
+早速の返信、ありがとうございます。
+astar_sp_delta()の引数を修正しましたところ、クエリが成功しました。
+</p>
+<p>
+実行したSQLは
+</p>
+<blockquote>
+<p>
+SELECT id, <a class="missing wiki">AsText?</a>(the_geom) FROM astar_sp_delta('_astar', 600311666,603193351,0.8954);
+</p>
+</blockquote>
+<p>
+です。
+</p>
+<p>
+結果として、(935 rows)のWKT文字列が得られました。
+</p>
+<p>
+バウンディングボックスの値を変更し、
+</p>
+<blockquote>
+<p>
+SELECT id, <a class="missing wiki">AsText?</a>(the_geom) FROM astar_sp_delta('_astar', 600311666,603193351,0.8955);
+</p>
+</blockquote>
+<p>
+とすると、以下のエラーが発生します。
+</p>
+<p>
+/////////////////////////////////////////////////////////////////////////
+</p>
+<p>
+routing=&gt; SELECT id, <a class="missing wiki">AsText?</a>(the_geom) FROM astar_sp_delta('_astar',600311666,603193351,0.8955);
+</p>
+<p>
+server closed the connection unexpectedly
+</p>
+<blockquote>
+<p>
+This probably means the server terminated abnormally
+</p>
+</blockquote>
+<blockquote>
+<p>
+before or while processing the request.
+</p>
+</blockquote>
+<p>
+The connection to the server was lost. Attempting reset: Failed.
+</p>
+<p>
+/////////////////////////////////////////////////////////////////////////
+</p>
+<p>
+ログのほうには以下のように出力されました。
+</p>
+<p>
+/////////////////////////////////////////////////////////////////////////
+</p>
+<p>
+terminate called after throwing an instance of 'std::bad_alloc'
+</p>
+<blockquote>
+<p>
+what():  St9bad_alloc
+</p>
+</blockquote>
+<p>
+LOG:  server process (PID 32648) was terminated by signal 6: Aborted
+</p>
+<p>
+LOG:  terminating any other active server processes
+</p>
+<p>
+FATAL:  the database system is in recovery mode
+</p>
+<p>
+LOG:  all server processes terminated; reinitializing
+</p>
+<p>
+LOG:  database system was interrupted; last known up at 2009-01-14 03:27:16
+JST
+</p>
+<p>
+LOG:  database system was not properly shut down; automatic recovery in progress
+</p>
+<p>
+LOG:  record with zero length at 2/BC6FBCB8
+</p>
+<p>
+LOG:  redo is not required
+</p>
+<p>
+LOG:  autovacuum launcher started
+</p>
+<p>
+LOG:  database system is ready to accept connections
+</p>
+<p>
+/////////////////////////////////////////////////////////////////////////
+</p>
+<p>
+よろしくお願いします。
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            comogly
+          </div>
+          <div class="time">
+            01/14/09 03:42:09 (23 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message756"></a>
+        <div class="id">
+          Message #756
+        </div>
+        <div class="body">
+            <p>
+こんにちは。
+</p>
+<p>
+うーん・・・、難しいですね。。。
+</p>
+<p>
+使っている元のデータは何かのネットワークデータから取り込まれたものでしょうか。
+</p>
+<p>
+それとも自作でしょうか。
+</p>
+<p>
+データを取り込んだ場合、どのようにして取り込まれたでしょうか。
+</p>
+<p>
+また、deltaファンクションで得られたWKTの列は、何かのアプリなど使って
+</p>
+<p>
+実際に表示してみましたでしょうか。
+</p>
+<p>
+その列は問題なさそうでしょうか？（線に破綻がないとか）
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            jun
+          </div>
+          <div class="time">
+            01/14/09 15:45:04 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/197?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/197?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

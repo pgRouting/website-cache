@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/83 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:17:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #83 (error in executing shortest_path_astar2_as_geometry_internal_id_directed)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="12.html" title="Ticket #12" />
+        <link rel="last" href="109.html" title="Ticket #109" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/83?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/83?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/83?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="up" href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1" />
+        <link rel="next" href="112.html" title="Ticket #112" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="138.html" title="Ticket #138" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="12.html" title="Ticket #12">Previous Ticket</a></span></li><li><a href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1">Back to Query</a></li><li class="last"><span><a class="next" href="112.html" title="Ticket #112">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #83
+          <span class="status">(closed bug report: fixed)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-10-02T23%3A18%3A52%2B0900&amp;precision=second" title="2007-10-02T23:18:52+0900 in Timeline">3 years</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-10-05T09%3A23%3A36%2B0900&amp;precision=second" title="2007-10-05T09:23:36+0900 in Timeline">3 years</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">error in executing shortest_path_astar2_as_geometry_internal_id_directed</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">alucionet</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">anton
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      minor
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="missing milestone"></a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      A*
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      1.0.0b
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+Hi,
+</p>
+<p>
+I've been trying to run the Shortest Path algo from the "Kanagawa" sample on my own server, but the result is as follows:
+</p>
+<p>
+Warning: <a class="wiki" href="../wiki/MapServer.html">Error</a>: msDrawMap(): Failed to draw layer named 'path'. in /usr/local/apache2/htdocs/routingj/phtmls/sp.backup.phtml on line 77
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+Warning: <a class="wiki" href="../wiki/MapServer.html">Error</a>: msPOSTGISLayerWhichShapes(): Error executing POSTGIS SQL statement (in FETCH ALL): DECLARE mycursor BINARY CURSOR FOR SELECT asbinary(force_collection(force_2d(the_geom)),'NDR'),gid::text from (select gid, the_geom from shortest_path_astar2_as_geometry_internal_id('kanagawa', 76309, 124369, 139.038158611, 35.0904878914, 139.490447778, 35.4605426641)) as g WHERE the_geom &amp;&amp; setSRID('BOX3D(139.038158611111 35.090487891414,139.490447777778 35.4605426641416)'::BOX3D, -1 ) -ERROR: operator does not exist: text <td> boolean LINE 1: ...l( $8 ) </td><td> ' , ' </td><td> quote_literal( $9 ) </td><td> ' , <strong></td><td> $10 </td><td>'... <sup> HINT: No operator matches the given name and argument type(s). You may need to add explicit type casts. QUERY: SELECT $1 </td><td> 'FROM ' </td><td> quote_ident( $2 ) </td><td> ' where setSRID(</sup></strong><sup>'BOX3D('</td><td> $3 </td><td>' '</td><td> $4 </td><td>','</td><td> $5 </td><td>' '</td><td> $6 </td><td>')<strong>'::BOX3D, ' </td><td> $7 </td><td> ') &amp;&amp; the_geom<i>, ' </td><td> quote_literal( $8 ) </td><td> ' , ' </td><td> quote_literal( $9 ) </td><td> ' , </i></strong><i>| in /usr/local/apache2/htdocs/routingj/phtmls/sp.backup.phtml on line 77
+</i></sup></p>
+<p>
+Fatal error: Call to a member function saveWebImage() on a non-object in /usr/local/apache2/htdocs/routingj/phtmls/sp.backup.phtml on line 78
+</p>
+<p>
+Does anyone ever run into this problem?
+Anything anyone can offer to help?
+</p>
+<p>
+Thanks,
+ned
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-10-02T23%3A30%3A18%2B0900&amp;precision=second" title="2007-10-02T23:30:18+0900 in Timeline">3 years</a> ago by alucionet
+                </h3>
+      <div class="comment searchable">
+        <p>
+Additional data:
+</p>
+<p>
+SQL error:
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+ERROR:  operator does not exist: text <td> boolean
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+LINE 1: ...l( $3 ) <td> ' , ' </td><td> quote_literal( $4 ) </td><td> ' , <strong></td><td> $5 </td><td><i>...
+</i></strong></p>
+<blockquote>
+<p>
+<sup>
+</sup></p>
+</blockquote>
+<p>
+HINT:  No operator matches the given name and argument type(s). You may need to add explicit type casts.
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+QUERY:  SELECT   $1  <td> 'FROM ' </td><td> quote_ident( $2 ) </td><td> ' <i>, ' </td><td> quote_literal( $3 ) </td><td> ' , ' </td><td> quote_literal( $4 ) </td><td> ' , <strong></td><td> $5 </td><td></strong>, <strong></td><td> $6 </td><td></strong>), ' </td><td> quote_ident( $2 ) </td><td> ' where edge_id = gid '
+CONTEXT:  PL/pgSQL function "shortest_path_astar_as_geometry_internal_id_directed" line 20 at assignment
+PL/pgSQL function "shortest_path_astar_as_geometry_internal_id" line 9 at for over execute statement
+</i></p>
+<p>
+In statement:
+SELECT * from shortest_path_astar_as_geometry_internal_id('SELECT id,the_geom FROM kanagawa',
+76309, 124369);
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-10-03T09%3A56%3A22%2B0900&amp;precision=second" title="2007-10-03T09:56:22+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>owner</strong>
+            changed from <em>somebody</em> to <em>anton</em>
+        </li><li>
+          <strong>priority</strong>
+              changed from <em>major</em> to <em>minor</em>
+        </li><li>
+          <strong>status</strong>
+              changed from <em>new</em> to <em>assigned</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Please try to execute:
+</p>
+<p>
+SELECT * from shortest_path_astar_as_geometry_internal_id('kanagawa', 76309, 124369);
+</p>
+<p>
+instead of
+</p>
+<p>
+SELECT * from shortest_path_astar_as_geometry_internal_id('SELECT id,the_geom FROM kanagawa', 76309, 124369);
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-10-03T17%3A50%3A11%2B0900&amp;precision=second" title="2007-10-03T17:50:11+0900 in Timeline">3 years</a> ago by alucionet
+                </h3>
+      <div class="comment searchable">
+        <p>
+Same result when I just used 'kanagawa'.
+</p>
+<p>
+I've managed to make it work temporarily by changing the code in shortest_path_astar2_as_geometry_internal_id_directed.
+</p>
+<p>
+In the original code:
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+query := query <td> 'FROM ' 
+</p>
+<blockquote>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+quote_ident(geom_table) <td> ' where setSRID(<strong>'BOX3D('</td><td>ll_x</td><td>' '
+</strong></p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+ll_y<td>','</td><td>ur_x</td><td>' '</td><td>ur_y</td><td>')<strong>'::BOX3D, ' </td><td> srid 
+</i></strong></p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+') &amp;&amp; the_geom<i>, ' <td> quote_literal(sourceid) </td><td> ' , ' 
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+quote_literal(targetid) <td> ' , <strong></td><td>dir</td><td></strong>, <strong></td><td>rc</td><td></strong> ),'  
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+quote_ident(geom_table) <td> ' where edge_id = gid ';
+</p>
+</blockquote>
+<p>
+        
+My temporary solution:
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+query := query <td> 'FROM ' 
+</p>
+<blockquote>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+quote_ident(geom_table) <td> ' where setSRID(<strong>'BOX3D('</td><td>ll_x</td><td>' '
+</strong></p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+ll_y<td>','</td><td>ur_x</td><td>' '</td><td>ur_y</td><td>')<strong>'::BOX3D, ' </td><td> srid 
+</i></strong></p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+') &amp;&amp; the_geom<i>, ' <td> quote_literal(sourceid) </td><td> ' , ' 
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+quote_literal(targetid) <td> ' , <i>false</i>, <i>false</i> ),'  
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+quote_ident(geom_table) <td> ' where edge_id = gid ';
+</p>
+</blockquote>
+<p>
+Difference is in the syntax for "dir" and "rc". I forced it to use "false" and it works (i'm sure "true" would also work). I am a newbie in postgis. I am not sure how the quote and double pipe system works but I suspect that the original code is only missing a couple of single quote in the original code. 
+</p>
+<p>
+any ideas?
+</p>
+<p>
+Thanks
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-10-04T13%3A32%3A40%2B0900&amp;precision=second" title="2007-10-04T13:32:40+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>assigned</em> to <em>closed</em>
+        </li><li>
+          <strong>resolution</strong>
+              set to <em>fixed</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+OK, it seams like it started with PostgreSQL 8.2.5
+</p>
+<p>
+Since this version it is not allowed to concatenate boolean and text.
+</p>
+<p>
+Fixed with <a class="missing ticket">#47</a>
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:5">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-10-04T23%3A28%3A21%2B0900&amp;precision=second" title="2007-10-04T23:28:21+0900 in Timeline">3 years</a> ago by alucionet
+                </h3>
+      <div class="comment searchable">
+        <p>
+Sorry, I can't find ticket <a class="missing ticket">#47</a>. Did you happen to mis-type it?
+</p>
+<p>
+Thanks, I really appreciate all your help.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:6">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-10-05T09%3A23%3A36%2B0900&amp;precision=second" title="2007-10-05T09:23:36+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+Yeah, sorry. I meant <a class="changeset" href="../changeset/47.html" title="PostgreSQL 8.2.5 support">[47]</a>.
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/83?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/83?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/83?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("83.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/83 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:17:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

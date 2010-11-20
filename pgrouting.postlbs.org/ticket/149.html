@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/149 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:16:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #149 (terminate called after throwing an instance of 'std::length_error' what():  vector::_M_fill_insert)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="148.html" title="Ticket #148" />
+        <link rel="last" href="218.html" title="Ticket #218" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/149?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/149?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/149?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="next" href="150.html" title="Ticket #150" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="1.html" title="Ticket #1" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="148.html" title="Ticket #148">Previous Ticket</a></span></li><li class="last"><span><a class="next" href="150.html" title="Ticket #150">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #149
+          <span class="status">(new bug report)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-03-06T00%3A02%3A08%2B0900&amp;precision=second" title="2009-03-06T00:02:08+0900 in Timeline">21 months</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-03-25T21%3A29%3A55%2B0900&amp;precision=second" title="2009-03-25T21:29:55+0900 in Timeline">20 months</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">terminate called after throwing an instance of 'std::length_error' what():  vector::_M_fill_insert</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">olivermay</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">somebody
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      major
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="milestone" href="../milestone/Version%201.html">Version 1.1</a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      Dijkstra
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      1.03
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                      crash, error
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+calculating a route using the command: 
+SELECT * FROM shortest_path('SELECT gid as id, ref_in_id::integer as source, nref_in_id::integer as target, length as cost, x1, y1, x2, y2 FROM street_lam72_test2', 545078377, 539375234, false, false);
+results in postgres crashing, the command just returns ********** Error ********** (in pgAdmin3). The postgres logfiles says:
+terminate called after throwing an instance of 'std::length_error'
+</p>
+<blockquote>
+<p>
+what():  vector::_M_fill_insert
+</p>
+</blockquote>
+<p>
+2009-03-05 15:48:54 CET LOG:  server process (PID 11230) was terminated by signal 6: Aborted
+2009-03-05 15:48:54 CET LOG:  terminating any other active server processes
+2009-03-05 15:48:54 CET WARNING:  terminating connection because of crash of another server process
+2009-03-05 15:48:54 CET DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2009-03-05 15:48:54 CET HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2009-03-05 15:48:54 CET WARNING:  terminating connection because of crash of another server process
+2009-03-05 15:48:54 CET DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2009-03-05 15:48:54 CET HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2009-03-05 15:48:54 CET LOG:  all server processes terminated; reinitializing
+2009-03-05 15:48:54 CET LOG:  database system was interrupted; last known up at 2009-03-05 15:48:25 CET
+2009-03-05 15:48:54 CET LOG:  database system was not properly shut down; automatic recovery in progress
+2009-03-05 15:48:54 CET LOG:  unexpected pageaddr 0/224A6000 in log file 0, segment 41, offset 4874240
+2009-03-05 15:48:54 CET LOG:  redo is not required
+2009-03-05 15:48:54 CET LOG:  autovacuum launcher started
+2009-03-05 15:48:54 CET LOG:  database system is ready to accept connections
+</p>
+<p>
+I can't figure out if this problem originates in our dataset or if there went something wrong compiling... Versions:
+</p>
+<p>
+OS: ubuntu 8.10
+Kernel: Linux pretoria 2.6.27-9-generic <a class="assigned ticket" href="1.html" title="feature request: TSP should return to start point (assigned)">#1</a> SMP Thu Nov 20 21:57:00 UTC 2008 i686 GNU/Linux
+Postgres: 8.3.4-2.2
+Libboost: 1.35.0-8ubuntu1
+</p>
+<p>
+I compiled with neither the DD or TSP algorithms.
+</p>
+<p>
+I already tried other versions: Trunk, 1.02 &amp; 1.03 result in the same error.
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-03-06T11%3A42%3A46%2B0900&amp;precision=second" title="2009-03-06T11:42:46+0900 in Timeline">21 months</a> ago by daniel
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>component</strong>
+              changed from <em>A*</em> to <em>Dijkstra</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Probably the reason for this error is the length of your start and end ID numbers:
+</p>
+<pre class="wiki">   545078377, 539375234
+</pre><p>
+Do you really have such a huge number of ID's? <br />
+If not I recommend you to renumber your ID's (or just create a new attribute with ID's starting from 1). This will also increase performance.
+</p>
+<p>
+Please let me know if this works for you or not.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-03-25T21%3A29%3A55%2B0900&amp;precision=second" title="2009-03-25T21:29:55+0900 in Timeline">20 months</a> ago by olivermay
+                </h3>
+      <div class="comment searchable">
+        <p>
+Indeed, changing the id's to a set of smaller integers fixed the problem! Thanks a lot!
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/149?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/149?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/149?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("149.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/149 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:16:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

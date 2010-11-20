@@ -1,0 +1,747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/87/routing_core_141207.patch by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Attachment – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../../wiki/TracGuide.html" />
+        <link rel="alternate" href="../../../raw-attachment/ticket/87/routing_core_141207.patch" type="text/x-diff; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="../../../ticket/87.html" title="Ticket #87" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/diff.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/code.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../../chrome/common/js/diff.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="last first"><a href="../../../ticket/87.html">Back to Ticket #87</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="attachment">
+        <h1><a href="../../../ticket/87.html">Ticket #87</a>: routing_core_141207.patch</h1>
+        <table id="info" summary="Description">
+          <tbody>
+            <tr>
+              <th scope="col">
+                File routing_core_141207.patch, <span title="8305 bytes">8.1 KB</span>
+                (added by rodj59,  <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-14T19%3A40%3A55%2B0900&amp;precision=second" title="2007-12-14T19:40:55+0900 in Timeline">3 years</a> ago)
+              </th>
+            </tr>
+            <tr>
+              <td class="message searchable">
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="preview" class="searchable">
+    <div class="diff">
+  <ul class="entries">
+      <li class="entry">
+        <h2>
+          <a>.sql</a>
+        </h2>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File /home/ftp/transport/Desktop/routing_core_originalsubmit.sql 2007-12-14 20:05:12.000000000 +1000">
+                      old
+                  </th>
+                  <th title="File /usr/share/postgresql/routing_core.sql 2007-12-14 19:56:03.000000000 +1000">
+                      new
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>20</th><th>20</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>21</th><th>21</th><td class="l"><span>CREATE TYPE path_result AS (vertex_id integer, edge_id integer, cost float8);</span> </td>
+                  </tr><tr>
+                          <th>22</th><th>22</th><td class="l"><span>CREATE TYPE vertex_result AS (x float8, y float8);</span> </td>
+                  </tr>
+            </tbody><tbody class="rem">
+                  <tr class="first">
+                          <th>23</th><th> </th><td class="l"><del></del> </td>
+                  </tr><tr class="last">
+                          <th>24</th><th> </th><td class="l"><del>-----------------------------------------------------------------------</del> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>25</th><th>23</th><td class="l"><span>-- Core function for shortest_path computation</span> </td>
+                  </tr><tr>
+                          <th>26</th><th>24</th><td class="l"><span>-- See README for description</span> </td>
+                  </tr><tr>
+                          <th>27</th><th>25</th><td class="l"><span>-----------------------------------------------------------------------</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L91">…</a></th>
+                  <th><a href="#L89">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>91</th><th>89</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp;RETURNS void AS</span> </td>
+                  </tr><tr>
+                          <th>92</th><th>90</th><td class="l"><span>$$</span> </td>
+                  </tr><tr>
+                          <th>93</th><th>91</th><td class="l"><span>BEGIN</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>94</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'SELECT create_graph_tables('<del>''||quote_ident(geom_table)||''</del>',''int4'',' || '''gid'' ,''source_id'',''target_id'')';</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>92</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'SELECT create_graph_tables('<ins>||quote_literal(geom_table)||</ins>',''int4'',' || '''gid'' ,''source_id'',''target_id'')';</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>95</th><th>93</th><td class="l"><span>END;</span> </td>
+                  </tr><tr>
+                          <th>96</th><th>94</th><td class="l"><span>$$</span> </td>
+                  </tr><tr>
+                          <th>97</th><th>95</th><td class="l"><span>LANGUAGE 'plpgsql' VOLATILE STRICT;</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L101">…</a></th>
+                  <th><a href="#L99">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>101</th><th>99</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp;RETURNS void AS</span> </td>
+                  </tr><tr>
+                          <th>102</th><th>100</th><td class="l"><span>$$</span> </td>
+                  </tr><tr>
+                          <th>103</th><th>101</th><td class="l"><span>BEGIN</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>104</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'SELECT create_graph_tables('<del>''||quote_ident(geom_table)||''','''||quote_ident(column_type)||''</del>',' || '''gid'' ,''source_id'',''target_id'')';</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>102</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'SELECT create_graph_tables('<ins>||quote_literal(geom_table)||','||quote_literal(column_type)||</ins>',' || '''gid'' ,''source_id'',''target_id'')';</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>105</th><th>103</th><td class="l"><span>END;</span> </td>
+                  </tr><tr>
+                          <th>106</th><th>104</th><td class="l"><span>$$</span> </td>
+                  </tr><tr>
+                          <th>107</th><th>105</th><td class="l"><span>LANGUAGE 'plpgsql' VOLATILE STRICT;</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L111">…</a></th>
+                  <th><a href="#L109">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>111</th><th>109</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp;RETURNS void AS</span> </td>
+                  </tr><tr>
+                          <th>112</th><th>110</th><td class="l"><span>$$</span> </td>
+                  </tr><tr>
+                          <th>113</th><th>111</th><td class="l"><span>BEGIN</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>114</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'SELECT create_graph_tables('<del>''||quote_literal(geom_table)||''','''||quote_literal(column_type)||''',''' || quote_literal(id_name) || ''</del>' ,''source_id'',''target_id'')';</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>112</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'SELECT create_graph_tables('<ins>||quote_literal(geom_table)||','||quote_literal(column_type)||',' || quote_literal(id_name) || </ins>' ,''source_id'',''target_id'')';</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>115</th><th>113</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; RETURN;</span> </td>
+                  </tr><tr>
+                          <th>116</th><th>114</th><td class="l"><span>END;</span> </td>
+                  </tr><tr>
+                          <th>117</th><th>115</th><td class="l"><span>$$</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L206">…</a></th>
+                  <th><a href="#L204">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>206</th><th>204</th><td class="l"><span>-- This function uses the internal vertices identifiers.</span> </td>
+                  </tr><tr>
+                          <th>207</th><th>205</th><td class="l"><span>-----------------------------------------------------------------------</span> </td>
+                  </tr><tr>
+                          <th>208</th><th>206</th><td class="l"><span>CREATE OR REPLACE FUNCTION shortest_path_as_geometry_internal_id(</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>209</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp;geom_table varchar, source int4, target int4<del></del>) </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>207</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp;geom_table varchar, source int4, target int4<ins>,geomcol varchar,costcol varchar</ins>) </span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>210</th><th>208</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp;RETURNS SETOF GEOMS AS</span> </td>
+                  </tr><tr>
+                          <th>211</th><th>209</th><td class="l"><span>$$</span> </td>
+                  </tr><tr>
+                          <th>212</th><th>210</th><td class="l"><span>DECLARE </span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L215">…</a></th>
+                  <th><a href="#L213">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>215</th><th>213</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; v_id integer;</span> </td>
+                  </tr><tr>
+                          <th>216</th><th>214</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; e_id integer;</span> </td>
+                  </tr><tr>
+                          <th>217</th><th>215</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; geom geoms;</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>216</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; query text;</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>218</th><th>217</th><td class="l"><span>BEGIN</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>219</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; <del></del></span> </td>
+                      </tr><tr>
+                        <th>220</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; <del>FOR path_result IN EXECUTE 'SELECT gid,</del>the_geom FROM ' ||</span> </td>
+                      </tr><tr>
+                        <th>221</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'shortest_path(''SELECT <del>gid as id, source::integer, target::integer, ' || </del></span> </td>
+                      </tr><tr>
+                        <th>222</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '<del>length::double precision as cost FROM </del>' ||</span> </td>
+                      </tr><tr>
+                        <th>223</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; <del>&nbsp; quote_ident(geom_table) || ''', ' || quote_literal(source) || </del></span> </td>
+                      </tr><tr>
+                        <th>224</th><th> </th><td class="l"><span><del>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ' , ' || quote_literal(target) || ' , false, false), ' ||</del> </span> </td>
+                      </tr><tr>
+                        <th>225</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; quote_ident(geom_table) || ' where edge_id = gid ' </span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>218</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; <ins>&nbsp; &nbsp; &nbsp; &nbsp; </ins></span> </td>
+                      </tr><tr>
+                        <th> </th><th>219</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; <ins>query := 'SELECT a.edge_id as gid,'||quote_ident(geomcol)||' as </ins>the_geom FROM ' ||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>220</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'shortest_path(''SELECT <ins>source ,id,&nbsp; target, ' || quote_ident(costcol)||</ins></span> </td>
+                      </tr><tr>
+                        <th> </th><th>221</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '<ins>&nbsp;as cost from '||quote_ident(geom_table)||'_edges'','||source||','||target||',false,false)</ins>' ||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>222</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; <ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ' a, '||quote_ident(geom_table)||' b where b.edge_id = a.edge_id';</ins></span> </td>
+                      </tr><tr>
+                        <th> </th><th>223</th><td class="r"><span><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</ins> </span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>224</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; FOR path_result IN EXECUTE query</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>226</th><th>225</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; LOOP</span> </td>
+                  </tr>
+            </tbody><tbody class="rem">
+                  <tr class="last first">
+                          <th>227</th><th> </th><td class="l"><del></del> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>228</th><th>226</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;geom.gid&nbsp; &nbsp; &nbsp; := path_result.gid;</span> </td>
+                  </tr><tr>
+                          <th>229</th><th>227</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;geom.the_geom := path_result.the_geom;</span> </td>
+                  </tr><tr>
+                          <th>230</th><th>228</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> </td>
+                  </tr><tr>
+                          <th>231</th><th>229</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;RETURN NEXT geom;</span> </td>
+                  </tr>
+            </tbody><tbody class="rem">
+                  <tr class="last first">
+                          <th>232</th><th> </th><td class="l"><del></del> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>233</th><th>230</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; END LOOP;</span> </td>
+                  </tr><tr>
+                          <th>234</th><th>231</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; RETURN;</span> </td>
+                  </tr><tr>
+                          <th>235</th><th>232</th><td class="l"><span>END;</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L237">…</a></th>
+                  <th><a href="#L234">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>237</th><th>234</th><td class="l"><span>LANGUAGE 'plpgsql' VOLATILE STRICT; </span> </td>
+                  </tr><tr>
+                          <th>238</th><th>235</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>239</th><th>236</th><td class="l"><span>CREATE OR REPLACE FUNCTION shortest_path_as_geometry_internal_id_directed(</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>240</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp;geom_table varchar, source int4, target int4, dir boolean, rc boolean) </span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>237</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp;geom_table varchar, source int4, target int4, dir boolean, rc boolean</span> </td>
+                      </tr><tr>
+                        <th> </th><th>238</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;,geomcol varchar,costcol varchar,rcostcol varchar) </span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>239</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>241</th><th>240</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp;RETURNS SETOF GEOMS AS</span> </td>
+                  </tr><tr>
+                          <th>242</th><th>241</th><td class="l"><span>$$</span> </td>
+                  </tr><tr>
+                          <th>243</th><th>242</th><td class="l"><span>DECLARE </span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L249">…</a></th>
+                  <th><a href="#L248">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>249</th><th>248</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; query text;</span> </td>
+                  </tr><tr>
+                          <th>250</th><th>249</th><td class="l"><span>BEGIN</span> </td>
+                  </tr><tr>
+                          <th>251</th><th>250</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>252</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; query := 'SELECT gid,the_geom FROM ' ||</span> </td>
+                      </tr><tr>
+                        <th>253</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'shortest_path(''SELECT gid as id, source::integer, target::integer, ' || </span> </td>
+                      </tr><tr>
+                        <th>254</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'length::double precision as cost ';</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>251</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; query := 'SELECT a.edge_id as gid,'||quote_ident(geomcol)||' as the_geom FROM ' ||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>252</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'shortest_path(''SELECT source ,id,&nbsp; target, ' || quote_ident(costcol)||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>253</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ' as cost ';</span> </td>
+                      </tr><tr>
+                        <th> </th><th>254</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr><tr>
+                        <th> </th><th>255</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>256</th><td class="r"><span>--&nbsp; &nbsp; &nbsp; query := 'SELECT gid,the_geom FROM ' ||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>257</th><td class="r"><span>--&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'shortest_path(''SELECT gid as id, source::integer, target::integer, ' || </span> </td>
+                      </tr><tr>
+                        <th> </th><th>258</th><td class="r"><span>--&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'length::double precision as cost ';</span> </td>
+                      </tr><tr>
+                        <th> </th><th>259</th><td class="r"><span>--&nbsp; &nbsp; &nbsp; query := query || 'FROM ' ||&nbsp; quote_ident(geom_table) || ''', ' || quote_literal(source) || </span> </td>
+                      </tr><tr>
+                        <th> </th><th>260</th><td class="r"><span>--&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ' , ' || quote_literal(target) || ' , '''||dir||''', '''||rc||'''), ' || </span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>261</th><td class="r"><span>--&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;quote_ident(geom_table) || ' where edge_id = gid ';</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>255</th><th>262</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>256</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; IF rc THEN query := query || ', reverse_cost ';&nbsp; </span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>263</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; IF rc THEN </span> </td>
+                      </tr><tr>
+                        <th> </th><th>264</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; query := query || </span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>265</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ','||quote_ident(rcostcol)||' as reverse_cost ';</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>257</th><th>266</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; END IF;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>258</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr><tr>
+                        <th>259</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; query := query || 'FROM ' ||&nbsp; quote_ident(geom_table) || ''', ' || quote_literal(source) || </span> </td>
+                      </tr><tr>
+                        <th>260</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ' , ' || quote_literal(target) || ' , '''||dir||''', '''||rc||'''), ' || </span> </td>
+                      </tr><tr>
+                        <th>261</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; quote_ident(geom_table) || ' where edge_id = gid ';</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>267</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; query := query || ' from '||quote_ident(geom_table)||'_edges'','||quote_literal(source)||','||quote_literal(target)||','||dir||','||rc||') a, ' || quote_ident(geom_table)||' b where a.edge_id = b.edge_id ';</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>268</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>262</th><th>269</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>263</th><th>270</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; FOR path_result IN EXECUTE query</span> </td>
+                  </tr><tr>
+                          <th>264</th><th>271</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; LOOP</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L279">…</a></th>
+                  <th><a href="#L286">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>279</th><th>286</th><td class="l"><span>--&nbsp; the result as a set of (gid integer, the_geom gemoetry) records.</span> </td>
+                  </tr><tr>
+                          <th>280</th><th>287</th><td class="l"><span>-----------------------------------------------------------------------</span> </td>
+                  </tr><tr>
+                          <th>281</th><th>288</th><td class="l"><span>CREATE OR REPLACE FUNCTION shortest_path_as_geometry(geom_table varchar, </span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>282</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp;geom_source anyelement,geom_target anyelement) </span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>289</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp;geom_source anyelement,geom_target anyelement)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>290</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp;RETURNS SETOF GEOMS AS </span> </td>
+                      </tr><tr>
+                        <th> </th><th>291</th><td class="r"><span>$$</span> </td>
+                      </tr><tr>
+                        <th> </th><th>292</th><td class="r"><span>select * from shortest_path_as_geometry($1,$2,$3,'the_geom')</span> </td>
+                      </tr><tr>
+                        <th> </th><th>293</th><td class="r"><span>$$</span> </td>
+                      </tr><tr>
+                        <th> </th><th>294</th><td class="r"><span>LANGUAGE 'sql' VOLATILE STRICT; </span> </td>
+                      </tr><tr>
+                        <th> </th><th>295</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>296</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>297</th><td class="r"><span>CREATE OR REPLACE FUNCTION shortest_path_as_geometry(geom_table varchar, </span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>298</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp;geom_source anyelement,geom_target anyelement,geomcol varchar,costcol varchar) </span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>283</th><th>299</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp;RETURNS SETOF GEOMS AS</span> </td>
+                  </tr><tr>
+                          <th>284</th><th>300</th><td class="l"><span>$$</span> </td>
+                  </tr><tr>
+                          <th>285</th><th>301</th><td class="l"><span>DECLARE </span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L292">…</a></th>
+                  <th><a href="#L308">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>292</th><th>308</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; geom geoms;</span> </td>
+                  </tr><tr>
+                          <th>293</th><th>309</th><td class="l"><span>BEGIN</span> </td>
+                  </tr><tr>
+                          <th>294</th><th>310</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; FOR r IN EXECUTE 'SELECT id FROM ' || quote_ident(geom_table) || </span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>295</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'_vertices WHERE <del>geom_</del>id = ' || quote_literal(geom_source) LOOP</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>311</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'_vertices WHERE <ins></ins>id = ' || quote_literal(geom_source) LOOP</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>296</th><th>312</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>297</th><th>313</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; source = r.id;</span> </td>
+                  </tr><tr>
+                          <th>298</th><th>314</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L303">…</a></th>
+                  <th><a href="#L319">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>303</th><th>319</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; END IF;</span> </td>
+                  </tr><tr>
+                          <th>304</th><th>320</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>305</th><th>321</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; FOR r IN EXECUTE 'SELECT id FROM ' || quote_ident(geom_table) || </span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>306</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '_vertices WHERE <del>geom_</del>id = ' || quote_literal(geom_target) LOOP</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>322</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '_vertices WHERE <ins></ins>id = ' || quote_literal(geom_target) LOOP</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>307</th><th>323</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; target = r.id;</span> </td>
+                  </tr><tr>
+                          <th>308</th><th>324</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; END LOOP;</span> </td>
+                  </tr><tr>
+                          <th>309</th><th>325</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L313">…</a></th>
+                  <th><a href="#L329">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>313</th><th>329</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                  </tr><tr>
+                          <th>314</th><th>330</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; FOR geom IN SELECT * FROM </span> </td>
+                  </tr><tr>
+                          <th>315</th><th>331</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; shortest_path_as_geometry_internal_id(geom_table, </span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>316</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; source, target<del></del>) LOOP</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>332</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; source, target<ins>,geomcol,costcol</ins>) LOOP</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>317</th><th>333</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RETURN NEXT geom;</span> </td>
+                  </tr><tr>
+                          <th>318</th><th>334</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; END LOOP;</span> </td>
+                  </tr><tr>
+                          <th>319</th><th>335</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L322">…</a></th>
+                  <th><a href="#L338">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>322</th><th>338</th><td class="l"><span>$$</span> </td>
+                  </tr><tr>
+                          <th>323</th><th>339</th><td class="l"><span>LANGUAGE 'plpgsql' VOLATILE STRICT; </span> </td>
+                  </tr><tr>
+                          <th>324</th><th>340</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>325</th><th> </th><td class="l"><span></span> </td>
+                      </tr><tr>
+                        <th>326</th><th> </th><td class="l"><span></span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>341</th><td class="r"><span>--</span> </td>
+                      </tr><tr>
+                        <th> </th><th>342</th><td class="r"><span>-- Sometimes imported graphs have problems: unremedied the distances can be multiplied</span> </td>
+                      </tr><tr>
+                        <th> </th><th>343</th><td class="r"><span>-- class is the column name which determines primary precedence with lower values </span> </td>
+                      </tr><tr>
+                        <th> </th><th>344</th><td class="r"><span>-- having higher priority. Only one record is kept for each distinct geometry.</span> </td>
+                      </tr><tr>
+                        <th> </th><th>345</th><td class="r"><span>-- pkey is the unique primary key for the 'tab' geotable.</span> </td>
+                      </tr><tr>
+                        <th> </th><th>346</th><td class="r"><span>--</span> </td>
+                      </tr><tr>
+                        <th> </th><th>347</th><td class="r"><span>CREATE OR REPLACE FUNCTION remove_duplicate_geoms(tab varchar,geocol varchar,class varchar,pkey varchar)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>348</th><td class="r"><span>&nbsp; &nbsp; RETURNS void AS</span> </td>
+                      </tr><tr>
+                        <th> </th><th>349</th><td class="r"><span>$$</span> </td>
+                      </tr><tr>
+                        <th> </th><th>350</th><td class="r"><span>DECLARE</span> </td>
+                      </tr><tr>
+                        <th> </th><th>351</th><td class="r"><span>&nbsp; &nbsp; row record;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>352</th><td class="r"><span>&nbsp; &nbsp; row2 record;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>353</th><td class="r"><span>BEGIN</span> </td>
+                      </tr><tr>
+                        <th> </th><th>354</th><td class="r"><span>&nbsp; &nbsp; -- find duplicate rows having the same geometry,choose the lowest class to keep</span> </td>
+                      </tr><tr>
+                        <th> </th><th>355</th><td class="r"><span>&nbsp; &nbsp; FOR row IN EXECUTE </span> </td>
+                      </tr><tr>
+                        <th> </th><th>356</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'select astext('||quote_ident(geocol)||') as geom,min('||quote_ident(class)||') as class from '||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>357</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; quote_ident(tab)||' group by '||quote_ident(geocol)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>358</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; || ' having count('||quote_ident(class)||') &gt; 1'</span> </td>
+                      </tr><tr>
+                        <th> </th><th>359</th><td class="r"><span>&nbsp; &nbsp; LOOP</span> </td>
+                      </tr><tr>
+                        <th> </th><th>360</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -- given the lowest class for each, get the primary key of one &amp;&nbsp; delete the rest</span> </td>
+                      </tr><tr>
+                        <th> </th><th>361</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'select min('||quote_ident(pkey)||') as key from '||quote_ident(tab)||' where '||quote_ident(class)||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>362</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ' = '||row.class||' and astext('||quote_ident(geocol)||') = '''||row.geom||''' limit 1' </span> </td>
+                      </tr><tr>
+                        <th> </th><th>363</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; INTO row2;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>364</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'delete from '||quote_ident(tab)||' where astext('||quote_ident(geocol)||') = '''||row.geom||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>365</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ''' and '||quote_ident(pkey)||' != '||row2.key;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>366</th><td class="r"><span>&nbsp; &nbsp; END LOOP;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>367</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; -- don't ask me ???</span> </td>
+                      </tr><tr>
+                        <th> </th><th>368</th><td class="r"><span>&nbsp; &nbsp; EXECUTE 'delete from '||quote_ident(tab)||' where astext('||quote_ident(geocol)||') = '''||row.geom||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>369</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ''' and '||quote_ident(pkey)||' != '||row2.key;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>370</th><td class="r"><span>END;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>371</th><td class="r"><span>$$</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>372</th><td class="r"><span>LANGUAGE 'plpgsql' ;</span> </td>
+                      </tr>
+            </tbody>
+        </table>
+      </li>
+  </ul>
+</div>
+        </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="../../../raw-attachment/ticket/87/routing_core_141207.patch">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("routing_core_141207.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/87/routing_core_141207.patch by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

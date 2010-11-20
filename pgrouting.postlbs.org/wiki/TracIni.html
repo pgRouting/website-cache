@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracIni by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracIni – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/TracIni?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/TracIni?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/TracIni?action=diff&amp;version=3">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h1 id="TheTracConfigurationFile">The Trac Configuration File</h1>
+<p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ul><li class="False"><a class="False" href="TracGuide.html">Index</a></li><li class="False"><a class="False" href="TracInstall.html">Installation</a></li><li class="False"><a class="False" href="TracInterfaceCustomization.html">Customization</a></li><li class="False"><a class="False" href="TracPlugins.html">Plugins</a></li><li class="False"><a class="False" href="TracUpgrade.html">Upgrading</a></li><li class="active"><a class="False" href="TracIni.html">Configuration</a></li><li class="False"><a class="False" href="TracAdmin.html">Administration</a></li><li class="False"><a class="False" href="TracBackup.html">Backup</a></li><li class="False"><a class="False" href="TracLogging.html">Logging</a></li><li class="False"><a class="False" href="TracPermissions.html">Permissions</a></li><li class="False"><a class="False" href="TracWiki.html">The Wiki</a></li><li class="False"><a class="False" href="WikiFormatting.html">Wiki Formatting</a></li><li class="False"><a class="False" href="TracTimeline.html">Timeline</a></li><li class="False"><a class="False" href="TracBrowser.html">Repository Browser</a></li><li class="False"><a class="False" href="TracRevisionLog.html">Revision Log</a></li><li class="False"><a class="False" href="TracChangeset.html">Changesets</a></li><li class="False"><a class="False" href="TracTickets.html">Tickets</a></li><li class="False"><a class="False" href="TracWorkflow.html">Workflow</a></li><li class="False"><a class="False" href="TracRoadmap.html">Roadmap</a></li><li class="False"><a class="False" href="TracQuery.html">Ticket Queries</a></li><li class="False"><a class="False" href="TracReports.html">Reports</a></li><li class="False"><a class="False" href="TracRss.html">RSS Support</a></li><li class="False"><a class="False" href="TracNotification.html">Notification</a></li></ul></div><p>
+</p>
+<p>
+Trac configuration is done by editing the <strong><tt>trac.ini</tt></strong> config file, located in <tt>&lt;projectenv&gt;/conf/trac.ini</tt>.  Changes to the configuration are usually reflected immediately, though changes to the <tt>[components]</tt> or <tt>[logging]</tt> sections will require restarting the web server. You may also need to restart the web server after creating a global configuration file when none was previously present.
+</p>
+<h2 id="GlobalConfiguration">Global Configuration</h2>
+<p>
+In versions prior to 0.11, the global configuration was by default located in <tt>$prefix/share/trac/conf/trac.ini</tt> or sometimes /etc/trac/trac.ini depending on the distribution. If you're upgrading, you may want to specify that file to inherit from.
+Literally, when you're upgrading to 0.11, you have to add an <tt>inherit</tt>-section to your project's <tt>trac.ini</tt> file. Additionally you have to move your customized templates and common images from <tt>$prefix/share/trac/...</tt> to the new location.
+</p>
+<p>
+Global options will be merged with the environment-specific options, where local options override global options. The options file is specified as follows:
+</p>
+<pre class="wiki">[inherit]
+file = /usr/share/trac/conf/trac.ini
+</pre><p>
+Note that you can also specify a global option file when creating a new project,  by adding the option
+<tt>--inherit=/path/to/global/options</tt> to <a class="wiki" href="TracAdmin.html">trac-admin</a>'s <tt>initenv</tt> command.
+If you would not do this but nevertheless intend to use a global option file with your new environment, 
+you would have to go through the newly generated conf/trac.ini file and delete the entries that would
+otherwise override those set in the global file.
+</p>
+<h2 id="Reference">Reference</h2>
+<p>
+This is a brief reference of available configuration options.
+</p>
+<p>
+</p><div class="tracini"><h2 id="account-manager-section">[account-manager]</h2><table class="wiki"><tbody><tr><td><tt>account_changes_notify_addresses</tt></td><td>List of email addresses that get notified of user changes, ie,
+        new user, password change and delete user.</td></tr><tr><td><tt>authentication_url</tt></td><td></td></tr><tr><td><tt>force_passwd_change</tt></td><td>Forge the user to change password when it's reset.</td></tr><tr><td><tt>generated_password_length</tt></td><td>Length of the randomly-generated passwords created when resetting the password for an account.</td></tr><tr><td><tt>hash_method</tt></td><td></td></tr><tr><td><tt>htdigest_realm</tt></td><td></td></tr><tr><td><tt>notify_actions</tt></td><td>Comma separated list of actions to notify of.
+        Available actions 'new', 'change', 'delete'.</td></tr><tr><td><tt>password_file</tt></td><td>Path to the users file.  Leave blank to locate the users file by reading svnserve.conf</td></tr><tr><td><tt>password_format</tt></td><td></td></tr><tr><td><tt>password_store</tt></td><td></td></tr></tbody></table><h2 id="attachment-section">[attachment]</h2><table class="wiki"><tbody><tr><td><tt>max_size</tt></td><td>Maximum allowed file size (in bytes) for ticket and wiki
+        attachments.</td></tr><tr><td><tt>render_unsafe_content</tt></td><td>Whether attachments should be rendered in the browser, or
+        only made downloadable.
+        Pretty much any file may be interpreted as HTML by the browser,
+        which allows a malicious user to attach a file containing cross-site
+        scripting attacks.
+        For public sites where anonymous users can create attachments it is
+        recommended to leave this option disabled (which is the default).</td></tr></tbody></table><h2 id="browser-section">[browser]</h2><table class="wiki"><tbody><tr><td><tt>color_scale</tt></td><td>Enable colorization of the <i>age</i> column.
+        This uses the same color scale as the source code annotation:
+        blue is older, red is newer.
+        (<i>since 0.11</i>)</td></tr><tr><td><tt>downloadable_paths</tt></td><td>List of repository paths that can be downloaded.
+        Leave the option empty if you want to disable all downloads, otherwise
+        set it to a comma-separated list of authorized paths (those paths are
+        glob patterns, i.e. "*" can be used as a wild card)
+        (<i>since 0.10</i>)</td></tr><tr><td><tt>hide_properties</tt></td><td>Comma-separated list of version control properties to hide from
+        the repository browser.
+        (<i>since 0.9</i>)</td></tr><tr><td><tt>intermediate_color</tt></td><td>(r,g,b) color triple to use for the color corresponding
+        to the intermediate color, if two linear interpolations are used
+        for the color scale (see <tt>intermediate_point</tt>).
+        If not set, the intermediate color between <tt>oldest_color</tt> and
+        <tt>newest_color</tt> will be used.
+        (<i>since 0.11</i>)</td></tr><tr><td><tt>intermediate_point</tt></td><td>If set to a value between 0 and 1 (exclusive), this will be the
+        point chosen to set the <tt>intermediate_color</tt> for interpolating
+        the color value.
+        (<i>since 0.11</i>)</td></tr><tr><td><tt>newest_color</tt></td><td>(r,g,b) color triple to use for the color corresponding
+        to the newest color, for the color scale used in <i>blame</i> or
+        the browser <i>age</i> column if <tt>color_scale</tt> is enabled.
+        (<i>since 0.11</i>)</td></tr><tr><td><tt>oldest_color</tt></td><td>(r,g,b) color triple to use for the color corresponding
+        to the oldest color, for the color scale used in <i>blame</i> or
+        the browser <i>age</i> column if <tt>color_scale</tt> is enabled.
+        (<i>since 0.11</i>)</td></tr><tr><td><tt>oneliner_properties</tt></td><td>Comma-separated list of version control properties to render
+        as oneliner wiki content in the repository browser.
+        (<i>since 0.11</i>)</td></tr><tr><td><tt>render_unsafe_content</tt></td><td>Whether raw files should be rendered in the browser, or only made
+        downloadable.
+        Pretty much any file may be interpreted as HTML by the browser,
+        which allows a malicious user to create a file containing cross-site
+        scripting attacks.
+        For open repositories where anyone can check-in a file, it is
+        recommended to leave this option disabled (which is the default).</td></tr><tr><td><tt>wiki_properties</tt></td><td>Comma-separated list of version control properties to render
+        as wiki content in the repository browser.
+        (<i>since 0.11</i>)</td></tr></tbody></table><h2 id="changeset-section">[changeset]</h2><table class="wiki"><tbody><tr><td><tt>max_diff_bytes</tt></td><td>Maximum total size in bytes of the modified files (their old size
+        plus their new size) for which the changeset view will attempt to show
+        the diffs inlined (<i>since 0.10</i>).</td></tr><tr><td><tt>max_diff_files</tt></td><td>Maximum number of modified files for which the changeset view will
+        attempt to show the diffs inlined (<i>since 0.10</i>).</td></tr><tr><td><tt>wiki_format_messages</tt></td><td>Whether wiki formatting should be applied to changeset messages.
+        If this option is disabled, changeset messages will be rendered as
+        pre-formatted text.</td></tr></tbody></table><h2 id="discussion-section">[discussion]</h2><table class="wiki"><tbody><tr><td><tt>default_message_display</tt></td><td>Default display mode for topic messages list.</td></tr><tr><td><tt>default_topic_display</tt></td><td>Default display mode for forum topics list.</td></tr><tr><td><tt>forum_sort</tt></td><td>Column by which will be sorted forum lists. Possible values are: id group name subject time moderators description topics replies lasttopic lastreply</td></tr><tr><td><tt>forum_sort_direction</tt></td><td>Direction of forum lists sorting. Possible values are: asc desc.</td></tr><tr><td><tt>messages_per_page</tt></td><td>Number of messages per page in message list.</td></tr><tr><td><tt>title</tt></td><td>Main navigation bar button title.</td></tr><tr><td><tt>topic_sort</tt></td><td>Column by which will be sorted topic lists. Possible values are: id forum subject time author body replies lastreply.</td></tr><tr><td><tt>topic_sort_direction</tt></td><td>Direction of topic lists sorting. Possible values are: asc desc.</td></tr><tr><td><tt>topics_per_page</tt></td><td>Number of topics per page in topic list.</td></tr></tbody></table><h2 id="google.analytics-section">[google.analytics]</h2><table class="wiki"><tbody><tr><td><tt>admin_logging</tt></td><td>Disabling this option will prevent all logged in admins from showing
+        up on your Google Analytics reports.</td></tr><tr><td><tt>authenticated_logging</tt></td><td>Disabling this option will prevent all authenticated users from
+        showing up on your Google Analytics reports.</td></tr><tr><td><tt>extensions</tt></td><td>Enter any extensions of files you would like to be tracked as a
+        download. For example to track all MP3s and PDFs enter:
+            mp3,pdf
+        Outbound link tracking must be enabled for downloads to be tracked.</td></tr><tr><td><tt>google_external_path</tt></td><td>This will be the path shown on Google Analytics
+        regarding external links. Consider the following link:
+          <a class="ext-link" href="http://trac.edgewall.org/"><span class="icon"> </span>http://trac.edgewall.org/</a>"
+        The above link will be shown as for example:
+          /external/trac.edgewall.org/
+        This way you will be able to track outgoing links.
+        Outbound link tracking must be enabled for external links to be
+        tracked.</td></tr><tr><td><tt>outbound_link_tracking</tt></td><td>Disabling this option will turn off the tracking of outbound links.
+        It's recommended not to disable this option unless you're a privacy
+        advocate (now why would you be using Google Analytics in the first
+        place?) or it's causing some kind of weird issue.</td></tr><tr><td><tt>tracking_domain_name</tt></td><td>If you're tracking multiple subdomains with the same Google Analytics
+        profile, like what's talked about in:
+            <a class="ext-link" href="https://www.google.com/support/googleanalytics/bin/answer.py?answer=55524"><span class="icon"> </span>https://www.google.com/support/googleanalytics/bin/answer.py?answer=55524</a>
+        enter your main domain here. For more info, please visit the previous
+        link.</td></tr><tr><td><tt>uid</tt></td><td>Google Analytics' UID.
+        The UID is needed for Google Analytics to log your website stats.
+        Your UID can be found by looking in the <a class="missing wiki">JavaScript?</a> Google Analytics
+        gives you to put on your page. Look for your UID in between
+        <tt>var pageTracker = _gat._getTracker("UA-111111-11");</tt> in the javascript.
+        In this example you would put UA-11111-1 in the UID box.</td></tr></tbody></table><h2 id="header_logo-section">[header_logo]</h2><table class="wiki"><tbody><tr><td><tt>alt</tt></td><td>Alternative text for the header logo.</td></tr><tr><td><tt>height</tt></td><td>Height of the header logo image in pixels.</td></tr><tr><td><tt>link</tt></td><td>URL to link to from header logo.</td></tr><tr><td><tt>src</tt></td><td>URL of the image to use as header logo.</td></tr><tr><td><tt>width</tt></td><td>Width of the header logo image in pixels.</td></tr></tbody></table><h2 id="inherit-section">[inherit]</h2><table class="wiki"><tbody><tr><td><tt>plugins_dir</tt></td><td>Path of the directory containing additional plugins.
+        Plugins in that directory are loaded in addition to those in the
+        directory of the environment <tt>plugins</tt>, with this one taking
+        precedence.
+        (<i>since 0.11</i>)</td></tr><tr><td><tt>templates_dir</tt></td><td>Path to the shared templates directory.
+        Templates in that directory are loaded in addition to those in the
+        environments <tt>templates</tt> directory, but the latter take precedence.
+        (<i>since 0.11</i>)</td></tr></tbody></table><h2 id="logging-section">[logging]</h2><table class="wiki"><tbody><tr><td><tt>log_file</tt></td><td>If <tt>log_type</tt> is <tt>file</tt>, this should be a path to the log-file.</td></tr><tr><td><tt>log_format</tt></td><td>Custom logging format.
+        If nothing is set, the following will be used:
+        Trac[$(module)s] $(levelname)s: $(message)s
+        In addition to regular key names supported by the Python logger library
+        library (see <a class="ext-link" href="http://docs.python.org/lib/node422.html"><span class="icon"> </span>http://docs.python.org/lib/node422.html</a>), one could use:
+         - $(path)s     the path for the current environment
+         - $(basename)s the last path component of the current environment
+         - $(project)s  the project name
+         Note the usage of <tt>$(...)s</tt> instead of <tt>%(...)s</tt> as the latter form
+         would be interpreted by the <a class="missing wiki">ConfigParser?</a> itself.
+         Example:
+         ($(thread)d) Trac[$(basename)s:$(module)s] $(levelname)s: $(message)s
+         (since 0.10.5)</td></tr><tr><td><tt>log_level</tt></td><td>Level of verbosity in log.
+        Should be one of (<tt>CRITICAL</tt>, <tt>ERROR</tt>, <tt>WARN</tt>, <tt>INFO</tt>, <tt>DEBUG</tt>).</td></tr><tr><td><tt>log_type</tt></td><td>Logging facility to use.
+        Should be one of (<tt>none</tt>, <tt>file</tt>, <tt>stderr</tt>, <tt>syslog</tt>, <tt>winlog</tt>).</td></tr></tbody></table><h2 id="milestone-section">[milestone]</h2><table class="wiki"><tbody><tr><td><tt>stats_provider</tt></td><td>Name of the component implementing <tt>ITicketGroupStatsProvider</tt>,
+        which is used to collect statistics on groups of tickets for display
+        in the milestone views.</td></tr></tbody></table><h2 id="mimeviewer-section">[mimeviewer]</h2><table class="wiki"><tbody><tr><td><tt>enscript_modes</tt></td><td>List of additional MIME types known by Enscript.
+        For each, a tuple <tt>mimetype:mode:quality</tt> has to be
+        specified, where <tt>mimetype</tt> is the MIME type,
+        <tt>mode</tt> is the corresponding Enscript mode to be used
+        for the conversion and <tt>quality</tt> is the quality ratio
+        associated to this conversion.
+        That can also be used to override the default
+        quality ratio used by the Enscript render, which is 2
+        (<i>since 0.10</i>).</td></tr><tr><td><tt>enscript_path</tt></td><td>Path to the Enscript executable.</td></tr><tr><td><tt>max_preview_size</tt></td><td>Maximum file size for HTML preview. (<i>since 0.9</i>)</td></tr><tr><td><tt>mime_map</tt></td><td>List of additional MIME types and keyword mappings.
+        Mappings are comma-separated, and for each MIME type,
+        there's a colon (":") separated list of associated keywords
+        or file extensions. (<i>since 0.10</i>)</td></tr><tr><td><tt>php_path</tt></td><td>Path to the PHP executable (<i>since 0.9</i>).</td></tr><tr><td><tt>tab_width</tt></td><td>Displayed tab width in file preview. (<i>since 0.9</i>)</td></tr><tr><td><tt>treat_as_binary</tt></td><td>Comma-separated list of MIME types that should be treated as
+        binary data. (<i>since 0.11.5</i>)</td></tr></tbody></table><h2 id="notification-section">[notification]</h2><table class="wiki"><tbody><tr><td><tt>admit_domains</tt></td><td>Comma-separated list of domains that should be considered as
+        valid for email addresses (such as localdomain)</td></tr><tr><td><tt>always_notify_owner</tt></td><td>Always send notifications to the ticket owner (<i>since 0.9</i>).</td></tr><tr><td><tt>always_notify_reporter</tt></td><td>Always send notifications to any address in the <i>reporter</i>
+        field.</td></tr><tr><td><tt>always_notify_updater</tt></td><td>Always send notifications to the person who causes the ticket
+        property change and to any previous updater of that ticket.</td></tr><tr><td><tt>ignore_domains</tt></td><td>Comma-separated list of domains that should not be considered
+           part of email addresses (for usernames with Kerberos domains)</td></tr><tr><td><tt>mime_encoding</tt></td><td>Specifies the MIME encoding scheme for emails.
+        Valid options are 'base64' for Base64 encoding, 'qp' for
+        Quoted-Printable, and 'none' for no encoding, in which case mails will
+        be sent as 7bit if the content is all ASCII, or 8bit otherwise.
+        (<i>since 0.10</i>)</td></tr><tr><td><tt>smtp_always_bcc</tt></td><td>Email address(es) to always send notifications to,
+           addresses do not appear publicly (Bcc:). (<i>since 0.10</i>).</td></tr><tr><td><tt>smtp_always_cc</tt></td><td>Email address(es) to always send notifications to,
+           addresses can be seen by all recipients (Cc:).</td></tr><tr><td><tt>smtp_default_domain</tt></td><td>Default host/domain to append to address that do not specify one</td></tr><tr><td><tt>smtp_enabled</tt></td><td>Enable SMTP (email) notification.</td></tr><tr><td><tt>smtp_from</tt></td><td>Sender address to use in notification emails.</td></tr><tr><td><tt>smtp_from_name</tt></td><td>Sender name to use in notification emails.</td></tr><tr><td><tt>smtp_password</tt></td><td>Password for SMTP server. (<i>since 0.9</i>).</td></tr><tr><td><tt>smtp_port</tt></td><td>SMTP server port to use for email notification.</td></tr><tr><td><tt>smtp_replyto</tt></td><td>Reply-To address to use in notification emails.</td></tr><tr><td><tt>smtp_server</tt></td><td>SMTP server hostname to use for email notifications.</td></tr><tr><td><tt>smtp_subject_prefix</tt></td><td>Text to prepend to subject line of notification emails.
+        If the setting is not defined, then the [$project_name] prefix.
+        If no prefix is desired, then specifying an empty option
+        will disable it.(<i>since 0.10.1</i>).</td></tr><tr><td><tt>smtp_user</tt></td><td>Username for SMTP server. (<i>since 0.9</i>).</td></tr><tr><td><tt>ticket_subject_template</tt></td><td>A Genshi text template snippet used to get the notification subject.
+        (since 0.11)</td></tr><tr><td><tt>use_public_cc</tt></td><td>Recipients can see email addresses of other CC'ed recipients.
+        If this option is disabled (the default), recipients are put on BCC
+        (<i>since 0.10</i>).</td></tr><tr><td><tt>use_short_addr</tt></td><td>Permit email address without a host/domain (i.e. username only)
+        The SMTP server should accept those addresses, and either append
+        a FQDN or use local delivery (<i>since 0.10</i>).</td></tr><tr><td><tt>use_tls</tt></td><td>Use SSL/TLS to send notifications (<i>since 0.10</i>).</td></tr></tbody></table><h2 id="project-section">[project]</h2><table class="wiki"><tbody><tr><td><tt>admin</tt></td><td>E-Mail address of the project's administrator.</td></tr><tr><td><tt>admin_trac_url</tt></td><td>Base URL of a Trac instance where errors in this Trac should be
+        reported.
+        This can be an absolute or relative URL, or '.' to reference this
+        Trac instance. An empty value will disable the reporting buttons.
+        (<i>since 0.11.3</i>)</td></tr><tr><td><tt>descr</tt></td><td>Short description of the project.</td></tr><tr><td><tt>footer</tt></td><td>Page footer text (right-aligned).</td></tr><tr><td><tt>icon</tt></td><td>URL of the icon of the project.</td></tr><tr><td><tt>name</tt></td><td>Name of the project.</td></tr><tr><td><tt>url</tt></td><td>URL of the main project web site, usually the website in which
+        the <tt>base_url</tt> resides.</td></tr></tbody></table><h2 id="query-section">[query]</h2><table class="wiki"><tbody><tr><td><tt>default_anonymous_query</tt></td><td>The default query for anonymous users. The query is either
+            in <a class="wiki" href="TracQuery.html#QueryLanguage">query language</a> syntax, or a URL query
+            string starting with <tt>?</tt> as used in <tt>query:</tt>
+            <a class="wiki" href="TracQuery.html#UsingTracLinks">Trac links</a>.
+            (<i>since 0.11.2</i>)</td></tr><tr><td><tt>default_query</tt></td><td>The default query for authenticated users. The query is either
+            in <a class="wiki" href="TracQuery.html#QueryLanguage">query language</a> syntax, or a URL query
+            string starting with <tt>?</tt> as used in <tt>query:</tt>
+            <a class="wiki" href="TracQuery.html#UsingTracLinks">Trac links</a>.
+            (<i>since 0.11.2</i>)</td></tr><tr><td><tt>items_per_page</tt></td><td>Number of tickets displayed per page in ticket queries,
+        by default (<i>since 0.11</i>)</td></tr></tbody></table><h2 id="report-section">[report]</h2><table class="wiki"><tbody><tr><td><tt>items_per_page</tt></td><td>Number of tickets displayed per page in ticket reports,
+        by default (<i>since 0.11</i>)</td></tr><tr><td><tt>items_per_page_rss</tt></td><td>Number of tickets displayed in the rss feeds for reports
+        (<i>since 0.11</i>)</td></tr></tbody></table><h2 id="revisionlog-section">[revisionlog]</h2><table class="wiki"><tbody><tr><td><tt>default_log_limit</tt></td><td>Default value for the limit argument in the <a class="wiki" href="TracRevisionLog.html">TracRevisionLog</a>
+        (<i>since 0.11</i>).</td></tr></tbody></table><h2 id="roadmap-section">[roadmap]</h2><table class="wiki"><tbody><tr><td><tt>stats_provider</tt></td><td>Name of the component implementing <tt>ITicketGroupStatsProvider</tt>,
+        which is used to collect statistics on groups of tickets for display
+        in the roadmap views.</td></tr></tbody></table><h2 id="search-section">[search]</h2><table class="wiki"><tbody><tr><td><tt>min_query_length</tt></td><td>Minimum length of query string allowed when performing a search.</td></tr></tbody></table><h2 id="spam-filter-section">[spam-filter]</h2><table class="wiki"><tbody><tr><td><tt>akismet_api_key</tt></td><td>Wordpress key required to use the Akismet API.</td></tr><tr><td><tt>akismet_api_url</tt></td><td>URL of the Akismet service.</td></tr><tr><td><tt>akismet_karma</tt></td><td>By how many points an Akismet reject impacts the overall karma of
+        a submission.</td></tr><tr><td><tt>attachment_sample_size</tt></td><td>The number of bytes from an attachment to pass through the spam
+        filters.</td></tr><tr><td><tt>extlinks_karma</tt></td><td>By how many points too many external links in a submission impact
+        the overall score.</td></tr><tr><td><tt>ip_blacklist_karma</tt></td><td>By how many points blacklisting by a single server impacts the
+        overall karma of a submission.</td></tr><tr><td><tt>ip_blacklist_servers</tt></td><td>Servers used for IP blacklisting.</td></tr><tr><td><tt>ip_throttle_karma</tt></td><td>By how many points exceeding the configured maximum number of posts
+        per hour impacts the overall score.</td></tr><tr><td><tt>logging_enabled</tt></td><td>Whether all content submissions and spam filtering activity should
+        be logged to the database.</td></tr><tr><td><tt>max_external_links</tt></td><td>The maximum number of external links allowed in a submission until
+        that submission gets negative karma.</td></tr><tr><td><tt>max_posts_by_ip</tt></td><td>The maximum allowed number of submissions per hour form a single IP
+        address. If this limit is exceeded, subsequent permissions get negative
+        karma.</td></tr><tr><td><tt>min_karma</tt></td><td>The minimum score required for a submission to be allowed.</td></tr><tr><td><tt>purge_age</tt></td><td>The number of days after which log entries should be purged.</td></tr><tr><td><tt>regex_karma</tt></td><td>By how many points a match with a pattern on the <a class="missing wiki">BadContent?</a> page
+        impacts the overall karma of a submission.</td></tr><tr><td><tt>session_karma</tt></td><td>By how many points an existing and configured session improves the
+        overall karma of the submission. A third of the points is granted for
+        having an existing session at all, the other two thirds are granted
+        when the user has his name and/or email address set in the session,
+        respectively.</td></tr><tr><td><tt>trust_authenticated</tt></td><td>Whether content submissions by authenticated users should be trusted
+        without checking for potential spam or other abuse.</td></tr></tbody></table><h2 id="svn-section">[svn]</h2><table class="wiki"><tbody><tr><td><tt>branches</tt></td><td>List of paths categorized as <i>branches</i>.
+        If a path ends with '*', then all the directory entries found
+        below that path will be included.</td></tr><tr><td><tt>tags</tt></td><td>List of paths categorized as <i>tags</i>.
+        If a path ends with '*', then all the directory entries found
+        below that path will be included.</td></tr></tbody></table><h2 id="ticket-section">[ticket]</h2><table class="wiki"><tbody><tr><td><tt>default_cc</tt></td><td>Default cc: list for newly created tickets.</td></tr><tr><td><tt>default_component</tt></td><td>Default component for newly created tickets.</td></tr><tr><td><tt>default_description</tt></td><td>Default description for newly created tickets.</td></tr><tr><td><tt>default_keywords</tt></td><td>Default keywords for newly created tickets.</td></tr><tr><td><tt>default_milestone</tt></td><td>Default milestone for newly created tickets.</td></tr><tr><td><tt>default_owner</tt></td><td>Default owner for newly created tickets.</td></tr><tr><td><tt>default_priority</tt></td><td>Default priority for newly created tickets.</td></tr><tr><td><tt>default_resolution</tt></td><td>Default resolution for resolving (closing) tickets
+        (<i>since 0.11</i>).</td></tr><tr><td><tt>default_severity</tt></td><td>Default severity for newly created tickets.</td></tr><tr><td><tt>default_summary</tt></td><td>Default summary (title) for newly created tickets.</td></tr><tr><td><tt>default_type</tt></td><td>Default type for newly created tickets (<i>since 0.9</i>).</td></tr><tr><td><tt>default_version</tt></td><td>Default version for newly created tickets.</td></tr><tr><td><tt>max_comment_size</tt></td><td>Don't accept tickets with a too big comment.
+        (<i>since 0.11.2</i>)</td></tr><tr><td><tt>max_description_size</tt></td><td>Don't accept tickets with a too big description.
+        (<i>since 0.11</i>).</td></tr><tr><td><tt>preserve_newlines</tt></td><td>Whether Wiki formatter should respect the new lines present
+        in the Wiki text.
+        If set to 'default', this is equivalent to 'yes' for new environments
+        but keeps the old behavior for upgraded environments (i.e. 'no').
+        (<i>since 0.11</i>).</td></tr><tr><td><tt>restrict_owner</tt></td><td>Make the owner field of tickets use a drop-down menu. See
+        <a class="wiki" href="TracTickets.html#Assign-toasDrop-DownList">Assign-to as Drop-Down List</a>
+        (<i>since 0.9</i>).</td></tr><tr><td><tt>workflow</tt></td><td>Ordered list of workflow controllers to use for ticket actions
+            (<i>since 0.11</i>).</td></tr></tbody></table><h2 id="timeline-section">[timeline]</h2><table class="wiki"><tbody><tr><td><tt>abbreviated_messages</tt></td><td>Whether wiki-formatted event messages should be truncated or not.
+        This only affects the default rendering, and can be overriden by
+        specific event providers, see their own documentation.
+        (<i>Since 0.11</i>)</td></tr><tr><td><tt>changeset_collapse_events</tt></td><td>Whether consecutive changesets from the same author having
+        exactly the same message should be presented as one event.
+        That event will link to the range of changesets in the log view.
+        (<i>since 0.11</i>)</td></tr><tr><td><tt>changeset_long_messages</tt></td><td>Whether wiki-formatted changeset messages should be multiline or not.
+        If this option is not specified or is false and <tt>wiki_format_messages</tt>
+        is set to true, changeset messages will be single line only, losing
+        some formatting (bullet points, etc).</td></tr><tr><td><tt>changeset_show_files</tt></td><td>Number of files to show (<tt>-1</tt> for unlimited, <tt>0</tt> to disable).
+        This can also be <tt>location</tt>, for showing the common prefix for the
+        changed files. (since 0.11).</td></tr><tr><td><tt>default_daysback</tt></td><td>Default number of days displayed in the Timeline, in days.
+        (<i>since 0.9.</i>)</td></tr><tr><td><tt>max_daysback</tt></td><td>Maximum number of days (-1 for unlimited) displayable in the
+        Timeline. (<i>since 0.11</i>)</td></tr><tr><td><tt>newticket_formatter</tt></td><td>Which formatter flavor (e.g. 'html' or 'oneliner') should be
+        used when presenting the description for new tickets.
+        If 'oneliner', the [timeline] abbreviated_messages option applies.
+        (<i>since 0.11</i>).</td></tr><tr><td><tt>ticket_show_details</tt></td><td>Enable the display of all ticket changes in the timeline, not only
+        open / close operations (<i>since 0.9</i>).</td></tr></tbody></table><h2 id="trac-section">[trac]</h2><table class="wiki"><tbody><tr><td><tt>authz_file</tt></td><td>Path to Subversion
+        <a class="ext-link" href="http://svnbook.red-bean.com/en/1.1/ch06s04.html#svn-ch-6-sect-4.4.2"><span class="icon"> </span>authorization (authz) file</a></td></tr><tr><td><tt>authz_module_name</tt></td><td>The module prefix used in the authz_file.</td></tr><tr><td><tt>auto_reload</tt></td><td>Automatically reload template files after modification.</td></tr><tr><td><tt>backup_dir</tt></td><td>Database backup location</td></tr><tr><td><tt>base_url</tt></td><td>Reference URL for the Trac deployment.
+        This is the base URL that will be used when producing documents that
+        will be used outside of the web browsing context, like for example
+        when inserting URLs pointing to Trac resources in notification
+        e-mails.</td></tr><tr><td><tt>check_auth_ip</tt></td><td>Whether the IP address of the user should be checked for
+         authentication (<i>since 0.9</i>).</td></tr><tr><td><tt>database</tt></td><td>Database connection
+        <a class="wiki" href="TracEnvironment.html#DatabaseConnectionStrings">string</a> for this
+        project</td></tr><tr><td><tt>debug_sql</tt></td><td>Show the SQL queries in the Trac log, at DEBUG level.
+        <i>(Since 0.11.5)</i></td></tr><tr><td><tt>default_charset</tt></td><td>Charset to be used when in doubt.</td></tr><tr><td><tt>default_handler</tt></td><td>Name of the component that handles requests to the base URL.
+        Options include <tt>TimelineModule</tt>, <tt>RoadmapModule</tt>, <tt>BrowserModule</tt>,
+        <tt>QueryModule</tt>, <tt>ReportModule</tt> and <tt>TicketModule</tt> (<i>since 0.9</i>).</td></tr><tr><td><tt>default_timezone</tt></td><td>The default timezone to use</td></tr><tr><td><tt>htdocs_location</tt></td><td>Base URL of the core static resources.</td></tr><tr><td><tt>ignore_auth_case</tt></td><td>Whether login names should be converted to lower case
+        (<i>since 0.9</i>).</td></tr><tr><td><tt>mainnav</tt></td><td>Order of the items to display in the <tt>mainnav</tt> navigation bar,
+           listed by IDs. See also <a class="wiki" href="TracNavigation.html">TracNavigation</a>.</td></tr><tr><td><tt>metanav</tt></td><td>Order of the items to display in the <tt>metanav</tt> navigation bar,
+           listed by IDs. See also <a class="wiki" href="TracNavigation.html">TracNavigation</a>.</td></tr><tr><td><tt>mysqldump_path</tt></td><td>Location of mysqldump for MySQL database backups</td></tr><tr><td><tt>permission_policies</tt></td><td>List of components implementing <tt>IPermissionPolicy</tt>, in the order in
+        which they will be applied. These components manage fine-grained access
+        control to Trac resources.
+        Defaults to the <a class="missing wiki">DefaultPermissionPolicy?</a> (pre-0.11 behavior) and
+        <a class="missing wiki">LegacyAttachmentPolicy?</a> (map ATTACHMENT_* permissions to realm specific
+        ones)</td></tr><tr><td><tt>permission_store</tt></td><td>Name of the component implementing <tt>IPermissionStore</tt>, which is used
+        for managing user and group permissions.</td></tr><tr><td><tt>pg_dump_path</tt></td><td>Location of pg_dump for Postgres database backups</td></tr><tr><td><tt>repository_dir</tt></td><td>Path to local repository. This can also be a relative path
+        (<i>since 0.11</i>).</td></tr><tr><td><tt>repository_type</tt></td><td>Repository connector type. (<i>since 0.10</i>)</td></tr><tr><td><tt>request_filters</tt></td><td>Ordered list of filters to apply to all requests
+            (<i>since 0.10</i>).</td></tr><tr><td><tt>secure_cookies</tt></td><td>Restrict cookies to HTTPS connections.
+        When true, set the <tt>secure</tt> flag on all cookies so that they are
+        only sent to the server on HTTPS connections. Use this if your Trac
+        instance is only accessible through HTTPS. (<i>since 0.11.2</i>)</td></tr><tr><td><tt>show_email_addresses</tt></td><td>Show email addresses instead of usernames. If false, we obfuscate
+        email addresses (<i>since 0.11</i>).</td></tr><tr><td><tt>show_ip_addresses</tt></td><td>Show IP addresses for resource edits (e.g. wiki).
+        (<i>since 0.11.3</i>).</td></tr><tr><td><tt>timeout</tt></td><td>Timeout value for database connection, in seconds.
+        Use '0' to specify <i>no timeout</i>. <i>(Since 0.11)</i></td></tr><tr><td><tt>use_base_url_for_redirect</tt></td><td>Optionally use <tt>[trac] base_url</tt> for redirects.
+        In some configurations, usually involving running Trac behind a HTTP
+        proxy, Trac can't automatically reconstruct the URL that is used to
+        access it. You may need to use this option to force Trac to use the
+        <tt>base_url</tt> setting also for redirects. This introduces the obvious
+        limitation that this environment will only be usable when accessible
+        from that URL, as redirects are frequently used. <i>(since 0.10.5)</i></td></tr></tbody></table><h2 id="wiki-section">[wiki]</h2><table class="wiki"><tbody><tr><td><tt>ignore_missing_pages</tt></td><td>Enable/disable highlighting <a class="wiki" href="CamelCase.html">CamelCase</a> links to missing pages
+        (<i>since 0.9</i>).</td></tr><tr><td><tt>max_size</tt></td><td>Maximum allowed wiki page size in bytes. (<i>since 0.11.2</i>)</td></tr><tr><td><tt>render_unsafe_content</tt></td><td>Enable/disable the use of unsafe HTML tags such as <tt>&lt;script&gt;</tt> or
+        <tt>&lt;embed&gt;</tt> with the HTML <a class="wiki" href="WikiProcessors.html">WikiProcessor</a>
+        (<i>since 0.10.4</i>).
+        For public sites where anonymous users can edit the wiki it is
+        recommended to leave this option disabled (which is the default).</td></tr><tr><td><tt>split_page_names</tt></td><td>Enable/disable splitting the <a class="wiki" href="WikiPageNames.html">WikiPageNames</a> with space characters
+        (<i>since 0.10</i>).</td></tr></tbody></table></div><p>
+</p>
+<h2 id="components-section">[components]</h2>
+<p>
+This section is used to enable or disable components provided by plugins, as well as by Trac itself. The component to enable/disable is specified via the name of the option. Whether its enabled is determined by the option value; setting the value to <tt>enabled</tt> or <tt>on</tt> will enable the component, any other value (typically <tt>disabled</tt> or <tt>off</tt>) will disable the component.
+</p>
+<p>
+The option name is either the fully qualified name of the components or the module/package prefix of the component. The former enables/disables a specific component, while the latter enables/disables any component in the specified package/module.
+</p>
+<p>
+Consider the following configuration snippet:
+</p>
+<pre class="wiki">[components]
+trac.ticket.report.ReportModule = disabled
+webadmin.* = enabled
+</pre><p>
+The first option tells Trac to disable the <a class="wiki" href="TracReports.html">report module</a>. The second option instructs Trac to enable all components in the <tt>webadmin</tt> package. Note that the trailing wildcard is required for module/package matching.
+</p>
+<p>
+See the <i>Plugins</i> page on <i>About Trac</i> to get the list of active components (requires <tt>CONFIG_VIEW</tt> <a class="wiki" href="TracPermissions.html">permissions</a>.)
+</p>
+<p>
+See also: <a class="wiki" href="TracPlugins.html">TracPlugins</a>
+</p>
+<h2 id="ticket-custom-section">[ticket-custom]</h2>
+<p>
+In this section, you can define additional fields for tickets. See <a class="wiki" href="TracTicketsCustomFields.html">TracTicketsCustomFields</a> for more details.
+</p>
+<h2 id="ticket-workflow-section">[ticket-workflow]</h2>
+<p>
+<i>(since 0.11)</i>
+</p>
+<p>
+The workflow for tickets is controlled by plugins. 
+By default, there's only a <tt>ConfigurableTicketWorkflow</tt> component in charge. 
+That component allows the workflow to be configured via this section in the trac.ini file.
+See <a class="wiki" href="TracWorkflow.html">TracWorkflow</a> for more details.
+</p>
+<h2 id="milestone-groups-section">[milestone-groups]</h2>
+<p>
+<i>(since 0.11)</i>
+</p>
+<p>
+As the workflow for tickets is now configurable, there can be many ticket states,
+and simply displaying closed tickets vs. all the others is maybe not appropriate 
+in all cases. This section enables one to easily create <i>groups</i> of states 
+that will be shown in different colors in the milestone progress bar.
+</p>
+<p>
+Example configuration (the default only has closed and active):
+</p>
+<pre class="wiki">closed = closed
+closed.order = 0                     # sequence number in the progress bar
+closed.query_args = group=resolution # optional extra param for the query
+closed.overall_completion = true     # indicates groups that count for overall completion percentage
+
+new = new
+new.order = 1
+new.css_class = new
+new.label = new
+
+active = *                           # one catch-all group is allowed
+active.order = 1
+active.css_class = open              # CSS class for this interval
+active.label = in progress           # Displayed label for this group
+</pre><p>
+The definition consists in a comma-separated list of accepted status.
+Also, '*' means any status and could be used to associate all remaining
+states to one catch-all group.
+</p>
+<p>
+The CSS class can be one of: new (yellow), open (no color) or
+closed (green). New styles can easily be added using the following
+selector:  <tt>table.progress td.&lt;class&gt;</tt>
+</p>
+<h2 id="svn:externals-section">[svn:externals]</h2>
+<p>
+<i>(since 0.11)</i>
+</p>
+<p>
+The <a class="wiki" href="TracBrowser.html">TracBrowser</a> for Subversion can interpret the <tt>svn:externals</tt> property of folders out of the box.
+However, if those externals are <i>not</i> using the <tt>http:</tt> protocol, or if a link to a different repository browser (such another Trac or <a class="ext-link" href="http://www.viewvc.org/"><span class="icon"> </span>ViewVC</a>) is desired, then Trac needs to be able to map an external prefix to this other URL.
+</p>
+<p>
+This mapping is done in the <tt>[svn:externals]</tt> section of the <a class="wiki" href="TracIni.html">TracIni</a>
+</p>
+<p>
+Example:
+</p>
+<pre class="wiki">[svn:externals]
+1 = svn://server/repos1 http://trac/proj1/browser/$path?rev=$rev
+2 = svn://server/repos2 http://trac/proj2/browser/$path?rev=$rev
+3 = http://theirserver.org/svn/eng-soft       http://ourserver/viewvc/svn/$path/?pathrev=25914
+4 = svn://anotherserver.com/tools_repository  http://ourserver/trac/support/browser/$path?rev=$rev
+</pre><p>
+With the above, the <tt>svn://anotherserver.com/tools_repository/tags/1.1/tools</tt> external will be mapped to <tt>http://ourserver/trac/support/browser/tags/1.1/tools?rev=</tt> (and <tt>rev</tt> will be set to the appropriate revision number if the external additionally specifies a revision, see the <a class="ext-link" href="http://svnbook.red-bean.com/en/1.4/svn.advanced.externals.html"><span class="icon"> </span>SVN Book on externals</a> for more details).
+</p>
+<p>
+Note that the number used as a key in the above section is purely used as a place holder, as the URLs themselves can't be used as a key due to various limitations in the configuration file parser.
+</p>
+<hr />
+<p>
+See also: <a class="wiki" href="TracGuide.html">TracGuide</a>, <a class="wiki" href="TracAdmin.html">TracAdmin</a>, <a class="wiki" href="TracEnvironment.html">TracEnvironment</a>
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/TracIni?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TracIni.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracIni by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

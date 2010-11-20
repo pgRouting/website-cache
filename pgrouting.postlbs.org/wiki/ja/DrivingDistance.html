@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/ja/DrivingDistance by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      ja/DrivingDistance – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/ja/DrivingDistance?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../ja.html" title="View parent page" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../ja.html">Up</a></li><li><a href="../WikiStart.html">Start Page</a></li><li><a href="../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/ja/DrivingDistance?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/ja/DrivingDistance?action=diff&amp;version=2">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View ja" href="../ja.html">ja</a><span class="pathentry sep">/</span><a class="pathentry" title="View ja/DrivingDistance" href="DrivingDistance.html">DrivingDistance</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="到達圏探索">到達圏探索</h1>
+<p>
+driving_distance機能を利用するためには以下の宣言文が必要です:
+</p>
+<pre class="wiki">CREATE OR REPLACE FUNCTION driving_distance(sql text, source_id integer, distance float8) 
+	RETURNS SETOF path_result
+</pre><p>
+引数:
+</p>
+<p>
+<strong>sql</strong>: SQLのクエリーです。以下に続くカラムからなる行セットを返します:
+</p>
+<ul><li>id: エッジのID[int4]
+</li><li>source: 始点ノードのID[int4]
+</li><li>target: 終点ノードのID[int4]
+</li><li>cost: エッジにかかる重み(負の重みはエッジがグラフに挿入されることを防ぎます)[float8]
+</li></ul><p>
+<strong>source_id</strong>: 始点ノードのID[int4]
+<strong> distance</strong>: 始点からの距離[float8]
+</p>
+<p>
+関数は行のセットを返します。それぞれの交差しているエッジあたり1行、また終点を含む追加行が1行あります。各行のカラム構成は:
+</p>
+<ul><li>vertex_id: 各エッジの始点ノードIDです。経路探索の終点ノードIDを含む最後のエッジの後に、もう一行あります。(最後のエッジの終点ノードから続くエッジがないことを示すため)
+</li><li>edge_id: 交差したエッジのID
+</li><li>cost: 現在のエッジに関連付けられたコスト。最後のエッジの場合は0となります。したがって、経路の合計コストはcostカラムの合計となります。
+</li></ul><h2 id="例:">例:</h2>
+<pre class="wiki">SELECT * FROM driving_distance('SELECT gid AS id,source,target, 
+         length::double precision AS cost FROM dourol',10549,0.01);
+</pre><pre class="wiki"> vertex_id | edge_id |     cost
+-----------+---------+---------------
+      6190 |  120220 | 0.00967666852
+      6205 |  118671 | 0.00961557335
+      6225 |  119384 | 0.00965668162
+      6320 |  119378 | 0.00959826176
+      ...
+      ...
+      ...
+     15144 |  122612 | 0.00973386526
+     15285 |  120471 | 0.00912965866
+     15349 |  122085 | 0.00944814966
+     15417 |  120471 | 0.00942316736
+     15483 |  121629 | 0.00972957546
+(293 rows)
+</pre><hr />
+<p>
+この日本語訳の著作権は、日本ユニシス株式会社に帰属しています。また、この日本語訳は、GNU FDLのもとで提供されています。
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/ja/DrivingDistance?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("DrivingDistance.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/ja/DrivingDistance by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

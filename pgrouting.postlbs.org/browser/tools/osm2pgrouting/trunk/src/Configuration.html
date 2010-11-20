@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/browser/tools/osm2pgrouting/trunk/src/Configuration.cpp by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 03:11:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      /tools/osm2pgrouting/trunk/src/Configuration.cpp – pgRouting
+    </title>
+        <link rel="search" href="../../../../../search.html" />
+        <link rel="help" href="../../../../../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/browser/tools/osm2pgrouting/trunk/src/Configuration.cpp?format=txt" type="text/plain" title="Plain Text" /><link rel="alternate" href="../../../../../export/358/tools/osm2pgrouting/trunk/src/Configuration.cpp" type="text/x-c++src; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="../src.html" title="Parent directory" />
+        <link rel="start" href="../../../../../wiki.html" />
+        <link rel="stylesheet" href="../../../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../../../chrome/common/css/code.css" type="text/css" /><link rel="stylesheet" href="../../../../../chrome/common/css/browser.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".trac-toggledeleted").show().click(function() {
+                  $(this).siblings().find(".trac-deleted").toggle();
+                  return false;
+        }).click();
+        $("#jumploc input").hide();
+        $("#jumploc select").change(function () {
+          this.parentNode.parentNode.submit();
+        });
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../../../index.html"><img src="../../../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../../../login.html">Login</a></li><li><a href="../../../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../../../wiki.html">Home</a></li><li><a href="../../../../../timeline.html">Timeline</a></li><li><a href="../../../../../roadmap.html">Roadmap</a></li><li class="active"><a href="../../../../../browser.html">Browse Source</a></li><li><a href="../../../../../report.html">View Tickets</a></li><li><a href="../../../../../search.html">Search</a></li><li class="last"><a href="../../../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../../../../changeset/198/tools/osm2pgrouting/trunk/src/Configuration.html">Last Change</a></li><li><a href="http://pgrouting.postlbs.org/browser/tools/osm2pgrouting/trunk/src/Configuration.cpp?annotate=blame&amp;rev=198" title="Annotate each line with the last changed revision (this can be time consuming...)">Annotate</a></li><li class="last"><a href="../../../../../log/tools/osm2pgrouting/trunk/src/Configuration.html">Revision Log</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="browser">
+      <h1>
+    <a class="pathentry first" title="Go to root directory" href="../../../../../browser.html">root</a><span class="pathentry sep">/</span><a class="pathentry" title="View tools" href="../../../../tools.html">tools</a><span class="pathentry sep">/</span><a class="pathentry" title="View osm2pgrouting" href="../../../osm2pgrouting.html">osm2pgrouting</a><span class="pathentry sep">/</span><a class="pathentry" title="View trunk" href="../../trunk.html">trunk</a><span class="pathentry sep">/</span><a class="pathentry" title="View src" href="../src.html">src</a><span class="pathentry sep">/</span><a class="pathentry" title="View Configuration.cpp" href="Configuration.html">Configuration.cpp</a>
+    <br style="clear: both" />
+  </h1>
+      <div id="jumprev">
+        <form action="#" method="get">
+          <div>
+            <label for="rev">
+              View revision:</label>
+            <input type="text" id="rev" name="rev" size="6" />
+          </div>
+        </form>
+      </div>
+      <div id="jumploc">
+        <form action="#" method="get">
+          <div class="buttons">
+            <label for="preselected">Visit:</label>
+            <select id="preselected" name="preselected">
+              <option selected="selected"></option>
+              <optgroup label="branches">
+                <option value="/browser/trunk">trunk</option><option value="/browser/branches/anton">branches/anton</option><option value="/browser/branches/daniel">branches/daniel</option><option value="/browser/branches/debug">branches/debug</option><option value="/browser/branches/pgrouting-extra">branches/pgrouting-extra</option><option value="/browser/branches/pgrouting-light">branches/pgrouting-light</option><option value="/browser/branches/workshop">branches/workshop</option>
+              </optgroup><optgroup label="tags">
+                <option value="/browser/tags/release-1.0?rev=58">tags/release-1.0</option><option value="/browser/tags/release-1.0-beta?rev=52">tags/release-1.0-beta</option><option value="/browser/tags/release-1.0-rc1?rev=51">tags/release-1.0-rc1</option><option value="/browser/tags/release-1.02?rev=162">tags/release-1.02</option><option value="/browser/tags/release-1.03?rev=218">tags/release-1.03</option>
+              </optgroup>
+            </select>
+            <input type="submit" value="Go!" title="Jump to the chosen preselected path" />
+          </div>
+        </form>
+      </div>
+      <table id="info" summary="Revision info">
+        <tr>
+          <th scope="col">
+            Revision <a href="../../../../../changeset/198.html">198</a>, <span title="1917 bytes">1.9 KB</span>
+            (checked in by anton, <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-07-30T11%3A41%3A46%2B0900&amp;precision=second" title="2008-07-30T11:41:46+0900 in Timeline">2 years</a> ago)
+          </th>
+        </tr>
+        <tr>
+          <td class="message searchable">
+              <p>
+Road classes support added to osm2pgrouting<br />
+</p>
+          </td>
+        </tr>
+      </table>
+      <div id="preview" class="searchable">
+    <table class="code"><thead><tr><th class="lineno" title="Line numbers">Line</th><th class="content"> </th></tr></thead><tbody><tr><th id="L1"><a href="#L1">1</a></th><td>/***************************************************************************</td></tr><tr><th id="L2"><a href="#L2">2</a></th><td> *   Copyright (C) 2008 by Daniel Wendt                                                                    *</td></tr><tr><th id="L3"><a href="#L3">3</a></th><td> *   gentoo.murray@gmail.com                                                                                       *</td></tr><tr><th id="L4"><a href="#L4">4</a></th><td> *                                                                         *</td></tr><tr><th id="L5"><a href="#L5">5</a></th><td> *   This program is free software; you can redistribute it and/or modify  *</td></tr><tr><th id="L6"><a href="#L6">6</a></th><td> *   it under the terms of the GNU General Public License as published by  *</td></tr><tr><th id="L7"><a href="#L7">7</a></th><td> *   the Free Software Foundation; either version 2 of the License, or     *</td></tr><tr><th id="L8"><a href="#L8">8</a></th><td> *   (at your option) any later version.                                   *</td></tr><tr><th id="L9"><a href="#L9">9</a></th><td> *                                                                         *</td></tr><tr><th id="L10"><a href="#L10">10</a></th><td> *   This program is distributed in the hope that it will be useful,       *</td></tr><tr><th id="L11"><a href="#L11">11</a></th><td> *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *</td></tr><tr><th id="L12"><a href="#L12">12</a></th><td> *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *</td></tr><tr><th id="L13"><a href="#L13">13</a></th><td> *   GNU General Public License for more details.                          *</td></tr><tr><th id="L14"><a href="#L14">14</a></th><td> *                                                                         *</td></tr><tr><th id="L15"><a href="#L15">15</a></th><td> *   You should have received a copy of the GNU General Public License     *</td></tr><tr><th id="L16"><a href="#L16">16</a></th><td> *   along with this program; if not, write to the                         *</td></tr><tr><th id="L17"><a href="#L17">17</a></th><td> *   Free Software Foundation, Inc.,                                       *</td></tr><tr><th id="L18"><a href="#L18">18</a></th><td> *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *</td></tr><tr><th id="L19"><a href="#L19">19</a></th><td> ***************************************************************************/</td></tr><tr><th id="L20"><a href="#L20">20</a></th><td></td></tr><tr><th id="L21"><a href="#L21">21</a></th><td>#include "stdafx.h"</td></tr><tr><th id="L22"><a href="#L22">22</a></th><td>#include "Configuration.h"</td></tr><tr><th id="L23"><a href="#L23">23</a></th><td>#include "Type.h"</td></tr><tr><th id="L24"><a href="#L24">24</a></th><td>#include "Class.h"</td></tr><tr><th id="L25"><a href="#L25">25</a></th><td></td></tr><tr><th id="L26"><a href="#L26">26</a></th><td></td></tr><tr><th id="L27"><a href="#L27">27</a></th><td>namespace osm</td></tr><tr><th id="L28"><a href="#L28">28</a></th><td>{</td></tr><tr><th id="L29"><a href="#L29">29</a></th><td></td></tr><tr><th id="L30"><a href="#L30">30</a></th><td>Configuration::Configuration()</td></tr><tr><th id="L31"><a href="#L31">31</a></th><td>{</td></tr><tr><th id="L32"><a href="#L32">32</a></th><td>}</td></tr><tr><th id="L33"><a href="#L33">33</a></th><td></td></tr><tr><th id="L34"><a href="#L34">34</a></th><td>Configuration::~Configuration()</td></tr><tr><th id="L35"><a href="#L35">35</a></th><td>{</td></tr><tr><th id="L36"><a href="#L36">36</a></th><td>        ez_mapdelete( m_Types );</td></tr><tr><th id="L37"><a href="#L37">37</a></th><td>}</td></tr><tr><th id="L38"><a href="#L38">38</a></th><td>void Configuration::AddType( Type* t )</td></tr><tr><th id="L39"><a href="#L39">39</a></th><td>{</td></tr><tr><th id="L40"><a href="#L40">40</a></th><td>        m_Types[t-&gt;name] = t;</td></tr><tr><th id="L41"><a href="#L41">41</a></th><td>}</td></tr><tr><th id="L42"><a href="#L42">42</a></th><td></td></tr><tr><th id="L43"><a href="#L43">43</a></th><td>Type* Configuration::FindType( std::string name ) </td></tr><tr><th id="L44"><a href="#L44">44</a></th><td>{</td></tr><tr><th id="L45"><a href="#L45">45</a></th><td>        return m_Types[name];</td></tr><tr><th id="L46"><a href="#L46">46</a></th><td>}</td></tr><tr><th id="L47"><a href="#L47">47</a></th><td></td></tr><tr><th id="L48"><a href="#L48">48</a></th><td>Class* Configuration::FindClass( std::string typeName, std::string className ) </td></tr><tr><th id="L49"><a href="#L49">49</a></th><td>{</td></tr><tr><th id="L50"><a href="#L50">50</a></th><td>        return m_Types[typeName]-&gt;m_Classes[className];</td></tr><tr><th id="L51"><a href="#L51">51</a></th><td>}</td></tr><tr><th id="L52"><a href="#L52">52</a></th><td></td></tr><tr><th id="L53"><a href="#L53">53</a></th><td>} // end namespace osm</td></tr></tbody></table>
+      </div>
+      <div id="help">
+        <strong>Note:</strong> See <a href="../../../../../wiki/TracBrowser.html">TracBrowser</a>
+        for help on using the browser.
+      </div>
+      <div id="anydiff">
+        <form action="http://pgrouting.postlbs.org/diff" method="get">
+          <div class="buttons">
+            <input type="hidden" name="new_path" value="/tools/osm2pgrouting/trunk/src/Configuration.cpp" />
+            <input type="hidden" name="old_path" value="/tools/osm2pgrouting/trunk/src/Configuration.cpp" />
+            <input type="hidden" name="new_rev" />
+            <input type="hidden" name="old_rev" />
+            <input type="submit" value="View changes..." title="Select paths and revs for Diff" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/browser/tools/osm2pgrouting/trunk/src/Configuration.cpp?format=txt">Plain Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="../../../../../export/358/tools/osm2pgrouting/trunk/src/Configuration.cpp">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("Configuration.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/browser/tools/osm2pgrouting/trunk/src/Configuration.cpp by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 03:11:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

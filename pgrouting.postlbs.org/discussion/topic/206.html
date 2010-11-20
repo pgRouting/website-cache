@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/206 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/18.html" title="shootingstar">shootingstar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>shootingstar (#18) - Problems with multiple turn restricition (#206) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Problems with multiple turn restricition
+            </div>
+            <div class="body">
+              <p>
+Hi,
+</p>
+<p>
+I had problems with multiple turn restrictions, the algorithm always use just one restriction. Someone had the same problem? I tried to change my query, how to put the rules, and nothing.
+</p>
+<p>
+Again insert my lines of debug and realized, again in the file shooting_star_relax.hpp that he tested the restriction of only curve with the first edge that appeared.
+</p>
+<p>
+Then I inserted the code above in line 99:
+</p>
+<blockquote>
+<p>
+ce = pe;
+</p>
+</blockquote>
+<p>
+Obviously I put the braces in for loop:
+</p>
+<p>
+for(int i=0; i&lt; w_pe[g[e].id].size(); ++i)
+{
+</p>
+<blockquote>
+<p>
+ce = pe;
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+if( ... )
+...
+</p>
+</blockquote>
+<p>
+}
+</p>
+<p>
+Then, it works!
+</p>
+<p>
+Any comments? Thanks...
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            bbcaponi
+          </div>
+          <div class="time">
+            01/06/09 21:35:20 (23 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/206?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/206?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message750"></a>
+        <div class="id">
+          Message #750
+        </div>
+        <div class="body">
+            <p>
+Thank you for sharing your idea. As time allows I will try it out.
+</p>
+<p>
+For multiple turn restrictions it should actually work to duplicate your network link and set different rules for each of them. The algorithm should then check all existing rules.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            01/07/09 15:58:24 (23 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message751"></a>
+        <div class="id">
+          Message #751
+        </div>
+        <div class="body">
+            <p>
+I think it was not to work perfectly because in line 121 ce (current edge) receive the value of its predecessor p[g[ce].id], for the case of exists one restriction that must pass through another edge (<a href="../../wiki/ShootingStar.html">http://pgrouting.postlbs.org/wiki/ShootingStar</a> - Second example). But ce never received again the first value of pe (predecessor edge), then, when run the second step of the first for loop (line 98), the algorithm check if the _predecessor of ce_ exists in rest of the list of predecessor of the edge being relaxed, but the correct is check if _ce_ exists in that rest.
+</p>
+<p>
+Today afternoon (at Brazil) I try to post here one example with my input data...
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            bbcaponi
+          </div>
+          <div class="time">
+            01/07/09 21:07:01 (23 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message752"></a>
+        <div class="id">
+          Message #752
+        </div>
+        <div class="body">
+            <p>
+Sample data:
+</p>
+<p>
+--id | source | target | cost | x1 | y1 | x2 | y2 | to_cost | rule
+</p>
+<p>
+INSERT INTO temp_edges VALUES(1,  1, 2,1.0,1.0,   1.0,2.0,2.0,2.0,NULL,NULL);
+</p>
+<p>
+INSERT INTO temp_edges VALUES(2,  2, 3,1.0,1.0,   2.0,2.0,3.0,2.0,NULL,NULL);
+</p>
+<p>
+INSERT INTO temp_edges VALUES(3,  3, 4,1.0,1.0,   3.0,2.0,4.0,2.0,NULL,NULL);
+</p>
+<p>
+INSERT INTO temp_edges VALUES(4,  4, 5,1.0,9999.0,4.0,2.0,5.0,2.0,NULL,NULL);
+</p>
+<p>
+INSERT INTO temp_edges VALUES(5,  5, 6,1.0,9999.0,5.0,2.0,5.0,1.0,NULL,NULL);
+</p>
+<p>
+INSERT INTO temp_edges VALUES(6,  6, 7,1.0,9999.0,5.0,1.0,4.0,1.0,NULL,NULL);
+</p>
+<p>
+INSERT INTO temp_edges VALUES(7,  7, 4,1.0,9999.0,4.0,1.0,4.0,2.0,NULL,NULL);
+</p>
+<p>
+INSERT INTO temp_edges VALUES(8,  4, 8,5.0,1.0,   4.0,2.0,4.0,3.0,NULL,NULL);
+</p>
+<p>
+INSERT INTO temp_edges VALUES(9,  8, 9,5.0,1.0,   4.0,3.0,3.0,3.0,NULL,NULL);
+</p>
+<p>
+INSERT INTO temp_edges VALUES(10, 9, 3,5.0,1.0,   3.0,3.0,3.0,2.0,NULL,NULL);
+</p>
+<p>
+INSERT INTO temp_edges VALUES(11, 3,10,1.0,1.0,   3.0,2.0,3.0,1.0,9999,'3');
+</p>
+<p>
+INSERT INTO temp_edges VALUES(11, 3,10,1.0,1.0,   3.0,2.0,3.0,1.0,9999,'2');
+</p>
+<p>
+INSERT INTO temp_edges VALUES(12,10,11,1.0,1.0,   3.0,1.0,3.0,0.1,NULL,NULL);
+</p>
+<p>
+And the query:
+</p>
+<p>
+SELECT * FROM shortest_path_shooting_star( 'SELECT * FROM temp_edges ORDER BY id ASC,rule DESC', 1, 12, true, true );
+</p>
+<p>
+And the result:
+</p>
+<p>
+vertex_id;edge_id;cost
+</p>
+<p>
+1;1;1
+</p>
+<p>
+2;2;1
+</p>
+<p>
+4;11;1
+</p>
+<p>
+20;12;1
+</p>
+<p>
+---
+</p>
+<p>
+If we reverse the order of rules:
+</p>
+<p>
+SELECT * FROM shortest_path_shooting_star( 'SELECT * FROM temp_edges ORDER BY id ASC,rule ASC', 1, 12, true, true );
+</p>
+<p>
+the result:
+</p>
+<p>
+vertex_id;edge_id;cost
+</p>
+<p>
+1;1;1
+</p>
+<p>
+2;2;1
+</p>
+<p>
+4;10;1
+</p>
+<p>
+17;9;1
+</p>
+<p>
+15;8;1
+</p>
+<p>
+6;3;1
+</p>
+<p>
+4;11;1
+</p>
+<p>
+20;12;1
+</p>
+<p>
+Both say to "turn" where has the restriction...
+</p>
+<p>
+---
+</p>
+<p>
+With the change, the result is:
+</p>
+<p>
+1;1;1
+</p>
+<p>
+2;2;1
+</p>
+<p>
+4;3;1
+</p>
+<p>
+6;8;5
+</p>
+<p>
+15;9;5
+</p>
+<p>
+17;10;5
+</p>
+<p>
+4;11;1
+</p>
+<p>
+20;12;1
+</p>
+<p>
+Now without violating turn restriction.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            bbcaponi
+          </div>
+          <div class="time">
+            01/08/09 00:42:51 (23 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1365"></a>
+        <div class="id">
+          Message #1365
+        </div>
+        <div class="body">
+            <p>
+Bbcaponi, Thank you!, I've had the same problem and editing  shooting_star_relax.hpp line 98,99 and 125 now multiple turn restrictions  are working.
+</p>
+<pre class="wiki">
+98      for(int i=0; i&lt; w_pe[g[e].id].size(); ++i){
+99      ce = pe;
+        ...
+125     }
+</pre>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            oscar
+          </div>
+          <div class="time">
+            01/21/10 08:15:20 (10 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/206?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/206?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

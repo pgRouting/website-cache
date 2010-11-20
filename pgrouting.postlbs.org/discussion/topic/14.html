@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/14 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/16.html" title="dijkstra">dijkstra</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>dijkstra (#16) - Still problem with shortest_path_as_geometry_internal_id (#14) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Still problem with shortest_path_as_geometry_internal_id
+            </div>
+            <div class="body">
+              <p>
+Hello everybody,
+</p>
+<p>
+I tried the whole weekend to get pgrouting running with my own data, but without success.
+It is really frustrating in the moment :-(
+</p>
+<p>
+I would like to use the same function that is running with the kanagawa-example (also with that function:
+shortest_path_as_geometry_internal_id) but somehow it does not work.
+</p>
+<p>
+I reduced my database. Now there are just 5 Multilinesegements in, see
+http: <a class="ext-link" href="http://www.selbstverwaltung-bundesweit.de/routing/routing_database.PNG"><span class="icon"> </span>http://www.selbstverwaltung-bundesweit.de/routing/routing_database.PNG</a>
+</p>
+<p>
+These 5 segements are connected, see:
+<a class="ext-link" href="http://www.selbstverwaltung-bundesweit.de/routing/routing_screenshot.PNG"><span class="icon"> </span>http://www.selbstverwaltung-bundesweit.de/routing/routing_screenshot.PNG</a>
+</p>
+<p>
+In the file sp.html I set the bounding-box of the WHOLE map
+</p>
+<p>
+........
+</p>
+<p>
+else {
+</p>
+<blockquote>
+<p>
+switch( sel ) {
+</p>
+<blockquote>
+<p>
+case 1:
+</p>
+<blockquote>
+<p>
+valX =  3430000;
+valY =  5790000;
+break;
+</p>
+</blockquote>
+<p>
+case 2:
+</p>
+<blockquote>
+<p>
+valX = 3440000;
+valY = 5800000;
+break;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+......
+</p>
+<p>
+I think these parameteres have no influence to the function "shortest_path_as_geometry_internal_id" (as fas as In can see in the sourcecode) ??
+</p>
+<p>
+At the formular, to define start and endpoint,
+I use:
+</p>
+<blockquote>
+<p>
+&lt;form name="routing" method="get" action="sp.phtml"&gt;
+</p>
+<blockquote>
+<p>
+&lt;input type=hidden name="cx1" value=0&gt;
+&lt;input type=hidden name="cy1" value=0&gt;
+&lt;input type=hidden name="cx2" value=0&gt;
+&lt;input type=hidden name="cy2" value=0&gt;
+</p>
+<blockquote>
+<p>
+&lt;select name=start onChange="changeVal(1);"&gt;
+</p>
+<blockquote>
+<p>
+&lt;option value=0     &gt;Choose...&lt;/option&gt;
+&lt;option value=4949 &gt;Punkt 1 OS&lt;/option&gt;
+&lt;option value=4954  &gt;Punkt 2 OS&lt;/option&gt;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+&lt;/select&gt;
+&lt;br&gt;
+&lt;br&gt;
+End_Point&lt;br&gt;
+&lt;br&gt;
+&lt;select name=end onChange="changeVal(2)"&gt;
+</p>
+<blockquote>
+<p>
+&lt;option value=0     &gt;Choose...&lt;/option&gt;
+&lt;option value=4949  &gt;Punkt 1 OS&lt;/option&gt;
+&lt;option value=4954  &gt;Punkt 2 OS&lt;/option&gt;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+...to grab the gid.
+</p>
+<p>
+I checked it out with different coordinates, I changed the $delta-value,
+I tried with different gid, no success....
+</p>
+<p>
+I loaded in the database the files "routing.sql" and "routing.postgis.sql" from out of the package pgRouting-0.9.8-0_win32 on Windows XP.
+</p>
+<p>
+But I ALWAYS get an error message in that context:
+</p>
+<p>
+Warning: <a class="wiki" href="../../wiki/MapServer.html">Error</a>: msPOSTGISLayerWhichShapes(): Error executing POSTGIS SQL statement (in FETCH ALL): DECLARE mycursor BINARY CURSOR FOR SELECT asbinary(force_collection(force_2d(the_geom)),'NDR'),gid::text from (select gid, the_geom from shortest_path_astar2_as_geometry_internal_id('fridastreets', 4949, 4954, 3428888.88889, 5790000, 3441111.11111, 5800000)) as g WHERE the_geom &amp;&amp; setSRID('BOX3D(3428888.88888889 5790000,3441111.11111111 5800000)'::BOX3D, -1 ) -ERROR: Start vertex was not found. CONTEXT: PL/pgSQL function "shortest_path_astar2_as_geometry_internal_id_directed" line 47 at for over execute statement PL/pgSQL function "shortest_path_astar2_as_geometry_internal_id" line 21 at for over execute statement in C:\ms4w\Apache\htdocs\routing\phtmls\sp_os.phtml on line 80
+</p>
+<p>
+You wrote, that the boundary box is set by two last parameters of shortest_path_astar2_as_geometry_internal_id.
+In that case it would be 3441111, 5800000, but if I change them the error still occurs.
+What can I do?
+Could it have something to do with the data?
+Thank you very much in advance.......
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            06/03/07 22:15:30 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/14?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/14?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message50"></a>
+        <div class="id">
+          Message #50
+        </div>
+        <div class="body">
+            <p>
+Kai,
+</p>
+<p>
+Don't worry, I will try your data today and I hope we will find a solution!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            06/04/07 10:05:43 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message51"></a>
+        <div class="id">
+          Message #51
+        </div>
+        <div class="body">
+            <p>
+Ah, I see!
+</p>
+<p>
+Kai, you are using edges ids, but you should use source/target ids for function invocation.
+</p>
+<p>
+It should look like
+</p>
+<p>
+select * from shortest_path_astar2_as_geometry_internal_id('fridastreets', 1, 5, 3428888.88889, 5790000, 3441111.11111, 5800000);
+</p>
+<p>
+But I also don't like your dataset. You have two edges (4954, 4949) with same source and target (5,5 and 1,1) but with different coordinates. You would have a problem here :(
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            06/04/07 10:30:38 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message52"></a>
+        <div class="id">
+          Message #52
+        </div>
+        <div class="body">
+            <p>
+Hi anton, great!!!
+It worked!!!
+Thank you 1000 times, I`m going to write a tutorial about UMN and pgRouting.
+Hopefully (Maybe) in a couple of weeks this will be finished. I will sent it to this homepage, could be a help for other peoples.
+</p>
+<p>
+Best regards, Kai
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            06/04/07 17:18:49 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message53"></a>
+        <div class="id">
+          Message #53
+        </div>
+        <div class="body">
+            <p>
+That's a good idea! :)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            06/04/07 18:02:43 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message579"></a>
+        <div class="id">
+          Message #579
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+I need tutorial about dijkstra algortm? like tutorial :<a class="ext-link" href="http://www.selbstverwaltung-bundesweit.de/mapserver/tutorial_routing_mapserver.zip"><span class="icon"> </span>http://www.selbstverwaltung-bundesweit.de/mapserver/tutorial_routing_mapserver.zip</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yuni
+          </div>
+          <div class="time">
+            08/25/08 14:41:58 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message580"></a>
+        <div class="id">
+          Message #580
+        </div>
+        <div class="body">
+            <p>
+You can follow Kai's tutorial, just replace A* function call with the function from here - <a href="../../wiki/MapServerOutput.html">http://pgrouting.postlbs.org/wiki/MapServerOutput</a>.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            08/25/08 14:55:31 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message612"></a>
+        <div class="id">
+          Message #612
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+I have problems about to show the name of roads that passed for short path in <a class="missing wiki">PgRouting?</a> (I use pgRouting-1.02_pg-8.3.3)and coloured the location that passed for short path in <a class="missing wiki">PgRouting?</a>(ex. public facilities)?
+</p>
+<p>
+Thank you...
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yuni
+          </div>
+          <div class="time">
+            10/13/08 16:32:26 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message613"></a>
+        <div class="id">
+          Message #613
+        </div>
+        <div class="body">
+            <p>
+It would help a lot if you could post how your query looks like as well as your table attributes.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/13/08 16:41:31 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message618"></a>
+        <div class="id">
+          Message #618
+        </div>
+        <div class="body">
+            <p>
+I follow Kai's tutorial : :<a class="ext-link" href="http://www.selbstverwaltung-bundesweit.de/mapserver/tutorial_routing_mapserver.zip"><span class="icon"> </span>http://www.selbstverwaltung-bundesweit.de/mapserver/tutorial_routing_mapserver.zip</a>, but in file phtml, especially at call the sql, I use :  $sql="the_geom from (SELECT gid, the_geom from ".
+</p>
+<blockquote>
+<p>
+"dijkstra_sp('jalan',".$start.",".$end.")) as g using unique gid using srid=-1";
+</p>
+</blockquote>
+<p>
+for query :
+SELECT * FROM shortest_path('SELECT gid AS id, source::int4,
+</p>
+<blockquote>
+<p>
+target::int4, length::double precision AS cost,
+</p>
+</blockquote>
+<blockquote>
+<p>
+FROM jalan',3, 7, false, false);
+</p>
+</blockquote>
+<p>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yuni
+          </div>
+          <div class="time">
+            10/16/08 14:33:39 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message619"></a>
+        <div class="id">
+          Message #619
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+What kind of problem do you have with street names? Can't select them from your database? Or is it a problem with rendering them with <a class="wiki" href="../../wiki/MapServer.html">MapServer</a>?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/16/08 14:51:41 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message620"></a>
+        <div class="id">
+          Message #620
+        </div>
+        <div class="body">
+            <p>
+Hallo,
+</p>
+<p>
+The tutorial that I use only for drawing the short path without the name of roads that passed, so how to show the name of the roads that passed in short path in map with mapserver?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yuni
+          </div>
+          <div class="time">
+            10/16/08 18:31:16 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message626"></a>
+        <div class="id">
+          Message #626
+        </div>
+        <div class="body">
+            <p>
+I'm sorry but I can't help you much with Kai's tutorial either. If you speak German you could ask for it on the German Mapserver mailing list. I think Kai is reading this list and might be able to help you.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/17/08 11:42:59 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message623"></a>
+        <div class="id">
+          Message #623
+        </div>
+        <div class="body">
+            <p>
+Sorry, it looks like <a class="wiki" href="../../wiki/MapServer.html">MapServer</a> problem and I don't know much about it.
+Probably, Daniel can help.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/16/08 22:52:03 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/14?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/14?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

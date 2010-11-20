@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/119 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:01:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #119 (Boost string conversion warning)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="130.html" title="Ticket #130" />
+        <link rel="last" href="109.html" title="Ticket #109" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/119?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/119?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/119?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="up" href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1" />
+        <link rel="next" href="81.html" title="Ticket #81" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="138.html" title="Ticket #138" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="130.html" title="Ticket #130">Previous Ticket</a></span></li><li><a href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1">Back to Query</a></li><li class="last"><span><a class="next" href="81.html" title="Ticket #81">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #119
+          <span class="status">(closed task: fixed)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-06-16T15%3A08%3A30%2B0900&amp;precision=second" title="2008-06-16T15:08:30+0900 in Timeline">2 years</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-11-13T20%3A09%3A54%2B0900&amp;precision=second" title="2010-11-13T20:09:54+0900 in Timeline">7 days</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">Boost string conversion warning</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">daniel</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">anton
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      minor
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="milestone" href="../milestone/Version%201.html">Version 1.1</a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      pgRouting package
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      trunk
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+Just upgraded to PostgreSQL 8.3 on my Ubuntu PC and wanted to compile the trunk version of pgRouting. Boost wrapper always gave me a warning: "Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«"
+That means something like "Warning: outdated conversion of string constants in »char*«"
+</p>
+<p>
+Because there are so many of those warnings, would be nice to get rid of them. Looks better ;-) I don't know it's a difficult task or not.
+</p>
+<pre class="wiki">daniel@bougainvilla:/opt/workspace/pgRouting$ make
+Scanning dependencies of target routing
+[ 16%] Building C object core/src/CMakeFiles/routing.dir/dijkstra.o
+[ 33%] Building C object core/src/CMakeFiles/routing.dir/astar.o
+[ 50%] Building C object core/src/CMakeFiles/routing.dir/shooting_star.o
+[ 66%] Building CXX object core/src/CMakeFiles/routing.dir/boost_wrapper.o
+/opt/workspace/pgRouting/core/src/boost_wrapper.cpp: In function »int boost_dijkstra(edge_t*, unsigned int, int, int, bool, bool, path_element_t**, int*, char**)«:
+/opt/workspace/pgRouting/core/src/boost_wrapper.cpp:108: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+/opt/workspace/pgRouting/core/src/boost_wrapper.cpp:115: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+/opt/workspace/pgRouting/core/src/boost_wrapper.cpp:134: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+/opt/workspace/pgRouting/core/src/boost_wrapper.cpp:142: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+[ 83%] Building CXX object core/src/CMakeFiles/routing.dir/astar_boost_wrapper.o
+/opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp: In function »int boost_astar(edge_astar_t*, unsigned int, int, int, bool, bool, path_element_t**, int*, char**)«:
+/opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp:185: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+/opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp:192: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+/opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp:219: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+/opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp:228: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+[100%] Building CXX object core/src/CMakeFiles/routing.dir/shooting_star_boost_wrapper.o
+/opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp: In function »int boost_shooting_star(edge_shooting_star_t*, unsigned int, int, int, bool, bool, path_element_t**, int*, char**, int)«:
+/opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:302: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+/opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:320: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+/opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:362: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+/opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:379: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+/opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:407: Warnung: veraltete Konvertierung von Zeichenkettenkonstante in »char*«
+Linking CXX shared library ../../lib/librouting.so
+[100%] Built target routing
+daniel@bougainvilla:/opt/workspace/pgRouting$ 
+</pre>
+              </div>
+            </div>
+        </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-06-16T15%3A23%3A04%2B0900&amp;precision=second" title="2008-06-16T15:23:04+0900 in Timeline">2 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>new</em> to <em>assigned</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Can you switch your system language and post the warning in English?
+Can you also check your compiler version?
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  <span class="threading">
+                      follow-up:
+      <a href="#comment:9"><small>↓ 9</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-06-16T17%3A24%3A06%2B0900&amp;precision=second" title="2008-06-16T17:24:06+0900 in Timeline">2 years</a> ago by daniel
+                </h3>
+      <div class="comment searchable">
+        <p>
+Anton, 
+</p>
+<p>
+The compiler version is 
+</p>
+<pre class="wiki">daniel@bougainvilla:/opt/workspace/pgRouting$ gcc --version
+gcc (GCC) 4.2.3 (Ubuntu 4.2.3-2ubuntu7)
+</pre><p>
+Boost: 1.34.1<br />
+OS: Ubuntu 8.04
+</p>
+<p>
+The English output:
+</p>
+<pre class="wiki">daniel@bougainvilla:/opt/workspace/pgRouting$ make
+[ 16%] Building C object core/src/CMakeFiles/routing.dir/dijkstra.o
+[ 33%] Building C object core/src/CMakeFiles/routing.dir/astar.o
+[ 50%] Building C object core/src/CMakeFiles/routing.dir/shooting_star.o
+[ 66%] Building CXX object core/src/CMakeFiles/routing.dir/boost_wrapper.o
+/opt/workspace/pgRouting/core/src/boost_wrapper.cpp: In function ‘int boost_dijkstra(edge_t*, unsigned int, int, int, bool, bool, path_element_t**, int*, char**)’:
+/opt/workspace/pgRouting/core/src/boost_wrapper.cpp:108: warning: deprecated conversion from string constant to ‘char*’
+/opt/workspace/pgRouting/core/src/boost_wrapper.cpp:115: warning: deprecated conversion from string constant to ‘char*’
+/opt/workspace/pgRouting/core/src/boost_wrapper.cpp:134: warning: deprecated conversion from string constant to ‘char*’
+/opt/workspace/pgRouting/core/src/boost_wrapper.cpp:142: warning: deprecated conversion from string constant to ‘char*’
+[ 83%] Building CXX object core/src/CMakeFiles/routing.dir/astar_boost_wrapper.o
+/opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp: In function ‘int boost_astar(edge_astar_t*, unsigned int, int, int, bool, bool, path_element_t**, int*, char**)’:
+/opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp:185: warning: deprecated conversion from string constant to ‘char*’
+/opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp:192: warning: deprecated conversion from string constant to ‘char*’
+/opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp:219: warning: deprecated conversion from string constant to ‘char*’
+/opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp:228: warning: deprecated conversion from string constant to ‘char*’
+[100%] Building CXX object core/src/CMakeFiles/routing.dir/shooting_star_boost_wrapper.o
+/opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp: In function ‘int boost_shooting_star(edge_shooting_star_t*, unsigned int, int, int, bool, bool, path_element_t**, int*, char**, int)’:
+/opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:302: warning: deprecated conversion from string constant to ‘char*’
+/opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:320: warning: deprecated conversion from string constant to ‘char*’
+/opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:362: warning: deprecated conversion from string constant to ‘char*’
+/opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:379: warning: deprecated conversion from string constant to ‘char*’
+/opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:407: warning: deprecated conversion from string constant to ‘char*’
+Linking CXX shared library ../../lib/librouting.so
+[100%] Built target routing
+daniel@bougainvilla:/opt/workspace/pgRouting$ 
+</pre>
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-06-17T09%3A46%3A58%2B0900&amp;precision=second" title="2008-06-17T09:46:58+0900 in Timeline">2 years</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+OK, I've found the reason - g++ 4.2 rejects a quoted string constant, where the function prototype has char*. Now I'm searching for a safe way to fix this. Probably, it is a good time to convert the error messages to error codes.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-06-17T10%3A10%3A37%2B0900&amp;precision=second" title="2008-06-17T10:10:37+0900 in Timeline">2 years</a> ago by daniel
+                </h3>
+      <div class="comment searchable">
+        <p>
+If you change to error codes, let's file a new ticket and add a Wiki page.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:5">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-06-17T10%3A36%3A54%2B0900&amp;precision=second" title="2008-06-17T10:36:54+0900 in Timeline">2 years</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+Well, I found out that it is more easy to change char* to const char*.
+I'm going to do it and then I will ask you to check it with your g++ version.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:6">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-06-17T16%3A15%3A35%2B0900&amp;precision=second" title="2008-06-17T16:15:35+0900 in Timeline">2 years</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+Probably fixed with <a class="changeset" href="../changeset/178.html" title="constant string conversion fixed">[178]</a>.
+Can you please check it with your version of gcc?
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:7">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-06-17T16%3A31%3A11%2B0900&amp;precision=second" title="2008-06-17T16:31:11+0900 in Timeline">2 years</a> ago by daniel
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>assigned</em> to <em>closed</em>
+        </li><li>
+          <strong>resolution</strong>
+              set to <em>fixed</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Not tested with routing query, but the warnings disappeared.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:8">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-12-17T03%3A37%3A19%2B0900&amp;precision=second" title="2008-12-17T03:37:19+0900 in Timeline">2 years</a> ago by sunrise
+                </h3>
+      <div class="comment searchable">
+        This works ok for me.. but It probably needs feedback. <a href="http://www.sneakerright.com/"><font color="#000000">postlbs Air Jordan</font></a>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:9">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:2"><small>↑ 2</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-04-23T04%3A30%3A31%2B0900&amp;precision=second" title="2010-04-23T04:30:31+0900 in Timeline">7 months</a> ago by mike3050
+                </h3>
+      <div class="comment searchable">
+        <p>
+Replying to <a href="119.html#comment:2" title="Comment 2 for Ticket #119">daniel</a>:
+</p>
+<blockquote class="citation">
+<p>
+ Anton, 
+ 
+ The compiler version is 
+ {{{
+ daniel@bougainvilla:/opt/workspace/pgRouting$ gcc --version
+ gcc (GCC) 4.2.3 (Ubuntu 4.2.3-2ubuntu7)
+ }}}
+ Boost: 1.34.1<br />
+ OS: Ubuntu 8.04
+ 
+ The English output:
+ {{{
+ daniel@bougainvilla:/opt/workspace/pgRouting$ make
+ [ 16%] Building C object core/src/CMakeFiles/routing.dir/dijkstra.o
+ [ 33%] Building C object core/src/CMakeFiles/routing.dir/astar.o
+ [ 50%] Building C object core/src/CMakeFiles/routing.dir/shooting_star.o
+ [ 66%] Building CXX object core/src/CMakeFiles/routing.dir/boost_wrapper.o
+ /opt/workspace/pgRouting/core/src/boost_wrapper.cpp: In function ‘int boost_dijkstra(edge_t*, unsigned int, int, int, bool, bool, path_element_t**, int*, char**)’:
+ /opt/workspace/pgRouting/core/src/boost_wrapper.cpp:108: warning: deprecated conversion from string constant to ‘char*’
+ /opt/workspace/pgRouting/core/src/boost_wrapper.cpp:115: warning: deprecated conversion from string constant to ‘char*’
+ /opt/workspace/pgRouting/core/src/boost_wrapper.cpp:134: warning: deprecated conversion from string constant to ‘char*’
+ /opt/workspace/pgRouting/core/src/boost_wrapper.cpp:142: warning: deprecated conversion from string constant to ‘char*’ <a class="ext-link" href="http://zolpo.com/auto-insurance/"><span class="icon"> </span>auto insurance quote</a>
+ [ 83%] Building CXX object core/src/CMakeFiles/routing.dir/astar_boost_wrapper.o
+ /opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp: In function ‘int boost_astar(edge_astar_t*, unsigned int, int, int, bool, bool, path_element_t**, int*, char**)’:
+ /opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp:185: warning: deprecated conversion from string constant to ‘char*’
+ /opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp:192: warning: deprecated conversion from string constant to ‘char*’
+ /opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp:219: warning: deprecated conversion from string constant to ‘char*’
+ /opt/workspace/pgRouting/core/src/astar_boost_wrapper.cpp:228: warning: deprecated conversion from string constant to ‘char*’
+ [100%] Building CXX object core/src/CMakeFiles/routing.dir/shooting_star_boost_wrapper.o
+ /opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp: In function ‘int boost_shooting_star(edge_shooting_star_t*, unsigned int, int, int, bool, bool, path_element_t**, int*, char**, int)’:
+ /opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:302: warning: deprecated conversion from string constant to ‘char*’
+ /opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:320: warning: deprecated conversion from string constant to ‘char*’
+ /opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:362: warning: deprecated conversion from string constant to ‘char*’
+ /opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:379: warning: deprecated conversion from string constant to ‘char*’
+ /opt/workspace/pgRouting/core/src/shooting_star_boost_wrapper.cpp:407: warning: deprecated conversion from string constant to ‘char*’
+ Linking CXX shared library ../../lib/librouting.so
+ [100%] Built target routing
+ daniel@bougainvilla:/opt/workspace/pgRouting$ 
+ }}}
+</p>
+</blockquote>
+<p>
+Thank you .
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:10">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-11-13T20%3A09%3A54%2B0900&amp;precision=second" title="2010-11-13T20:09:54+0900 in Timeline">7 days</a> ago by vedavyas
+                </h3>
+      <div class="comment searchable">
+        <p>
+If you change to error codes, let's file a brand new ticket and add a Wiki page.
+<a class="ext-link" href="http://www.quickweightlossmethods.com/"><span class="icon"> </span>weight loss tips </a>
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/119?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/119?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/119?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("119.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/119 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:01:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

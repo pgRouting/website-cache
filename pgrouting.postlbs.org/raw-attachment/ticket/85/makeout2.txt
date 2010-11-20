@@ -1,0 +1,210 @@
+In file included from /usr/include/postgresql/server/postgres.h:49,
+                 from /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:22:
+/usr/include/postgresql/server/utils/elog.h:68:28: error: utils/errcodes.h: No such file or directory
+In file included from /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:23:
+/usr/include/postgresql/server/executor/spi.h:16:22: error: postgres.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:22:27: error: access/heapam.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:23:25: error: access/xact.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:24:33: error: catalog/pg_language.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:25:29: error: catalog/pg_proc.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:26:29: error: catalog/pg_type.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:27:31: error: executor/executor.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:28:29: error: nodes/execnodes.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:29:26: error: nodes/params.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:30:29: error: nodes/plannodes.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:31:29: error: nodes/primnodes.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:32:28: error: nodes/relation.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:33:23: error: tcop/dest.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:34:25: error: tcop/pquery.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:35:27: error: tcop/tcopprot.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:36:26: error: tcop/utility.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:37:28: error: utils/builtins.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:38:25: error: utils/datum.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:39:26: error: utils/portal.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:40:28: error: utils/syscache.h: No such file or directory
+/usr/include/postgresql/server/executor/spi.h:41:31: error: executor/execdefs.h: No such file or directory
+In file included from /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:23:
+/usr/include/postgresql/server/executor/spi.h:48: error: expected specifier-qualifier-list before 'TupleDesc'
+/usr/include/postgresql/server/executor/spi.h:96: error: expected declaration specifiers or '...' before 'Snapshot'
+/usr/include/postgresql/server/executor/spi.h:97: error: expected declaration specifiers or '...' before 'Snapshot'
+/usr/include/postgresql/server/executor/spi.h:108: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'SPI_copytuple'
+/usr/include/postgresql/server/executor/spi.h:109: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'SPI_returntuple'
+/usr/include/postgresql/server/executor/spi.h:110: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'SPI_modifytuple'
+/usr/include/postgresql/server/executor/spi.h:112: error: expected ')' before 'tupdesc'
+/usr/include/postgresql/server/executor/spi.h:113: error: expected ')' before 'tupdesc'
+/usr/include/postgresql/server/executor/spi.h:114: error: expected ')' before 'tuple'
+/usr/include/postgresql/server/executor/spi.h:115: error: expected ')' before 'tuple'
+/usr/include/postgresql/server/executor/spi.h:116: error: expected ')' before 'tupdesc'
+/usr/include/postgresql/server/executor/spi.h:117: error: expected ')' before 'tupdesc'
+/usr/include/postgresql/server/executor/spi.h:118: error: expected ')' before 'rel'
+/usr/include/postgresql/server/executor/spi.h:119: error: expected ')' before 'rel'
+/usr/include/postgresql/server/executor/spi.h:123: error: expected ')' before 'pointer'
+/usr/include/postgresql/server/executor/spi.h:126: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'SPI_cursor_open'
+/usr/include/postgresql/server/executor/spi.h:128: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'SPI_cursor_find'
+/usr/include/postgresql/server/executor/spi.h:129: error: expected ')' before 'portal'
+/usr/include/postgresql/server/executor/spi.h:130: error: expected ')' before 'portal'
+/usr/include/postgresql/server/executor/spi.h:131: error: expected ')' before 'portal'
+In file included from /usr/include/postgresql/server/funcapi.h:20,
+                 from /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:24:
+/usr/include/postgresql/server/access/tupdesc.h:17:27: error: access/attnum.h: No such file or directory
+/usr/include/postgresql/server/access/tupdesc.h:18:34: error: catalog/pg_attribute.h: No such file or directory
+/usr/include/postgresql/server/access/tupdesc.h:19:27: error: nodes/pg_list.h: No such file or directory
+In file included from /usr/include/postgresql/server/funcapi.h:20,
+                 from /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:24:
+/usr/include/postgresql/server/access/tupdesc.h:24: error: expected specifier-qualifier-list before 'AttrNumber'
+/usr/include/postgresql/server/access/tupdesc.h:72: error: expected specifier-qualifier-list before 'Form_pg_attribute'
+/usr/include/postgresql/server/access/tupdesc.h:85: error: expected declaration specifiers or '...' before 'Form_pg_attribute'
+/usr/include/postgresql/server/access/tupdesc.h:111: error: expected declaration specifiers or '...' before 'AttrNumber'
+/usr/include/postgresql/server/access/tupdesc.h:117: error: expected ')' before '*' token
+/usr/include/postgresql/server/access/tupdesc.h:119: error: expected ')' before '*' token
+In file included from /usr/include/postgresql/server/funcapi.h:21,
+                 from /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:24:
+/usr/include/postgresql/server/executor/executor.h:17:31: error: executor/execdesc.h: No such file or directory
+In file included from /usr/include/postgresql/server/funcapi.h:21,
+                 from /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:24:
+/usr/include/postgresql/server/executor/executor.h:65: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:66: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:67: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:68: error: expected ')' before 'plantype'
+/usr/include/postgresql/server/executor/executor.h:69: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:70: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:75: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:81: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:89: error: expected declaration specifiers or '...' before 'AttrNumber'
+/usr/include/postgresql/server/executor/executor.h:92: error: expected declaration specifiers or '...' before 'AttrNumber'
+/usr/include/postgresql/server/executor/executor.h:95: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'BuildTupleHashTable'
+/usr/include/postgresql/server/executor/executor.h:101: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'LookupTupleHashEntry'
+/usr/include/postgresql/server/executor/executor.h:108: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:110: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:113: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:115: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:117: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'ExecRemoveJunk'
+/usr/include/postgresql/server/executor/executor.h:123: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:124: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:126: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:127: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:128: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:129: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:130: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:131: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:133: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:135: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:140: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:141: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:142: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:143: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:144: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:149: error: expected ')' before 'tuple'
+/usr/include/postgresql/server/executor/executor.h:151: error: expected ')' before 'tuple'
+/usr/include/postgresql/server/executor/executor.h:153: error: expected declaration specifiers or '...' before 'FuncExprState'
+/usr/include/postgresql/server/executor/executor.h:155: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:159: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:163: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:165: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:166: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:167: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:168: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:169: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:170: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:171: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:177: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:179: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:180: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:185: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:186: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:187: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:188: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:190: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:191: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:192: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:193: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:199: error: expected specifier-qualifier-list before 'TupleTableSlot'
+/usr/include/postgresql/server/executor/executor.h:203: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:225: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:226: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:227: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:228: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:229: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:230: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:231: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:236: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:254: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:255: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:256: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:257: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:258: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/usr/include/postgresql/server/executor/executor.h:262: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:264: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:265: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:266: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:267: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:269: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:271: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'ExecOpenScanRelation'
+/usr/include/postgresql/server/executor/executor.h:272: error: expected ')' before 'scanrel'
+/usr/include/postgresql/server/executor/executor.h:274: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:275: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:276: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:279: error: expected ')' before '*' token
+/usr/include/postgresql/server/executor/executor.h:282: error: expected ')' before '*' token
+In file included from /usr/include/postgresql/server/funcapi.h:22,
+                 from /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:24:
+/usr/include/postgresql/server/executor/tuptable.h:17:25: error: access/htup.h: No such file or directory
+/usr/include/postgresql/server/executor/tuptable.h:18:28: error: access/tupdesc.h: No such file or directory
+/usr/include/postgresql/server/executor/tuptable.h:19:25: error: storage/buf.h: No such file or directory
+In file included from /usr/include/postgresql/server/funcapi.h:22,
+                 from /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:24:
+/usr/include/postgresql/server/executor/tuptable.h:107: error: expected specifier-qualifier-list before 'NodeTag'
+/usr/include/postgresql/server/executor/tuptable.h:149: error: expected ')' before 'tuple'
+/usr/include/postgresql/server/executor/tuptable.h:153: error: expected ')' before 'mtup'
+/usr/include/postgresql/server/executor/tuptable.h:159: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'ExecCopySlotTuple'
+/usr/include/postgresql/server/executor/tuptable.h:160: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'ExecCopySlotMinimalTuple'
+/usr/include/postgresql/server/executor/tuptable.h:161: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'ExecFetchSlotTuple'
+/usr/include/postgresql/server/executor/tuptable.h:162: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'ExecFetchSlotMinimalTuple'
+/usr/include/postgresql/server/executor/tuptable.h:163: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'ExecMaterializeSlot'
+In file included from /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:24:
+/usr/include/postgresql/server/funcapi.h:161: error: expected ')' before '*' token
+/usr/include/postgresql/server/funcapi.h:170: error: expected declaration specifiers or '...' before 'Node'
+/usr/include/postgresql/server/funcapi.h:172: error: expected ')' before 'procTup'
+/usr/include/postgresql/server/funcapi.h:181: error: expected ')' before 'procTuple'
+/usr/include/postgresql/server/funcapi.h:221: error: expected declaration specifiers or '...' before 'List'
+/usr/include/postgresql/server/funcapi.h:226: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'BuildTupleFromCStrings'
+In file included from /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:28:
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.h:25:22: error: postgres.h: No such file or directory
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c: In function 'fetch_edge_columns':
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:84: error: 'SPITupleTable' has no member named 'tupdesc'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:85: error: 'SPITupleTable' has no member named 'tupdesc'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:86: error: 'SPITupleTable' has no member named 'tupdesc'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:87: error: 'SPITupleTable' has no member named 'tupdesc'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:98: error: 'SPITupleTable' has no member named 'tupdesc'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:98: error: 'INT4OID' undeclared (first use in this function)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:98: error: (Each undeclared identifier is reported only once
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:98: error: for each function it appears in.)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:99: error: 'SPITupleTable' has no member named 'tupdesc'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:100: error: 'SPITupleTable' has no member named 'tupdesc'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:100: error: 'FLOAT8OID' undeclared (first use in this function)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:112: error: 'SPITupleTable' has no member named 'tupdesc'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:122: error: 'SPITupleTable' has no member named 'tupdesc'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c: At top level:
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:136: error: expected ')' before '*' token
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c: In function 'compute_shortest_path':
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:181: error: 'Portal' undeclared (first use in this function)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:181: error: expected ';' before 'SPIportal'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:214: error: 'SPIportal' undeclared (first use in this function)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:248: error: 'SPITupleTable' has no member named 'tupdesc'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:252: error: 'HeapTuple' undeclared (first use in this function)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:252: error: expected ';' before 'tuple'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:253: error: 'tuple' undeclared (first use in this function)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:345: error: 'ERRCODE_E_R_E_CONTAINING_SQL_NOT_PERMITTED' undeclared (first use in this function)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c: In function 'shortest_path':
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:416: error: 'HeapTuple' undeclared (first use in this function)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:416: error: expected ';' before 'tuple'
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:432: error: 'tuple' undeclared (first use in this function)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:441: error: 'ReturnSetInfo' undeclared (first use in this function)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:441: error: 'rsi' undeclared (first use in this function)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:441: error: expected expression before ')' token
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:441: error: 'ExprMultipleResult' undeclared (first use in this function)
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:445: error: expected expression before ')' token
+/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c:445: error: 'ExprEndResult' undeclared (first use in this function)
+make[2]: *** [core/src/CMakeFiles/routing.dir/dijkstra.o] Error 1
+make[1]: *** [core/src/CMakeFiles/routing.dir/all] Error 2
+make: *** [all] Error 2

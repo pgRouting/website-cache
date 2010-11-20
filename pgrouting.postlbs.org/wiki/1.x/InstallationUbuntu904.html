@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/1.x/InstallationUbuntu904 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      1.x/InstallationUbuntu904 – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/1.x/InstallationUbuntu904?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../1.html" title="View parent page" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../1.html">Up</a></li><li><a href="../WikiStart.html">Start Page</a></li><li><a href="../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/1.x/InstallationUbuntu904?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/1.x/InstallationUbuntu904?action=diff&amp;version=2">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View 1.x" href="../1.html">1.x</a><span class="pathentry sep">/</span><a class="pathentry" title="View 1.x/InstallationUbuntu904" href="InstallationUbuntu904.html">InstallationUbuntu904</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="InstallationonUbuntu9.04withPostgreSQL8.3withTSPandDrivingDistanceExtras">Installation on Ubuntu 9.04 (with PostgreSQL 8.3) with TSP and Driving Distance (Extras)</h1>
+<p>
+After had some troubles to install pgRouting on Ubuntu 8.10, it works again with Ubuntu 9.04.
+</p>
+<h2 id="a1.Installrequiredpackages">1. Install required packages</h2>
+<pre class="wiki">sudo apt-get install build-essential subversion cmake
+sudo apt-get install postgresql-8.3-postgis postgresql-server-dev-8.3
+</pre><p>
+If you're <strong>not</strong> planning to install CGAL from Ubuntu multiverse, you can use default Boost library from the repository. This will be version 1.34 at the moment. 
+</p>
+<pre class="wiki">sudo apt-get install libboost-graph-dev
+</pre><p>
+<strong>If you install CGAL later from Ubuntu multiverse it will upgrade to Boost 1.35</strong>. <br />
+This might cause troubles if you compiled pgRouting core already with Boost 1.34.
+</p>
+<p>
+For Driving Distance algorithm (multiverse repository)
+</p>
+<pre class="wiki">sudo apt-get install libcgal*
+</pre><p>
+For TSP algorithm
+</p>
+<pre class="wiki">wget http://downloads.sourceforge.net/gaul/gaul-devel-0.1849-0.tar.gz
+tar -xzf gaul-devel-0.1849-0.tar.gz
+cd gaul-devel-0.1849-0/
+./configure --disable-slang
+make
+sudo make install
+sudo ldconfig
+</pre><h2 id="a2.CompilepgRoutingcorewithTSPandDDflagon">2. Compile pgRouting core (with TSP and DD flag on)</h2>
+<pre class="wiki">svn checkout http://pgrouting.postlbs.org/svn/pgrouting/trunk pgrouting
+
+cd pgrouting/
+cmake -DWITH_TSP=ON -DWITH_DD=ON .
+make
+sudo make install
+</pre><h2 id="a3.SetupPostgreSQL">3. Setup PostgreSQL</h2>
+<p>
+Set local database connections to "trust" in "pg_hba.conf" to be able to work with PostgreSQL as user "postgres". Then restart PostgreSQL.
+</p>
+<pre class="wiki">sudo gedit /etc/postgresql/8.3/main/pg_hba.conf 
+sudo /etc/init.d/postgresql-8.3 restart
+</pre><h2 id="a4.Createroutingdatabase">4. Create routing database</h2>
+<pre class="wiki">createdb -U postgres routing
+createlang -U postgres plpgsql routing
+</pre><p>
+Add PostGIS functions
+</p>
+<pre class="wiki">psql -U postgres -f /usr/share/postgresql-8.3-postgis/lwpostgis.sql routing
+psql -U postgres -f /usr/share/postgresql-8.3-postgis/spatial_ref_sys.sql routing
+</pre><p>
+Add pgRouting functions
+</p>
+<pre class="wiki">psql -U postgres -f /usr/share/postlbs/routing_core.sql routing
+psql -U postgres -f /usr/share/postlbs/routing_core_wrappers.sql routing
+psql -U postgres -f /usr/share/postlbs/routing_topology.sql routing
+</pre><p>
+Add TSP functions
+</p>
+<pre class="wiki">psql -U postgres -f /usr/share/postlbs/routing_tsp.sql routing
+psql -U postgres -f /usr/share/postlbs/routing_tsp_wrappers.sql routing
+</pre><p>
+Add Driving Distance functions
+</p>
+<pre class="wiki">psql -U postgres -f /usr/share/postlbs/routing_dd.sql routing
+psql -U postgres -f /usr/share/postlbs/routing_dd_wrappers.sql routing
+</pre>
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/1.x/InstallationUbuntu904?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("InstallationUbuntu904.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/1.x/InstallationUbuntu904 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

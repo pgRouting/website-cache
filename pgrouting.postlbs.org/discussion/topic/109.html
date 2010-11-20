@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/109 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/16.html" title="dijkstra">dijkstra</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>dijkstra (#16) - Postgresql crash on dijkstra (#109) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Postgresql crash on dijkstra
+            </div>
+            <div class="body">
+              <p>
+Hi,
+</p>
+<p>
+we have been using pgrouting for the street network of a city totaling 50k edges and it seems to work fine. However, a strange thing has been occurring to another, much smaller topology of only 95 edges, that makes the postmaster process consume a lot of memory ( &gt; 2GB) and simply never returns the result. I have to kill the postmaster each time with a SIGKILL in order to get the system back to normal.
+</p>
+<p>
+We have noticed that the cause of this problem are certain edges, but when looking at the attributes and coordinates, it all seems fine. Including just one of the particular edges in the set used for routing will halt the complete server. This occurs with Dijkstra, but it could be that this also occurs with A*.
+</p>
+<p>
+There are no parallel edges, no isolated edges, we're not using directed/reverse_cost and the data has been projected for use with google maps. We are really at a loss here. Are there any restrictions or problems that are not mentioned in the documentation?
+</p>
+<p>
+UPDATE: The sql file can be found here:
+<a href="../../attachment/wiki/crashdata/test.html">http://pgrouting.postlbs.org/attachment/wiki/crashdata/test.sql</a>
+</p>
+<p>
+The edges causing the problem have the value "stop" in the field "name"
+</p>
+<p>
+it's the standard output of shp2pgsql
+</p>
+<p>
+Thanks for any help in advance!
+</p>
+<p>
+John
+</p>
+<p>
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            johno
+          </div>
+          <div class="time">
+            01/29/08 05:35:53 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/109?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/109?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message403"></a>
+        <div class="id">
+          Message #403
+        </div>
+        <div class="body">
+            <p>
+Hi John,
+</p>
+<p>
+Thanks for the report. I will try your data. Can you please tell me which pgRouting and PostGIS version are you using?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            01/29/08 09:47:38 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message404"></a>
+        <div class="id">
+          Message #404
+        </div>
+        <div class="body">
+            <p>
+Hi Anton,
+</p>
+<p>
+thank you for the quick reply. We're using pgRouting 1.01 and postgis 1.3.1 (from the foss4gtk package) and postgresql 8.2.5.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            johno
+          </div>
+          <div class="time">
+            01/29/08 10:44:29 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message406"></a>
+        <div class="id">
+          Message #406
+        </div>
+        <div class="body">
+            <p>
+Hi John,
+</p>
+<p>
+I tried the data and I found out that the problem is in the vertices renumbering. This is a long story, but I can explain it in few words. Boost library creates a graph and the number of entities in that graph equals to the max vertex id. So, in A* and Shooting* C wrappers I made the vertex id renumbering function (which works strange, 'cause it crashes with A* also).
+</p>
+<p>
+What you can do (as a fast temporary solution and only if you don't cate about vertex ids) is to run topology function which will renumber all vertices. I tried it and it's working well.
+</p>
+<p>
+It will take few days to find out what's wrong with renumbering. So, please wait if you don't like the first solution.
+</p>
+<p>
+Anton.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            01/29/08 17:52:42 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message407"></a>
+        <div class="id">
+          Message #407
+        </div>
+        <div class="body">
+            <p>
+Many thanks!
+</p>
+<p>
+Glad to hear that you managed to find what is causing the problem. I really had no idea that there is a restriction on the vertex numbering and I guess I would have never figured that out by myself. It'll become a bit complicated for us to renumber the vertices, because this small topology is actually a part of a much bigger one and stuff is being added daily from external sources based on those numbers. However, I guess that temporarily we can renumber the vertices and save the original source and target into other fields so we can finally test the whole thing :)
+</p>
+<p>
+Which function are you talking about specifically? We have, geographically speaking, lines on top of others, but are separated in the graph. Rebuilding the topology would mess up the graph. Is there a way to just renumber the vertices?
+</p>
+<p>
+Talking about that, having two or more lines with the same start and end coordenates in one graph is allowed as long as they separated in the topology ,right? Both having their own edges and vertices and interconnected using an intermediary vertex.
+</p>
+<p>
+Thanks again!
+</p>
+<p>
+John
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            johno
+          </div>
+          <div class="time">
+            01/29/08 18:25:59 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message416"></a>
+        <div class="id">
+          Message #416
+        </div>
+        <div class="body">
+            <p>
+Hi John,
+</p>
+<p>
+Yeah, indeed, Shooting* does the better job!
+</p>
+<p>
+Try this:
+</p>
+<p>
+alter table test add column rule text;
+</p>
+<p>
+alter table test add column to_cost double precision;
+</p>
+<p>
+and then
+</p>
+<blockquote>
+<p>
+SELECT edge_id, cost FROM shortest_path_shooting_star('SELECT gid AS id, source::int4 as source, target::int4 as target, length::double precision AS cost, x(startpoint(the_geom)) as x1, y(startpoint(the_geom)) as y1, x(endpoint(the_geom)) as x2, y(endpoint(the_geom)) as y2, to_cost, rule FROM test',1, 45, false, false);
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            01/31/08 16:47:39 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message408"></a>
+        <div class="id">
+          Message #408
+        </div>
+        <div class="body">
+            <p>
+Hi John,
+</p>
+<p>
+If you really need to have several edges with the same start and end coordinates, you can merge topologies and use Shooting* algorithm which cares about parallel edges.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            01/29/08 18:35:42 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/109?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/109?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

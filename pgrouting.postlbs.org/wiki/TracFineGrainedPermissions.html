@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracFineGrainedPermissions by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracFineGrainedPermissions – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/TracFineGrainedPermissions?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/TracFineGrainedPermissions?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/TracFineGrainedPermissions?action=diff&amp;version=2">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h1 id="Finegrainedpermissions">Fine grained permissions</h1>
+<p>
+Before Trac 0.11, it was only possible to define fine-grained permissions checks on the repository browser sub-system.
+</p>
+<p>
+Since 0.11, there's a general mechanism in place that allows custom permission policy plugins to grant or deny any action on any kind of Trac resources, even at the level of specific versions of such resources.
+</p>
+<h2 id="PermissionPolicies">Permission Policies</h2>
+<h3 id="AuthzPolicy">AuthzPolicy</h3>
+<p>
+An example policy based on an Authz-style system has been added. See
+<a class="ext-link" href="http://trac.edgewall.org/intertrac/source%3Abranches/0.11-stable/sample-plugins/permissions/authz_policy.py" title="source:branches/0.11-stable/sample-plugins/permissions/authz_policy.py in Trac project trac"><span class="icon"> </span>authz_policy.py</a> for details (current version requires &gt;= Python 2.4). (See also <a class="ext-link" href="http://trac.edgewall.org/intertrac/source%3Abranches/0.11-stable/sample-plugins/permissions" title="source:branches/0.11-stable/sample-plugins/permissions in Trac project trac"><span class="icon"> </span>sample-plugins/permissions</a> for more samples.)
+</p>
+<ul><li>Install <a class="ext-link" href="http://www.voidspace.org.uk/python/configobj.html"><span class="icon"> </span>ConfigObj</a> (required).
+</li><li>Copy authz_policy.py into your plugins directory.
+</li><li>Put a <a class="ext-link" href="http://swapoff.org/files/authzpolicy.conf"><span class="icon"> </span>authzpolicy.conf</a> file somewhere (preferably on a secured location on the server, not readable for others than the webuser.
+</li><li>Update your <tt>trac.ini</tt>:
+<pre class="wiki">[trac]
+...
+permission_policies = AuthzPolicy, DefaultPermissionPolicy, LegacyAttachmentPolicy
+
+[authz_policy]
+authz_file = /some/trac/env/conf/authzpolicy.conf
+
+[components]
+...
+authz_policy = enabled
+</pre></li></ul><p>
+Note that the order in which permission policies are specified is quite critical, 
+as policies will be examined in the sequence provided.
+</p>
+<p>
+A policy will return either <tt>True</tt>, <tt>False</tt> or <tt>None</tt> for a given permission check.
+Only if the return value is <tt>None</tt> will the <i>next</i> permission policy be consulted.
+If no policy explicitly grants the permission, the final result will be <tt>False</tt> 
+(i.e. no permission).
+</p>
+<p>
+For example, if the <tt>authz_file</tt> contains:
+</p>
+<pre class="wiki">[wiki:WikiStart@*]
+* = WIKI_VIEW
+
+[wiki:PrivatePage@*]
+john = WIKI_VIEW
+* =
+</pre><p>
+and the default permissions are set like this:
+</p>
+<pre class="wiki">john           WIKI_VIEW
+jack           WIKI_VIEW
+# anonymous has no WIKI_VIEW
+</pre><p>
+Then: 
+</p>
+<ul><li>All versions of <a class="wiki" href="WikiStart.html">WikiStart</a> will be viewable by everybody (including anonymous)
+</li><li>PrivatePage will be viewable only by john
+</li><li>other pages will be viewable only by john and jack
+</li></ul><h3 id="mod_authz_svn-likepermissionpolicy">mod_authz_svn-like permission policy</h3>
+<p>
+At the time of this writing, the old fine grained permissions system from Trac 0.10 and before used for restricting access to the repository has not yet been converted to a permission policy component, but from the user point of view, this makes little if no difference.
+</p>
+<p>
+That kind of fine-grained permission control needs a definition file, which is the one used by Subversion's mod_authz_svn. 
+More information about this file format and about its usage in Subversion is available in the <a class="ext-link" href="http://svnbook.red-bean.com/svnbook/book.html#svn-ch-6-sect-4.4.2"><span class="icon"> </span>Subversion Book (Per-Directory Access Control)</a>.
+</p>
+<p>
+Example:
+</p>
+<pre class="wiki">[/]
+* = r
+
+[/branches/calc/bug-142]
+harry = rw
+sally = r
+
+[/branches/calc/bug-142/secret]
+harry =
+</pre><ul><li><strong>/</strong> = <i>Everyone has read access by default</i>
+</li><li><strong>/branches/calc/bug-142</strong> = <i>harry has read/write access, sally read only</i>
+</li><li><strong>/branches/calc/bug-142/secret</strong> = <i>harry has no access, sally has read access (inherited as a sub folder permission)</i>
+</li></ul><h4 id="TracConfiguration">Trac Configuration</h4>
+<p>
+To activate fine grained permissions you <span class="underline">must</span> specify the <tt>authz_file</tt> option in the <tt>[trac]</tt> section of trac.ini. If this option is set to null or not specified the permissions will not be used.
+</p>
+<pre class="wiki">[trac]
+authz_file = /path/to/svnaccessfile
+</pre><p>
+if you want to support the use of the <tt>[</tt><i>modulename</i><tt>:/</tt><i>some</i><tt>/</tt><i>path</i><tt>]</tt> syntax within the <tt>authz_file</tt>, add 
+</p>
+<pre class="wiki">authz_module_name = modulename
+</pre><p>
+where <i>modulename</i> refers to the same repository indicated by the <tt>repository_dir</tt> entry in the <tt>[trac]</tt> section.
+</p>
+<p>
+<strong>Note:</strong> Usernames inside the Authz file <span class="underline">must</span> be the same as those used inside trac. 
+</p>
+<h4 id="SubversionConfiguration">Subversion Configuration</h4>
+<p>
+The same access file is typically applied to the corresponding Subversion repository using an Apache directive like this:
+</p>
+<pre class="wiki">&lt;Location /repos&gt;
+  DAV svn
+  SVNParentPath /usr/local/svn
+
+  # our access control policy
+  AuthzSVNAccessFile /path/to/svnaccessfile
+&lt;/Location&gt;
+</pre><p>
+For information about how to restrict access to entire projects in a multiple project environment see <a class="ext-link" href="http://trac.edgewall.org/intertrac/wiki%3ATracMultipleProjectsSVNAccess" title="wiki:TracMultipleProjectsSVNAccess in Trac project trac"><span class="icon"> </span>trac:wiki:TracMultipleProjectsSVNAccess</a>
+</p>
+<h2 id="GettingTracFineGrainedPermissionstowork">Getting <a class="wiki" href="TracFineGrainedPermissions.html">TracFineGrainedPermissions</a> to work</h2>
+<p>
+Don't forget to restart Trac engine to apply new configuration if you are running tracd standalone server.
+</p>
+<hr />
+<p>
+See also: <a class="wiki" href="TracPermissions.html">TracPermissions</a>
+<a class="ext-link" href="http://trac-hacks.org/wiki/FineGrainedPageAuthzEditorPlugin"><span class="icon"> </span>http://trac-hacks.org/wiki/FineGrainedPageAuthzEditorPlugin</a> for a simple editor plugin.
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/TracFineGrainedPermissions?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TracFineGrainedPermissions.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracFineGrainedPermissions by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

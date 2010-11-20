@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch08 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      WorkshopFOSS4G2008/ch08 – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch08?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../WorkshopFOSS4G2008.html" title="View parent page" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../WorkshopFOSS4G2008.html">Up</a></li><li><a href="../WikiStart.html">Start Page</a></li><li><a href="../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch08?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch08?action=diff&amp;version=1">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View WorkshopFOSS4G2008" href="../WorkshopFOSS4G2008.html">WorkshopFOSS4G2008</a><span class="pathentry sep">/</span><a class="pathentry" title="View WorkshopFOSS4G2008/ch08" href="ch08.html">ch08</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="pgRoutingwithA-Staralgorithm">pgRouting with A-Star algorithm</h1>
+<p>
+A-Star algorithm is another well-known routing algorithm. It adds geographical 
+information to source and target of each network link. This enables the shortest 
+path search to prefer links which are closer to the target of the search.
+</p>
+<h2 id="PrepareroutingtableforA-Star">Prepare routing table for A-Star</h2>
+<p>
+For A-Star you need to prepare your network table and add latitute/longitude 
+columns (x1, y1 and x2, y2) and calculate their values.
+</p>
+<pre class="wiki">ALTER TABLE ways ADD COLUMN x1 double precision;
+ALTER TABLE ways ADD COLUMN y1 double precision;
+ALTER TABLE ways ADD COLUMN x2 double precision;
+ALTER TABLE ways ADD COLUMN y2 double precision;
+</pre><pre class="wiki">UPDATE ways SET x1 = x(startpoint(the_geom));
+UPDATE ways SET y1 = y(startpoint(the_geom));
+UPDATE ways SET x2 = x(endpoint(the_geom));
+UPDATE ways SET y2 = y(endpoint(the_geom));
+</pre><p>
+Note: "endpoint()" function fails for some versions of PostgreSQL (ie. 8.2.5, 8.1.9). 
+A workaround for that problem is using the "PointN()" function instead:
+</p>
+<pre class="wiki">UPDATE ways SET x1 = x(PointN(the_geom, 1));
+UPDATE ways SET y1 = y(PointN(the_geom, 1));
+UPDATE ways SET x2 = x(PointN(the_geom, NumPoints(the_geom)));
+UPDATE ways SET y2 = y(PointN(the_geom, NumPoints(the_geom)));
+</pre><h2 id="ShortestPathA-Starcorefunction">Shortest Path A-Star core function</h2>
+<p>
+Shortest Path A-Star function is very similar to the Dijkstra function, though 
+it prefers links that are close to the target of the search. The heuristics of 
+this search are predefined, so you need to recompile pgRouting if you want to 
+make changes to the heuristic function itself.
+</p>
+<pre class="wiki">shortest_path_astar( sql text, 
+		   source_id integer, 
+		   target_id integer, 
+		   directed boolean, 
+		   has_reverse_cost boolean ) 
+</pre><p>
+Note: 
+</p>
+<ul><li>Source and target IDs are vertex IDs.
+</li><li>Undirected graphs ("directed false") ignores "has_reverse_cost" setting
+</li></ul><h3 id="ExampleofA-Starcorefunction">Example of A-Star core function</h3>
+<pre class="wiki">SELECT * FROM shortest_path_astar('
+		SELECT gid as id, 
+			 source::integer, 
+			 target::integer, 
+			 length::double precision as cost, 
+			 x1, y1, x2, y2
+			FROM ways', 
+		10, 20, false, false); 
+</pre><pre class="wiki">vertex_id | edge_id |        cost         
+-----------+---------+---------------------
+        10 |     293 |  0.0059596293824534
+         9 |    4632 |  0.0846731039249787
+      3974 |    4633 |  0.0765635090514303
+       ... |     ... |  ...
+        20 |      -1 |                   0
+(63 rows)
+</pre><h3 id="WrapperfunctionWITHboundingbox">Wrapper function WITH bounding box</h3>
+<p>
+Wrapper functions extend the core functions with transformations, bounding box 
+limitations, etc.. 
+</p>
+<pre class="wiki">SELECT gid, AsText(the_geom) AS the_geom 
+	FROM astar_sp_delta('ways', 10, 20, 0.1);
+</pre><pre class="wiki">  gid   |                              the_geom      
+--------+---------------------------------------------------------------
+    293 | MULTILINESTRING((18.4074149 -33.9443308,18.4074019 -33.9443833))
+   4632 | MULTILINESTRING((18.4074149 -33.9443308,18.4077388 -33.9436183))
+   4633 | MULTILINESTRING((18.4077388 -33.9436183,18.4080293 -33.9429733))
+    ... | ...
+    762 | MULTILINESTRING((18.4241422 -33.9179275,18.4237423 -33.9182966))
+    761 | MULTILINESTRING((18.4243523 -33.9177154,18.4241422 -33.9179275))
+(62 rows)
+</pre><p>
+Note: 
+</p>
+<ul><li>There is currently no wrapper function for A-Star without bounding box, since bounding boxes are very useful to increase performance. If you don't need a bounding box Dijkstra will be enough anyway.
+</li><li>The projection of OSM data is "degree", so we set a bounding box containing start and end vertex plus a 0.1 degree buffer for example.
+</li></ul>
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch08?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("ch08.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch08 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

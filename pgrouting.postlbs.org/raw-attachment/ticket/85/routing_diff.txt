@@ -1,0 +1,765 @@
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/CMakeCache.txt /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/CMakeCache.txt
+20a21,26
+> //Path to a file.
+> CGAL_INCLUDE_DIR:PATH=/usr/local/include/CGAL
+> 
+> //Path to a library.
+> CGAL_LIBRARIES:FILEPATH=/usr/local/lib/libCGAL.so
+> 
+172a179,181
+> //Search for CGAL package
+> WITH_CGAL:BOOL=ON
+> 
+174c183
+< WITH_DD:BOOL=OFF
+---
+> WITH_DD:BOOL=ON
+188a198,200
+> routing_dd_LIB_DEPENDS:STATIC=
+> 
+> //Dependencies for target
+195a208,211
+> //Advanced flag for variable: CGAL_INCLUDE_DIR
+> CGAL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+> //Advanced flag for variable: CGAL_LIBRARIES
+> CGAL_LIBRARIES-ADVANCED:INTERNAL=1
+280c296
+< CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=4
+---
+> CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=5
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/CMakeFiles/CMakeDirectoryInformation.cmake /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/CMakeFiles/CMakeDirectoryInformation.cmake
+10a11
+>   "/usr/local/include/CGAL"
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/CMakeFiles/Makefile.cmake /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/CMakeFiles/Makefile.cmake
+35a36
+>   "cmake/FindCGAL.cmake"
+44a46,48
+>   "extra/driving_distance/sql/routing_dd.sql"
+>   "extra/driving_distance/sql/routing_dd_wrappers.sql"
+>   "extra/driving_distance/src/CMakeLists.txt"
+57a62
+>   "extra/driving_distance/src/CMakeFiles/CMakeDirectoryInformation.cmake"
+63a69
+>   "extra/driving_distance/src/CMakeFiles/routing_dd.dir/DependInfo.cmake"
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/CMakeFiles/Makefile2 /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/CMakeFiles/Makefile2
+142a143,183
+> # Directory level rules for directory extra/driving_distance/src
+> 
+> # Convenience name for "all" pass in the directory.
+> extra/driving_distance/src/all: extra/driving_distance/src/CMakeFiles/routing_dd.dir/all
+> 
+> # Convenience name for "clean" pass in the directory.
+> extra/driving_distance/src/clean: extra/driving_distance/src/CMakeFiles/routing_dd.dir/clean
+> 
+> # Convenience name for "preinstall" pass in the directory.
+> extra/driving_distance/src/preinstall:
+> 
+> #=============================================================================
+> # Target rules for target extra/driving_distance/src/CMakeFiles/routing_dd.dir
+> 
+> # All Build rule for target.
+> extra/driving_distance/src/CMakeFiles/routing_dd.dir/all:
+> 	$(MAKE) -f extra/driving_distance/src/CMakeFiles/routing_dd.dir/build.make extra/driving_distance/src/CMakeFiles/routing_dd.dir/depend
+> 	$(MAKE) -f extra/driving_distance/src/CMakeFiles/routing_dd.dir/build.make extra/driving_distance/src/CMakeFiles/routing_dd.dir/build
+> 	$(CMAKE_COMMAND) -E cmake_progress_report /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/CMakeFiles  9 10 11 12
+> 	@echo "Built target routing_dd"
+> 
+> # Include target in all.
+> all: extra/driving_distance/src/CMakeFiles/routing_dd.dir/all
+> 
+> # Build rule for subdir invocation for target.
+> extra/driving_distance/src/CMakeFiles/routing_dd.dir/rule: cmake_check_build_system
+> 	$(CMAKE_COMMAND) -E cmake_progress_start /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/CMakeFiles 4
+> 	$(MAKE) -f CMakeFiles/Makefile2 extra/driving_distance/src/CMakeFiles/routing_dd.dir/all
+> 	$(CMAKE_COMMAND) -E cmake_progress_start /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/CMakeFiles 0
+> 
+> # Convenience name for target.
+> routing_dd: extra/driving_distance/src/CMakeFiles/routing_dd.dir/rule
+> 
+> # clean rule for target.
+> extra/driving_distance/src/CMakeFiles/routing_dd.dir/clean:
+> 	$(MAKE) -f extra/driving_distance/src/CMakeFiles/routing_dd.dir/build.make extra/driving_distance/src/CMakeFiles/routing_dd.dir/clean
+> 
+> # clean rule for target.
+> clean: extra/driving_distance/src/CMakeFiles/routing_dd.dir/clean
+> 
+> #=============================================================================
+Only in /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/CMakeFiles: Progress
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/CMakeFiles/progress.make /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/CMakeFiles/progress.make
+1c1
+< CMAKE_ALL_PROGRESS = 8
+---
+> CMAKE_ALL_PROGRESS = 12
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/Makefile /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/Makefile
+110a111,121
+> #=============================================================================
+> # Target rules for targets named routing_dd
+> 
+> # Build rule for target.
+> routing_dd: cmake_check_build_system
+> 	$(MAKE) -f CMakeFiles/Makefile2 routing_dd
+> 
+> # fast build rule for target.
+> routing_dd/fast:
+> 	$(MAKE) -f extra/driving_distance/src/CMakeFiles/routing_dd.dir/build.make extra/driving_distance/src/CMakeFiles/routing_dd.dir/build
+> 
+120a132
+> 	@echo "... routing_dd"
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/cmake_install.cmake /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/cmake_install.cmake
+34a35
+>   INCLUDE("/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/driving_distance/src/cmake_install.cmake")
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/core/src/CMakeFiles/CMakeDirectoryInformation.cmake /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/CMakeFiles/CMakeDirectoryInformation.cmake
+10a11
+>   "/usr/local/include/CGAL"
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/core/src/CMakeFiles/routing.dir/C.includecache /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/CMakeFiles/routing.dir/C.includecache
+516a517,526
+> /usr/local/include/CGAL/float.h
+> CGAL/number_type_basic.h
+> -
+> cmath
+> -
+> CGAL/IEEE_754_unions.h
+> -
+> fp_class.h
+> -
+> 
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/core/src/CMakeFiles/routing.dir/DependInfo.cmake /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/CMakeFiles/routing.dir/DependInfo.cmake
+7,10d6
+<   "/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/shooting_star.c"
+<   "/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/CMakeFiles/routing.dir/shooting_star.o"
+<   "/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/astar.c"
+<   "/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/CMakeFiles/routing.dir/astar.o"
+12a9,12
+>   "/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/astar.c"
+>   "/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/CMakeFiles/routing.dir/astar.o"
+>   "/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/shooting_star.c"
+>   "/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/CMakeFiles/routing.dir/shooting_star.o"
+Only in /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/core/src/CMakeFiles/routing.dir: astar.o
+Only in /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/core/src/CMakeFiles/routing.dir: astar_boost_wrapper.o
+Only in /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/core/src/CMakeFiles/routing.dir: boost_wrapper.o
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/core/src/CMakeFiles/routing.dir/depend.internal /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/CMakeFiles/routing.dir/depend.internal
+4c4
+< core/src/CMakeFiles/routing.dir/shooting_star.o
+---
+> core/src/CMakeFiles/routing.dir/dijkstra.o
+90,91c90,92
+<  /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/shooting_star.c
+<  /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/shooting_star.h
+---
+>  /usr/local/include/CGAL/float.h
+>  /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c
+>  /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.h
+177a179
+>  /usr/local/include/CGAL/float.h
+181c183
+< core/src/CMakeFiles/routing.dir/dijkstra.o
+---
+> core/src/CMakeFiles/routing.dir/shooting_star.o
+267,268c269,271
+<  /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.c
+<  /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/dijkstra.h
+---
+>  /usr/local/include/CGAL/float.h
+>  /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/shooting_star.c
+>  /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/shooting_star.h
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/core/src/CMakeFiles/routing.dir/depend.make /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/CMakeFiles/routing.dir/depend.make
+4,90c4,91
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/attnum.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/heapam.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/htup.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/relscan.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/rmgr.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/sdir.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/skey.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/tupdesc.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/tupmacs.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/xact.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/xlog.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/xlogdefs.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/xlogutils.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/c.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_am.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_attribute.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_class.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_index.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_language.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_proc.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_type.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/executor/execdefs.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/executor/execdesc.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/executor/executor.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/executor/spi.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/executor/tuptable.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/fmgr.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/funcapi.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/lib/dllist.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/lib/stringinfo.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/bitmapset.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/execnodes.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/nodes.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/params.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/parsenodes.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/pg_list.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/plannodes.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/primnodes.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/relation.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/tidbitmap.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/value.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/pg_config.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/pg_config_manual.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/pg_config_os.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/pg_trace.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/pgtime.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/port.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/postgres.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/postgres_ext.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/rewrite/prs2lock.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/block.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/buf.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/bufmgr.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/bufpage.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/item.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/itemid.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/itemptr.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/lmgr.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/lock.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/lwlock.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/off.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/relfilenode.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/shmem.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/tcop/dest.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/tcop/pquery.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/tcop/tcopprot.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/tcop/utility.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/array.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/builtins.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/catcache.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/datum.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/elog.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/errcodes.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/guc.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/hsearch.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/int8.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/palloc.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/pg_crc.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/portal.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/rel.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/resowner.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/syscache.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/timestamp.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/tqual.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/tuplestore.h
+< core/src/CMakeFiles/routing.dir/shooting_star.o: core/src/shooting_star.c
+< core/src/CMakeFiles/routing.dir/shooting_star.o: core/src/shooting_star.h
+---
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/attnum.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/heapam.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/htup.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/relscan.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/rmgr.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/sdir.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/skey.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/tupdesc.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/tupmacs.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/xact.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/xlog.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/xlogdefs.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/xlogutils.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/c.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_am.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_attribute.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_class.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_index.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_language.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_proc.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_type.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/executor/execdefs.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/executor/execdesc.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/executor/executor.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/executor/spi.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/executor/tuptable.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/fmgr.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/funcapi.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/lib/dllist.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/lib/stringinfo.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/bitmapset.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/execnodes.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/nodes.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/params.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/parsenodes.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/pg_list.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/plannodes.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/primnodes.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/relation.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/tidbitmap.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/value.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/pg_config.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/pg_config_manual.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/pg_config_os.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/pg_trace.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/pgtime.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/port.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/postgres.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/postgres_ext.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/rewrite/prs2lock.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/block.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/buf.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/bufmgr.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/bufpage.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/item.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/itemid.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/itemptr.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/lmgr.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/lock.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/lwlock.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/off.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/relfilenode.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/shmem.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/tcop/dest.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/tcop/pquery.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/tcop/tcopprot.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/tcop/utility.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/array.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/builtins.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/catcache.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/datum.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/elog.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/errcodes.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/guc.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/hsearch.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/int8.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/palloc.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/pg_crc.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/portal.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/rel.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/resowner.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/syscache.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/timestamp.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/tqual.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/tuplestore.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/local/include/CGAL/float.h
+> core/src/CMakeFiles/routing.dir/dijkstra.o: core/src/dijkstra.c
+> core/src/CMakeFiles/routing.dir/dijkstra.o: core/src/dijkstra.h
+176a178
+> core/src/CMakeFiles/routing.dir/astar.o: /usr/local/include/CGAL/float.h
+181,267c183,270
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/attnum.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/heapam.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/htup.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/relscan.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/rmgr.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/sdir.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/skey.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/tupdesc.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/tupmacs.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/xact.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/xlog.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/xlogdefs.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/access/xlogutils.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/c.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_am.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_attribute.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_class.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_index.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_language.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_proc.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/catalog/pg_type.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/executor/execdefs.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/executor/execdesc.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/executor/executor.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/executor/spi.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/executor/tuptable.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/fmgr.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/funcapi.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/lib/dllist.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/lib/stringinfo.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/bitmapset.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/execnodes.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/nodes.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/params.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/parsenodes.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/pg_list.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/plannodes.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/primnodes.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/relation.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/tidbitmap.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/nodes/value.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/pg_config.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/pg_config_manual.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/pg_config_os.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/pg_trace.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/pgtime.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/port.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/postgres.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/postgres_ext.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/rewrite/prs2lock.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/block.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/buf.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/bufmgr.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/bufpage.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/item.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/itemid.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/itemptr.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/lmgr.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/lock.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/lwlock.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/off.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/relfilenode.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/storage/shmem.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/tcop/dest.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/tcop/pquery.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/tcop/tcopprot.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/tcop/utility.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/array.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/builtins.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/catcache.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/datum.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/elog.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/errcodes.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/guc.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/hsearch.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/int8.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/palloc.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/pg_crc.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/portal.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/rel.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/resowner.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/syscache.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/timestamp.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/tqual.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: /usr/include/postgresql/server/utils/tuplestore.h
+< core/src/CMakeFiles/routing.dir/dijkstra.o: core/src/dijkstra.c
+< core/src/CMakeFiles/routing.dir/dijkstra.o: core/src/dijkstra.h
+---
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/attnum.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/heapam.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/htup.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/relscan.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/rmgr.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/sdir.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/skey.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/tupdesc.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/tupmacs.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/xact.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/xlog.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/xlogdefs.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/access/xlogutils.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/c.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_am.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_attribute.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_class.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_index.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_language.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_proc.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/catalog/pg_type.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/executor/execdefs.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/executor/execdesc.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/executor/executor.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/executor/spi.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/executor/tuptable.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/fmgr.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/funcapi.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/lib/dllist.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/lib/stringinfo.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/bitmapset.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/execnodes.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/nodes.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/params.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/parsenodes.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/pg_list.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/plannodes.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/primnodes.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/relation.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/tidbitmap.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/nodes/value.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/pg_config.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/pg_config_manual.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/pg_config_os.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/pg_trace.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/pgtime.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/port.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/postgres.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/postgres_ext.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/rewrite/prs2lock.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/block.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/buf.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/bufmgr.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/bufpage.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/item.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/itemid.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/itemptr.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/lmgr.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/lock.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/lwlock.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/off.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/relfilenode.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/storage/shmem.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/tcop/dest.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/tcop/pquery.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/tcop/tcopprot.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/tcop/utility.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/array.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/builtins.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/catcache.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/datum.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/elog.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/errcodes.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/guc.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/hsearch.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/int8.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/palloc.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/pg_crc.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/portal.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/rel.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/resowner.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/syscache.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/timestamp.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/tqual.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/include/postgresql/server/utils/tuplestore.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: /usr/local/include/CGAL/float.h
+> core/src/CMakeFiles/routing.dir/shooting_star.o: core/src/shooting_star.c
+> core/src/CMakeFiles/routing.dir/shooting_star.o: core/src/shooting_star.h
+Only in /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/core/src/CMakeFiles/routing.dir: dijkstra.o
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/core/src/CMakeFiles/routing.dir/flags.make /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src/CMakeFiles/routing.dir/flags.make
+4c4
+< C_FLAGS = -Drouting_EXPORTS -O2 -g -fPIC -I/usr/include/postgresql/server -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/. -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp/src -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/driving_distance -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/driving_distance/src -I/usr/local/include/boost-1_34_1/boost  
+---
+> C_FLAGS = -Drouting_EXPORTS -O2 -g -fPIC -I/usr/include/postgresql/server -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src -I/usr/local/include/CGAL -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/. -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp/src -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/driving_distance -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/driving_distance/src -I/usr/local/include/boost-1_34_1/boost  
+6c6
+< CXX_FLAGS = -Drouting_EXPORTS -O2 -g -fPIC -I/usr/include/postgresql/server -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/. -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp/src -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/driving_distance -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/driving_distance/src -I/usr/local/include/boost-1_34_1/boost  
+---
+> CXX_FLAGS = -Drouting_EXPORTS -O2 -g -fPIC -I/usr/include/postgresql/server -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core/src -I/usr/local/include/CGAL -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/. -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/core -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp/src -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/driving_distance -I/usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/driving_distance/src -I/usr/local/include/boost-1_34_1/boost  
+Only in /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/core/src/CMakeFiles/routing.dir: shooting_star.o
+Only in /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/core/src/CMakeFiles/routing.dir: shooting_star_boost_wrapper.o
+Only in /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/driving_distance/src: CMakeFiles
+Only in /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/driving_distance/src: Makefile
+Only in /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/driving_distance/src: cmake_install.cmake
+Only in /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/extra/tsp/src/CMakeFiles/routing_tsp.dir: C.includecache
+Only in /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/extra/tsp/src/CMakeFiles/routing_tsp.dir: CXX.includecache
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/extra/tsp/src/CMakeFiles/routing_tsp.dir/depend.internal /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp/src/CMakeFiles/routing_tsp.dir/depend.internal
+1,107c1,2
+< # CMAKE generated file: DO NOT EDIT!
+< # Generated by "Unix Makefiles" Generator, CMake Version 2.4
+< 
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o
+<  /usr/include/postgresql/server/access/attnum.h
+<  /usr/include/postgresql/server/access/heapam.h
+<  /usr/include/postgresql/server/access/htup.h
+<  /usr/include/postgresql/server/access/relscan.h
+<  /usr/include/postgresql/server/access/rmgr.h
+<  /usr/include/postgresql/server/access/sdir.h
+<  /usr/include/postgresql/server/access/skey.h
+<  /usr/include/postgresql/server/access/tupdesc.h
+<  /usr/include/postgresql/server/access/tupmacs.h
+<  /usr/include/postgresql/server/access/xact.h
+<  /usr/include/postgresql/server/access/xlog.h
+<  /usr/include/postgresql/server/access/xlogdefs.h
+<  /usr/include/postgresql/server/access/xlogutils.h
+<  /usr/include/postgresql/server/c.h
+<  /usr/include/postgresql/server/catalog/pg_am.h
+<  /usr/include/postgresql/server/catalog/pg_attribute.h
+<  /usr/include/postgresql/server/catalog/pg_class.h
+<  /usr/include/postgresql/server/catalog/pg_index.h
+<  /usr/include/postgresql/server/catalog/pg_language.h
+<  /usr/include/postgresql/server/catalog/pg_proc.h
+<  /usr/include/postgresql/server/catalog/pg_type.h
+<  /usr/include/postgresql/server/executor/execdefs.h
+<  /usr/include/postgresql/server/executor/execdesc.h
+<  /usr/include/postgresql/server/executor/executor.h
+<  /usr/include/postgresql/server/executor/spi.h
+<  /usr/include/postgresql/server/executor/tuptable.h
+<  /usr/include/postgresql/server/fmgr.h
+<  /usr/include/postgresql/server/funcapi.h
+<  /usr/include/postgresql/server/lib/dllist.h
+<  /usr/include/postgresql/server/lib/stringinfo.h
+<  /usr/include/postgresql/server/nodes/bitmapset.h
+<  /usr/include/postgresql/server/nodes/execnodes.h
+<  /usr/include/postgresql/server/nodes/nodes.h
+<  /usr/include/postgresql/server/nodes/params.h
+<  /usr/include/postgresql/server/nodes/parsenodes.h
+<  /usr/include/postgresql/server/nodes/pg_list.h
+<  /usr/include/postgresql/server/nodes/plannodes.h
+<  /usr/include/postgresql/server/nodes/primnodes.h
+<  /usr/include/postgresql/server/nodes/relation.h
+<  /usr/include/postgresql/server/nodes/tidbitmap.h
+<  /usr/include/postgresql/server/nodes/value.h
+<  /usr/include/postgresql/server/pg_config.h
+<  /usr/include/postgresql/server/pg_config_manual.h
+<  /usr/include/postgresql/server/pg_config_os.h
+<  /usr/include/postgresql/server/pg_trace.h
+<  /usr/include/postgresql/server/pgtime.h
+<  /usr/include/postgresql/server/port.h
+<  /usr/include/postgresql/server/postgres.h
+<  /usr/include/postgresql/server/postgres_ext.h
+<  /usr/include/postgresql/server/rewrite/prs2lock.h
+<  /usr/include/postgresql/server/storage/block.h
+<  /usr/include/postgresql/server/storage/buf.h
+<  /usr/include/postgresql/server/storage/bufmgr.h
+<  /usr/include/postgresql/server/storage/bufpage.h
+<  /usr/include/postgresql/server/storage/item.h
+<  /usr/include/postgresql/server/storage/itemid.h
+<  /usr/include/postgresql/server/storage/itemptr.h
+<  /usr/include/postgresql/server/storage/lmgr.h
+<  /usr/include/postgresql/server/storage/lock.h
+<  /usr/include/postgresql/server/storage/lwlock.h
+<  /usr/include/postgresql/server/storage/off.h
+<  /usr/include/postgresql/server/storage/relfilenode.h
+<  /usr/include/postgresql/server/storage/shmem.h
+<  /usr/include/postgresql/server/tcop/dest.h
+<  /usr/include/postgresql/server/tcop/pquery.h
+<  /usr/include/postgresql/server/tcop/tcopprot.h
+<  /usr/include/postgresql/server/tcop/utility.h
+<  /usr/include/postgresql/server/utils/array.h
+<  /usr/include/postgresql/server/utils/builtins.h
+<  /usr/include/postgresql/server/utils/catcache.h
+<  /usr/include/postgresql/server/utils/datum.h
+<  /usr/include/postgresql/server/utils/elog.h
+<  /usr/include/postgresql/server/utils/errcodes.h
+<  /usr/include/postgresql/server/utils/guc.h
+<  /usr/include/postgresql/server/utils/hsearch.h
+<  /usr/include/postgresql/server/utils/int8.h
+<  /usr/include/postgresql/server/utils/palloc.h
+<  /usr/include/postgresql/server/utils/pg_crc.h
+<  /usr/include/postgresql/server/utils/portal.h
+<  /usr/include/postgresql/server/utils/rel.h
+<  /usr/include/postgresql/server/utils/resowner.h
+<  /usr/include/postgresql/server/utils/syscache.h
+<  /usr/include/postgresql/server/utils/timestamp.h
+<  /usr/include/postgresql/server/utils/tqual.h
+<  /usr/include/postgresql/server/utils/tuplestore.h
+<  /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp/src/tsp.c
+<  /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp/src/tsp.h
+<  core/src/dijkstra.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o
+<  /usr/include/postgresql/server/c.h
+<  /usr/include/postgresql/server/pg_config.h
+<  /usr/include/postgresql/server/pg_config_manual.h
+<  /usr/include/postgresql/server/pg_config_os.h
+<  /usr/include/postgresql/server/pg_trace.h
+<  /usr/include/postgresql/server/port.h
+<  /usr/include/postgresql/server/postgres.h
+<  /usr/include/postgresql/server/postgres_ext.h
+<  /usr/include/postgresql/server/utils/elog.h
+<  /usr/include/postgresql/server/utils/errcodes.h
+<  /usr/include/postgresql/server/utils/palloc.h
+<  /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp/src/tsp.h
+<  /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp/src/tsp_solver.cpp
+<  core/src/dijkstra.h
+---
+> # Empty dependencies file
+> # This may be replaced when dependencies are built.
+diff -r /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/extra/tsp/src/CMakeFiles/routing_tsp.dir/depend.make /usr/src/disks/DB/GPS/PostgresRouting/pgrouting/extra/tsp/src/CMakeFiles/routing_tsp.dir/depend.make
+1,107c1,2
+< # CMAKE generated file: DO NOT EDIT!
+< # Generated by "Unix Makefiles" Generator, CMake Version 2.4
+< 
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/attnum.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/heapam.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/htup.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/relscan.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/rmgr.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/sdir.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/skey.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/tupdesc.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/tupmacs.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/xact.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/xlog.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/xlogdefs.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/access/xlogutils.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/c.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/catalog/pg_am.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/catalog/pg_attribute.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/catalog/pg_class.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/catalog/pg_index.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/catalog/pg_language.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/catalog/pg_proc.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/catalog/pg_type.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/executor/execdefs.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/executor/execdesc.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/executor/executor.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/executor/spi.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/executor/tuptable.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/fmgr.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/funcapi.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/lib/dllist.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/lib/stringinfo.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/nodes/bitmapset.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/nodes/execnodes.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/nodes/nodes.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/nodes/params.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/nodes/parsenodes.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/nodes/pg_list.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/nodes/plannodes.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/nodes/primnodes.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/nodes/relation.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/nodes/tidbitmap.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/nodes/value.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/pg_config.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/pg_config_manual.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/pg_config_os.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/pg_trace.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/pgtime.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/port.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/postgres.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/postgres_ext.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/rewrite/prs2lock.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/block.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/buf.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/bufmgr.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/bufpage.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/item.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/itemid.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/itemptr.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/lmgr.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/lock.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/lwlock.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/off.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/relfilenode.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/storage/shmem.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/tcop/dest.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/tcop/pquery.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/tcop/tcopprot.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/tcop/utility.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/array.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/builtins.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/catcache.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/datum.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/elog.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/errcodes.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/guc.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/hsearch.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/int8.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/palloc.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/pg_crc.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/portal.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/rel.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/resowner.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/syscache.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/timestamp.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/tqual.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: /usr/include/postgresql/server/utils/tuplestore.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: extra/tsp/src/tsp.c
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: extra/tsp/src/tsp.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o: core/src/dijkstra.h
+< 
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: /usr/include/postgresql/server/c.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: /usr/include/postgresql/server/pg_config.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: /usr/include/postgresql/server/pg_config_manual.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: /usr/include/postgresql/server/pg_config_os.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: /usr/include/postgresql/server/pg_trace.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: /usr/include/postgresql/server/port.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: /usr/include/postgresql/server/postgres.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: /usr/include/postgresql/server/postgres_ext.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: /usr/include/postgresql/server/utils/elog.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: /usr/include/postgresql/server/utils/errcodes.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: /usr/include/postgresql/server/utils/palloc.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: extra/tsp/src/tsp.h
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: extra/tsp/src/tsp_solver.cpp
+< extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o: core/src/dijkstra.h
+< 
+---
+> # Empty dependencies file
+> # This may be replaced when dependencies are built.
+Only in /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/extra/tsp/src/CMakeFiles/routing_tsp.dir: depend.make.mark
+Only in /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/extra/tsp/src/CMakeFiles/routing_tsp.dir: tsp.o
+Only in /usr/src/disks/DB/GPS/PostgresRouting/TSP/pgrouting/extra/tsp/src/CMakeFiles/routing_tsp.dir: tsp_solver.o

@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/browser/tools/routingservice/branches/wrs-2.0/src/util/format by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 04:33:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      /tools/routingservice/branches/wrs-2.0/src/util/format – pgRouting
+    </title>
+        <link rel="search" href="../../../../../../../search.html" />
+        <link rel="help" href="../../../../../../../wiki/TracGuide.html" />
+        <link rel="up" href="../util.html" title="Parent directory" />
+        <link rel="start" href="../../../../../../../wiki.html" />
+        <link rel="stylesheet" href="../../../../../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../../../../../chrome/common/css/browser.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../../../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../../../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../../../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../../../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../../../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../../../../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../../../../../../chrome/common/js/expand_dir.js"></script><script type="text/javascript" src="../../../../../../../chrome/common/js/keyboard_nav.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <meta name="ROBOTS" content="NOINDEX" /><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".trac-toggledeleted").show().click(function() {
+                  $(this).siblings().find(".trac-deleted").toggle();
+                  return false;
+        }).click();
+        $("#jumploc input").hide();
+        $("#jumploc select").change(function () {
+          this.parentNode.parentNode.submit();
+        });
+          /* browsers using old WebKits have issues with expandDir... */
+          var webkit_rev = /AppleWebKit\/(\d+)/.exec(navigator.userAgent);
+          if ( !webkit_rev || (521 - webkit_rev[1]).toString()[0] == "-" )
+            enableExpandDir(null, $("#dirlist tr"), {
+                action: 'inplace',
+                range_min_secs: '63375551381',
+                range_max_secs: '63425819292'
+            });
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../../../../../index.html"><img src="../../../../../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../../../../../login.html">Login</a></li><li><a href="../../../../../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../../../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../../../../../wiki.html">Home</a></li><li><a href="../../../../../../../timeline.html">Timeline</a></li><li><a href="../../../../../../../roadmap.html">Roadmap</a></li><li class="active"><a href="../../../../../../../browser.html">Browse Source</a></li><li><a href="../../../../../../../report.html">View Tickets</a></li><li><a href="../../../../../../../search.html">Search</a></li><li class="last"><a href="../../../../../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../../../../../../changeset/347/tools/routingservice/branches/wrs-2.0/src/util/format.html">Last Change</a></li><li class="last"><a href="../../../../../../../log/tools/routingservice/branches/wrs-2.0/src/util/format.html">Revision Log</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="browser">
+      <h1>
+    <a class="pathentry first" title="Go to root directory" href="../../../../../../../browser.html">root</a><span class="pathentry sep">/</span><a class="pathentry" title="View tools" href="../../../../../../tools.html">tools</a><span class="pathentry sep">/</span><a class="pathentry" title="View routingservice" href="../../../../../routingservice.html">routingservice</a><span class="pathentry sep">/</span><a class="pathentry" title="View branches" href="../../../../branches.html">branches</a><span class="pathentry sep">/</span><a class="pathentry" title="View wrs-2.0" href="../../../wrs-2.html">wrs-2.0</a><span class="pathentry sep">/</span><a class="pathentry" title="View src" href="../../src.html">src</a><span class="pathentry sep">/</span><a class="pathentry" title="View util" href="../util.html">util</a><span class="pathentry sep">/</span><a class="pathentry" title="View format" href="format.html">format</a>
+    <br style="clear: both" />
+  </h1>
+      <div id="jumprev">
+        <form action="#" method="get">
+          <div>
+            <label for="rev">
+              View revision:</label>
+            <input type="text" id="rev" name="rev" size="6" />
+          </div>
+        </form>
+      </div>
+      <div id="jumploc">
+        <form action="#" method="get">
+          <div class="buttons">
+            <label for="preselected">Visit:</label>
+            <select id="preselected" name="preselected">
+              <option selected="selected"></option>
+              <optgroup label="branches">
+                <option value="/browser/trunk">trunk</option><option value="/browser/branches/anton">branches/anton</option><option value="/browser/branches/daniel">branches/daniel</option><option value="/browser/branches/debug">branches/debug</option><option value="/browser/branches/pgrouting-extra">branches/pgrouting-extra</option><option value="/browser/branches/pgrouting-light">branches/pgrouting-light</option><option value="/browser/branches/workshop">branches/workshop</option>
+              </optgroup><optgroup label="tags">
+                <option value="/browser/tags/release-1.0?rev=58">tags/release-1.0</option><option value="/browser/tags/release-1.0-beta?rev=52">tags/release-1.0-beta</option><option value="/browser/tags/release-1.0-rc1?rev=51">tags/release-1.0-rc1</option><option value="/browser/tags/release-1.02?rev=162">tags/release-1.02</option><option value="/browser/tags/release-1.03?rev=218">tags/release-1.03</option>
+              </optgroup>
+            </select>
+            <input type="submit" value="Go!" title="Jump to the chosen preselected path" />
+          </div>
+        </form>
+      </div>
+        <table class="listing" id="dirlist">
+          <thead>
+            <tr>
+                <th class="name asc">
+                  <a title="Sort by name (descending)" href="http://pgrouting.postlbs.org/browser/tools/routingservice/branches/wrs-2.0/src/util/format?desc=1">Name</a>
+                </th>
+                <th class="size">
+                  <a title="Sort by size" href="http://pgrouting.postlbs.org/browser/tools/routingservice/branches/wrs-2.0/src/util/format?order=size">Size</a>
+                </th>
+              <th class="rev">Rev</th>
+                <th class="date">
+                  <a title="Sort by date" href="http://pgrouting.postlbs.org/browser/tools/routingservice/branches/wrs-2.0/src/util/format?order=date">Age</a>
+                </th>
+              <th class="change">Last Change</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr class="even">
+                <td class="name" colspan="5">
+                  <a class="parent" title="Parent Directory" href="../util.html">../</a>
+                </td>
+              </tr>
+            
+      <tr class="odd">
+        <td class="name">
+          <a class="file" title="View File" href="format/FillerFactory.html">FillerFactory.java</a>
+        </td>
+        <td class="size"><span title="1396 bytes">1.4 KB</span></td>
+        <td class="rev">
+          <a title="View Revision Log" href="http://pgrouting.postlbs.org/log/tools/routingservice/branches/wrs-2.0/src/util/format/FillerFactory.java?rev=347">337</a>
+        </td>
+        <td class="age" style="border-color: rgb(166,136,224)">
+          <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-09-15T17%3A37%3A34%2B0900&amp;precision=second" title="2009-09-15T17:37:34+0900 in Timeline">14 months</a>
+        </td>
+        <td class="change">
+          <span class="author">anton:</span>
+          <span class="change">
+              Multiple improvements:
+ - aggregate functions
+ - capabilities service
+          </span>
+        </td>
+      </tr>
+      <tr class="even">
+        <td class="name">
+          <a class="file" title="View File" href="format/FormatParser.html">FormatParser.java</a>
+        </td>
+        <td class="size"><span title="1441 bytes">1.4 KB</span></td>
+        <td class="rev">
+          <a title="View Revision Log" href="http://pgrouting.postlbs.org/log/tools/routingservice/branches/wrs-2.0/src/util/format/FormatParser.java?rev=347">340</a>
+        </td>
+        <td class="age" style="border-color: rgb(170,136,220)">
+          <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-05T17%3A03%3A20%2B0900&amp;precision=second" title="2009-10-05T17:03:20+0900 in Timeline">14 months</a>
+        </td>
+        <td class="change">
+          <span class="author">anton:</span>
+          <span class="change">
+              WRS code cleanup
+          </span>
+        </td>
+      </tr>
+      <tr class="odd">
+        <td class="name">
+          <a class="file" title="View File" href="format/GeoJSONParser.html">GeoJSONParser.java</a>
+        </td>
+        <td class="size"><span title="948 bytes">0.9 KB</span></td>
+        <td class="rev">
+          <a title="View Revision Log" href="http://pgrouting.postlbs.org/log/tools/routingservice/branches/wrs-2.0/src/util/format/GeoJSONParser.java?rev=347">298</a>
+        </td>
+        <td class="age" style="border-color: rgb(136,136,255)">
+          <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-17T16%3A49%3A41%2B0900&amp;precision=second" title="2009-04-17T16:49:41+0900 in Timeline">19 months</a>
+        </td>
+        <td class="change">
+          <span class="author">anton:</span>
+          <span class="change">
+              Parameter values overriding implemented, GPL headers added
+          </span>
+        </td>
+      </tr>
+      <tr class="even">
+        <td class="name">
+          <a class="file" title="View File" href="format/GeoJSONTemplateFiller.html">GeoJSONTemplateFiller.java</a>
+        </td>
+        <td class="size"><span title="1338 bytes">1.3 KB</span></td>
+        <td class="rev">
+          <a title="View Revision Log" href="http://pgrouting.postlbs.org/log/tools/routingservice/branches/wrs-2.0/src/util/format/GeoJSONTemplateFiller.java?rev=347">312</a>
+        </td>
+        <td class="age" style="border-color: rgb(138,136,252)">
+          <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-27T13%3A17%3A55%2B0900&amp;precision=second" title="2009-04-27T13:17:55+0900 in Timeline">19 months</a>
+        </td>
+        <td class="change">
+          <span class="author">anton:</span>
+          <span class="change">
+              Double string format fixed, coordinate system format fixed
+          </span>
+        </td>
+      </tr>
+      <tr class="odd">
+        <td class="name">
+          <a class="file" title="View File" href="format/GMLTemplateFiller.html">GMLTemplateFiller.java</a>
+        </td>
+        <td class="size"><span title="1389 bytes">1.4 KB</span></td>
+        <td class="rev">
+          <a title="View Revision Log" href="http://pgrouting.postlbs.org/log/tools/routingservice/branches/wrs-2.0/src/util/format/GMLTemplateFiller.java?rev=347">312</a>
+        </td>
+        <td class="age" style="border-color: rgb(138,136,252)">
+          <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-27T13%3A17%3A55%2B0900&amp;precision=second" title="2009-04-27T13:17:55+0900 in Timeline">19 months</a>
+        </td>
+        <td class="change">
+          <span class="author">anton:</span>
+          <span class="change">
+              Double string format fixed, coordinate system format fixed
+          </span>
+        </td>
+      </tr>
+      <tr class="even">
+        <td class="name">
+          <a class="file" title="View File" href="format/GPXTemplateFiller.html">GPXTemplateFiller.java</a>
+        </td>
+        <td class="size"><span title="1301 bytes">1.3 KB</span></td>
+        <td class="rev">
+          <a title="View Revision Log" href="http://pgrouting.postlbs.org/log/tools/routingservice/branches/wrs-2.0/src/util/format/GPXTemplateFiller.java?rev=347">340</a>
+        </td>
+        <td class="age" style="border-color: rgb(170,136,220)">
+          <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-05T17%3A03%3A20%2B0900&amp;precision=second" title="2009-10-05T17:03:20+0900 in Timeline">14 months</a>
+        </td>
+        <td class="change">
+          <span class="author">anton:</span>
+          <span class="change">
+              WRS code cleanup
+          </span>
+        </td>
+      </tr>
+      <tr class="odd">
+        <td class="name">
+          <a class="file" title="View File" href="format/JSONParser.html">JSONParser.java</a>
+        </td>
+        <td class="size"><span title="3452 bytes">3.4 KB</span></td>
+        <td class="rev">
+          <a title="View Revision Log" href="http://pgrouting.postlbs.org/log/tools/routingservice/branches/wrs-2.0/src/util/format/JSONParser.java?rev=347">347</a>
+        </td>
+        <td class="age" style="border-color: rgb(171,136,219)">
+          <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-09T10%3A44%3A29%2B0900&amp;precision=second" title="2009-10-09T10:44:29+0900 in Timeline">14 months</a>
+        </td>
+        <td class="change">
+          <span class="author">anton:</span>
+          <span class="change">
+              900913 projection added to <a class="missing wiki">GeoTools?</a>, points reprojection fixed
+          </span>
+        </td>
+      </tr>
+      <tr class="even">
+        <td class="name">
+          <a class="file" title="View File" href="format/KMLTemplateFiller.html">KMLTemplateFiller.java</a>
+        </td>
+        <td class="size"><span title="1368 bytes">1.3 KB</span></td>
+        <td class="rev">
+          <a title="View Revision Log" href="http://pgrouting.postlbs.org/log/tools/routingservice/branches/wrs-2.0/src/util/format/KMLTemplateFiller.java?rev=347">312</a>
+        </td>
+        <td class="age" style="border-color: rgb(138,136,252)">
+          <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-27T13%3A17%3A55%2B0900&amp;precision=second" title="2009-04-27T13:17:55+0900 in Timeline">19 months</a>
+        </td>
+        <td class="change">
+          <span class="author">anton:</span>
+          <span class="change">
+              Double string format fixed, coordinate system format fixed
+          </span>
+        </td>
+      </tr>
+      <tr class="odd">
+        <td class="name">
+          <a class="file" title="View File" href="format/ParserFactory.html">ParserFactory.java</a>
+        </td>
+        <td class="size"><span title="1164 bytes">1.1 KB</span></td>
+        <td class="rev">
+          <a title="View Revision Log" href="http://pgrouting.postlbs.org/log/tools/routingservice/branches/wrs-2.0/src/util/format/ParserFactory.java?rev=347">314</a>
+        </td>
+        <td class="age" style="border-color: rgb(138,136,252)">
+          <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-28T16%3A58%3A32%2B0900&amp;precision=second" title="2009-04-28T16:58:32+0900 in Timeline">19 months</a>
+        </td>
+        <td class="change">
+          <span class="author">anton:</span>
+          <span class="change">
+              First raw version of geocode service implemented
+          </span>
+        </td>
+      </tr>
+      <tr class="even">
+        <td class="name">
+          <a class="file" title="View File" href="format/TemplateFiller.html">TemplateFiller.java</a>
+        </td>
+        <td class="size"><span title="7981 bytes">7.8 KB</span></td>
+        <td class="rev">
+          <a title="View Revision Log" href="http://pgrouting.postlbs.org/log/tools/routingservice/branches/wrs-2.0/src/util/format/TemplateFiller.java?rev=347">347</a>
+        </td>
+        <td class="age" style="border-color: rgb(171,136,219)">
+          <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-10-09T10%3A44%3A29%2B0900&amp;precision=second" title="2009-10-09T10:44:29+0900 in Timeline">14 months</a>
+        </td>
+        <td class="change">
+          <span class="author">anton:</span>
+          <span class="change">
+              900913 projection added to <a class="missing wiki">GeoTools?</a>, points reprojection fixed
+          </span>
+        </td>
+      </tr>
+      <tr class="odd">
+        <td class="name">
+          <a class="file" title="View File" href="format/XLSTemplateFiller.html">XLSTemplateFiller.java</a>
+        </td>
+        <td class="size"><span title="1331 bytes">1.3 KB</span></td>
+        <td class="rev">
+          <a title="View Revision Log" href="http://pgrouting.postlbs.org/log/tools/routingservice/branches/wrs-2.0/src/util/format/XLSTemplateFiller.java?rev=347">312</a>
+        </td>
+        <td class="age" style="border-color: rgb(138,136,252)">
+          <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-27T13%3A17%3A55%2B0900&amp;precision=second" title="2009-04-27T13:17:55+0900 in Timeline">19 months</a>
+        </td>
+        <td class="change">
+          <span class="author">anton:</span>
+          <span class="change">
+              Double string format fixed, coordinate system format fixed
+          </span>
+        </td>
+      </tr>
+
+          </tbody>
+        </table>
+      <div id="help">
+        <strong>Note:</strong> See <a href="../../../../../../../wiki/TracBrowser.html">TracBrowser</a>
+        for help on using the browser.
+      </div>
+      <div id="anydiff">
+        <form action="http://pgrouting.postlbs.org/diff" method="get">
+          <div class="buttons">
+            <input type="hidden" name="new_path" value="/tools/routingservice/branches/wrs-2.0/src/util/format" />
+            <input type="hidden" name="old_path" value="/tools/routingservice/branches/wrs-2.0/src/util/format" />
+            <input type="hidden" name="new_rev" />
+            <input type="hidden" name="old_rev" />
+            <input type="submit" value="View changes..." title="Select paths and revs for Diff" />
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../../../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../../../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("format.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/browser/tools/routingservice/branches/wrs-2.0/src/util/format by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 04:33:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

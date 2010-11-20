@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/93 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/13.html" title="developer">developer</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>developer (#13) - Building <a class="missing wiki">PgRouting?</a> Windows (#93) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Building <a class="missing wiki">PgRouting?</a> Windows
+            </div>
+            <div class="body">
+              <p>
+Hey all,
+</p>
+<p>
+In the other forums thread I mentioned our team was going to be trying to alter the <a class="missing wiki">PgRouting?</a> code to handle many points at once. I'll have my tech lead look over that thread and make a decision on that.
+</p>
+<p>
+In the mean time I'm the Guinea Pig to get the code compiling under windows on our work machines. And despite having the Instructions on the wiki (<a href="../../wiki/1.x/WindowsInstallationManual.html">http://pgrouting.postlbs.org/wiki/1.x/WindowsInstallationManual</a>) I am getting either bad target errors or compilation errors.
+</p>
+<p>
+Here are the steps I've taken, and the results.
+</p>
+<p>
+Installed MinGW from binary found at <a class="ext-link" href="http://sourceforge.net/project/showfiles.php?group_id=2435"><span class="icon"> </span>http://sourceforge.net/project/showfiles.php?group_id=2435</a>
+</p>
+<ul><li>Which I was sent to from <a class="ext-link" href="http://www.mingw.org/"><span class="icon"> </span>http://www.mingw.org/</a>
+</li><li>Installed to C:\MinGW
+</li></ul><p>
+Installed MSYS from binary found from <a class="ext-link" href="http://www.baldanders.info/spiegel/remark/archives/000209.shtml"><span class="icon"> </span>http://www.baldanders.info/spiegel/remark/archives/000209.shtml</a>
+</p>
+<ul><li>Installed to C:\msys
+</li></ul><p>
+Downloaded and ran the pthreads-w32-2-7-0-release.exe file found at <a class="ext-link" href="ftp://sources.redhat.com/pub/pthreads-win32/"><span class="icon"> </span>ftp://sources.redhat.com/pub/pthreads-win32/</a>
+</p>
+<p>
+Opened a MSYS window (note: things with a $ in front of them are now done inside the MSYS window)
+</p>
+<ul><li>non trivial tasks were redirected to files for reference
+</li></ul><ul><li>went to the pthreads-w32-2-7-0\Pre-built.2 directory in the MSYS window
+</li><li>$ cp include/*.h /mingw/include
+</li><li>$ cp lib/libpthreadGC2.a /mingw/lib/libpthread.a
+</li></ul><p>
+Downloaded CMake from <a class="ext-link" href="http://www.cmake.org/HTML/Download.html"><span class="icon"> </span>http://www.cmake.org/HTML/Download.html</a>
+</p>
+<ul><li>got the Windows Source 2.4.7
+</li><li>went to the cmake source directory
+</li><li>$ ./configure --prefix=C:/msys/local &gt; CMAKE01.out
+</li><li>$ make &gt; CMAKE02.out
+</li><li>$ make install &gt; CMAKE03.out
+</li></ul><p>
+Downloaded Boost 1.33 from <a class="ext-link" href="http://sourceforge.net/project/downloading.php?group_id=7586&amp;use_mirror=internap&amp;filename=boost_1_33_1.tar.bz2&amp;16558049"><span class="icon"> </span>http://sourceforge.net/project/downloading.php?group_id=7586&amp;use_mirror=internap&amp;filename=boost_1_33_1.tar.bz2&amp;16558049</a>
+</p>
+<ul><li>used 1.33 over 1.34 as instructions said to
+</li></ul><p>
+Compiled jam by using build.bat in the jam_src directory
+</p>
+<p>
+Copied the exe file created into my path
+</p>
+<ul><li>$ cp bin.ntx86/bjam.exe /mingw/bin/
+</li></ul><p>
+ran bjam on boost
+</p>
+<ul><li>$ bjam -sTOOLS=mingw "-sBUILD=release &lt;runtime-link&gt;static &lt;threading&gt;multi &lt;native-wchar_t&gt;on" --prefix=/c/msys/local install &gt; BOOST01.out
+</li><li>$ mv /usr/local/include/boost-1_33_1/boost /usr/local/include/boost
+</li><li>$ rmdir /usr/local/include/boost-1_33_1
+</li></ul><p>
+Got GAUL as linked from <a class="ext-link" href="http://gaul.sourceforge.net/"><span class="icon"> </span>http://gaul.sourceforge.net/</a>
+</p>
+<ul><li>$ ./configure --enable-slang=no &gt; GAUL01.out
+</li></ul><p>
+Edited the Makefile(s) as instructed by ... the instructions
+Build the system
+</p>
+<ul><li>$ make &gt; GAUL02.out
+</li><li>$ make install &gt; GAUL03.out
+</li></ul><p>
+Downloaded CGAL from <a class="ext-link" href="http://www.cgal.org/"><span class="icon"> </span>http://www.cgal.org</a>
+</p>
+<ul><li>installed it
+</li><li>$ ./install_cgal --prefix=/usr/local/cgal  --with-BOOST --BOOST_INCL_DIR=/usr/local/include --BOOST_LIB_DIR=/usr/local/lib --without-autofind -ni /mingw/bin/g++ &gt; CGAL01.out
+</li></ul><p>
+</p>
+<blockquote>
+<p>
+the next steps the instructions say to do are not needed
+</p>
+</blockquote>
+<ul><li>the files are already in the correct location
+</li></ul><p>
+Got the <a class="missing wiki">PgRouting?</a> Source code
+</p>
+<ul><li>$ cmake -G"MSYS Makefiles" -DWITH_TSP=ON -DWITH_DD=ON . &gt; PGROUTING01.out
+</li><li>can't find PostgreSQL or Boost, or GAUL, or CGAL .. alter txt files before calling?
+</li><li>edited CMakeCache.txt
+<ul><li>Boost_include
+</li><li>CGAL_INCLUDE
+</li><li>CGAL_LIBRARIES
+</li><li>GAUL_LIBRARIES
+</li><li>POSTGRESQL_INCLUDE
+</li></ul></li></ul><p>
+</p>
+<blockquote>
+<p>
+ran cmake again, seemed to go ok.
+</p>
+</blockquote>
+<p>
+Alter the .make files according to the instructions
+</p>
+<blockquote>
+<p>
+run make on <a class="missing wiki">PgRouting?</a>
+</p>
+</blockquote>
+<ul><li>$ make
+</li><li>core/src/CMakeFiles/routing.dir/build.make:229: *** multiple target patterns.  Stop.
+</li><li>make<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>: *** [core/src/CMakeFiles/routing.dir/all] Error 2
+</li><li>make: *** [all] Error 2
+</li></ul><p>
+</p>
+<blockquote>
+<p>
+Error above.
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+If I don't alter the .make files after running it starts to compile and then errors in the code
+</p>
+</blockquote>
+<ul><li>[  8%] Building C object core/src/CMakeFiles/routing.dir/dijkstra.obj
+</li></ul><p>
+</p>
+<blockquote>
+<p>
+and prints out a lot of errors and ends with
+</p>
+</blockquote>
+<p>
+</p>
+<ul><li>make<a class="changeset" href="../../changeset/2.html" title="initial">[2]</a>: *** [core/src/CMakeFiles/routing.dir/dijkstra.obj] Error 1
+</li><li>make<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>: *** [core/src/CMakeFiles/routing.dir/all] Error 2
+</li><li>make: *** [all] Error 2
+</li></ul><p>
+Anyone have any idea why I'm getting compilation errors, or why it doesn't like me changing the .make files? And although we'd prefer to not build on windows the final product must work on a PostgreSQL installation on a windows machine.
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            peckb1
+          </div>
+          <div class="time">
+            01/05/08 01:53:05 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/93?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/93?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message998"></a>
+        <div class="id">
+          Message #998
+        </div>
+        <div class="body">
+            <p>
+I have reported this as a bug. I am getting this too.
+Were you able to resolve it though?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ammours
+          </div>
+          <div class="time">
+            08/03/09 04:38:25 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/93?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/93?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

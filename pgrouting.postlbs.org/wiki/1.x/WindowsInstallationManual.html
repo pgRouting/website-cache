@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/1.x/WindowsInstallationManual by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      1.x/WindowsInstallationManual – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/1.x/WindowsInstallationManual?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../1.html" title="View parent page" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../1.html">Up</a></li><li><a href="../WikiStart.html">Start Page</a></li><li><a href="../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/1.x/WindowsInstallationManual?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/1.x/WindowsInstallationManual?action=diff&amp;version=4">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View 1.x" href="../1.html">1.x</a><span class="pathentry sep">/</span><a class="pathentry" title="View 1.x/WindowsInstallationManual" href="WindowsInstallationManual.html">WindowsInstallationManual</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="Environment">Environment</h1>
+<ul><li>MinGW 5.0.3 (install to E:/Build/mingw)
+</li><li>MSYS-1.0.11 (install to E:/Build/msys) <a class="ext-link" href="http://www.baldanders.info/spiegel/remark/archives/000209.shtml"><span class="icon"> </span>http://www.baldanders.info/spiegel/remark/archives/000209.shtml</a> (Japanese)
+</li><li>pthread-win32-2.7.0
+</li></ul><p>
+Download prebuild-dll-2-7-0-release from <a class="ext-link" href="ftp://sources.redhat.com/pub/pthreads-win32/"><span class="icon"> </span>ftp://sources.redhat.com/pub/pthreads-win32/</a>
+</p>
+<pre class="wiki">cp /include/*.h /mingw/include
+cp /lib/libpthreadGC2.a /mingw/lib/libpthread.a
+</pre><h1 id="CMake">CMake</h1>
+<p>
+Use latest version(2.4.7)
+</p>
+<pre class="wiki">#./configure --prefix=E:/Build/msys/1.0/local
+#make
+#make install
+</pre><p>
+Or you can use Windows installer. 
+</p>
+<h1 id="Boost">Boost</h1>
+<p>
+Use previous version (1.33.1) because of v2 problem 
+</p>
+<pre class="wiki">#bjam -sTOOLS=mingw "-sBUILD=release &lt;runtime-link&gt;static &lt;threading&gt;multi &lt;native-wchar_t&gt;on" --prefix=/e/Build/msys/1.0/local install 
+#mv /usr/local/include/boost-1_33_1/boost /usr/local/include/boost 
+#rmdir /usr/local/include/boost-1_33_1 
+</pre><p>
+If you don't need CGAL library (driving distance functionality), 
+pgRouting uses only Boost headers. 
+So you needs download Boost headers(1.33.1 or later), and extract it.
+</p>
+<h1 id="Gaul">Gaul</h1>
+<p>
+Use latest version(0.1849-0)
+</p>
+<pre class="wiki">#./configure --enable-slang=no
+edit /util/Makefile
+	DEFS = -DHAVE_CONFIG_H
+	 -&gt; DEFS = -DHAVE_CONFIG_H -DBUILDING_DLL
+edit /src/Makefile
+	DEFS = -DHAVE_CONFIG_H
+	 -&gt; DEFS = -DHAVE_CONFIG_H -DBUILDING_DLL
+	INCLUDES = -I../util/ -I../../util/
+	 -&gt; INCLUDES = -I../util -I../../util
+edit /tests/Makefile
+	DEFS = -DHAVE_CONFIG_H
+	 -&gt; DEFS = -DHAVE_CONFIG_H -DBUILDING_DLL
+	INCLUDES = -I../util/ -I../../util/ -I../src/ -I../../src/ -I/usr/include/slang/
+	 -&gt; INCLUDES = -I../util -I../../util -I../src -I../../src -I/usr/include/slang/
+#make
+#make install
+</pre><h1 id="CGAL">CGAL</h1>
+<p>
+Use latest version(3.2.1)
+</p>
+<pre class="wiki">#./install_cgal --prefix=/usr/local/cgal  --with-BOOST --BOOST_INCL_DIR=/usr/local/include --BOOST_LIB_DIR=/usr/local/lib --without-autofind -ni /mingw/bin/g++
+#cp /usr/local/cgal/include/CGAL/config/i686_MINGW32NT-5.1_g++-3.4.2/CGAL/compiler_config.h /usr/local/cgal/include/CGAL/compiler_config.h
+#cp /usr/local/cgal/lib/i686_MINGW32NT-5.1_g++-3.4.2/libCGAL.a /usr/local/cgal/lib/libCGAL.a
+#cp /usr/local/cgal/lib/i686_MINGW32NT-5.1_g++-3.4.2/libCGAL.so /usr/local/cgal/lib/libCGAL.so
+</pre><h1 id="pgRouting">pgRouting</h1>
+<pre class="wiki">#cmake -G"MSYS Makefiles" -DWITH_TSP=ON -DWITH_DD=ON .
+</pre><h2 id="EditCMakeCache.txt">Edit CMakeCache.txt</h2>
+<pre class="wiki">        Boost_INCLUDE_DIR:PATH=Boost_INCLUDE_DIR-NOTFOUND
+         -&gt; Boost_INCLUDE_DIR:PATH=E:/Build/msys/1.0/local/include
+
+        CGAL_INCLUDE_DIR:PATH=CGAL_INCLUDE_DIR-NOTFOUND
+         -&gt; CGAL_INCLUDE_DIR:PATH=E:/Build/msys/1.0/local/cgal/include
+
+        CGAL_LIBRARIES:FILEPATH=CGAL_LIBRARIES-NOTFOUND
+         -&gt; CGAL_LIBRARIES:FILEPATH=E:/Build/msys/1.0/local/cgal/lib
+
+        GAUL_LIBRARIES:FILEPATH=GAUL_LIBRARIES-NOTFOUND
+         -&gt; GAUL_LIBRARIES:FILEPATH=E:/Build/msys/1.0/local/lib
+</pre><h2 id="EditcoresrcCMakeFilesrouting.dirflags.make">Edit core\src\CMakeFiles\routing.dir\flags.make</h2>
+<p>
+Adjust &lt;drive&gt; (ie. "C") and &lt;my path&gt; to your system environment!
+</p>
+<pre class="wiki">C_FLAGS = -Drouting_EXPORTS -O2 -g \
+          -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/. \
+          -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/core \
+          -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/core/src \
+          -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/extra \
+          -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/extra/tsp \
+          -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/extra/tsp/src \
+          -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/extra/driving_distance \
+          -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/extra/driving_distance/src \
+          -I/boost \
+          -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/include \
+          -IC:/PROGRA~1/PostgreSQL/8.2/include/server \
+          -IC:/PROGRA~1/PostgreSQL/8.2/include/server/port/win32
+CXX_FLAGS = -Drouting_EXPORTS -O2 -g 
+            -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/. \
+            -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/core \
+            -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/core/src \
+            -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/extra \
+            -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/extra/tsp \
+            -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/extra/tsp/src \
+            -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/extra/driving_distance \
+            -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/src/pgrouting/pgrouting/extra/driving_distance/src \
+            -I/boost \
+            -I/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/include \
+            -IC:/PROGRA~1/PostgreSQL/8.2/include/server \
+            -IC:/PROGRA~1/PostgreSQL/8.2/include/server/port/win32
+</pre><h2 id="EditcoresrcCMakeFilesrouting.dirbuild.make">Edit core\src\CMakeFiles\routing.dir\build.make</h2>
+<p>
+Adjust &lt;drive&gt; (ie. "C") and &lt;my path&gt; to your system environment!
+</p>
+<pre class="wiki">routing_EXTERNAL_OBJECTS = \
+</pre><p>
+Edit last line as follows (not make clean!!!)
+</p>
+<pre class="wiki">cd /&lt;drive&gt;/&lt;my path&gt;/pgrouting/core/src &amp;&amp; /&lt;drive&gt;/&lt;my path&gt;/mingw/bin/g++.exe $(routing_OBJECTS) $(routing_EXTERNAL_OBJECTS) \
+           -L/&lt;drive&gt;/&lt;my path&gt;/msys/1.0/local/lib \
+           -LC:/PROGRA~1/PostgreSQL/8.2/lib \
+           -lpostgres -shared -o ../../lib/librouting.dll \
+           -Wl,--out-implib,../../lib/librouting.dll.a \
+           -Wl,--major-image-version,0,--minor-image-version,0
+</pre><h2 id="EditextratspsrcCMakeFilesrouting_tsp.dirflags.make">Edit extra\tsp\src\CMakeFiles\routing_tsp.dir\flags.make</h2>
+<pre class="wiki">C_FLAGS = -Drouting_tsp_EXPORTS -g -O2 -IE:/Build/msys/1.0/local/include -I/E/Build/msys/1.0/local/src/pgrouting/pgrouting/core/src -IC:/PROGRA~1/PostgreSQL/8.2/include/server -IC:/PROGRA~1/PostgreSQL/8.2/include/server/port/win32
+CXX_FLAGS = -Drouting_tsp_EXPORTS -g -O2 -IE:/Build/msys/1.0/local/include -I/E/Build/msys/1.0/local/src/pgrouting/pgrouting/core/src -IC:/PROGRA~1/PostgreSQL/8.2/include/server -IC:/PROGRA~1/PostgreSQL/8.2/include/server/port/win32 -DBUILDING_DLL
+</pre><h2 id="EditextratspsrcCMakeFilesrouting_tsp.dirbuild.make">Edit extra\tsp\src\CMakeFiles\routing_tsp.dir\build.make</h2>
+<pre class="wiki">routing_tsp_EXTERNAL_OBJECTS = \
+</pre><p>
+Edit last line as follows
+</p>
+<pre class="wiki">cd /E/Build/msys/1.0/local/src/pgrouting/pgrouting/extra/tsp/src &amp;&amp; /e/Build/mingw/bin/g++.exe $(routing_tsp_OBJECTS) $(routing_tsp_EXTERNAL_OBJECTS) -LE:/Build/msys/1.0/local/lib -LC:/PROGRA~1/PostgreSQL/8.2/lib -lpostgres -lgaul -lgaul_util -lm -shared -o ../../../lib/librouting_tsp.dll -Wl,--out-implib,../../../lib/librouting_tsp.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--export-all-symbols
+</pre><h2 id="Editextradriving_distancesrcCMakeFilesrouting_dd.dirflags.make">Edit extra\driving_distance\src\CMakeFiles\routing_dd.dir\flags.make</h2>
+<pre class="wiki">C_FLAGS = -Drouting_dd_EXPORTS -g -O2 -IE:/Build/msys/1.0/local/include -I/E/Build/msys/1.0/local/src/pgrouting/pgrouting/core/src -I/E/Build/msys/1.0/local/cgal/include -IC:/PROGRA~1/PostgreSQL/8.2/include/server -IC:/PROGRA~1/PostgreSQL/8.2/include/server/port/win32
+CXX_FLAGS = -Drouting_dd_EXPORTS -g -O2 -IE:/Build/msys/1.0/local/include -I/E/Build/msys/1.0/local/src/pgrouting/pgrouting/core/src -I/E/Build/msys/1.0/local/cgal/include -IC:/PROGRA~1/PostgreSQL/8.2/include/server -IC:/PROGRA~1/PostgreSQL/8.2/include/server/port/win32
+</pre><h2 id="Editextradriving_distancesrcCMakeFilesrouting_dd.dirbuild.make">Edit extra\driving_distance\src\CMakeFiles\routing_dd.dir\build.make</h2>
+<pre class="wiki">routing_dd_EXTERNAL_OBJECTS = \
+</pre><p>
+Edit last line as follows
+</p>
+<pre class="wiki">cd /E/Build/msys/1.0/local/src/pgrouting/pgrouting/extra/driving_distance/src &amp;&amp; /e/Build/mingw/bin/g++.exe $(routing_dd_OBJECTS) $(routing_dd_EXTERNAL_OBJECTS) -LE:/Build/msys/1.0/local/lib -LE:/Build/msys/1.0/local/cgal/lib -LC:/PROGRA~1/PostgreSQL/8.2/lib -lCGAL -lpostgres -shared -o ../../../lib/librouting_dd.dll -Wl,--out-implib,../../../lib/librouting_dd.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+</pre><h2 id="BuildpgRouting">Build pgRouting</h2>
+<pre class="wiki">#make
+</pre>
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/1.x/WindowsInstallationManual?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("WindowsInstallationManual.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/1.x/WindowsInstallationManual by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/278 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/18.html" title="shootingstar">shootingstar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>shootingstar (#18) - 'rule' doesn't work … (#278) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              'rule' doesn't work …
+            </div>
+            <div class="body">
+              <p>
+hi
+i got some problem with the restriction turn with shooting*.
+</p>
+<p>
+my table (tbl_tmp_segment_routier)looks like this :
+</p>
+<blockquote>
+<p>
+id - source - target - cost - reverse_cost - rule - to_cost
+</p>
+</blockquote>
+<p>
+54400028 - 275 - 283 - 10176.629 - 1000000 - "54400036" - 1000000
+</p>
+<p>
+54400104 - 337 - 342 - 17585.972 - 1000000 - "54400144" - 1000000
+</p>
+<p>
+54400394 - 477 - 464 - 5901.509 - 1000000 - "54400398" - 1000000
+54400408 - 522 - 506 - 20293.212 - 1000000 - "54400417" - 1000000
+</p>
+<p>
+54400385 - 509 - 507 - 6836.598 - 1000000 - "54400388" - 1000000
+</p>
+<p>
+54400448 - 532 - 531 - 32548.028 - 1000000 - "54400445, 54400446" - 1000000
+</p>
+<p>
+54401353 - 634 - 757 - 4821.117 - 1000000 - "54401376, 54401355" - 1000000
+</p>
+<p>
+....
+where
+id = int, source = int, target = int, cost = double precision,
+reverse_cost = double precision, rule = text and to_cost = double precision
+</p>
+<p>
+my request looks like this :
+</p>
+<p>
+INSERT INTO shooting_path1_1
+</p>
+<blockquote>
+<p>
+(id, vertex_id, cost, reverse_cost, vitesse_circulation, the_geom)
+</p>
+</blockquote>
+<p>
+SELECT id, vertex_id, shot.cost, reverse_cost, vitesse_circulation, the_geom
+</p>
+<p>
+FROM shortest_path_shooting_star('
+</p>
+<blockquote>
+<p>
+SELECT sr.id::int4, source::int4, target::int4,cost::float8,
+reverse_cost::float8,sr.x1, sr.y1, sr.x2, sr.y2, rule, to_cost::float8
+FROM tbl_tmp_seg_routier AS sr
+ORDER BY sr.id DESC',
+</p>
+<blockquote>
+<p>
+SOURCE_ID,
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+TARGET_ID,
+</p>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+TRUE, TRUE) AS shot
+JOIN tbl_tmp_seg_routier AS sr ON sr.id = shot.edge_id;
+</p>
+</blockquote>
+<p>
+SOURCE_ID and TARGET_ID = one of the ids in the table tbl_tmp_seg_routier
+i cut this part because there is some joins with other table and it come a little long. I guess it's more readable like this.
+</p>
+<p>
+i don't know what i doing wrong but no restriction turn are respected.
+however, The one-way  are
+</p>
+<p>
+and i got a other question, i see somewhere in my research there a function shooting* who trim the start and end edge
+Can i have it somewhere on the site ?
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            marcandre
+          </div>
+          <div class="time">
+            07/10/09 00:25:06 (17 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/278?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/278?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message985"></a>
+        <div class="id">
+          Message #985
+        </div>
+        <div class="body">
+            <p>
+has anyone a hint or idea ?
+and it's ok for the last question (trim). I done my own function.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            marcandre
+          </div>
+          <div class="time">
+            07/21/09 03:59:24 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message986"></a>
+        <div class="id">
+          Message #986
+        </div>
+        <div class="body">
+            <p>
+Can you please provide few examples of your paths with queries? Also please note that your to_cost values are comparable with cost values, while they should be SIGNIFICANTLY higher if you really want to restrict turns.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/21/09 10:05:56 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message989"></a>
+        <div class="id">
+          Message #989
+        </div>
+        <div class="body">
+            <p>
+i tried to put a picture with my post but it did not work.
+What do i put on the bracket ? Image(*HERE*) ?
+</p>
+<p>
+so here is my table and request for the routing
+</p>
+<p>
+my road's table :
+</p>
+<pre class="wiki">id		x1		y1		x2		y2		cost		reverse_co	source	target	rule	to_cost
+54400047	445285,938	5034184,363	445282,591	5034266,259	10000000	5901,444695	332	343	54400044	100000000
+54400062	445282,591	5034266,259	445278,15	5034426,193	10000000	11520,399196	343	353	54400059	100000000
+54400091	445359,024	5034460,517	445290,668	5034341,892	10000000	9958,299027	381	351	54400105	100000000
+54400028	445265,6	5034035,828	445303,065	5034167,456	10176,629057	10000000	319	326	54400036	100000000
+54400104	445295,102	5034427,3	445289,178	5034671,256	17585,972086	10000000	380	385	54400144	100000000
+54400037	445303,065	5034167,456	445300,96	5034184,343	1225,220325	10000000	326	333	54400044, 54400046	100000000
+54400037	445303,065	5034167,456	445300,96	5034184,343	1225,220325	10000000	326	333	54400044, 54400035	100000000
+54400045	445300,96	5034184,343	445295,553	5034267,106	5971,63749	10000000	333	341	54400059, 54400047	100000000
+54400030	445246,349	5034054,599	445287,176	5034165,417	10000000	8683,553489	322	328	54400027, 54400028	100000000
+54400090	445290,668	5034341,892	445295,102	5034427,3	6159,377435	10000000	351	380	54400103, 54400062	100000000
+54400090	445290,668	5034341,892	445295,102	5034427,3	6159,377435	10000000	351	380	54400105	10000000
+54400035	445287,176	5034165,417	445285,938	5034184,363	10000000	1367,0009	328	332	 	0
+54400036	445303,065	5034167,456	445287,176	5034165,417	1153,404739	1153,404739	326	328	 	0
+54400038	445405,445	5034179,152	445303,065	5034167,456	7419,309444	7419,309444	324	326	 	0
+54400044	445300,96	5034184,343	445285,938	5034184,363	1081,606885	1081,606885	333	332	 	0
+54400046	445285,938	5034184,363	445204,107	5034180,018	5900,127391	5900,127391	332	342	 	0
+54400059	445295,553	5034267,106	445282,591	5034266,259	935,316988	935,316988	341	343	 	0
+54400060	445295,553	5034267,106	445290,668	5034341,892	5398,72837	5398,72837	341	351	 	0
+54400061	445282,591	5034266,259	445199,697	5034262,846	5973,372932	5973,372932	343	352	 	0
+54400103	445295,102	5034427,3	445278,15	5034426,193	1223,108168	1223,108168	380	353	 	0
+54400105	445359,024	5034460,517	445295,102	5034427,3	5253,962324	5253,962324	381	380	 	0
+54400106	445278,15	5034426,193	445153,377	5034420,044	8994,594096	8994,594096	353	329	 	0
+54400107	445278,15	5034426,193	445276,215	5034670,409	10000000	17607,571012	353	386	 	0
+</pre><p>
+</p>
+<p>
+my request :
+</p>
+<pre class="wiki">	SELECT id, vertex_id, shot.cost, reverse_cost, sr.source, sr.target, the_geom
+	INTO shooting_pathXX
+	FROM shortest_path_shooting_star('
+		SELECT sr.id::int4, source::int4, target::int4, cost::float8, reverse_cost::float8,
+		sr.x1, sr.y1, sr.x2, sr.y2, rule, to_cost::float8
+		FROM tbl_tmp_seg_routier AS sr
+		ORDER BY sr.id DESC',
+				54400103::int4,
+				54400045::int4,
+		TRUE, TRUE) AS shot
+		JOIN tbl_tmp_seg_routier AS sr ON sr.id = shot.edge_id;
+</pre><p>
+and the result :
+</p>
+<pre class="wiki">id		vertex_id	cost		reverse_cost		source	target
+54400103	1146	1223.1081678975		1223.1081678975		380	353
+54400062	1143	11520.3991956127	11520.3991956127	343	353
+54400059	1195	935.316987517814	935.316987517814	341	343
+54400045	1198	10000000		10000000		333	341
+</pre><p>
+as you can see, the result did not respect the turn restriction of the road "54400062".
+I increased the cost of a restriction, 1 000 000 to 100 000 000 and i got the same result.
+</p>
+<p>
+a hint or idea of what i'm doing wrong ?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            marcandre
+          </div>
+          <div class="time">
+            07/23/09 02:50:51 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message991"></a>
+        <div class="id">
+          Message #991
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+An image would be nice. What about posting your question with a link to this forum topic on the pgRouting mailing list?<br />
+You can attach your image there to your mail. I also believe that more people will be aware of your question then.
+</p>
+<p>
+In case you can't find the link to the list: <a class="ext-link" href="http://lists.postlbs.org/mailman/listinfo"><span class="icon"> </span>http://lists.postlbs.org/mailman/listinfo</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            07/23/09 13:32:39 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message992"></a>
+        <div class="id">
+          Message #992
+        </div>
+        <div class="body">
+            <p>
+Now I got it!
+</p>
+<p>
+There is no any restriction on edge 54400062 in your data set.
+</p>
+<p>
+Look, you have a rule for edge 54400090 which is '54400103, 54400062'. It means that way 54400103-&gt;54400062-&gt;54400090 is restricted.
+</p>
+<p>
+Please read <a href="../../wiki/ShootingStar.html">http://pgrouting.postlbs.org/wiki/ShootingStar</a> - rule setting is described there.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/23/09 13:52:53 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message993"></a>
+        <div class="id">
+          Message #993
+        </div>
+        <div class="body">
+            <p>
+ahhhhh barnack (french swear) !
+</p>
+<p>
+I was doing the opposite.
+So, i must write the edge from which i can't come and not, like i'm doing, the edge from which i can't turn. <br />
+Small translation error on my part.<br />
+Now it's more clear
+</p>
+<p>
+thanks a lot lot lot guys !
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            marcandre
+          </div>
+          <div class="time">
+            07/23/09 22:13:47 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message994"></a>
+        <div class="id">
+          Message #994
+        </div>
+        <div class="body">
+            <p>
+You are welcome!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/24/09 10:59:50 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/278?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/278?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

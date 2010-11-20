@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/214 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/24.html" title="osm2pgrouting">osm2pgrouting</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>osm2pgrouting (#24) - osm2pgrouting on win32 (#214) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              osm2pgrouting on win32
+            </div>
+            <div class="body">
+              <p>
+Hi, I've read that osm2pgrouting tool is only tested on Linux distributions: there's not a win installer.
+But, for my project, I have to import osm data to postgreSQL db and I'm using a win32 system.
+I've found another tool directly from OSM project, "osm2pgsql", but I don't know if using that tool I could have problems using pgRouting functions.
+I've also found that I could get shapefiles (or other formats) from <a class="missing wiki">CloudMade?</a>.
+</p>
+<p>
+So my question is: if I import data from shape or with osm2pgsql I coud have problems using pgRouting functions on that data? And if the answer is "yes", what is the solution?
+Please, help!
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            d.l.g.
+          </div>
+          <div class="time">
+            01/31/09 23:47:04 (22 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/214?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/214?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message765"></a>
+        <div class="id">
+          Message #765
+        </div>
+        <div class="body">
+            <p>
+You could import your data with osm2pgRouting on a linux (virtual) machine, then make a database dump and import it on your windows PC. There is a VMWare image of the FOSS4G2009 pgRouting workshop where everything is installed: <a href="../../wiki/WorkshopFOSS4G2008.html">http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008</a> . <br />
+In case you have a lot of data to convert it might take longer with a virtual machine and you might have a to mount an external drive.
+</p>
+<p>
+Taking the shape files from <a class="missing wiki">CloudMade?</a> is an interesting option, but I didn't try yet. It's not difficult to import a shape file to PostgreSQL. You might want to start with one of the workshop tutorials, which might answer most or all of your questions then.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/01/09 03:09:04 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message769"></a>
+        <div class="id">
+          Message #769
+        </div>
+        <div class="body">
+            <p>
+I've tried to import OSM data with shape, osm2pgsql and osm2pgrouting, but only the last one have a proper format of tables (see table ways) for pgRouting functions.
+</p>
+<p>
+I used osm2pgrouting on a VMWare image (FOSS4G2008_japan version) but only using capetown.osm it creates and populates all tables. With a bigger .osm file ( Italy is about 600MB from <a class="missing wiki">CloudMade?</a>) after 2-3 hours the process automatically kill itself ('Killed' in command prompt): no data in 'ways' table and no 'vertices_tmp' table.
+I don't know if the problem depends on virtual memory of the VM or other.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            d.l.g.
+          </div>
+          <div class="time">
+            02/05/09 09:01:33 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message770"></a>
+        <div class="id">
+          Message #770
+        </div>
+        <div class="body">
+            <p>
+This problem happened to me, too, when I tried to import a larger area of OSM. The current converter keeps temporary results in memory to process them later. When you run out of memory the process fails, so it depends on the memory you have available.
+</p>
+<p>
+This is not really a good design, I know, and it would make sense to write temporary results to database from time to time (which would decrease performance then). But there was no time (and/or support) yet to solve this issue.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/05/09 09:15:30 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message771"></a>
+        <div class="id">
+          Message #771
+        </div>
+        <div class="body">
+            <p>
+Ok, finally tonight (or very very early in the morning...) I've created a .sql file that use shapefile from <a class="missing wiki">CloudMade?</a> and it'is very fast: it  creates tables 'types' and 'classes', add pgrouting functionality (other fields in table 'ways' for routing), and creates field 'class_id::integer' in 'ways' referenced to identifier in 'classes'. Note I've modified 4 records in 'classes' because the 'id' has to be a unique identifier! (id 100, 106, 107).
+</p>
+<p>
+The only problem now is that many records have field 'class_id' empty because in shapefile there's only the field 'type:text' that is the name (motorway, primary, track..) but in table 'classes' I have 2 records with name 'track'!!
+I should have another field in the shape to identify unequivocally the class and type of way to calculate 'class_id'. (Aarghh: mental insanity welcomed..)
+</p>
+<p>
+I think, now, I'll cancel that record to solve all of my problems.. (that's the right spirit! :-P)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            d.l.g.
+          </div>
+          <div class="time">
+            02/07/09 03:47:21 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message773"></a>
+        <div class="id">
+          Message #773
+        </div>
+        <div class="body">
+            <p>
+Nice to see that you had some progress ;-) <br />
+This time I had some problems to follow your explanation about classes, types and ID's. Did you make your changes in <a href="../../browser/tools/osm2pgrouting/trunk/mapconfig.html">http://pgrouting.postlbs.org/browser/tools/osm2pgrouting/trunk/mapconfig.xml</a> ?
+</p>
+<p>
+Because I work in Japan and the OSM data here is still not so good, I just used this converter for data of Cape Town. I'm not sure this XML works well for other countries, but it should follow the attributes described in the OSM wiki.
+</p>
+<p>
+If you find any logical errors or have some ideas for improvement, I'm glad to hear about. If you could make it work you're also welcome to "hack" the pgRouting wiki and describe how you did.
+</p>
+<p>
+Any comments and criticism welcome!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/08/09 12:09:27 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message788"></a>
+        <div class="id">
+          Message #788
+        </div>
+        <div class="body">
+            <p>
+I am sorry to have replied late.
+</p>
+<p>
+I haven't used any mapconfig.xml because I've imported OSM data from shapefile: I've created tables 'types' and 'classes' following the attributes described in the OSM wiki BUT in some fields I had to change the name attribute (see '_FIXED' below..) to assign a 'class_id' for each record starting from shape data. In shapefile there's only a field with the name (motorway, primary, track..) and not also with the type (highway, cycleway,tracktype, junction).
+</p>
+<p>
+For example, to import from .shp (not from .osm) I should have:
+..&lt;type name="cycleway" id="2"&gt;    &lt;class name="track_FIXED" id="202" /&gt;..
+</p>
+<p>
+This problem become from shape data not from osm2pgrouting tool (because I don't use it): it'll be solved when in shapefiles we have a field for 'class_name' and a field for 'type_name'.
+When you have time take a look at shapefiles from <a class="missing wiki">CloudMade?</a>:
+(1) they don't have a field to identify a 'type_id'
+(2) they don't have a field to identify a unique 'osm_id' but only a serial.
+</p>
+<p>
+For the rest I'll be very glad to contribute and describe how to import from shape, but not now 'cause in these weeks I absolutely have to complete my thesis project!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            d.l.g.
+          </div>
+          <div class="time">
+            02/13/09 01:57:57 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message792"></a>
+        <div class="id">
+          Message #792
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+I didn't have the time to look at <a class="missing wiki">CloudMade?</a> shape files, but I guess that the osm2pgrouting converter won't work then anymore as it is.
+</p>
+<p>
+If you have some C programming skills you could look into the code and maybe make some changes there to make it work for you. Otherwise you might better try the standard way to create tables and topology "by hand" like explained in the <a class="wiki" href="../../wiki/WorkshopFOSS4G2008.html">workshops</a>  for example.
+</p>
+<p>
+The problem with the standard OSM files is that the network is not defined as someone might expect. This might have changed in the Shape files of <a class="missing wiki">CloudMade?</a> as they also do routing with OSM data. <br />
+In the original data model ways can consist of several links, and osm2pgrouting does some conversion there.
+</p>
+<p>
+Stuff like types are not required for routing, so it's nice to have them, but what you need is a network topology with links, that have a source and a target ID. For Dijkstra you even didn't need a geometry information.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/13/09 09:58:49 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/214?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/214?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

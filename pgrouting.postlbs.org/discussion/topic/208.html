@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/208 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - Error installing pgrouting on Ubuntu 8.10 (#208) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Error installing pgrouting on Ubuntu 8.10
+            </div>
+            <div class="body">
+              <p>
+I'm trying install pgrouting on Ubuntu 8.10. I've followed the Ubuntu 8.04 guide in the wiki (<a href="../../wiki/1.x/InstallationUbuntu804.html">http://pgrouting.postlbs.org/wiki/1.x/InstallationUbuntu804</a>)
+</p>
+<p>
+I'm on section 2 (Compile pgRouting core (with TSP and DD flag on) and when I run "make" I get the following error
+</p>
+<p>
+paul@route2:~/pgrouting$ make
+[ 25%] Built target routing_tsp
+[ 25%] Building CXX object extra/driving_distance/src/CMakeFiles/routing_dd.dir/boost_drivedist.o
+In file included from /usr/include/c++/4.3/ext/hash_set:64,
+</p>
+<blockquote>
+<p>
+from /usr/include/boost/graph/adjacency_list.hpp:22,
+from /home/paul/pgrouting/extra/driving_distance/src/boost_drivedist.cpp:25:
+</p>
+</blockquote>
+<p>
+/usr/include/c++/4.3/backward/backward_warning.h:33:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+In file included from /usr/include/boost/graph/dijkstra_shortest_paths.hpp:19,
+</p>
+<blockquote>
+<p>
+from /home/paul/pgrouting/extra/driving_distance/src/boost_drivedist.cpp:26:
+</p>
+</blockquote>
+<p>
+/usr/include/boost/pending/relaxed_heap.hpp: In member function âsize_t boost::relaxed_heap&lt;<a class="missing wiki">IndexedType?</a>, Compare, ID&gt;::log_base_2(size_t)â:
+/usr/include/boost/pending/relaxed_heap.hpp:101: error: âCHAR_BITâ was not declared in this scope
+make<a class="changeset" href="../../changeset/2.html" title="initial">[2]</a>: *** [extra/driving_distance/src/CMakeFiles/routing_dd.dir/boost_drivedist.o] Error 1
+make<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>: *** [extra/driving_distance/src/CMakeFiles/routing_dd.dir/all] Error 2
+make: *** [all] Error 2
+</p>
+<p>
+Is pgrouting supported on Ubuntu 8.10?
+</p>
+<p>
+Any help in resolving this problem would be much appreciated.
+</p>
+<p>
+Many Thanks
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pholding
+          </div>
+          <div class="time">
+            01/19/09 06:29:28 (22 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/208?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/208?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message766"></a>
+        <div class="id">
+          Message #766
+        </div>
+        <div class="body">
+            <p>
+Hi
+</p>
+<p>
+I do not have a solution, but I can report the same problem at the same stage for Ubuntu 8.04. Initially I thought this was due to libboost-graph installation (see <a href="../15/213/763.html#763">discussion</a>), but now I think perhaps there are two unrelated problems.
+</p>
+<p>
+My error log is printed below.
+</p>
+<pre class="wiki">[ 16%] Built target routing_tsp
+[ 25%] Building CXX object extra/driving_distance/src/CMakeFiles/routing_dd.dir/boost_drivedist.o
+In file included from /usr/include/c++/4.3/ext/hash_set:64,
+                 from /usr/include/boost/graph/adjacency_list.hpp:22,
+                 from /root/pgrouting/extra/driving_distance/src/boost_drivedist.cpp:25:
+/usr/include/c++/4.3/backward/backward_warning.h:33:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+In file included from /usr/include/boost/graph/dijkstra_shortest_paths.hpp:19,
+                 from /root/pgrouting/extra/driving_distance/src/boost_drivedist.cpp:26:
+/usr/include/boost/pending/relaxed_heap.hpp: In member function ‘size_t boost::relaxed_heap&lt;IndexedType, Compare, ID&gt;::log_base_2(size_t)’:
+/usr/include/boost/pending/relaxed_heap.hpp:101: error: ‘CHAR_BIT’ was not declared in this scope
+make[2]: *** [extra/driving_distance/src/CMakeFiles/routing_dd.dir/boost_drivedist.o] Error 1
+make[1]: *** [extra/driving_distance/src/CMakeFiles/routing_dd.dir/all] Error 2
+make: *** [all] Error 2
+</pre><p>
+Thanks
+</p>
+<p>
+David
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            the_nerdling
+          </div>
+          <div class="time">
+            02/02/09 20:48:24 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message768"></a>
+        <div class="id">
+          Message #768
+        </div>
+        <div class="body">
+            <p>
+Hi!
+</p>
+<p>
+I have the same problem with ubuntu 8.10.
+I also followed the guide.
+Anyone has a solution for this issue?
+</p>
+<p>
+The errors:
+</p>
+<pre class="wiki">moli@merak:/usr/local/pgrouting$ cmake -DWITH_TSP=ON -DWITH_DD=ON
+Boost headers were found here: /usr/include
+Output directory for libraries is set to /usr/lib/postgresql/8.3/lib
+Installation directory for libraries is set to /usr/lib/postgresql/8.3/lib and for SQL files is set to /usr/share/postlbs
+Installation directory for libraries is set to /usr/lib/postgresql/8.3/lib
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /usr/local/pgrouting
+moli@merak:/usr/local/pgrouting$ make
+[  8%] Building C object extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o
+[ 16%] Building CXX object extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o
+Linking CXX shared library ../../../lib/librouting_tsp.so
+[ 16%] Built target routing_tsp
+[ 25%] Building C object extra/driving_distance/src/CMakeFiles/routing_dd.dir/alpha.o
+[ 33%] Building CXX object extra/driving_distance/src/CMakeFiles/routing_dd.dir/alpha_drivedist.o
+[ 41%] Building CXX object extra/driving_distance/src/CMakeFiles/routing_dd.dir/boost_drivedist.o
+En el archivo incluído de /usr/include/c++/4.3/ext/hash_set:64,
+                 from /usr/include/boost/graph/adjacency_list.hpp:22,
+                 from /usr/local/pgrouting/extra/driving_distance/src/boost_drivedist.cpp:25:
+/usr/include/c++/4.3/backward/backward_warning.h:33:2: aviso: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+In file included from /usr/include/boost/graph/dijkstra_shortest_paths.hpp:19,
+                 from /usr/local/pgrouting/extra/driving_distance/src/boost_drivedist.cpp:26:
+/usr/include/boost/pending/relaxed_heap.hpp: In member function ‘size_t boost::relaxed_heap&lt;IndexedType, Compare, ID&gt;::log_base_2(size_t)’:
+/usr/include/boost/pending/relaxed_heap.hpp:101: error: ‘CHAR_BIT’ no se declaró en este ámbito
+make[2]: *** [extra/driving_distance/src/CMakeFiles/routing_dd.dir/boost_drivedist.o] Error 1
+make[1]: *** [extra/driving_distance/src/CMakeFiles/routing_dd.dir/all] Error 2
+make: *** [all] Error 2
+</pre><p>
+Many thanks from spain.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            moli
+          </div>
+          <div class="time">
+            02/05/09 07:09:40 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message796"></a>
+        <div class="id">
+          Message #796
+        </div>
+        <div class="body">
+            <p>
+I had the same error with Debian Lenny.
+</p>
+<p>
+That file belongs to libboost-dev
+$dpkg -S /usr/include/boost/pending/relaxed_heap.hpp
+libboost-dev: /usr/include/boost/pending/relaxed_heap.hpp
+</p>
+<p>
+and it turns out the bug has just been fixed in the Debian package libboost-dev_1.34.1-15_i386
+<a class="ext-link" href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=495204"><span class="icon"> </span>http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=495204</a>
+</p>
+<p>
+I suppose the same has/will occur with the Ubuntu package.
+</p>
+<p>
+pgRouting compiles fine afterwards
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            jg1010
+          </div>
+          <div class="time">
+            02/17/09 13:38:23 (21 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message808"></a>
+        <div class="id">
+          Message #808
+        </div>
+        <div class="body">
+            <p>
+Hi, is there any Ubuntu 8.10 users who has solved this issue? I tried to update libboost-dev library to 1.34.15 in Ubuntu but failed due to depency issues. Please help!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ovaris
+          </div>
+          <div class="time">
+            02/23/09 16:15:58 (21 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message961"></a>
+        <div class="id">
+          Message #961
+        </div>
+        <div class="body">
+            <p>
+That posts here bring also a solution:
+</p>
+<p>
+<a href="../../ticket/138.html">http://pgrouting.postlbs.org/ticket/138</a>
+</p>
+<p>
+Best regards, Kai
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            05/19/09 17:18:51 (18 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/208?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/208?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

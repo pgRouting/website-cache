@@ -1,0 +1,218 @@
+/* General styles */
+.discussion table
+{
+  text-align: left;
+}
+
+/* Forum list */
+.forum-list tr >td
+{
+  margin: 0em !important;
+  padding: 0em !important;
+  height: 100%;
+}
+
+.forum-list tr > td > a
+{
+  display: block;
+  height: 100%;
+  padding: 0.5em;
+  margin: 0em !important;
+  border: none;
+}
+
+.forum-list td.id, .forum-list td.moderators, .forum-list td.lasttopic,
+.forum-list td.lastreply, .forum-list td.founded, .forum-list td.time,
+.forum-list td.topics, .forum-list td.new_topics, .forum-list td.replies,
+.forum-list td.new_replies
+{
+  text-align: center;
+}
+
+.forum-list td.id
+{
+  width: 1%;
+}
+
+.forum-list .subject
+{
+  font-weight: bold;
+}
+
+.forum-list th.group
+{
+  padding: 1em;
+  background-color: #eed;
+  border: 2px solid #d7d7d7;
+}
+
+.forum-list th.group div.description
+{
+  font-weight: normal;
+}
+
+/* Topic list */
+.topic-list td.id, .topic-list td.author, .topic-list td.lastreply,
+.topic-list td.founded, .topic-list td.time, .topic-list td.replies,
+.topic-list td.new_replies
+{
+  text-align: center;
+}
+
+.topic-list td.id
+{
+  width: 1%;
+}
+
+.topic-add form.add_form
+{
+  margin: 1em;
+}
+
+/* Message list */
+.message-list div.topic
+{
+  margin: 2em;
+  margin-bottom: 0em;
+  border: 1px solid #d7d7d7;
+}
+
+.message-list div.topic.new
+{
+  border: 2px solid #b00;
+}
+
+.message-list div.topic div.subject
+{
+  font-weight: bold;
+  margin: 0em;
+  padding: 0.25em 1em 0.25em 1em;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.message-list div.topic > fieldset
+{
+  margin: 1em;
+}
+
+.message-list div.topic div.body
+{
+  margin: 1em;
+}
+
+/* Message list reply tree */
+.message-list div.replies
+{
+  display: block;
+  margin: 2em;
+  margin-top: 0em;
+  padding: 0.25em;
+  border-right: 1px solid #d7d7d7;
+  border-left: 1px solid #d7d7d7;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.message-list div.replies.new
+{
+  border-right: 2px solid #b00;
+  border-left: 2px solid #b00;
+  border-bottom: 2px solid #b00;
+}
+
+.message-list div.replies ul.reply
+{
+  list-style: none;
+  padding: 0em 0em 0em 2em;
+}
+
+.message-list div.controls
+{
+  float: right;
+  padding: 0.5em;
+  padding-right: 2.5em;
+}
+
+.message-list div.controls a
+{
+  margin: 0.3em;
+}
+
+.message-list div.footer
+{
+  font-weight: bold;
+  margin: 0em;
+  padding: 0.5em;
+}
+
+.message-list div.author, .message-list div.time
+{
+  display: inline;
+  padding: 0em 0.5em;
+}
+
+.message-list div.id
+{
+  padding: 0.5em;
+  padding-right: 2.5em;
+  text-align: right;
+}
+
+.message-list div.replies div.body
+{
+  margin: 0em;
+  margin-right: 2em;
+  padding: 0em 1em;
+  border: 1px solid #d7d7d7;
+  background-color: #f7f7f7;
+}
+
+.message-list div.replies li.preview div.body
+{
+  border: 1px dashed #b00;
+}
+
+.message-list div.replies li.new div.body
+{
+  border: 2px solid #b00;
+}
+
+.message-list div.set-display, .topic-list div.set-display
+{
+  text-align: center;
+  margin: 1em;
+}
+
+.message-list div.set-display a, .topic-list div.set-display a
+{
+  margin: 0.5em;
+}
+
+.message-list form.add_form
+{
+  margin-left: 0em;
+  margin-right: 2em;
+}
+
+.message-list form.edit_form
+{
+  margin-left: -2em;
+  margin-right: 2em;
+}
+
+.message-list div.topic > form.edit_form
+{
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.message-list h1, .message-list h2, .message-list h3, .message-list h4,
+.message-list h5, .message-list h6
+{
+  margin-left: 0em;
+}
+
+.message-list div.attachments
+{
+  padding: 1em;
+}

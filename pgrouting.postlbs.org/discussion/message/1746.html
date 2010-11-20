@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/message/1746 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li><a href="../forum/15.html" title="others">others</a></li><li class="last"><a href="../topic/399.html" title="vertices id">vertices id</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>others (#15) - vertices id (#399) - Message List</h1>
+      <div class="topic ">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              vertices id
+            </div>
+            <div class="body">
+              <p>
+how to fill the "vertices_id from vertices_tmp table" into the edges table
+(| gid | | Name | | The_geom | |)
+</p>
+<p>
+thanks before....
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            bintang87
+          </div>
+          <div class="time">
+            11/07/10 09:24:21 (13 days ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies ">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/399?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/399?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li>
+        <a name="message1745"></a>
+        <div class="id">
+          Message #1745
+        </div>
+        <div class="body">
+            <p>
+You don't need to touch the vertices table at all. It's just a table that is generated when running the "assign_vertex_id" function to fill source and target column in your network table. It's not of any use later.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            11/07/10 10:32:37 (13 days ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1746"></a>
+        <div class="id">
+          Message #1746
+        </div>
+        <div class="body">
+            <p>
+if so, what should I do to determine the value of source_id and target_id
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            bintang87
+          </div>
+          <div class="time">
+            11/07/10 12:00:51 (13 days ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1747"></a>
+        <div class="id">
+          Message #1747
+        </div>
+        <div class="body">
+            <p>
+<a class="ext-link" href="http://download.osgeo.org/pgrouting/foss4g2010/workshop/docs/html/chapters/topology.html#calculate-topology"><span class="icon"> </span>http://download.osgeo.org/pgrouting/foss4g2010/workshop/docs/html/chapters/topology.html#calculate-topology</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            11/07/10 13:00:48 (13 days ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li>
+        <a name="message1748"></a>
+        <div class="id">
+          Message #1748
+        </div>
+        <div class="body">
+            <p>
+I want to join PostLBS programming and development. Because fisrt time join in the open source so many things not understood, I hope to receive help from you.
+First please, you help me explain the setup manual for window, I do not understand these instructions so I should not be done: <a href="../../wiki/1.x/WindowsInstallationManual.html">http://pgrouting.postlbs.org/wiki/1.x/WindowsInstallationManual</a>
+From section: Manual install CMAKE I do not understand the instructions as:
+#. / Configure - prefix = E: / Build/msys/1.0/local
+# Make
+# Make install
+is doing?
+Also I do not understand the lower part, with section Boost
+# Bjam-MinGW Stools = "-static sBUILD = release &lt;runtime-link&gt; &lt;threading&gt; multi &lt;native-wchar_t&gt; on" - prefix = / install e/Build/msys/1.0/local
+# Mv / usr/local/include/boost-1_33_1/boost / usr / local / include / boost
+# Rmdir / usr/local/include/boost-1_33_1
+these sections aother too, hope to receive your help.
+my english is very bad, you try to understand and help me.
+thanks.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            namdt40
+          </div>
+          <div class="time">
+            11/09/10 13:07:17 (11 days ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/399?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/399?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/146 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/16.html" title="dijkstra">dijkstra</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>dijkstra (#16) - Different stopping conditions/preserving Dijkstra tree (#146) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Different stopping conditions/preserving Dijkstra tree
+            </div>
+            <div class="body">
+              <p>
+Hi!
+</p>
+<p>
+I have a similar problem related with “Preserving Dijkstra Tree”. The question can be formulated in the following way: I want to get the shortest path from vertex vx (which is know and defined by its integer id) to vy (defined as the first vertex that appears in the tree having attribute/class/category: w). This is a well known problem in landscape ecology and can be translated into this: find the closest vertex vy (class: ‘forest’) from vx (with the same class as vy: ‘forest’). This is known as Functional Nearest Neighbor. Accessing the tree would be very useful and also knowing the class type for each predecessor vertex inserted. At this point I just need to be aware if solving this problem needs digging into the routing library because that goes away beyond my coding skills.
+</p>
+<p>
+Thanks!
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            kamo
+          </div>
+          <div class="time">
+            05/28/08 13:39:34 (2 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/146?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/146?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message497"></a>
+        <div class="id">
+          Message #497
+        </div>
+        <div class="body">
+            <p>
+If I understood it well, you need to keep the tree of predecessors from the Dijkstra search result to calculate the distance in meters to the nearest neighbor along the shortest path, right?
+</p>
+<p>
+It is interesting. Unfortunately, the shortest path implementations we have now in pgRouting don't take any class type from the database. But, of course, it can be changed.
+</p>
+<p>
+Can you provide me with any papers or articles describing FNN problem (I couldn't find any)?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            05/28/08 14:44:19 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message498"></a>
+        <div class="id">
+          Message #498
+        </div>
+        <div class="body">
+            <p>
+Hi! Thanks for taking some time to delve into this problem.
+Yes, you got the right impression of the question. The idea for keeping the tree is being able to trigger a process that asks the vertices dataset if the class/category of the inserted predecessor vertex has got the same class/category as the start vertex, and in that case stops the process. In other words the nearest neighbor in the shortest path tree having the same class/category as the start vertex. FNN can also be described as the Dijkstra Nearest Neighbor where both start and end vertexes share the same class/category type. I have some interesting pictures for the graph implementation but I’m not sure were/how to post them.
+Regarding the documentation it’s easier to find material in books however in Fragstats (the de facto software for landscape analysis in raster format) FNN has a good definition that follows:
+</p>
+<p>
+FNN = hij*
+</p>
+<p>
+(hij* distance (m) from patch ij to its nearest neighboring patch of the same type (class), based on least cost path edge-to-edge distance, computed from cell center to cell center.)
+</p>
+<p>
+Description
+</p>
+<p>
+FNN equals the distance (m) to the nearest neighboring patch of the same type, based on the least cost path edge-to-edge distance. Note that the edge-to-edge distances are from cell center to cell center.
+Range
+</p>
+<p>
+FNN &gt; 0, without limit.
+</p>
+<p>
+FNN approaches 0 as the distance to the nearest neighbor decreases. The minimum FNN is constrained by the cell size, and is equal to twice the cell size when the 8-neighbor patch rule is used or the distance between diagonal neighbors when the 4-neighbor rule is used. The upper limit is constrained by the extent of the landscape. FNN is undefined and reported as "N/A" in the “basename”.patch file if the patch has no neighbors (i.e., no other patches of the same class).
+</p>
+<p>
+Comments
+</p>
+<p>
+Functional nearest-neighbor distance accounts for one of the major shortcomings of using Euclidean distance to assess ecological relationships; namely, that the shortest geographic distance may not be the shortest ecological distance as perceived by an organism or process.
+</p>
+<p>
+I’ll try to find more material meanwhile. There are some articles with restricted access due to faculty license limitations it’s a damn drag.
+Please keep me posted!
+</p>
+<p>
+:: kamo
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            kamo
+          </div>
+          <div class="time">
+            05/29/08 03:03:16 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message499"></a>
+        <div class="id">
+          Message #499
+        </div>
+        <div class="body">
+            <p>
+Can you please send all pictures and papers you have to anton &lt;at&gt; orkney &lt;dot&gt; co &lt;dot&gt; jp ? I would be glad to look at them.
+</p>
+<blockquote class="citation">
+<p>
+ based on least cost path edge-to-edge distance, computed from cell center to cell center
+</p>
+</blockquote>
+<p>
+How to define cells?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            05/29/08 13:19:58 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message500"></a>
+        <div class="id">
+          Message #500
+        </div>
+        <div class="body">
+            <p>
+Hi!
+</p>
+<p>
+Using the strict definition from Fragstats is a completely different approach mainly because it’s based on raster data formats however the principle remains. Setting up an analysis matrix with cells (=pixels) could be hard to tackle and changes the focus of the work from vector/graph formats to raster. The idea is to bring up new analysis methodologies into landscape ecology.
+</p>
+<p>
+I think I can narrow down the problem with some low level stuff. The shortest_path() function looks like this when I want to find the route from vertex 1 to 25:
+</p>
+<p>
+SELECT * FROM shortest_path(
+</p>
+<blockquote>
+<p>
+'SELECT         gid             AS id,
+</p>
+<blockquote>
+<p>
+source::int4                AS source,
+target::int4            AS target,
+length::double precision    AS cost
+FROM public.nlm_graph_full',1, 25, false, false)
+</p>
+</blockquote>
+</blockquote>
+<p>
+For FNN analysis the target vertex should be a set in this form:
+</p>
+<p>
+SELECT a.gid
+FROM public.nlm_graph_full a
+WHERE a.class = (SELECT b.class
+</p>
+<blockquote>
+<p>
+FROM public.nlm_graph_full b
+WHERE b.gid = Source_Vertex_GID::integer)
+</p>
+</blockquote>
+<p>
+AND a.gid &lt;&gt; Source_Vertex_GID::integer
+</p>
+<p>
+At the routing library there should be a way to stop the Dijkstra algorithm when any single vertex in the target set (query above) is reached/matched. Path and cost extraction should follow starting from the source to the previously mentioned vertex found by the algorithm.
+</p>
+<p>
+This kind of graph I’m working is a very special one, first because it’s based uppon vectorial data based on computer generated landscapes and second because all vertexes can be reached from a source one. This also represents more computational density.
+</p>
+<p>
+Best regards
+:: kamo
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            kamo
+          </div>
+          <div class="time">
+            05/29/08 15:29:19 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message501"></a>
+        <div class="id">
+          Message #501
+        </div>
+        <div class="body">
+            <p>
+Thanks for the explanation, it is much more clear now.
+</p>
+<p>
+Please, file a feature request and I will put FNN into the plan.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            05/29/08 15:45:47 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message502"></a>
+        <div class="id">
+          Message #502
+        </div>
+        <div class="body">
+            <p>
+Done!
+Also filed a ticket for Win32 installer update and improvement.
+Can you make an estimate for the required time needed to insert this feature(s)/ request(s)?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            kamo
+          </div>
+          <div class="time">
+            05/30/08 01:38:48 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message504"></a>
+        <div class="id">
+          Message #504
+        </div>
+        <div class="body">
+            <p>
+Thank you!
+</p>
+<p>
+Well, FNN can be implemented in few weeks. The only problem is that I'll spend next week at the hospital and then one month sitting at home. I can only promise to try FNN if I would have some time next month. What about win32 installer, we don't have windows engineers here in Orkney and nobody ever made installers here. Now we can only compile pgRouting for win32 (or you can do it with MinGW).
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            05/30/08 12:10:18 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message505"></a>
+        <div class="id">
+          Message #505
+        </div>
+        <div class="body">
+            <p>
+That’s good news!
+</p>
+<p>
+It means that I’ll be able to use these new features in my Msc work.  So far I’ve been using an implementation of the Dijkstra algorithm (in php) 10 to 100 times’s slower compared with pgRouting. So it means processing more data in less time with the best performance possible.
+</p>
+<p>
+Regarding the win32 compilation it would be more straightforward for me if this is done by specialists, this is due to my lack of knowledge regarding the use of MinGW, and also related with the fact that I’ve never received formal programming instruction. However with the right guidance I would be pleased to learn it. Win32 installers are great for lame guys (like me) who use this environment (combined with open-source/free tools) for development, and I got the feeling there are many out there so I suppose it’s a good bet.
+</p>
+<p>
+By the way my best wishes for a speedy recovery.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            kamo
+          </div>
+          <div class="time">
+            05/30/08 14:02:06 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message521"></a>
+        <div class="id">
+          Message #521
+        </div>
+        <div class="body">
+            <p>
+</p>
+<blockquote>
+<p>
+Hi!
+</p>
+</blockquote>
+<blockquote>
+<p>
+Any progress with FNN implementation?
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            kamo
+          </div>
+          <div class="time">
+            06/26/08 01:08:24 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message522"></a>
+        <div class="id">
+          Message #522
+        </div>
+        <div class="body">
+            <p>
+Sorry, but no progress so far. I'm still sitting at home and quite busy with another task - long distance routing.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            06/26/08 11:53:27 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message523"></a>
+        <div class="id">
+          Message #523
+        </div>
+        <div class="body">
+            <p>
+It seems interesting, is it algorithm optimization for dense/long graphs?
+Please keep me posted for any progress in FNN.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            kamo
+          </div>
+          <div class="time">
+            06/27/08 09:59:59 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message524"></a>
+        <div class="id">
+          Message #524
+        </div>
+        <div class="body">
+            <p>
+Exactly. The main bottleneck we have here is data loading. So, I'm trying to find a way how to reduce the number of data to load. I hope that HH* algorithm is the solution. Did you ever hear about that?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            06/27/08 10:45:08 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message525"></a>
+        <div class="id">
+          Message #525
+        </div>
+        <div class="body">
+            <p>
+Sorry Anton, but that's a bit out of my league! Does HH stands for Hybrid Hash?
+Do you have any documentation? With some keywords I could use me faculty's vpn to fetch for papers or related resources.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            kamo
+          </div>
+          <div class="time">
+            06/27/08 11:31:29 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message526"></a>
+        <div class="id">
+          Message #526
+        </div>
+        <div class="body">
+            <p>
+No, HH is for Highways Hierarchy. It was invented by Dominik Schultes from University of Karlsruhe. If you try to google it you will find a lot of papers.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            06/27/08 11:38:05 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message527"></a>
+        <div class="id">
+          Message #527
+        </div>
+        <div class="body">
+            <blockquote>
+<p>
+Seems promising I'll have a look at it. I'm always trying to translate algorithmic behaviour into ecologically significant questions so I tend to focus more on top level stuff and less in optimization and implementation.
+If anything helpfull pops up I'll post it. Seems a great tool to add to pgRouting.
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            kamo
+          </div>
+          <div class="time">
+            06/27/08 11:58:23 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/146?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/146?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

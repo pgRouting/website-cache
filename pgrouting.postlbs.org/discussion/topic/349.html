@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/349 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/17.html" title="astar">astar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>astar (#17) - Problem with shooting_star (#349) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Problem with shooting_star
+            </div>
+            <div class="body">
+              <p>
+Hello!!
+</p>
+<p>
+I try to test the algorithm on a simple situation
+<a class="ext-link" href="http://www.davidgis.fr/blog/index.php?2008/07/22/348-shooting-star-and-bridge-usage-example"><span class="icon"> </span>http://www.davidgis.fr/blog/index.php?2008/07/22/348-shooting-star-and-bridge-usage-example</a>
+</p>
+<p>
+My system: windows XP, postgresql-8.3.3-1, postgis-pg83-setup-1.3.3-1, pgRouting-1.02_pg-8.3.3
+</p>
+<p>
+Data:
+</p>
+<pre class="wiki">CREATE TABLE most (
+gid integer,
+source integer,
+target integer,
+cost double precision,
+reverse_cost double precision,
+to_cost double precision,
+x1 double precision,
+y1 double precision,
+x2 double precision,
+y2 double precision,
+"rule" text
+) WITHOUT OIDS;
+INSERT INTO most (gid, source, target, cost, reverse_cost, to_cost, x1, y1, x2, y2, "rule") VALUES
+(1, 1, 2, 27.5, 27.5, NULL, 60, 87.5, 60, 115, NULL),
+(2, 2, 3, 25.495097567963924, 25.495097567963924, NULL, 60, 115, 85, 120, NULL),
+(3, 1, 4, 62.5, 1000, NULL, 60, 87.5, 60, 25, NULL),
+(4, 5, 6, 29.068883707497267, 29.068883707497267, NULL, 1, 1, 20, 23, NULL),
+(5, 6, 4, 40.049968789001575, 40.049968789001575, NULL, 20, 23, 60, 25, NULL),
+(6, 4, 7, 27.313000567495326, 27.313000567495326, NULL, 60, 25, 85, 36, NULL),
+(7, 8, 1, 59, 59, NULL, 1, 87.5, 60, 87.5, NULL),
+(8, 1, 9, 25, 25, 2000, 60, 87.5, 85, 87.5, '11'),
+(8, 1, 9, 25, 25, 2000, 60, 87.5, 85, 87.5, '12'),
+(9, 9, 10, 65, 65, 2000, 85, 87.5, 150, 87.5, '10'),
+(9, 9, 10, 65, 65, 2000, 85, 87.5, 150, 87.5, '11'),
+(9, 9, 10, 65, 65, 2000, 85, 87.5, 150, 87.5, '12'),
+(10, 11, 3, 15, 15, NULL, 85, 135, 85, 120, NULL),
+(11, 3, 9, 32.5, 32.5, 1000, 85, 120, 85, 87.5, '8'),
+(11, 3, 9, 32.5, 32.5, 1000, 85, 120, 85, 87.5, '9'),
+(12, 9, 7, 51.5, 51.5, 1000, 85, 87.5, 85, 36, '8'),
+(12, 9, 7, 51.5, 51.5, 1000, 85, 87.5, 85, 36, '9'),
+(13, 7, 12, 35, 35, NULL, 85, 36, 85, 1, NULL);
+</pre><p>
+incorrect results:
+</p>
+<p>
+SELECT edge_id FROM shortest_path_shooting_star('SELECT gid as id, source, target, cost, reverse_cost, x1, y1, x2, y2, rule, to_cost FROM most',13,7, true,true);<br />
+edge_id<br />
+13<br />
+13<br />
+12<br />
+8<br />
+7<br />
+SELECT edge_id,cost FROM shortest_path_shooting_star('SELECT gid as id, source, target, cost,
+reverse_cost, x1, y1, x2, y2, rule, to_cost FROM most',13,9, true,true);<br />
+edge_id<br />
+13<br />
+13<br />
+12<br />
+9<br />
+SELECT edge_id,cost FROM shortest_path_shooting_star('SELECT gid as id, source, target, cost,
+reverse_cost, x1, y1, x2, y2, rule, to_cost FROM most',12,9, true,true);<br />
+edge_id; cost<br />
+12;        51.5<br />
+6;        27.3130005674953<br />
+3;        1000<br />
+8;        25<br />
+9;        65<br />
+</p>
+<p>
+Etc. And many more wrong answers, can you tell what is the problem?
+</p>
+<p>
+Sorry for my bad english, and thanks in advance
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            lex-fivt
+          </div>
+          <div class="time">
+            03/25/10 19:05:05 (8 months ago)
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

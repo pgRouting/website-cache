@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/242 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/24.html" title="osm2pgrouting">osm2pgrouting</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>osm2pgrouting (#24) - osm2pgrouting ignores ways (#242) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              osm2pgrouting ignores ways
+            </div>
+            <div class="body">
+              <p>
+When importing OSM Data, osm2pgrouting igrnores ways, that ar tagged as highways AND as cycleways. It also igrnores ways that are tagged as highway with value "track" but that don't have tracktype information. Is that a bug?
+</p>
+<p>
+Martin
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            wullimann
+          </div>
+          <div class="time">
+            04/07/09 01:10:48 (20 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/242?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/242?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message857"></a>
+        <div class="id">
+          Message #857
+        </div>
+        <div class="body">
+            <p>
+With OSM data everybody is free to tag data as they like.
+</p>
+<p>
+You can make some changes in "mapconfig.xml" (<a href="../../browser/tools/osm2pgrouting/trunk/mapconfig.html">http://pgrouting.postlbs.org/browser/tools/osm2pgrouting/trunk/mapconfig.xml</a>) and add highway there with value "track". If this doesn't work then it is probably a bug.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/07/09 09:12:15 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message881"></a>
+        <div class="id">
+          Message #881
+        </div>
+        <div class="body">
+            <p>
+There is e.g. this track:
+</p>
+<p>
+<a class="ext-link" href="http://www.openstreetmap.org/browse/way/32391967/history"><span class="icon"> </span>http://www.openstreetmap.org/browse/way/32391967/history</a>
+</p>
+<p>
+It is not written to the database when procesed by osm2pgrouting. I can't see what is wrong about that road. It has two usual tags and nothing further.
+</p>
+<p>
+Martin
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            wullimann
+          </div>
+          <div class="time">
+            04/15/09 03:15:36 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message882"></a>
+        <div class="id">
+          Message #882
+        </div>
+        <div class="body">
+            <p>
+I'm not extremely familiar with this, but is "highway=track" a common way to attribute this type of road?
+</p>
+<p>
+Did you try to add something like
+</p>
+<pre class="wiki">&lt;type name="highway" id="1"&gt;
+  ...
+  &lt;class name="track" id="120" /&gt;
+  ...
+</pre><p>
+to the configuration XML: <a href="../../browser/tools/osm2pgrouting/trunk/mapconfig.html#L3">http://pgrouting.postlbs.org/browser/tools/osm2pgrouting/trunk/mapconfig.xml#L3</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/15/09 09:24:00 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1607"></a>
+        <div class="id">
+          Message #1607
+        </div>
+        <div class="body">
+            <p>
+I may have a similar problem to wullimann.
+</p>
+<p>
+I am using the latest revision of osm2pgrouting which has a mapconfig.xml file that includes these lines:
+</p>
+<p>
+&lt;type name="cycleway" id="2"&gt;
+</p>
+<blockquote>
+<p>
+&lt;class name="lane" id="201" /&gt;
+&lt;class name="track" id="202" /&gt;
+&lt;class name="opposite_lane" id="203" /&gt;
+&lt;class name="opposite" id="204" /&gt;
+&lt;class name="yes" id="205" /&gt;
+</p>
+</blockquote>
+<p>
+&lt;/type&gt;
+</p>
+<p>
+Those records are correctly included in the classes and types table when I run osm2pgrouting. However, the resulting ways table doesn't include any of these ways from the source .osm file I'm using.
+</p>
+<p>
+The mapconfig.xml file also includes:
+&lt;type name="highway" id="1"&gt;
+...
+</p>
+<blockquote>
+<p>
+&lt;class name="cycleway" id="130" /&gt;
+</p>
+</blockquote>
+<p>
+...
+&lt;/type&gt;
+</p>
+<p>
+These ways ARE correctly inserted in the ways table.
+</p>
+<p>
+All of the tracktype class ways from the standard mapconfig.xml file are also correctly inserted in the ways table... So it's just the cycleway class that is causing problems. Has anyone experienced this before?
+</p>
+<p>
+Thanks,
+Jordan
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ja3n
+          </div>
+          <div class="time">
+            08/18/10 06:31:58 (3 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1610"></a>
+        <div class="id">
+          Message #1610
+        </div>
+        <div class="body">
+            <p>
+I just noticed ticket <a class="assigned ticket" href="../../ticket/208.html" title="defect: osm2pgrouting fails to load duplicate classes (assigned)">#208</a>. Maybe this is the same problem. I'll test that patch and let you know...
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ja3n
+          </div>
+          <div class="time">
+            08/19/10 01:50:16 (3 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1611"></a>
+        <div class="id">
+          Message #1611
+        </div>
+        <div class="body">
+            <p>
+As I just wrote in ticket <a class="assigned ticket" href="../../ticket/208.html" title="defect: osm2pgrouting fails to load duplicate classes (assigned)">#208</a>, that patch doesn't fix this problem.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ja3n
+          </div>
+          <div class="time">
+            08/19/10 04:23:39 (3 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/242?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/242?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

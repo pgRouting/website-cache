@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracBackup by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracBackup – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/TracBackup?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/TracBackup?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/TracBackup?action=diff&amp;version=3">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h1 id="TracBackup">Trac Backup</h1>
+<p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ul><li class="False"><a class="False" href="TracGuide.html">Index</a></li><li class="False"><a class="False" href="TracInstall.html">Installation</a></li><li class="False"><a class="False" href="TracInterfaceCustomization.html">Customization</a></li><li class="False"><a class="False" href="TracPlugins.html">Plugins</a></li><li class="False"><a class="False" href="TracUpgrade.html">Upgrading</a></li><li class="False"><a class="False" href="TracIni.html">Configuration</a></li><li class="False"><a class="False" href="TracAdmin.html">Administration</a></li><li class="active"><a class="False" href="TracBackup.html">Backup</a></li><li class="False"><a class="False" href="TracLogging.html">Logging</a></li><li class="False"><a class="False" href="TracPermissions.html">Permissions</a></li><li class="False"><a class="False" href="TracWiki.html">The Wiki</a></li><li class="False"><a class="False" href="WikiFormatting.html">Wiki Formatting</a></li><li class="False"><a class="False" href="TracTimeline.html">Timeline</a></li><li class="False"><a class="False" href="TracBrowser.html">Repository Browser</a></li><li class="False"><a class="False" href="TracRevisionLog.html">Revision Log</a></li><li class="False"><a class="False" href="TracChangeset.html">Changesets</a></li><li class="False"><a class="False" href="TracTickets.html">Tickets</a></li><li class="False"><a class="False" href="TracWorkflow.html">Workflow</a></li><li class="False"><a class="False" href="TracRoadmap.html">Roadmap</a></li><li class="False"><a class="False" href="TracQuery.html">Ticket Queries</a></li><li class="False"><a class="False" href="TracReports.html">Reports</a></li><li class="False"><a class="False" href="TracRss.html">RSS Support</a></li><li class="False"><a class="False" href="TracNotification.html">Notification</a></li></ul></div><p>
+</p>
+<p>
+Since Trac uses a database backend, some extra care is required to safely create a backup of a <a class="wiki" href="TracEnvironment.html">project environment</a>. Luckily, <a class="wiki" href="TracAdmin.html">trac-admin</a> has a command to make backups easier: <tt>hotcopy</tt>.
+</p>
+<blockquote>
+<p>
+<i>Note: Trac uses the <tt>hotcopy</tt> nomenclature to match that of <a class="ext-link" href="http://subversion.tigris.org/"><span class="icon"> </span>Subversion</a>, to make it easier to remember when managing both Trac and Subversion servers.</i>
+</p>
+</blockquote>
+<h2 id="CreatingaBackup">Creating a Backup</h2>
+<p>
+To create a backup of a live <a class="wiki" href="TracEnvironment.html">TracEnvironment</a>, simply run:
+</p>
+<pre class="wiki">
+  $ trac-admin /path/to/projenv hotcopy /path/to/backupdir
+
+</pre><p>
+<a class="wiki" href="TracAdmin.html">trac-admin</a> will lock the database while copying.<i>
+</i></p>
+<p>
+The resulting backup directory is safe to handle using standard file-based backup tools like <tt>tar</tt> or <tt>dump</tt>/<tt>restore</tt>.
+</p>
+<p>
+Please, note, that hotcopy command does not overwrite target directory and when such exists, hotcopy ends with error: <tt>Command failed: [Errno 17] File exists:</tt> This is discussed in <a class="ext-link" href="http://trac.edgewall.org/intertrac/ticket%3A3198" title="ticket:3198 in Trac project trac"><span class="icon"> </span>#3198</a>.
+</p>
+<h3 id="RestoringaBackup">Restoring a Backup</h3>
+<p>
+Backups are simply a copied snapshot of the entire <a class="wiki" href="TracEnvironment.html">project environment</a> directory, including the SQLite database. 
+</p>
+<p>
+To restore an environment from a backup, simply stop the process running Trac (i.e. the Web server or <a class="wiki" href="TracStandalone.html">tracd</a>), restore the directory structure from the backup and restart the service.
+</p>
+<blockquote>
+<p>
+<i>Note: Automatic backup of environments that don't use SQLite as database backend is not supported at this time. As a workaround, we recommend that you stop the server, copy the environment directory, and make a backup of the database using whatever mechanism is provided by the database system.</i>
+</p>
+</blockquote>
+<hr />
+<p>
+See also: <a class="wiki" href="TracAdmin.html">TracAdmin</a>, <a class="wiki" href="TracEnvironment.html">TracEnvironment</a>, <a class="wiki" href="TracGuide.html">TracGuide</a>, <a class="missing wiki">TracMigrate?</a>
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/TracBackup?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TracBackup.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracBackup by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

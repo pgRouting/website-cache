@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/browser/branches/workshop/FOSS4G2008/Docs/11_pgrouting.weighted.chapter by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 04:09:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      /branches/workshop/FOSS4G2008/Docs/11_pgrouting.weighted.chapter – pgRouting
+    </title>
+        <link rel="search" href="../../../../../search.html" />
+        <link rel="help" href="../../../../../wiki/TracGuide.html" />
+        <link rel="alternate" href="../../../../../export/358/branches/workshop/FOSS4G2008/Docs/11_pgrouting.weighted.chapter" type="text/plain" title="Original Format" />
+        <link rel="up" href="../Docs.html" title="Parent directory" />
+        <link rel="start" href="../../../../../wiki.html" />
+        <link rel="stylesheet" href="../../../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../../../chrome/common/css/code.css" type="text/css" /><link rel="stylesheet" href="../../../../../chrome/common/css/browser.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".trac-toggledeleted").show().click(function() {
+                  $(this).siblings().find(".trac-deleted").toggle();
+                  return false;
+        }).click();
+        $("#jumploc input").hide();
+        $("#jumploc select").change(function () {
+          this.parentNode.parentNode.submit();
+        });
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../../../index.html"><img src="../../../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../../../login.html">Login</a></li><li><a href="../../../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../../../wiki.html">Home</a></li><li><a href="../../../../../timeline.html">Timeline</a></li><li><a href="../../../../../roadmap.html">Roadmap</a></li><li class="active"><a href="../../../../../browser.html">Browse Source</a></li><li><a href="../../../../../report.html">View Tickets</a></li><li><a href="../../../../../search.html">Search</a></li><li class="last"><a href="../../../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../../../../changeset/245/branches/workshop/FOSS4G2008/Docs/11_pgrouting.weighted.html">Last Change</a></li><li><a href="http://pgrouting.postlbs.org/browser/branches/workshop/FOSS4G2008/Docs/11_pgrouting.weighted.chapter?annotate=blame&amp;rev=245" title="Annotate each line with the last changed revision (this can be time consuming...)">Annotate</a></li><li class="last"><a href="../../../../../log/branches/workshop/FOSS4G2008/Docs/11_pgrouting.weighted.html">Revision Log</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="browser">
+      <h1>
+    <a class="pathentry first" title="Go to root directory" href="../../../../../browser.html">root</a><span class="pathentry sep">/</span><a class="pathentry" title="View branches" href="../../../../branches.html">branches</a><span class="pathentry sep">/</span><a class="pathentry" title="View workshop" href="../../../workshop.html">workshop</a><span class="pathentry sep">/</span><a class="pathentry" title="View FOSS4G2008" href="../../FOSS4G2008.html">FOSS4G2008</a><span class="pathentry sep">/</span><a class="pathentry" title="View Docs" href="../Docs.html">Docs</a><span class="pathentry sep">/</span><a class="pathentry" title="View 11_pgrouting.weighted.chapter" href="11_pgrouting.weighted.html">11_pgrouting.weighted.chapter</a>
+    <br style="clear: both" />
+  </h1>
+      <div id="jumprev">
+        <form action="#" method="get">
+          <div>
+            <label for="rev">
+              View revision:</label>
+            <input type="text" id="rev" name="rev" size="6" />
+          </div>
+        </form>
+      </div>
+      <div id="jumploc">
+        <form action="#" method="get">
+          <div class="buttons">
+            <label for="preselected">Visit:</label>
+            <select id="preselected" name="preselected">
+              <option selected="selected"></option>
+              <optgroup label="branches">
+                <option value="/browser/trunk">trunk</option><option value="/browser/branches/anton">branches/anton</option><option value="/browser/branches/daniel">branches/daniel</option><option value="/browser/branches/debug">branches/debug</option><option value="/browser/branches/pgrouting-extra">branches/pgrouting-extra</option><option value="/browser/branches/pgrouting-light">branches/pgrouting-light</option><option value="/browser/branches/workshop">branches/workshop</option>
+              </optgroup><optgroup label="tags">
+                <option value="/browser/tags/release-1.0?rev=58">tags/release-1.0</option><option value="/browser/tags/release-1.0-beta?rev=52">tags/release-1.0-beta</option><option value="/browser/tags/release-1.0-rc1?rev=51">tags/release-1.0-rc1</option><option value="/browser/tags/release-1.02?rev=162">tags/release-1.02</option><option value="/browser/tags/release-1.03?rev=218">tags/release-1.03</option>
+              </optgroup>
+            </select>
+            <input type="submit" value="Go!" title="Jump to the chosen preselected path" />
+          </div>
+        </form>
+      </div>
+      <table id="info" summary="Revision info">
+        <tr>
+          <th scope="col">
+            Revision <a href="../../../../../changeset/245.html">245</a>, <span title="4883 bytes">4.8 KB</span>
+            (checked in by anton, <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-09-24T13%3A14%3A16%2B0900&amp;precision=second" title="2008-09-24T13:14:16+0900 in Timeline">2 years</a> ago)
+          </th>
+        </tr>
+        <tr>
+          <td class="message searchable">
+              <p>
+Index creation added to the last chapter<br />
+</p>
+          </td>
+        </tr>
+      </table>
+      <div id="preview" class="searchable">
+    <table class="code"><thead><tr><th class="lineno" title="Line numbers">Line</th><th class="content"> </th></tr></thead><tbody><tr><th id="L1"><a href="#L1">1</a></th><td>= Advanced usage of pgRouting shortest path search =</td></tr><tr><th id="L2"><a href="#L2">2</a></th><td></td></tr><tr><th id="L3"><a href="#L3">3</a></th><td>An ordinary shortest path query with result usualy looks like this:</td></tr><tr><th id="L4"><a href="#L4">4</a></th><td></td></tr><tr><th id="L5"><a href="#L5">5</a></th><td>{{{</td></tr><tr><th id="L6"><a href="#L6">6</a></th><td>SELECT * FROM shortest_path_shooting_star(</td></tr><tr><th id="L7"><a href="#L7">7</a></th><td>        'SELECT gid as id, source, target, length as cost, x1, y1, x2, y2, rule, </td></tr><tr><th id="L8"><a href="#L8">8</a></th><td>        to_cost, reverse_cost FROM ways', 1955, 5787, true, true);</td></tr><tr><th id="L9"><a href="#L9">9</a></th><td>        </td></tr><tr><th id="L10"><a href="#L10">10</a></th><td> vertex_id | edge_id |        cost         </td></tr><tr><th id="L11"><a href="#L11">11</a></th><td>-----------+---------+---------------------</td></tr><tr><th id="L12"><a href="#L12">12</a></th><td>      8134 |    1955 | 0.00952475464810279</td></tr><tr><th id="L13"><a href="#L13">13</a></th><td>      5459 |    1956 |  0.0628075563112871</td></tr><tr><th id="L14"><a href="#L14">14</a></th><td>      8137 |    1976 |  0.0812786367080268</td></tr><tr><th id="L15"><a href="#L15">15</a></th><td>      5453 |     758 |  0.0421747270358272</td></tr><tr><th id="L16"><a href="#L16">16</a></th><td>      5456 |    3366 |  0.0104935732514831</td></tr><tr><th id="L17"><a href="#L17">17</a></th><td>     11086 |    3367 |   0.113400030221047</td></tr><tr><th id="L18"><a href="#L18">18</a></th><td>      4416 |     306 |   0.111600379959229</td></tr><tr><th id="L19"><a href="#L19">19</a></th><td>      4419 |     307 |  0.0880411972519595</td></tr><tr><th id="L20"><a href="#L20">20</a></th><td>      4422 |    4880 |  0.0208599114366633</td></tr><tr><th id="L21"><a href="#L21">21</a></th><td>      5101 |     612 |  0.0906859882381495</td></tr><tr><th id="L22"><a href="#L22">22</a></th><td>      5102 |    5787 |    80089.8820919459</td></tr><tr><th id="L23"><a href="#L23">23</a></th><td>(11 rows)</td></tr><tr><th id="L24"><a href="#L24">24</a></th><td>}}}</td></tr><tr><th id="L25"><a href="#L25">25</a></th><td></td></tr><tr><th id="L26"><a href="#L26">26</a></th><td>That is usually called SHORTEST path, which means that a length of an edge is </td></tr><tr><th id="L27"><a href="#L27">27</a></th><td>its cost.</td></tr><tr><th id="L28"><a href="#L28">28</a></th><td></td></tr><tr><th id="L29"><a href="#L29">29</a></th><td>== Costs can be anything ("Weighted costs") ==</td></tr><tr><th id="L30"><a href="#L30">30</a></th><td></td></tr><tr><th id="L31"><a href="#L31">31</a></th><td>But in real networks we have different limitations or preferences for different </td></tr><tr><th id="L32"><a href="#L32">32</a></th><td>road types for example. In other words, we want to calculate CHEAPEST path - a </td></tr><tr><th id="L33"><a href="#L33">33</a></th><td>path with a minimal cost. There is no limitation in what we take as costs.</td></tr><tr><th id="L34"><a href="#L34">34</a></th><td></td></tr><tr><th id="L35"><a href="#L35">35</a></th><td>When we convert data from OSM format using the osm2pgrouting tool, we get these </td></tr><tr><th id="L36"><a href="#L36">36</a></th><td>two additional tables for road types and classes:</td></tr><tr><th id="L37"><a href="#L37">37</a></th><td>{{{     </td></tr><tr><th id="L38"><a href="#L38">38</a></th><td>\d classes</td></tr><tr><th id="L39"><a href="#L39">39</a></th><td>                                                                        </td></tr><tr><th id="L40"><a href="#L40">40</a></th><td>  id |   name    </td></tr><tr><th id="L41"><a href="#L41">41</a></th><td>-----+------------</td></tr><tr><th id="L42"><a href="#L42">42</a></th><td>   2 | cycleway</td></tr><tr><th id="L43"><a href="#L43">43</a></th><td>   1 | highway</td></tr><tr><th id="L44"><a href="#L44">44</a></th><td>   4 | junction</td></tr><tr><th id="L45"><a href="#L45">45</a></th><td>   3 | tracktype</td></tr><tr><th id="L46"><a href="#L46">46</a></th><td>}}}</td></tr><tr><th id="L47"><a href="#L47">47</a></th><td></td></tr><tr><th id="L48"><a href="#L48">48</a></th><td>{{{</td></tr><tr><th id="L49"><a href="#L49">49</a></th><td>\d types</td></tr><tr><th id="L50"><a href="#L50">50</a></th><td></td></tr><tr><th id="L51"><a href="#L51">51</a></th><td> id  | type_id |        name        |  cost </td></tr><tr><th id="L52"><a href="#L52">52</a></th><td>-----+---------+--------------------+--------</td></tr><tr><th id="L53"><a href="#L53">53</a></th><td> 201 |       2 | lane               |   1  </td></tr><tr><th id="L54"><a href="#L54">54</a></th><td> 204 |       2 | opposite           |   1  </td></tr><tr><th id="L55"><a href="#L55">55</a></th><td> 203 |       2 | opposite_lane      |   1  </td></tr><tr><th id="L56"><a href="#L56">56</a></th><td> 202 |       2 | track              |   1  </td></tr><tr><th id="L57"><a href="#L57">57</a></th><td> 117 |       1 | bridleway          |   1  </td></tr><tr><th id="L58"><a href="#L58">58</a></th><td> 113 |       1 | bus_guideway       |   1  </td></tr><tr><th id="L59"><a href="#L59">59</a></th><td> 118 |       1 | byway              |   1  </td></tr><tr><th id="L60"><a href="#L60">60</a></th><td> 115 |       1 | cicleway           |   1  </td></tr><tr><th id="L61"><a href="#L61">61</a></th><td> 116 |       1 | footway            |   1  </td></tr><tr><th id="L62"><a href="#L62">62</a></th><td> 108 |       1 | living_street      |   1  </td></tr><tr><th id="L63"><a href="#L63">63</a></th><td> 101 |       1 | motorway           |   0.2  </td></tr><tr><th id="L64"><a href="#L64">64</a></th><td> 103 |       1 | motorway_junction  |   0.2  </td></tr><tr><th id="L65"><a href="#L65">65</a></th><td> 102 |       1 | motorway_link      |   0.2  </td></tr><tr><th id="L66"><a href="#L66">66</a></th><td> 114 |       1 | path               |   100  </td></tr><tr><th id="L67"><a href="#L67">67</a></th><td> 111 |       1 | pedestrian         |   100  </td></tr><tr><th id="L68"><a href="#L68">68</a></th><td> 106 |       1 | primary            |   100  </td></tr><tr><th id="L69"><a href="#L69">69</a></th><td> 107 |       1 | primary_link       |   100  </td></tr><tr><th id="L70"><a href="#L70">70</a></th><td> 107 |       1 | residential        |   100  </td></tr><tr><th id="L71"><a href="#L71">71</a></th><td> 100 |       1 | road               |   0.7  </td></tr><tr><th id="L72"><a href="#L72">72</a></th><td> 100 |       1 | unclassified       |   0.7  </td></tr><tr><th id="L73"><a href="#L73">73</a></th><td> 106 |       1 | secondary          |   10  </td></tr><tr><th id="L74"><a href="#L74">74</a></th><td> 109 |       1 | service            |   10  </td></tr><tr><th id="L75"><a href="#L75">75</a></th><td> 112 |       1 | services           |   10  </td></tr><tr><th id="L76"><a href="#L76">76</a></th><td> 119 |       1 | steps              |   10  </td></tr><tr><th id="L77"><a href="#L77">77</a></th><td> 107 |       1 | tertiary           |   10  </td></tr><tr><th id="L78"><a href="#L78">78</a></th><td> 110 |       1 | track              |   10  </td></tr><tr><th id="L79"><a href="#L79">79</a></th><td> 104 |       1 | trunk              |   10  </td></tr><tr><th id="L80"><a href="#L80">80</a></th><td> 105 |       1 | trunk_link         |   10  </td></tr><tr><th id="L81"><a href="#L81">81</a></th><td> 401 |       4 | roundabout         |   10  </td></tr><tr><th id="L82"><a href="#L82">82</a></th><td> 301 |       3 | grade1             |   15  </td></tr><tr><th id="L83"><a href="#L83">83</a></th><td> 302 |       3 | grade2             |   15  </td></tr><tr><th id="L84"><a href="#L84">84</a></th><td> 303 |       3 | grade3             |   15  </td></tr><tr><th id="L85"><a href="#L85">85</a></th><td> 304 |       3 | grade4             |   15  </td></tr><tr><th id="L86"><a href="#L86">86</a></th><td> 305 |       3 | grade5             |   15  </td></tr><tr><th id="L87"><a href="#L87">87</a></th><td>}}}</td></tr><tr><th id="L88"><a href="#L88">88</a></th><td></td></tr><tr><th id="L89"><a href="#L89">89</a></th><td>Road class is linked with the ways table by class_id field. Cost values for </td></tr><tr><th id="L90"><a href="#L90">90</a></th><td>classes table are assigned arbitrary. </td></tr><tr><th id="L91"><a href="#L91">91</a></th><td></td></tr><tr><th id="L92"><a href="#L92">92</a></th><td>{{{</td></tr><tr><th id="L93"><a href="#L93">93</a></th><td>UPDATE classes SET cost=15 WHERE id&gt;300;</td></tr><tr><th id="L94"><a href="#L94">94</a></th><td>}}}</td></tr><tr><th id="L95"><a href="#L95">95</a></th><td></td></tr><tr><th id="L96"><a href="#L96">96</a></th><td>For better performance it is worth to create an index on id field of classes table. </td></tr><tr><th id="L97"><a href="#L97">97</a></th><td>{{{</td></tr><tr><th id="L98"><a href="#L98">98</a></th><td>CREATE INDEX class_idx ON ways (id);</td></tr><tr><th id="L99"><a href="#L99">99</a></th><td>}}}</td></tr><tr><th id="L100"><a href="#L100">100</a></th><td></td></tr><tr><th id="L101"><a href="#L101">101</a></th><td>The idea behind these two tables is to specify a factor to be multiplied with </td></tr><tr><th id="L102"><a href="#L102">102</a></th><td>the cost of each link (usually length):</td></tr><tr><th id="L103"><a href="#L103">103</a></th><td></td></tr><tr><th id="L104"><a href="#L104">104</a></th><td>{{{</td></tr><tr><th id="L105"><a href="#L105">105</a></th><td>SELECT * FROM shortest_path_shooting_star(</td></tr><tr><th id="L106"><a href="#L106">106</a></th><td>        'SELECT gid as id, class_id, source, target, length*c.cost as cost, </td></tr><tr><th id="L107"><a href="#L107">107</a></th><td>                x1, y1, x2, y2, rule, to_cost, reverse_cost*c.cost as reverse_cost </td></tr><tr><th id="L108"><a href="#L108">108</a></th><td>        FROM ways w, classes c </td></tr><tr><th id="L109"><a href="#L109">109</a></th><td>        WHERE class_id=c.id', 1955, 5787, true, true);</td></tr><tr><th id="L110"><a href="#L110">110</a></th><td> vertex_id | edge_id |        cost         </td></tr><tr><th id="L111"><a href="#L111">111</a></th><td>-----------+---------+---------------------</td></tr><tr><th id="L112"><a href="#L112">112</a></th><td>      8134 |    1955 | 0.00666732825367195</td></tr><tr><th id="L113"><a href="#L113">113</a></th><td>      5459 |    1956 |   0.043965289417901</td></tr><tr><th id="L114"><a href="#L114">114</a></th><td>      8137 |    1992 |   0.126646230936747</td></tr><tr><th id="L115"><a href="#L115">115</a></th><td>      5464 |     762 |   0.827868704808978</td></tr><tr><th id="L116"><a href="#L116">116</a></th><td>      5467 |     763 |    0.16765902528648</td></tr><tr><th id="L117"><a href="#L117">117</a></th><td>       ... |     ... |                 ...</td></tr><tr><th id="L118"><a href="#L118">118</a></th><td>      9790 |    5785 | 0.00142107468268373</td></tr><tr><th id="L119"><a href="#L119">119</a></th><td>      8548 |    5786 | 0.00066608685984761</td></tr><tr><th id="L120"><a href="#L120">120</a></th><td>     16214 |    5787 |  0.0160179764183892</td></tr><tr><th id="L121"><a href="#L121">121</a></th><td>(69 rows)</td></tr><tr><th id="L122"><a href="#L122">122</a></th><td>}}}</td></tr><tr><th id="L123"><a href="#L123">123</a></th><td></td></tr><tr><th id="L124"><a href="#L124">124</a></th><td>We can see that the shortest path result is completely different from the </td></tr><tr><th id="L125"><a href="#L125">125</a></th><td>example before. We call this "weighted costs".</td></tr><tr><th id="L126"><a href="#L126">126</a></th><td></td></tr><tr><th id="L127"><a href="#L127">127</a></th><td>Another example is to restrict access to roads of a certain type:</td></tr><tr><th id="L128"><a href="#L128">128</a></th><td>{{{</td></tr><tr><th id="L129"><a href="#L129">129</a></th><td>UPDATE classes SET cost=100000 WHERE name LIKE 'motorway%';</td></tr><tr><th id="L130"><a href="#L130">130</a></th><td>}}}</td></tr><tr><th id="L131"><a href="#L131">131</a></th><td></td></tr><tr><th id="L132"><a href="#L132">132</a></th><td>Through subqueries you can "mix" your costs as you like and this will change</td></tr><tr><th id="L133"><a href="#L133">133</a></th><td>the results of your routing request immediately. Cost changes will affect the </td></tr><tr><th id="L134"><a href="#L134">134</a></th><td>next shortest path search, and there is no need to rebuild your network. </td></tr></tbody></table>
+      </div>
+      <div id="help">
+        <strong>Note:</strong> See <a href="../../../../../wiki/TracBrowser.html">TracBrowser</a>
+        for help on using the browser.
+      </div>
+      <div id="anydiff">
+        <form action="http://pgrouting.postlbs.org/diff" method="get">
+          <div class="buttons">
+            <input type="hidden" name="new_path" value="/branches/workshop/FOSS4G2008/Docs/11_pgrouting.weighted.chapter" />
+            <input type="hidden" name="old_path" value="/branches/workshop/FOSS4G2008/Docs/11_pgrouting.weighted.chapter" />
+            <input type="hidden" name="new_rev" />
+            <input type="hidden" name="old_rev" />
+            <input type="submit" value="View changes..." title="Select paths and revs for Diff" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="../../../../../export/358/branches/workshop/FOSS4G2008/Docs/11_pgrouting.weighted.chapter">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("11_pgrouting.weighted.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/browser/branches/workshop/FOSS4G2008/Docs/11_pgrouting.weighted.chapter by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 04:09:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

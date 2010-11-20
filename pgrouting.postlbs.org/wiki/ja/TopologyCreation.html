@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/ja/TopologyCreation by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      ja/TopologyCreation – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/ja/TopologyCreation?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../ja.html" title="View parent page" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../ja.html">Up</a></li><li><a href="../WikiStart.html">Start Page</a></li><li><a href="../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/ja/TopologyCreation?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/ja/TopologyCreation?action=diff&amp;version=2">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View ja" href="../ja.html">ja</a><span class="pathentry sep">/</span><a class="pathentry" title="View ja/TopologyCreation" href="TopologyCreation.html">TopologyCreation</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="経路探索アプリケーションのためのデータ作成">経路探索アプリケーションのためのデータ作成</h1>
+<p>
+経路探索エンジンは、通常、最短経路の探索のためにあらゆるラインについて始点終点ノードを必要とします。ライン・ネットワーク、このデータを作成するということは、そのネットワーク上にトポロジーを作成することを意味します。pgDijkstraはPostgreSQL内で始点終点ノード情報を作成することができますが、性能はそれほどよくありません。大きなデータセット上でトポロジーを作成するために、1日以上かかる場合もあります。(DBのパフォーマンス・チューニングによって時間短縮が可能です)
+</p>
+<p>
+トポロジーを少しでも速く作成するために利用されるソフトウェアが他にもあります。
+</p>
+<h2 id="PostGIS">PostGIS</h2>
+<p>
+この文章を書いている時点で最新の<a class="ext-link" href="http://www.postgis.org/"><span class="icon"> </span>PostGIS</a>バージョンは1.1.2です。このバージョンはトポロジ機能の追加が始まったばかりです。しかしまだアルファ版の段階で、トポロジを作成するためのドキュメントも少ししかありません。トポロジ機能が安定して使用できるようになった段階で、このページを更新します。
+</p>
+<h2 id="ArcInfo">ArcInfo</h2>
+<p>
+ArcInfoライセンスがある場合、BUILDコマンドを実行するだけでトポロジを作成できます。
+</p>
+<pre class="wiki">build line {Coverage Name}
+</pre><p>
+そして、カバレッジをPostGISでインポート可能なShapeファイルで出力します。BUILDコマンドはfnode_, tnode_, length カラムを作成します。これらはPostgreSQLではsource, targetにリネームされます。またlengthは初期コストに設定することができます。
+</p>
+<h2 id="GRASS">GRASS</h2>
+<p>
+<a class="ext-link" href="http://grass.itc.it/"><span class="icon"> </span>GRASS</a>はトポロジの作成も使用も可能ですが、shapeファイルに出力されたデータセットにトポロジ情報が含まれないため、トポロジ情報を抽出しPostgreSQLに移動することはArcInfoほど簡単ではありません。
+</p>
+<p>
+トポロジ作成コマンド"v.build"には、ファイルにパイプ出力するストリームに情報を出力するダンプオプションがあります。たとえば:
+</p>
+<pre class="wiki">v.build map=dourol option=build,dump &gt; dourokukan.txt 
+</pre><p>
+出力はこのようになります。:
+</p>
+<pre class="wiki">---------- TOPOLOGY DUMP ----------
+N,S,E,W,T,B: 35.897887, 24.281578, 153.985841, 138.943042, 0.000000, 0.000000
+Nodes (148304 nodes, alive + dead ):
+node = 1, n_lines = 3, xy = 139.756532, 35.67451
+line = 1, type = 2, angle = -2.265356
+line = -20, type = 2, angle = -0.055499
+line = 8, type = 2, angle = 1.281166
+node = 2, n_lines = 3, xy = 139.756261, 35.674216
+line = -9, type = 2, angle = -2.827622
+line = 2, type = 2, angle = -1.878154
+...
+...
+...
+Lines (220672 lines, alive + dead ):
+line = 1, type = 2, offset = 14 n1 = 1, n2 = 2, left/area = 0, right = 0
+N,S,E,W,T,B: 35.674510, 35.674216, 139.756532, 139.756261, 0.000000, 0.000000
+line = 2, type = 2, offset = 79 n1 = 2, n2 = 3, left/area = 0, right = 0
+N,S,E,W,T,B: 35.674216, 35.672010, 139.756261, 139.755285, 0.000000, 0.000000
+line = 3, type = 2, offset = 160 n1 = 3, n2 = 4, left/area = 0, right = 0
+N,S,E,W,T,B: 35.672010, 35.671649, 139.755285, 139.755014, 0.000000, 0.000000
+</pre><p>
+ 
+<a class="ext-link" href="http://files.postlbs.org/pgrouting/tools/table_topo.pl"><span class="icon"> </span>table_topo.pl</a>のようなperlプログラムは、GRASSの出力をノードとラインテーブルを作成し、トポロジ情報を含むSQLファイルへ変換するために使用できます。これらのテーブルは、始点終点ノード情報を作成するために、PostGISのネットワークテーブルにリンクすることができます。
+</p>
+<p>
+<strong>プログラム</strong>
+</p>
+<p>
+トポロジをサポート <a href="../../ticket/27.html">http://pgrouting.postlbs.org/ticket/27</a>
+</p>
+<hr />
+<p>
+この日本語訳の著作権は、日本ユニシス株式会社に帰属しています。また、この日本語訳は、GNU FDLのもとで提供されています。
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/ja/TopologyCreation?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TopologyCreation.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/ja/TopologyCreation by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

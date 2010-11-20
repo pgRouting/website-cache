@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/tools/WebRoutingService/Security by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      tools/WebRoutingService/Security – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/tools/WebRoutingService/Security?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../WebRoutingService.html" title="View parent page" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../WebRoutingService.html">Up</a></li><li><a href="../../WikiStart.html">Start Page</a></li><li><a href="../../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/tools/WebRoutingService/Security?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/tools/WebRoutingService/Security?action=diff&amp;version=15">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View tools" href="../../tools.html">tools</a><span class="pathentry sep">/</span><a class="pathentry" title="View tools/WebRoutingService" href="../WebRoutingService.html">WebRoutingService</a><span class="pathentry sep">/</span><a class="pathentry" title="View tools/WebRoutingService/Security" href="Security.html">Security</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <div style="float: right; margin: 1em 1em 1em 2em; width: 27em; font-size: .9em">
+<div style="background-color: #fce4e3; border: 1px solid black; padding: 1em; margin-top: 1.5em">
+<div style="font-weight: bold">The key implementation changed recently to be less "complicated".</div>
+</div>
+</div>
+<h1 id="SecurityServicesetup">Security Service setup</h1>
+<p>
+This wiki page explains how to create a security key, which is needed to enable the security service.
+</p>
+<h2 id="ChooseaprivatekeyandclientID">Choose a “private” key and client ID</h2>
+<p>
+First you need a database with a table to store the client ID and a "private" key
+</p>
+<ul><li>“private” key: &lt;myprivatekey&gt;
+</li><li>client_id: &lt;myclientid&gt;
+</li></ul><p>
+To store the client ID and API key create a table in a PostgreSQL database and insert the "private" key(s) with client ID, for example:
+</p>
+<pre class="wiki">auth=# CREATE TABLE users(id serial, client_id text NOT NULL, key text NOT NULL); 
+
+auth=# INSERT INTO users(client_id,key) VALUES('routing','1234567890abcdefghi');
+INSERT 0 1
+auth=#
+</pre><h2 id="Generateadditionalrequestparameters">Generate additional request parameters</h2>
+<ul><li>signature: md5(&lt;myclientid&gt;)
+</li><li>api_key: md5(&lt;myclientid&gt;)
+</li></ul><h2 id="Configureservice">Configure service</h2>
+<p>
+Before starting the service you need to add the security service in configuration.xml to each provider that should require authentication:
+</p>
+<pre class="wiki">&lt;service name="security" title="Security" enable="true"&gt;
+	&lt;description&gt;Authentication service&lt;/description&gt;
+
+	&lt;connection driver="org.postgresql.Driver"&gt;
+		&lt;url&gt;jdbc:postgresql://[hostname]:[port]/[database]&lt;/url&gt;
+		&lt;user&gt;[username]&lt;/user&gt;
+		&lt;password&gt;[password]&lt;/password&gt;
+	&lt;/connection&gt;
+
+	&lt;sql&gt;
+		&lt;query transformProjectionIn="false" transformProjectionOut="false"&gt;SELECT client_id, key FROM users&lt;/query&gt;		
+	&lt;/sql&gt;
+
+	&lt;parameters&gt;
+		&lt;parameter name="api_key" type="text" codename="api_key" required="true" /&gt;
+		&lt;parameter name="signature" type="text" codename="signature" required="true" /&gt;
+		&lt;parameter name="id" type="text" codename="id" required="true" /&gt;
+	&lt;/parameters&gt;
+&lt;/service&gt;
+</pre>
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/tools/WebRoutingService/Security?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("Security.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/tools/WebRoutingService/Security by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

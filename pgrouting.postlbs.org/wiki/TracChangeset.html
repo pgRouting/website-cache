@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracChangeset by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracChangeset – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/TracChangeset?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/TracChangeset?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/TracChangeset?action=diff&amp;version=3">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h1 id="TracChangesetModule">Trac Changeset Module</h1>
+<p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ul><li class="False"><a class="False" href="TracGuide.html">Index</a></li><li class="False"><a class="False" href="TracInstall.html">Installation</a></li><li class="False"><a class="False" href="TracInterfaceCustomization.html">Customization</a></li><li class="False"><a class="False" href="TracPlugins.html">Plugins</a></li><li class="False"><a class="False" href="TracUpgrade.html">Upgrading</a></li><li class="False"><a class="False" href="TracIni.html">Configuration</a></li><li class="False"><a class="False" href="TracAdmin.html">Administration</a></li><li class="False"><a class="False" href="TracBackup.html">Backup</a></li><li class="False"><a class="False" href="TracLogging.html">Logging</a></li><li class="False"><a class="False" href="TracPermissions.html">Permissions</a></li><li class="False"><a class="False" href="TracWiki.html">The Wiki</a></li><li class="False"><a class="False" href="WikiFormatting.html">Wiki Formatting</a></li><li class="False"><a class="False" href="TracTimeline.html">Timeline</a></li><li class="False"><a class="False" href="TracBrowser.html">Repository Browser</a></li><li class="False"><a class="False" href="TracRevisionLog.html">Revision Log</a></li><li class="active"><a class="False" href="TracChangeset.html">Changesets</a></li><li class="False"><a class="False" href="TracTickets.html">Tickets</a></li><li class="False"><a class="False" href="TracWorkflow.html">Workflow</a></li><li class="False"><a class="False" href="TracRoadmap.html">Roadmap</a></li><li class="False"><a class="False" href="TracQuery.html">Ticket Queries</a></li><li class="False"><a class="False" href="TracReports.html">Reports</a></li><li class="False"><a class="False" href="TracRss.html">RSS Support</a></li><li class="False"><a class="False" href="TracNotification.html">Notification</a></li></ul></div><p>
+</p>
+<p>
+Trac has a built-in functionality for visualizing “diffs” - changes to files.
+</p>
+<p>
+There are different kinds of <i>change sets</i>. 
+Some can correspond to revisions made in the repositories,
+others can aggregate changes made in several revisions, 
+but in the end, any kind of differences can be shown.
+</p>
+<p>
+The changeset view consists of two parts, the <i>header</i> 
+and the <i>diff views</i>.
+</p>
+<h2 id="ChangesetHeader">Changeset Header</h2>
+<p>
+The header shows an overview of the whole changeset.
+Here you will find information such as:
+</p>
+<ul><li>Timestamp -- When the changeset was commited
+</li><li>Author -- Who commited the changeset
+</li><li>Message -- A brief description from the author (the commit log message)
+</li><li>Files -- A list of files affected by this changeset
+</li></ul><p>
+If more than one revision is involved in the set of changes being
+displayed, the <i>Timestamp</i>, <i>Author</i> and <i>Message</i> fields 
+won't be shown.
+</p>
+<p>
+In front of each listed file, you'll find  a colored rectangle. The color
+indicates how the file is affected by the changeset.
+ 
+</p>
+<ul><li>Green: Added
+</li><li>Red: Removed
+</li><li>Yellow: Modified
+</li><li>Blue: Copied
+</li><li>Gray: Moved
+</li></ul><p>
+The color legend is located below the header as a reminder.
+</p>
+<h2 id="DiffViews">Diff Views</h2>
+<p>
+Below the header is the main part of the changeset, the diff view. Each file is shown in a separate section, each of which will contain only the regions of the file that are affected by the changeset. There are two different styles of displaying the diffs: <i>inline</i> or <i>side-by-side</i> (you can switch between those styles using the preferences form):
+</p>
+<ul><li>The <i>inline</i> style shows the changed regions of a file underneath each other. A region removed from the file will be colored red, an added region will be colored green. If a region was modified, the old version is displayed above the new version. Line numbers on the left side indicate the exact position of the change in both the old and the new version of the file.
+</li><li>The <i>side-by-side</i> style shows the old version on the left and the new version on the right (this will typically require more screen width than the inline style.) Added and removed regions will be colored in the same way as with the inline style (green and red, respectively), but modified regions will have a yellow background.
+</li></ul><p>
+In addition, various advanced options are available in the preferences form for adjusting the display of the diffs:
+</p>
+<ul><li>You can set how many lines are displayed before and after every change
+(if the value <i>all</i> is used, then the full file will be shown)
+</li><li>You can toggle whether blank lines, case changes and white space changes are ignored, thereby letting you find the functional changes more quickly
+</li></ul><h2 id="TheDifferentWaystoGetaDiff">The Different Ways to Get a Diff</h2>
+<h3 id="ExaminingaChangeset">Examining a Changeset</h3>
+<p>
+When viewing a repository check-in, such as when following a
+changeset <a class="wiki" href="TracLinks.html">link</a> or a changeset event in the 
+<a class="wiki" href="TracTimeline.html">timeline</a>, Trac will display the exact changes
+made by the check-in.
+</p>
+<p>
+There will be also navigation links to the <i>Previous Changeset</i>
+to and <i>Next Changeset</i>.
+</p>
+<h3 id="ExaminingDifferencesBetweenRevisions">Examining Differences Between Revisions</h3>
+<p>
+Often you'll want to look at changes made on a file 
+or on a directory spanning multiple revisions. The easiest way
+to get there is from the <a class="wiki" href="TracRevisionLog.html">TracRevisionLog</a>, where you can select
+the <i>old</i> and the <i>new</i> revisions of the file or directory, and
+then click the <i>View changes</i> button.
+</p>
+<h3 id="ExaminingDifferencesBetweenBranches">Examining Differences Between Branches</h3>
+<p>
+One of the core features of version control systems is the possibility
+to work simultaneously on different <i>Lines of Developments</i>, commonly
+called “branches”. Trac enables you to examine the exact differences
+between such branches.
+</p>
+<p>
+Using the <strong>View changes ...</strong> button in the <a class="wiki" href="TracBrowser.html">TracBrowser</a> allows you to enter
+<i>From:</i> and <i>To:</i> path/revision pairs. The resulting set of differences consist
+of the changes that should be applied to the <i>From:</i> content in order
+to get to the <i>To:</i> content.
+</p>
+<p>
+For convenience, it is possible to invert the roles of the <i>old</i> and the <i>new</i>
+path/revision pairs by clicking the <i>Reverse Diff</i> link on the changeset page.
+</p>
+<h3 id="CheckingtheLastChange">Checking the Last Change</h3>
+<p>
+The last possibility for examining changes is to use the <i>Last Change</i>
+link provided by the <a class="wiki" href="TracBrowser.html">TracBrowser</a>.
+</p>
+<p>
+This link will take you to the last change that was made on that path.
+From there, you can use the <i>Previous Change</i> and <i>Next Change</i> links
+to traverse the change history of the file or directory.
+</p>
+<hr />
+<p>
+See also: <a class="wiki" href="TracGuide.html">TracGuide</a>, <a class="wiki" href="TracBrowser.html">TracBrowser</a>
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/TracChangeset?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TracChangeset.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracChangeset by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/160 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:02:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #160 (PgRoutingInstallation)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="142.html" title="Ticket #142" />
+        <link rel="last" href="109.html" title="Ticket #109" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/160?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/160?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/160?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="up" href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1" />
+        <link rel="next" href="211.html" title="Ticket #211" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="138.html" title="Ticket #138" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="142.html" title="Ticket #142">Previous Ticket</a></span></li><li><a href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1">Back to Query</a></li><li class="last"><span><a class="next" href="211.html" title="Ticket #211">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #160
+          <span class="status">(closed bug report: invalid)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-07-08T16%3A38%3A16%2B0900&amp;precision=second" title="2009-07-08T16:38:16+0900 in Timeline">17 months</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-09-30T18%3A17%3A14%2B0900&amp;precision=second" title="2009-09-30T18:17:14+0900 in Timeline">14 months</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">PgRoutingInstallation</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">alky</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">somebody
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      major
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="missing milestone"></a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      A*
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+I have installed pgrouting in windows and its working fine,but while installing in <a class="missing wiki">FedoroCore?</a>,i m finding some problemin in generating library files
+[root@localhost pgrouting]# cmake -DWITH_TSP=ON -DWITH_DD=ON .
+Boost headers were found here: /usr/include
+Output directory for libraries is set to sh: pg_config: command not found
+Installation directory for libraries is set to sh: pg_config: command not found and for SQL files is set to /usr/share/postlbs
+Installation directory for libraries is set to sh: pg_config: command not found
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /opt/pickndrop/pgrouting
+</p>
+<blockquote>
+<p>
+[root@localhost pgrouting]# make
+</p>
+</blockquote>
+<p>
+[ 16%] Built target routing_tsp
+Scanning dependencies of target routing_dd
+[ 25%] Building C object extra/driving_distance/src/CMakeFiles/routing_dd.dir/alpha.o
+[ 33%] Building C object extra/driving_distance/src/CMakeFiles/routing_dd.dir/drivedist.o
+/opt/pickndrop/pgrouting/extra/driving_distance/src/drivedist.c: In function ‘fetch_edge_columns’:
+/opt/pickndrop/pgrouting/extra/driving_distance/src/drivedist.c:129: error: ‘INT4OID’ undeclared (first use in this function)
+/opt/pickndrop/pgrouting/extra/driving_distance/src/drivedist.c:129: error: (Each undeclared identifier is reported only once
+/opt/pickndrop/pgrouting/extra/driving_distance/src/drivedist.c:129: error: for each function it appears in.)
+/opt/pickndrop/pgrouting/extra/driving_distance/src/drivedist.c:131: error: ‘FLOAT8OID’ undeclared (first use in this function)
+make<a class="changeset" href="../changeset/2.html" title="initial">[2]</a>: *** [extra/driving_distance/src/CMakeFiles/routing_dd.dir/drivedist.o] Error 1
+make<a class="changeset" href="../changeset/1.html" title="Initial import">[1]</a>: *** [extra/driving_distance/src/CMakeFiles/routing_dd.dir/all] Error 2
+make: *** [all] Error 2
+</p>
+<p>
+how should i rectify this problem....
+Pg routing for windows has  library files in downloads,do we have similar library files for Linux in the downloads
+</p>
+<p>
+waiting for reply
+thanks in advance
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-07-08T18%3A32%3A05%2B0900&amp;precision=second" title="2009-07-08T18:32:05+0900 in Timeline">17 months</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>new</em> to <em>closed</em>
+        </li><li>
+          <strong>resolution</strong>
+              set to <em>invalid</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Make sure you installed postgresql-devel package. You might also look here <a href="../discussion/topic/241.html">http://pgrouting.postlbs.org/discussion/topic/241</a>.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-07-09T14%3A33%3A38%2B0900&amp;precision=second" title="2009-07-09T14:33:38+0900 in Timeline">17 months</a> ago by alky
+                </h3>
+      <div class="comment searchable">
+        <p>
+[root@localhost pgrouting]# make
+</p>
+<p>
+Scanning dependencies of target routing_tsp
+[  8%] Building CXX object extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o
+Linking CXX shared library ../../../lib/librouting_tsp.so
+[ 16%] Built target routing_tsp
+[ 25%] Building C object extra/driving_distance/src/CMakeFiles/routing_dd.dir/drivedist.o
+/opt/pickndrop/pgrouting/extra/driving_distance/src/drivedist.c: In function ‘fetch_edge_columns’:
+/opt/pickndrop/pgrouting/extra/driving_distance/src/drivedist.c:129: error: ‘INT4OID’ undeclared (first use in this function)
+/opt/pickndrop/pgrouting/extra/driving_distance/src/drivedist.c:129: error: (Each undeclared identifier is reported only once
+/opt/pickndrop/pgrouting/extra/driving_distance/src/drivedist.c:129: error: for each function it appears in.)
+/opt/pickndrop/pgrouting/extra/driving_distance/src/drivedist.c:131: error: ‘FLOAT8OID’ undeclared (first use in this function)
+make<a class="changeset" href="../changeset/2.html" title="initial">[2]</a>: *** [extra/driving_distance/src/CMakeFiles/routing_dd.dir/drivedist.o] Error 1
+make<a class="changeset" href="../changeset/1.html" title="Initial import">[1]</a>: *** [extra/driving_distance/src/CMakeFiles/routing_dd.dir/all] Error 2
+make: *** [all] Error 2
+</p>
+<p>
+i Still got this Error,how should i fix this.Please guys help me..
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-07-09T14%3A46%3A12%2B0900&amp;precision=second" title="2009-07-09T14:46:12+0900 in Timeline">17 months</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+It means that PostgreSQL header files are still not reachable.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-09-30T18%3A03%3A39%2B0900&amp;precision=second" title="2009-09-30T18:03:39+0900 in Timeline">14 months</a> ago by thge
+                </h3>
+      <div class="comment searchable">
+        <p>
+I have the same problem. It is a postgreSQL 8.4 issue. The following discussion led me on the right way:
+</p>
+<p>
+<a class="ext-link" href="http://archive.netbsd.se/?ml=slony1-hackers&amp;a=2009-02&amp;t=9972566"><span class="icon"> </span>http://archive.netbsd.se/?ml=slony1-hackers&amp;a=2009-02&amp;t=9972566</a>
+</p>
+<p>
+First of all, my error looked like this:
+</p>
+<pre class="wiki">[ 16%] Building C object core/src/CMakeFiles/routing.dir/dijkstra.o
+/home/thomasg/pgrouting/core/src/dijkstra.c: In function âfetch_edge_columnsâ:
+/home/thomasg/pgrouting/core/src/dijkstra.c:98: error: âINT4OIDâ undeclared (first use in this function)
+/home/thomasg/pgrouting/core/src/dijkstra.c:98: error: (Each undeclared identifier is reported only once
+/home/thomasg/pgrouting/core/src/dijkstra.c:98: error: for each function it appears in.)
+/home/thomasg/pgrouting/core/src/dijkstra.c:100: error: âFLOAT8OIDâ undeclared (first use in this function)
+make[2]: *** [core/src/CMakeFiles/routing.dir/dijkstra.o] Error 1
+make[1]: *** [core/src/CMakeFiles/routing.dir/all] Error 2
+make: *** [all] Error 2
+</pre><p>
+(I only compile the core)
+</p>
+<p>
+So my solution: adding the line 
+</p>
+<pre class="wiki">#include "catalog/pg_type.h"
+</pre><p>
+into these files (after including the "executor/spi.h"):
+</p>
+<pre class="wiki">/core/src/dijkstra.c
+/core/src/astar.c
+/core/src/shooting_star.c
+</pre><p>
+You should consider this for the next version and make a bugfix that pgRouting is compatible with postgreSQL 8.4
+</p>
+<p>
+thomas
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:5">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-09-30T18%3A17%3A14%2B0900&amp;precision=second" title="2009-09-30T18:17:14+0900 in Timeline">14 months</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+Hi Thomas,
+</p>
+<p>
+Thank you! I will fix the code.
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/160?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/160?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/160?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("160.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/160 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:02:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

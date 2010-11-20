@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/Understandingandtestingthedata by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Understandingandtestingthedata – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/Understandingandtestingthedata?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/Understandingandtestingthedata?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/Understandingandtestingthedata?action=diff&amp;version=21">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h2 id="Transformingdescribingandunderstandingthedata">Transforming, describing and understanding the data</h2>
+<p>
+After you have loaded the .osm-File in the database via osm2pgrouting, the table-structure should look like:
+<a style="padding:0; border:none" href="http://www.kneipenculture.de/database.png"><img src="http://www.kneipenculture.de/database.png" alt="http://www.kneipenculture.de/database.png " title="http://www.kneipenculture.de/database.png " /></a>
+</p>
+<p>
+You need to know: The geodata from OSM lie in the WGS84-reference-system, that has the epsg-code:4326.
+</p>
+<p>
+For our tutorial we work with the "Google-Projection" that has the epsg-code 900913.
+</p>
+<p>
+First of all you need to bring the code for 900913 in the database and in the epsg-file of the proj-library.
+</p>
+<p>
+Be carefull: Different codes for 900913 exist (it took me a couple of hours to understand that this was the reason, that my geodata were located 80 kilometers too much in the south), so, as an SQL-command use the following to bring 900913 in the spatial_ref_sys-table:
+</p>
+<pre class="wiki">
+INSERT INTO spatial_ref_sys (srid, auth_name, auth_srid, srtext, proj4text) VALUES (900913, 'EPSG', 900913,
+'PROJCS["unnamed",GEOGCS["unnamed ellipse",DATUM["unknown",SPHEROID["unnamed",6378137,0]],
+PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433]],
+PROJECTION["Mercator_2SP"],PARAMETER["standard_parallel_1",0],PARAMETER["central_meridian",0],PARAMETER["false_easting",0],
+PARAMETER["false_northing",0],UNIT["Meter",1],EXTENSION["PROJ4","+proj=merc +a=6378137 +b=6378137 
++lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"]]',
+ '+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs');
+</pre><p>
+In the epsg-file (should be in /usr/local/share/proj/epsg) write at the end:
+</p>
+<pre class="wiki"> &lt;900913&gt; +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs
+</pre><p>
+....so you have the possibility now to transform your geodata.
+</p>
+<p>
+To get that, you need to remove the constraint that your geodata has to be in 4326. 
+After that rename the column "the_geom" in the table ways to "the_geom_4326"
+and add a new column "the_geom" (as geometry).
+After that you need to change the table geometry_columns. You need to type that the srid for the_geom (table ways &amp; and vertices_tmp) is 900913 as well (!!!)
+</p>
+<p>
+Then do the SQL-command:.
+</p>
+<pre class="wiki">UPDATE ways SET the_geom=transform(the_geom_4326,900913)
+</pre><p>
+...and your data in the_geom exist in the "Google Projection".
+</p>
+<p>
+Furthermore you need to add a column "id" (integer) to the table "ways" to work with the routing-alorithm.
+</p>
+<p>
+If you have that column just do the command:
+</p>
+<pre class="wiki">UPDATE ways SET id=gid;
+</pre><p>
+After that the table-structure of "ways" should look like:
+</p>
+<p>
+<a style="padding:0; border:none" href="http://www.kneipenculture.de/table_routing_structure.png"><img src="http://www.kneipenculture.de/table_routing_structure.png" alt="http://www.kneipenculture.de/table_routing_structure.png " title="http://www.kneipenculture.de/table_routing_structure.png " /></a>
+</p>
+<p>
+To be used for Dijkstra-algorithm every geometry needs to have a source and a target-value.
+These values needs to be identic with the id-numbers of the table "vertices_tmp".
+</p>
+<p>
+The next screenshot shows how it shouldn't (!!) look like:
+</p>
+<p>
+<a style="padding:0; border:none" href="http://www.selbstverwaltung-bundesweit.de/weird_numbers.png"><img src="http://www.selbstverwaltung-bundesweit.de/weird_numbers.png" alt="http://www.selbstverwaltung-bundesweit.de/weird_numbers.png " title="http://www.selbstverwaltung-bundesweit.de/weird_numbers.png " /></a>
+</p>
+<p>
+(the three numbers black on grey show the gid,source and target-values of the "ways"-table.
+The red-colured numbers are "dead ends", and the blue-one correct vertices of "vertices_tmp").
+This result comes from OSM-Shape-files........
+</p>
+<h2 id="Howtotestthegeodata">How to test the geodata?</h2>
+<p>
+First of all many thank to Stephen WOODBRIDGE for that idea.
+</p>
+<p>
+You need to type the following commands on your vertices_tmp-table
+</p>
+<pre class="wiki">alter table vertices_tmp add column cnt integer;
+update vertices_tmp set cnt=0;
+update vertices_tmp set cnt=cnt+1 from ways where ways.source=vertices_tmp.id;
+update vertices_tmp set cnt=cnt+1 from ways where ways.target=vertices_tmp.id;
+</pre><p>
+This will display red dots at dead ends and green dots as good 
+connections be segments.
+</p>
+<p>
+You can visualize it with the UMN <a class="wiki" href="MapServer.html">MapServer</a>, just take a mapfile like:
+</p>
+<pre class="wiki">MAP 
+
+NAME           'mymap' 
+STATUS ON 
+#EXTENT 3427065.200000 5788323.530000 3443999.370000 5800691.660000
+#EXTENT 7.9189 52.2102 8.1716 52.3467
+EXTENT 880000 6840000 915000 6860000
+IMAGECOLOR 255 255 255
+SIZE      700 700
+ SYMBOLSET    	'/your_path/symbols/symbols.sym'
+ FONTSET       '/your_path/fonts/fonts.list'
+
+
+
+
+
+ WEB
+	TEMPLATE  'template.html'
+IMAGEPATH '/your_path/tmp/'
+IMAGEURL   '/tmp/'
+
+
+    METADATA 
+  	'WMS_TITLE'   'Gastronomap_routing'
+	 'WMS_FEATURE_INFO_MIME_TYPE' 'text/html'
+	'WMS_ONLINERESOURCE'   'http://localhost/cgi-bin/mapserv?map=/your_path/routing.map' 		
+    	'WMS_SRS'       "EPSG:900913"	
+      END 
+END 
+
+  PROJECTION 
+    'init=epsg:900913'
+    END 
+
+LAYER 
+OFFSITE 255 255 255
+#LABELITEM 'name'
+TOLERANCE 20
+  NAME		'streets' 
+  TYPE		LINE
+  STATUS	DEFAULT
+CONNECTIONTYPE postgis
+  CONNECTION 'user=postgres password=postgres dbname=routing host=localhost port=5432'
+ DATA 'the_geom from ways as foo using unique gid using SRID=900913'
+CLASSITEM 'gid'
+TEMPLATE 'ausgabe.phtml'
+
+METADATA 
+'WMS_TITLE'   'streets' 
+'WMS_SRS'    "EPSG:900913"	
+'WMS_INCLUDE_ITEMS' 'all'	
+END 
+
+CLASS 
+TEXT ([gid],[source],[target])
+EXPRESSION /./
+
+STYLE 
+WIDTH 1
+COLOR 0 0 0
+END 
+
+LABEL 
+        TYPE TRUETYPE 
+        ANTIALIAS TRUE 
+        FONT 'arial' 
+        COLOR 0 0 0 
+        BACKGROUNDCOLOR 240 240 240 
+         POSITION cc
+          MINSIZE 8
+        MAXSIZE 12
+      	BUFFER 2
+         END 
+END 
+END
+
+LAYER 
+OFFSITE 255 255 255
+#LABELITEM 'name'
+TOLERANCE 20
+  NAME		'dead_ends' 
+  TYPE		POINT
+  STATUS	DEFAULT
+  CONNECTIONTYPE postgis
+  CONNECTION 'user=postgres password=postgres dbname=routing host=localhost port=5432'
+ DATA 'the_geom from vertices_tmp as foo using unique id using SRID=900913'
+
+
+CLASSITEM 'cnt'
+TEMPLATE 'ausgabe.phtml'
+
+METADATA 
+'WMS_TITLE'   'dead_ends' 
+'WMS_SRS'    "EPSG:900913"	
+'WMS_INCLUDE_ITEMS' 'all'	
+END 
+CLASS 
+Text ([id])
+EXPRESSION /1/
+STYLE 
+SYMBOL 'tent'
+SIZE 11
+COLOR 255 0 0
+END 
+
+LABEL 
+        TYPE TRUETYPE 
+        ANTIALIAS TRUE 
+        FONT 'arial' 
+        COLOR 255 0 0
+        BACKGROUNDCOLOR 240 240 240 
+         POSITION cr
+          MINSIZE 8
+        MAXSIZE 12
+      	BUFFER 2
+         END 
+END 
+
+CLASS 
+TEXT ([id])
+EXPRESSION /./
+
+STYLE 
+SYMBOL 'tent'
+SIZE 11
+COLOR 0 0 255
+END 
+
+LABEL 
+        TYPE TRUETYPE 
+        ANTIALIAS TRUE 
+        FONT 'arial' 
+        COLOR 0 0 255 
+        BACKGROUNDCOLOR 240 240 240 
+         POSITION cr
+          MINSIZE 8
+        MAXSIZE 12
+      	BUFFER 2
+         END 
+END 
+END
+END 
+</pre><p>
+If you open your <a class="wiki" href="MapServer.html">MapServer</a>-testing-apllication via:
+<a class="ext-link" href="http://localhost/cgi-bin/mapserv?map=/var/www/gastronomap_wms/gastronomap_routing.map"><span class="icon"> </span>http://localhost/cgi-bin/mapserv?map=/var/www/gastronomap_wms/gastronomap_routing.map</a>
+</p>
+<p>
+and you zoom in you get something like:
+</p>
+<p>
+<a style="padding:0; border:none" href="http://www.kneipenculture.de/correct_vertices.png"><img src="http://www.kneipenculture.de/correct_vertices.png" alt="http://www.kneipenculture.de/correct_vertices.png" title="http://www.kneipenculture.de/correct_vertices.png" /></a>
+</p>
+<p>
+Everything fine with the data ! :-)
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/Understandingandtestingthedata?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("Understandingandtestingthedata.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/Understandingandtestingthedata by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

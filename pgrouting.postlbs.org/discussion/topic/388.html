@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/388 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/22.html" title="demo">demo</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>demo (#22) - please help me with google and route integration (#388) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              please help me with google and route integration
+            </div>
+            <div class="body">
+              <p>
+Id like to integrate generated route on the google map service.<br />
+I followed tutorial and made some changes but now I am not sure where I made mistake because my aplication has next errors :<br />
+- when I set up start and end point of route, points are generated on little different position than is my cursor<br />
+- when generated route is shown on the map it is situated little shifted<br />
+</p>
+<p>
+My data was imported from shapefile which was in WGS84 (degrees) and in posgres db it is like it is shown at the bottom.<br />
+Also I enclosed my php route generator and starting map page.<br />
+</p>
+<p>
+starting map page :<br />
+</p>
+<pre class="wiki">&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;A Basic GeoExt Page&lt;/title&gt;
+&lt;script src="Ext-3.2.1/adapter/ext/ext-base.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="Ext-3.2.1/ext-all.js"  type="text/javascript"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="Ext-3.2.1/resources/css/ext-all.css" /&gt;
+&lt;script src="OpenLayers-2.9.1/lib/OpenLayers.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="GeoExt-0.7/lib/GeoExt.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css"
+      href="GeoExt-0.7/resources/css/geoext-all-debug.css" /&gt;
+&lt;script src="DrawPoints.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="proj4js-1.0.1/lib/proj4js.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="http://maps.google.com/maps?file=api&amp;amp;v=2&amp;amp;key=ABQIAAAAswMtbwtotJmv90ak01iBixQU8MLjHkCOgUOFxqy3Ydl6JRQ1exRBk-QjQ5UGpjClJkRmte_it9YuCA" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+	function pgrouting(store, layer, method) {
+         if (layer.features.length == 2) {
+	     // erase the previous route
+             store.removeAll();
+             var startpoint = layer.features[0].geometry.clone();
+alert (startpoint);
+             var finalpoint = layer.features[1].geometry.clone();
+alert (finalpoint);
+             // load to route
+             store.load({
+                 params: {
+                     startpoint: startpoint.x + " " + startpoint.y,
+                     finalpoint: finalpoint.x + " " + finalpoint.y,
+                     method: method
+                 }
+             });
+         }
+    }
+var map, mapPanel, store, gridPanel, mainPanel;
+    Ext.onReady(function() {
+        var map = new OpenLayers.Map();
+	var wmsLayer = new OpenLayers.Layer.Google("Google Physical", {type: G_SATELLITE_MAP});
+	var vecLayer = new OpenLayers.Layer.Vector("vector");
+    map.addLayers([wmsLayer]);
+// create map panel
+    mapPanel = new GeoExt.MapPanel({
+        renderTo: "map",
+	title: "Map",
+        region: "center",
+        height: 400,
+        width:  500,
+        map: map,
+        center: new OpenLayers.LonLat(17.17, 48.146),
+        zoom: 15
+    });
+        // create the layer where the route will be drawn
+        var route_layer = new OpenLayers.Layer.Vector("route", {
+            styleMap: new OpenLayers.StyleMap(new OpenLayers.Style({
+                strokeColor: "#ff9933",
+                strokeWidth: 7
+            }))
+        });
+        // create the layer where the start and final points will be drawn
+        var points_layer = new OpenLayers.Layer.Vector("points");
+        // when a new point is added to the layer, call the pgrouting function
+        points_layer.events.on({
+            featureadded: function() {
+                pgrouting(store, points_layer, method.getValue());
+            }
+        });
+        // add the layers to the map
+        map.addLayers([wmsLayer, points_layer, route_layer]);
+        // create the control to draw the points (see the DrawPoints.js file)
+        var draw_points = new DrawPoints(points_layer);
+        // create the control to move the points
+        var drag_points = new OpenLayers.Control.DragFeature(points_layer, {
+            autoActivate: true
+        });
+        // when a point is moved, call the pgrouting function
+        drag_points.onComplete = function() {
+              pgrouting(store, points_layer, method.getValue());
+        };
+        // add the controls to the map
+        map.addControls([draw_points, drag_points]);
+var store = new GeoExt.data.FeatureStore({
+    layer: route_layer,
+    fields: [
+        {name: "length"}
+    ],
+    proxy: new GeoExt.data.ProtocolProxy({
+        protocol: new OpenLayers.Protocol.HTTP({
+            url: './php/pgrouting.php',
+            format: new OpenLayers.Format.GeoJSON({
+            })
+        })
+    })
+});
+        // create the method combo box
+        var method = new Ext.form.ComboBox({
+            renderTo: "method",
+            triggerAction: "all",
+            editable: false,
+            forceSelection: true,
+            store: [
+                ["SPD", "Shortest Path Dijkstra"],
+                ["SPA", "Shortest Path A*"],
+                ["SPS", "Shortest Path Shooting*"]
+            ],
+            listeners: {
+                select: function() {
+                    pgrouting(store, points_layer, method.getValue());
+                }
+            }
+        });
+        // default method is Shortest Path Dijkstra
+        method.setValue("SPD");
+    });
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="map"&gt;&lt;/div&gt;
+&lt;div id="method"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre><p>
+<br />
+php route generator :<br />
+</p>
+<pre class="wiki">&lt;?php
+   // Database connection settings
+   define("PG_DB"  , "ba_db");
+   define("PG_HOST", "localhost");
+   define("PG_USER", "postgres");
+   define("PG_PORT", "5432");
+   define("TABLE",   "ba_table");
+   // Retrieve start point
+$start = split(' ',$_REQUEST['startpoint']);
+   $startPoint = array($start[0], $start[1]);
+   // Retrieve end point
+   $end = split(' ',$_REQUEST['finalpoint']);
+   $endPoint = array($end[0], $end[1]);
+   // Find the nearest edge
+   $startEdge = findNearestEdge($startPoint);
+   $endEdge   = findNearestEdge($endPoint);
+   // FUNCTION findNearestEdge
+   function findNearestEdge($lonlat) {
+      // Connect to database
+      $con = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);
+      $sql = "SELECT gid, source, target, the_geom,
+		          distance(the_geom, GeometryFromText(
+	                   'POINT(".$lonlat[0]." ".$lonlat[1].")', 4326)) AS dist
+	             FROM ".TABLE."
+	             WHERE the_geom &amp;&amp; setsrid(
+	                   'BOX3D(".($lonlat[0]-0.001)."
+	                          ".($lonlat[1]-0.001).",
+	                          ".($lonlat[0]+0.001)."
+	                          ".($lonlat[1]+0.001).")'::box3d, 4326)
+	             ORDER BY dist LIMIT 1";
+      $query = pg_query($con,$sql);
+      $edge['gid']      = pg_fetch_result($query, 0, 0);
+      $edge['source']   = pg_fetch_result($query, 0, 1);
+      $edge['target']   = pg_fetch_result($query, 0, 2);
+      $edge['the_geom'] = pg_fetch_result($query, 0, 3);
+      // Close database connection
+      pg_close($con);
+      return $edge;
+   }
+   // Select the routing algorithm
+   switch($_REQUEST['method']) {
+      case 'SPD' : // Shortest Path Dijkstra
+        $sql = "SELECT rt.gid, ST_AsGeoJSON(rt.the_geom) AS geojson,
+	                 length(rt.the_geom) AS length, ".TABLE.".gid
+	              FROM ".TABLE.",
+	                  (SELECT gid, the_geom
+	                      FROM dijkstra_sp_delta(
+	                          '".TABLE."',
+	                          ".$startEdge['source'].",
+	                          ".$endEdge['target'].",
+	                          0.1)
+	                   ) as rt
+	              WHERE ".TABLE.".gid=rt.gid;";
+        break;
+      case 'SPA' : // Shortest Path A*
+        $sql = "SELECT rt.gid, ST_AsGeoJSON(rt.the_geom) AS geojson,
+	                   length(rt.the_geom) AS length, ".TABLE.".gid
+	                FROM ".TABLE.",
+	                    (SELECT gid, the_geom
+	                        FROM astar_sp_delta(
+	                            '".TABLE."',
+	                            ".$startEdge['source'].",
+	                            ".$endEdge['target'].",
+	                            0.1)
+	                     ) as rt
+	                WHERE ".TABLE.".gid=rt.gid;";
+        break;
+      case 'SPS' : // Shortest Path Shooting*
+        $sql = "SELECT rt.gid, ST_AsGeoJSON(rt.the_geom) AS geojson,
+	                   length(rt.the_geom) AS length, ".TABLE.".gid
+	                FROM ".TABLE.",
+	                    (SELECT gid, the_geom
+	                        FROM shootingstar_sp(
+	                            '".TABLE."',
+	                            ".$startEdge['gid'].",
+	                            ".$endEdge['gid'].",
+	                            0.1, 'length', true, true)
+	                     ) as rt
+	                WHERE ".TABLE.".gid=rt.gid;";
+        break;
+   } // close switch
+   // Connect to database
+   $dbcon = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);
+   // Perform database query
+   $query = pg_query($dbcon,$sql);
+   // Return route as GeoJSON
+   $geojson = array(
+      'type'      =&gt; 'FeatureCollection',
+      'features'  =&gt; array()
+   );
+/*
+while ($row = pg_fetch_assoc($query)) {
+  //echo "GID=" . $row['gid'] . "&lt;/br&gt;";
+  echo "GEOJSON=" . $row['geojson'] . "&lt;/br&gt;";
+  //echo "LENGTH=" . $row['length'] . "&lt;/br&gt;";
+}
+*/
+   // Add edges to GeoJSON array
+   while($edge=pg_fetch_assoc($query)) {
+      $feature = array(
+         'type' =&gt; 'Feature',
+         'geometry' =&gt; json_decode($edge['geojson'], true),
+         'crs' =&gt; array(
+            'type' =&gt; 'EPSG',
+            'properties' =&gt; array('code' =&gt; '4326')
+         ),
+         'properties' =&gt; array(
+            'id' =&gt; $edge['id'],
+            'length' =&gt; $edge['length']
+         )
+      );
+      // Add feature array to feature collection array
+      array_push($geojson['features'], $feature);
+   }
+	// Close database connection
+   pg_close($dbcon);
+   // Return routing result
+   header('Content-type: application/json',true);
+   echo json_encode($geojson);
+?&gt;
+</pre><p>
+<br />
+database table :<br />
+</p>
+<pre class="wiki">                                   Table "public.ba_table"
+    Column    |          Type         |                      Modificators
+--------------+-----------------------+-----------------------------------------
+---------------
+ gid          | integer               | not null default nextval('ba_table_gid_s
+eq'::regclass)
+ fcc          | integer               |
+ road_id      | integer               |
+ on           | character varying(50) |
+ df           | integer               |
+ fw           | integer               |
+ sl           | integer               |
+ fy           | integer               |
+ ds           | integer               |
+ fc           | integer               |
+ rn           | character varying(10) |
+ rne          | character varying(16) |
+ toll_road    | integer               |
+ toll         | integer               |
+ urban        | integer               |
+ oc_admin8    | character varying(6)  |
+ oc_admin9    | character varying(6)  |
+ level_b      | integer               |
+ level_m      | integer               |
+ level_e      | integer               |
+ bt           | integer               |
+ nc           | integer               |
+ oneway       | character varying(2)  |
+ meter        | double precision      |
+ the_geom     | geometry              |
+ source       | integer               |
+ target       | integer               |
+ reverse_cost | double precision      |
+ length       | double precision      |
+ x1           | double precision      |
+ y1           | double precision      |
+ x2           | double precision      |
+ y2           | double precision      |
+ to_cost      | double precision      |
+ rule         | text                  |
+Indexes:
+    "ba_table_pkey" PRIMARY KEY, btree (gid)
+    "ba_table_the_geom_gist" gist (the_geom)
+    "source_idx" btree (source)
+    "target_idx" btree (target)
+Constraints:
+    "enforce_dims_the_geom" CHECK (ndims(the_geom) = 2)
+    "enforce_geotype_the_geom" CHECK (geometrytype(the_geom) = 'MULTILINESTRING'
+::text OR the_geom IS NULL)
+    "enforce_srid_the_geom" CHECK (srid(the_geom) = 4326)
+</pre>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/06/10 03:40:56 (6 weeks ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/388?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/388?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1664"></a>
+        <div class="id">
+          Message #1664
+        </div>
+        <div class="body">
+            <p>
+and 3. problem with my page is that when my points and route is shown on the map and when I moved map the poitns and route is not very well sticked to map and si moving with delayed but also on every movement of map vector is on diferent position.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/06/10 03:47:54 (6 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1667"></a>
+        <div class="id">
+          Message #1667
+        </div>
+        <div class="body">
+            <p>
+to 3) The demo application is to show an easy example and is not supposed to be a fully functional application. Once you click again it takes this point as a new source/target.
+</p>
+<p>
+The focus of the demo is not the web application but the usage of the pgRouting libaray, which doesn't mean that you can't do it more sophisticated with more code.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/06/10 06:36:54 (6 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1666"></a>
+        <div class="id">
+          Message #1666
+        </div>
+        <div class="body">
+            <p>
+The demo application needs to route from a point on your network to another one. When you click on the map, you usually don't hit such a point, so the PHP script looks for the nearest road segment to the point you clicked at and then selects either start or end point of that segment.
+</p>
+<p>
+To improve this behavior, you can add more logic to your application. The demo only gives an easy example with simple cases.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/06/10 06:34:26 (6 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1679"></a>
+        <div class="id">
+          Message #1679
+        </div>
+        <div class="body">
+            <p>
+Sorry Daniel, you have right my question was not so relevant for this portal.
+<br />
+Anyway, in meantime I solved my problems.<br />
+</p>
+<p>
+thanks<br />
+</p>
+<p>
+J.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/07/10 18:48:43 (6 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/388?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/388?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

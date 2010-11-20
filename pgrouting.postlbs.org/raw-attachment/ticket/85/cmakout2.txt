@@ -1,0 +1,4 @@
+Boost headers were found here: /usr/local/include/boost-1_34_1
+Output directory for libraries is set to /usr/lib/postgresql
+Output directory for libraries is set to /usr/lib
+Output directory for libraries is set to /usr/lib

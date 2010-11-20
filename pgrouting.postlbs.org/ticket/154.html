@@ -1,0 +1,641 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/154 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:17:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #154 (assign_vertex_id)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="151.html" title="Ticket #151" />
+        <link rel="last" href="109.html" title="Ticket #109" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/154?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/154?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/154?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="up" href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1" />
+        <link rel="next" href="155.html" title="Ticket #155" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="138.html" title="Ticket #138" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="151.html" title="Ticket #151">Previous Ticket</a></span></li><li><a href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1">Back to Query</a></li><li class="last"><span><a class="next" href="155.html" title="Ticket #155">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #154
+          <span class="status">(closed bug report: invalid)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-06T22%3A31%3A44%2B0900&amp;precision=second" title="2009-04-06T22:31:44+0900 in Timeline">20 months</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-07T22%3A31%3A31%2B0900&amp;precision=second" title="2009-04-07T22:31:31+0900 in Timeline">20 months</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">assign_vertex_id</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">shafeer</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">somebody
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      major
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="milestone" href="../milestone/Version%201.html">Version 1.1</a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      Dijkstra
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      1.03
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+while executing :  SELECT assign_vertex_id('road_nav',0.001,'geom','gid');  this query
+gets the error:
+NOTICE:  CREATE TABLE will create implicit sequence "vertices_tmp_id_seq" for serial column "vertices_tmp.id"
+CONTEXT:  SQL statement "CREATE TABLE vertices_tmp (id serial)"
+PL/pgSQL function "assign_vertex_id" line 14 at EXECUTE statement
+</p>
+<p>
+ERROR:  cannot EXECUTE a null querystring
+CONTEXT:  PL/pgSQL function "assign_vertex_id" line 20 at EXECUTE statement
+</p>
+<p>
+********** Error **********
+</p>
+<p>
+ERROR: cannot EXECUTE a null querystring
+SQL state: 22004
+Context: PL/pgSQL function "assign_vertex_id" line 20 at EXECUTE statement
+</p>
+<p>
+I have previously executed the same query for my another table where I successfully executed the query. But in my new table I am unable to execute this query.
+In my geometry_columns I have the table with specific srid like this 
+[ 26551 "" "public" "Road_Nav" "the_geom" 2 -1 "MULTILINESTRING"  ]
+Can anyone help me in this error.
+Thanks in advance for your replies.
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  <span class="threading">
+                      follow-up:
+      <a href="#comment:3"><small>↓ 3</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-07T09%3A24%3A28%2B0900&amp;precision=second" title="2009-04-07T09:24:28+0900 in Timeline">20 months</a> ago by daniel
+                </h3>
+      <div class="comment searchable">
+        <p>
+Could you post some information about your "road_nav" table? 
+</p>
+<p>
+If you use command line, run
+</p>
+<pre class="wiki">db=# \d road_nav
+</pre><p>
+Also information about PostgreSQL version, OS, etc. would be helpful.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:1"><small>↑ 1</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-07T13%3A14%3A58%2B0900&amp;precision=second" title="2009-04-07T13:14:58+0900 in Timeline">20 months</a> ago by shafeer
+                </h3>
+      <div class="comment searchable">
+        <p>
+Thanks for your quick replyy Daniel.
+</p>
+<pre class="wiki">CREATE TABLE "Road_Nav"
+(
+  gid integer NOT NULL,
+  "RSID" double precision,
+  "A_NAME" character varying(200),
+  "E_NAME" character varying(150),
+  "SUFFIX" character varying(2),
+  "RD_TYPE" character varying(10),
+  "ONEWAY" character varying(2),
+  "RD_CLASS" character varying(20),
+  "RD_CLASS_N" integer,
+  "MOT_RT_NO" double precision,
+  "ALT_E_NAME" character varying(100),
+  "ALT_A_NAME" character varying(100),
+  "STATE_ABBR" character varying(15),
+  "CITYR" character varying(32),
+  "CITYL" character varying(32),
+  "LENGTH" double precision,
+  "METERS" double precision,
+  "SPEED" integer,
+  "SECONDS" integer,
+  "FT_SECONDS" double precision,
+  "TF_SECONDS" double precision,
+  "L_F_ADD" double precision,
+  "L_T_ADD" double precision,
+  "R_F_ADD" double precision,
+  "R_T_ADD" double precision,
+  "ZIPR" character varying(10),
+  "ZIPL" character varying(10),
+  "FNODE" integer,
+  "TNODE" integer,
+  "T_ZLEV" integer,
+  "F_ZLEV" integer,
+  "A_CITY" character varying(20),
+  "E_CITY" character varying(20),
+  "ST_NUMBER" double precision,
+  "A_MOT_NAME" character varying(100),
+  "E_MOT_NAME" character varying(100),
+  "LC_RT_NO" double precision,
+  "AVG_SPEED" double precision,
+  "OFF_SPEED" double precision,
+  "A_CITYR" character varying(50),
+  "E_CITYR" character varying(50),
+  "A_CITYL" character varying(50),
+  "E_CITYL" character varying(50),
+  "COUNTRY_A" character varying(8),
+  "M_ROUTE_NO" character varying(16),
+  "SHAPE_Leng" double precision,
+  the_geom geometry,
+  CONSTRAINT "Road_Nav_pkey" PRIMARY KEY (gid),
+  CONSTRAINT enforce_dims_the_geom CHECK (ndims(the_geom) = 2),
+  CONSTRAINT enforce_srid_the_geom CHECK (srid(the_geom) = (-1))
+)
+WITH (OIDS=FALSE);
+ALTER TABLE "Road_Nav" OWNER TO postgres;
+</pre><p>
+My postgres version is 8.3 and im using Ubuntu OS...
+</p>
+<p>
+The strange fact is that I could execute the same quey in my another table named 'ksa_1'
+</p>
+<blockquote>
+<p>
+which has the structure..
+</p>
+<pre class="wiki">CREATE TABLE ksa_1
+(
+  gid integer NOT NULL,
+  source integer,
+  target integer,
+  length double precision,
+  "RSID" double precision,
+  "A_NAME" character varying(200),
+  "E_NAME" character varying(150),
+  "SUFFIX" character varying(2),
+  "RD_TYPE" character varying(10),
+  "ONEWAY" character varying(2),
+  "RD_CLASS" character varying(20),
+  "RD_CLASS_N" integer,
+  "MOT_RT_NO" double precision,
+  "ALT_E_NAME" character varying(100),
+  "ALT_A_NAME" character varying(100),
+  "STATE_ABBR" character varying(15),
+  "CITYR" character varying(32),
+  "CITYL" character varying(32),
+  "LENGTH_1" double precision,
+  "METERS" double precision,
+  "SPEED" integer,
+  "SECONDS" integer,
+  "FT_SECONDS" double precision,
+  "TF_SECONDS" double precision,
+  "L_F_ADD" double precision,
+  "L_T_ADD" double precision,
+  "R_F_ADD" double precision,
+  "R_T_ADD" double precision,
+  "ZIPR" character varying(10),
+  "ZIPL" character varying(10),
+  "FNODE" integer,
+  "TNODE" integer,
+  "T_ZLEV" integer,
+  "F_ZLEV" integer,
+  "A_CITY" character varying(20),
+  "E_CITY" character varying(20),
+  "ST_NUMBER" double precision,
+  "A_MOT_NAME" character varying(100),
+  "E_MOT_NAME" character varying(100),
+  "LC_RT_NO" double precision,
+  "AVG_SPEED" double precision,
+  "OFF_SPEED" double precision,
+  "A_CITYR" character varying(50),
+  "E_CITYR" character varying(50),
+  "A_CITYL" character varying(50),
+  "E_CITYL" character varying(50),
+  "COUNTRY_A" character varying(8),
+  "M_ROUTE_NO" character varying(16),
+  the_geom geometry,
+  reverse_cost double precision,
+  CONSTRAINT ksa_1_pkey PRIMARY KEY (gid),
+  CONSTRAINT enforce_dims_the_geom CHECK (ndims(the_geom) = 2),
+  CONSTRAINT enforce_geotype_the_geom CHECK (geometrytype(the_geom) = 'LINESTRING'::text OR the_geom IS NULL),
+  CONSTRAINT enforce_srid_the_geom CHECK (srid(the_geom) = (-1))
+)
+WITH (OIDS=FALSE);
+ALTER TABLE ksa_1 OWNER TO postgres;
+</pre></blockquote>
+<p>
+The only difference I found in these two table is that the geom column is <a class="missing wiki">MultiLinestring?</a> in my first (road_nav) and Linestring in my second table (ksa_1) ..
+also there is an extra column named   reverse_cost double precision, in my second table..
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-07T18%3A57%3A40%2B0900&amp;precision=second" title="2009-04-07T18:57:40+0900 in Timeline">20 months</a> ago by daniel
+                </h3>
+      <div class="comment searchable">
+        <p>
+Just one note for readability: if you write 
+</p>
+<pre class="wiki">{{{
+   your code
+}}}
+</pre><p>
+it makes reading much easier. Formatting is a bit annoying with TRAC.
+</p>
+<p>
+Regarding your error:
+</p>
+<p>
+I think you're missing some required attributes. You need to add the source and the target column first, see <a href="../wiki/WorkshopFOSS4G2008/ch06.html#Createnetworktopology">http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch06#Createnetworktopology</a>
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:5">
+                  <span class="threading">
+                      follow-up:
+      <a href="#comment:6"><small>↓ 6</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-07T19%3A00%3A10%2B0900&amp;precision=second" title="2009-04-07T19:00:10+0900 in Timeline">20 months</a> ago by daniel
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>new</em> to <em>closed</em>
+        </li><li>
+          <strong>resolution</strong>
+              set to <em>invalid</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:6">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:5"><small>↑ 5</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-07T19%3A55%3A14%2B0900&amp;precision=second" title="2009-04-07T19:55:14+0900 in Timeline">20 months</a> ago by shafeer
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>closed</em> to <em>reopened</em>
+        </li><li>
+          <strong>resolution</strong>
+              <em>invalid</em> deleted
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Thanks for your reply.
+</p>
+<p>
+The actual issue was not in adding the source and target columns. I have already done that.
+The issue seems to be in the type of "the-geom" column. Previously it was <a class="missing wiki">MultiLineString?</a> but nw I changed the topology using arcGis and generated the shapefile for the corresponding   shape file and created a new table with type as <a class="missing wiki">LineString?</a>. Now the functions works fine.
+But what is the real issue in <a class="missing wiki">MultiLinestring?</a> and <a class="missing wiki">LineString?</a>.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:7">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-07T20%3A03%3A07%2B0900&amp;precision=second" title="2009-04-07T20:03:07+0900 in Timeline">20 months</a> ago by daniel
+                </h3>
+      <div class="comment searchable">
+        <p>
+Could it be that "the_geom" is Linestring in your dataset, but in your geometry_columns table it is still Multilinestring.
+</p>
+<p>
+You could recreate your geometry column like in this example:
+<a href="../wiki/Workshop-LoadRoutingData.html#Addthegeometrycolumn">http://pgrouting.postlbs.org/wiki/Workshop-LoadRoutingData#Addthegeometrycolumn</a>:
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:8">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-07T20%3A09%3A09%2B0900&amp;precision=second" title="2009-04-07T20:09:09+0900 in Timeline">20 months</a> ago by shafeer
+                </h3>
+      <div class="comment searchable">
+        <p>
+Ok thats fine .. 
+</p>
+<p>
+Daniel can u pls help me in generating text generation in routing.
+For example when the route is shown I need a direction description to be generated
+saying whether to turn left or right .. take u-turn etc.
+</p>
+<p>
+Can u pls reply me quickly regarding this as our project is in bottle neck.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:9">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-07T20%3A12%3A35%2B0900&amp;precision=second" title="2009-04-07T20:12:35+0900 in Timeline">20 months</a> ago by daniel
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>reopened</em> to <em>closed</em>
+        </li><li>
+          <strong>resolution</strong>
+              set to <em>invalid</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+I think now it's time to leave here and move to the forum or mailing list. I recommend you to read the mailing list archive since this question has been discussed there already.
+</p>
+<p>
+This ticket is definitely closed, I think.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:10">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-07T20%3A14%3A45%2B0900&amp;precision=second" title="2009-04-07T20:14:45+0900 in Timeline">20 months</a> ago by shafeer
+                </h3>
+      <div class="comment searchable">
+        <p>
+ok. thanks for ur assist
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:11">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-07T22%3A25%3A50%2B0900&amp;precision=second" title="2009-04-07T22:25:50+0900 in Timeline">20 months</a> ago by shafeer
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>closed</em> to <em>reopened</em>
+        </li><li>
+          <strong>resolution</strong>
+              <em>invalid</em> deleted
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+While drawing line using pgrouting query the line starts from a few points ahead of the start location and ends at beyound the end location. I knew that its because the linestring consider the end points. How to get the exact start and end linestring.
+ 
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:12">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-04-07T22%3A31%3A31%2B0900&amp;precision=second" title="2009-04-07T22:31:31+0900 in Timeline">20 months</a> ago by daniel
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>reopened</em> to <em>closed</em>
+        </li><li>
+          <strong>resolution</strong>
+              set to <em>invalid</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Sorry, can you please stop asking questions here and use the forum or mailing list for this. 
+</p>
+<p>
+This is the bug and task tracker and the chance is very low that other people than me will answer you here.
+</p>
+<p>
+So take this as an advice and use better the mailing list (<a class="ext-link" href="http://lists.postlbs.org/mailman/listinfo/pgrouting-users"><span class="icon"> </span>http://lists.postlbs.org/mailman/listinfo/pgrouting-users</a>), if you want to get people help you.
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/154?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/154?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/154?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("154.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/154 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:17:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

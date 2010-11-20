@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/254 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - librouting.so: missing magic block (#254) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              librouting.so: missing magic block
+            </div>
+            <div class="body">
+              <p>
+Hejsan,
+</p>
+<p>
+I'm trying to install pgrouting. It compiles fine but creating the functions in my DB results in the Error<br />
+</p>
+<blockquote>
+<p>
+psql:/usr/share/postlbs/routing_core.sql:32: ERROR:  incompatible library "/usr/lib/postgresql/8.3/lib/librouting.so": missing magic block<br />
+HINT:  Extension libraries are required to use the PG_MODULE_MAGIC macro.
+</p>
+</blockquote>
+<p>
+The installed versions are as follows:
+</p>
+<ul><li>debian 4.0
+</li><li>postgresql-8.3 8.3.6-1-bp
+</li><li>postgis 1.3.3-1-bp
+</li><li>postgresql-8.3-postgis 1.3.3-1-bp
+</li></ul><p>
+Here is what I did:
+</p>
+<ul><li>svn checkout <a href="../../svn/pgrouting/trunk/index.html">http://pgrouting.postlbs.org/svn/pgrouting/trunk</a> pgroutingSvn2 <i>//no errors here</i>
+</li></ul><ul><li>cd pgroutingSvn2 <i>//no errors here</i>
+</li></ul><ul><li>cmake .  <i>//no errors here</i>
+<pre class="wiki">Boost headers were found here: /usr/include
+Output directory for libraries is set to /usr/lib/postgresql/8.3/lib
+Installation directory for libraries is set to /usr/lib/postgresql/8.3/lib and for SQL files is set to /usr/share/postlbs
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /var/www/web0/files/pgroutingSvn2
+</pre></li></ul><ul><li>make  <i>//no errors here</i>
+<pre class="wiki">Scanning dependencies of target routing
+[ 16%] Building C object core/src/CMakeFiles/routing.dir/dijkstra.o
+[ 33%] Building C object core/src/CMakeFiles/routing.dir/astar.o
+[ 50%] Building C object core/src/CMakeFiles/routing.dir/shooting_star.o
+[ 66%] Building CXX object core/src/CMakeFiles/routing.dir/boost_wrapper.o
+[ 83%] Building CXX object core/src/CMakeFiles/routing.dir/astar_boost_wrapper.o
+[100%] Building CXX object core/src/CMakeFiles/routing.dir/shooting_star_boost_wrapper.o
+</pre></li></ul><ul><li>make install   <i>//no errors here</i>
+<pre class="wiki">[100%] Built target routing
+Install the project...
+-- Install configuration: ""
+-- Install configuration: ""
+-- Install configuration: ""
+-- Install configuration: ""
+-- Installing /usr/lib/postgresql/8.3/lib/librouting.so
+-- Install configuration: ""
+-- Installing /usr/share/postlbs/routing_core.sql
+-- Installing /usr/share/postlbs/routing_core_wrappers.sql
+-- Installing /usr/share/postlbs/routing_topology.sql
+-- Installing /usr/share/postlbs/matching.sql
+</pre></li></ul><ul><li>/etc/init.d/postgresql-8.3 restart <i>//no errors here</i>
+</li></ul><ul><li>psql -U web0 -f /usr/share/postlbs/routing_core.sql gis   <strong><i>//returned errors</i></strong>
+<pre class="wiki">psql:/usr/share/postlbs/routing_core.sql:21: ERROR:  relation "path_result" already exists
+psql:/usr/share/postlbs/routing_core.sql:22: ERROR:  relation "vertex_result" already exists
+psql:/usr/share/postlbs/routing_core.sql:32: ERROR:  incompatible library "/usr/lib/postgresql/8.3/lib/librouting.so": missing magic block
+HINT:  Extension libraries are required to use the PG_MODULE_MAGIC macro.
+psql:/usr/share/postlbs/routing_core.sql:43: ERROR:  incompatible library "/usr/lib/postgresql/8.3/lib/librouting.so": missing magic block
+HINT:  Extension libraries are required to use the PG_MODULE_MAGIC macro.
+psql:/usr/share/postlbs/routing_core.sql:53: ERROR:  incompatible library "/usr/lib/postgresql/8.3/lib/librouting.so": missing magic block
+HINT:  Extension libraries are required to use the PG_MODULE_MAGIC macro.
+CREATE FUNCTION
+</pre></li></ul><p>
+I tried to google the error message, tried to modify the .c-files (inserting a  #ifdef PG_MODULE_MAGIC // PG_MODULE_MAGIC; // #endif) but without any luck.
+</p>
+<p>
+I would be very happy if someone could look into this problem and  give me a hint.
+</p>
+<p>
+Kind regards from Hamburg,
+</p>
+<blockquote>
+<p>
+Christof
+</p>
+</blockquote>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            04/25/09 20:07:15 (19 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/254?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/254?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message907"></a>
+        <div class="id">
+          Message #907
+        </div>
+        <div class="body">
+            <p>
+Hi Christof,
+</p>
+<p>
+Oh, so this is strange, because the magic block is in our source code since version 1.01. See it for yourself - <a href="../../browser/trunk/core/src/dijkstra.html#L45">http://pgrouting.postlbs.org/browser/trunk/core/src/dijkstra.c#L45</a>
+</p>
+<p>
+Where did you try to insert it to?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            04/25/09 22:57:53 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message908"></a>
+        <div class="id">
+          Message #908
+        </div>
+        <div class="body">
+            <p>
+Hej Anton,
+</p>
+<p>
+thanks for your reply.
+</p>
+<p>
+I saw the magic block in dijkstra.c but as it haven't done the trick I tried to add it in shooting_star.c and astar.c as well. Apparently without any luck.
+</p>
+<p>
+I just deleted /usr/lib/postgresql/8.3/lib/librouting.so checked that posgres does not see it any more and "maked install" it again. But routing_core.sql gave the same then above.
+</p>
+<p>
+Do you have any idea what I possibly do wrong?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            04/25/09 23:39:28 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message930"></a>
+        <div class="id">
+          Message #930
+        </div>
+        <div class="body">
+            <p>
+Hello,
+</p>
+<p>
+would it possibly be an idea to try the librouting.so file someone else has compiled?
+</p>
+<p>
+Could someone provide me with a librouting.so that has been compilied on debian 4.0?
+</p>
+<p>
+Regards,
+</p>
+<blockquote>
+<p>
+Christof
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            05/01/09 21:05:11 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message931"></a>
+        <div class="id">
+          Message #931
+        </div>
+        <div class="body">
+            <p>
+Hejsan,
+</p>
+<p>
+I copied the librouting.so from another Suse 11.0 installation to the correspondent directory of my Debian machine. And the error message is gone. :-)
+</p>
+<p>
+Cheers!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            05/03/09 02:55:15 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/254?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/254?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

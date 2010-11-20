@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/74 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/13.html" title="developer">developer</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>developer (#13) - Optimizing a function (#74) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Optimizing a function
+            </div>
+            <div class="body">
+              <p>
+Hi,
+</p>
+<p>
+I added this function to find the nearest hospital using the distance covered on the route itself. What I am after is to optimize this function to make it take less time, since I am seeing that almost 2 minutes is way too much. Every pass of the shootingstar_sp is taking about 30-40seconds.
+</p>
+<p>
+My reasoning was this :
+</p>
+<p>
+- Find the 3 most near hospitals using distance() function
+</p>
+<p>
+- Iterate the 3 hospitals and find the one which is the shortest distance taking into considerations one-ways et al. using shootingstar_sp() pgRouting Function.
+</p>
+<p>
+Using Pastebin I have pasted my current function and also inline
+commented
+more on the function
+</p>
+<p>
+The paste bin can be found here : <a class="ext-link" href="http://yancho.pastebin.com/f2f986b8c"><span class="icon"> </span>http://yancho.pastebin.com/f2f986b8c</a>
+</p>
+<p>
+At the end of the paste you can find the EXPLAIN ANALYZE of the query.
+</p>
+<p>
+As you can see I have highlighted in yellow some RAISE NOTICEs to time
+the query and these are the results :
+</p>
+<p>
+Below please find the result :
+-       filling up the hospital_location with that query took :  32646ms
+-       the IF section took  994 ms
+-       returning back to the FOR loop took : 104 ms
+-       Shooting Star execution took :  25079ms
+-       If statement took : 614ms
+-       Shooting star took :  37927 ms
+-       If took : 300 ms
+</p>
+<p>
+Total query runtime: 114250 ms.
+2 rows retrieved.
+Execution plan :
+NOTICE: Entering the FOR IN Thu Dec 06 21:02:46.267488 2007 CET
+NOTICE: entering shooting star Thu Dec 06 21:02:46.300164 2007 CET
+NOTICE: before IF Thu Dec 06 21:03:24.307906 2007 CET
+NOTICE: value of nearest.dist is 585.966565014107
+NOTICE: value of hospital.gid is 12712
+NOTICE: value of nearest.gid is
+NOTICE: value of 2ND nearest.gid is POINT(640607.6248615
+224673.124400562)
+NOTICE: after if Thu Dec 06 21:03:24.308900 2007 CET
+NOTICE: before end of loop Thu Dec 06 21:03:24.309029 2007 CET
+NOTICE: entering shooting star Thu Dec 06 21:03:24.309133 2007 CET
+NOTICE: before IF Thu Dec 06 21:04:02.024339 2007 CET
+NOTICE: value of nearest.dist is 91.0322939509899
+NOTICE: value of hospital.gid is 38600
+NOTICE: value of nearest.gid is POINT(640607.6248615
+224673.124400562)
+NOTICE: value of 2ND nearest.gid is POINT(640952.4998615
+224309.563400563)
+NOTICE: after if Thu Dec 06 21:04:02.024953 2007 CET
+NOTICE: before end of loop Thu Dec 06 21:04:02.025093 2007 CET
+NOTICE: entering shooting star Thu Dec 06 21:04:02.025178 2007 CET
+NOTICE: before IF Thu Dec 06 21:04:39.952201 2007 CET
+NOTICE: after if Thu Dec 06 21:04:39.952510 2007 CET
+NOTICE: before end of loop Thu Dec 06 21:04:39.952598 2007 CET
+NOTICE: after end of loop before returning Thu Dec 06 21:04:39.952846
+2007 CET
+</p>
+<p>
+Total query runtime: 114250 ms.
+2 rows retrieved.
+</p>
+<p>
+Hope this information can help you give me a better idea on how I can
+improve this query.
+</p>
+<p>
+Thanks and regards
+</p>
+<p>
+Matthew
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            12/07/07 17:28:10 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/74?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/74?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message275"></a>
+        <div class="id">
+          Message #275
+        </div>
+        <div class="body">
+            <p>
+Hi again,
+</p>
+<p>
+I managed to get this Function to compile and actually work. What I changed  were the values in the expand to pass to the functions give_source() and give_target().
+</p>
+<p>
+I have made a quick <a class="missing wiki">OpenLayers?</a> + Mapserver script so as to test the outcome and unfortunately this function is giving me really awkward results!
+</p>
+<p>
+The more the accident happens near to a hospital / firestation, the less chance it will be chosen as the nearest hospital / firestation.
+</p>
+<p>
+As one can test for himself, here : <a class="ext-link" href="http://yancho.no-ip.org/~yancho/rescue.html"><span class="icon"> </span>http://yancho.no-ip.org/~yancho/rescue.html</a>  the nearer (I even tried on the same street) the lesser the chance to be chosen as the nearest hospital.
+</p>
+<p>
+The new function can be found here : <a class="ext-link" href="http://yancho.pastebin.com/d37f3b903"><span class="icon"> </span>http://yancho.pastebin.com/d37f3b903</a>
+</p>
+<p>
+The PHP script I am using for routing can be found here : <a class="ext-link" href="http://yancho.pastebin.com/f6cff7908"><span class="icon"> </span>http://yancho.pastebin.com/f6cff7908</a>
+</p>
+<p>
+Any help how I can fix this problem will be extremely appreciated!
+</p>
+<p>
+Thanks and regards
+</p>
+<p>
+Matthew
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            12/08/07 01:44:25 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message345"></a>
+        <div class="id">
+          Message #345
+        </div>
+        <div class="body">
+            <p>
+Hello,
+</p>
+<p>
+what if you compute the direct distance instead of path distance? (i.e. distance between centroid of starting location and centroid of hospital) instead of computing path distance? because i think no matter how we optimize, finding nearest hospital based on road length is slow.
+</p>
+<p>
+another option i think is precompute nearest hospital for each section of a map. that way retrieving the info is just simple retrieval.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            jontan6
+          </div>
+          <div class="time">
+            12/29/07 23:53:03 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message346"></a>
+        <div class="id">
+          Message #346
+        </div>
+        <div class="body">
+            <p>
+Thanks jontan.
+</p>
+<p>
+sorry for replying a bit late. I had found a work around earlier on using this : <a class="ext-link" href="http://yancho.pastebin.com/f27ed0cd8"><span class="icon"> </span>http://yancho.pastebin.com/f27ed0cd8</a>
+</p>
+<p>
+It works extremely fast .. talking about less than 50ms
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            01/07/08 19:31:09 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/74?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/74?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

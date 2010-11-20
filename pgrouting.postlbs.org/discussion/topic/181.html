@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/181 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/23.html" title="data">data</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>data (#23) - Help with coordinates system (#181) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Help with coordinates system
+            </div>
+            <div class="body">
+              <p>
+Hi everybody.
+</p>
+<p>
+I'm new to pgRouting.
+</p>
+<p>
+I'm following the tutorial at
+<a href="../../wiki/WorkshopFOSS4G2007.html">http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2007</a>
+</p>
+<p>
+but I've encountered a problem with coordinates system.
+</p>
+<p>
+I don't know how to convert coordinates used in victoria table to other systems. What system is it?
+</p>
+<p>
+I would appreciate your help.
+</p>
+<p>
+Regards
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            itacacicciofrank
+          </div>
+          <div class="time">
+            10/17/08 20:10:27 (2 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/181?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/181?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message627"></a>
+        <div class="id">
+          Message #627
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+The Victoria data is in 54004 projection. To reproject your data please use transform() function. It is also worth to check PostGIS functions documentation.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/20/08 08:33:17 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message629"></a>
+        <div class="id">
+          Message #629
+        </div>
+        <div class="body">
+            <p>
+ok.. I tried to use that function you suggested me but I obtain the followin error message
+</p>
+<p>
+ERROR:  AddToPROJ4SRSCache: Cannot find SRID (54004) in spatial_ref_sys
+</p>
+<p>
+********** Errore **********
+</p>
+<p>
+ERROR: AddToPROJ4SRSCache: Cannot find SRID (54004) in spatial_ref_sys
+Stato SQL: XX000
+</p>
+<p>
+my query was:
+</p>
+<p>
+SELECT * FROM transform('01050...B755741','32754');
+</p>
+<p>
+I just picked up a geometry value from the victoria table and a SRID from spatial_ref_sys table. Could you help me?
+</p>
+<p>
+Thank you anyway for your answers
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            itacacicciofrank
+          </div>
+          <div class="time">
+            10/21/08 22:08:45 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message630"></a>
+        <div class="id">
+          Message #630
+        </div>
+        <div class="body">
+            <p>
+There is no trick - the problem is with what's written in the error message. It looks like there is no 54004 projection in your spatial_ref_sys table.
+</p>
+<p>
+PLease look here <a href="../23/36.html#519">http://pgrouting.postlbs.org/discussion/23/36#519</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/21/08 22:28:17 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message631"></a>
+        <div class="id">
+          Message #631
+        </div>
+        <div class="body">
+            <p>
+54004 is the World Mercator projection and it is an ESRI projection, so if you had installed Proj4 it's not in the "epsg" but "esri" file. And that's why it doesn't go to the spatial_reference table by default ... unfortunately.
+</p>
+<p>
+You can add it manually to the spatial_reference table according to this very convenient website: <a class="ext-link" href="http://spatialreference.org/ref/epsg/54004/"><span class="icon"> </span>http://spatialreference.org/ref/epsg/54004/</a>
+</p>
+<pre class="wiki">INSERT into spatial_ref_sys (srid, auth_name, auth_srid, proj4text, srtext)  VALUES ( 54004, 'spatialreference.org', 54004, '+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ', 'PROJCS["World_Mercator",GEOGCS["GCS_WGS_1984",DATUM["WGS_1984",SPHEROID["WGS_1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Mercator_1SP"],PARAMETER["False_Easting",0],PARAMETER["False_Northing",0],PARAMETER["Central_Meridian",0],PARAMETER["Standard_Parallel_1",0],UNIT["Meter",1],AUTHORITY["EPSG","54004"]]');
+</pre><p>
+See: <a class="ext-link" href="http://spatialreference.org/ref/epsg/54004/postgis/"><span class="icon"> </span>http://spatialreference.org/ref/epsg/54004/postgis/</a> (Note: just changed srid from 954004 to 54004)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/22/08 00:34:15 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message628"></a>
+        <div class="id">
+          Message #628
+        </div>
+        <div class="body">
+            <p>
+Just wanted to add that the original projection of the Victoria data (National Road Network data) is not 54004 but was reprojected to 54004 for the workshop dataset. (Don't remember what was the original projection, but that should be somewhere in their documents.)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/20/08 10:05:46 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/181?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/181?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

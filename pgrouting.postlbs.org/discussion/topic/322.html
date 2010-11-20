@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/322 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/16.html" title="dijkstra">dijkstra</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>dijkstra (#16) - No return values of dijkstra function (#322) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              No return values of dijkstra function
+            </div>
+            <div class="body">
+              <p>
+Hi,
+</p>
+<p>
+I'm new in the forum and i want to know if anyone could help me with my problem...
+</p>
+<p>
+I have installed pgrouting in an opensuse 11.1 enviroment and i'm testing the dijkstra algorithm to calculate routes.
+</p>
+<p>
+I follow the tutorial (<a class="ext-link" href="http://www.utdallas.edu/~ama054000/rt_tutorial.html"><span class="icon"> </span>http://www.utdallas.edu/~ama054000/rt_tutorial.html</a>) and everything seems to be right with the tutorial, the problem appears when i do exactly the same steps with my geometry data, the function dijkstra_sp doesn't return any values! No error show in console, the query just return nothing....
+</p>
+<p>
+Query:
+</p>
+<p>
+SELECT the_geom FROM dijkstra_sp('streets_dijsktra',3851,709);
+</p>
+<p>
+It seems to create the vertices_tmp table correctly and the attributes:cost, length, source, target and the_geom seems to be correct too....
+</p>
+<p>
+Some vertices are neither source or target in my original geometry table, this is correct? I think this could be the problem why the algorithm couldn't find any path..
+</p>
+<p>
+How can i verify if my geometry data is correct in order to be processed by dijkstra_sp function?
+</p>
+<p>
+I used geoserver to see the vertices_tmp geometry data and the geometry data in my original table and seems to be rigth but i'm just starting with pgrouting, postgis and all that stuff so if anyone could give me an idea about what could be wrong i will be very appreciated!
+</p>
+<p>
+If anyone need my geometry data i could send an email with the info needed
+</p>
+<p>
+Thanks a lot, Santiago
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            smontico
+          </div>
+          <div class="time">
+            01/08/10 03:13:19 (11 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/322?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/322?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1344"></a>
+        <div class="id">
+          Message #1344
+        </div>
+        <div class="body">
+            <p>
+I have tested others paths with the data provided in the the tutorial (edges.shp) and the result of the testing was incorrect, for example if i want to know the shortest path from the node 52 to the node 7 the result is incorrect.
+The correct answer will be a path with 3 edges but the result showed me a path with 6 edges and i have set the length to 1 for all edges in order to dijkstra return the shortest path....
+</p>
+<p>
+I think there's a problem in the assign_vertex_id function because if i check in the vertices_tmp table for a target node for example 49 the query returns only 3 source nodes 22,48,26 but the source nodes 51 and 24 should be there too....
+</p>
+<p>
+I dont know what could be wrong.. maybe something went wrong in the installation process?
+</p>
+<p>
+Thanks, Santiago.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            smontico
+          </div>
+          <div class="time">
+            01/08/10 04:44:38 (11 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1348"></a>
+        <div class="id">
+          Message #1348
+        </div>
+        <div class="body">
+            <p>
+How did you run the assign_vertex_id function to create the topology?
+</p>
+<p>
+Not sure this is the reason for your problem, but it's a very common issue, that leads to strange results when the tolerance value for snapping is in a different unit than your projection is.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            01/09/10 10:09:47 (11 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1351"></a>
+        <div class="id">
+          Message #1351
+        </div>
+        <div class="body">
+            <p>
+Hi Daniel,
+</p>
+<p>
+I run the function assign_vertex_id like this:
+</p>
+<p>
+SELECT assign_vertex_id('streets,dijkstra',0.0001,'the_geom','gid')
+</p>
+<p>
+I copied the tolerance value from the tutorial and then i have changed this value in order to see if i can fix my problem and the amount of rows in vertices_temp increase when i decrease the tolerance to a maximum of 5698 aprox and decrease when i increase the tolerance to 100 for example...
+</p>
+<p>
+As you suposse i dont know exactly which is the correct value of tolerance to my geometry data :(
+</p>
+<p>
+Can be a problem of my geometry data?
+I have a table with streets information and each row represents one street and the gemoetry data is a multilinestring field for each row.
+The data is in the correct format in order to use pgrouting?
+</p>
+<p>
+Thanks, Santiago.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            smontico
+          </div>
+          <div class="time">
+            01/12/10 01:48:59 (10 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1356"></a>
+        <div class="id">
+          Message #1356
+        </div>
+        <div class="body">
+            <p>
+The snapping tolerance depends on the data projection. It's usually either a "meter" or a "degree" projection. WGS84 for example is "degree" and you should keep snapping tolerance very low (because one degree would be huge, right?). And Google projection is for example "meter".
+</p>
+<p>
+Multilinestring shouldn't be an issue. Is your data some well-known data such as Navteq or <a class="missing wiki">OpenStreetMap?</a>? Those shoudl usually work.
+</p>
+<p>
+This is a PostgreSQL dump file from a workshop that lacks the attributes, which assign_vertex_id will update later: <a class="ext-link" href="http://files.postlbs.org/foss4g2008/Data/ways_without_topology.sql"><span class="icon"> </span>http://files.postlbs.org/foss4g2008/Data/ways_without_topology.sql</a>
+</p>
+<p>
+It's kind of a basic sample data for routing. You could take a look and compare it with your data. Have you tried one of the workshops with sample data?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            01/12/10 02:43:11 (10 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1357"></a>
+        <div class="id">
+          Message #1357
+        </div>
+        <div class="body">
+            <p>
+Daniel,
+</p>
+<p>
+The data is particular of my city (Montevideo,Uruguay) i dont really know the source where it comes from....
+</p>
+<p>
+I have used the shp2psql to populate the table with the information because the data was available in a shapefile.
+</p>
+<p>
+I didn't try with the sample data of the workshop, i have tried with the data of the tutorial (<a class="ext-link" href="http://www.utdallas.edu/~ama054000/rt_tutorial.html"><span class="icon"> </span>http://www.utdallas.edu/~ama054000/rt_tutorial.html</a>) and it seems to work....
+</p>
+<p>
+Anyway in this tutorial or in general there's something that i dont understand;
+I've set the length field to 1 for all rows. By doing this, I expected that when calculating any path, the result would be the one with the minimum number of edges, but this is not working like this. Am I missing something??
+</p>
+<p>
+If you want my geometry data i can send it to you if you want to test something to see what could be wrong, but i dont want to bother you...
+</p>
+<p>
+Thanks, Santiago.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            smontico
+          </div>
+          <div class="time">
+            01/12/10 03:22:26 (10 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1358"></a>
+        <div class="id">
+          Message #1358
+        </div>
+        <div class="body">
+            <p>
+I didn't try the tutorial you mention, but you whether you set the length as 1 or not, it matters what you take as "cost". If you take length as cost, in your case the shortest path would be the one with minimum edges, right?
+</p>
+<p>
+Well, you can send me your data (or a part of your data if it's too large), and I can take a look. Send it to "daniel [at] georepublic [dot] de".
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            01/12/10 10:32:16 (10 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1361"></a>
+        <div class="id">
+          Message #1361
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ I didn't try the tutorial you mention, but you whether you set the length as 1 or not, it matters what you take as "cost". If you take length as cost, in your case the shortest path would be the one with minimum edges, right?
+</p>
+<blockquote class="citation">
+<blockquote class="citation">
+<blockquote class="citation">
+<p>
+ In my case i take the length as cost as you say and think that the shortest &gt;&gt;&gt;&gt; path would be the one with minimum edges too, thats why i'm asking if i am &gt;&gt;&gt;&gt; missing something...
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote class="citation">
+<p>
+ Well, you can send me your data (or a part of your data if it's too large), and I can take a look. Send it to "daniel [at] georepublic [dot] de".
+</p>
+</blockquote>
+<blockquote class="citation">
+<blockquote class="citation">
+<blockquote class="citation">
+<blockquote class="citation">
+<p>
+ I just send the mail for you, thank you very much Daniel!
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            smontico
+          </div>
+          <div class="time">
+            01/12/10 21:09:10 (10 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1345"></a>
+        <div class="id">
+          Message #1345
+        </div>
+        <div class="body">
+            <p>
+Hi Santiago,
+</p>
+<p>
+I'm also working my way through routing and had a similar problem. I think you'll find your instructions are out of date. Step two tells you to run two sql files - there are in fact three. At the end of step 2, after running routing_core_wrappers.sql, you should do the same with routing_topology.sql. That sorted things out for me, I hope it does for you.
+</p>
+<p>
+<a class="missing wiki">HappyDayz?</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            HappyDayz
+          </div>
+          <div class="time">
+            01/08/10 22:32:34 (11 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1346"></a>
+        <div class="id">
+          Message #1346
+        </div>
+        <div class="body">
+            <p>
+Hi <a class="missing wiki">HappyDayz?</a>,
+</p>
+<p>
+Thank you for anwser!
+</p>
+<p>
+I have installed all the products following this tutorial: <a class="ext-link" href="http://cartosig.upv.es/es/blogs/jomarlla/own/2008/08/16/compilar-pgrouting-102"><span class="icon"> </span>http://cartosig.upv.es/es/blogs/jomarlla/own/2008/08/16/compilar-pgrouting-102</a> (in spanish), i think the sql file you are telling me comes with the version 1.03 and i have installed the version 1.02, maybe i have to upgrade my pgrouting version then :(
+</p>
+<p>
+I kept investigating what could be wrong with my problem and i have a question, may be you can help me... In my geometry data i have a table with streets information and each street is represented with a multilinestring geometry column, this table has a source and target attribute then i run the assign_vertex_id function.
+</p>
+<p>
+Is this correct? or i have to change some other thing before running the assign_vertex_id function?
+</p>
+<p>
+What do the source and target attributes represent? I think after running the assign_vertex_id function the geom attribute contains the information about the edges of the topology but i dont understand why i have only one source and target for all the edges that represent the street.
+</p>
+<p>
+Checking the topology i see that in geoserver not all intersection has an associated vertice, is this correct? Or every street intersection should have an associated vertice?
+</p>
+<p>
+Thanks a lot! Santiago.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            smontico
+          </div>
+          <div class="time">
+            01/08/10 23:59:58 (11 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1347"></a>
+        <div class="id">
+          Message #1347
+        </div>
+        <div class="body">
+            <p>
+Perhaps you are experiencing the other problem I had. I had orginally intended to use <a class="missing wiki">OpenStreetMap?</a> data for my experiments. As I am using XP I couldn't use the OSM2PGSQL conversion utility and I could only get the routing to work along the length of a single MULTILINESTRING - no good at all! I think the problem is that where two lines cross there is no vertex. You can try this by inserting two MULTILINESTRINGS, that cross, into an empty pgrouting enabled table - there will be no vertices after you have run the assign _vertex_id.
+</p>
+<p>
+I've been playing with this for the last couple of days and have found a way of creating the vertices. I have no doubt that what I am about to say will make experienced users cringe, but they are not here at the moment!
+</p>
+<p>
+For the purposes of my playing I create a temporary table with just half a dozen joining and crossing MULTILLINESTRINGS. I then use ST_AsText combined with ST_Union to create a single WKT  GEOMETRYCOLLECTION of MULTILINESTRINGS from the temporary table. The MULTILINESTRINGS within the GEOMETRYCOLLECTION now have the new vertices, where the lines cross, in them. I then split the collection into separate MULTILINESTRINGS and insert them into the new database individually. Now when I run the assign_vertex_id all the crossing points are in the vertex list and the routing works. Whether this will work on a large scale I don't know as I haven't tried it yet.
+</p>
+<p>
+If you want the sql strings I use, I can email them to you but not until Monday as I am away for a couple of days.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            HappyDayz
+          </div>
+          <div class="time">
+            01/09/10 01:06:03 (11 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/322?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/322?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

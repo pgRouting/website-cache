@@ -1,0 +1,684 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/184 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/16.html" title="dijkstra">dijkstra</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>dijkstra (#16) - Error while executing assign_vertex_id (#184) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Error while executing assign_vertex_id
+            </div>
+            <div class="body">
+              <p>
+I have successfully imported a map data into a postgresql database. posgis /pgrouting funtions are all in place.
+but when i tried to run assign_vertex_id, i always get this error.
+sample querry :
+</p>
+<p>
+SELECT assign_vertex_id('Brunei_Mainroads_polyline', 0.001, 'the_geom', 'gid');
+</p>
+<p>
+error message:
+</p>
+<p>
+NOTICE:  CREATE TABLE will create implicit sequence "vertices_tmp_id_seq" for serial column "vertices_tmp.id"
+CONTEXT:  SQL statement "CREATE TABLE vertices_tmp (id serial)"
+PL/pgSQL function "assign_vertex_id" line 21 at EXECUTE statement
+</p>
+<p>
+ERROR:  cannot EXECUTE a null querystring
+CONTEXT:  PL/pgSQL function "assign_vertex_id" line 33 at EXECUTE statement
+</p>
+<p>
+********** Error **********
+</p>
+<p>
+ERROR: cannot EXECUTE a null querystring
+SQL state: 22004
+Context: PL/pgSQL function "assign_vertex_id" line 33 at EXECUTE statement
+</p>
+<p>
+please can anyone help me out?
+</p>
+<p>
+Thank you
+</p>
+<p>
+ilotus
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ilotus
+          </div>
+          <div class="time">
+            11/12/08 13:53:40 (2 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/184?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/184?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message639"></a>
+        <div class="id">
+          Message #639
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+It is difficult to tell what's the reason without knowing your table structure and data it contains. Can you please confirm few things?
+</p>
+<p>
+1)Does table contain source and target fields?
+</p>
+<p>
+2)Is everything OK with geometry column? Do you have an entry for it in geometry_columns table with proper srid?
+</p>
+<p>
+3)Do you really have gid column with non-null values?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            11/13/08 08:50:45 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message640"></a>
+        <div class="id">
+          Message #640
+        </div>
+        <div class="body">
+            <p>
+Hello Anton Daniel,
+Thank you for coming to my rescue. How I wish I could print screen my database structure for you to take a look.
+</p>
+<p>
+(1).        My table contains both source and target field as required.
+(2).        I have an entry of the geometry column  at the geometry_coulumn with an SRID = 4326
+(3).        The gid column does not have a null value. In fact (gid = id) where both are integer. The id column was created while the map data is being imported into the Database.
+</p>
+<p>
+Maybe you might want to take a look at the SQL pane
+</p>
+<p>
+-- Table: "Brunei_Mainroads"
+-- DROP TABLE "Brunei_Mainroads";
+CREATE TABLE "Brunei_Mainroads"
+(
+</p>
+<blockquote>
+<p>
+"name" character(60),
+id integer,
+geom geometry,
+source integer,
+target integer,
+gid integer,
+the_geom geometry,
+length double precision,
+CONSTRAINT enforce_dims_geom CHECK (ndims(geom) = 2),
+CONSTRAINT enforce_srid_geom CHECK (srid(geom) = 4326)
+</p>
+</blockquote>
+<p>
+)
+WITH (OIDS=TRUE);
+ALTER TABLE "Brunei_Mainroads" OWNER TO postgres;
+-- Index: "Brunei_Mainr_geom_1226372261878"
+-- DROP INDEX "Brunei_Mainr_geom_1226372261878";
+CREATE INDEX "Brunei_Mainr_geom_1226372261878"
+</p>
+<blockquote>
+<p>
+ON "Brunei_Mainroads"
+USING gist
+(geom);
+</p>
+</blockquote>
+<p>
+-- Index: geom_idx
+-- DROP INDEX geom_idx;
+CREATE INDEX geom_idx
+</p>
+<blockquote>
+<p>
+ON "Brunei_Mainroads"
+USING gist
+(geom);
+</p>
+</blockquote>
+<p>
+-- Index: source_idx
+-- DROP INDEX source_idx;
+CREATE INDEX source_idx
+</p>
+<blockquote>
+<p>
+ON "Brunei_Mainroads"
+USING btree
+(source);
+</p>
+</blockquote>
+<p>
+-- Index: target_idx
+-- DROP INDEX target_idx;
+CREATE INDEX target_idx
+</p>
+<blockquote>
+<p>
+ON "Brunei_Mainroads"
+USING btree
+(target);
+</p>
+</blockquote>
+<p>
+Thank you and hope this information can give you an insight on my database structure. I look forward to your kind response.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ilotus
+          </div>
+          <div class="time">
+            11/13/08 11:55:13 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message641"></a>
+        <div class="id">
+          Message #641
+        </div>
+        <div class="body">
+            <p>
+Hmmm, it looks OK except of the fact that you call assign_vertex_id for 'the_geom' column, but there are 2 geometry columns in you table and one of them - geom - has 2 indexes. Generally it's OK, but I suspect that you have some mess with geometry columns and probably you have only one entry at geometry_columns table.
+</p>
+<p>
+Can you check it once again and if nothing helps please post a small piece of your data.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            11/13/08 13:41:23 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message648"></a>
+        <div class="id">
+          Message #648
+        </div>
+        <div class="body">
+            <p>
+Hello anton Daniel,
+Thanks for your advice! I was able to solve the problem with the function assign_vertex_id.
+I assign my SRID to a value. E.g srid := 4326; then I was able to execute the function.
+I’m still wondering why srid := i.srid; could not work as required.
+Anyway, can you explain the logic behind this?
+Thank you.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ilotus
+          </div>
+          <div class="time">
+            11/17/08 10:35:03 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message649"></a>
+        <div class="id">
+          Message #649
+        </div>
+        <div class="body">
+            <p>
+You mean want to know the logic behind assign_vertex_id() function?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            11/17/08 10:39:32 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message651"></a>
+        <div class="id">
+          Message #651
+        </div>
+        <div class="body">
+            <p>
+yes! i'm not too familiar with pgplql nor c. so i would love to know why srid :i.srid did not work. i believe that the i.srid here is refering to the SRID in my geometry_column.
+Any explaination would be highly appreciated.
+Thank you.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ilotus
+          </div>
+          <div class="time">
+            11/17/08 10:45:23 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message652"></a>
+        <div class="id">
+          Message #652
+        </div>
+        <div class="body">
+            <p>
+Ah, right! Now I understand - the function reads srid column value from geometry_column table assuming that there is only one entry for each table. In your case when you have 2 entries it reads only one and not necessary the right one.
+</p>
+<p>
+So, please give my few minutes to write a patch.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            11/17/08 10:52:52 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message653"></a>
+        <div class="id">
+          Message #653
+        </div>
+        <div class="body">
+            <p>
+OK, so please download the new version of routing_topology.sql from svn, or apply this patch:
+</p>
+<pre class="wiki">--- routing_topology.sql     2008-11-17 11:00:43.000000000 +0900
++++ routing_topology_old.sql        2008-11-17 11:00:47.000000000 +0900
+@@ -71,9 +71,7 @@
+     EXECUTE 'CREATE TABLE vertices_tmp (id serial)';
+-    FOR _r IN EXECUTE 'SELECT srid FROM geometry_columns WHERE f_table_name='''|| quote_ident(geom_table)||''';' LOOP
+-       srid := _r.srid;
+-    END LOOP;
++    srid := Find_SRID('public',quote_ident(geom_table),quote_ident(geo_cname));
+     EXECUTE 'SELECT addGeometryColumn(''vertices_tmp'', ''the_geom'', '||srid||', ''POINT'', 2)';
+     CREATE INDEX vertices_tmp_idx ON vertices_tmp USING GIST (the_geom);
+</pre>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            11/17/08 11:05:54 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1696"></a>
+        <div class="id">
+          Message #1696
+        </div>
+        <div class="body">
+            <p>
+Hallo Anton,<br />
+</p>
+<p>
+can I ask you for help with probably same problem with assign_vertex_id. I followed your discussion but now I am not sure what to do to improve it.<br />
+Here is my table and short sample of content :<br />
+my error:<br />
+</p>
+<pre class="wiki">roads_db=# select assign_vertex_id('roads2', 0.0001, 'the_geom', 'gid');
+COMMENT:  CREATE TABLE create implicit sequency "vertices_tmp_id_seq" for column "vertices_tmp.id"
+CONTEXT:  SQL statement "CREATE TABLE vertices_tmp (id serial)"
+PL/pgSQL function "assign_vertex_id" line 14 at EXECUTE statement
+ERROR:  cannot EXECUTE a null querystring
+CONTEXT:  PL/pgSQL function "assign_vertex_id" line 35 at EXECUTE statement
+</pre><pre class="wiki">                                 Table "public.roads2"
+  columns  |          Typ   e       |                     Modificators
+-----------+-----------------------+------------------------------------------------------
+ gid       | integer               | not null default nextval('roads2_gid_seq'::regclass)
+ fcc       | smallint              |
+ road_id   | bigint                |
+ on        | character varying(50) |
+ df        | smallint              |
+ fw        | smallint              |
+ sl        | smallint              |
+ fy        | smallint              |
+ ds        | smallint              |
+ fc        | smallint              |
+ rn        | character varying(10) |
+ rne       | character varying(16) |
+ toll_road | smallint              |
+ toll      | smallint              |
+ urban     | smallint              |
+ oc_admin8 | character varying(6)  |
+ oc_admin9 | character varying(6)  |
+ level_b   | smallint              |
+ level_m   | smallint              |
+ level_e   | smallint              |
+ bt        | smallint              |
+ nc        | smallint              |
+ oneway    | character varying(2)  |
+ meter     | double precision      |
+ id        | integer               |
+ the_geom  | geometry              |
+ source    | integer               |
+ target    | integer               |
+Indexes:
+    "roads2_pkey" PRIMARY KEY, btree (gid)
+Constraints:
+    "enforce_dims_the_geom" CHECK (ndims(the_geom) = 2)
+    "enforce_geotype_the_geom" CHECK (geometrytype(the_geom) = 'MULTILINESTRING'::text OR the_geom
+ IS NULL)
+    "enforce_srid_the_geom" CHECK (srid(the_geom) = 4326)
+</pre><p>
+<br />
+<br />
+</p>
+<pre class="wiki">  gid  | fcc  | road_id  |           on            | df | fw | sl | fy | ds | fc |   rn   |     rne      | toll_road | toll | urban | oc_admin8 | oc_admin9 |
+ level_b | level_m | level_e | bt | nc | oneway | meter  |  id  |                                                   the_geom
+                  | source | target
+-------+------+----------+-------------------------+----+----+----+----+----+----+--------+--------------+-----------+------+-------+-----------+-----------+
+---------+---------+---------+----+----+--------+--------+------+--------------------------------------------------------------------------------------------
+------------------+--------+--------
+     1 | 4110 | 10563657 |                         |  1 |  3 |  0 |  0 |  1 |  3 | 572    |              |         0 |    0 |     0 | 501913    |           |
+       0 |       0 |       0 |  0 |  2 |        |  226.9 |    0 | 0105000020E6100000010000000102000000020000008C784BD9BF4D314002DB8D93530F48404087CDACC34D314
+08F0EF403520F4840 |        |
+     2 | 4110 | 10563657 |                         |  1 |  3 |  0 |  0 |  1 |  3 | 572    |              |         0 |    0 |     0 | 501913    |           |
+       0 |       0 |       0 |  0 |  2 |        |  226.9 |    0 | 0105000020E610000001000000010200000002000000F8ADD143BA4D31408FE4B8DA550F48408C784BD9BF4D314
+002DB8D93530F4840 |        |
+     3 | 4110 | 10563657 |                         |  1 |  3 |  0 |  0 |  1 |  3 | 572    |              |         0 |    0 |     0 | 501913    |           |
+       0 |       0 |       0 |  0 |  2 |        |  226.9 |    0 | 0105000020E61000000100000001020000000200000010E356AEB44D3140CFCAE321580F4840F8ADD143BA4D314
+08FE4B8DA550F4840 |        |
+</pre>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/14/10 18:42:55 (5 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1699"></a>
+        <div class="id">
+          Message #1699
+        </div>
+        <div class="body">
+            <p>
+Dobrý večer, Dzouzeph.
+</p>
+<p>
+Odkud jste? Česko?
+</p>
+<p>
+Well, it is difficult to tell what's wrong, but please check the following:
+</p>
+<ul><li>all the_geom are not null
+</li><li>what's the result of following query SELECT srid FROM geometry_columns WHERE f_table_name=roads2 ?
+</li></ul>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/14/10 21:39:05 (5 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1703"></a>
+        <div class="id">
+          Message #1703
+        </div>
+        <div class="body">
+            <p>
+Zdravim<br />
+je fajn citat ze su tu aj susedia z Ciech :) <br />
+</p>
+<p>
+<br />
+1. yes you have right I had in my dataset one record where the_geom was null. I removed this record and assign_vertex_id works right. thanks a lot for help.<br />
+</p>
+<p>
+2. I run that sql you wrote and get error :<br />
+</p>
+<pre class="wiki">roads_db=# SELECT srid FROM geometry_columns WHERE f_table_name=roads2;
+ERROR:  Column "roads2" do not exists
+LINE 1: SELECT srid FROM geometry_columns WHERE f_table_name=roads2;
+</pre><p>
+<br />
+... what is wrong?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/15/10 18:03:27 (5 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1704"></a>
+        <div class="id">
+          Message #1704
+        </div>
+        <div class="body">
+            <p>
+Hi Anton,<br />
+assign_vertex_id went OK afterthen I removed record where the_geom is null but when I check data the column source and target I noticed that from 4000 records little more than 1000 records (segments) has source=target.<br />
+Therefore also find route stops at this segments.<br />
+My original data looks OK and it is line with more segments but same way or direction digitized therefore I dont understand where could be a problem.<br />
+Can you give me som idea please.<br />
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/15/10 20:29:11 (5 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1705"></a>
+        <div class="id">
+          Message #1705
+        </div>
+        <div class="body">
+            <p>
+in meantime I find out where was problem.<br />
+my dataset has quite small segments (10m) and for assign_vertext_id at fist I put tollerance 0.0001 which too hight. Now I used tolerance 0.00001 and route is generated OK and also now dataset doeasnt have SOURCE and TARGET columns equal.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/16/10 02:38:06 (5 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/184?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/184?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

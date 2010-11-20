@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/331 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - Installing PGRouting on PostGreSQL 8.4 (#331) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Installing PGRouting on PostGreSQL 8.4
+            </div>
+            <div class="body">
+              <p>
+Hi All,
+</p>
+<p>
+I am installing Pgrouting for PostGreSQL <strong>8.4</strong> on Linux Ubuntu Karmic Koala. I am following the instructions provided on this page; <a href="../../wiki/OSMTutorial.html">http://pgrouting.postlbs.org/wiki/OSMTutorial</a>
+</p>
+<p>
+However when running (the second step of the 2. Compile pgRouting core (with TSP and DD flag on) stage);
+</p>
+<pre class="wiki">cmake -DWITH_TSP=ON -DWITH_DD=ON .
+</pre><p>
+I get the following error;
+</p>
+<pre class="wiki">~/pgrouting$ sudo cmake -DWITH_TSP=ON -DWITH_DD=ON .
+cmake: /opt/PostgreSQL/psqlODBC/lib/libgssapi_krb5.so.2: no version information available (required by /usr/lib/libcurl-gnutls.so.4)
+-- The C compiler identification is GNU
+-- The CXX compiler identification is GNU
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- PostgreSQL not found.
+FATALERROR Please check your PostgreSQL installation.
+-- Boost version: 1.38.0
+-- Found the following Boost libraries:
+Boost headers were found here: /usr/include
+Output directory for libraries is set to /usr/lib/postgresql/8.4/lib
+-- Found PGROUTING_CORE core: /home/saeed/pgrouting/core/src
+Installation directory for libraries is set to /usr/lib/postgresql/8.4/lib and for SQL files is set to /usr/share/postlbs
+-- Found GAUL: /usr/local/lib/libgaul.so, /usr/local/lib/libgaul_util.so
+Installation directory for libraries is set to /usr/lib/postgresql/8.4/lib
+-- Found CGAL: /usr/include, /usr/lib/libCGAL.so
+CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
+Please set them or make sure they are set and tested correctly in the CMake files:
+POSTGRESQL_INCLUDE_DIR (ADVANCED)
+   used as include directory in directory /home/saeed/pgrouting
+   used as include directory in directory /home/saeed/pgrouting/core
+   used as include directory in directory /home/saeed/pgrouting/extra/tsp
+   used as include directory in directory /home/saeed/pgrouting/extra/tsp/src
+   used as include directory in directory /home/saeed/pgrouting/extra/tsp/sql
+   used as include directory in directory /home/saeed/pgrouting/extra/driving_distance
+   used as include directory in directory /home/saeed/pgrouting/extra/driving_distance/src
+   used as include directory in directory /home/saeed/pgrouting/extra/driving_distance/sql
+   used as include directory in directory /home/saeed/pgrouting/core/src
+   used as include directory in directory /home/saeed/pgrouting/core/sql
+-- Configuring incomplete, errors occurred!
+</pre><p>
+I am fairly new to PostGreSQL and Linux, so any help is greatly appreciated.
+</p>
+<p>
+Saeed.
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            placrsaeed
+          </div>
+          <div class="time">
+            01/30/10 00:46:09 (10 months ago)
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

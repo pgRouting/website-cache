@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/291 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/13.html" title="developer">developer</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>developer (#13) - <a class="missing wiki">OpenStreetMap?</a> (OSM) network topology (#291) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              <a class="missing wiki">OpenStreetMap?</a> (OSM) network topology
+            </div>
+            <div class="body">
+              <p>
+Hi there,
+I'm quite new to pgrouting (but not new to routing algorithms). I'm working with OSM data and pgrouting seems to be the extension I need to add to PostgreSQL/PostGIS. I read the documentation and some topics in the forum with interest.
+I have a simple question I'd like to put to the developers regarding creating network topology onto OSM data.
+This workshop "FOSS4G routing with pgRouting tools and <a class="missing wiki">OpenStreetMap?</a> road data" (<a href="../../wiki/WorkshopFOSS4G2008.html">http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008</a>) at this point "Load your network data and create a network topology --&gt; Create network topology" mentions the following: "Note: The dimension of the tolerance parameter depends on your data projection. Usually it's either "degrees" or "meters". Because OSM data has a very good quality for Cape town we can choose a very small "snapping" tolerance: 0.00001 degrees".
+Now, network topology is implicit in OSM data. Creating OSM data is in fact creating connectivity (but I can only speak for the UK data). The OSM xml file defines a series of nodes and ways; ways are a collection of nodes. Creating a set of connectivity rules / network topology is a matter of parsing the xml file and finding what ways have common nodes (in simple terms).
+In my opinion there is no need of geographic functions (e.g. distance): making use of these functions would only introduce the risk of errors.
+Is there any reason for the use of a snapping function in the OSM case? Does anyone know if a kind of OSM xml parser/processor, as the one hinted above, exist?
+Thanks
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            <a class="missing wiki">AndyFo?</a>
+          </div>
+          <div class="time">
+            09/03/09 01:03:21 (15 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/291?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/291?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1042"></a>
+        <div class="id">
+          Message #1042
+        </div>
+        <div class="body">
+            <p>
+Thanks for bringing up this discussion!
+</p>
+<p>
+There are probably two reasons for having this "distance" parameter:
+</p>
+<p>
+(1) the topology function is not only made for OSM data, so the "distance" parameter has to be set to use this function to create the tables and attributes we need for pgRouting. If you're sure that your data doesn't need "snapping" it should be OK that you set it to "0".
+</p>
+<p>
+(2) from my experience a lot of OSM contributers don't care about topology that much. They are more drawing than digitalizing. This might not be the case in UK or Germany, where a lot of people are checking the data, but here in Japan for example you would hardly get a proper route, because a lot of roads are just disconnected even if they aren't.
+</p>
+<p>
+Was this an acceptable answer or did I forget something? ;-)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            09/03/09 08:39:42 (15 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1044"></a>
+        <div class="id">
+          Message #1044
+        </div>
+        <div class="body">
+            <p>
+1) Setting the distance to "0" only reduces the processig time (I only assume, not tested) but still use the same algorithm, thus ignoring the implicit topology of the OSM data;
+</p>
+<p>
+2) Given the "topology oriented" OSM editing tool I always thought it was pretty hard ignoring it; it's easier to connect to existing nodes than ignoring them. But again, this is true when extending ways, I can see lazyness introducing some errors when it comes to a new "T-junction" for example.
+I can only believe what you say about Japan... erm... in fact I'll check by myself a couple of places I know well... I would appreciate if you could direct me to some example of bad topology, it would be nice to highlight this to the OSM forum;
+</p>
+<p>
+Thanks a lot Daniel to get back to me on this, you definitely shed some light. I understand that my is a narrow "issue" and shouldn't take up too much space in here, but OSM data is being used more often now and, in my opinion pgrouting should take this into account. Perhaps we should assume that OSM data is topologically correct and let pgrouting "throw errors" (by comparing pgrouting results using the usual algorithm against a different algorithm (reading implicit topology) and highlight inconsistencies) and publish them on OSM; there will always be someone out there willing to pick this up and doing some corrections (including myself ;)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            AndyFo
+          </div>
+          <div class="time">
+            09/03/09 22:54:31 (15 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/291?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/291?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

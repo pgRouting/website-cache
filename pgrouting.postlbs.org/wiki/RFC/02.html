@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/RFC/02 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      RFC/02 – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/RFC/02?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../RFC.html" title="View parent page" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../RFC.html">Up</a></li><li><a href="../WikiStart.html">Start Page</a></li><li><a href="../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/RFC/02?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/RFC/02?action=diff&amp;version=3">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View RFC" href="../RFC.html">RFC</a><span class="pathentry sep">/</span><a class="pathentry" title="View RFC/02" href="02.html">02</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="RFC-02MigratepgRoutingtoOSGeoInfrastructure">[RFC-02] Migrate pgRouting to OSGeo Infrastructure</h1>
+<pre class="wiki">Date:        2010/04/01
+Author:      Daniel Kastl
+Contact:     daniel at georepublic.de
+Last Edited: 2010/04/01
+Status:      Adopted (2010/04/18)
+</pre><h2 id="MotivationtomigratepgRoutinginfrastructure">Motivation to migrate pgRouting infrastructure</h2>
+<ul><li>All maintenance work for mailing list, SVN repository, TRAC website is under the responsibility of Orkney at the moment.
+</li><li>pgRouting would like to establish a new mailing list "pgrouting-dev" without the hassle of maintaining a mail server.
+</li><li>TRAC website faces SPAM problems from time to time and there is a large number of invalid users that have been subscribed by spam bots.
+</li><li>pgRouting has close relation to OSGeo and other OSGeo projects. It's part of OSGeo LiveDVD and OSGeo Labs and might aim for incubation someday.
+</li><li>OSGeo infrastructure provides backups and file downloads (ie. for releases)
+</li><li>Project team is small and wants to minimize work for administration and maintenance to have more time for the project 
+</li></ul><h3 id="Whatisaffectedbythemigration">What is affected by the migration</h3>
+<ul><li>Mailing lists (<a class="ext-link" href="http://lists.postlbs.org/mailman/listinfo/pgrouting-users"><span class="icon"> </span>http://lists.postlbs.org/mailman/listinfo/pgrouting-users</a>)
+</li><li>SVN repository (<a href="../../svn/pgrouting/index.html">http://pgrouting.postlbs.org/svn/pgrouting</a>)
+</li><li>TRAC website (<a class="ext-link" href="../../index.html"><span class="icon"> </span>http://pgrouting.postlbs.org</a>)
+</li><li>File downloads (<a class="ext-link" href="http://files.postlbs.org/pgrouting"><span class="icon"> </span>http://files.postlbs.org/pgrouting</a>)
+</li><li>DNS settings (<a class="ext-link" href="http://[xyz].postlbs.org/"><span class="icon"> </span>http://[xyz].postlbs.org</a>)
+</li></ul><h2 id="Migrationsteps">Migration steps</h2>
+<h3 id="Mailinglists">Mailing lists</h3>
+<p>
+Create a new mailing list "pgrouting-dev" and migrate existing list "pgrouting-users" to OSGeo mailing lists. Import existing mail archive and add current subscribers. Remove mailing list "announcements".<br />
+<a class="ext-link" href="http://wiki.osgeo.org/wiki/SAC:Mailing_Lists"><span class="icon"> </span>http://wiki.osgeo.org/wiki/SAC:Mailing_Lists</a>
+</p>
+<h3 id="SVNrepository">SVN repository</h3>
+<p>
+Migrate current pgRouting SVN repository to OSGeo infrastructure and keep Subversion history. Clearify committer list and discuss current repository structure (maybe other RFC?)<br />
+<a class="ext-link" href="http://wiki.osgeo.org/wiki/Subversion"><span class="icon"> </span>http://wiki.osgeo.org/wiki/Subversion</a>
+</p>
+<h3 id="TRACwebsite">TRAC website</h3>
+<p>
+For now it should be enough to have TRAC as the main website, providing bug tracker, repository browser and wiki. Someday, if we see the need for more "advanced" solutions, we can build another project site. <br />
+Create a new TRAC instance for pgRouting on OSGeo server and try to import as much content as possible. Create static pages of the current forum and keep them somewhere (where?)<br />
+<a class="ext-link" href="http://wiki.osgeo.org/wiki/Trac_Instances"><span class="icon"> </span>http://wiki.osgeo.org/wiki/Trac_Instances</a>
+</p>
+<h3 id="Downloadserver">Download server</h3>
+<p>
+Setup a directory for pgRouting related file downloads to provide source files and binaries, etc.. Copy current files there and adjust links.<br />
+<a class="ext-link" href="http://wiki.osgeo.org/wiki/Download_Server"><span class="icon"> </span>http://wiki.osgeo.org/wiki/Download_Server</a>
+</p>
+<h3 id="DNSsettings">DNS settings</h3>
+<p>
+Update DNS settings to comply with the new URL's, create redirects to avoid dead links. (Keep pgrouting.postlbs.org or take "pgrouting.org" domain?) 
+</p>
+<h2 id="Possibleissues">Possible issues</h2>
+<ul><li>OSGeo domain will be used for SVN, mailing lists, download server. How about TRAC?
+</li><li>URL's might change and links might not be accessible anymore.
+</li><li>Discussion forum will be closed (keep current forum as static HTML and reference?). Can we expect all users to use the mailing list for questions?
+</li></ul><h2 id="RemarksLinks">Remarks, Links</h2>
+<ul><li><a class="ext-link" href="http://lists.postlbs.org/pipermail/pgrouting-users/2010-March/000268.html"><span class="icon"> </span>http://lists.postlbs.org/pipermail/pgrouting-users/2010-March/000268.html</a>
+</li></ul>
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/RFC/02?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("02.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/RFC/02 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

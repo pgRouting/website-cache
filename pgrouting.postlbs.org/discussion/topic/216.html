@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/216 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/17.html" title="astar">astar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>astar (#17) - The function  shortest_path_shooting_star is slow (#216) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              The function  shortest_path_shooting_star is slow
+            </div>
+            <div class="body">
+              <p>
+Hi!!....
+</p>
+<p>
+I'm using the function  "shortest_path_shooting_star" and it returns the result perfectly but depending of the number of data the performance is slower. For example i created two tables.
+</p>
+<p>
+Table 1 have this structure, the name of this table is "mtxlinks":
+</p>
+<blockquote>
+<p>
+gid2 integer NOT NULL,
+source integer,
+target integer,
+"cost" double precision,
+reverse_cost double precision,
+to_cost double precision,
+x1 double precision,
+y1 double precision,
+x2 double precision,
+y2 double precision,
+"rule" text,
+id_cc1 integer,
+CONSTRAINT "PK_mtxlinks2" PRIMARY KEY (gid2)
+</p>
+</blockquote>
+<p>
+Table 2 have the same structure, the name of this table is "mtxlinks2":
+</p>
+<blockquote>
+<p>
+gid2 integer NOT NULL,
+source integer,
+target integer,
+"cost" double precision,
+reverse_cost double precision,
+to_cost double precision,
+x1 double precision,
+y1 double precision,
+x2 double precision,
+y2 double precision,
+"rule" text,
+id_cc1 integer,
+CONSTRAINT "PK_mtxlinks" PRIMARY KEY (gid2)
+</p>
+</blockquote>
+<p>
+To know the number of rows:
+</p>
+<p>
+select count(*) from mtxlinks ... this return: 507.770
+</p>
+<p>
+select count(*) from mtxlinks2 .... this return: 77.463
+</p>
+<p>
+When i run this SP:
+</p>
+<p>
+SELECT "edge_id"
+FROM shortest_path_shooting_star(
+</p>
+<blockquote>
+<p>
+'SELECT gid2 as id, source, target, cost, reverse_cost, x1, y1, x2, y2, rule, to_cost FROM mtxlinks2 order by gid2'
+,113037234
+,113048625
+, false
+, true
+)
+</p>
+</blockquote>
+<p>
+in the table 1 "mtxlinks" is very very slow.... but in the table 2 "mtxlinks2" is very fast.
+</p>
+<p>
+To analize this i execute EXPLAIN ANALYZE SELECT on the SP at the table "mtxlinks ":
+</p>
+<p>
+EXPLAIN ANALYZE SELECT "edge_id"
+FROM shortest_path_shooting_star(
+</p>
+<blockquote>
+<p>
+'SELECT gid2 as id, source, target, cost, reverse_cost, x1, y1, x2, y2, rule, to_cost FROM mtxlinks order by gid2'
+,113037234
+,113048625
+, false
+, true
+)
+</p>
+</blockquote>
+<p>
+this return : "Function Scan on shortest_path_shooting_star  (cost=0.00..12.50 rows=1000 width=4) (actual time=34172.209..34172.272 rows=45 loops=1)" and "Total runtime: 34172.372 ms".
+</p>
+<p>
+EXPLAIN ANALYZE SELECT on the SP at the table "mtxlinks2":
+</p>
+<p>
+EXPLAIN ANALYZE SELECT "edge_id"
+FROM shortest_path_shooting_star(
+</p>
+<blockquote>
+<p>
+'SELECT gid2 as id, source, target, cost, reverse_cost, x1, y1, x2, y2, rule, to_cost FROM mtxlinks2 order by gid2'
+,113037234
+,113048625
+, false
+, true
+)
+</p>
+</blockquote>
+<p>
+this return :
+</p>
+<p>
+"Function Scan on shortest_path_shooting_star  (cost=0.00..12.50 rows=1000 width=4) (actual time=4836.670..4836.733 rows=45 loops=1)" and "Total runtime: 4836.830 ms"
+</p>
+<p>
+How can i fix that? How can i improve the speed of the function? is depends on columns? depend about the number of data? Becouse in the example www.ridethecity.com is very fast and i guess that they have more number of data ....
+</p>
+<p>
+Help me please...
+</p>
+<p>
+Thanks..
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            mhungc
+          </div>
+          <div class="time">
+            02/10/09 00:39:19 (22 months ago)
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,84 @@
+Index: Export2DB.cpp
+===================================================================
+--- Export2DB.cpp	(revision 356)
++++ Export2DB.cpp	(working copy)
+@@ -65,16 +65,49 @@
+ 
+ }
+ 
++
+ void Export2DB::createTables()
+ {
+ 	PGresult *result = PQexec(mycon, "CREATE TABLE nodes (ID integer PRIMARY KEY,  lon decimal(11,8), lat decimal(11,8), numOfUse smallint);");
++	if (PQresultStatus(result) != PGRES_COMMAND_OK)
++        {
++                std::cerr << "create Nodes failed: " 
++			<< PQerrorMessage(mycon) 
++			<< std::endl;
++                PQclear(result);
++        }
++
+ 	std::cout << "Nodes table created" << std::endl;
+-	result = PQexec(mycon, "CREATE TABLE ways (gid integer, class_id integer, length double precision, name char(200), x1 double precision, y1 double precision, x2 double precision,y2 double precision, reverse_cost double precision,rule text, to_cost double precision, PRIMARY KEY(gid)); SELECT AddGeometryColumn('ways','the_geom',4326,'MULTILINESTRING',2);");
+-	std::cout << "Ways table created" << std::endl;
++	result = PQexec(mycon, "CREATE TABLE ways (gid integer, class_id integer not null, length double precision, name char(200), x1 double precision, y1 double precision, x2 double precision,y2 double precision, reverse_cost double precision,rule text, to_cost double precision, PRIMARY KEY(gid)); SELECT AddGeometryColumn('ways','the_geom',4326,'MULTILINESTRING',2);");
++	if (PQresultStatus(result) != PGRES_COMMAND_OK)
++        {
++                std::cerr << "create ways failed: " 
++			<< PQerrorMessage(mycon) 
++			<< std::endl;
++                PQclear(result);
++        } else {
++		std::cout << "Ways table created" << std::endl;
++	}
+ 	result = PQexec(mycon, "CREATE TABLE types (id integer, name char(200));");
+-	std::cout << "Types table created" << std::endl;
++	if (PQresultStatus(result) != PGRES_COMMAND_OK)
++        {
++                std::cerr << "create types failed: " 
++			<< PQerrorMessage(mycon) 
++			<< std::endl;
++                PQclear(result);
++        } else {
++		std::cout << "Types table created" << std::endl;
++	}
+ 	result = PQexec(mycon, "CREATE TABLE classes (id integer, type_id integer, name char(200), cost double precision);");
+-	std::cout << "Classes table created" << std::endl;	
++	if (PQresultStatus(result) != PGRES_COMMAND_OK)
++        {
++                std::cerr << "create classes failed: " 
++			<< PQerrorMessage(mycon) 
++			<< std::endl;
++                PQclear(result);
++        } else {
++		std::cout << "Classes table created" << std::endl;	
++	}
+ }
+ 
+ void Export2DB::dropTables()
+@@ -110,7 +143,9 @@
+ 		query+=", name";
+ 	query+=") values(";
+ 	
+-	query+=boost::lexical_cast<std::string>(way->id) + ", (SELECT id FROM classes WHERE name ='" + boost::lexical_cast<std::string>(way->clss) + "')," + boost::lexical_cast<std::string>(way->length) + "," 
++	query+=boost::lexical_cast<std::string>(way->id) + 
++		", (SELECT id FROM classes WHERE name ='" + boost::lexical_cast<std::string>(way->clss) + "' and type_id = (select id from types where name='"+ boost::lexical_cast<std::string>(way->type) + "'))," 
++		+ boost::lexical_cast<std::string>(way->length) + "," 
+ 		 + boost::lexical_cast<std::string>(way->m_NodeRefs.front()->lon) + ","+ boost::lexical_cast<std::string>(way->m_NodeRefs.front()->lat) + ","
+ 		 + boost::lexical_cast<std::string>(way->m_NodeRefs.back()->lon)  + ","+ boost::lexical_cast<std::string>(way->m_NodeRefs.back()->lat) + ",";
+ 	query+="GeometryFromText('" + way->geom +"', 4326)";
+@@ -129,6 +164,14 @@
+ 	query+=");";
+ 		//std::cout << query <<std::endl;
+ 	PGresult *result = PQexec(mycon, query.c_str());
++	if (PQresultStatus(result) != PGRES_COMMAND_OK)
++        {
++                std::cerr << "create Nodes failed: " 
++			<< PQerrorMessage(mycon) 
++			<< std::endl;
++	        std::cerr << "SQL:" << std::endl << query << std::endl;
++                PQclear(result);
++        }
+ }
+ 
+ void Export2DB::exportType(Type* type)

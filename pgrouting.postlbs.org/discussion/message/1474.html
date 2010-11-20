@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/message/1474 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li><a href="../forum/24.html" title="osm2pgrouting">osm2pgrouting</a></li><li class="last"><a href="../topic/172.html" title="osm2pgrouting on Mac OS X">osm2pgrouting on Mac OS X</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>osm2pgrouting (#24) - osm2pgrouting on Mac OS X (#172) - Message List</h1>
+      <div class="topic ">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              osm2pgrouting on Mac OS X
+            </div>
+            <div class="body">
+              <p>
+I've built osm2pgrouting on Mac OS X 10.5.
+</p>
+<p>
+Here's the additional steps I needed to take to get it to build (I already had PostgreSQL, PostGIS and pgRouting installed, and set up and spatialised a database):
+</p>
+<p>
+1. Install boost and expat (which both build without modification needed.)
+</p>
+<p>
+2. Change the INC line in the Makefile to:
+</p>
+<p>
+INC = -I./ -I../src -I/usr/local/include/boost-1_36 -I/usr/local/pgsql/include -L/usr/local/pgsql/lib
+</p>
+<p>
+- the last library is needed otherwise ld can't find lpg.
+</p>
+<p>
+3. Edit src/Node.h, src/Export2DB.h and src/Export2DB.cpp, changing "ushort" to "short".
+</p>
+<p>
+It should then build without issues. Note the README is slightly out of date, there is a new parameter that has to be passed in, e.g.
+</p>
+<p>
+./main -file ../../../osmexport/map-2.osm.xml -conf ../mapconfig.xml -dbname [me] -user [me]
+</p>
+<p>
+I also modified mapconfig.xml, changing cicleway to cycleway
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ollie
+          </div>
+          <div class="time">
+            09/01/08 01:59:00 (2 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies ">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/172?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/172?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li>
+        <a name="message604"></a>
+        <div class="id">
+          Message #604
+        </div>
+        <div class="body">
+            <p>
+Great news! Thank you!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            09/01/08 09:28:11 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li>
+        <a name="message1156"></a>
+        <div class="id">
+          Message #1156
+        </div>
+        <div class="body">
+            <p>
+Thank you for the tips.
+</p>
+<p>
+For point 3 above, it may be preferable to add the following on a line prior to namespace osm:
+<br /><tt>typedef unsigned short ushort;</tt>
+<br />rather than change the ushort to a signed short. Practically, it probably doesn't matter since a Node's numsOfUse shouldn't get that large.
+</p>
+<p>
+Cheers
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            andrewcrice
+          </div>
+          <div class="time">
+            10/22/09 04:58:00 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li>
+        <a name="message1474"></a>
+        <div class="id">
+          Message #1474
+        </div>
+        <div class="body">
+            <p>
+Some notes for Mac OSX 10.6 (using William Kyngesbury's installers) based on Ollie's notes (above)
+</p>
+<p>
+<br />
+</p>
+<blockquote class="citation">
+<p>
+ 1. Install boost and expat (which both build without modification needed.)
+</p>
+</blockquote>
+<p>
+<br />
+</p>
+<p>
+Install boost into /usr/local/boost_1_42_0
+</p>
+<p>
+(I forgot to install expat, not sure what it does?)
+</p>
+<p>
+<br />
+</p>
+<blockquote class="citation">
+<p>
+ 2. Change the INC line in the Makefile to:
+ INC = -I./ -I../src -I/usr/local/include/boost-1_36 -I/usr/local/pgsql/include -L/usr/local/pgsql/lib
+ - the last library is needed otherwise ld can't find lpg.
+</p>
+</blockquote>
+<p>
+Again, using a different setup but
+</p>
+<p>
+<br />
+</p>
+<pre class="wiki">INC = -I./ -Isrc -I/usr/local/pgsql/include -L/usr/local/pgsql/lib -I/usr/local/boost_1_42_0/
+</pre><p>
+<br />
+</p>
+<blockquote class="citation">
+<p>
+ 3. Edit src/Node.h, src/Export2DB.h and src/Export2DB.cpp, changing "ushort" to "short".
+</p>
+</blockquote>
+<p>
+<br />
+</p>
+<p>
+I took andrewcrice's approach - add the following on a line prior to namespace osm:
+</p>
+<pre class="wiki">typedef unsigned short ushort;
+</pre><p>
+in
+</p>
+<ul><li>src/Export2DB.h
+</li><li>src/Node.h
+</li><li>(I couldn't find a reference to namespace osm in the cpp file.
+</li></ul><p>
+because I was using kyngchaos installers, I then
+</p>
+<pre class="wiki">$ PATH=$PATH:/Library/Frameworks/GEOS.framework/unix/bin/ \
+CFLAGS="-I/Library/Frameworks/PROJ.framework/unix/include" \
+LDFLAGS="-L/Library/Frameworks/PROJ.framework/unix/lib/" \
+make
+</pre>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            benmadin
+          </div>
+          <div class="time">
+            04/21/10 17:01:42 (7 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/172?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/172?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

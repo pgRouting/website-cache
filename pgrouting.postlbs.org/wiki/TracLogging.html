@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracLogging by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracLogging – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/TracLogging?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/TracLogging?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/TracLogging?action=diff&amp;version=3">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h1 id="TracLogging">Trac Logging</h1>
+<p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ul><li class="False"><a class="False" href="TracGuide.html">Index</a></li><li class="False"><a class="False" href="TracInstall.html">Installation</a></li><li class="False"><a class="False" href="TracInterfaceCustomization.html">Customization</a></li><li class="False"><a class="False" href="TracPlugins.html">Plugins</a></li><li class="False"><a class="False" href="TracUpgrade.html">Upgrading</a></li><li class="False"><a class="False" href="TracIni.html">Configuration</a></li><li class="False"><a class="False" href="TracAdmin.html">Administration</a></li><li class="False"><a class="False" href="TracBackup.html">Backup</a></li><li class="active"><a class="False" href="TracLogging.html">Logging</a></li><li class="False"><a class="False" href="TracPermissions.html">Permissions</a></li><li class="False"><a class="False" href="TracWiki.html">The Wiki</a></li><li class="False"><a class="False" href="WikiFormatting.html">Wiki Formatting</a></li><li class="False"><a class="False" href="TracTimeline.html">Timeline</a></li><li class="False"><a class="False" href="TracBrowser.html">Repository Browser</a></li><li class="False"><a class="False" href="TracRevisionLog.html">Revision Log</a></li><li class="False"><a class="False" href="TracChangeset.html">Changesets</a></li><li class="False"><a class="False" href="TracTickets.html">Tickets</a></li><li class="False"><a class="False" href="TracWorkflow.html">Workflow</a></li><li class="False"><a class="False" href="TracRoadmap.html">Roadmap</a></li><li class="False"><a class="False" href="TracQuery.html">Ticket Queries</a></li><li class="False"><a class="False" href="TracReports.html">Reports</a></li><li class="False"><a class="False" href="TracRss.html">RSS Support</a></li><li class="False"><a class="False" href="TracNotification.html">Notification</a></li></ul></div><p>
+</p>
+<p>
+Trac supports logging of system messages using the standard <a class="ext-link" href="http://docs.python.org/lib/module-logging.html"><span class="icon"> </span>logging module</a> that comes with Python.
+</p>
+<p>
+Logging is configured in the <tt>[logging]</tt> section in <a class="wiki" href="TracIni.html#logging-section">trac.ini</a>.
+</p>
+<h2 id="SupportedLoggingMethods">Supported Logging Methods</h2>
+<p>
+The log method is set using the <tt>log_type</tt> option in <a class="wiki" href="TracIni.html#logging-section">trac.ini</a>, which takes any of the following values:
+</p>
+<dl><dt><strong>none<i></i></strong></dt><dd>Suppress all log messages.
+</dd><dt><strong>file</strong></dt><dd>Log messages to a file, specified with the <tt>log_file</tt> option in <a class="wiki" href="TracIni.html#logging-section">trac.ini</a>. 
+</dd><dt><strong>stderr</strong></dt><dd>Output all log entries to console (<a class="wiki" href="TracStandalone.html">tracd</a> only).
+</dd><dt><strong>syslog</strong></dt><dd>(UNIX) Send all log messages to the local syslogd via named pipe <tt>/dev/log</tt>. By default, syslog will write them to the file /var/log/messages.
+</dd><dt><strong>eventlog</strong></dt><dd>(Windows) Use the system's NT Event Log for Trac logging.
+</dd></dl>
+<h2 id="LogLevels">Log Levels</h2>
+<p>
+The verbosity level of logged messages can be set using the <tt>log_level</tt> option in <a class="wiki" href="TracIni.html#logging-section">trac.ini</a>. The log level defines the minimum level of urgency required for a message to be logged, and those levels are:
+</p>
+<dl><dt><strong>CRITICAL</strong></dt><dd>Log only the most critical (typically fatal) errors.
+</dd><dt><strong>ERROR</strong></dt><dd>Log failures, bugs and errors. 
+</dd><dt><strong>WARN</strong></dt><dd>Log warnings, non-interrupting events.
+</dd><dt><strong>INFO</strong></dt><dd>Diagnostic information, log information about all processing.
+</dd><dt><strong>DEBUG</strong></dt><dd>Trace messages, profiling, etc.
+</dd></dl>
+<h2 id="LogFormat">Log Format</h2>
+<p>
+Starting with Trac 0.10.4 (see <a class="missing ticket">#2844</a>), it is possible to set the output format for log entries. This can be done through the <tt>log_format</tt> option in <a class="wiki" href="TracIni.html#logging-section">trac.ini</a>. The format is a string which can contain any of the <a class="ext-link" href="http://docs.python.org/lib/node422.html"><span class="icon"> </span>Python logging Formatter variables</a>. Additonally, the following Trac-specific variables can be used:
+<dl><dt><strong>$(basename)s</strong></dt><dd>The last path component of the current environment.
+</dd><dt><strong>$(path)s</strong></dt><dd>The absolute path for the current environment.
+</dd><dt><strong>$(project)s</strong></dt><dd>The originating project's name.
+</p>
+</dd></dl>
+<p>
+Note that variables are identified using a dollar sign (<tt>$(...)s</tt>) instead of percent sign (<tt>%(...)s</tt>).
+</p>
+<p>
+The default format is:
+</p>
+<pre class="wiki">log_format = Trac[$(module)s] $(levelname)s: $(message)s
+</pre><p>
+In a multi-project environment where all logs are sent to the same place (e.g. <tt>syslog</tt>), it makes sense to add the project name. In this example we use <tt>basename</tt> since that can generally be used to identify a project:
+</p>
+<pre class="wiki">log_format = Trac[$(basename)s:$(module)s] $(levelname)s: $(message)s
+</pre><hr />
+<p>
+See also: <a class="wiki" href="TracIni.html">TracIni</a>, <a class="wiki" href="TracGuide.html">TracGuide</a>, <a class="wiki" href="TracEnvironment.html">TracEnvironment</a>
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/TracLogging?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TracLogging.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracLogging by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

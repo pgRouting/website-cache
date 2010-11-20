@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/pgRoutingDocs/processing/advanced by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      pgRoutingDocs/processing/advanced – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/pgRoutingDocs/processing/advanced?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../processing.html" title="View parent page" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../processing.html">Up</a></li><li><a href="../../WikiStart.html">Start Page</a></li><li><a href="../../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/pgRoutingDocs/processing/advanced?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/pgRoutingDocs/processing/advanced?action=diff&amp;version=1">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View pgRoutingDocs" href="../../pgRoutingDocs.html">pgRoutingDocs</a><span class="pathentry sep">/</span><a class="pathentry" title="View pgRoutingDocs/processing" href="../processing.html">processing</a><span class="pathentry sep">/</span><a class="pathentry" title="View pgRoutingDocs/processing/advanced" href="advanced.html">advanced</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <div style="float: right; margin: 1em 1em 1em 2em; width: 27em; font-size: .9em">
+<div style="background-color: #fce4e3; border: 1px solid black; padding: 1em">
+<div>This page needs some review!</div>
+</div>
+</div>
+<h1 id="Howtohandleone-waystreets">How to handle one-way streets</h1>
+<p>
+Both Dijkstra and A-Star algorithms have the ability to compute the cost for both sides of an edge of a graph, which can be very useful when finding a route with a road network that has one-way streets.
+</p>
+<p>
+This little example will illustrate how this is done. The sample data was created using <a class="ext-link" href="http://openjump.org/"><span class="icon"> </span>OpenJump</a> and then was saved in a <a class="ext-link" href="http://www.postgis.org/"><span class="icon"> </span>PostGIS</a> database where pgRouting was also installed.
+</p>
+<p>
+The graph looks like this; note that edge #2 was digitized from right to left, unlike most of the edges which was digitized left to right. This was done to simulate a one way street.<br />
+<a style="padding:0; border:none" href="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_1.png"><img src="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_1.png" alt="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_1.png" title="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_1.png" /></a>
+</p>
+<p>
+When computing for the cost of both sides of the edge, a reverse_cost field is necessary to be passed to the routing algorithm.
+</p>
+<p>
+Initially, both the cost and the reverse_cost values set to the length of the edge.
+</p>
+<pre class="wiki">routing=# UPDATE rtest SET cost=length(the_geom), rcost=length(the_geom); 
+UPDATE 5
+</pre><p>
+Then, to increase the reverse_cost of edge #2, a value of 1,000,000 was added to the value of the reverse_cost field.
+</p>
+<pre class="wiki">routing=# UPDATE rtest SET rcost=rcost + 1000000 WHERE gid = 2;
+</pre><pre class="wiki">routing=# SELECT gid,cost,rcost,source,target FROM rtest ORDER BY gid;  
+
+gid |        cost      |         rcost       | source | target 
+----+------------------+---------------------+--------+--------
+ 1  | 90.4777391240398 | 90.4777391240398    |      1 |      2
+ 2  | 266.663211021467 | 000266.663211021467 |      3 |      2
+ 3  | 74.7975644284963 | 74.7975644284963    |      2 |      4
+ 4  | 264.887335603738 | 264.887335603738    |      4 |      5
+ 5  | 49.0618009646755 | 49.0618009646755    |      3 |      5
+(5 rows)
+</pre><p>
+The last parameter of both Dijkstra and A-Star algorithms determines whether the reverse cost will also be computed when finding a route through the graph.
+</p>
+<p>
+When set to false, both algorithms will search using only the cost parameter, which in this case is just the length of each edge. For this example, we'll find a route between node #1 until node #3.
+</p>
+<pre class="wiki">routing=# SELECT * FROM shortest_path_astar('SELECT gid AS id,source::int4,
+    target::int4, cost::double precision, rcost::double precision AS reverse_cost,
+    x1,y1,x2,y2 FROM rtest',1,3,false,false);
+
+ vertex_id | edge_id |      cost
+-----------+---------+------------------
+       1   |     1   | 90.4777391240398
+       2   |     2   | 266.663211021467 
+       3   |    -1   |  0
+(3 rows)
+</pre><p>
+<a style="padding:0; border:none" href="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_2.png"><img src="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_2.png" alt="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_2.png" title="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_2.png" /></a>
+</p>
+<p>
+Now, if the reverse parameter is set to true, the algorithms will use the reverse_cost and see that node 2 of edge #2 has a very hight cost and will look for another route.
+</p>
+<pre class="wiki">routing=# SELECT * FROM shortest_path_astar('SELECT gid AS id, source::int4,
+     target::int4, cost::double precision, rcost::double precision AS reverse_cost,
+     x1,y1,x2,y2 FROM rtest',1,3,false,true);
+
+vertex_id | edge_id |       cost
+----------+---------+------------------
+       1  |      1  |  90.4777391240398           
+       2  |      3  |  74.7975644284963           
+       4  |      4  |  264.887335603738
+       5  |      5  |  49.0618009646755
+       3  |     -1  |   0
+(5 rows)
+</pre><p>
+<a style="padding:0; border:none" href="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_3.png"><img src="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_3.png" alt="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_3.png" title="http://files.postlbs.org/pgrouting/img/howto_onewaystreets_3.png" /></a>
+</p>
+<p>
+Although having the ability to compute the cost of both sides of the edge is a very nifty feature, it come with a heavy price since it will impact performance quite a bit and thus should be used only when it is really necessary.
+</p>
+<pre class="wiki">routing=# EXPLAIN ANALYZE SELECT * FROM shortest_path_astar('SELECT gid
+    AS id,source::int4, target::int4, cost::double precision, rcost::double
+    precision AS reverse_cost,x1,y1,x2,y2 FROM rtest',1,3,false,false);
+
+                               QUERY PLAN 
+--------------------------------------------------------------------------------
+Function Scan on shortest_path_astar  (cost=0.00..12.50 rows=1000 width=16) 
+(actual time=0.954..0.958 rows=3 loops=1)  Total runtime: 1.020 ms
+(2 rows)
+</pre><p>
+ 
+</p>
+<pre class="wiki">routing=# EXPLAIN ANALYZE SELECT * FROM shortest_path_astar('SELECT gid
+    AS id, source::int4, target::int4, cost::double precision, rcost::double
+    precision AS reverse_cost,x1,y1,x2,y2 FROM rtest',1,3,false,true);
+
+                               QUERY PLAN 
+--------------------------------------------------------------------------------
+Function Scan on shortest_path_astar  (cost=0.00..12.50 rows=1000 width=16) 
+(actual time=11.088..11.093 rows=5 loops=1)  Total runtime: 11.155 ms(2 rows)
+</pre><p>
+the end.
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/pgRoutingDocs/processing/advanced?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("advanced.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/pgRoutingDocs/processing/advanced by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

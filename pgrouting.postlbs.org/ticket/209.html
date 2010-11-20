@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/209 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:16:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #209 (Issue with 'make' - POSTGRESQL not found + other errors)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="208.html" title="Ticket #208" />
+        <link rel="last" href="218.html" title="Ticket #218" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/209?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/209?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/209?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="next" href="210.html" title="Ticket #210" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="1.html" title="Ticket #1" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="208.html" title="Ticket #208">Previous Ticket</a></span></li><li class="last"><span><a class="next" href="210.html" title="Ticket #210">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #209
+          <span class="status">(new bug report)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-06-28T19%3A27%3A50%2B0900&amp;precision=second" title="2010-06-28T19:27:50+0900 in Timeline">5 months</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-06-28T21%3A59%3A43%2B0900&amp;precision=second" title="2010-06-28T21:59:43+0900 in Timeline">5 months</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">Issue with 'make' - POSTGRESQL not found + other errors</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">roydon</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">somebody
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      major
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="missing milestone"></a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      pgRouting package
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+We are running Ubuntu 10.04 and we have installed POSTGRESQL (8.4) and POSTGIS (1.5.1) manually.  Both are working as Mapnik is working 100%, so there are no errors with their installation.
+</p>
+<p>
+When first trying to run 'cmake -DWITH_TSP=ON -DWITH_DD=ON .' we got the following error (note that all info from the terminal window is shown between '------------------'):
+</p>
+<hr />
+<p>
+-- The C compiler identification is GNU
+-- The CXX compiler identification is GNU
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+CMake Warning (dev) at CMakeLists.txt:12 (add_subdirectory):
+</p>
+<blockquote>
+<p>
+The source directory
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+/home/administrator/pgrouting/cmake
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+does not contain a CMakeLists.txt file.
+</p>
+</blockquote>
+<blockquote>
+<p>
+CMake does not support this case but it used to work accidentally and is
+being allowed for compatibility.
+</p>
+</blockquote>
+<blockquote>
+<p>
+Policy CMP0014 is not set: Input directories must have CMakeLists.txt.  Run
+"cmake --help-policy CMP0014" for policy details.  Use the cmake_policy
+command to set the policy and suppress this warning.
+</p>
+</blockquote>
+<p>
+This warning is for project developers.  Use -Wno-dev to suppress it.
+</p>
+<p>
+-- PostgreSQL not found.
+FATALERROR Please check your PostgreSQL installation.
+-- Boost version: 1.40.0
+-- Found the following Boost libraries:
+Boost headers were found here: /usr/include
+Output directory for libraries is set to /usr/lib/postgresql/8.4/lib
+-- Found PGROUTING_CORE core: /home/administrator/pgrouting/core/src
+Installation directory for libraries is set to /usr/lib/postgresql/8.4/lib and for SQL files is set to /usr/share/postlbs
+-- Found GAUL: /usr/local/lib/libgaul.so, /usr/local/lib/libgaul_util.so
+Installation directory for libraries is set to /usr/lib/postgresql/8.4/lib
+-- Found CGAL: /usr/include, /usr/lib/libCGAL.so
+CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
+Please set them or make sure they are set and tested correctly in the CMake files:
+POSTGRESQL_INCLUDE_DIR (ADVANCED)
+</p>
+<blockquote>
+<p>
+used as include directory in directory /home/administrator/pgrouting
+used as include directory in directory /home/administrator/pgrouting/core
+used as include directory in directory /home/administrator/pgrouting/extra/tsp
+used as include directory in directory /home/administrator/pgrouting/extra/tsp/src
+used as include directory in directory /home/administrator/pgrouting/extra/tsp/sql
+used as include directory in directory /home/administrator/pgrouting/extra/driving_distance
+used as include directory in directory /home/administrator/pgrouting/extra/driving_distance/src
+used as include directory in directory /home/administrator/pgrouting/extra/driving_distance/sql
+used as include directory in directory /home/administrator/pgrouting/core/src
+used as include directory in directory /home/administrator/pgrouting/core/sql
+</p>
+</blockquote>
+<p>
+   
+-- Configuring incomplete, errors occurred!
+</p>
+<hr />
+<p>
+We edited the file /pgrouting/CMakeCache.txt as follows:
+</p>
+<p>
+POSTGRESQL_INCLUDE_DIR:PATH=POSTGRESQL_INCLUDE_DIR-NOTFOUND  ==&gt;  POSTGRESQL_INCLUDE_DIR:PATH=/usr/include
+</p>
+<p>
+We then ran the 'cmake -DWITH_TSP=ON -DWITH_DD=ON .' command again and got the following (which we assumed meant it was a success):
+</p>
+<hr />
+<p>
+CMake Warning (dev) at CMakeLists.txt:12 (add_subdirectory):
+</p>
+<blockquote>
+<p>
+The source directory
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+/home/administrator/pgrouting/cmake
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+does not contain a CMakeLists.txt file.
+</p>
+</blockquote>
+<blockquote>
+<p>
+CMake does not support this case but it used to work accidentally and is
+being allowed for compatibility.
+</p>
+</blockquote>
+<blockquote>
+<p>
+Policy CMP0014 is not set: Input directories must have CMakeLists.txt.  Run
+"cmake --help-policy CMP0014" for policy details.  Use the cmake_policy
+command to set the policy and suppress this warning.
+</p>
+</blockquote>
+<p>
+This warning is for project developers.  Use -Wno-dev to suppress it.
+</p>
+<p>
+Boost headers were found here: /usr/include
+Output directory for libraries is set to /usr/lib/postgresql/8.4/lib
+Installation directory for libraries is set to /usr/lib/postgresql/8.4/lib and for SQL files is set to /usr/share/postlbs
+Installation directory for libraries is set to /usr/lib/postgresql/8.4/lib
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/administrator/pgrouting
+</p>
+<hr />
+<p>
+The next step was to run 'make' and then we got the following error:
+</p>
+<hr />
+<p>
+Scanning dependencies of target routing_tsp
+[  8%] Building C object extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o
+In file included from /home/administrator/pgrouting/extra/tsp/src/tsp.c:22:
+/home/administrator/pgrouting/extra/tsp/src/tsp.h:25:22: error: postgres.h: No such file or directory
+In file included from /home/administrator/pgrouting/extra/tsp/src/tsp.h:26,
+</p>
+<blockquote>
+<p>
+from /home/administrator/pgrouting/extra/tsp/src/tsp.c:22:
+</p>
+</blockquote>
+<p>
+/home/administrator/pgrouting/core/src/dijkstra.h:32: error: expected specifier-qualifier-list before ‘float8’
+/home/administrator/pgrouting/core/src/dijkstra.h:40: error: expected specifier-qualifier-list before ‘float8’
+/home/administrator/pgrouting/core/src/dijkstra.h:47: error: expected declaration specifiers or ‘...’ before ‘bool’
+/home/administrator/pgrouting/core/src/dijkstra.h:47: error: expected declaration specifiers or ‘...’ before ‘bool’
+In file included from /home/administrator/pgrouting/extra/tsp/src/tsp.c:22:
+/home/administrator/pgrouting/extra/tsp/src/tsp.h:31: error: expected specifier-qualifier-list before ‘float8’
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:25:26: error: executor/spi.h: No such file or directory
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:26:21: error: funcapi.h: No such file or directory
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:27:29: error: catalog/pg_type.h: No such file or directory
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:32:18: error: fmgr.h: No such file or directory
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:73: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘<span class="underline">attribute</span>’ before ‘tsp’
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:98: error: expected ‘)’ before ‘*’ token
+/home/administrator/pgrouting/extra/tsp/src/tsp.c: In function ‘finish’:
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:111: error: ‘SPI_OK_FINISH’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:111: error: (Each undeclared identifier is reported only once
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:111: error: for each function it appears in.)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:113: error: ‘ERROR’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c: At top level:
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:123: error: expected specifier-qualifier-list before ‘float8’
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:129: error: expected ‘)’ before ‘*’ token
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:152: error: expected ‘)’ before ‘*’ token
+/home/administrator/pgrouting/extra/tsp/src/tsp.c: In function ‘solve_tsp’:
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:194: error: ‘Portal’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:194: error: expected ‘;’ before ‘SPIportal’
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:195: error: ‘bool’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:195: error: expected ‘;’ before ‘moredata’
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:202: error: unknown field ‘x’ specified in initializer
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:202: warning: excess elements in struct initializer
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:202: warning: (near initialization for ‘point_columns’)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:202: error: unknown field ‘y’ specified in initializer
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:202: warning: excess elements in struct initializer
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:202: warning: (near initialization for ‘point_columns’)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:228: error: ‘ERROR’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:238: error: ‘SPI_OK_CONNECT’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:244: warning: assignment makes pointer from integer without a cast
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:252: error: ‘SPIportal’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:252: error: ‘true’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:261: error: ‘moredata’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:261: error: ‘TRUE’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:267: error: ‘SPI_tuptable’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:271: error: ‘SPI_processed’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:278: warning: assignment makes pointer from integer without a cast
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:280: warning: assignment makes pointer from integer without a cast
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:291: error: ‘SPITupleTable’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:291: error: ‘tuptable’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:292: error: ‘<a class="missing wiki">TupleDesc?</a>’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:292: error: expected ‘;’ before ‘tupdesc’
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:298: error: ‘<a class="missing wiki">HeapTuple?</a>’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:298: error: expected ‘;’ before ‘tuple’
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:300: error: ‘tuple’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:300: error: ‘tupdesc’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:309: error: ‘FALSE’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:325: error: ‘point_t’ has no member named ‘x’
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:326: error: ‘point_t’ has no member named ‘y’
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:364: error: ‘ERRCODE_E_R_E_CONTAINING_SQL_NOT_PERMITTED’ undeclared (first use in this function)
+/home/administrator/pgrouting/extra/tsp/src/tsp.c: At top level:
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:370: warning: data definition has no type or storage class
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:370: warning: parameter names (without types) in function declaration
+/home/administrator/pgrouting/extra/tsp/src/tsp.c:372: ting_tsp.dir/all] Error 2
+make: *** [all] Error 2
+</p>
+<hr />
+<p>
+If anyone knows where we are going wrong, please let us know !
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-06-28T21%3A59%3A43%2B0900&amp;precision=second" title="2010-06-28T21:59:43+0900 in Timeline">5 months</a> ago by daniel
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>component</strong>
+              changed from <em>A*</em> to <em>pgRouting package</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+I made pgRouting packages with 10.04 and I took PostgreSQL, PostGIS and CMake as it comes through repositories. I didn't have any problems with CMake (did you take the repository version?) as you described.
+</p>
+<p>
+For TSP and Driving Distance support you need to care about other dependencies, though I don't think there is the problem.<br />
+Nevertheless you could try to first only compile pgRouting without TSP and Driving Distance support not reduce possibilities for errors. You can add then later.
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/209?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/209?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/209?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("209.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/209 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:16:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

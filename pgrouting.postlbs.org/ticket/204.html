@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/204 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:58:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #204 (Addingdriving distance functions makes the server close connection)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="203.html" title="Ticket #203" />
+        <link rel="last" href="218.html" title="Ticket #218" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/204?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/204?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/204?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="next" href="205.html" title="Ticket #205" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="1.html" title="Ticket #1" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="203.html" title="Ticket #203">Previous Ticket</a></span></li><li class="last"><span><a class="next" href="205.html" title="Ticket #205">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #204
+          <span class="status">(closed bug report: fixed)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-05-12T12%3A09%3A43%2B0900&amp;precision=second" title="2010-05-12T12:09:43+0900 in Timeline">6 months</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-09-18T17%3A15%3A43%2B0900&amp;precision=second" title="2010-09-18T17:15:43+0900 in Timeline">2 months</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">Addingdriving distance functions makes the server close connection</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">daniel</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">anton
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      critical
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="missing milestone"></a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      DrivingDistance
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      trunk
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+When trying to add functions for driving distance to a database, the server connection fails.
+</p>
+<p>
+* Server: Linux 2.6.32-22-server <a class="missing ticket">#33</a>-Ubuntu SMP Wed Apr 28 14:34:48 UTC 2010 x86_64 GNU/Linux
+* Postgresql version 8.4 from Ubuntu repository (Ubuntu 10.04, but I think it also happened on 9.10)
+</p>
+<pre class="wiki">daniel@demoserver:~$ psql -U postgres -f /usr/share/postlbs/routing_dd.sql mobility
+psql:/usr/share/postlbs/routing_dd.sql:28: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+psql:/usr/share/postlbs/routing_dd.sql:28: connection to server was lost
+</pre><p>
+This is critical issue and there won't be any new release until it will be solved.
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-06-09T06%3A17%3A43%2B0900&amp;precision=second" title="2010-06-09T06:17:43+0900 in Timeline">5 months</a> ago by henkeb
+                </h3>
+      <div class="comment searchable">
+        <p>
+I have the same problem.
+Linux 2.6.32-21-server <a class="missing ticket">#32</a>-Ubuntu SMP x86_64 GNU/Linux
+PostgreSQL 8.4 
+select postgis_version();
+</p>
+<blockquote>
+<p>
+postgis_version            
+</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>
+1.4 USE_GEOS=1 USE_PROJ=1 USE_STATS=1
+</p>
+</blockquote>
+<p>
+This is the output from the server log.
+</p>
+<pre class="wiki">
+2010-06-08 22:59:59 CEST LOG:  statement: CREATE OR REPLACE FUNCTION driving_distance(sql text, source_id integer, 
+	        distance float8,directed boolean, has_reverse_cost boolean)
+	        RETURNS SETOF path_result
+	        AS '$libdir/librouting_dd'
+	        LANGUAGE 'C' IMMUTABLE STRICT;
+terminate called after throwing an instance of 'CGAL::Assertion_exception'
+  what():  CGAL ERROR: assertion violation!
+Expr: -CGAL_IA_MUL(-1.1, 10.1) != CGAL_IA_MUL(1.1, 10.1)
+File: /usr/include/CGAL/Interval_nt.h
+Line: 158
+
+
+
+</pre>
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-07-02T00%3A25%3A49%2B0900&amp;precision=second" title="2010-07-02T00:25:49+0900 in Timeline">5 months</a> ago by oscar
+                </h3>
+      <div class="comment searchable">
+        <p>
+I have the same problem too. I've been testing Red Hat Enterprise Linux 5 x86_64 and Ubuntu 10.04 x86_64 and the problem exist. This is my postgres 1.4 log (postgis 1.5.1):
+</p>
+<pre class="wiki">terminate called after throwing an instance of 'CGAL::Assertion_exception'
+  what():  CGAL ERROR: assertion violation!
+Expr: -CGAL_IA_MUL(-1.1, 10.1) != CGAL_IA_MUL(1.1, 10.1)
+File: /usr/include/CGAL/Interval_nt.h
+Line: 158
+</pre><p>
+Also I have pgrouting installed on Ubuntu 9.10 x86_32 and Ubuntu 10.04 x86_32 and there isn't any problem. It could be a 64 bits OS/processor problem.
+</p>
+<p>
+Any clue?
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-07-02T17%3A59%3A48%2B0900&amp;precision=second" title="2010-07-02T17:59:48+0900 in Timeline">5 months</a> ago by daniel
+                </h3>
+      <div class="comment searchable">
+        <p>
+Hi Oscar, thank you for the hint! It really seems to be a problem for 64 bit OS only. I just tried it on Ubuntu 10.04 i386 and there was no crash when loading the functions.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-07-26T20%3A25%3A41%2B0900&amp;precision=second" title="2010-07-26T20:25:41+0900 in Timeline">4 months</a> ago by Martin
+                </h3>
+      <div class="comment searchable">
+        <p>
+Same problem here on Ubuntu 10.04 x86_64
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:5">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-07-28T22%3A22%3A42%2B0900&amp;precision=second" title="2010-07-28T22:22:42+0900 in Timeline">4 months</a> ago by gfleming
+                </h3>
+      <div class="comment searchable">
+        <p>
+Same problem here on Ubuntu 10.04 x86_64
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:6">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-09-16T19%3A16%3A21%2B0900&amp;precision=second" title="2010-09-16T19:16:21+0900 in Timeline">2 months</a> ago by malmac
+                </h3>
+      <div class="comment searchable">
+        <p>
+I have had the same problem on fedora 13 64bit and Postgresql 8.4.4.
+CGAL - 3.5.1
+GCC - 4.4.4-10
+cmake - 2.8
+I noted the following in the postgresql server log:
+</p>
+<p>
+terminate called after throwing an instance of 'CGAL::Assertion_exception'
+</p>
+<blockquote>
+<p>
+what():  CGAL ERROR: assertion violation!
+</p>
+</blockquote>
+<p>
+Expr: -CGAL_IA_MUL(-1.1, 10.1) != CGAL_IA_MUL(1.1, 10.1)
+File: /usr/include/CGAL/Interval_nt.h
+Line: 158
+Explanation: Wrong rounding: did you forget the -frounding-math option if you use GCC?
+</p>
+<p>
+I then modified the CMakeLists.txt lines 116 and 117 as follows:
+SET(CMAKE_C_FLAGS "-O2 -g -frounding-math")
+SET(CMAKE_CXX_FLAGS "-O2 -g -frounding-math")
+</p>
+<p>
+After this I could install the route_dd.sql and route_dd_wrappers.sql without the server crashing.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:7">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-09-18T17%3A15%3A43%2B0900&amp;precision=second" title="2010-09-18T17:15:43+0900 in Timeline">2 months</a> ago by daniel
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>new</em> to <em>closed</em>
+        </li><li>
+          <strong>resolution</strong>
+              set to <em>fixed</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Hi malmac,
+</p>
+<p>
+Thank you very much for your comment! I can reconfirm that now it doesn't crash anymore when loading driving distance function on 64 Bit systems.
+</p>
+<p>
+I applied the changes to SVN trunk <a class="changeset" href="../changeset/358.html" title="added -frounding-math CMake flag for ticket #204">r358</a>
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/204?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/204?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/204?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("204.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/204 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:58:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,1149 @@
+diff -uNr ../trunk/osm2pgrouting/.svn/entries ./.svn/entries
+--- ../trunk/osm2pgrouting/.svn/entries	2010-08-23 13:07:33.000000000 -0400
++++ ./.svn/entries	2010-08-17 16:01:09.000000000 -0400
+@@ -32,7 +32,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ c5f694e708ed616ea2cda9009c5c032a
+ 2009-10-14T02:02:46.880113Z
+ 350
+@@ -66,7 +66,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ e1379eda106bd6cb55726db17b47b9ce
+ 2009-07-06T05:21:43.209088Z
+ 336
+@@ -103,7 +103,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 575a9649d181e899167b5b7fd7811c4d
+ 2008-09-01T07:46:18.398458Z
+ 209
+@@ -137,7 +137,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 2826553201e1ebafad87cb45301e30fe
+ 2008-09-02T04:52:50.248859Z
+ 215
+@@ -171,7 +171,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 5ca6416f3ea70fdf6e16d47ed5dd6f5c
+ 2008-09-02T05:34:44.671918Z
+ 216
+diff -uNr ../trunk/osm2pgrouting/AUTHORS.txt ./AUTHORS.txt
+--- ../trunk/osm2pgrouting/AUTHORS.txt	2010-08-23 13:07:33.000000000 -0400
++++ ./AUTHORS.txt	1969-12-31 19:00:00.000000000 -0500
+@@ -1,8 +0,0 @@
+-Project contributors:
+-
+-Daniel Wendt
+-Anton Patrushev
+-Daniel Kastl
+-
+-The project is graciously supported by Orkney, Inc.
+-<http://www.orkney.co.jp/>
+\ No newline at end of file
+diff -uNr ../trunk/osm2pgrouting/Makefile ./Makefile
+--- ../trunk/osm2pgrouting/Makefile	2010-08-23 13:07:33.000000000 -0400
++++ ./Makefile	2010-08-21 23:49:56.000000000 -0400
+@@ -1,6 +1,6 @@
+ CC = g++
+ 
+-SRC = src/Export2DB.cpp src/math_functions.cpp src/Node.cpp src/OSMDocumentParserCallback.cpp src/Way.cpp src/OSMDocument.cpp src/Type.cpp src/Class.cpp src/Configuration.cpp src/ConfigurationParserCallback.cpp
++SRC = src/Export2DB.cpp src/math_functions.cpp src/Node.cpp src/Tag.cpp src/OSMDocumentParserCallback.cpp src/Way.cpp src/OSMDocument.cpp src/Type.cpp src/Class.cpp src/Configuration.cpp src/ConfigurationParserCallback.cpp
+ 
+ DEPS = src/XMLParser.cpp
+ 
+diff -uNr ../trunk/osm2pgrouting/pgrouting.patch ./pgrouting.patch
+--- ../trunk/osm2pgrouting/pgrouting.patch	1969-12-31 19:00:00.000000000 -0500
++++ ./pgrouting.patch	2010-08-24 06:09:11.000000000 -0400
+@@ -0,0 +1,72 @@
++diff -uNr ../trunk/osm2pgrouting/.svn/entries ./.svn/entries
++--- ../trunk/osm2pgrouting/.svn/entries	2010-08-23 13:07:33.000000000 -0400
+++++ ./.svn/entries	2010-08-17 16:01:09.000000000 -0400
++@@ -32,7 +32,7 @@
++ 
++ 
++ 
++-2010-08-23T17:07:33.000000Z
+++2010-08-02T19:40:56.000000Z
++ c5f694e708ed616ea2cda9009c5c032a
++ 2009-10-14T02:02:46.880113Z
++ 350
++@@ -66,7 +66,7 @@
++ 
++ 
++ 
++-2010-08-23T17:07:33.000000Z
+++2010-08-02T19:40:56.000000Z
++ e1379eda106bd6cb55726db17b47b9ce
++ 2009-07-06T05:21:43.209088Z
++ 336
++@@ -103,7 +103,7 @@
++ 
++ 
++ 
++-2010-08-23T17:07:33.000000Z
+++2010-08-02T19:40:56.000000Z
++ 575a9649d181e899167b5b7fd7811c4d
++ 2008-09-01T07:46:18.398458Z
++ 209
++@@ -137,7 +137,7 @@
++ 
++ 
++ 
++-2010-08-23T17:07:33.000000Z
+++2010-08-02T19:40:56.000000Z
++ 2826553201e1ebafad87cb45301e30fe
++ 2008-09-02T04:52:50.248859Z
++ 215
++@@ -171,7 +171,7 @@
++ 
++ 
++ 
++-2010-08-23T17:07:33.000000Z
+++2010-08-02T19:40:56.000000Z
++ 5ca6416f3ea70fdf6e16d47ed5dd6f5c
++ 2008-09-02T05:34:44.671918Z
++ 216
++diff -uNr ../trunk/osm2pgrouting/AUTHORS.txt ./AUTHORS.txt
++--- ../trunk/osm2pgrouting/AUTHORS.txt	2010-08-23 13:07:33.000000000 -0400
+++++ ./AUTHORS.txt	1969-12-31 19:00:00.000000000 -0500
++@@ -1,8 +0,0 @@
++-Project contributors:
++-
++-Daniel Wendt
++-Anton Patrushev
++-Daniel Kastl
++-
++-The project is graciously supported by Orkney, Inc.
++-<http://www.orkney.co.jp/>
++\ No newline at end of file
++diff -uNr ../trunk/osm2pgrouting/Makefile ./Makefile
++--- ../trunk/osm2pgrouting/Makefile	2010-08-23 13:07:33.000000000 -0400
+++++ ./Makefile	2010-08-21 23:49:56.000000000 -0400
++@@ -1,6 +1,6 @@
++ CC = g++
++ 
++-SRC = src/Export2DB.cpp src/math_functions.cpp src/Node.cpp src/OSMDocumentParserCallback.cpp src/Way.cpp src/OSMDocument.cpp src/Type.cpp src/Class.cpp src/Configuration.cpp src/ConfigurationParserCallback.cpp
+++SRC = src/Export2DB.cpp src/math_functions.cpp src/Node.cpp src/Tag.cpp src/OSMDocumentParserCallback.cpp src/Way.cpp src/OSMDocument.cpp src/Type.cpp src/Class.cpp src/Configuration.cpp src/ConfigurationParserCallback.cpp
++ 
++ DEPS = src/XMLParser.cpp
++ 
+diff -uNr ../trunk/osm2pgrouting/src/.svn/entries ./src/.svn/entries
+--- ../trunk/osm2pgrouting/src/.svn/entries	2010-08-23 13:07:33.000000000 -0400
++++ ./src/.svn/entries	2010-08-02 15:40:56.000000000 -0400
+@@ -32,7 +32,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 70888a05d92b5f2a923782acd056be6d
+ 2008-09-02T03:44:58.739412Z
+ 212
+@@ -66,7 +66,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 9d23f5e705fcd54ff55094dd62a95a89
+ 2008-09-01T08:13:20.101320Z
+ 210
+@@ -100,7 +100,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 65389bdd9ba5645f2f9c7f28c0ecaae6
+ 2008-07-30T02:41:46.437110Z
+ 198
+@@ -134,7 +134,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 4976c24da450fa39d5497457ad38bf12
+ 2008-07-30T02:41:46.437110Z
+ 198
+@@ -168,7 +168,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 8f7eda672fed1b062f2cc9990b920455
+ 2008-07-30T02:41:46.437110Z
+ 198
+@@ -202,7 +202,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 364960da6df2935120dfec24b4bc7515
+ 2008-09-01T08:13:20.101320Z
+ 210
+@@ -236,7 +236,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ b802f71f2c82268e423a427c034395e9
+ 2009-03-02T00:58:55.597860Z
+ 267
+@@ -270,7 +270,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 45b1bb4c145ff2b0baf13b47d57d9c44
+ 2008-07-30T02:41:46.437110Z
+ 198
+@@ -304,7 +304,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 5a2b7252301b072f0e130b35c8ed804b
+ 2008-09-02T05:54:09.745085Z
+ 217
+@@ -338,7 +338,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 30de9c22d7aaf87b15c2f098755e2060
+ 2008-07-30T02:41:46.437110Z
+ 198
+@@ -372,7 +372,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 9d4063f57af1fd9de4f4f94d8795deda
+ 2008-07-30T02:41:46.437110Z
+ 198
+@@ -406,7 +406,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 26e73a54f84654789684f0e00bf5f92e
+ 2010-07-01T06:17:54.689745Z
+ 357
+@@ -440,7 +440,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 3d8cae99467120c52777da1f8958c33e
+ 2008-07-30T02:41:46.437110Z
+ 198
+@@ -474,7 +474,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 5abe928d83516a1c6acc7de7d6409da6
+ 2008-09-02T03:44:58.739412Z
+ 212
+@@ -508,7 +508,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 964c992925c438c8f794f5a36fbc4b4a
+ 2008-07-14T10:59:07.542369Z
+ 189
+@@ -542,7 +542,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 9346ff568e9949e5f6700c98011bb03c
+ 2008-07-30T02:41:46.437110Z
+ 198
+@@ -576,7 +576,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 571f9f09bf5590a2eb538a067e34427f
+ 2008-07-14T10:59:07.542369Z
+ 189
+@@ -610,7 +610,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ ec9b5804471b44de9d1cb55c6cf3c690
+ 2008-07-14T10:59:07.542369Z
+ 189
+@@ -644,7 +644,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 52262e89d946e2b02ac347588c6545a2
+ 2008-07-30T02:41:46.437110Z
+ 198
+@@ -678,7 +678,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ eb75cd0697278734485059d9949a6ae9
+ 2008-07-14T10:59:07.542369Z
+ 189
+@@ -712,7 +712,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 87ff651797e251a89b42a3789c913311
+ 2009-06-04T02:37:15.925005Z
+ 334
+@@ -746,7 +746,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 0e78396c470446cc35ad9ff12b867067
+ 2008-07-14T10:59:07.542369Z
+ 189
+@@ -780,7 +780,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ ce54fdec1691719a5a5f158773d2ba87
+ 2009-03-02T00:58:55.597860Z
+ 267
+@@ -814,7 +814,7 @@
+ 
+ 
+ 
+-2010-08-23T17:07:33.000000Z
++2010-08-02T19:40:56.000000Z
+ 0e51fb8296622700da39c2d031ace8c5
+ 2008-09-01T08:13:20.101320Z
+ 210
+diff -uNr ../trunk/osm2pgrouting/src/Export2DB.cpp ./src/Export2DB.cpp
+--- ../trunk/osm2pgrouting/src/Export2DB.cpp	2010-08-23 13:07:33.000000000 -0400
++++ ./src/Export2DB.cpp	2010-08-23 10:45:49.000000000 -0400
+@@ -18,7 +18,7 @@
+  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+  ***************************************************************************/
+ 
+-#include "stdafx.h"
++#include "stdafx.h" 
+ #include "Export2DB.h"
+ 
+ using namespace std;
+@@ -65,21 +65,66 @@
+ 
+ }
+ 
++
+ void Export2DB::createTables()
+ {
+ 	PGresult *result = PQexec(mycon, "CREATE TABLE nodes (ID integer PRIMARY KEY,  lon decimal(11,8), lat decimal(11,8), numOfUse smallint);");
++	if (PQresultStatus(result) != PGRES_COMMAND_OK)
++        {
++                std::cerr << "create Nodes failed: " 
++			<< PQerrorMessage(mycon) 
++			<< std::endl;
++                PQclear(result);
++        }
++
+ 	std::cout << "Nodes table created" << std::endl;
+-	result = PQexec(mycon, "CREATE TABLE ways (gid integer, class_id integer, length double precision, name char(200), x1 double precision, y1 double precision, x2 double precision,y2 double precision, reverse_cost double precision,rule text, to_cost double precision, PRIMARY KEY(gid)); SELECT AddGeometryColumn('ways','the_geom',4326,'MULTILINESTRING',2);");
+-	std::cout << "Ways table created" << std::endl;
++	result = PQexec(mycon, "CREATE TABLE ways (gid integer, class_id integer not null, length double precision, name character varying(200), x1 double precision, y1 double precision, x2 double precision,y2 double precision, reverse_cost double precision,rule text, to_cost double precision); SELECT AddGeometryColumn('ways','the_geom',4326,'MULTILINESTRING',2);");
++	if (PQresultStatus(result) != PGRES_COMMAND_OK)
++        {
++                std::cerr << "create ways failed: " 
++			<< PQerrorMessage(mycon) 
++			<< std::endl;
++                PQclear(result);
++        } else {
++		std::cout << "Ways table created" << std::endl;
++	}
+ 	result = PQexec(mycon, "CREATE TABLE types (id integer, name char(200));");
+-	std::cout << "Types table created" << std::endl;
++	if (PQresultStatus(result) != PGRES_COMMAND_OK)
++        {
++                std::cerr << "create types failed: " 
++			<< PQerrorMessage(mycon) 
++			<< std::endl;
++                PQclear(result);
++        } else {
++		std::cout << "Types table created" << std::endl;
++	}
++	
++	result = PQexec(mycon, "CREATE TABLE way_tag (type_id integer, class_id integer, way_id integer);");
++	if (PQresultStatus(result) != PGRES_COMMAND_OK)
++        {
++                std::cerr << "create way_tag failed: " 
++			<< PQerrorMessage(mycon) 
++			<< std::endl;
++                PQclear(result);
++        } else {
++		std::cout << "Way_tag table created" << std::endl;	
++	}
++	
+ 	result = PQexec(mycon, "CREATE TABLE classes (id integer, type_id integer, name char(200), cost double precision);");
+-	std::cout << "Classes table created" << std::endl;	
++	if (PQresultStatus(result) != PGRES_COMMAND_OK)
++        {
++                std::cerr << "create classes failed: " 
++			<< PQerrorMessage(mycon) 
++			<< std::endl;
++                PQclear(result);
++        } else {
++		std::cout << "Classes table created" << std::endl;	
++	}
+ }
+ 
+ void Export2DB::dropTables()
+ {
+-	PGresult *result = PQexec(mycon, "DROP TABLE ways; DROP TABLE nodes; DROP TABLE types; DROP TABLE classes;");
++	PGresult *result = PQexec(mycon, "DROP TABLE IF EXISTS ways CASCADE; DROP TABLE IF EXISTS nodes CASCADE; DROP TABLE IF EXISTS types CASCADE; DROP TABLE IF EXISTS classes CASCADE; DROP TABLE IF EXISTS way_tag CASCADE");
+ }
+ 
+ void Export2DB::exportNode(long long id, double lon, double lat, ushort numOfUse )
+@@ -105,12 +150,51 @@
+ 
+ void Export2DB::exportWay(Way* way)
+ {
++
++	std::vector<Tag*>::iterator it_tag( way->m_Tags.begin() );
++	std::vector<Tag*>::iterator last_tag( way->m_Tags.end() );
++	// cout << "Number of tags: " << way->m_Tags.size() << endl;
++	std::cout << "First tag: " << way->m_Tags.front()->key << ":" << way->m_Tags.front()->value << std::endl;
++
++	std::string tagString;
++	tagString = "{";
++	while( it_tag!=last_tag )
++	{
++		Tag* pTag = *it_tag++;
++		tagString += pTag->key + ":" + pTag->value + ", ";
++		
++		std::string query = "INSERT into way_tag(type_id, class_id, way_id) values(";
++
++		query+= "(SELECT id FROM types WHERE name ='" + boost::lexical_cast<std::string>(pTag->key) + "'),";		
++		query+= "(SELECT id FROM classes WHERE name ='" + boost::lexical_cast<std::string>(pTag->value) + "' and type_id = (select id from types where name='"+ boost::lexical_cast<std::string>(pTag->key) + "')),";		
++		query+= boost::lexical_cast<std::string>(way->id) + ")";
++	std::cout << query << std::endl;
++		
++		PGresult *result = PQexec(mycon, query.c_str());
++		if (PQresultStatus(result) != PGRES_COMMAND_OK)
++        {
++                std::cerr << "create way_tag failed: " 
++			<< PQerrorMessage(mycon) 
++			<< std::endl;
++	        std::cerr << "SQL:" << std::endl << query << std::endl;
++                PQclear(result);
++        }
++	}
++	
++	std::cout << "Number of tags: " << way->m_Tags.size() << ", About to insert tag: " << tagString << std::endl;
++
++	// for( int i = 0; i < way->m_Tags.size(); i++ ) {
++    //  cout << "About to insert tag: " << i << " is " << way->m_Tags[i] << endl;
++	// }
++
+ 	std::string query = "INSERT into ways(gid, class_id, length, x1, y1, x2, y2, the_geom, reverse_cost";
+ 	if(!way->name.empty())
+ 		query+=", name";
+ 	query+=") values(";
+ 	
+-	query+=boost::lexical_cast<std::string>(way->id) + ", (SELECT id FROM classes WHERE name ='" + boost::lexical_cast<std::string>(way->clss) + "')," + boost::lexical_cast<std::string>(way->length) + "," 
++	query+=boost::lexical_cast<std::string>(way->id) + 
++		", (SELECT id FROM classes WHERE name ='" + boost::lexical_cast<std::string>(way->clss) + "' and type_id = (select id from types where name='"+ boost::lexical_cast<std::string>(way->type) + "'))," 
++		+ boost::lexical_cast<std::string>(way->length) + "," 
+ 		 + boost::lexical_cast<std::string>(way->m_NodeRefs.front()->lon) + ","+ boost::lexical_cast<std::string>(way->m_NodeRefs.front()->lat) + ","
+ 		 + boost::lexical_cast<std::string>(way->m_NodeRefs.back()->lon)  + ","+ boost::lexical_cast<std::string>(way->m_NodeRefs.back()->lat) + ",";
+ 	query+="GeometryFromText('" + way->geom +"', 4326)";
+@@ -129,6 +213,14 @@
+ 	query+=");";
+ 		//std::cout << query <<std::endl;
+ 	PGresult *result = PQexec(mycon, query.c_str());
++	if (PQresultStatus(result) != PGRES_COMMAND_OK)
++        {
++                std::cerr << "create Nodes failed: " 
++			<< PQerrorMessage(mycon) 
++			<< std::endl;
++	        std::cerr << "SQL:" << std::endl << query << std::endl;
++                PQclear(result);
++        }
+ }
+ 
+ void Export2DB::exportType(Type* type)
+@@ -151,9 +243,10 @@
+ {
+ 	PGresult *result = PQexec(mycon,"ALTER TABLE ways ADD COLUMN source integer;");
+ 	result = PQexec(mycon,"ALTER TABLE ways ADD COLUMN target integer;");
++    result = PQexec(mycon,"CREATE INDEX ways_gid_idx ON ways(gid);");
+ 	result = PQexec(mycon,"CREATE INDEX source_idx ON ways(source);");
+ 	result = PQexec(mycon,"CREATE INDEX target_idx ON ways(target);");
+-        result = PQexec(mycon,"CREATE INDEX geom_idx ON ways USING GIST(the_geom GIST_GEOMETRY_OPS);");
++    result = PQexec(mycon,"CREATE INDEX geom_idx ON ways USING GIST(the_geom GIST_GEOMETRY_OPS);");
+ 	result = PQexec(mycon,"SELECT assign_vertex_id('ways', 0.00001, 'the_geom', 'gid');");
+ 	
+ }
+diff -uNr ../trunk/osm2pgrouting/src/Export2DB.h ./src/Export2DB.h
+--- ../trunk/osm2pgrouting/src/Export2DB.h	2010-08-23 13:07:33.000000000 -0400
++++ ./src/Export2DB.h	2010-08-22 10:38:49.000000000 -0400
+@@ -23,6 +23,7 @@
+ 
+ //#include "postgresql/libpq-fe.h"
+ #include "libpq-fe.h"
++#include "Tag.h"
+ #include "Node.h"
+ #include "Way.h"
+ #include "Type.h"
+diff -uNr ../trunk/osm2pgrouting/src/OSMDocument.cpp ./src/OSMDocument.cpp
+--- ../trunk/osm2pgrouting/src/OSMDocument.cpp	2010-08-23 13:07:33.000000000 -0400
++++ ./src/OSMDocument.cpp	2010-08-23 13:02:49.000000000 -0400
+@@ -21,16 +21,17 @@
+ #include "stdafx.h"
+ #include "OSMDocument.h"
+ #include "Configuration.h"
++#include "Tag.h"
+ #include "Node.h"
+ #include "Way.h"
+ #include "math_functions.h"
+ 
+-
++
+ namespace osm
+ {
+ 
+-OSMDocument::OSMDocument( Configuration& config ) : m_rConfig( config )
+-{
++OSMDocument::OSMDocument( Configuration& config ) : m_rConfig( config )
++{
+ }
+ 
+ OSMDocument::~OSMDocument()
+@@ -69,13 +70,12 @@
+ 	{
+ 		Way* currentWay = *it++;
+ 		
++		// ITERATE THROUGH THE NODES
+ 		std::vector<Node*>::const_iterator it_node( currentWay->m_NodeRefs.begin());	
+ 		std::vector<Node*>::const_iterator last_node( currentWay->m_NodeRefs.end());
+ 		
+ 		Node* backNode = currentWay->m_NodeRefs.back();
+ 
+-
+-
+ 		while(it_node!=last_node)
+ 		{
+ 			
+@@ -88,6 +88,23 @@
+ 			splitted_way->type=currentWay->type;
+ 			splitted_way->clss=currentWay->clss;
+ 			splitted_way->oneway=currentWay->oneway;
++			
++			std::vector<Tag*>::iterator it_tag( currentWay->m_Tags.begin() );
++			std::vector<Tag*>::iterator last_tag( currentWay->m_Tags.end() );
++		
++			// ITERATE THROUGH THE TAGS
++		
++			while(it_tag!=last_tag)
++			{
++				Tag* tag = *it_tag++;
++
++				splitted_way->AddTag(tag);
++				
++			}
++			
++			
++			
++			
+ 
+ 	//GeometryFromText('MULTILINESTRING(('||x1||' '||y1||','||x2||' '||y2||'))',4326);
+ 			
+diff -uNr ../trunk/osm2pgrouting/src/OSMDocumentParserCallback.cpp ./src/OSMDocumentParserCallback.cpp
+--- ../trunk/osm2pgrouting/src/OSMDocumentParserCallback.cpp	2010-08-23 13:07:33.000000000 -0400
++++ ./src/OSMDocumentParserCallback.cpp	2010-08-23 13:01:54.000000000 -0400
+@@ -1,51 +1,53 @@
+-/***************************************************************************
+- *   Copyright (C) 2008 by Daniel Wendt   								   *
+- *   gentoo.murray@gmail.com   											   *
+- *                                                                         *
+- *   This program is free software; you can redistribute it and/or modify  *
+- *   it under the terms of the GNU General Public License as published by  *
+- *   the Free Software Foundation; either version 2 of the License, or     *
+- *   (at your option) any later version.                                   *
+- *                                                                         *
+- *   This program is distributed in the hope that it will be useful,       *
+- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+- *   GNU General Public License for more details.                          *
+- *                                                                         *
+- *   You should have received a copy of the GNU General Public License     *
+- *   along with this program; if not, write to the                         *
+- *   Free Software Foundation, Inc.,                                       *
+- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+- ***************************************************************************/
+-
+-#include "stdafx.h"
+-#include "OSMDocumentParserCallback.h"
+-#include "OSMDocument.h"
+-#include "Way.h"
+-#include "Node.h"
+-
+-// define here, which streetstype you want to parse
+-// for applying this filter, compile with "DISTRICT" as flag (g++ -DRESTRICT)
+-//#define _FILTER if(m_pActWay->highway == "motorway" || m_pActWay->highway == "primary" || m_pActWay->highway == "secondary")
+-
+-namespace osm
+-{
+-	
+-	
+-/**
+-	Parser callback for OSMDocument files
+-*/
+-void OSMDocumentParserCallback::StartElement( const char *name, const char** atts )
+-{
+-	if( strcmp(name,"nd") == 0 )
+-	{
+-		if( m_pActWay && atts != NULL )
+-		{
+-			const char* name = *atts++;
+-			const char* value = *atts++;
+-			if( strcmp(name,"ref")==0 )
+-			{
+-				long long nodeRefId = atol( value );
++/***************************************************************************
++ *   Copyright (C) 2008 by Daniel Wendt   								   *
++ *   gentoo.murray@gmail.com   											   *
++ *                                                                         *
++ *   This program is free software; you can redistribute it and/or modify  *
++ *   it under the terms of the GNU General Public License as published by  *
++ *   the Free Software Foundation; either version 2 of the License, or     *
++ *   (at your option) any later version.                                   *
++ *                                                                         *
++ *   This program is distributed in the hope that it will be useful,       *
++ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
++ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
++ *   GNU General Public License for more details.                          *
++ *                                                                         *
++ *   You should have received a copy of the GNU General Public License     *
++ *   along with this program; if not, write to the                         *
++ *   Free Software Foundation, Inc.,                                       *
++ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
++ ***************************************************************************/
++
++#include "stdafx.h"
++#include "OSMDocumentParserCallback.h"
++#include "OSMDocument.h"
++#include "Tag.h"
++#include "Way.h"
++#include "Node.h"
++
++
++// define here, which streetstype you want to parse
++// for applying this filter, compile with "DISTRICT" as flag (g++ -DRESTRICT)
++//#define _FILTER if(m_pActWay->highway == "motorway" || m_pActWay->highway == "primary" || m_pActWay->highway == "secondary")
++
++namespace osm
++{
++	
++	
++/**
++	Parser callback for OSMDocument files
++*/
++void OSMDocumentParserCallback::StartElement( const char *name, const char** atts )
++{
++	if( strcmp(name,"nd") == 0 )
++	{
++		if( m_pActWay && atts != NULL )
++		{
++			const char* name = *atts++;
++			const char* value = *atts++;
++			if( strcmp(name,"ref")==0 )
++			{
++				long long nodeRefId = atol( value );
+                                 m_pActWay->AddNodeRef( m_rDocument.FindNode( nodeRefId ) );
+                                   Node * node = m_rDocument.FindNode( nodeRefId );
+                                   if(node != 0 ){
+@@ -53,138 +55,148 @@
+                                   }else {
+                                     std::cout << "Reference nd=" << nodeRefId << " has no corresponding Node Entry (Maybe Node entry after Reference?)" << std::endl;
+                                   }
+-			}
+-		}
+-	}
+-	else if( strcmp(name,"node") == 0 )
+-	{
+-		if (atts != NULL)
+-		{
+-			long long id=-1;
+-			double lat=-1;
+-			double lon=-1;
+-			const char** attribut = (const char**)atts;
+-			while( *attribut != NULL )
+-			{
+-				const char* name = *attribut++;
+-				const char* value = *attribut++;
+-				if( strcmp( name, "id" ) == 0 )
+-				{
+-					id = atol( value);
+-				}
+-				else if( strcmp( name, "lat" ) == 0 )
+-				{
+-					lat = atof( value );
+-				}
+-				else if( strcmp( name, "lon" ) == 0 )
+-				{
+-					lon = atof( value );
+-				}
+-			}
+-			if( id>0 ) m_rDocument.AddNode( new Node( id, lat, lon ) );
+-		}
+-	}
+-	else if( strcmp(name,"tag") == 0 )
+-	{
+-		// <tag k="name" v="Pfänderweg"/>
+-		if (atts != NULL)
+-		{
+-			std::string k;
+-			std::string v;
+-			const char** attribut = (const char**)atts;
+-			while( *attribut != NULL )
+-			{
+-				const char* name = *attribut++;
+-				const char* value = *attribut++;
+-				if( strcmp( name, "k" ) == 0 )
+-				{
+-					k = value;
+-				}
+-				else if( strcmp( name, "v" ) == 0 )
+-				{
+-					v = value;
+-				}
+-			}
+-			if( !k.empty() )
+-			{
+-				if( m_pActWay && k.compare("name")==0 )
+-				{
+-					m_pActWay->name = v;
+-				}
+-				else if( m_pActWay && k.compare("oneway")==0 )
+-				{
++			}
++		}
++	}
++	else if( strcmp(name,"node") == 0 )
++	{
++		if (atts != NULL)
++		{
++			long long id=-1;
++			double lat=-1;
++			double lon=-1;
++			const char** attribut = (const char**)atts;
++			while( *attribut != NULL )
++			{
++				const char* name = *attribut++;
++				const char* value = *attribut++;
++				if( strcmp( name, "id" ) == 0 )
++				{
++					id = atol( value);
++				}
++				else if( strcmp( name, "lat" ) == 0 )
++				{
++					lat = atof( value );
++				}
++				else if( strcmp( name, "lon" ) == 0 )
++				{
++					lon = atof( value );
++				}
++			}
++			if( id>0 ) m_rDocument.AddNode( new Node( id, lat, lon ) );
++		}
++	}
++	else if( strcmp(name,"tag") == 0 )
++	{
++		// <tag k="name" v="Pfänderweg"/>
++		if (atts != NULL)
++		{
++			std::string k;
++			std::string v;
++			const char** attribut = (const char**)atts;
++			while( *attribut != NULL )
++			{
++				const char* name = *attribut++;
++				const char* value = *attribut++;
++				if( strcmp( name, "k" ) == 0 )
++				{
++					k = value;
++				}
++				else if( strcmp( name, "v" ) == 0 )
++				{
++					v = value;
++				}
++			}
++			if( !k.empty() )
++			{
++				if( m_pActWay && k.compare("name")==0 )
++				{
++					m_pActWay->name = v;
++				}
++				else if( m_pActWay && k.compare("oneway")==0 )
++				{
+ 					m_pActWay->oneway = true;					
+ 					std::cout<<"Edge "<<m_pActWay->id<<" is oneway"<<std::endl;
+ 
+-				}				
+-				//else if( m_pActWay && k.compare("highway")==0 )
+-				else if( m_pActWay && m_rDocument.m_rConfig.m_Types.count(k) )
+-				{
+-					m_pActWay->type = k;
+-					m_pActWay->clss = v;
+-				}
+-			}
+-		}
+-	}
+-	else if( strcmp(name,"way") == 0 )
+-	{
+-		if (atts != NULL)
+-		{
+-			long long id=-1;
+-			bool visibility = false;
+-			const char** attribut = (const char**)atts;
+-			while( *attribut != NULL )
+-			{
+-				const char* name = *attribut++;
+-				const char* value = *attribut++;
+-				if( strcmp( name, "id" ) == 0 )
+-				{
+-					id = atol( value);
+-				}
+-				else if( strcmp( name, "visible" ) == 0 )
+-				{
+-					visibility = strcmp(value,"true")==0;
+-				}
+-			}
+-			if( id>0 )
+-			{
+-				m_pActWay = new Way( id, visibility );
+-				
+-			}
+-		}
+-	}
+-	else if( strcmp(name,"osm") == 0 )
+-	{
+-	}
+-}
+-
+-
+-
+-void OSMDocumentParserCallback::EndElement( const char* name )
+-{
+-	if( strcmp(name,"way") == 0 )
+-	{
+-		//#ifdef RESTRICT
+-		//_FILTER
++				}
++				
++				//else if( m_pActWay && k.compare("highway")==0 )
++				else if( m_pActWay && m_rDocument.m_rConfig.m_Types.count(k) )				
++				{
++					m_pActWay->type = k;
++					m_pActWay->clss = v;
++					
++					
++					if( m_rDocument.m_rConfig.m_Types.count(m_pActWay->type) && m_rDocument.m_rConfig.m_Types[m_pActWay->type]->m_Classes.count(m_pActWay->clss) ) {
++						
++						m_pActWay->AddTag( new Tag( k, v ) );
++						std::cout<<"Added tag: "<<k<<" "<<v<<std::endl;
++					}
++				}
++			}
++		}
++	}
++	else if( strcmp(name,"way") == 0 )
++	{
++		if (atts != NULL)
++		{
++			long long id=-1;
++			bool visibility = false;
++			const char** attribut = (const char**)atts;
++			while( *attribut != NULL )
++			{
++				const char* name = *attribut++;
++				const char* value = *attribut++;
++				if( strcmp( name, "id" ) == 0 )
++				{
++					id = atol( value);
++				}
++				else if( strcmp( name, "visible" ) == 0 )
++				{
++					visibility = strcmp(value,"true")==0;
++				}
++			}
++			if( id>0 )
++			{
++				m_pActWay = new Way( id, visibility );
++				
++			}
++		}
++	}
++	else if( strcmp(name,"osm") == 0 )
++	{
++	}
++}
++
++
++
++void OSMDocumentParserCallback::EndElement( const char* name )
++{
++	if( strcmp(name,"way") == 0 )
++	{
++		//#ifdef RESTRICT
++		//_FILTER
+ 		
+ 		if( m_rDocument.m_rConfig.m_Types.count(m_pActWay->type) && m_rDocument.m_rConfig.m_Types[m_pActWay->type]->m_Classes.count(m_pActWay->clss) )
+-		{
+-		//#endif
++		{
++		//#endif
+ 		std::cout<<"We need a way of type "<<m_pActWay->type<<" and class "<< m_pActWay->clss<<std::endl;
+-		
+-			m_rDocument.AddWay( m_pActWay );
++		
++			m_rDocument.AddWay( m_pActWay );
++			// std::cout << "First tag: " << m_pActWay->m_Tags.back()->key << ":" << m_pActWay->m_Tags.back()->value << std::endl;
++
+ 
+-		//#ifdef RESTRICT
+-		}
+-		else
+-		{
++		//#ifdef RESTRICT
++		}
++		else
++		{
+ 		std::cout<<"We DON'T need a way of type "<<m_pActWay->type<<" and class "<< m_pActWay->clss<<std::endl;
+-			delete m_pActWay;
+-		}
+-		//#endif
+-		
+-		m_pActWay = 0;
+-	}
+-}
+-
+-}; // end namespace osm
++			// delete m_pActWay;
++		}
++		//#endif
++		
++		m_pActWay = 0;
++	}
++}
++
++}; // end namespace osm
+diff -uNr ../trunk/osm2pgrouting/src/Tag.cpp ./src/Tag.cpp
+--- ../trunk/osm2pgrouting/src/Tag.cpp	1969-12-31 19:00:00.000000000 -0500
++++ ./src/Tag.cpp	2010-08-21 23:51:35.000000000 -0400
+@@ -0,0 +1,38 @@
++/***************************************************************************
++ *   Copyright (C) 2008 by Daniel Wendt   								   *
++ *   gentoo.murray@gmail.com   											   *
++ *                                                                         *
++ *   This program is free software; you can redistribute it and/or modify  *
++ *   it under the terms of the GNU General Public License as published by  *
++ *   the Free Software Foundation; either version 2 of the License, or     *
++ *   (at your option) any later version.                                   *
++ *                                                                         *
++ *   This program is distributed in the hope that it will be useful,       *
++ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
++ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
++ *   GNU General Public License for more details.                          *
++ *                                                                         *
++ *   You should have received a copy of the GNU General Public License     *
++ *   along with this program; if not, write to the                         *
++ *   Free Software Foundation, Inc.,                                       *
++ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
++ ***************************************************************************/
++
++#include "stdafx.h"
++#include "Tag.h"
++
++namespace osm
++{
++
++Tag::Tag( std::string key, std::string value )
++:
++	key(key),
++	value(value)
++
++{ }
++
++Tag::~Tag()
++{
++}
++
++} // end namespace osm
+\ No newline at end of file
+diff -uNr ../trunk/osm2pgrouting/src/Tag.h ./src/Tag.h
+--- ../trunk/osm2pgrouting/src/Tag.h	1969-12-31 19:00:00.000000000 -0500
++++ ./src/Tag.h	2010-08-21 23:44:32.000000000 -0400
+@@ -0,0 +1,54 @@
++/***************************************************************************
++ *   Copyright (C) 2008 by Daniel Wendt   								   *
++ *   gentoo.murray@gmail.com   											   *
++ *                                                                         *
++ *   This program is free software; you can redistribute it and/or modify  *
++ *   it under the terms of the GNU General Public License as published by  *
++ *   the Free Software Foundation; either version 2 of the License, or     *
++ *   (at your option) any later version.                                   *
++ *                                                                         *
++ *   This program is distributed in the hope that it will be useful,       *
++ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
++ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
++ *   GNU General Public License for more details.                          *
++ *                                                                         *
++ *   You should have received a copy of the GNU General Public License     *
++ *   along with this program; if not, write to the                         *
++ *   Free Software Foundation, Inc.,                                       *
++ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
++ ***************************************************************************/
++
++#ifndef TAG_H
++#define TAG_H
++
++namespace osm
++{
++
++/**
++\code
++  <node id="122603925" 
++		lat="53.0780875" 
++		lon="8.1351704" 
++		user="artus70" visible="true" timestamp="2007-11-18T22:18:59+00:00"/>
++\endcode
++*/
++class Tag
++{
++public:
++	std::string key;
++	std::string value;
++public:
++	/**
++	 *	Construktor
++	 * 	@param id ID of the node
++	 *	@param lat latitude
++	 *	@param lon longitude
++	 */
++	Tag( std::string key="", std::string value="");
++	//! Destructor
++	virtual ~Tag();
++};
++
++
++} // end namespace osm
++#endif
+diff -uNr ../trunk/osm2pgrouting/src/Way.cpp ./src/Way.cpp
+--- ../trunk/osm2pgrouting/src/Way.cpp	2010-08-23 13:07:33.000000000 -0400
++++ ./src/Way.cpp	2010-08-22 00:27:31.000000000 -0400
+@@ -20,6 +20,7 @@
+ 
+ #include "stdafx.h"
+ #include "Way.h"
++#include "Tag.h"
+ 
+ 
+ namespace osm
+@@ -43,6 +44,10 @@
+ 	if( pNode ) m_NodeRefs.push_back(pNode);
+ }
+ 
++void Way::AddTag( Tag* t )
++{
++	m_Tags.push_back( t );
++}
+ 
+ } // end namespace osm
+ 
+diff -uNr ../trunk/osm2pgrouting/src/Way.h ./src/Way.h
+--- ../trunk/osm2pgrouting/src/Way.h	2010-08-23 13:07:33.000000000 -0400
++++ ./src/Way.h	2010-08-22 00:07:04.000000000 -0400
+@@ -22,7 +22,7 @@
+ 
+ namespace osm
+ {
+-
++	class Tag;
+ 	class Node;
+ 
+ /**
+@@ -50,6 +50,7 @@
+ public:
+ 	//! Do not delete nodes in this container!
+ 	std::vector<Node*> m_NodeRefs;
++	std::vector<Tag*> m_Tags;
+ 	//! ID of the way
+ 	long long id;
+ 	bool visible;
+@@ -84,6 +85,8 @@
+ 	 *	@param pNode node
+ 	 */
+ 	void AddNodeRef( Node* pNode );
++	void AddTag( Tag* t );
++
+ };
+ 
+ 
+diff -uNr ../trunk/osm2pgrouting/src/osm2pgrouting.cpp ./src/osm2pgrouting.cpp
+--- ../trunk/osm2pgrouting/src/osm2pgrouting.cpp	2010-08-23 13:07:33.000000000 -0400
++++ ./src/osm2pgrouting.cpp	2010-08-21 23:49:22.000000000 -0400
+@@ -25,6 +25,7 @@
+ #include "OSMDocumentParserCallback.h"
+ #include "Way.h"
+ #include "Node.h"
++#include "Tag.h"
+ #include "Export2DB.h"
+ 
+ using namespace osm;

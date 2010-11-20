@@ -1,0 +1,29 @@
+--- /mnt/hd/usr/share/postgresql/routing_core.sql	2007-11-24 01:27:52.000000000 +1000
++++ /usr/share/postgresql/routing_core.sql	2007-12-03 14:06:04.000000000 +1000
+@@ -91,7 +91,7 @@
+        RETURNS void AS
+ $$
+ BEGIN
+-		EXECUTE 'SELECT create_graph_tables('''||quote_ident(geom_table)||''',''int4'',' || '''gid'' ,''source_id'',''target_id'')';
++		EXECUTE 'SELECT create_graph_tables('||quote_literal(geom_table)||',''int4'',' || '''gid'' ,''source_id'',''target_id'')';
+ END;
+ $$
+ LANGUAGE 'plpgsql' VOLATILE STRICT;
+@@ -101,7 +101,7 @@
+        RETURNS void AS
+ $$
+ BEGIN
+-		EXECUTE 'SELECT create_graph_tables('''||quote_ident(geom_table)||''','''||quote_ident(column_type)||''',' || '''gid'' ,''source_id'',''target_id'')';
++		EXECUTE 'SELECT create_graph_tables('||quote_literal(geom_table)||','||quote_literal(column_type)||',' || '''gid'' ,''source_id'',''target_id'')';
+ END;
+ $$
+ LANGUAGE 'plpgsql' VOLATILE STRICT;
+@@ -111,7 +111,7 @@
+        RETURNS void AS
+ $$
+ BEGIN
+-		EXECUTE 'SELECT create_graph_tables('''||quote_literal(geom_table)||''','''||quote_literal(column_type)||''',''' || quote_literal(id_name) || ''' ,''source_id'',''target_id'')';
++		EXECUTE 'SELECT create_graph_tables('||quote_literal(geom_table)||','||quote_literal(column_type)||',' || quote_literal(id_name) || ' ,''source_id'',''target_id'')';
+ 	RETURN;
+ END;
+ $$

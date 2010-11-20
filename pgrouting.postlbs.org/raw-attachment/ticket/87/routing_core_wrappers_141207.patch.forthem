@@ -1,0 +1,177 @@
+--- /home/ftp/transport/Desktop/routing_core_wrappers_originalsubmit.sql	2007-12-14 20:05:59.000000000 +1000
++++ /usr/share/postgresql/routing_core_wrappers.sql	2007-12-13 02:33:38.000000000 +1000
+@@ -97,7 +97,7 @@
+ -- For each vertex in the vertices table, set a point geometry which is
+ --  the corresponding line start or line end point
+ -----------------------------------------------------------------------
+-CREATE OR REPLACE FUNCTION add_vertices_geometry(geom_table varchar,SRID int) 
++CREATE OR REPLACE FUNCTION add_vertices_geometry(geom_table varchar,SRID int,geocol varchar) 
+        RETURNS VOID AS
+ $$
+ DECLARE
+@@ -107,25 +107,39 @@
+ 	BEGIN
+ 		EXECUTE 'SELECT addGeometryColumn(''' || 
+                         quote_ident(vertices_table)  || 
+-                        ''', ''the_geom'',' || quote_literal(SRID) ||', ''POINT'', 2)';
++                        ''', '||quote_literal(geocol)||',' || quote_literal(SRID) ||', ''POINT'', 2)';
+ 	EXCEPTION 
+ 		WHEN DUPLICATE_COLUMN THEN
+ 	END;
+ 
+ 	EXECUTE 'UPDATE ' || quote_ident(vertices_table) || 
+-                ' SET the_geom = NULL';
++                ' SET '||quote_ident(geocol)||' = NULL';
+ 
+ 	EXECUTE 'UPDATE ' || quote_ident(vertices_table) || 
+-                ' SET the_geom = startPoint(relaxed_geometryn(m.the_geom, 1)) FROM ' ||
++                ' SET '||quote_ident(geocol)||' = startPoint(relaxed_geometryn(m.'||quote_ident(geocol)||', 1)) FROM ' ||
+                  quote_ident(geom_table) || 
+                 ' m where geom_id = m.source_id';
+ 
+ 	EXECUTE 'UPDATE ' || quote_ident(vertices_table) || 
+-                ' set the_geom = st_PointN(relaxed_geometryn(m.the_geom, 1),st_NumPoints(relaxed_geometryN(m.the_geom,1))) FROM ' || 
++                ' set '||quote_ident(geocol)||' = st_PointN(relaxed_geometryn(m.'||quote_ident(geocol)||', 1),st_NumPoints(relaxed_geometryN(m.'||quote_ident(geocol)||',1))) FROM ' || 
+                 quote_ident(geom_table) || 
+                 ' m where geom_id = m.target_id AND ' || 
+                 quote_ident(vertices_table) || 
+-                '.the_geom IS NULL';
++                '.'||quote_ident(geocol)||' IS NULL';
++
++	RETURN;
++END;
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT; 
++
++CREATE OR REPLACE FUNCTION add_vertices_geometry(geom_table varchar,SRID int) 
++       RETURNS VOID AS
++$$
++BEGIN
++	
++	BEGIN
++		EXECUTE 'SELECT add_vertices_geometry('||quote_literal(geom_table)||','||text(SRID)||',''the_geom'')';
++	END;
+ 
+ 	RETURN;
+ END;
+@@ -138,7 +152,7 @@
+ BEGIN
+ 	
+ 	BEGIN
+-		EXECUTE 'SELECT add_vertices_geometry('||quote_ident(geom_table)||',-1)';
++		EXECUTE 'SELECT add_vertices_geometry('||quote_literal(geom_table)||',-1)';
+ 	END;
+ 
+ 	RETURN;
+@@ -280,6 +294,41 @@
+ $$
+ DECLARE 
+ BEGIN
++	EXECUTE 'select update_cost_from_distance('||quote_literal(geom_table) ||',''the_geom'',''length'')';
++	RETURN;
++END;
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT; 
++CREATE OR REPLACE FUNCTION update_cost_from_distance(geom_table varchar,geocol varchar) 
++       RETURNS VOID AS
++$$
++DECLARE 
++BEGIN
++	EXECUTE 'select update_cost_from_distance('||quote_literal(geom_table) ||','||quote_literal(geocol)||',''length'')';
++	RETURN;
++END;
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT; 
++
++CREATE OR REPLACE FUNCTION update_cost_from_distance(geom_table varchar,geocol varchar,geodistfn varchar) 
++       RETURNS VOID AS
++$$
++DECLARE 
++BEGIN
++	EXECUTE 'SELECT update_cost_from_distance('||quote_literal(geom_table)||','||quote_literal(geocol)||','||quote_literal(geodistfn)||',''cost'')';
++	RETURN;
++END
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT; 
++
++-- 
++-- geodistfn is the name of a function(geom) which returns the cost of the geometry geom (eg, time_wgs84(),length_wgs84())
++--
++CREATE OR REPLACE FUNCTION update_cost_from_distance(geom_table varchar,geocol varchar,geodistfn varchar,costcol varchar) 
++       RETURNS VOID AS
++$$
++DECLARE 
++BEGIN
+ 	BEGIN
+ 	  EXECUTE 'CREATE INDEX ' || quote_ident(geom_table) || 
+                   '_edge_id_idx ON ' || quote_ident(geom_table) || 
+@@ -289,16 +338,66 @@
+ 		RAISE NOTICE 'Not creating index, already there';
+ 	END;
+ 
++    BEGIN
++		EXECUTE 'ALTER TABLE '||quote_ident(geom_table)||'_edges  add column '||quote_ident(costcol)||' double precision';
++	EXCEPTION
++		WHEN DUPLICATE_COLUMN THEN
++		RAISE NOTICE 'Not creating cost column, already there';
++	END;
+ 	EXECUTE 'UPDATE ' || quote_ident(geom_table) || 
+-              '_edges SET cost = (SELECT sum( length( g.the_geom ) ) FROM ' || 
++              '_edges SET '||quote_ident(costcol)||' = (SELECT sum( '||quote_ident(geodistfn)||'( g.'||quote_ident(geocol)||' ) ) FROM ' || 
+               quote_ident(geom_table) || 
+               ' g WHERE g.edge_id = id GROUP BY id)';
+-
+-	RETURN;
+ END;
+ $$
+ LANGUAGE 'plpgsql' VOLATILE STRICT; 
+ 
++--
++-- Assumes column speed exists. Calculates distance from geometry in geocol.
++--
++CREATE OR REPLACE FUNCTION time_wgs84(geom geometry,tname varchar,geocol varchar)
++RETURNS DOUBLE PRECISION AS
++$$
++DECLARE
++	len DOUBLE PRECISION;
++	speed DOUBLE PRECISION;
++	astxt varchar;
++BEGIN
++		SELECT length_wgs84(geom) into len;
++		SELECT astext(geom) into astxt;  -- someone might know a better way to do this ???
++		EXECUTE 'SELECT speed FROM '||quote_ident(tname)||' where astext('||quote_ident(geocol)||') = '||quote_literal(astxt) INTO speed ;
++		return (len/1000.0)/speed;
++END
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT;
++
++--
++-- A demo only function, neet to specify table name & geometry column name for particlar app.
++--
++CREATE OR REPLACE FUNCTION time_wgs84(geom geometry)
++RETURNS DOUBLE PRECISION AS
++$$
++DECLARE
++	ans DOUBLE PRECISION;
++BEGIN
++		SELECT  time_wgs84(geom,'splitroadnet','the_geom') into ans;
++		return ans;
++END
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT;
++
++
++CREATE OR REPLACE FUNCTION length_wgs84(geom geometry)
++RETURNS DOUBLE PRECISION AS
++$$
++DECLARE
++	ans DOUBLE PRECISION;
++BEGIN
++		SELECT st_length_spheroid(geom,'SPHEROID["WGS_1984",6378173,298.257223563]') INTO ans;
++		return ans ;
++END
++$$
++LANGUAGE 'plpgsql' VOLATILE STRICT;
+ 
+ CREATE TYPE geoms AS
+ (

@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/237 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/20.html" title="tsp">tsp</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>tsp (#20) - tsp server closed the connection unexpectedly (#237) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              tsp server closed the connection unexpectedly
+            </div>
+            <div class="body">
+              <p>
+Hi,
+I have a problem with TSP. When I run a select like this:
+</p>
+<p>
+SELECT * FROM tsp('select distinct source as source_id, x(startpoint(the_geom)) as x, y(startpoint(the_geom)) as y
+from ways where source in (345,366,364,347,348)', '345,366,364,347,348', 343);
+</p>
+<p>
+The postgresql server closes the connection. It launchs this message:
+server closed the connection unexpectedly
+</p>
+<blockquote>
+<p>
+This probably means the server terminated abnormally
+before or while processing the request.
+</p>
+</blockquote>
+<p>
+My street network table is derived from osm2pgrouting utility. I use an osm file from Alicante city (Spain) very completed (<a class="ext-link" href="http://www.openstreetmap.org/?lat=38.3526&amp;lon=-0.4891&amp;zoom=14&amp;layers=B000FTF"><span class="icon"> </span>http://www.openstreetmap.org/?lat=38.3526&amp;lon=-0.4891&amp;zoom=14&amp;layers=B000FTF</a>), with right directions and turns. The ways table has 5390 rows.
+</p>
+<p>
+These are my steps:
+1. create a database with postgis and pgrouting functionality
+2. run osm2pgrouting
+3. assign vertex with:
+SELECT assign_vertex_id('ways', 0.00001, 'the_geom', 'gid');
+4. run queries with Shortest Path Dijkstra, Shortest Path A*, Shortest Path Shooting Star, Driving Distance calculation without problems.
+</p>
+<p>
+This are my box:
+- Ubuntu 8.10
+- pgRouting 1.03 compiled from source with DD and TSP
+- Postgresql 8.3.6
+</p>
+<p>
+My steps for compiling pgrouting:
+</p>
+<p>
+1. Install the required libraries:
+libboost-graph1.35-dev libboost-graph1.35.0
+</p>
+<p>
+2. Compile Gaul from source:
+</p>
+<p>
+wget <a class="ext-link" href="http://downloads.sourceforge.net/gaul/gaul-devel-0.1849-0.tar.gz?modtime=1114163427&amp;big_mirror=0"><span class="icon"> </span>http://downloads.sourceforge.net/gaul/gaul-devel-0.1849-0.tar.gz?modtime=1114163427&amp;big_mirror=0</a>
+tar -xzf gaul-devel-0.1849-0.tar.gz
+cd gaul-devel-0.1849-0/
+./configure --disable-slang
+make
+sudo make install
+</p>
+<p>
+3. Compile CGAL
+Download CGAL 3.3.1 source
+Compile instruction:
+sudo ./install_cgal --prefix=/usr/local --with-boost=n --BOOST_INCL_DIR /usr/local/include/boost-1_36 --BOOST_LIB_DIR /usr/local/lib --without-autofind -ni /usr/bin/g++
+</p>
+<p>
+4. Copy libCGAL.so from /usr/local/lib to /usr/lib:
+</p>
+<blockquote>
+<p>
+sudo cp /usr/local/lib/libCGAL.so /usr/lib/
+</p>
+</blockquote>
+<p>
+5. Compile pgrouting
+cmake -DWITH_TSP=ON -DWITH_DD=ON
+make
+sudo make install
+</p>
+<p>
+NOTE: Too much warnings on console.
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            j3m
+          </div>
+          <div class="time">
+            03/27/09 19:43:53 (20 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/237?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/237?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message836"></a>
+        <div class="id">
+          Message #836
+        </div>
+        <div class="body">
+            <p>
+Without being able to look into all details now, you wrote
+<br /><br />
+</p>
+<blockquote class="citation">
+<p>
+ This are my box: - Ubuntu 8.10 - pgRouting 1.03 compiled from source with DD and TSP - Postgresql 8.3.6
+</p>
+</blockquote>
+<p>
+<br />
+Could you compile pgRouting and didn't have this problem? <br />
+<a href="../../ticket/131.html">http://pgrouting.postlbs.org/ticket/131</a> <br />
+<a href="../21/208.html#-1">http://pgrouting.postlbs.org/discussion/21/208#-1</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            03/28/09 10:59:43 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message837"></a>
+        <div class="id">
+          Message #837
+        </div>
+        <div class="body">
+            <p>
+Yes, I have many warnings like this:
+</p>
+<pre class="wiki">jose@j3m:~/compilar/pgrouting$ cmake -DWITH_TSP=ON -DWITH_DD=ON
+Boost headers were found here: /usr/include
+Output directory for libraries is set to /usr/lib/postgresql/8.3/lib
+Installation directory for libraries is set to /usr/lib/postgresql/8.3/lib and for SQL files is set to /usr/share/postlbs
+Installation directory for libraries is set to /usr/lib/postgresql/8.3/lib
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jose/compilar/pgrouting
+jose@j3m:~/compilar/pgrouting$ make
+[  8%] Building C object extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp.o
+[ 16%] Building CXX object extra/tsp/src/CMakeFiles/routing_tsp.dir/tsp_solver.o
+Linking CXX shared library ../../../lib/librouting_tsp.so
+[ 16%] Built target routing_tsp
+[ 25%] Building C object extra/driving_distance/src/CMakeFiles/routing_dd.dir/alpha.o
+[ 33%] Building CXX object extra/driving_distance/src/CMakeFiles/routing_dd.dir/alpha_drivedist.o
+[ 41%] Building CXX object extra/driving_distance/src/CMakeFiles/routing_dd.dir/boost_drivedist.o
+En el archivo incluído de /usr/include/c++/4.3/ext/hash_set:64,
+                 from /usr/include/boost/graph/adjacency_list.hpp:22,
+                 from /home/jose/compilar/pgrouting/extra/driving_distance/src/boost_drivedist.cpp:25:
+/usr/include/c++/4.3/backward/backward_warning.h:33:2: aviso: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+[ 50%] Building C object extra/driving_distance/src/CMakeFiles/routing_dd.dir/drivedist.o
+Linking CXX shared library ../../../lib/librouting_dd.so
+[ 50%] Built target routing_dd
+[ 58%] Building C object core/src/CMakeFiles/routing.dir/dijkstra.o
+[ 66%] Building C object core/src/CMakeFiles/routing.dir/astar.o
+[ 75%] Building C object core/src/CMakeFiles/routing.dir/shooting_star.o
+[ 83%] Building CXX object core/src/CMakeFiles/routing.dir/boost_wrapper.o
+En el archivo incluído de /usr/include/c++/4.3/ext/hash_set:64,
+                 from /usr/include/boost/graph/adjacency_list.hpp:22,
+                 from /home/jose/compilar/pgrouting/core/src/boost_wrapper.cpp:25:
+/usr/include/c++/4.3/backward/backward_warning.h:33:2: aviso: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+[ 91%] Building CXX object core/src/CMakeFiles/routing.dir/astar_boost_wrapper.o
+En el archivo incluído de /usr/include/c++/4.3/ext/hash_set:64,
+                 from /usr/include/boost/graph/adjacency_list.hpp:22,
+                 from /home/jose/compilar/pgrouting/core/src/astar_boost_wrapper.cpp:25:
+/usr/include/c++/4.3/backward/backward_warning.h:33:2: aviso: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+[100%] Building CXX object core/src/CMakeFiles/routing.dir/shooting_star_boost_wrapper.o
+En el archivo incluído de /usr/include/c++/4.3/ext/hash_set:64,
+                 from /usr/include/boost/graph/adjacency_list.hpp:22,
+                 from /home/jose/compilar/pgrouting/core/src/shooting_star_boost_wrapper.cpp:25:
+/usr/include/c++/4.3/backward/backward_warning.h:33:2: aviso: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+Linking CXX shared library ../../lib/librouting.so
+[100%] Built target routing
+</pre><p>
+Other question: I have installed Ubuntu 9.04 beta (on <a class="missing wiki">VirtualBox?</a>) and after compile pgrouting (with libboost 1.38) the same problem continued with the TSP.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            j3m
+          </div>
+          <div class="time">
+            03/31/09 16:39:44 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message838"></a>
+        <div class="id">
+          Message #838
+        </div>
+        <div class="body">
+            <p>
+1. It looks like you are using Boost 1.35, which is for gcc 4.4 already. If you upgrade to 4.4 version you won't get warnings anymore.
+</p>
+<p>
+2. That's my fault that TSP crashes without a warning. I think it is fixed already in the trunk. Anyway, your start node is 343, which is not in the list of nodes to visit. You just need to add it there.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            04/01/09 09:45:27 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message840"></a>
+        <div class="id">
+          Message #840
+        </div>
+        <div class="body">
+            <p>
+1. You are all right. Boost version is 1.35. I compiled boost 1.38, cmake 2.6.3, CGAL 3.3.1 and there are not warnings now.
+</p>
+<p>
+2. Sorry, It's true. I forgot to add the start node
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            j3m
+          </div>
+          <div class="time">
+            04/02/09 16:51:57 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1555"></a>
+        <div class="id">
+          Message #1555
+        </div>
+        <div class="body">
+            <p>
+Hello j3m!
+</p>
+<p>
+Did you solve the crash problem?
+</p>
+<p>
+I have the same problem here.
+</p>
+<p>
+Thanks in advance,
+</p>
+<p>
+Carlos
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlosfernando
+          </div>
+          <div class="time">
+            06/28/10 22:32:17 (5 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/237?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/237?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

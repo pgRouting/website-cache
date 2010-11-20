@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/314 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/24.html" title="osm2pgrouting">osm2pgrouting</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>osm2pgrouting (#24) - pgrouting failes: "double free or corruption" (#314) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              pgrouting failes: "double free or corruption"
+            </div>
+            <div class="body">
+              <p>
+With todays "austria.osm" from geofabrik, the osm2pgrouting failes. I use the default config file. Here is the Stacktrace - any idea?
+</p>
+<pre class="wiki">SE for &lt;class&gt;
+class name = grade3
+class id = 303
+class id = 303 name = grade3 added to type name=tracktype
+SE for &lt;class&gt;
+class name = grade4
+class id = 304
+class id = 304 name = grade4 added to type name=tracktype
+SE for &lt;class&gt;
+class name = grade5
+class id = 305
+class id = 305 name = grade5 added to type name=tracktype
+SE for &lt;type&gt;
+SE for &lt;class&gt;
+class name = roundabout
+class id = 401
+class id = 401 name = roundabout added to type name=junction
+Trying to load data
+Trying to parse data
+not well-formed (invalid token) at line 1
+*** glibc detected *** osm2pgrouting/osm2pgrouting: double free or corruption (!prev): 0x0000000000770de0 ***
+======= Backtrace: =========
+/lib/libc.so.6[0x7f7ebd79bcb8]
+/lib/libc.so.6(cfree+0x76)[0x7f7ebd79e276]
+/lib/libc.so.6(fclose+0x151)[0x7f7ebd78bd21]
+osm2pgrouting/osm2pgrouting[0x40f6db]
+osm2pgrouting/osm2pgrouting[0x403e42]
+/lib/libc.so.6(__libc_start_main+0xe6)[0x7f7ebd7425a6]
+osm2pgrouting/osm2pgrouting[0x4032d9]
+======= Memory map: ========
+00400000-00417000 r-xp 00000000 08:01 38961267                           /home/jan/osm/osm2pgrouting/osm2pgrouting
+00616000-00617000 r--p 00016000 08:01 38961267                           /home/jan/osm/osm2pgrouting/osm2pgrouting
+00617000-00618000 rw-p 00017000 08:01 38961267                           /home/jan/osm/osm2pgrouting/osm2pgrouting
+00752000-00830000 rw-p 00752000 00:00 0                                  [heap]
+7f7eb4000000-7f7eb4021000 rw-p 7f7eb4000000 00:00 0
+7f7eb4021000-7f7eb8000000 ---p 7f7eb4021000 00:00 0
+7f7eba1f3000-7f7eba1fd000 r-xp 00000000 08:01 31442238                   /lib/libnss_nis-2.9.so
+7f7eba1fd000-7f7eba3fc000 ---p 0000a000 08:01 31442238                   /lib/libnss_nis-2.9.so
+7f7eba3fc000-7f7eba3fd000 r--p 00009000 08:01 31442238                   /lib/libnss_nis-2.9.so
+7f7eba3fd000-7f7eba3fe000 rw-p 0000a000 08:01 31442238                   /lib/libnss_nis-2.9.so
+7f7eba3fe000-7f7eba414000 r-xp 00000000 08:01 31442233                   /lib/libnsl-2.9.so
+7f7eba414000-7f7eba614000 ---p 00016000 08:01 31442233                   /lib/libnsl-2.9.so
+7f7eba614000-7f7eba615000 r--p 00016000 08:01 31442233                   /lib/libnsl-2.9.so
+7f7eba615000-7f7eba616000 rw-p 00017000 08:01 31442233                   /lib/libnsl-2.9.so
+7f7eba616000-7f7eba618000 rw-p 7f7eba616000 00:00 0
+7f7eba618000-7f7eba620000 r-xp 00000000 08:01 31442234                   /lib/libnss_compat-2.9.so
+7f7eba620000-7f7eba81f000 ---p 00008000 08:01 31442234                   /lib/libnss_compat-2.9.so
+7f7eba81f000-7f7eba820000 r--p 00007000 08:01 31442234                   /lib/libnss_compat-2.9.so
+7f7eba820000-7f7eba821000 rw-p 00008000 08:01 31442234                   /lib/libnss_compat-2.9.so
+7f7eba821000-7f7eba82d000 r-xp 00000000 08:01 31442236                   /lib/libnss_files-2.9.so
+7f7eba82d000-7f7ebaa2c000 ---p 0000c000 08:01 31442236                   /lib/libnss_files-2.9.so
+7f7ebaa2c000-7f7ebaa2d000 r--p 0000b000 08:01 31442236                   /lib/libnss_files-2.9.so
+7f7ebaa2d000-7f7ebaa2e000 rw-p 0000c000 08:01 31442236                   /lib/libnss_files-2.9.so
+7f7ebaa2e000-7f7ebaa31000 r-xp 00000000 08:01 31440961                   /lib/libgpg-error.so.0.3.0
+7f7ebaa31000-7f7ebac30000 ---p 00003000 08:01 31440961                   /lib/libgpg-error.so.0.3.0
+7f7ebac30000-7f7ebac31000 rw-p 00002000 08:01 31440961                   /lib/libgpg-error.so.0.3.0
+7f7ebac31000-7f7ebac96000 r-xp 00000000 08:01 31440959                   /lib/libgcrypt.so.11.4.4
+7f7ebac96000-7f7ebae95000 ---p 00065000 08:01 31440959                   /lib/libgcrypt.so.11.4.4
+7f7ebae95000-7f7ebae96000 r--p 00064000 08:01 31440959                   /lib/libgcrypt.so.11.4.4
+7f7ebae96000-7f7ebae98000 rw-p 00065000 08:01 31440959                   /lib/libgcrypt.so.11.4.4
+7f7ebae98000-7f7ebaea8000 r-xp 00000000 08:01 38510692                   /usr/lib/libtasn1.so.3.0.16
+7f7ebaea8000-7f7ebb0a7000 ---p 00010000 08:01 38510692                   /usr/lib/libtasn1.so.3.0.16
+7f7ebb0a7000-7f7ebb0a8000 r--p 0000f000 08:01 38510692                   /usr/lib/libtasn1.so.3.0.16
+7f7ebb0a8000-7f7ebb0a9000 rw-p 00010000 08:01 38510692                   /usr/lib/libtasn1.so.3.0.16
+7f7ebb0a9000-7f7ebb14c000 r-xp 00000000 08:01 17630412                   /usr/lib/libgnutls.so.26.4.6
+7f7ebb14c000-7f7ebb34b000 ---p 000a3000 08:01 17630412                   /usr/lib/libgnutls.so.26.4.6
+7f7ebb34b000-7f7ebb355000 r--p 000a2000 08:01 17630412                   /usr/lib/libgnutls.so.26.4.6
+7f7ebb355000-7f7ebb356000 rw-p 000ac000 08:01 17630412                   /usr/lib/libgnutls.so.26.4.6
+7f7ebb356000-7f7ebb36f000 r-xp 00000000 08:01 17630428                   /usr/lib/libsasl2.so.2.0.22
+7f7ebb36f000-7f7ebb56e000 ---p 00019000 08:01 17630428                   /usr/lib/libsasl2.so.2.0.22
+7f7ebb56e000-7f7ebb56f000 r--p 00018000 08:01 17630428                   /usr/lib/libsasl2.so.2.0.22
+7f7ebb56f000-7f7ebb570000 rw-p 00019000 08:01 17630428                   /usr/lib/libsasl2.so.2.0.22
+7f7ebb570000-7f7ebb57e000 r-xp 00000000 08:01 38478202                   /usr/lib/liblber-2.4.so.2.4.1
+7f7ebb57e000-7f7ebb77d000 ---p 0000e000 08:01 38478202                   /usr/lib/liblber-2.4.so.2.4.1
+7f7ebb77d000-7f7ebb77e000 r--p 0000d000 08:01 38478202                   /usr/lib/liblber-2.4.so.2.4.1
+7f7ebb77e000-7f7ebb77f000 rw-p 0000e000 08:01 38478202                   /usr/lib/liblber-2.4.so.2.4.1
+7f7ebb77f000-7f7ebb793000 r-xp 00000000 08:01 31442242                   /lib/libresolv-2.9.so
+7f7ebb793000-7f7ebb993000 ---p 00014000 08:01 31442242                   /lib/libresolv-2.9.so
+7f7ebb993000-7f7ebb994000 r--p 00014000 08:01 31442242                   /lib/libresolv-2.9.so
+7f7ebb994000-7f7ebb995000 rw-p 00015000 08:01 31442242                   /lib/libresolv-2.9.so
+7f7ebb995000-7f7ebb997000 rw-p 7f7ebb995000 00:00 0
+7f7ebb997000-7f7ebb999000 r-xp 00000000 08:01 31440966                   /lib/libkeyutils-1.2.so
+7f7ebb999000-7f7ebbb98000 ---p 00002000 08:01 31440966                   /lib/libkeyutils-1.2.so
+7f7ebbb98000-7f7ebbb99000 r--p 00001000 08:01 31440966                   /lib/libkeyutils-1.2.so
+7f7ebbb99000-7f7ebbb9a000 rw-p 00002000 08:01 31440966                   /lib/libkeyutils-1.2.so
+7f7ebbb9a000-7f7ebbba1000 r-xp 00000000 08:01 38478143                   /usr/lib/libkrb5support.so.0.1
+7f7ebbba1000-7f7ebbda0000 ---p 00007000 08:01 38478143                   /usr/lib/libkrb5support.so.0.1
+7f7ebbda0000-7f7ebbda1000 r--p 00006000 08:01 38478143                   /usr/lib/libkrb5support.so.0.1
+7f7ebbda1000-7f7ebbda2000 rw-p 00007000 08:01 38478143                   /usr/lib/libkrb5support.so.0.1
+7f7ebbda2000-7f7ebbdc5000 r-xp 00000000 08:01 38477863                   /usr/lib/libk5crypto.so.3.1
+7f7ebbdc5000-7f7ebbfc4000 ---p 00023000 08:01 38477863                   /usr/lib/libk5crypto.so.3.1
+7f7ebbfc4000-7f7ebbfc6000 r--p 00022000 08:01 38477863                   /usr/lib/libk5crypto.so.3.1
+7f7ebbfc6000-7f7ebbfc7000 rw-p 00024000 08:01 38477863                   /usr/lib/libk5crypto.so.3.1
+7f7ebbfc7000-7f7ebbfde000 r-xp 00000000 08:01 31441053                   /lib/libz.so.1.2.3.3
+7f7ebbfde000-7f7ebc1dd000 ---p 00017000 08:01 31441053                   /lib/libz.so.1.2.3.3
+7f7ebc1dd000-7f7ebc1de000 r--p 00016000 08:01 31441053                   /lib/libz.so.1.2.3.3
+7f7ebc1de000-7f7ebc1df000 rw-p 00017000 08:01 31441053                   /lib/libz.so.1.2.3.3
+7f7ebc1df000-7f7ebc1e1000 r-xp 00000000 08:01 31442230                   /lib/libdl-2.9.so
+7f7ebc1e1000-7f7ebc3e1000 ---p 00002000 08:01 31442230                   /lib/libdl-2.9.so
+7f7ebc3e1000-7f7ebc3e2000 r--p 00002000 08:01 31442230                   /lib/libdl-2.9.so
+7f7ebc3e2000-7f7ebc3e3000 rw-p 00003000 08:01 31442230                   /lib/libdl-2.9.so
+7f7ebc3e3000-7f7ebc427000 r-xp 00000000 08:01 38478207                   /usr/lib/libldap_r-2.4.so.2.4.1
+7f7ebc427000-7f7ebc627000 ---p 00044000 08:01 38478207                   /usr/lib/libldap_r-2.4.so.2.4.1
+7f7ebc627000-7f7ebc628000 r--p 00044000 08:01 38478207                   /usr/lib/libldap_r-2.4.so.2.4.1
+7f7ebc628000-7f7ebc62a000 rw-p 00045000 08:01 38478207                   /usr/lib/libldap_r-2.4.so.2.4.1
+7f7ebc62a000-7f7ebc62c000 rw-p 7f7ebc62a000 00:00 0
+7f7ebc62c000-7f7ebc635000 r-xp 00000000 08:01 31442229                   /lib/libcrypt-2.9.so
+7f7ebc635000-7f7ebc834000 ---p 00009000 08:01 31442229                   /lib/libcrypt-2.9.so
+7f7ebc834000-7f7ebc835000 r--p 00008000 08:01 31442229                   /lib/libcrypt-2.9.so
+7f7ebc835000-7f7ebc836000 rw-p 00009000 08:01 31442229                   /lib/libcrypt-2.9.so
+7f7ebc836000-7f7ebc864000 rw-p 7f7ebc836000 00:00 0
+7f7ebc864000-7f7ebc890000 r-xp 00000000 08:01 38461855                   /usr/lib/libgssapi_krb5.so.2.2
+7f7ebc890000-7f7ebca8f000 ---p 0002c000 08:01 38461855                   /usr/lib/libgssapi_krb5.so.2.2
+7f7ebca8f000-7f7ebca90000 r--p 0002b000 08:01 38461855                   /usr/lib/libgssapi_krb5.so.2.2
+7f7ebca90000-7f7ebca91000 rw-p 0002c000 08:01 38461855                   /usr/lib/libgssapi_krb5.so.2.2
+7f7ebca91000-7f7ebca94000 r-xp 00000000 08:01 31440942                   /lib/libcom_err.so.2.1
+7f7ebca94000-7f7ebcc93000 ---p 00003000 08:01 31440942                   /lib/libcom_err.so.2.1
+7f7ebcc93000-7f7ebcc94000 r--p 00002000 08:01 31440942                   /lib/libcom_err.so.2.1
+7f7ebcc94000-7f7ebcc95000 rw-p 00003000 08:01 31440942                   /lib/libcom_err.so.2.1
+7f7ebcc95000-7f7ebcd2d000 r-xp 00000000 08:01 38478141                   /usr/lib/libkrb5.so.3.3
+7f7ebcd2d000-7f7ebcf2c000 ---p 00098000 08:01 38478141                   /usr/lib/libkrb5.so.3.3
+7f7ebcf2c000-7f7ebcf2f000 r--p 00097000 08:01 38478141                   /usr/lib/libkrb5.so.3.3
+7f7ebcf2f000-7f7ebcf30000 rw-p 0009a000 08:01 38478141                   /usr/lib/libkrb5.so.3.3
+7f7ebcf30000-7f7ebd093000 r-xp 00000000 08:01 31442076                   /lib/libcrypto.so.0.9.8
+7f7ebd093000-7f7ebd292000 ---p 00163000 08:01 31442076                   /lib/libcrypto.so.0.9.8
+7f7ebd292000-7f7ebd29f000 r--p 00162000 08:01 31442076                   /lib/libcrypto.so.0.9.8
+7f7ebd29f000-7f7ebd2b5000 rw-p 0016f000 08:01 31442076                   /lib/libcrypto.so.0.9.8
+7f7ebd2b5000-7f7ebd2b9000 rw-p 7f7ebd2b5000 00:00 0
+7f7ebd2b9000-7f7ebd302000 r-xp 00000000 08:01 31442078                   /lib/libssl.so.0.9.8
+7f7ebd302000-7f7ebd502000 ---p 00049000 08:01 31442078                   /lib/libssl.so.0.9.8
+7f7ebd502000-7f7ebd503000 r--p 00049000 08:01 31442078                   /lib/libssl.so.0.9.8
+7f7ebd503000-7f7ebd508000 rw-p 0004a000 08:01 31442078                   /lib/libssl.so.0.9.8
+7f7ebd508000-7f7ebd51f000 r-xp 00000000 08:01 31442241                   /lib/libpthread-2.9.so
+7f7ebd51f000-7f7ebd71e000 ---p 00017000 08:01 31442241                   /lib/libpthread-2.9.so
+7f7ebd71e000-7f7ebd71f000 r--p 00016000 08:01 31442241                   /lib/libpthread-2.9.so
+7f7ebd71f000-7f7ebd720000 rw-p 00017000 08:01 31442241                   /lib/libpthread-2.9.so
+7f7ebd720000-7f7ebd724000 rw-p 7f7ebd720000 00:00 0
+7f7ebd724000-7f7ebd88c000 r-xp 00000000 08:01 31442081                   /lib/libc-2.9.so
+7f7ebd88c000-7f7ebda8c000 ---p 00168000 08:01 31442081                   /lib/libc-2.9.so
+7f7ebda8c000-7f7ebda90000 r--p 00168000 08:01 31442081                   /lib/libc-2.9.so
+7f7ebda90000-7f7ebda91000 rw-p 0016c000 08:01 31442081                   /lib/libc-2.9.so
+7f7ebda91000-7f7ebda96000 rw-p 7f7ebda91000 00:00 0
+7f7ebda96000-7f7ebdaac000 r-xp 00000000 08:01 31440957                   /lib/libgcc_s.so.1
+7f7ebdaac000-7f7ebdcac000 ---p 00016000 08:01 31440957                   /lib/libgcc_s.so.1
+7f7ebdcac000-7f7ebdcad000 r--p 00016000 08:01 31440957                   /lib/libgcc_s.so.1
+7f7ebdcad000-7f7ebdcae000 rw-p 00017000 08:01 31440957                   /lib/libgcc_s.so.1
+7f7ebdcae000-7f7ebdd32000 r-xp 00000000 08:01 31442231                   /lib/libm-2.9.so
+7f7ebdd32000-7f7ebdf31000 ---p 00084000 08:01 31442231                   /lib/libm-2.9.so
+7f7ebdf31000-7f7ebdf32000 r--p 00083000 08:01 31442231                   /lib/libm-2.9.so
+7f7ebdf32000-7f7ebdf33000 rw-p 00084000 08:01 31442231                   /lib/libm-2.9.so
+7f7ebdf33000-7f7ebe024000 r-xp 00000000 08:01 38510674                   /usr/lib/libstdc++.so.6.0.10
+7f7ebe024000-7f7ebe224000 ---p 000f1000 08:01 38510674                   /usr/lib/libstdc++.so.6.0.10
+7f7ebe224000-7f7ebe22b000 r--p 000f1000 08:01 38510674                   /usr/lib/libstdc++.so.6.0.10
+7f7ebe22b000-7f7ebe22d000 rw-p 000f8000 08:01 38510674                   /usr/lib/libstdc++.so.6.0.10
+7f7ebe22d000-7f7ebe240000 rw-p 7f7ebe22d000 00:00 0
+7f7ebe240000-7f7ebe263000 r-xp 00000000 08:01 38461967                   /usr/lib/libpq.so.5.1
+7f7ebe263000-7f7ebe462000 ---p 00023000 08:01 38461967                   /usr/lib/libpq.so.5.1
+7f7ebe462000-7f7ebe463000 r--p 00022000 08:01 38461967                   /usr/lib/libpq.so.5.1
+7f7ebe463000-7f7ebe465000 rw-p 00023000 08:01 38461967                   /usr/lib/libpq.so.5.1
+7f7ebe465000-7f7ebe48c000 r-xp 00000000 08:01 38461765                   /usr/lib/libexpat.so.1.5.2
+7f7ebe48c000-7f7ebe68c000 ---p 00027000 08:01 38461765                   /usr/lib/libexpat.so.1.5.2
+7f7ebe68c000-7f7ebe68e000 r--p 00027000 08:01 38461765                   /usr/lib/libexpat.so.1.5.2
+7f7ebe68e000-7f7ebe68f000 rw-p 00029000 08:01 38461765                   /usr/lib/libexpat.so.1.5.2
+7f7ebe68f000-7f7ebe6af000 r-xp 00000000 08:01 31440906                   /lib/ld-2.9.so
+7f7ebe88c000-7f7ebe898000 rw-p 7f7ebe88c000 00:00 0
+7f7ebe8aa000-7f7ebe8ae000 rw-p 7f7ebe8aa000 00:00 0
+7f7ebe8ae000-7f7ebe8af000 r--p 0001f000 08:01 31440906                   /lib/ld-2.9.so
+7f7ebe8af000-7f7ebe8b0000 rw-p 00020000 08:01 31440906                   /lib/ld-2.9.so
+7fffc689a000-7fffc68af000 rw-p 7ffffffea000 00:00 0                      [stack]
+7fffc69fe000-7fffc69ff000 r-xp 7fffc69fe000 00:00 0                      [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+Aborted
+</pre>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            jtheuer
+          </div>
+          <div class="time">
+            11/21/09 20:49:00 (12 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/314?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/314?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1681"></a>
+        <div class="id">
+          Message #1681
+        </div>
+        <div class="body">
+            <p>
+I got a similar error because I was trying to import file.osm.bz2 instead of file.osm.
+Are you sure that you use austria.osm and not austria.osm.bz2?
+If yes, uncompress the file and try with the uncompressed one.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            mbaudier
+          </div>
+          <div class="time">
+            10/10/10 19:01:05 (6 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/314?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/314?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

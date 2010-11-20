@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/message/1752 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li><a href="../forum/18.html" title="shootingstar">shootingstar</a></li><li class="last"><a href="../topic/400.html" title="shootingstar_sp_smart problem">shootingstar_sp_smart problem</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>shootingstar (#18) - shootingstar_sp_smart problem (#400) - Message List</h1>
+      <div class="topic ">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              shootingstar_sp_smart problem
+            </div>
+            <div class="body">
+              <p>
+Hi,
+</p>
+<p>
+I'am using shootingstar_sp_smart to do routing from coordinate to coordinate. For some routes i get a correct result but for other i get this error:
+</p>
+<p>
+ERROR:  query string argument of EXECUTE is null
+CONTEXT:  PL/pgSQL function "shootingstar_sp_smart" line 358 at FOR over EXECUTE statement
+PL/pgSQL function "shootingstar_sp_smart" line 5 at FOR over EXECUTE statement
+</p>
+<p>
+Any idea what is wrong here ?
+</p>
+<p>
+Sebastiaan
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            sebastiaan
+          </div>
+          <div class="time">
+            11/11/10 18:41:42 (9 days ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies ">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/400?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/400?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li>
+        <a name="message1752"></a>
+        <div class="id">
+          Message #1752
+        </div>
+        <div class="body">
+            <p>
+It seems that it would be a problem with the srid. Is your table registered in the geometry table?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            flivingstone_the_sec
+          </div>
+          <div class="time">
+            11/11/10 20:43:49 (9 days ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1754"></a>
+        <div class="id">
+          Message #1754
+        </div>
+        <div class="body">
+            <p>
+I gues that should be ok some routingings are ok on the samen network, i've put a screenshot here
+</p>
+<p>
+<a class="ext-link" href="http://www.onderweg.nl/images/pgrouting.png"><span class="icon"> </span>http://www.onderweg.nl/images/pgrouting.png</a>
+</p>
+<p>
+The red line show a calculated route between the points with a brown color. (The pink points are from the temp_vertices table). The route calculation give the error if i try to calculate the route between the brown point which are indicated by the blue arrows.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            sebastiaan
+          </div>
+          <div class="time">
+            11/11/10 22:24:10 (9 days ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1755"></a>
+        <div class="id">
+          Message #1755
+        </div>
+        <div class="body">
+            <p>
+I must admit I don't really know what's going wrong. Can you upload the description of the segments between the points you are trying to connect?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            flivingstone_the_sec
+          </div>
+          <div class="time">
+            11/12/10 02:49:36 (8 days ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1756"></a>
+        <div class="id">
+          Message #1756
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+Ive put a backup of the database here
+[
+<a class="ext-link" href="http://www.onderweg.nl/images/testdb.zip"><span class="icon"> </span>http://www.onderweg.nl/images/testdb.zip</a>]
+</p>
+<p>
+So e.g. the first query runs ok, but the second one doesn't.
+</p>
+<p>
+SELECT gid ,the_geom FROM shootingstar_sp_smart('wegvakkenwgs84',5.1698,52.3023,5.15377,52.3062, 0.00001,'to_cost',false, false);
+</p>
+<p>
+SELECT gid, the_geom FROM shootingstar_sp_smart('wegvakkenwgs84',5.14487,52.306,5.13097,52.3065, 0.00001,'to_cost',false, false);
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            sebastiaan
+          </div>
+          <div class="time">
+            11/12/10 19:20:59 (8 days ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1758"></a>
+        <div class="id">
+          Message #1758
+        </div>
+        <div class="body">
+            <p>
+Hi, I had very few time left those last days. I quickly check into the function. You can help yourself by raising notices. Like RAISE NOTICE as shown below.... The problem seems to be that when the extra edges are created, the cost or some other field are not populated properly. In order to check that, I added Notices in this part of the code :
+</p>
+<pre class="wiki">-- Newly created edges should be appended here
+        FOR i IN 1..6 LOOP
+	  --curr := extra_edges[i];
+	  RAISE NOTICE 'i=%', i;
+	  IF extra_edges.rule[i] IS NULL THEN extra_edges.rule[i]:='NULL';
+	  ELSE extra_edges.rule[i]:=''''''||extra_edges.rule[i]||'''''';
+	  END IF;
+	  IF extra_edges.to_cost[i] IS NULL THEN extra_edges.to_cost[i]:=0;
+	  END IF;
+          --FA : the raise notice example
+	  RAISE NOTICE 'gid %',extra_edges.gid[i];
+	  RAISE NOTICE 'source %',extra_edges.source[i];
+	  RAISE NOTICE 'target %',extra_edges.target[i];
+	  RAISE NOTICE 'cost %',extra_edges.length[i];
+	  RAISE NOTICE 'rule %',extra_edges.rule[i];
+	  RAISE NOTICE 'to cost %',extra_edges.to_cost[i];
+</pre><p>
+So when you try to concatenate a value that is null to the variable query, it screws the things up and the query take a NULL value. You may want to check in this direction. Basically, what the wrapper does is finding the closest segments to your points, split them into extra_edges, and pass the pieces of information to those extra edges. Something goes wrong in this process. I checked in the query that doesn't work, the source and destination segment are found. It is when passing the information that things get messed up.
+</p>
+<p>
+I hope it helps!
+Cheers
+</p>
+<p>
+flivingstone
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            flivingstone_the_sec
+          </div>
+          <div class="time">
+            11/16/10 12:41:18 (4 days ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1759"></a>
+        <div class="id">
+          Message #1759
+        </div>
+        <div class="body">
+            <p>
+Hi flivingstone,
+</p>
+<p>
+I've managed to fix the problem by addig a check like:
+</p>
+<p>
+IF extra_edges.to_cost[i] IS NULL THEN extra_edges.to_cost[i]:=0;
+</p>
+<p>
+for alll the others in extra_edges.xxxxxx  to .
+</p>
+<p>
+Thanks for your help.
+</p>
+<p>
+Sebastiaan
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            sebastiaan
+          </div>
+          <div class="time">
+            11/18/10 21:34:54 (37 hours ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/400?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/400?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

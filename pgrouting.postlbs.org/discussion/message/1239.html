@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/message/1239 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:18:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li><a href="../forum/24.html" title="osm2pgrouting">osm2pgrouting</a></li><li class="last"><a href="../topic/297.html" title="working with large files">working with large files</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>osm2pgrouting (#24) - working with large files (#297) - Message List</h1>
+      <div class="topic ">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              working with large files
+            </div>
+            <div class="body">
+              <p>
+First of all, I love the tool.  Thanks a bunch for all the hard work and the clean source code.
+</p>
+<p>
+So as the title implies, and as I am aware osm2pgrouting does not do, I need to load 300GB of data.  I am not totally clear on the node/way/relation interdependency, or what happens if I try to sequentially load overlapping maps.  Can I use Osmosis (or a shell script, or an XML parser, or whatever) to break out a few thousand physically overlapping smaller boxes and load them one-by one, eliminating incomplete ways and relations, or would the lack of internal references to already added ways and relations result in multi-adding those entries?  Should I do that anyway and then write a de-duping query to operate within the db after a full load?
+</p>
+<p>
+Or, is the only reasonable approach to extend the osm2pgrouting source code?  If so, what would you change?
+</p>
+<p>
+Should I perhaps do a little of one and a little of the other?
+</p>
+<p>
+Anyway, thank you again.
+</p>
+<p>
+~ Aaron
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            aaronboyer
+          </div>
+          <div class="time">
+            09/15/09 07:58:59 (14 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies ">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/297?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/297?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li>
+        <a name="message1074"></a>
+        <div class="id">
+          Message #1074
+        </div>
+        <div class="body">
+            <p>
+Hi Aaron,
+</p>
+<p>
+OSM data has the topology information already, but we actually don't care - osm2pgrouting runs our topology creation function anyway. For you it means that you can add ways to the table by small chunks and than run assign_vertex_id function on complete ways table.
+</p>
+<p>
+Of course osm2pgrouting is far from perfect. We got few patches from the community members, but unfortunately never had time to test them well.
+</p>
+<p>
+For example, there was a patch for storing temp links in db - <a class="new ticket" href="../../ticket/161.html" title="task: osm2pgrouting patch by Vladislav Shikhov (new)">#161</a> (but recently somebody complained that it doesn't work well - <a class="ext-link" href="http://lists.postlbs.org/pipermail/pgrouting-users/2009-September/thread.html"><span class="icon"> </span>http://lists.postlbs.org/pipermail/pgrouting-users/2009-September/thread.html</a>)
+</p>
+<p>
+Another patch we got from another person and you can also try it - <a class="new ticket" href="../../ticket/176.html" title="feature request: osm2pgrouting patch from Daniel Wendt (new)">#176</a>
+</p>
+<p>
+You might also be interested in this topic - <a href="../topic/279.html">http://pgrouting.postlbs.org/discussion/topic/279</a>
+</p>
+<p>
+Cheers!
+</p>
+<p>
+Anton.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            09/15/09 10:23:18 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1100"></a>
+        <div class="id">
+          Message #1100
+        </div>
+        <div class="body">
+            <p>
+i am writing a tool that uses osmosis to split large files into small ones and than import the small files with a patched osm2pgrouting..
+</p>
+<p>
+with unchanged osm2pgrouting you cant import another file.
+</p>
+<p>
+so far : routing works , also across two seperatly imported files. but the routing algorithmens are slow now
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ole
+          </div>
+          <div class="time">
+            09/24/09 22:10:50 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1101"></a>
+        <div class="id">
+          Message #1101
+        </div>
+        <div class="body">
+            <p>
+There is a major bug in patch Ticket <a class="new ticket" href="../../ticket/161.html" title="task: osm2pgrouting patch by Vladislav Shikhov (new)">#161</a>
+</p>
+<p>
+While creating ways, every node is read from db, and a NEW object is created from it instead of reading the right node from the vector:
+</p>
+<p>
+node-&gt;numsOfUse is never &gt;1,
+</p>
+<p>
+so function OSMDocument::<a class="missing wiki">SplitWays?</a>() fails
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ole
+          </div>
+          <div class="time">
+            09/24/09 22:36:10 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1136"></a>
+        <div class="id">
+          Message #1136
+        </div>
+        <div class="body">
+            <p>
+Is there a new patch or a patch to this patch that fixes the problem?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            woodbri
+          </div>
+          <div class="time">
+            10/10/09 23:58:25 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li>
+        <a name="message1135"></a>
+        <div class="id">
+          Message #1135
+        </div>
+        <div class="body">
+            <p>
+Hi ole,
+</p>
+<p>
+I'm interested in loading multiple OSM download files into a single database. Would your patch work for this? Will you be posting your patch so others can use it? Or like for combining multiple export files back into a single routable dataset.
+</p>
+<pre class="wiki">## separate OSM download files
+/home/woodbri/work/osm/data/great_britain.osm.bz2
+/home/woodbri/work/osm/data/ireland.osm.bz2
+/home/woodbri/work/osm/data/isle_of_man.osm.bz2
+## multiple overlapping exports files
+/home/woodbri/work/osm/data/guadeloupe-20090928-1.osm
+/home/woodbri/work/osm/data/guadeloupe-20090928-2.osm
+/home/woodbri/work/osm/data/guadeloupe-20090928-3.osm
+</pre>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            woodbri
+          </div>
+          <div class="time">
+            10/10/09 23:57:10 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1140"></a>
+        <div class="id">
+          Message #1140
+        </div>
+        <div class="body">
+            <p>
+hi, yes with my fix, you can import the overlapping files. you could also import non overlapping files, if you split them with the osmosis bbox parameter
+"-completeWays", but using this parameter on a large file, splitting with osmosis is much slower.
+</p>
+<p>
+im just working on some issues. if its stable, ill post it here. that will be very soon
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ole
+          </div>
+          <div class="time">
+            10/12/09 16:56:26 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1146"></a>
+        <div class="id">
+          Message #1146
+        </div>
+        <div class="body">
+            <p>
+<a href="../../wiki/osm2pgroutingPatchToAppendFile.html">http://pgrouting.postlbs.org/wiki/osm2pgroutingPatchToAppendFile</a>
+</p>
+<p>
+let me hear if you had any problems. i made some untestet changes *duck*
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ole
+          </div>
+          <div class="time">
+            10/20/09 17:31:43 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1238"></a>
+        <div class="id">
+          Message #1238
+        </div>
+        <div class="body">
+            <p>
+Hi Ole,
+thanks for sharing that patch!
+It all worked well and quick until it came to the second (and last) file and the message "deleting dublicate ways" was to be read. That message appeared two days ago and hand not yet been replaced by a new one. However, the cpu is still running with 100% percent, around 90% from that is used by the postmaster process.
+</p>
+<p>
+I imported two German federal states:
+hamburg.osm -clean
+schleswig-holstein.osm -append -finalize
+The virtual Suse-Linux 11.1 machine has 2.8 GB ram and one core of a INTEL Core 2 Duo E8500 3.16 GHz
+</p>
+<p>
+Do you have any idea whether this poor performance is due to bad configuration on my side or due to a problem with your patch? (the unpatched osm2pgrouting works well)
+I'm looking forward to your reply,
+Christof
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            12/03/09 15:37:26 (12 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1239"></a>
+        <div class="id">
+          Message #1239
+        </div>
+        <div class="body">
+            <p>
+Hi Ole,
+</p>
+<p>
+I changed the SQL to delete from
+DELETE FROM ways WHERE gid IN (SELECT b.gid FROM ways a, ways b WHERE a.the_geom ~= b.the_geom AND a.gid &gt; b.gid);
+to
+DELETE FROM ways WHERE gid IN (SELECT b.gid FROM ways a, ways b WHERE a.gid &gt; b.gid AND a.x1 = b.x1 AND a.y1 = b.y1 AND a.the_geom ~= b.the_geom);
+</p>
+<p>
+now it works fine. Thanks a again for that patch!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            12/05/09 18:37:35 (12 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1264"></a>
+        <div class="id">
+          Message #1264
+        </div>
+        <div class="body">
+            <p>
+Sorry for the late reply.
+i also had problems with this Statement but on larger data.
+i ll replace the statement in the patch.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ole
+          </div>
+          <div class="time">
+            12/17/09 18:41:53 (11 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li>
+        <a name="message1209"></a>
+        <div class="id">
+          Message #1209
+        </div>
+        <div class="body">
+            <p>
+we have completely rewritten osm2pgrouting in java, no more memory problems.
+you can import any file now with one tool. ill post it soon
+</p>
+<p>
+we imported europe in about 10 hours.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ole
+          </div>
+          <div class="time">
+            11/12/09 01:17:22 (12 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1265"></a>
+        <div class="id">
+          Message #1265
+        </div>
+        <div class="body">
+            <p>
+sorry for not posting it 'soon' :)
+</p>
+<p>
+if anyone is interested in the tool write to oliver.bindel[at]htw-saarland.de
+maybe there is no need for it in pgrouting, pgrouting runs out of memory while routing across europe. i think pgrouting really isnt made for large data.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ole
+          </div>
+          <div class="time">
+            12/17/09 18:51:04 (11 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1271"></a>
+        <div class="id">
+          Message #1271
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+We are interested in your tool very much. Don't you mind to make it available for download and give us a link? Or can we put it on this website for download?
+</p>
+<p>
+Regarding memory problem - you're right, but I have to note that it is not pgRouting who runs out of memory, but the hardware. And I'm not surprised - if you load all roads, even small and tiny ones, you will easily run out of memory. Long distance routing needs different approach - data hierarchy for example. We are aware of this problem and it was discussed so many times here at the forum, but currently we don't have resources to start such a project.
+</p>
+<p>
+Cheers,
+</p>
+<p>
+Anton.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/19/09 11:18:34 (11 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/297?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/297?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

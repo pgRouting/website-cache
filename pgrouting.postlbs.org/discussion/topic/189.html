@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/189 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/13.html" title="developer">developer</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>developer (#13) - New implementation of assign_vertex_id and point_to_id (#189) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              New implementation of assign_vertex_id and point_to_id
+            </div>
+            <div class="body">
+              <p>
+Hi,
+</p>
+<p>
+I've been using pgrouting and postgis for a VERY short time, so I am not an expert in postgis neither in pgrouting.
+</p>
+<p>
+However I was very bored when I had to wait 1 hour to assing_vertex_id, stops processing, so I implemented a custom version of the two involved functions.
+</p>
+<p>
+Now I can run assign_vertex_id in 2 minutes (50000 points).
+</p>
+<p>
+Here are the implementation... Remember, I'm completely new to postgis, and I don't know how to use spatial indexes. But I think, the idea is clear.
+</p>
+<p>
+Cheers.
+</p>
+<pre class="wiki">-- Function: point_to_id(geometry, double precision)
+-- DROP FUNCTION point_to_id(geometry, double precision);
+CREATE OR REPLACE FUNCTION point_to_id(point geometry, tolerance double precision)
+  RETURNS integer AS
+$BODY$
+DECLARE
+	row record;
+	point_id int;
+	xd1 double precision;
+	xd2 double precision;
+	yd1 double precision;
+	yd2 double precision;
+BEGIN
+	LOOP
+	    xd1 := x(point) - tolerance/2;
+	    xd2 := x(point) + tolerance/2;
+	    yd1 := y(point) - tolerance/2;
+	    yd2 := y(point) + tolerance/2;
+		-- TODO: use &amp;&amp; and index
+		SELECT INTO row id, the_geom FROM vertices_tmp
+		      WHERE x &gt; xd1 AND x &lt; xd2
+		        AND y &gt; yd1 AND y &lt; yd2
+                        AND distance(the_geom, point) &lt; tolerance;
+		point_id := row.id;
+		IF NOT FOUND THEN
+			INSERT INTO vertices_tmp (the_geom,x,y) VALUES (point, x(point), y(point));
+		ELSE
+			EXIT;
+		END IF;
+	END LOOP;
+	RETURN point_id;
+END;
+$BODY$
+  LANGUAGE 'plpgsql' VOLATILE STRICT;
+ALTER FUNCTION point_to_id(geometry, double precision) OWNER TO postgres;
+---------------------------------------------------------
+-- Function: assign_vertex_id(character varying, double precision, character varying, character varying)
+-- DROP FUNCTION assign_vertex_id(character varying, double precision, character varying, character varying);
+CREATE OR REPLACE FUNCTION assign_vertex_id(geom_table character varying, tolerance double precision, geo_cname character varying, gid_cname character varying)
+  RETURNS character varying AS
+$BODY$
+DECLARE
+      points record;
+      i record;
+      source_id int;
+      target_id int;
+      pre varchar;
+      post varchar;
+      srid integer;
+      countids integer;
+      BEGIN
+	    BEGIN
+	        DROP TABLE vertices_tmp;
+        	EXCEPTION
+			WHEN UNDEFINED_TABLE THEN
+                END;
+		EXECUTE 'CREATE TABLE vertices_tmp (id serial, x double precision, y double precision)';
+		EXECUTE 'CREATE INDEX vertices_tmp_idx_x ON vertices_tmp using BTREE(x)';
+        EXECUTE 'CREATE INDEX vertices_tmp_idx_y ON vertices_tmp using BTREE(y)';
+		FOR i IN EXECUTE 'SELECT srid FROM geometry_columns WHERE f_table_name='''|| quote_ident(geom_table)||'''' LOOP
+		END LOOP;
+		srid := i.srid;
+		FOR i IN EXECUTE 'SELECT count(*) as countids FROM '|| quote_ident(geom_table) LOOP
+		END LOOP;
+		countids := i.countids;
+		EXECUTE 'SELECT addGeometryColumn(''vertices_tmp'', ''the_geom'', '||srid||', ''POINT'', 2)';
+                CREATE INDEX vertices_tmp_idx ON vertices_tmp USING GIST (the_geom);
+                pre = '';
+                post = '';
+                FOR i in EXECUTE 'SELECT count(*) as t from ' || quote_ident(geom_table) || ' WHERE NumGeometries(' || quote_ident(geo_cname) || ') is not null'  loop
+            	        IF (i.t &gt; 0) THEN
+			    pre = 'geometryN(';
+		    	    post = ' , 1)';
+                    	END IF;
+		END LOOP;
+--		FOR points IN EXECUTE 'SELECT ' || quote_ident(gid_cname) || ' AS id,'
+--			|| ' startPoint(' || pre || quote_ident(geo_cname) || post || ') AS source,'
+--			|| ' endPoint(' || pre || quote_ident(geo_cname) || post || ') as target'
+--			|| ' FROM ' || quote_ident(geom_table) loop
+--
+		FOR points IN EXECUTE 'SELECT ' || quote_ident(gid_cname) || ' AS id,'
+			|| ' PointN('|| quote_ident(geo_cname) ||', 1) AS source,'
+			|| ' PointN('|| quote_ident(geo_cname) ||', NumPoints('|| quote_ident(geo_cname) ||')) as target'
+			|| ' FROM ' || quote_ident(geom_table) || ' ORDER BY ' || quote_ident(gid_cname) loop
+			IF points.id%10=0 THEN
+			  RAISE NOTICE '% out of % edges processed', points.id, countids;
+			END IF;
+				source_id := point_to_id(setsrid(points.source, srid), tolerance);
+				target_id := point_to_id(setsrid(points.target, srid), tolerance);
+				EXECUTE 'update ' || quote_ident(geom_table) ||
+				    ' SET source = ' || source_id ||
+                        	    ', target = ' || target_id ||
+                                    ' WHERE ' || quote_ident(gid_cname) || ' =  ' || points.id;
+                END LOOP;
+RETURN 'OK';
+END;
+$BODY$
+  LANGUAGE 'plpgsql' VOLATILE STRICT;
+ALTER FUNCTION assign_vertex_id(character varying, double precision, character varying, character varying) OWNER TO postgres;
+}}
+</pre>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            javimena
+          </div>
+          <div class="time">
+            12/02/08 07:23:11 (2 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/189?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/189?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message668"></a>
+        <div class="id">
+          Message #668
+        </div>
+        <div class="body">
+            <p>
+Thank you for the contribution!
+</p>
+<p>
+May I ask you which version of pgRouting made you waiting for so long?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/02/08 15:56:40 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message671"></a>
+        <div class="id">
+          Message #671
+        </div>
+        <div class="body">
+            <p>
+Sorry for the late response. I had problems with the site account, and I had to create another.
+</p>
+<p>
+I was using 1.02 (because that was the last windows version).
+</p>
+<p>
+Now I'm using 1.03 in windows and realized that in a another forum, someone else solved the problem.
+</p>
+<p>
+Anyway, thanks.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            javimena2
+          </div>
+          <div class="time">
+            12/17/08 12:29:00 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/189?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/189?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

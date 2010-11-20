@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracAdmin by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracAdmin – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/TracAdmin?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/TracAdmin?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/TracAdmin?action=diff&amp;version=3">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h1 id="TracAdmin"><a class="wiki" href="TracAdmin.html">TracAdmin</a></h1>
+<p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ul><li class="False"><a class="False" href="TracGuide.html">Index</a></li><li class="False"><a class="False" href="TracInstall.html">Installation</a></li><li class="False"><a class="False" href="TracInterfaceCustomization.html">Customization</a></li><li class="False"><a class="False" href="TracPlugins.html">Plugins</a></li><li class="False"><a class="False" href="TracUpgrade.html">Upgrading</a></li><li class="False"><a class="False" href="TracIni.html">Configuration</a></li><li class="active"><a class="False" href="TracAdmin.html">Administration</a></li><li class="False"><a class="False" href="TracBackup.html">Backup</a></li><li class="False"><a class="False" href="TracLogging.html">Logging</a></li><li class="False"><a class="False" href="TracPermissions.html">Permissions</a></li><li class="False"><a class="False" href="TracWiki.html">The Wiki</a></li><li class="False"><a class="False" href="WikiFormatting.html">Wiki Formatting</a></li><li class="False"><a class="False" href="TracTimeline.html">Timeline</a></li><li class="False"><a class="False" href="TracBrowser.html">Repository Browser</a></li><li class="False"><a class="False" href="TracRevisionLog.html">Revision Log</a></li><li class="False"><a class="False" href="TracChangeset.html">Changesets</a></li><li class="False"><a class="False" href="TracTickets.html">Tickets</a></li><li class="False"><a class="False" href="TracWorkflow.html">Workflow</a></li><li class="False"><a class="False" href="TracRoadmap.html">Roadmap</a></li><li class="False"><a class="False" href="TracQuery.html">Ticket Queries</a></li><li class="False"><a class="False" href="TracReports.html">Reports</a></li><li class="False"><a class="False" href="TracRss.html">RSS Support</a></li><li class="False"><a class="False" href="TracNotification.html">Notification</a></li></ul></div><p>
+</p>
+<p>
+Trac is distributed with a powerful command-line configuration tool. This tool can be used  to configure and customize your Trac-installation to better fit your needs.
+</p>
+<p>
+Some of those operations can also be performed via the <i>Admin</i> web interface, an updated version of the <a class="ext-link" href="http://trac.edgewall.org/wiki/WebAdmin"><span class="icon"> </span>WebAdmin</a> plugin now integrated within Trac (since version 0.11).
+</p>
+<h2 id="Usage">Usage</h2>
+<p>
+You can get a comprehensive list of the available options, commands and sub-commands by invoking <tt>trac-admin</tt> with the <tt>help</tt> command:.
+</p>
+<pre class="wiki">trac-admin help
+</pre><p>
+Unless you're executing the <tt>help</tt>, <tt>about</tt> or <tt>version</tt> sub-commands, you'll need to specify the path to the <a class="wiki" href="TracEnvironment.html">TracEnvironment</a> that you want to administer as the first argument, for example:
+</p>
+<pre class="wiki">trac-admin /path/to/projenv wiki list
+</pre><h2 id="InteractiveMode">Interactive Mode</h2>
+<p>
+When passing the environment path as the only argument, <tt>trac-admin</tt> starts in interactive mode.
+Commands can then be executed on the selected environment using the prompt, which offers tab-completion
+(on non-Windows environments, and when the Python <tt>readline</tt> module is available) and automatic repetition of the last command issued.
+</p>
+<p>
+Once you're in interactive mode, you can also get help on specific commands or subsets of commands:
+</p>
+<p>
+For example, to get an explanation of the <tt>resync</tt> command, run:
+</p>
+<pre class="wiki">&gt; help resync
+</pre><p>
+To get help on all the Wiki-related commands, run:
+</p>
+<pre class="wiki">&gt; help wiki
+</pre><h2 id="FullCommandReference">Full Command Reference</h2>
+<p>
+<pre class="wiki">help
+	-- Show documentation
+
+initenv
+	-- Create and initialize a new environment interactively
+
+initenv &lt;projectname&gt; &lt;db&gt; &lt;repostype&gt; &lt;repospath&gt;
+	-- Create and initialize a new environment from arguments
+
+hotcopy &lt;backupdir&gt;
+	-- Make a hot backup copy of an environment
+
+resync
+	-- Re-synchronize trac with the repository
+
+resync &lt;rev&gt;
+	-- Re-synchronize only the given &lt;rev&gt;
+
+upgrade
+	-- Upgrade database to current version
+
+deploy &lt;directory&gt;
+	-- Extract static resources from Trac and all plugins.
+
+permission list [user]
+	-- List permission rules
+
+permission add &lt;user&gt; &lt;action&gt; [action] [...]
+	-- Add a new permission rule
+
+permission remove &lt;user&gt; &lt;action&gt; [action] [...]
+	-- Remove permission rule
+
+wiki list
+	-- List wiki pages
+
+wiki remove &lt;page&gt;
+	-- Remove wiki page
+
+wiki export &lt;page&gt; [file]
+	-- Export wiki page to file or stdout
+
+wiki import &lt;page&gt; [file]
+	-- Import wiki page from file or stdin
+
+wiki dump &lt;directory&gt;
+	-- Export all wiki pages to files named by title
+
+wiki load &lt;directory&gt;
+	-- Import all wiki pages from directory
+
+wiki upgrade
+	-- Upgrade default wiki pages to current version
+
+ticket remove &lt;number&gt;
+	-- Remove ticket
+
+ticket_type list
+	-- Show possible ticket types
+
+ticket_type add &lt;value&gt;
+	-- Add a ticket type
+
+ticket_type change &lt;value&gt; &lt;newvalue&gt;
+	-- Change a ticket type
+
+ticket_type remove &lt;value&gt;
+	-- Remove a ticket type
+
+ticket_type order &lt;value&gt; up|down
+	-- Move a ticket type up or down in the list
+
+priority list
+	-- Show possible ticket priorities
+
+priority add &lt;value&gt;
+	-- Add a priority value option
+
+priority change &lt;value&gt; &lt;newvalue&gt;
+	-- Change a priority value
+
+priority remove &lt;value&gt;
+	-- Remove priority value
+
+priority order &lt;value&gt; up|down
+	-- Move a priority value up or down in the list
+
+severity list
+	-- Show possible ticket severities
+
+severity add &lt;value&gt;
+	-- Add a severity value option
+
+severity change &lt;value&gt; &lt;newvalue&gt;
+	-- Change a severity value
+
+severity remove &lt;value&gt;
+	-- Remove severity value
+
+severity order &lt;value&gt; up|down
+	-- Move a severity value up or down in the list
+
+component list
+	-- Show available components
+
+component add &lt;name&gt; &lt;owner&gt;
+	-- Add a new component
+
+component rename &lt;name&gt; &lt;newname&gt;
+	-- Rename a component
+
+component remove &lt;name&gt;
+	-- Remove/uninstall component
+
+component chown &lt;name&gt; &lt;owner&gt;
+	-- Change component ownership
+
+version list
+	-- Show versions
+
+version add &lt;name&gt; [time]
+	-- Add version
+
+version rename &lt;name&gt; &lt;newname&gt;
+	-- Rename version
+
+version time &lt;name&gt; &lt;time&gt;
+	-- Set version date (Format: "YYYY-MM-DD", "now" or "")
+
+version remove &lt;name&gt;
+	-- Remove version
+
+milestone list
+	-- Show milestones
+
+milestone add &lt;name&gt; [due]
+	-- Add milestone
+
+milestone rename &lt;name&gt; &lt;newname&gt;
+	-- Rename milestone
+
+milestone due &lt;name&gt; &lt;due&gt;
+	-- Set milestone due date (Format: "YYYY-MM-DD", "now" or "")
+
+milestone completed &lt;name&gt; &lt;completed&gt;
+	-- Set milestone completed date (Format: "YYYY-MM-DD", "now" or "")
+
+milestone remove &lt;name&gt;
+	-- Remove milestone
+
+resolution list
+	-- Show possible ticket resolutions
+
+resolution add &lt;value&gt;
+	-- Add a resolution value option
+
+resolution change &lt;value&gt; &lt;newvalue&gt;
+	-- Change a resolution value
+
+resolution remove &lt;value&gt;
+	-- Remove resolution value
+
+resolution order &lt;value&gt; up|down
+	-- Move a resolution value up or down in the list
+
+</pre>
+</p>
+<h3 id="Notes">Notes</h3>
+<p>
+The <tt>initenv</tt> also supports an extra <tt>--inherit</tt> option, which can be used to specify the <tt>[inherit] file</tt> option at environment creation time so that only the options <i>not</i> already specified in the global configuration file will be written in the conf/trac.ini file of the newly created environment.
+See <a class="wiki" href="TracIni.html#GlobalConfiguration">TracIni#GlobalConfiguration</a>.
+</p>
+<p>
+Note that in version 0.11 of Trac, <tt>initenv</tt> lost an extra last argument <tt>&lt;templatepath&gt;</tt>, which was used in previous versions to point to the <tt>templates</tt> folder. If you are using the one-liner '<tt>trac-admin /path/to/trac/ initenv &lt;projectname&gt; &lt;db&gt; &lt;repostype&gt; &lt;repospath&gt;</tt>' in the above and getting an error that reads <strong>'<tt>Wrong number of arguments to initenv: 4</tt></strong>', then this is because you're using a <tt>trac-admin</tt> script from an <strong>older</strong> version of Trac.
+</p>
+<hr />
+<p>
+See also: <a class="wiki" href="TracGuide.html">TracGuide</a>, <a class="wiki" href="TracBackup.html">TracBackup</a>, <a class="wiki" href="TracPermissions.html">TracPermissions</a>, <a class="wiki" href="TracEnvironment.html">TracEnvironment</a>, <a class="wiki" href="TracIni.html">TracIni</a>, <a class="ext-link" href="http://trac.edgewall.org/intertrac/TracMigrate" title="TracMigrate in Trac project trac"><span class="icon"> </span>TracMigrate</a>
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/TracAdmin?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TracAdmin.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracAdmin by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

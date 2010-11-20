@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/258 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/22.html" title="demo">demo</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>demo (#22) - Problem with controls on map (<a class="missing wiki">SelectFeature?</a>, Drawfeature) - <a class="missing wiki">OpenLayers?</a>, pgRouting (#258) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Problem with controls on map (<a class="missing wiki">SelectFeature?</a>, Drawfeature) - <a class="missing wiki">OpenLayers?</a>, pgRouting
+            </div>
+            <div class="body">
+              <p>
+Hi!
+</p>
+<p>
+First sorry for my poor english :). I don't know even if this topic belongs here but maybe someone have managed with this problem before.
+</p>
+<p>
+I am having some problem with the <a class="missing wiki">OpenLayers?</a> I guess.
+My application looks like this:
+</p>
+<p>
+<a class="ext-link" href="http://img245.imageshack.us/img245/3273/aplikacja.jpg"><span class="icon"> </span>http://img245.imageshack.us/img245/3273/aplikacja.jpg</a>
+</p>
+<p>
+It provides searching bus stops and bus lines in my city. Also I recently added finding the shortest path using the pgRouting. Before I add finding the shortest path my application worked fine. I chose the bus stop from the select element, like this:
+</p>
+<p>
+<a class="ext-link" href="http://img6.imageshack.us/img6/6494/ptrzystanki.jpg"><span class="icon"> </span>http://img6.imageshack.us/img6/6494/ptrzystanki.jpg</a>
+</p>
+<p>
+After I choose the bus stops, it appears on the map. When I click it shows the popup with the picture, name and the bus lines like this:
+</p>
+<p>
+<a class="ext-link" href="http://img13.imageshack.us/img13/4089/popul.jpg"><span class="icon"> </span>http://img13.imageshack.us/img13/4089/popul.jpg</a>
+</p>
+<p>
+Everything was fine upon the time I added the pgRouting part. Now the popup menu does not work unless I:
+- first click on select the start point radiobutton
+- second click on the navigation radiobutton
+</p>
+<p>
+When I do this everything is working fine.
+Without this I click, click and click on the bus stop and the popup menu does not appear!!!!
+So there must be something wrong with the controls. In my application it looks like this:
+</p>
+<p>
+- code for popup menu (vector layer):
+</p>
+<pre class="wiki">		vector.events.register("featureselected", vector, onFeatureSelect);
+		vector.events.register("featureunselected", vector, onFeatureUnselect);
+		control = new OpenLayers.Control.SelectFeature(vector);
+			map.addControl(control);
+			control.activate();
+</pre><p>
+- code for pgRouting
+</p>
+<pre class="wiki">            controls = {
+              start: new OpenLayers.Control.DrawFeature(start, SinglePoint),
+              stop: new OpenLayers.Control.DrawFeature(stop, SinglePoint)
+            }
+            for (var key in controls) {
+                map.addControl(controls[key]);
+            }
+</pre><p>
+- html code for radiobuttons looks like this
+</p>
+<pre class="wiki">	&lt;form action="rout.php" method="get"&gt;
+		        &lt;input type="radio" name="control" id="noneToggle" value="navigation"
+		               onclick="toggleControl(this);"  /&gt;
+		        &lt;label for="noneToggle"&gt;navigate&lt;/label&gt;&lt;br&gt;
+		        &lt;input type="radio" name="control" value="start" id="startToggle"
+		               onclick="toggleControl(this);" /&gt;
+		        &lt;label for="startToggle"&gt;set start point&lt;/label&gt;&lt;br&gt;
+		        &lt;input type="radio" name="control" value="stop" id="stopToggle"
+		               onclick="toggleControl(this);" /&gt;
+		        &lt;label for="stopToggle"&gt;set stop point&lt;/label&gt;&lt;br&gt;
+    	&lt;/form&gt;
+</pre><p>
+- the toggleControl() function
+</p>
+<pre class="wiki">    function toggleControl(element) {
+        for (key in controls) {
+            if (element.value == key &amp;&amp; element.checked) {
+                controls[key].activate();
+            } else {
+                controls[key].deactivate();
+            }
+        }
+	}
+</pre><p>
+So I think there is probolem with '<a class="missing wiki">OpenLayers?</a>.Control.<a class="missing wiki">SelectFeature?</a>' and '<a class="missing wiki">OpenLayers?</a>.Control.<a class="missing wiki">DrawFeature?</a>' I guess. I try to force clicking on 'select start point' and 'navigate' from code like this:
+</p>
+<pre class="wiki">            document.getElementById("startToggle").select();
+            document.getElementById("startToggle").focus();
+	    document.getElementById("startToggle").click();
+            document.getElementById("noneToggle").select();
+            document.getElementById("noneToggle").focus();
+	    document.getElementById("noneToggle").click();
+</pre><p>
+But it does not work. Only clicking with mouse does it right.
+Does anyone please can help me? Maybe someone had similar issue?
+Please help ...
+</p>
+<p>
+Regards,
+Paul
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            05/02/09 20:14:56 (19 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/258?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/258?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message934"></a>
+        <div class="id">
+          Message #934
+        </div>
+        <div class="body">
+            <p>
+Hi Paul,
+</p>
+<p>
+There are probably events not registered the right way (or twice). But even if this problem occurs when you do the routing part, it is 100% <a class="missing wiki">OpenLayers?</a> related issue.
+</p>
+<p>
+I think that you might get much more help on this from <a class="missing wiki">OpenLayers?</a> people at their user mailing list. Did you already ask there?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            05/07/09 10:23:43 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/258?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/258?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

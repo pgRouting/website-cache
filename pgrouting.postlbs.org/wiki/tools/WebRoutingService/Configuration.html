@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/tools/WebRoutingService/Configuration by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      tools/WebRoutingService/Configuration – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/tools/WebRoutingService/Configuration?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../WebRoutingService.html" title="View parent page" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../WebRoutingService.html">Up</a></li><li><a href="../../WikiStart.html">Start Page</a></li><li><a href="../../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/tools/WebRoutingService/Configuration?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/tools/WebRoutingService/Configuration?action=diff&amp;version=4">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View tools" href="../../tools.html">tools</a><span class="pathentry sep">/</span><a class="pathentry" title="View tools/WebRoutingService" href="../WebRoutingService.html">WebRoutingService</a><span class="pathentry sep">/</span><a class="pathentry" title="View tools/WebRoutingService/Configuration" href="Configuration.html">Configuration</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="WebRoutingserviceconfiguration">WebRouting service configuration</h1>
+<p>
+Before being able to start the service change the settings in <a href="../../../browser/tools/routingservice/trunk/configuration.html">configuration.xml</a>.
+</p>
+<h2 id="Main">Main</h2>
+<pre class="wiki">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;restlet&gt;
+	&lt;port&gt;[port]&lt;/port&gt;
+	&lt;log mode="[1|2|3]"&gt;./log/access.log&lt;/log&gt;
+	
+	&lt;providers&gt;		
+		&lt;provider name="[name]" title="[Add a title]"&gt;
+			[...]
+		&lt;/provider&gt;
+
+		&lt;!-- Example(s) --&gt;
+		&lt;provider name="[osm]" title="[OpenStreetMap]"&gt;
+			[...]
+		&lt;/provider&gt;
+	&lt;/providers&gt;
+&lt;/restlet&gt;
+</pre><ul><li><strong>port</strong>: The port number which WRS will use (ie. 8182)
+</li><li><strong>log</strong>: The log file with log level 0,1 or 2 (0: default mode, 1: debug mode, 2: full mode)
+</li><li><strong>providers</strong>: WRS can run services of several "providers". A provider can be a data provider like <a class="missing wiki">OpenStreetMap?</a> for example. The "name" attribute specifies the provider name in the URL.
+</li></ul><h2 id="Provider">Provider</h2>
+<pre class="wiki">[...]
+&lt;provider name="[name]" title="[Add a title]"&gt;
+	&lt;description&gt;[Provider description]&lt;/description&gt;
+	&lt;services&gt;
+		&lt;service name="[name]" title="[Add a title]" enable="true"&gt;
+			[...]
+		&lt;/service&gt;
+
+		&lt;!-- Example(s) --&gt;
+		&lt;service name="shortest_path"    title="Shortest Path"    enable="true"&gt;
+			[...]
+		&lt;/service&gt;
+
+		&lt;service name="driving_distance" title="Driving Distance" enable="false"&gt;
+			[...]
+		&lt;/service&gt;
+
+		&lt;service name="security"         title="Security"         enable="true"&gt;
+			[(1)]
+		&lt;/service&gt;
+	&lt;/services&gt;
+&lt;/provider&gt;
+[...]
+</pre><ul><li><strong>services</strong>: WRS can run several services within every provider. The "name" attribute specifies the service name in the URL.
+</li><li><strong>(1)</strong>: See <a class="wiki" href="Security.html#ConfigureSecurityService">Security Service configuration</a> for more details.
+</li></ul><h2 id="Service">Service</h2>
+<pre class="wiki">[...]
+&lt;services&gt;
+	&lt;service name="[name]" title="[Add a title]" enable="true"&gt;
+		&lt;description&gt;[Service description]&lt;/description&gt;
+
+		&lt;connection driver="org.postgresql.Driver"&gt;
+			&lt;url&gt;jdbc:postgresql://[hostname]:[port]/[database]&lt;/url&gt;
+			&lt;user&gt;[username]&lt;/user&gt;
+			&lt;password&gt;[password]&lt;/password&gt;
+		&lt;/connection&gt;
+
+		&lt;projection srid="[srid]" units="[meter|degrees]"&gt;&lt;/projection&gt;
+		&lt;limit distance="[distance]" /&gt;
+
+		&lt;sql&gt;
+			&lt;query transformProjectionIn="false" transformProjectionOut="false"&gt;[query example 1]&lt;/query&gt;
+			&lt;query transformProjectionIn="false" transformProjectionOut="true" &gt;[query example 2]&lt;/query&gt;
+			&lt;query transformProjectionIn="true"  transformProjectionOut="false"&gt;[query example 3]&lt;/query&gt;
+			&lt;query transformProjectionIn="true"  transformProjectionOut="true" &gt;[query example 4]&lt;/query&gt;
+		&lt;/sql&gt;
+
+		&lt;parameters&gt;
+			&lt;parameter name="point_start" type="text"    codename="start"      required="true" /&gt;
+			&lt;parameter name="point_end"   type="text"    codename="end"        required="true" /&gt;
+			&lt;parameter name="sridInput"   type="integer" codename="sridIn"     required="false" /&gt;
+			&lt;parameter name="sridOutput"  type="integer" codename="sridOut"    required="false" /&gt;
+			&lt;parameter name="bbox"        type="integer" codename="bbox"       required="false" default="0.015" /&gt;
+			&lt;parameter name="request_id"  type="text"    codename="request_id" required="false" /&gt;
+		&lt;/parameters&gt;
+
+		&lt;formats&gt;
+			&lt;format name="gml"     input="true"  output="true" template="multilinestring_gml" /&gt;
+			&lt;format name="xml"     input="false" output="true" template="multilinestring_xml" /&gt;
+			&lt;format name="html"    input="false" output="true" template="multilinestring_html" /&gt;
+			&lt;format name="geojson" input="true"  output="true" template="multilinestring_geojson" /&gt;
+			&lt;format name="lonlat"  input="true"  output="false" /&gt;
+			&lt;format name="wkt"     input="true"  output="true" template="multilinestring_wkt" /&gt;
+			&lt;format name="kml"     input="true"  output="true" template="multilinestring_kml" srid="4326" /&gt;
+		&lt;/formats&gt;
+	&lt;/service&gt;
+&lt;/services&gt;
+[...]
+</pre><ul><li><strong>srid</strong>: Projection SRID 
+</li><li><strong>units</strong>: Should be "meter" or "degrees"
+</li><li><strong>limit</strong>: For shortest path search WRS will check the euclidean distance between your start and end point and check against the distance limit. (Should have the same dimension as projection unit.)
+</li><li><strong>sql</strong>: Defines the SQL queries. (not sure if the "transformation" is such a clever approach)
+</li><li><strong>query</strong>: For Shooting Star this could be:
+</li><li><strong>parameters</strong>: Defines the GET/POST atributes. ("codename" is the URL attribute)
+</li><li><strong>formats</strong>:  Defines the possible output formats with related templates.
+</li></ul><h2 id="Examplequeries">Example queries</h2>
+<h4 id="ShootingStar">Shooting Star</h4>
+<pre class="wiki"># query example 1
+SELECT gid, AsText(the_geom) AS wkt 
+	FROM shootingstar_sp_smart('&lt;table&gt;', $sonStartX$, $sonStartY$, $sonEndX$, $sonEndY$,$saBoxSize$,'length','to_cost',false,false)
+
+# query example 2
+SELECT gid, AsText(transform(setSRID(the_geom,$sridProvider$), $sridOut$)) AS wkt 
+	FROM shootingstar_sp_smart('&lt;table&gt;', $sonStartX$, $sonStartY$, $sonEndX$, $sonEndY$, $saBoxSize$,'length','to_cost',false,false)
+
+# query example 3
+SELECT gid, AsText(the_geom) AS wkt 
+	FROM shootingstar_sp_smart('&lt;table&gt;', X(transform(GeometryFromText('POINT($sonStartX$ $sonStartY$)',$sridIn$),$sridProvider$)), Y(transform(GeometryFromText('POINT($sonStartX$ $sonStartY$)',$sridIn$),$sridProvider$)), X(transform(GeometryFromText('POINT($sonEndX$ $sonEndY$)',$sridIn$),$sridProvider$)), Y(transform(GeometryFromText('POINT($sonEndX$ $sonEndY$)',$sridIn$),$sridProvider$)), $saBoxSize$,'length','to_cost',false,false)
+
+# query example 4
+SELECT gid, AsText(transform(setSRID(the_geom,$sridProvider$), $sridOut$)) AS wkt 
+	FROM shootingstar_sp_smart('&lt;table&gt;', X(transform(GeometryFromText('POINT($sonStartX$ $sonStartY$)',$sridIn$),$sridProvider$)), Y(transform(GeometryFromText('POINT($sonStartX$ $sonStartY$)',$sridIn$),$sridProvider$)), X(transform(GeometryFromText('POINT($sonEndX$ $sonEndY$)',$sridIn$),$sridProvider$)), Y(transform(GeometryFromText('POINT($sonEndX$ $sonEndY$)',$sridIn$),$sridProvider$)), $saBoxSize$,'length','to_cost',false,false)
+</pre>
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/tools/WebRoutingService/Configuration?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("Configuration.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/tools/WebRoutingService/Configuration by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

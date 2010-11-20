@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/308 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/18.html" title="shootingstar">shootingstar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>shootingstar (#18) - First edge doesn't respect the one way restriction (#308) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              First edge doesn't respect the one way restriction
+            </div>
+            <div class="body">
+              <p>
+Hi there. I have a problem with the algorithm shortest_path_shooting_star.
+The image hosted by imageshack will help me:<br />
+</p>
+<p>
+<a class="ext-link" href="http://img198.imageshack.us/img198/7125/errorei.jpg"><span class="icon"> </span>http://img198.imageshack.us/img198/7125/errorei.jpg</a>
+</p>
+<p>
+<br />
+</p>
+<p>
+Look at the image on the left Via fiano and Via corio. I want to go from Via Fiano to Via Corio. this is the query i do :<br />
+</p>
+<p>
+##for correct order result<br />
+</p>
+<p>
+set enable_hashjoin=false;<br />
+</p>
+<p>
+set enable_mergejoin=false;<br />
+</p>
+<p>
+##shooting_star query
+</p>
+<p>
+SELECT ".TABLE.".*, <a class="missing wiki">AsText?</a>(".TABLE.".the_geom) AS wkt FROM ".TABLE.", shortest_path_shooting_star('SELECT gid as id, source, target, cost, reverse_cost,
+</p>
+<blockquote>
+<p>
+x1, y1, x2, y2, rule, to_cost FROM ".TABLE."', ".$startEdge<a class="missing wiki">gid?</a>.", ".$endEdge<a class="missing wiki">gid?</a>.", true, true) as rt
+</p>
+<blockquote>
+<p>
+WHERE ".TABLE.".gid=rt.edge_id;
+</p>
+</blockquote>
+</blockquote>
+<p>
+this is result:
+gid|vertex|edge_id|cost<br />
+5494;9236;5494;90.092508879762<br />
+5503;8058;5503;39.4141794163281<br />
+5509;5427;5509;94.3764538381396<br />
+</p>
+<p>
+As you see, the algorithm does not respect the one way restriction of first edge. Instead the reverse path works well: <a class="ext-link" href="http://img132.imageshack.us/img132/2015/errorpi.jpg"><span class="icon"> </span>http://img132.imageshack.us/img132/2015/errorpi.jpg</a>
+</p>
+<p>
+If i make turn restricion in gid 5503 rule 5494 to_cost=1000 doesn't solve this situation. Thanks for any advice
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlofrancesco
+          </div>
+          <div class="time">
+            10/21/09 18:08:34 (13 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/308?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/308?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1153"></a>
+        <div class="id">
+          Message #1153
+        </div>
+        <div class="body">
+            <p>
+edit 1: the turn restriction solve the problem, but i can't find all one way on the map and set manually to_cost=1000 rule="one_way street gid with turn restriction"
+There is a better way to do it?
+Thanks!!!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlofrancesco
+          </div>
+          <div class="time">
+            10/21/09 18:48:47 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1155"></a>
+        <div class="id">
+          Message #1155
+        </div>
+        <div class="body">
+            <p>
+look at this new image: <a class="ext-link" href="http://img132.imageshack.us/img132/8185/error2ia.jpg"><span class="icon"> </span>http://img132.imageshack.us/img132/8185/error2ia.jpg</a>
+<br />
+edge_id|vertex_id|cost|street<br />
+4311;790;1001000138.79372;790;"RE G. (VIA)"<br />
+4150;501;61.479488767088;501;"PACCHIOTTI G. (VIA)"<br />
+6114;856;1001000142.27532;856;"LIONETTO (STR. DEL)"<br />
+</p>
+<p>
+it takes a cost of 1001000138 !!
+What i can do?
+Thanks
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlofrancesco
+          </div>
+          <div class="time">
+            10/21/09 22:11:14 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1172"></a>
+        <div class="id">
+          Message #1172
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+First of all, I would like to see your data for one way (and neighbour) edges and the query your trying to execute.
+</p>
+<p>
+And the second note - hight reverse (or plain) cost doesn't mean that an edge is not reachable - you can reach it with this high cost when there is no other option. That's why I would like to see your data - to make sure that everything is OK with other edges.
+</p>
+<p>
+Anton.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/26/09 10:07:41 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1157"></a>
+        <div class="id">
+          Message #1157
+        </div>
+        <div class="body">
+            <p>
+Hi carlos !
+I have similar problem, but with the last edge. I have tried everything and I could not fix it. I will continue investigating, if I find the solution you notice. If you find it please write the solution.
+</p>
+<p>
+bye.. good luck !!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            dalberione
+          </div>
+          <div class="time">
+            10/22/09 23:23:34 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1158"></a>
+        <div class="id">
+          Message #1158
+        </div>
+        <div class="body">
+            <p>
+Yes with last edge too... I think is a bug. Should we open a ticket about it?
+</p>
+<p>
+i think is related to the algorithm that stops to consider the edge cost on the first and last edge...My pgrouting version is the latest svn version.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlofrancesco
+          </div>
+          <div class="time">
+            10/23/09 00:01:38 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1159"></a>
+        <div class="id">
+          Message #1159
+        </div>
+        <div class="body">
+            <p>
+Yes, we should open a ticket. I've researched everywhere and have not found the solution.
+Now I'm mixing with shortest_path algorithm with shortest_path_shooting_star, but not good !!
+</p>
+<p>
+Do you generate you the ticket? because my English is not very good :(
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            dalberione
+          </div>
+          <div class="time">
+            10/23/09 00:10:56 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1160"></a>
+        <div class="id">
+          Message #1160
+        </div>
+        <div class="body">
+            <p>
+ok
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlofrancesco
+          </div>
+          <div class="time">
+            10/23/09 00:34:33 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1161"></a>
+        <div class="id">
+          Message #1161
+        </div>
+        <div class="body">
+            <p>
+Please, notify me when you have news..
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            dalberione
+          </div>
+          <div class="time">
+            10/23/09 01:12:00 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1162"></a>
+        <div class="id">
+          Message #1162
+        </div>
+        <div class="body">
+            <p>
+<a href="../../ticket/190.html">http://pgrouting.postlbs.org/ticket/190</a>
+sure!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlofrancesco
+          </div>
+          <div class="time">
+            10/23/09 01:28:36 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1163"></a>
+        <div class="id">
+          Message #1163
+        </div>
+        <div class="body">
+            <p>
+perfect!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            dalberione
+          </div>
+          <div class="time">
+            10/23/09 03:05:16 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1168"></a>
+        <div class="id">
+          Message #1168
+        </div>
+        <div class="body">
+            <p>
+Hello! could you solve the problem? I still did not!
+no more to do.. my mail the gmail is diegoalberione
+bye !
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            dalberione
+          </div>
+          <div class="time">
+            10/24/09 23:10:08 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1173"></a>
+        <div class="id">
+          Message #1173
+        </div>
+        <div class="body">
+            <p>
+Can you tell me your pgrouting version or SVN/revision ?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlofrancesco
+          </div>
+          <div class="time">
+            10/26/09 17:59:27 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1174"></a>
+        <div class="id">
+          Message #1174
+        </div>
+        <div class="body">
+            <p>
+Removing the "directed connection" and working only with costs query is: <br />
+</p>
+<p>
+set enable_hashjoin=false;set enable_mergejoin=false;<br />
+</p>
+<p>
+SELECT ".TABLE.".*, <a class="missing wiki">AsText?</a>(".TABLE.".the_geom) AS wkt FROM ".TABLE.", shortest_path_shooting_star('SELECT gid as id, source, target,  cost, reverse_cost,
+</p>
+<blockquote>
+<p>
+x1, y1, x2, y2, rule, to_cost FROM ".TABLE."', ".$startEdge<a class="missing wiki">gid?</a>.", ".$endEdge<a class="missing wiki">gid?</a>.", false, true) as rt
+</p>
+<blockquote>
+<p>
+WHERE ".TABLE.".gid=rt.edge_id;<br />
+</p>
+</blockquote>
+</blockquote>
+<p>
+Result is not same but still not correct.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlofrancesco
+          </div>
+          <div class="time">
+            10/26/09 18:13:07 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1175"></a>
+        <div class="id">
+          Message #1175
+        </div>
+        <div class="body">
+            <p>
+look at this strange thing: <a class="ext-link" href="http://img245.imageshack.us/img245/4746/exampleq.jpg"><span class="icon"> </span>http://img245.imageshack.us/img245/4746/exampleq.jpg</a> <br />
+routing works well in the first 2 and last images, doesn't works in the 3rd
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlofrancesco
+          </div>
+          <div class="time">
+            10/26/09 19:27:25 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1176"></a>
+        <div class="id">
+          Message #1176
+        </div>
+        <div class="body">
+            <p>
+look at this strange thing: <a class="ext-link" href="http://img245.imageshack.us/img245/4746/exampleq.jpg"><span class="icon"> </span>http://img245.imageshack.us/img245/4746/exampleq.jpg</a> <br />
+routing works well in the first 2 and last images, doesn't works in the 3rd
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlofrancesco
+          </div>
+          <div class="time">
+            10/26/09 19:27:31 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1177"></a>
+        <div class="id">
+          Message #1177
+        </div>
+        <div class="body">
+            <p>
+same for pgRouting-1.02_pg-8.3.3
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlofrancesco
+          </div>
+          <div class="time">
+            10/26/09 20:38:07 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1179"></a>
+        <div class="id">
+          Message #1179
+        </div>
+        <div class="body">
+            <p>
+i can confirm that the problem is only on last edge. not first. (My fault was considering directed graph too).
+Considering only cost and reverse cost the proble persist only on teh last edge.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            carlofrancesco
+          </div>
+          <div class="time">
+            10/26/09 20:44:15 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/308?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/308?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

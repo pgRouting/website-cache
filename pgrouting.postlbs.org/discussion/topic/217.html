@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/217 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/18.html" title="shootingstar">shootingstar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>shootingstar (#18) - Function shortest_path_shooting_star is SLOW (#217) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Function shortest_path_shooting_star is SLOW
+            </div>
+            <div class="body">
+              <p>
+Hi!!....
+</p>
+<p>
+I'm using the function "shortest_path_shooting_star" and it returns the result perfectly but depending of the number of data the performance is slower. For example i created two tables.
+</p>
+<p>
+Table 1 have this structure, the name of this table is "mtxlinks":
+</p>
+<p>
+gid2 integer NOT NULL, source integer, target integer, "cost" double precision, reverse_cost double precision, to_cost double precision, x1 double precision, y1 double precision, x2 double precision, y2 double precision, "rule" text, id_cc1 integer, CONSTRAINT "PK_mtxlinks2" PRIMARY KEY (gid2)
+</p>
+<p>
+Table 2 have the same structure, the name of this table is "mtxlinks2":
+</p>
+<p>
+gid2 integer NOT NULL, source integer, target integer, "cost" double precision, reverse_cost double precision, to_cost double precision, x1 double precision, y1 double precision, x2 double precision, y2 double precision, "rule" text, id_cc1 integer, CONSTRAINT "PK_mtxlinks" PRIMARY KEY (gid2)
+</p>
+<p>
+To know the number of rows:
+</p>
+<p>
+select count(*) from mtxlinks ... this return: 507.770
+</p>
+<p>
+select count(*) from mtxlinks2 .... this return: 77.463
+</p>
+<p>
+When i run this SP:
+</p>
+<p>
+SELECT "edge_id" FROM shortest_path_shooting_star(
+</p>
+<p>
+'SELECT gid2 as id, source, target, cost, reverse_cost, x1, y1, x2, y2, rule, to_cost FROM mtxlinks2 order by gid2' ,113037234 ,113048625 , false , true )
+</p>
+<p>
+in the table 1 "mtxlinks" is very very slow.... but in the table 2 "mtxlinks2" is very fast.
+</p>
+<p>
+To analize this i execute EXPLAIN ANALYZE SELECT on the SP at the table "mtxlinks ":
+</p>
+<p>
+EXPLAIN ANALYZE SELECT "edge_id" FROM shortest_path_shooting_star(
+</p>
+<p>
+'SELECT gid2 as id, source, target, cost, reverse_cost, x1, y1, x2, y2, rule, to_cost FROM mtxlinks order by gid2' ,113037234 ,113048625 , false , true )
+</p>
+<p>
+this return : "Function Scan on shortest_path_shooting_star (cost=0.00..12.50 rows=1000 width=4) (actual time=34172.209..34172.272 rows=45 loops=1)" and "Total runtime: 34172.372 ms".
+</p>
+<p>
+EXPLAIN ANALYZE SELECT on the SP at the table "mtxlinks2":
+</p>
+<p>
+EXPLAIN ANALYZE SELECT "edge_id" FROM shortest_path_shooting_star(
+</p>
+<p>
+'SELECT gid2 as id, source, target, cost, reverse_cost, x1, y1, x2, y2, rule, to_cost FROM mtxlinks2 order by gid2' ,113037234 ,113048625 , false , true )
+</p>
+<p>
+this return :
+</p>
+<p>
+"Function Scan on shortest_path_shooting_star (cost=0.00..12.50 rows=1000 width=4) (actual time=4836.670..4836.733 rows=45 loops=1)" and "Total runtime: 4836.830 ms"
+</p>
+<p>
+How can i fix that? How can i improve the speed of the function? is depends on columns? depend about the number of data? Becouse in the example www.ridethecity.com is very fast and i guess that they have more number of data ....
+</p>
+<p>
+Help me please...
+</p>
+<p>
+Thanks..
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            mhungc
+          </div>
+          <div class="time">
+            02/10/09 04:16:04 (22 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/217?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/217?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message775"></a>
+        <div class="id">
+          Message #775
+        </div>
+        <div class="body">
+            <p>
+First thing: it doesn't help to speed up things if you post the same question two times at different places or create a ticket. I don't have the time to check if both are just copy &amp; paste, so I just answer this one.
+</p>
+<p>
+There are several ways to improve shortest path queries:
+</p>
+<ul><li>Create indices (gid, source, target, geometry index)
+</li><li>Select only the data of the area (BBOX) you really need. You might want to use "wrappers" for that (did you read through the tutorials?)
+</li></ul><p>
+If this doesn't help yet:
+</p>
+<ul><li>Prepare some data that might not change like cost columns for example.
+</li><li>Renumber ID's (best is your max. ID is not higher than the number of links)
+</li></ul><p>
+These are the ones that came to my mind now, but if this still doesn't help, just ask again.
+</p>
+<p>
+Half a million links is not that much and you should get a result more fast. But there is a limitation which depends on your hardware, but you won't be able to load a network of a few million links and get the route in a reasonable time.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/10/09 08:50:26 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message776"></a>
+        <div class="id">
+          Message #776
+        </div>
+        <div class="body">
+            <p>
+Sorry Daniel it will not happen again :S .
+</p>
+<p>
+Thanks for your help.
+</p>
+<p>
+I'm trying the "wrappers" like this
+</p>
+<p>
+SELECT gid , <a class="missing wiki">AsText?</a>(the_geom) AS the_geom
+</p>
+<blockquote>
+<p>
+FROM shootingstar_sp('mtxlinks', 67051413, 30000300, 0.1, 'cost', true, true)
+</p>
+</blockquote>
+<p>
+But I'm realizing that it return me a result depends of the buffer for example 0.1 in my case with this parameter "67051413, 30000300" not working but if a change this 0.1 to 0.3 it works. Is very fast when the buffer is 0.1 but if a change this variable it become slow....
+</p>
+<p>
+Can you help me with this?.
+</p>
+<p>
+And another cuestion Daniel...
+What you mean in :
+</p>
+<p>
+"Prepare some data that might not change like cost columns for example."
+</p>
+<p>
+and
+</p>
+<p>
+"Renumber ID's (best is your max. ID is not higher than the number of links)" ?
+</p>
+<p>
+Thanks a lot!!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            mhungc
+          </div>
+          <div class="time">
+            02/11/09 03:40:32 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message778"></a>
+        <div class="id">
+          Message #778
+        </div>
+        <div class="body">
+            <p>
+The "buffer" value in the wrapper extends your bounding box (which is defined by your start and end point). This buffer is in the same unit as your geometry is. In your case it seems to be degree, I guess. You might agree that increasing the buffer from 0.1 degree to 0.3 extends your area you load to memory a lot.
+</p>
+<p>
+So the buffer value needs to be tested: as small as possible to keep the loaded area small, but large enough not to get wrong results. I sometimes looked for the longest link in my network and set the buffer this value.
+</p>
+<p>
+Preparing the data means that instead of joining tables to calculate a cost value from several parameters (ie. speed, length, road type, etc.), you could precalculate this as a new attribute. It's same as you probably did with the start and end x/y for shooting star. Of course you could do this with every query, but this value will hardly change, so you can do it in advance and it will increase the speed.
+</p>
+<p>
+Nevertheless data loading is the most important parameter to improve the query.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/11/09 18:08:59 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message780"></a>
+        <div class="id">
+          Message #780
+        </div>
+        <div class="body">
+            <p>
+I will check my data Daniel.
+</p>
+<p>
+Another questions my friend....
+</p>
+<p>
+We can use shootingstar_sp with "functional Classes"? becouse our data contains this. Or exist others functions that working  with long paths and return a result faster?
+</p>
+<p>
+Thanks!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            mhungc
+          </div>
+          <div class="time">
+            02/12/09 04:25:28 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message781"></a>
+        <div class="id">
+          Message #781
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ We can use shootingstar_sp with "functional Classes"?
+</p>
+</blockquote>
+<p>
+You mean something like road classes? Similar to this maybe: <a class="wiki" href="../../wiki/WorkshopFOSS4G2008/ch11.html">WorkshopFOSS4G2008/ch11</a>
+</p>
+<blockquote class="citation">
+<p>
+ Or exist others functions that working with long paths ...
+</p>
+</blockquote>
+<p>
+Sorry, but I didn't understand this.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/12/09 10:01:09 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message787"></a>
+        <div class="id">
+          Message #787
+        </div>
+        <div class="body">
+            <p>
+Thanks Daniel,
+</p>
+<p>
+For the first question I will read the documment...
+</p>
+<p>
+I mean in "Or exist others functions that working with long paths ..." that if exist another function to improve the algorithm with long paths?, becouse for Short paths when i use "shootingstar_sp" with a degree 0.1 or 0.2 or the function "shortest_path_shooting_star" the result that they return us is very fast but for long paths is very slow......and in the "shootingstar_sp" the parameter degree is very intuitive to use becouse i dont know how calculate it respect the points or the parameter the_geom geometry".
+</p>
+<p>
+i hope explain it well becouse my english is very basic jejejej.
+</p>
+<p>
+Thanks Daniel.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            mhungc
+          </div>
+          <div class="time">
+            02/12/09 22:06:36 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message791"></a>
+        <div class="id">
+          Message #791
+        </div>
+        <div class="body">
+            <p>
+Short answer: Unfortunately they don't exist (yet).
+</p>
+<p>
+Long answer: There are several techniques (approaches, algorithms) that try to solve this issue. Dozens of research papers, studies, etc.. It is just not trivial to implement them. It's a matter of time and money.
+</p>
+<p>
+Open source answer: we are waiting for code contribution or sponsorship. ;-)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            02/13/09 09:41:48 (22 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/217?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/217?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/message/1727 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li><a href="../forum/18.html" title="shootingstar">shootingstar</a></li><li class="last"><a href="../topic/397.html" title="Stranger behaviour with rule involving more than one segment">Stranger behaviour with rule involving more than one segment</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>shootingstar (#18) - Stranger behaviour with rule involving more than one segment (#397) - Message List</h1>
+      <div class="topic ">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Stranger behaviour with rule involving more than one segment
+            </div>
+            <div class="body">
+              <p>
+I have been playing for a while with pgrouting. For most of the part, I have a clear understanding of what you can do and what you can not do, but there is something I found out that I don't really have any answer for.
+</p>
+<p>
+Here is the situation :
+A, B, C and D belong to the same street. I want for example to turn from B to D via F and also put a cost from G to D via F.It works if I create only one of the rule. However, both turn restrictions cannot exist together. Implementing one means that the other one won't be taken into account.
+</p>
+<blockquote>
+<p>
+|             |
+|             |
+</p>
+</blockquote>
+<blockquote>
+<p>
+C        |             |A
+</p>
+<blockquote>
+<p>
+|             |
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+E  ---------F-------------- G
+</p>
+<blockquote>
+<p>
+|        |
+</p>
+</blockquote>
+<p>
+D|             |B
+</p>
+<blockquote>
+<p>
+|             |
+|             |
+</p>
+</blockquote>
+</blockquote>
+<p>
+Related to another topic, I already modified the source code so that more than one rule can indeed be applied to the same segment. This situation of having two rules coming from different segment also work fine when all the segment have a rule referring to only 1 segment (Whereas in this case, we refer to two segment) .
+</p>
+<p>
+First question : has someone already noticed this issue?
+Second question : is there a way to overcome the situation without manipulating two much the segments?
+</p>
+<p>
+Regards
+</p>
+<p>
+flivingstone
+</p>
+<p>
+PS : I forgot to mention : of course, two rule means two rows having the same information except rule and to_cost. And also, I am using the latest version of PGRouting (1.03, not from svn)
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            flivingstone_the_sec
+          </div>
+          <div class="time">
+            10/28/10 02:35:43 (3 weeks ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies ">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/397?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/397?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li>
+        <a name="message1727"></a>
+        <div class="id">
+          Message #1727
+        </div>
+        <div class="body">
+            <blockquote>
+<p>
+|      |
+|      |
+</p>
+</blockquote>
+<p>
+C |         |A
+</p>
+<blockquote>
+<p>
+|      |
+</p>
+</blockquote>
+<p>
+E-----F------- G
+</p>
+<blockquote>
+<p>
+|      |
+</p>
+</blockquote>
+<blockquote>
+<p>
+D|      |B
+</p>
+<blockquote>
+<p>
+|      |
+|      |
+</p>
+</blockquote>
+</blockquote>
+<p>
+Here is the drawing, if it is not reshaped :-)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            flivingstone_the_sec
+          </div>
+          <div class="time">
+            10/28/10 02:39:24 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1728"></a>
+        <div class="id">
+          Message #1728
+        </div>
+        <div class="body">
+            <p>
+Ok, since the drawing doesn't work :
+</p>
+<p>
+<a class="ext-link" href="http://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Quebec&amp;sll=-33.892647,18.353348&amp;sspn=0.386442,0.617294&amp;ie=UTF8&amp;hq=&amp;hnear=Quebec&amp;ll=46.756254,-71.293834&amp;spn=0.002492,0.004823&amp;z=18"><span class="icon"> </span>http://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Quebec&amp;sll=-33.892647,18.353348&amp;sspn=0.386442,0.617294&amp;ie=UTF8&amp;hq=&amp;hnear=Quebec&amp;ll=46.756254,-71.293834&amp;spn=0.002492,0.004823&amp;z=18</a>
+</p>
+<p>
+Long Chemin Saint Louis East would be G
+Long Chemin Saint Louis West would be E
+The segment on Chemin Saint Louis Street between the two sides of Laurier Boulevard is F.
+</p>
+<p>
+On boulevard Laurier the right side (heading Northbound) goes from B to A.
+On boulevard Laurier the left side (heading Southbound) goes from C to D.
+</p>
+<p>
+I hope it is understandable. Let me know otherwise!
+</p>
+<p>
+Regards
+</p>
+<p>
+flivingstone
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            flivingstone_the_sec
+          </div>
+          <div class="time">
+            10/28/10 02:50:09 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li>
+        <a name="message1729"></a>
+        <div class="id">
+          Message #1729
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+Actually you always could assign two or more rules to D, since version 1.02 I think. In your case you need to create 2 rows for edge D, one with rule value 'B, F' and another one with rule 'G,F' - both with different to_cost vlaues. One condition is your rows select query must be ordered by gid.
+</p>
+<p>
+I hope I understood you correctly.
+</p>
+<p>
+Cheers,
+Anton.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/28/10 13:34:32 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1730"></a>
+        <div class="id">
+          Message #1730
+        </div>
+        <div class="body">
+            <p>
+Thanks Anton.
+</p>
+<p>
+So far so good. This already what I have done : to put my description in other words, what I have is
+</p>
+<p>
+gid|rule|to_cost
+</p>
+<p>
+D|'B,F|'|10000
+</p>
+<p>
+D|'G,F|'|10000
+</p>
+<p>
+As soon as I add the rule G,F, the rule B,F is no longer taken into account.
+But I can confirm that my version of PGRouting can handle multiple rule on one segment, because if I configure my rule like this, both rules are taken into account
+</p>
+<p>
+D|'C|'|10000
+</p>
+<p>
+D|'F|'|10000
+</p>
+<p>
+So, in order to recap the problem : multiple turn restriction work fine, but not when it involves rules having more than one segments. At least, that the conclusion I have from my test. The chance that my code modification affected it are very small, but I cannot completely exclude it... So that why I am asking if someone has already noticed that problem.
+</p>
+<p>
+Regards
+</p>
+<p>
+flivingstone
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            flivingstone_the_sec
+          </div>
+          <div class="time">
+            10/28/10 22:28:20 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1731"></a>
+        <div class="id">
+          Message #1731
+        </div>
+        <div class="body">
+            <p>
+Ah! Now I got it.
+</p>
+<p>
+It must be a bug, but yes, you're the first person who noticed this behavior.
+</p>
+<p>
+Thanks,
+</p>
+<p>
+Anton.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/29/10 11:53:29 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1735"></a>
+        <div class="id">
+          Message #1735
+        </div>
+        <div class="body">
+            <p>
+Ok, I'll just create a test scenario a try it with the original version of PGRouting and mine. This way, I 'll make sure MY modifications don't wreak the havoc in something that is working fine.
+</p>
+<p>
+If it really something related to PGRouting, I should be able to describe exactly how this bug happens, and I hope to come back with either a solution, or at least an accurate description.
+</p>
+<p>
+Cheers
+</p>
+<p>
+flivingstone
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            flivingstone_the_sec
+          </div>
+          <div class="time">
+            11/01/10 21:48:11 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1737"></a>
+        <div class="id">
+          Message #1737
+        </div>
+        <div class="body">
+            <p>
+That would be great if you could help with this[[BR]]
+pgRouting is currently looking for a new place for the code repository and it is likely to become a Git repository, which should make it easier for everyone to commit improvements.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            11/01/10 23:56:52 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1741"></a>
+        <div class="id">
+          Message #1741
+        </div>
+        <div class="body">
+            <p>
+It sounds great. I am really glad if I can help in any way. Still so far,I am not sure where the problem is coming from. Some of my queries were not ordered by id. It is a starting point, but it doesn't solve everything. I got back to my testing with the original version of PGRouting, and I am building every possible scenario.
+I'll let you know, it can be helpful for the community.
+</p>
+<p>
+Still, I have one additionnal question, because some results include a U-Turn on the same segment... I thought it was not supposed to happen. Am I right?
+</p>
+<p>
+Fabien
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            flivingstone_the_sec
+          </div>
+          <div class="time">
+            11/02/10 11:48:03 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1743"></a>
+        <div class="id">
+          Message #1743
+        </div>
+        <div class="body">
+            <p>
+Can you please be more specific about U-turns? I didn't get it.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            11/02/10 22:21:46 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1750"></a>
+        <div class="id">
+          Message #1750
+        </div>
+        <div class="body">
+            <p>
+Ok, so after some testing here is the problem and the solution :
+For the U-Turns. Let me describe it in another way :
+</p>
+<p>
+You have a big street A. Each side is represented by separated segments with oneway restrictions.
+</p>
+<p>
+The big street A crosses B. A segment of B connects for segments of A. Let's say you have traffic light. At the intersection between A and B. So going straight on A has a cost. Goint from B to A has a cost. Doing a U-Turn on A is forbidden, and you can turn Left from B to A.
+</p>
+<p>
+You need for example one rule involving one segment for going right from B to A, or going straight on A. But you need a rule involving two segments for describing left from B to A and U-Turns between each side of A without ambiguity.
+</p>
+<p>
+But U-Turns and Left Turn share one segment in common. This is where the code in shooting_star_relax is wrong... Well it misses something actually.. See the variable contains???? Lets say I have the segment 3. Doing one of the U-Turn fro street A is descibed by the rule : 1,2. Turning Left is 4,2. So 2 is a segment used in both rules
+</p>
+<p>
+id 3 rule '1,2'
+id 3 rule '4,2'
+</p>
+<p>
+Let's say we arrive on 3 by passing via 1,2, so U-Turn.What's happening in the relax process :
+START
+</p>
+<blockquote>
+<p>
+Step 0 : i = 0
+</p>
+<blockquote>
+<p>
+Step 1 : Start checking rule 1,2
+Step 2: Find the rule for 3 with first element of rule = 2.
+Step 3 : Get predecessor of the segment 3.... It is 2 :Contains = i
+Step 4 :Find the rule for 3 with second element of rule = 3. Contains = i
+Step 5 : Get predecessor of the segment 2.... It is 1 :Contains = i
+</p>
+</blockquote>
+<p>
+Step 6 : i =1
+</p>
+<blockquote>
+<p>
+Step 7 : Start checking rule 4,2
+Step 8: Find the rule for 3 with first element of rule = 2.
+Step 9 : Get predecessor of the segment 3....Is is 2 Contains = i
+Step 10 :Find the rule for 3 with first second of rule = 4. Contains = i
+Step 11 : Get predecessor of the segment 2.... It is 1 :Contains = -1
+</p>
+</blockquote>
+</blockquote>
+<p>
+END
+And kaboom!!! the rule that we found at step 5 is lost because the variable 'contains' returns to the NO MATCH value... So I haven`t been allowed to give you the code, but I can give you the trick. Create another variable that stores when a rule is found. If contains is reinitiallized after that, use this variable to check that you went through the rule and that contains has been initialized... Am I understandable? Let me know if you are confused... This was quite complex to find and describe ;-)
+</p>
+<p>
+Cheers
+</p>
+<p>
+flivingstone
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            flivingstone_the_sec
+          </div>
+          <div class="time">
+            11/11/10 12:49:30 (9 days ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1751"></a>
+        <div class="id">
+          Message #1751
+        </div>
+        <div class="body">
+            <p>
+Oups.. For my explanation about u-turns. B is a street with both side for driving are represented by one segment.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            flivingstone_the_sec
+          </div>
+          <div class="time">
+            11/11/10 13:12:30 (9 days ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/397?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/397?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,890 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/7 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:17:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #7 (Patch for Win32 for PgRouting 1.0.0.a)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="2.html" title="Ticket #2" />
+        <link rel="last" href="109.html" title="Ticket #109" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/7?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/7?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/7?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="up" href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1" />
+        <link rel="next" href="9.html" title="Ticket #9" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="138.html" title="Ticket #138" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="2.html" title="Ticket #2">Previous Ticket</a></span></li><li><a href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1">Back to Query</a></li><li class="last"><span><a class="next" href="9.html" title="Ticket #9">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #7
+          <span class="status">(closed feature request: fixed)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-27T12%3A38%3A33%2B0900&amp;precision=second" title="2007-05-27T12:38:33+0900 in Timeline">3 years</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-05-31T02%3A39%3A42%2B0900&amp;precision=second" title="2008-05-31T02:39:42+0900 in Timeline">2 years</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">Patch for Win32 for PgRouting 1.0.0.a</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">davidtecher</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">anton
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      major
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="closed milestone" href="../milestone/Version%201-3.html">Version 1.0</a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      pgRouting package
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      1.0.0a
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                      win32
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+Hi
+</p>
+<p>
+I did a little patch in order to support Win32 for "Makefile.in" and "Makefile".
+Actually only "Makefile.in" should be support! But since pgrouting's doc tells to modify the "Makefile", I did it both.
+</p>
+<p>
+I should by interesing if pgrouting could support automake --&gt; config.guess and config.sub in order to knowing the variable "host"
+</p>
+<p>
+So you could do something like and have
+</p>
+<p>
+case "$host" in
+</p>
+<blockquote>
+<p>
+*ming*) ...
+</p>
+<blockquote>
+<p>
+;;
+</p>
+</blockquote>
+<p>
+?) ...
+;;
+</p>
+</blockquote>
+<p>
+esac
+</p>
+<p>
+It should be my idea for the "Wihs List" ;)
+</p>
+<p>
+Since it is not the case to have config.guess/config.sub, so my test relies on the variable MSYSTEM that could tell me, if I'm on Win32 ---&gt; MSYSTEM=MINGW
+</p>
+<blockquote>
+<p>
+ifeq ($(findstring MINGW,$(MSYSTEM)),MINGW)
+</p>
+</blockquote>
+<p>
+!       TSP_LIBS_ARGS=-lgaul -lgaul_util -lm
+!       TSP_SOLVER_ARGS=-DBUILDING_DLL
+!       ALPHADRIVELIST_ARGS=-I$(BOOST_PATH)
+!  else
+!       TSP_LIBS_ARGS=-lgaul_util -lgaul
+!       TSP_SOLVER_ARGS=
+!       ALPHADRIVELIST_ARGS=
+!  endif
+</p>
+<p>
+Not really good as test, let me know.
+</p>
+<p>
+Hope this help
+</p>
+<p>
+Only in routing/: .svn
+diff -cr routing/Makefile routing-win32/Makefile
+*** routing/Makefile        Sun May 27 03:13:00 2007
+--- routing-win32/Makefile        Fri May 25 23:20:44 2007
+***************
+*** 1,9 ****
+! CGAL_MAKEFILE = /usr/make/makefile_x86-64_Linux-2.6_g++-3.4.4
+! BOOST_PATH=/usr/include/boost/graph
+</p>
+<blockquote>
+<p>
+GAUL_PATH =/usr/local/include/gaul
+</p>
+</blockquote>
+<p>
+! GAUL_LIB  =/usr/local/lib64
+! CGAL_PATH =/usr/include
+! CGAL_LIB  =/usr/lib64
+  
+</p>
+<blockquote>
+<p>
+CXXFLAGS = \
+</p>
+<blockquote>
+<p>
+-I../../include \
+</p>
+</blockquote>
+</blockquote>
+<p>
+--- 1,9 ----
+! CGAL_MAKEFILE = /usr/local/cgal/make/makefile_i686_MINGW32NT-5.1_g++-3.4.2
+! BOOST_PATH=/usr/local/include/boost/graph
+</p>
+<blockquote>
+<p>
+GAUL_PATH =/usr/local/include/gaul
+</p>
+</blockquote>
+<p>
+! GAUL_LIB  =/usr/local/lib
+! CGAL_PATH =/usr/local/cgal/include
+! CGAL_LIB  =/usr/local/cgal/lib
+  
+</p>
+<blockquote>
+<p>
+CXXFLAGS = \
+</p>
+<blockquote>
+<p>
+-I../../include \
+</p>
+</blockquote>
+</blockquote>
+<p>
+***************
+*** 11,17 ****
+</p>
+<blockquote>
+<p>
+$(LONG_NAME_PROBLEM_CXXFLAGS)
+</p>
+</blockquote>
+<p>
+  
+</p>
+<blockquote>
+<p>
+EXTRA_FLAGS = -O2 -g -fpic
+</p>
+</blockquote>
+<p>
+!  
+</p>
+<blockquote>
+<p>
+#---------------------------------------------------------------------#
+#                    linker flags
+#---------------------------------------------------------------------#
+</p>
+</blockquote>
+<p>
+--- 11,30 ----
+</p>
+<blockquote>
+<p>
+$(LONG_NAME_PROBLEM_CXXFLAGS)
+</p>
+</blockquote>
+<p>
+  
+</p>
+<blockquote>
+<p>
+EXTRA_FLAGS = -O2 -g -fpic
+</p>
+</blockquote>
+<p>
+! 
+! 
+! #---------------------------------------------------------------------#
+! #                    MinGW Win32 Specific
+! #---------------------------------------------------------------------#
+!  ifeq ($(findstring MINGW,$(MSYSTEM)),MINGW)
+!          TSP_LIBS_ARGS=-lgaul -lgaul_util -lm
+!          TSP_SOLVER_ARGS=-DBUILDING_DLL
+!          ALPHADRIVELIST_ARGS=-I$(BOOST_PATH)
+!  else
+!          TSP_LIBS_ARGS=-lgaul_util -lgaul 
+!          TSP_SOLVER_ARGS=
+!          ALPHADRIVELIST_ARGS=
+!  endif
+</p>
+<blockquote>
+<p>
+#---------------------------------------------------------------------#
+#                    linker flags
+#---------------------------------------------------------------------#
+</p>
+</blockquote>
+<p>
+***************
+*** 30,36 ****
+</p>
+<blockquote>
+<p>
+TSP_LIBS=
+</p>
+</blockquote>
+<blockquote>
+<p>
+else
+</p>
+<blockquote>
+<p>
+TSP_OBJS= tsp.o tsp_solver.o 
+</p>
+</blockquote>
+</blockquote>
+<p>
+!  TSP_LIBS= -L$(GAUL_LIB) -lgaul_util -lgaul
+</p>
+<blockquote>
+<p>
+endif
+</p>
+</blockquote>
+<p>
+  
+</p>
+<blockquote>
+<p>
+ifeq ($(CGAL_MAKEFILE),)
+</p>
+</blockquote>
+<p>
+--- 43,49 ----
+</p>
+<blockquote>
+<p>
+TSP_LIBS=
+</p>
+</blockquote>
+<blockquote>
+<p>
+else
+</p>
+<blockquote>
+<p>
+TSP_OBJS= tsp.o tsp_solver.o 
+</p>
+</blockquote>
+</blockquote>
+<p>
+!  TSP_LIBS= -L$(GAUL_LIB) $(TSP_LIBS_ARGS)
+</p>
+<blockquote>
+<p>
+endif
+</p>
+</blockquote>
+<p>
+  
+</p>
+<blockquote>
+<p>
+ifeq ($(CGAL_MAKEFILE),)
+</p>
+</blockquote>
+<p>
+***************
+*** 71,77 ****
+</p>
+<blockquote>
+<p>
+$(CXX) $(CPPFLAGS) $(EXTRA_FLAGS) -I$(BOOST_PATH) -c boost_drivedist.cpp
+</p>
+</blockquote>
+<p>
+  
+</p>
+<blockquote>
+<p>
+tsp_solver.o: tsp_solver.cpp
+</p>
+</blockquote>
+<p>
+!         $(CXX) $(CPPFLAGS) $(EXTRA_FLAGS) -I$(GAUL_PATH) -c tsp_solver.cpp
+  
+</p>
+<blockquote>
+<p>
+alpha_drivedist.o: alpha_drivedist.cpp
+</p>
+</blockquote>
+<p>
+!         $(CXX) $(CPPFLAGS) $(EXTRA_FLAGS) -I$(CGAL_PATH) -I$(CGAL_INCL_CONF_DIR) -c alpha_drivedist.cpp
+--- 84,90 ----
+</p>
+<blockquote>
+<p>
+$(CXX) $(CPPFLAGS) $(EXTRA_FLAGS) -I$(BOOST_PATH) -c boost_drivedist.cpp
+</p>
+</blockquote>
+<p>
+  
+</p>
+<blockquote>
+<p>
+tsp_solver.o: tsp_solver.cpp
+</p>
+</blockquote>
+<p>
+!         $(CXX) $(CPPFLAGS) $(EXTRA_FLAGS) -I$(GAUL_PATH) $(TSP_SOLVER_ARGS) -c tsp_solver.cpp
+  
+</p>
+<blockquote>
+<p>
+alpha_drivedist.o: alpha_drivedist.cpp
+</p>
+</blockquote>
+<p>
+!         $(CXX) $(CPPFLAGS) $(EXTRA_FLAGS) $(ALPHADRIVELIST_ARGS) -I$(CGAL_PATH) -I$(CGAL_INCL_CONF_DIR) -c alpha_drivedist.cpp
+diff -cr routing/Makefile.in routing-win32/Makefile.in
+*** routing/Makefile.in        Sun May 27 03:12:58 2007
+--- routing-win32/Makefile.in        Fri May 25 23:19:48 2007
+***************
+*** 11,17 ****
+</p>
+<blockquote>
+<p>
+$(LONG_NAME_PROBLEM_CXXFLAGS)
+</p>
+</blockquote>
+<p>
+  
+</p>
+<blockquote>
+<p>
+EXTRA_FLAGS = -O2 -g -fpic
+</p>
+</blockquote>
+<p>
+!  
+</p>
+<blockquote>
+<p>
+#---------------------------------------------------------------------#
+#                    linker flags
+#---------------------------------------------------------------------#
+</p>
+</blockquote>
+<p>
+--- 11,30 ----
+</p>
+<blockquote>
+<p>
+$(LONG_NAME_PROBLEM_CXXFLAGS)
+</p>
+</blockquote>
+<p>
+  
+</p>
+<blockquote>
+<p>
+EXTRA_FLAGS = -O2 -g -fpic
+</p>
+</blockquote>
+<p>
+! 
+! 
+! #---------------------------------------------------------------------#
+! #                    MinGW Win32 Specific
+! #---------------------------------------------------------------------#
+!  ifeq ($(findstring MINGW,$(MSYSTEM)),MINGW)
+!          TSP_LIBS_ARGS=-lgaul -lgaul_util -lm
+!          TSP_SOLVER_ARGS=-DBUILDING_DLL
+!          ALPHADRIVELIST_ARGS=-I$(BOOST_PATH)
+!  else
+!          TSP_LIBS_ARGS=-lgaul_util -lgaul 
+!          TSP_SOLVER_ARGS=
+!          ALPHADRIVELIST_ARGS=
+!  endif
+</p>
+<blockquote>
+<p>
+#---------------------------------------------------------------------#
+#                    linker flags
+#---------------------------------------------------------------------#
+</p>
+</blockquote>
+<p>
+***************
+*** 30,36 ****
+</p>
+<blockquote>
+<p>
+TSP_LIBS=
+</p>
+</blockquote>
+<blockquote>
+<p>
+else
+</p>
+<blockquote>
+<p>
+TSP_OBJS= tsp.o tsp_solver.o 
+</p>
+</blockquote>
+</blockquote>
+<p>
+!  TSP_LIBS= -L$(GAUL_LIB) -lgaul_util -lgaul
+</p>
+<blockquote>
+<p>
+endif
+</p>
+</blockquote>
+<p>
+  
+</p>
+<blockquote>
+<p>
+ifeq ($(CGAL_MAKEFILE),)
+</p>
+</blockquote>
+<p>
+--- 43,49 ----
+</p>
+<blockquote>
+<p>
+TSP_LIBS=
+</p>
+</blockquote>
+<blockquote>
+<p>
+else
+</p>
+<blockquote>
+<p>
+TSP_OBJS= tsp.o tsp_solver.o 
+</p>
+</blockquote>
+</blockquote>
+<p>
+!  TSP_LIBS= -L$(GAUL_LIB) $(TSP_LIBS_ARGS)
+</p>
+<blockquote>
+<p>
+endif
+</p>
+</blockquote>
+<p>
+  
+</p>
+<blockquote>
+<p>
+ifeq ($(CGAL_MAKEFILE),)
+</p>
+</blockquote>
+<p>
+***************
+*** 71,77 ****
+</p>
+<blockquote>
+<p>
+$(CXX) $(CPPFLAGS) $(EXTRA_FLAGS) -I$(BOOST_PATH) -c boost_drivedist.cpp
+</p>
+</blockquote>
+<p>
+  
+</p>
+<blockquote>
+<p>
+tsp_solver.o: tsp_solver.cpp
+</p>
+</blockquote>
+<p>
+!         $(CXX) $(CPPFLAGS) $(EXTRA_FLAGS) -I$(GAUL_PATH) -c tsp_solver.cpp
+  
+</p>
+<blockquote>
+<p>
+alpha_drivedist.o: alpha_drivedist.cpp
+</p>
+</blockquote>
+<p>
+!         $(CXX) $(CPPFLAGS) $(EXTRA_FLAGS) -I$(CGAL_PATH) -I$(CGAL_INCL_CONF_DIR) -c alpha_drivedist.cpp
+--- 84,90 ----
+</p>
+<blockquote>
+<p>
+$(CXX) $(CPPFLAGS) $(EXTRA_FLAGS) -I$(BOOST_PATH) -c boost_drivedist.cpp
+</p>
+</blockquote>
+<p>
+  
+</p>
+<blockquote>
+<p>
+tsp_solver.o: tsp_solver.cpp
+</p>
+</blockquote>
+<p>
+!         $(CXX) $(CPPFLAGS) $(EXTRA_FLAGS) -I$(GAUL_PATH) $(TSP_SOLVER_ARGS) -c tsp_solver.cpp
+  
+</p>
+<blockquote>
+<p>
+alpha_drivedist.o: alpha_drivedist.cpp
+</p>
+</blockquote>
+<p>
+!         $(CXX) $(CPPFLAGS) $(EXTRA_FLAGS) $(ALPHADRIVELIST_ARGS) -I$(CGAL_PATH) -I$(CGAL_INCL_CONF_DIR) -c alpha_drivedist.cpp
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Attachments</h2>
+          <div id="attachments">
+            <dl class="attachments">
+                <dt>
+      <a href="../attachment/ticket/7/patch-routing-1.0.0.a-win32-r1.html" title="View attachment">patch-routing-1.0.0.a-win32-r1.patch</a>
+      <a href="../raw-attachment/ticket/7/patch-routing-1.0.0.a-win32-r1.patch" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="5056 bytes">4.9 KB</span>) - added by <em>davidtecher</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-27T12%3A39%3A18%2B0900&amp;precision=second" title="2007-05-27T12:39:18+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dd>
+                  patch for win32 - pgrouting 1.0.0.a
+                </dd>
+            </dl>
+          </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-27T12%3A39%3A18%2B0900&amp;precision=second" title="2007-05-27T12:39:18+0900 in Timeline">3 years</a> ago by davidtecher
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/7/patch-routing-1.0.0.a-win32-r1.html"><em>patch-routing-1.0.0.a-win32-r1.patch</em></a>
+              <a href="../raw-attachment/ticket/7/patch-routing-1.0.0.a-win32-r1.patch" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+patch for win32 - pgrouting 1.0.0.a
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  <span class="threading">
+                      follow-up:
+      <a href="#comment:2"><small>↓ 2</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-28T10%3A22%3A14%2B0900&amp;precision=second" title="2007-05-28T10:22:14+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>owner</strong>
+            set to <em>anton</em>
+        </li><li>
+          <strong>status</strong>
+              changed from <em>new</em> to <em>assigned</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+David,
+</p>
+<p>
+Thank you for the patch!
+</p>
+<p>
+Well, I don't know what to do - to make a branch for win32 version or just to rearrange directory structure to separate your makefiles from ones for Linux...
+</p>
+<p>
+Do you have any ideas what will be the best way?
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:1"><small>↑ 1</small></a>
+                        ;
+                      follow-up:
+      <a href="#comment:3"><small>↓ 3</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-29T11%3A42%3A01%2B0900&amp;precision=second" title="2007-05-29T11:42:01+0900 in Timeline">3 years</a> ago by daniel
+                </h3>
+      <div class="comment searchable">
+        <p>
+The ticket <a class="closed ticket" href="8.html" title="task: New directory structure (closed: fixed)">#8</a> has been added to create a new directory structure.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:2"><small>↑ 2</small></a>
+                        ;
+                      follow-up:
+      <a href="#comment:4"><small>↓ 4</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-30T00%3A59%3A53%2B0900&amp;precision=second" title="2007-05-30T00:59:53+0900 in Timeline">3 years</a> ago by davidtecher
+                </h3>
+      <div class="comment searchable">
+        <p>
+Hi
+</p>
+<p>
+AFAI I think the best  should be to make a branch for win32...I don't know what will be the future development for pgrouting. So I think the pgrouting's team will made modification on files for linux=&gt; the general branch.
+</p>
+<p>
+So later, if win32 contributors wanted to test the win32's branch they could suggetst their own patch without modifying the general branch. That's a better organization 
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:3"><small>↑ 3</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-30T01%3A02%3A55%2B0900&amp;precision=second" title="2007-05-30T01:02:55+0900 in Timeline">3 years</a> ago by davidtecher
+                </h3>
+      <div class="comment searchable">
+        <p>
+Replying to <a href="7.html#comment:3" title="Comment 3 for Ticket #7">davidtecher</a>:
+</p>
+<blockquote class="citation">
+<p>
+ Hi
+ 
+ AFAI I think the best  should be to make a branch for win32...I don't know what will be the future development for pgrouting. So I think the pgrouting's team will made modification on files for linux=&gt; the general branch.
+ 
+ So later, if win32 contributors wanted to test the win32's branch they could suggetst their own patch without modifying the general branch. That's a better organization 
+An other idea should be to support automake and so on. So we will not have the problem of host detection....=&gt; linux, win32, os x
+</p>
+</blockquote>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:5">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-07-27T15%3A19%3A47%2B0900&amp;precision=second" title="2007-07-27T15:19:47+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>assigned</em> to <em>closed</em>
+        </li><li>
+          <strong>resolution</strong>
+              set to <em>fixed</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Win32 patch was temporary included into the trunk.
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/7?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/7?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/7?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("7.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/7 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:17:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/76 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - any workarounds for cmake bug for dd-package? (#76) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              any workarounds for cmake bug for dd-package?
+            </div>
+            <div class="body">
+              <p>
+As described in ticket <a class="assigned ticket" href="../../ticket/85.html" title="bug report: cmake build problem (assigned)">#85</a>, there is a problem building pgrouting-1.0 with "cmake -DWITH_DD=ON . &amp;&amp; make" or "cmake -DWITH=TSP=ON -DWITH_DD=ON . &amp;&amp; make" (all other cmake combinations without "-DWITH_DD" are working fine):
+</p>
+<p>
+/opt/built/pgrouting-1.0/core/src/dijkstra.c:22:22: error: postgres.h: No such file or directory
+</p>
+<p>
+I´m using the following system and libs:
+</p>
+<p>
+opensuse-10.3
+</p>
+<p>
+postgresql-8.2.4
+</p>
+<p>
+postgis-1.3.2
+</p>
+<p>
+boost(-devel)-1.33.1
+</p>
+<p>
+CGAL-3.3.1
+</p>
+<p>
+gaul-devel-0.1849-0
+</p>
+<p>
+Any suggestions?
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            12/09/07 22:16:47 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/76?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/76?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message280"></a>
+        <div class="id">
+          Message #280
+        </div>
+        <div class="body">
+            <p>
+It works with "core", "tsp" and "dd" for me now using the following instructions.
+</p>
+<p>
+For "core":
+</p>
+<p>
+=====================
+</p>
+<p>
+1. untar to /opt/built/pgrouting-1.0
+</p>
+<p>
+2. cd /opt/built/pgrouting-1.0
+</p>
+<p>
+3. open CMakeLists.txt and add "${POSTGRESQL_INCLUDE_DIR}" to line 85:
+</p>
+<p>
+SET(PGROUTING_INCLUDE_DIRECTORIES ${POSTGRESQL_INCLUDE_DIR} ${PGROUTING_SOURCE_DIR}/core ${PGROUTING_SOURCE_DIR}/core/src ${PGROUTING_SOURCE_DIR}/extra ${PGROUTING_SOURCE_DIR}/extra/tsp ${PGROUTING_SOURCE_DIR}/extra/tsp/src ${PGROUTING_SOURCE_DIR}/extra/driving_distance ${PGROUTING_SOURCE_DIR}/extra/driving_distance/src
+)
+</p>
+<p>
+4. cmake .
+</p>
+<p>
+5. make
+</p>
+<p>
+=====================
+</p>
+<p>
+For "tsp":
+</p>
+<p>
+steps 1-3 of "core"
+</p>
+<p>
+4. cmake -DWITH_TSP=ON .
+</p>
+<p>
+5. make routing_tsp
+</p>
+<p>
+=====================
+</p>
+<p>
+For "dd":
+</p>
+<p>
+steps 1-3 of "core"
+</p>
+<p>
+4. cmake -DWITH_DD=ON .
+</p>
+<p>
+5. make routing_dd
+</p>
+<p>
+=====================
+</p>
+<p>
+Hope it helps someone...
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            12/10/07 01:40:16 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message282"></a>
+        <div class="id">
+          Message #282
+        </div>
+        <div class="body">
+            <p>
+Nevertheless, I still can´t import the routing_tsp.sql and routing_dd.sql in my postgres database (see thread "using routing_tsp on linux"). :-( The windows binaries are working fine.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            12/10/07 02:25:49 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/76?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/76?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

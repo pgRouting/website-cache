@@ -1,0 +1,815 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/251 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/22.html" title="demo">demo</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>demo (#22) - Error 'Invalid OGC WKT (too short)' from 'An Introduction to pgRouting with <a class="missing wiki">OpenLayers?</a>' (#251) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Error 'Invalid OGC WKT (too short)' from 'An Introduction to pgRouting with <a class="missing wiki">OpenLayers?</a>'
+            </div>
+            <div class="body">
+              <p>
+Hi !!
+</p>
+<p>
+First sorry for my poor English... My name is Poul, I am new in the hole pgrouting stuff, and I am just learning. I got some problem during the tutorial from page <a href="../../wiki/WorkshopFOSS4G2007.html">http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2007</a>.
+</p>
+<p>
+And i don't know what to do
+</p>
+<p>
+My data base looks like this:
+<a class="ext-link" href="http://img139.imageshack.us/img139/5016/dbase.jpg"><span class="icon"> </span>http://img139.imageshack.us/img139/5016/dbase.jpg</a>
+</p>
+<p>
+My php file looks like this:
+</p>
+<pre class="wiki">&lt;?php
+  // Database connection settings
+  define("PG_DB"  , "postgis");
+  define("PG_HOST", "localhost");
+  define("PG_USER", "postgres");
+  define("PG_PORT", "5432");
+  define("TABLE",   "proba");
+  $counter = $pathlength = 0;
+  // Retrieve start point
+  $start = split(' ',$_REQUEST["startpoint"]);
+  $startPoint = array($start[0], $start[1]);
+  // Retrieve end point
+  $end = split(' ',$_REQUEST["finalpoint"]);
+  $endPoint = array($end[0], $end[1]);
+//     Find the nearest edge
+  $startEdge = findNearestEdge($startPoint);
+  $endEdge   = findNearestEdge($endPoint);
+  // FUNCTION findNearestEdge
+  function findNearestEdge($lonlat) {
+  	    // Connect to database
+    $con = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);
+    $sql = "SELECT gid, source, target, the_geom,
+			 distance(the_geom, GeometryFromText(
+                  'POINT(".$lonlat[0]." ".$lonlat[1].")', 4326)) AS dist
+            FROM ".TABLE."
+            WHERE the_geom &amp;&amp; setsrid(
+                  'BOX3D(".($lonlat[0]-200)."
+                         ".($lonlat[1]-200).",
+                         ".($lonlat[0]+200)."
+                         ".($lonlat[1]+200).")'::box3d, 4326)
+            ORDER BY dist LIMIT 1";
+    $query = pg_query($con,$sql);
+    $edge['gid']      = pg_fetch_result($query, 0, 0);
+    $edge['source']   = pg_fetch_result($query, 0, 1);
+    $edge['target']   = pg_fetch_result($query, 0, 2);
+    $edge['the_geom'] = pg_fetch_result($query, 0, 3);
+    // Close database connection
+    pg_close($con);
+    return $edge;
+  }
+?&gt;
+</pre><p>
+And also I changed the html page from the tutorial. The line:
+</p>
+<pre class="wiki">                OpenLayers.loadURL("rout.php",
+                                   OpenLayers.Util.getParameterString(result),
+                                   null,
+                                   displayRoute);
+</pre><p>
+to:
+</p>
+<pre class="wiki">                OpenLayers.loadURL("rout.php?startpoint= +result.startpoint+&amp;finalpoint=+result.finalpoint+",
+                                   OpenLayers.Util.getParameterString(result),
+                                   null,
+                                   displayRoute);
+</pre><p>
+This was only way it would start... I don't know if it means something but I posted it....
+</p>
+<p>
+When I comment the function findNearestEdge everything is fine.
+Any suggestions? Please help me... I don't know what to do next, and I am so desperate to do that... Please any anybody... I would really appreciate...
+</p>
+<p>
+Poul
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/21/09 07:29:28 (19 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/251?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/251?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message887"></a>
+        <div class="id">
+          Message #887
+        </div>
+        <div class="body">
+            <p>
+By the way I am working on windows XP, with the Openlayer 2.7, pgRouting-1.02_pg-8.3.3, postgis_1_3_5_pg83 and <a class="missing wiki">PostgreSql?</a>_8.3.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/21/09 07:35:54 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message888"></a>
+        <div class="id">
+          Message #888
+        </div>
+        <div class="body">
+            <p>
+The hole error is :
+</p>
+<pre class="wiki">Błąd: not understood series of signs after element of duciment
+Source code: http://localhost/buslines/Projekt1/Projekt1/rout.php?startpoint=%20+result.startpoint+&amp;finalpoint=+result.finalpoint+
+Row: 2, Column: 1
+Source code:
+&lt;b&gt;Warning&lt;/b&gt;:  pg_query() [&lt;a href='function.pg-query'&gt;function.pg-query&lt;/a&gt;]: Query failed: ERROR:  Invalid OGC WKT (too short) in &lt;b&gt;C:\Program Files\Apache Group\Apache2\htdocs\buslines\Projekt1\Projekt1\rout.php&lt;/b&gt; on line &lt;b&gt;45&lt;/b&gt;&lt;br /&gt;
+</pre><p>
+The 45 line of the rout.php is :
+</p>
+<pre class="wiki"> $query = pg_query($con,$sql);
+</pre>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/21/09 07:45:34 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message891"></a>
+        <div class="id">
+          Message #891
+        </div>
+        <div class="body">
+            <p>
+Could you send the $sql string that will do the database query for both "closest edge" as well as for "shortest path" function?
+</p>
+<p>
+PS: if you put code in
+</p>
+<pre class="wiki">{{{ ... }}}
+</pre><p>
+it's better readable .
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/21/09 11:18:16 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message892"></a>
+        <div class="id">
+          Message #892
+        </div>
+        <div class="body">
+            <p>
+OK, I edited your posts to make it a bit easier to read and a problem could be with you projection:
+</p>
+<p>
+This part could make troubles (I didn't test it though):
+</p>
+<pre class="wiki">            WHERE the_geom &amp;&amp; setsrid(
+                  'BOX3D(".($lonlat[0]-200)."
+                         ".($lonlat[1]-200).",
+                         ".($lonlat[0]+200)."
+                         ".($lonlat[1]+200).")'::box3d, 4326)
+</pre><p>
+In our workshop SRID is 54004, which is a projection in "meter". You use WGS84, which is a projection in "decimal degrees".
+</p>
+<p>
+Now you create a bounding box around your point adding "200" to the top, right, left and bottom to later select all distances from the points inside this box to your point and get the one which is the nearest.
+</p>
+<p>
+"200" is in the same unit as your projection is and 400 degree is definitely more than the earth can provide ;-)<br />
+Try it with 0.1 (or even less) for example.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/21/09 11:29:23 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message893"></a>
+        <div class="id">
+          Message #893
+        </div>
+        <div class="body">
+            <p>
+Hi !
+</p>
+<p>
+Thanks a lot for a reply. I was thinking that I was left alone with this problem :) I tried your idea, but unfortunately I have still this error.
+I try somethink like that:
+</p>
+<pre class="wiki">              WHERE the_geom &amp;&amp; setsrid(
+                  'BOX3D(".($lonlat[0]-0.001)."
+                         ".($lonlat[1]-0.001).",
+                         ".($lonlat[0]+0.001)."
+                         ".($lonlat[1]+0.001).")'::box3d, 4326)
+              ORDER BY dist LIMIT 1";
+</pre><p>
+I also try with bigger value (0.1) like you said, but still this same.
+</p>
+<p>
+I was thinking that something was wrong with projection. I start from the begininig of my journey
+</p>
+<p>
+- convert shp file to postgrsql data:
+</p>
+<pre class="wiki">shp2pgsql -w -s 4326 -i -I zielona_gora.shp proba &gt; zielona_gora.sql
+</pre><p>
+I am not sure that I was suppose to the '-w', and I used as you can see the 4326 srid
+</p>
+<p>
+- definition of map
+</p>
+<pre class="wiki">		 map = new OpenLayers.Map('map', {
+                         projection: "EPSG:4326",
+                         units: "m",
+                         maxResolution: 156543.0339,
+			 controls:[],
+                         maxExtent: new OpenLayers.Bounds(-20037508,-20037508,
+                                                 20037508, 20037508)
+                       });
+</pre><p>
+as you can see I used 4326
+</p>
+<p>
+- definition of layer
+</p>
+<pre class="wiki">            var gmap = new OpenLayers.Layer.Google(
+                "Google Streets",
+                {'sphericalMercator': true,
+                  srs:'ESPG:900913'
+                  }
+            );
+</pre><p>
+As you can see I used 900913 in this case.
+</p>
+<p>
+I am a little bit confused with this projection stuff. I don't know if what I write may help you understand better my problem, but I hope :).
+One more thing as you can see my data in databse is <a class="ext-link" href="http://img139.imageshack.us/img139/5016/dbase.jpg"><span class="icon"> </span>http://img139.imageshack.us/img139/5016/dbase.jpg</a> for example
+</p>
+<pre class="wiki">MULTILINESTRING((15.50853 51939308,15.508331 51939308))
+</pre><p>
+But on the map I have different values to get for example the startpoint and finalpoint are:
+</p>
+<pre class="wiki">1725288.829070158 6788009.4051772505
+</pre><p>
+you also can see this screen <a class="ext-link" href="http://img27.imageshack.us/img27/340/pagegya.jpg"><span class="icon"> </span>http://img27.imageshack.us/img27/340/pagegya.jpg</a>
+</p>
+<p>
+Thanks a lot for your help, if you have any ideas... Please write :)
+</p>
+<p>
+Regards,
+paweluz
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/21/09 16:01:22 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message894"></a>
+        <div class="id">
+          Message #894
+        </div>
+        <div class="body">
+            <p>
+Hi Paweluz
+</p>
+<blockquote class="citation">
+<p>
+ Thanks a lot for a reply. I was thinking that I was left alone with this problem :) I tried your idea, but unfortunately I have still this error.
+</p>
+</blockquote>
+<p>
+Because the people a usually answering in this forum are located in Japan we have a time offset. If you need a faster response you could also try the mailing list ;-)
+</p>
+<p>
+<strong>Regarding your problem:</strong>
+</p>
+<p>
+I think you have a problem with your projections:
+</p>
+<ul><li>4326 ... are you sure this is correct? Then your unit is "degree"
+</li><li>54004 ... this is World Mercator projection in "meter" (used in the 2007 tutorial)
+</li><li>900913 ... this is the projection that you <strong>have to</strong> use when you want to use a Google basemap in <a class="missing wiki">OpenLayers?</a> (in "meter"
+</li></ul><p>
+So if you get a high number like 1725288.829070158 of course you won't find a nearby point when your database keeps the geometry in degree where it would be maybe 15.50853. You kno what I mean?
+</p>
+<p>
+So what you have to do is transforming your data in the required projection, and because you can't change <a class="missing wiki">OpenLayers?</a> when you want to use Google basemap, you need to reproject all to 900913 (look for this in <a class="ext-link" href="http://spatialreference.org/"><span class="icon"> </span>http://spatialreference.org</a> to load it to PostgreSQL).
+</p>
+<p>
+You can keep your data in 4326, but you need to transform the points to 4326 then, which come in "meter" unit from <a class="missing wiki">OpenLayers?</a>.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/21/09 16:50:39 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message895"></a>
+        <div class="id">
+          Message #895
+        </div>
+        <div class="body">
+            <p>
+Hi!
+</p>
+<p>
+Thanks for the reply so soon :) I was thinking that I got something wrong with projection. Actually I was afraid of this. Because I don't know anything about this, I am a programmer, and actually I do not know much about projection. So I am really thankful for you help...
+</p>
+<p>
+I understand that I got points in different projection and I can't compare them, because as you said they are COMPLITLY DIFFERENT.
+Let me get it straight.
+- I change the the projection in my map from 4326 to 900913 (In the geoserver example in file ol-demo.html is this same)
+- the google layer is ok.
+Al I have to do is to change the projection of my geometry in my database from 4326 to 900913 right. I am going to find some information trough the Internet - thanks for the link. Do I figure it out right ?? Is my shp2pgsql convection is correct ?
+</p>
+<p>
+Regards
+Poul
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/21/09 20:15:19 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message896"></a>
+        <div class="id">
+          Message #896
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ I was thinking that I got something wrong with projection. Actually I was afraid of this. Because I don't know anything about this, I am a programmer, and actually I do not know much about projection.
+</p>
+</blockquote>
+<p>
+Take it as a different coordinate system.
+</p>
+<blockquote class="citation">
+<p>
+ - I change the the projection in my map from 4326 to 900913 (In the geoserver example in file ol-demo.html is this same)
+</p>
+</blockquote>
+<p>
+You need 900913 if you want to use Google with <a class="missing wiki">OpenLayers?</a>.
+</p>
+<blockquote class="citation">
+<p>
+ Al I have to do is to change the projection of my geometry in my database from 4326 to 900913 right.
+</p>
+</blockquote>
+<pre class="wiki">postgres=# SELECT AsText(transform(GeometryFromText('POINT(90 45)',4326),900913));
+                  astext
+------------------------------------------
+ POINT(10018754.1713946 5621521.48619142)
+(1 row)
+postgres=#
+</pre><p>
+If this works you can be sure that your database supports 900913 projection and it gives you a couple of hints to useful PostGIS functions.
+</p>
+<blockquote class="citation">
+<p>
+ Is my shp2pgsql convection is correct ?
+</p>
+</blockquote>
+<p>
+I can't tell you the projection is correct there because this depends on your data.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/21/09 20:32:16 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message897"></a>
+        <div class="id">
+          Message #897
+        </div>
+        <div class="body">
+            <p>
+Hi!
+</p>
+<p>
+Thanks for the quick reply, again :)
+Now I am at work, so I can't check anything. I would be at home in about 2,3 hours. I am guessing you would be a sleep :), you live in USA, am I right? I am going to write whether I did it or not. I am really,really, really thankful for your help. Thanks a lot :)
+</p>
+<p>
+Poul
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/21/09 21:22:30 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message898"></a>
+        <div class="id">
+          Message #898
+        </div>
+        <div class="body">
+            <p>
+Hi Paul, somehow we will get it:-)
+One more tutorium is going to be written and it will be based on OL2.7 (some things in the code changed there) and indeed the projection-thing might be a problem.
+</p>
+<p>
+<a href="../../wiki/WorkshopOL2.html">http://pgrouting.postlbs.org/wiki/WorkshopOL2.7andOSM</a>
+</p>
+<p>
+If you want you can send me your data and I will do a quick test.
+Kai-Behncke@…
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            04/21/09 21:50:20 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message899"></a>
+        <div class="id">
+          Message #899
+        </div>
+        <div class="body">
+            <p>
+Hi!
+</p>
+<p>
+I manage to deal with the projection stuff :) Now everything in my database is all right. here is screen:
+</p>
+<p>
+<a class="ext-link" href="http://img22.imageshack.us/img22/2484/dbase900913.jpg"><span class="icon"> </span>http://img22.imageshack.us/img22/2484/dbase900913.jpg</a>
+</p>
+<p>
+I also had some other problems with php, but finally a manage I handled with them. But unfortunately now I have other problem. The rout that is drawing not exacly correct. here is some examples.
+</p>
+<p>
+<a class="ext-link" href="http://img509.imageshack.us/img509/9250/routing.jpg"><span class="icon"> </span>http://img509.imageshack.us/img509/9250/routing.jpg</a>
+</p>
+<p>
+In the php file the method findingnearles looks like that:
+</p>
+<pre class="wiki">  function findNearestEdge($lonlat) {
+  	    // Connect to database
+    $con = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);
+	$lonlat1=$lonlat[0]-200;
+	$lonlat2=$lonlat[1]-200;
+	$lonlat3=$lonlat[0]+200;
+	$lonlat4=$lonlat[1]+200;
+    $sql = "SELECT gid, source, target, the_geom,
+			 distance(the_geom, GeometryFromText(
+                  'POINT(".$lonlat[0]." ".$lonlat[1].")', 900913)) AS dist
+            FROM ".TABLE."
+            WHERE the_geom &amp;&amp; setsrid(
+                  'BOX3D(".$lonlat1."
+                         ".$lonlat2.",
+                         ".$lonlat3."
+                         ".$lonlat4.")'::box3d, 900913)
+            ORDER BY dist LIMIT 1";
+    $query = pg_query($con,$sql);
+    $edge['gid']      = pg_fetch_result($query, 0, 0);
+    $edge['source']   = pg_fetch_result($query, 0, 1);
+    $edge['target']   = pg_fetch_result($query, 0, 2);
+    $edge['the_geom'] = pg_fetch_result($query, 0, 3);
+    // Close database connection
+    pg_close($con);
+    return $edge;
+  }
+</pre><p>
+Are there any parameters that I can change , that could help me ? Or maybe it is because of the shp that I have at the begging. I am not sure if for example road looks like this:
+</p>
+<pre class="wiki">- road
+* node
+= the vector layer, found path
+^ start point
+</pre><pre class="wiki">*-------*---------------------------* ...end
+</pre><p>
+and some click in the middle of the second road, like this
+</p>
+<pre class="wiki">*-------*------------^--------------* ...end
+</pre><p>
+then the roud on the map would looks like this
+</p>
+<pre class="wiki">*-------*------------^==============* ...end
+</pre><p>
+or maybe
+</p>
+<pre class="wiki">*-------*============^==============* ...end
+</pre><p>
+I hope you understand what I mean... Please help me understand all this stuff. I was hoping that it would be working like on the las example, for example something like that:
+</p>
+<p>
+<a class="ext-link" href="http://demo.postlbs.org/openrouting/web/geobase.html"><span class="icon"> </span>http://demo.postlbs.org/openrouting/web/geobase.html</a>
+</p>
+<p>
+or
+</p>
+<p>
+<a class="ext-link" href="http://demo.postlbs.org/openrouting/web/suuchi.html"><span class="icon"> </span>http://demo.postlbs.org/openrouting/web/suuchi.html</a>
+</p>
+<p>
+And I am also trying to figure it out how come in the pages that I mentioned before when I click and hold the left mouse button I can move the map, but in may page there is an option 'navigate', and when it is checked I can move my page, I just input start or end point. Any ideas how can I get rid of the 'navigation' option an just have start and end points. Thanks a lot for your help...
+</p>
+<p>
+Regards
+Paul
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/22/09 07:05:39 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message900"></a>
+        <div class="id">
+          Message #900
+        </div>
+        <div class="body">
+            <p>
+Cool that it works now!
+</p>
+<p>
+Actually I would like to move this thread to a new topic from here because the question changed. Anyway ...
+</p>
+<p>
+What you see now is not a bug. It's just because the workshop is the most simple PHP script.
+</p>
+<p>
+What you did now is<br />
+1. Select closest edges to start/end point<br />
+2. Select either start or end of this link as start/end vertex ID<br />
+3. Get the route between these two IDs
+</p>
+<p>
+If you take Shooting Star algorithm you take <strong>link IDs</strong> as start and end.
+</p>
+<p>
+In any case you're missing partial geometries, because shortest path algorithms don't split edges for you. You have to do this yourself and extend the PHP script or write a wrapper or whatever.
+</p>
+<p>
+You can use two PostGIS functions for this as far as I remember: line_locate_point(<a class="missing wiki">LineString?</a>, Point) and line_substring(linestring, start, end) to get partial geometries. <br />
+This way you can split your closest edge for start and end in two parts each.
+</p>
+<p>
+You actually have a few cases then and need to add the correct line_substring to the start and end of your routing result (or you have to remove it).
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/22/09 08:18:13 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message901"></a>
+        <div class="id">
+          Message #901
+        </div>
+        <div class="body">
+            <p>
+Hi!
+</p>
+<p>
+I was thinking that this is not bug, but this is just the way it works. Ok, I am going to move the subject to another topic, like you said. Thanks a lot for your help. I am going to check the line_locate_point, or line_substring functions... Maybe someone has done it to, who knows.... I am so happy that this is working :) You have no idea ... Again thanks a lot for all the responds, and all your time :) If you have any other idea, pleas don't hesitate to write to me :)
+</p>
+<p>
+Regards,
+Paul
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/22/09 15:14:56 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/251?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/251?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

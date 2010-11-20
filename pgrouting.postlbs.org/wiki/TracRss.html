@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracRss by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracRss – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/TracRss?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/TracRss?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/TracRss?action=diff&amp;version=3">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h1 id="UsingRSSwithTrac">Using RSS with Trac</h1>
+<p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ul><li class="False"><a class="False" href="TracGuide.html">Index</a></li><li class="False"><a class="False" href="TracInstall.html">Installation</a></li><li class="False"><a class="False" href="TracInterfaceCustomization.html">Customization</a></li><li class="False"><a class="False" href="TracPlugins.html">Plugins</a></li><li class="False"><a class="False" href="TracUpgrade.html">Upgrading</a></li><li class="False"><a class="False" href="TracIni.html">Configuration</a></li><li class="False"><a class="False" href="TracAdmin.html">Administration</a></li><li class="False"><a class="False" href="TracBackup.html">Backup</a></li><li class="False"><a class="False" href="TracLogging.html">Logging</a></li><li class="False"><a class="False" href="TracPermissions.html">Permissions</a></li><li class="False"><a class="False" href="TracWiki.html">The Wiki</a></li><li class="False"><a class="False" href="WikiFormatting.html">Wiki Formatting</a></li><li class="False"><a class="False" href="TracTimeline.html">Timeline</a></li><li class="False"><a class="False" href="TracBrowser.html">Repository Browser</a></li><li class="False"><a class="False" href="TracRevisionLog.html">Revision Log</a></li><li class="False"><a class="False" href="TracChangeset.html">Changesets</a></li><li class="False"><a class="False" href="TracTickets.html">Tickets</a></li><li class="False"><a class="False" href="TracWorkflow.html">Workflow</a></li><li class="False"><a class="False" href="TracRoadmap.html">Roadmap</a></li><li class="False"><a class="False" href="TracQuery.html">Ticket Queries</a></li><li class="False"><a class="False" href="TracReports.html">Reports</a></li><li class="active"><a class="False" href="TracRss.html">RSS Support</a></li><li class="False"><a class="False" href="TracNotification.html">Notification</a></li></ul></div><p>
+</p>
+<p>
+Several of the Trac modules support content syndication using the RSS (Really Simple Syndication) XML format.
+Using the RSS subscription feature in Trac, you can easily monitor progress of the project, a set of issues or even changes to a single file.
+</p>
+<p>
+Trac supports RSS feeds in:
+</p>
+<ul><li><a class="wiki" href="TracTimeline.html">TracTimeline</a> --  Use the RSS feed to <strong>subscribe to project events</strong>.<br />Monitor overall project progress in your favorite RSS reader.
+</li><li><a class="wiki" href="TracTickets.html">TracTickets</a>, <a class="wiki" href="TracReports.html">TracReports</a>, and <a class="wiki" href="TracQuery.html">TracQuery</a> -- Allows syndication of report and ticket query results.<br />Be notified about important and relevant issue tickets.
+</li><li><a class="wiki" href="TracBrowser.html">TracBrowser</a> and <a class="wiki" href="TracRevisionLog.html">TracRevisionLog</a> -- Syndication of file changes.<br />Stay up to date with changes to a specific file or directory.
+</li></ul><h2 id="HowtoaccessRSSdata">How to access RSS data</h2>
+<p>
+Anywhere in Trac where RSS is available, you should find a small orange <strong>XML</strong> icon, typically placed at the bottom of the page. Clicking the icon will access the RSS feed for that specific resource.
+</p>
+<p>
+<strong>Note:</strong> Different modules provide different data in their RSS feeds. Usually, the syndicated information corresponds to the current view. For example, if you click the RSS link on a report page, the feed will be based on that report. It might be explained by thinking of the RSS feeds as an <i>alternate view of the data currently displayed</i>.
+</p>
+<h2 id="Links">Links</h2>
+<ul><li><a class="ext-link" href="http://blogs.law.harvard.edu/tech/rss"><span class="icon"> </span>http://blogs.law.harvard.edu/tech/rss</a> -- RSS 2.0 Specification
+</li><li><a class="ext-link" href="http://www.mozilla.org/products/firefox/"><span class="icon"> </span>http://www.mozilla.org/products/firefox/</a> -- Mozilla Firefox supports <a class="ext-link" href="http://www.mozilla.org/products/firefox/live-bookmarks.html"><span class="icon"> </span>live bookmarks</a> using RSS
+</li><li><a class="ext-link" href="http://sage.mozdev.org/"><span class="icon"> </span>http://sage.mozdev.org</a> -- Sage RSS and Atom feed aggregator for Mozilla Firefox
+</li><li><a class="ext-link" href="http://pim.kde.org/users.php"><span class="icon"> </span>http://pim.kde.org/users.php</a> -- <a class="ext-link" href="http://kde.org/"><span class="icon"> </span>KDE</a> RSS Reader for Linux/BSD/*n*x systems
+</li><li><a class="ext-link" href="http://www.rssreader.com/"><span class="icon"> </span>http://www.rssreader.com/</a> -- Free and powerful RSS Reader for Windows
+</li><li><a class="ext-link" href="http://liferea.sourceforge.net/"><span class="icon"> </span>http://liferea.sourceforge.net/</a> -- Open source GTK2 RSS Reader for Linux
+</li><li><a class="ext-link" href="http://akregator.sourceforge.net/"><span class="icon"> </span>http://akregator.sourceforge.net/</a> -- Open source KDE RSS Reader (part of KDE-PIM)
+</li><li><a class="ext-link" href="http://www.sharpreader.net/"><span class="icon"> </span>http://www.sharpreader.net/</a> -- A free RSS Reader written in .NET for Windows
+</li><li><a class="ext-link" href="http://ranchero.com/netnewswire/"><span class="icon"> </span>http://ranchero.com/netnewswire/</a> -- An excellent RSS reader for Mac OS X (has both free and pay versions)
+</li><li><a class="ext-link" href="http://www.utsire.com/shrook/"><span class="icon"> </span>http://www.utsire.com/shrook/</a> -- An RSS reader for Max OS X that supports https (even with self signed certificates) and authenticated feeds.
+</li><li><a class="ext-link" href="http://vienna-rss.sourceforge.net/"><span class="icon"> </span>http://vienna-rss.sourceforge.net/</a> -- Open source Feed Reader for Mac OS X with smart folders support
+</li><li><a class="ext-link" href="http://www.mesadynamics.com/Tickershock.html"><span class="icon"> </span>http://www.mesadynamics.com/Tickershock.html</a> -- Non-intrusive "news ticker" style RSS reader for Mac OS X
+</li><li><a class="ext-link" href="http://www.wizzrss.com/Welcome.php"><span class="icon"> </span>http://www.wizzrss.com/Welcome.php</a> -- WizzRSS Feed Reader for Firefox
+</li></ul><hr />
+<p>
+See also: <a class="wiki" href="TracGuide.html">TracGuide</a>, <a class="wiki" href="TracTimeline.html">TracTimeline</a>, <a class="wiki" href="TracReports.html">TracReports</a>, <a class="wiki" href="TracBrowser.html">TracBrowser</a>
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/TracRss?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TracRss.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracRss by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

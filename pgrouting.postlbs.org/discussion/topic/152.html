@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/152 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - compiling pgrouting (#152) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              compiling pgrouting
+            </div>
+            <div class="body">
+              <p>
+Im getting a problem compiling pgrouting, looks like is a path problem for PostgreSQL but i dont know how to fix it.
+</p>
+<p>
+pgRouting is on  /usr/local/pgrouting/
+Postgres Data is on  /usr/local/pgsql/
+Postgres header is on  /usr/local/include/postgresql/server/postgres.h
+</p>
+<p>
+[root /usr/local/pgrouting]# cmake .
+-- PostgreSQL not found.
+FATALERROR Please check your Boost installation.
+Boost headers were found here: /usr/local/include/boost-1_35
+Output directory for libraries is set to /usr/local/lib/postgresql
+Installation directory for libraries is set to /usr/local/lib/postgresql and for SQL files is set to /usr/share/postlbs
+CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
+Please set them or make sure they are set and tested correctly in the CMake files:
+POSTGRESQL_INCLUDE_DIR (ADVANCED)
+</p>
+<blockquote>
+<p>
+used as include directory in directory /usr/local/pgrouting
+used as include directory in directory /usr/local/pgrouting/core
+used as include directory in directory /usr/local/pgrouting/core/src
+used as include directory in directory /usr/local/pgrouting/core/sql
+</p>
+</blockquote>
+<p>
+-- Configuring done
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            juan.oropeza
+          </div>
+          <div class="time">
+            06/20/08 06:23:30 (2 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/152?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/152?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message516"></a>
+        <div class="id">
+          Message #516
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+Sorry, my fault. Can you please check out the latest version from SVN? Or (and it is probably easier) you can download FindPostgreSQL.cmake file from here - <a href="http://pgrouting.postlbs.org/browser/trunk/cmake/FindPostgreSQL.cmake?rev=179&amp;format=raw">http://pgrouting.postlbs.org/browser/trunk/cmake/FindPostgreSQL.cmake?rev=179&amp;format=raw</a> and then replace yours cmake/FindPostreSQL.cmake with this new version.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            06/20/08 09:50:05 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message517"></a>
+        <div class="id">
+          Message #517
+        </div>
+        <div class="body">
+            <p>
+ok, i fix that
+Now i get this error.
+How i set $libdir? and where is librouting, i cant find that dir.
+</p>
+<p>
+[root@ /usr/local/pgrouting/core/sql]# psql -U pgsql -f routing_core.sql routing
+CREATE TYPE
+CREATE TYPE
+psql:routing_core.sql:32: ERROR:  could not access file "$libdir/librouting": No such file or directory
+psql:routing_core.sql:43: ERROR:  could not access file "$libdir/librouting": No such file or directory
+psql:routing_core.sql:53: ERROR:  could not access file "$libdir/librouting": No such file or directory
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            juan.oropeza
+          </div>
+          <div class="time">
+            06/21/08 01:27:06 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message518"></a>
+        <div class="id">
+          Message #518
+        </div>
+        <div class="body">
+            <p>
+Well, actually it depends on your distro. It should be set already, try to play around with ldconfig.
+</p>
+<p>
+Can you also check lib directory of pgrouting after the compilation is finished? Does it contain any .so files. If so, your $libdir is not set indeed.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            06/21/08 04:56:48 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/152?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/152?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

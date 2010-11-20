@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/269 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - Installation problem on Debian Lenny (#269) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Installation problem on Debian Lenny
+            </div>
+            <div class="body">
+              <p>
+Dear users,
+</p>
+<p>
+on Debian Etch everything was fine, but on Lenny I install libboost with
+apt-get install libboost-graph-dev
+</p>
+<p>
+and then I tried in the trunk-pgrouting-directory a cmake . (everything nice), but the errors came after: "make",
+like that:
+</p>
+<p>
+/home/bau/trunk# make
+Scanning dependencies of target routing
+[ 16%] Building C object core/src/CMakeFiles/routing.dir/dijkstra.o
+/home/bau/trunk/core/src/dijkstra.c:23:26: error: executor/spi.h: Datei oder Verzeichnis nicht gefunden
+/home/bau/trunk/core/src/dijkstra.c:24:21: error: funcapi.h: Datei oder Verzeichnis nicht gefunden
+/home/bau/trunk/core/src/dijkstra.c:26:18: error: fmgr.h: Datei oder Verzeichnis nicht gefunden
+/home/bau/trunk/core/src/dijkstra.c:30: warning: parameter names (without types) in function declaration
+/home/bau/trunk/core/src/dijkstra.c: In function âfinishâ:
+/home/bau/trunk/core/src/dijkstra.c:63: error: âSPI_OK_FINISHâ undeclared (first use in this function)
+/home/bau/trunk/core/src/dijkstra.c:63: error: (Each undeclared identifier is reported only once
+/home/bau/trunk/core/src/dijkstra.c:63: error: for each function it appears in.)
+/home/bau/trunk/core/src/dijkstra.c: At top level:
+/home/bau/trunk/core/src/dijkstra.c:81: error: expected â)â before â*â token
+/home/bau/trunk/core/src/dijkstra.c:136: error: expected â)â before â*â token
+/home/bau/trunk/core/src/dijkstra.c: In function âcompute_shortest_pathâ:
+/home/bau/trunk/core/src/dijkstra.c:181: error: âPortalâ undeclared (first use in this function)
+/home/bau/trunk/core/src/dijkstra.c:181: error: expected â;â before âSPIportalâ
+/home/bau/trunk/core/src/dijkstra.c:201: error: âSPI_OK_CONNECTâ undeclared (first use in this function)
+</p>
+<p>
+Has anybody an idea whats going wrong?
+</p>
+<p>
+Thank you in advance, Kai
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            05/15/09 19:29:34 (18 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/269?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/269?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message954"></a>
+        <div class="id">
+          Message #954
+        </div>
+        <div class="body">
+            <p>
+Ok, we found a solution.
+</p>
+<p>
+We didn`t install postgresql with apt-get but took the 8.3.5-source-code.
+</p>
+<p>
+We checked pgrouting out from svn, then we copied all the stuff from
+.....pgsql/include/server to the /trunk/core
+</p>
+<p>
+# cp -R /usr/local/pgsql/include/server/* /home/bau/trunk/core/
+</p>
+<p>
+then we changed  cmake/FindPostgresql.cmake
+</p>
+<p>
+The path should be
+</p>
+<blockquote>
+<p>
+/usr/include/postgresql
+</p>
+</blockquote>
+<p>
+aftewr that:
+</p>
+<p>
+export PATH="$PATH:/usr/local/pgsql/bin"
+</p>
+<p>
+and then:
+</p>
+<p>
+/usr/lib/postgresql/8.3/lib$ cp librouting.so /usr/local/pgsql/lib/
+</p>
+<p>
+Best regards, Kai
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            05/15/09 21:32:06 (18 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/269?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/269?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,1356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/339 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/18.html" title="shootingstar">shootingstar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>shootingstar (#18) - route starts off in wrong direction / in direction of first edge (#339) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              route starts off in wrong direction / in direction of first edge
+            </div>
+            <div class="body">
+              <p>
+Dear all,
+</p>
+<p>
+I have a problem that shortest_path_shooting_star / shootingstar_sp takes into
+account the direction of the first edge even though the edge is not marked as
+one way and reverse_cost = to_cost.
+</p>
+<p>
+I made a screen shot of the problem:
+<a class="ext-link" href="http://mobilino.de/umstaendliche_route.png"><span class="icon"> </span>http://mobilino.de/umstaendliche_route.png</a>
+here the route contains a nonsense-circle at the start, the route should have gone strait northwards.
+</p>
+<p>
+To explain the problem in lyric: you may calculate a route from edge A to edge to Z, which is from north to south:
+If A's line-string is leading from south to north the route will always start off in that direction. Eventually it does a U-turn at the end of the first edge, or it simply leads you in a big curve to your goal.
+</p>
+<p>
+However, the correct solution would have been to start directly into the other direction, that is south!
+</p>
+<p>
+Can anyone confirm this problem and knows of possible solutions?
+</p>
+<p>
+Best regards,
+Christof
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            03/02/10 03:49:34 (9 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/339?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/339?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1392"></a>
+        <div class="id">
+          Message #1392
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<blockquote class="citation">
+<p>
+ the route should have gone strait northwards.
+</p>
+</blockquote>
+<p>
+of course I meant southwards...
+</p>
+<p>
+Regards,
+Christof
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            03/02/10 16:00:29 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1393"></a>
+        <div class="id">
+          Message #1393
+        </div>
+        <div class="body">
+            <p>
+Indeed this looks not correct. Can you make sure that the network is correct? Sometimes OSM mappers "draw" more than create some valid topology. Does the "loop" consist of only one line feature or more than one?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            03/02/10 19:10:47 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1394"></a>
+        <div class="id">
+          Message #1394
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+thanks for your reply.
+</p>
+<p>
+This is the SQL and the Result:
+as .png: <a class="ext-link" href="http://mobilino.de/umstaendliche_route_sql.png"><span class="icon"> </span>http://mobilino.de/umstaendliche_route_sql.png</a>
+as .txt: <a class="ext-link" href="http://mobilino.de/umstaendliche_route_sql.txt"><span class="icon"> </span>http://mobilino.de/umstaendliche_route_sql.txt</a>
+</p>
+<p>
+I understand that the loop consists of more then one way. (you may see the repetition of the first gid in edge No 8 of the route or compare the street names to the map)
+</p>
+<p>
+Can you spot any problem with my data?
+</p>
+<p>
+Looking forward to your reply,
+Christof
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            03/03/10 05:56:59 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1395"></a>
+        <div class="id">
+          Message #1395
+        </div>
+        <div class="body">
+            <p>
+Hey Chistof,
+</p>
+<p>
+... sorry, this reply is off-topic but
+are you from Hamburg/Iserbrook?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            03/04/10 21:54:47 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1396"></a>
+        <div class="id">
+          Message #1396
+        </div>
+        <div class="body">
+            <p>
+Hey Christof,
+</p>
+<p>
+I tried to reproduce this routing behavior but with dijkstra instead of shooting* and everything is fine. Another thing is the incorrect osm-tagging of this way, so I hope your converter has segmentized it correctly. Another hint is the bidirectional-parameter in your call. Could it be, that you are starting with the wrong direction?
+</p>
+<p>
+Greetings
+</p>
+<p>
+Carsten
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            03/05/10 06:50:26 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1398"></a>
+        <div class="id">
+          Message #1398
+        </div>
+        <div class="body">
+            <p>
+Hi Carsten,
+</p>
+<p>
+thanks a lot for your investigation!
+</p>
+<p>
+If I remember correctly a* is also working fine. However, I switched to shooting* as the documentation recommends it for "real road networks".
+</p>
+<p>
+Sorry, but what exactly do you mean by "incorrect osm-tagging of this way"? Is my data incorrect / not suitable for shooting*? I produced it using osm2pgrouting, with the patch discussed here
+<a href="../message/1239.html#1239">http://pgrouting.postlbs.org/discussion/message/1239#1239</a>
+(but I don't feel that that patch has anything to do with my current problem)
+</p>
+<p>
+Finally, what do you mean by "bidirectional-parameter"? Scanning the documentation for that word did not really help me to understand what you are referring to. All I can say is yes, I'm starting in the wrong direction. But how can I change that?
+</p>
+<p>
+I'm looking forward to your point of view.
+Kind Regards,
+Christof
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            03/06/10 03:03:42 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1399"></a>
+        <div class="id">
+          Message #1399
+        </div>
+        <div class="body">
+            <p>
+I'm living in PI(-Mapper) = Pinneberg, not far from HH where I'm working * guess * as programmer. (Lust auf 'ne Tasse Bier und ueber OSM quatschen?)
+</p>
+<p>
+Greetings,
+</p>
+<p>
+Carsten
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            03/06/10 03:55:11 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1400"></a>
+        <div class="id">
+          Message #1400
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ Hi Carsten,
+ thanks a lot for your investigation!
+ If I remember correctly a* is also working fine. However, I switched to shooting* as the documentation recommends it for "real road networks".
+ Sorry, but what exactly do you mean by "incorrect osm-tagging of this way"? Is my data incorrect / not suitable for shooting*? I produced it using osm2pgrouting, with the patch discussed here
+ <a href="../message/1239.html#1239">http://pgrouting.postlbs.org/discussion/message/1239#1239</a>
+ (but I don't feel that that patch has anything to do with my current problem)
+ Finally, what do you mean by "bidirectional-parameter"? Scanning the documentation for that word did not really help me to understand what you are referring to. All I can say is yes, I'm starting in the wrong direction. But how can I change that?
+</p>
+</blockquote>
+<p>
+As I remember the last but one parameter (..., true, ...) means, you are dealing with a directed graph. If I'm not totally wrong this means your topology should have two entries for each way, each for one direction.
+So my assumption was, you might have started your virtual car on the wrong hand side of the street. But in the meantime I had another closer look on the data table and I noticed that this cannot be the intrinsic reason.
+</p>
+<blockquote class="citation">
+<p>
+ I'm looking forward to your point of view.
+ Kind Regards,
+ Christof
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            03/06/10 04:05:53 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1402"></a>
+        <div class="id">
+          Message #1402
+        </div>
+        <div class="body">
+            <p>
+Hi Carsten,
+</p>
+<blockquote class="citation">
+<p>
+ As I remember the last but one parameter (..., true, ...) means, you are dealing with a directed graph. If I'm not totally wrong this means your topology should have two entries for each way, each for one direction.
+</p>
+</blockquote>
+<p>
+Using false instead of true does not change the result :-( But thanks for the idea!
+As the edge occurs twice in the result <a class="ext-link" href="http://mobilino.de/umstaendliche_route_sql.png"><span class="icon"> </span>http://mobilino.de/umstaendliche_route_sql.png</a> once in each direction (no. 1 and no. 8) I feel that the reason can't be that it has to occur twice.
+</p>
+<blockquote class="citation">
+<p>
+ But in the meantime I had another closer look on the data table and I noticed that this cannot be the intrinsic reason.
+</p>
+</blockquote>
+<p>
+Are there any other ideas out there?
+</p>
+<p>
+Kind Regards,
+Christof
+Ps: @Carsten: gerne! christof_osm bei lahorn.de
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            03/08/10 00:23:51 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1403"></a>
+        <div class="id">
+          Message #1403
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ Hi Carsten,
+</p>
+<blockquote class="citation">
+<p>
+ As I remember the last but one parameter (..., true, ...) means, you are dealing with a directed graph. If I'm not totally wrong this means your topology should have two entries for each way, each for one direction.
+</p>
+</blockquote>
+<p>
+ Using false instead of true does not change the result :-( But thanks for the idea!
+ As the edge occurs twice in the result <a class="ext-link" href="http://mobilino.de/umstaendliche_route_sql.png"><span class="icon"> </span>http://mobilino.de/umstaendliche_route_sql.png</a> once in each direction (no. 1 and no. 8) I feel that the reason can't be that it has to occur twice.
+</p>
+<blockquote class="citation">
+<p>
+ But in the meantime I had another closer look on the data table and I noticed that this cannot be the intrinsic reason.
+</p>
+</blockquote>
+<p>
+ Are there any other ideas out there?
+ Kind Regards,
+ Christof
+ Ps: @Carsten: gerne! christof_osm bei lahorn.de
+</p>
+</blockquote>
+<p>
+you can c o n t a c t me directly via cmindividual(<a class="missing wiki">KlammerAffe?</a>)web(Punkt)de
+</p>
+<p>
+In the meantime I tried out shortest_path_shooting_star without wrapper and it works correctly. Ok, I'm still using an old version of pgrouting. The other difference to your data is that I'm using a non directed graph created with my own converter. Furthermore I left the rule and to_cost blank (null). What's driving me crazy at this point is finding a correct join syntax in sql to keep the order of the routing when joining the data_table.
+Maybe you can help me here.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            03/08/10 00:46:25 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1404"></a>
+        <div class="id">
+          Message #1404
+        </div>
+        <div class="body">
+            <p>
+Huh, very long thread here!
+</p>
+<p>
+It's a bit hard to pick the right posts now, but just two comments:
+</p>
+<ul><li>The latest version of shooting_star_smart SQL wrapper might work better. There were some bugs in previous version, which might have been similar to yours. It can become quite tricky to always select the right substring, since you initially don't know where you will go.
+</li><li>At least in trunk version you should be able to sort by "id" attribute to get the right order ... I think it was called "id"
+</li></ul><p>
+As you said you used your own script to create the topology, so it is possible that something went wrong there. I haven't had problems with shooting_star_smart wrapper. The difference between Shooting Star and the Dijkstra/A-Star is, that it takes road links as start and end, not nodes.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            03/08/10 12:27:06 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1405"></a>
+        <div class="id">
+          Message #1405
+        </div>
+        <div class="body">
+            <p>
+Hey Daniel,
+</p>
+<p>
+yes it's confusing here.
+But to sort things a bit:
+The problem seems to occur with Christofs shooting*.
+I'm getting correct results but with an old unwrapped version of shooting*. Christof uses the standard osm2pgrouting, I don't. But the latter doesn't seem to be the reason. It was only a first assumption.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            03/08/10 20:15:01 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1406"></a>
+        <div class="id">
+          Message #1406
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ Huh, very long thread here!
+ It's a bit hard to pick the right posts now, but just two comments:
+  * The latest version of shooting_star_smart SQL wrapper might work better. There were some bugs in previous version, which might have been similar to yours. It can become quite tricky to always select the right substring, since you initially don't know where you will go.
+  * At least in trunk version you should be able to sort by "id" attribute to get the right order ... I think it was called "id"
+</p>
+</blockquote>
+<p>
+If you should have any influence on this, please don't call such a parameter "id". What about "pos" or "sorter"
+</p>
+<blockquote class="citation">
+<p>
+ As you said you used your own script to create the topology, so it is possible that something went wrong there. I haven't had problems with shooting_star_smart wrapper. The difference between Shooting Star and the Dijkstra/A-Star is, that it takes road links as start and end, not nodes.
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            03/08/10 21:45:19 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1407"></a>
+        <div class="id">
+          Message #1407
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ If you should have any influence on this, please don't call such a parameter "id". What about "pos" or "sorter"
+</p>
+</blockquote>
+<p>
+Good point! I will nag Anton ;-)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            03/09/10 13:09:52 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1410"></a>
+        <div class="id">
+          Message #1410
+        </div>
+        <div class="body">
+            <p>
+Hi everyone,
+</p>
+<p>
+thanks for your ideas!
+</p>
+<p>
+What I tried was leaving the wrapper alone and just executing the following:
+</p>
+<pre class="wiki">SELECT *
+FROM shortest_path_shooting_star(
+   'SELECT gid as id, source, target, length as cost, x1, y1, x2, y2, null as rule, null as to_cost FROM m_ways_car', '7103' , '183051' , 'false', 'false' ), m_ways_car
+ where edge_id = gid
+</pre><p>
+however, without more luck. Even though I updated to the latest trunk version.
+</p>
+<p>
+@daniel: where can I find shooting_star_smart?
+<a href="../../svn/pgrouting/trunk/core/sql/routing_core_wrappers.sql">http://pgrouting.postlbs.org/svn/pgrouting/trunk/core/sql/routing_core_wrappers.sql</a>
+does not include it.
+</p>
+<p>
+I don't really know what else to change. I could try to post a relevant pg_dump. It would be great if one of you could look into that then?
+</p>
+<p>
+Kind regards,
+Christof
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            03/09/10 16:50:00 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1411"></a>
+        <div class="id">
+          Message #1411
+        </div>
+        <div class="body">
+            <p>
+Try this one: <a href="../../svn/pgrouting/sandbox/wrappers/routing_core_smart.sql">http://pgrouting.postlbs.org/svn/pgrouting/sandbox/wrappers/routing_core_smart.sql</a>
+</p>
+<p>
+It's just a pl/pgpsql script, so not officially in pgRouting, but we used it for splitting the substrings at the right side.
+</p>
+<p>
+If you use the script you also need to run the
+</p>
+<pre class="wiki">SELECT add_network_info(&lt;table&gt;);
+</pre><p>
+function once to retrieve some network statistics.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            03/09/10 17:58:56 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1421"></a>
+        <div class="id">
+          Message #1421
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ Try this one: <a href="../../svn/pgrouting/sandbox/wrappers/routing_core_smart.sql">http://pgrouting.postlbs.org/svn/pgrouting/sandbox/wrappers/routing_core_smart.sql</a>
+ It's just a pl/pgpsql script, so not officially in pgRouting, but we used it for splitting the substrings at the right side.
+</p>
+</blockquote>
+<p>
+I played around a bit little with this. And I must admit the idea is interesting!
+</p>
+<p>
+I feel it chooses that road first that leads in the direction of the destination. However, that does not always work - as you may see from this screen shot.
+<a class="ext-link" href="http://www.mobilino.de/shootingstar_sp_smart.png"><span class="icon"> </span>http://www.mobilino.de/shootingstar_sp_smart.png</a> <br />
+(Made using the Data I posted below) <br />
+</p>
+<p>
+Consequently my impression is that -at least form this angle- shootingstar_sp_smart is somewhat of a workaround for the problem that shooting* is not choosing the best direction/way to begin the route itself. It would be just perfect if one could tell shooting* that a U-Turn before the first edge is totally ok :-)
+</p>
+<p>
+Regards,
+Christof
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            03/11/10 05:25:49 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1423"></a>
+        <div class="id">
+          Message #1423
+        </div>
+        <div class="body">
+            <p>
+Thanks for looking into it! Yes, if you see some places for improvements or some cases, when it wouldn't work as expected, we would appreciate to hear about.
+</p>
+<p>
+We first always tried to solve this problem within applications, but got tired of it, so Anton wrote that wrapper and it has worked so far. But maybe the usage wasn't too much sophisticated so far. This demo uses the "smart" wrapper funtion: <a class="ext-link" href="http://wrs.postlbs.org/foss4g/"><span class="icon"> </span>http://wrs.postlbs.org/foss4g/</a> (It has been down often recently, but seems to work at the moment). I haven't seen a problem there yet, but I must admit that it's simple OSM data without U-turns, etc.
+</p>
+<p>
+Btw, if this thread is going to become a bit long, we might want to change to the mailing list. The forum is only checked by a few people, who give answers, the mailing list delivers your question right into everyones mailbox ;-)
+</p>
+<p>
+pgRouting is currently in progress of creating some project steering committee to get various things done better. It would be nice to have some more documentation and user reciepies about what we talk here, I think. So I'm very glad about this kind of discussion. Thanks a lot for that!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            03/11/10 11:10:14 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1429"></a>
+        <div class="id">
+          Message #1429
+        </div>
+        <div class="body">
+            <p>
+Hi Daniel,
+</p>
+<p>
+thanks! :-)
+</p>
+<p>
+That demo you posted does actually work... Strange that this problem doesn't occur there.
+</p>
+<p>
+I feel that for the moment we need to get our application up and running (using a* as an alternative) but in less then a few month I'll be back on the mailing list in order to seek for a working version of shooting* :-)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            03/14/10 19:59:07 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1413"></a>
+        <div class="id">
+          Message #1413
+        </div>
+        <div class="body">
+            <p>
+Upload your dump and I'll have a look.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            03/09/10 18:09:07 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1416"></a>
+        <div class="id">
+          Message #1416
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+I uploaded the table def here: <a class="ext-link" href="http://www.mobilino.de/create.sql"><span class="icon"> </span>http://www.mobilino.de/create.sql</a> <br />
+and the data there: <a class="ext-link" href="http://www.mobilino.de/db_m_ways_demo.sql.gzip"><span class="icon"> </span>http://www.mobilino.de/db_m_ways_demo.sql.gzip</a> <br />
+(import it using "gunzip -c db_m_ways_demo.sql.gzip | psql gis") <br />
+thanks in advance, Carsten!
+</p>
+<p>
+@Daniel: thanks for the link! <br />
+I imported the script and made my first request using shootingstar_sp_smart. From the first glance it looks like it also heads off in the not optimal direction but I need to test that a bit more.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            03/10/10 16:35:11 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1418"></a>
+        <div class="id">
+          Message #1418
+        </div>
+        <div class="body">
+            <p>
+Yes, as I have expected ...
+your
+</p>
+<pre class="wiki">
+SELECT * FROM shortest_path_shooting_star(
+SELECT gid as id, source, target, length as cost,
+x1, y1, x2, y2, null as rule, null as to_cost
+FROM m_ways_car', '7103' , '183051' , 'false', 'false' ),
+m_ways_car where edge_id = gid
+</pre><p>
+(see above) ... does not work correctly because this kind of SQL doesn't maintain the order.
+</p>
+<p>
+So I removed the join:
+</p>
+<pre class="wiki">
+SELECT * FROM shortest_path_shooting_star(
+'SELECT gid as id, source, target, length as cost, x1, y1, x2, y2,
+reverse_cost, null as rule, null as to_cost FROM m_ways_demo',
+7103 , 183051 , false, true);
+</pre><p>
+(with reverse_cost)
+</p>
+<p>
+and everything is fine!
+</p>
+<p>
+If I use "true, true" a directed graph is needed.
+But your data doesn't seem to be directed.
+Try this SQL. I expected at least two rows. (including Gid7103)
+But the result is empty.
+</p>
+<pre class="wiki">
+SELECT t1.gid, t2.gid, t1.x1, t1.y1, t2.x2, t2.y2
+FROM m_ways_demo AS t1, m_ways_demo AS t2
+WHERE t1.name = 'Am Botterbarg'
+AND t1.x1 = t2.x2 AND t1.y1 = t2.y2
+AND t1.x2 = t2.x1 AND t1.y2 = t2.y1;
+</pre><p>
+Regards,
+</p>
+<p>
+Carsten
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            03/10/10 22:18:10 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1419"></a>
+        <div class="id">
+          Message #1419
+        </div>
+        <div class="body">
+            <p>
+Another idea:
+</p>
+<p>
+If I remember the docu correctly they say in case of more than one restriction you'll have to provide your rows with same GIDs. This of course conflicts with your primary key on this attribute. I don't really know what osm2pgrouting expects (as I mentioned before, I'm using my own converter) but if they are using same GIDs for each direction for one way this may be the reason.
+Have you seen any import conflicts while pumping up your DB?
+</p>
+<p>
+Regards,
+</p>
+<p>
+Carsten
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            03/10/10 22:57:26 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1420"></a>
+        <div class="id">
+          Message #1420
+        </div>
+        <div class="body">
+            <p>
+Hi!
+</p>
+<p>
+thanks for importing my data!
+</p>
+<p>
+Your last sql confirms that every road is only once in my database. However, I just realized that I didn't know how one-way roads are marked. I found the solution in the route given in my first post: there is a one-way street (Sülldorfer Landstraße). In the corresponding link to the data in my second post one can note the exceptionally high "reverse cost". Obviously this is what hinders pgrouting to enter the street in the wrong direction (if has-reverse-cost = true is set)
+</p>
+<blockquote>
+<p>
+| and everything is fine!
+</p>
+</blockquote>
+<p>
+Executing your sql still gives me 24 result lines; where line 1 and 8 of the result are equal. I understand that you got less - say 17 lines? <br />
+That would mean that something is wrong with either my database itself or with my version of pgrouting?!
+</p>
+<p>
+One difference I noticed between our databases is that - in contrast to your database - mine does not change the order in the join statement. But that can't be the reason for my problem, can it?
+</p>
+<p>
+Concerning the GIDs: they are unique and I didn't encounter any problems during import. And as everything except the direction shooting* is heading off works fine I don't feel that the problem should be solved by doubling every way. I still hope there is a better solution. :-)
+</p>
+<p>
+Regards,
+</p>
+<blockquote>
+<p>
+Christof
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            03/11/10 04:41:36 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1422"></a>
+        <div class="id">
+          Message #1422
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ Hi!
+ thanks for importing my data!
+ Your last sql confirms that every road is only once in my database. However, I just realized that I didn't know how one-way roads are marked. I found the solution in the route given in my first post: there is a one-way street (Sülldorfer Landstraße). In the corresponding link to the data in my second post one can note the exceptionally high "reverse cost". Obviously this is what hinders pgrouting to enter the street in the wrong direction (if has-reverse-cost = true is set)
+</p>
+</blockquote>
+<p>
+correct! a very high reverse_cost marks the street as one-way.
+but don't forget to set the second parameter to "true"
+</p>
+<blockquote class="citation">
+<p>
+  | and everything is fine!
+ Executing your sql still gives me 24 result lines; where line 1 and 8 of the result are equal. I understand that you got less - say 17 lines? <br />
+</p>
+</blockquote>
+<p>
+round about 20. I checked the data with QGis. No double entries.
+Everything looked great.
+</p>
+<blockquote class="citation">
+<p>
+ That would mean that something is wrong with either my database itself or with my version of pgrouting?!
+</p>
+</blockquote>
+<p>
+puhhh! casino?
+</p>
+<blockquote class="citation">
+<p>
+ One difference I noticed between our databases is that - in contrast to your database - mine does not change the order in the join statement. But that can't be the reason for my problem, can it?
+</p>
+</blockquote>
+<p>
+I don't think so. Usually the order of joins is not predictable. It depends on what the query planner plans. Maybe yours gave you another plan.
+</p>
+<blockquote class="citation">
+<p>
+ Concerning the GIDs: they are unique and I didn't encounter any problems during import. And as everything except the direction shooting* is heading off works fine I don't feel that the problem should be solved by doubling every way. I still hope there is a better solution. :-)
+</p>
+</blockquote>
+<p>
+Look at this docu. It comes from
+<a href="../../wiki/ShootingStar.html">http://pgrouting.postlbs.org/wiki/ShootingStar</a>
+</p>
+<pre class="wiki"> gid | source | target | cost | x1 | y1 | x2 | y2 | to_cost | rule
+-----+--------+--------+------+----+----+----+----+---------+------
+  11 |      3 |     10 |    2 |  4 |  3 |  4 |  5 |    1000 | 4
+  11 |      3 |     10 |    2 |  4 |  3 |  4 |  5 |    1000 | 12
+</pre><blockquote class="citation">
+<p>
+ Regards,
+  Christof
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            03/11/10 06:08:35 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1430"></a>
+        <div class="id">
+          Message #1430
+        </div>
+        <div class="body">
+            <p>
+Hej,
+</p>
+<blockquote class="citation">
+<p>
+ round about 20. I checked the data with QGis. No double entries.
+ Everything looked great.
+</p>
+</blockquote>
+<p>
+That means that something is wrong with my installation. Currently I don't really have a clue how to fix that but I'll try. However, there are some release dates to reach, consequently I have to use a* for the moment. However, I'll be back. :-)
+</p>
+<p>
+Thanks again for your help!!
+</p>
+<p>
+Regards,
+Christof
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            03/14/10 20:04:45 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1397"></a>
+        <div class="id">
+          Message #1397
+        </div>
+        <div class="body">
+            <p>
+Hi Pimapper,
+</p>
+<p>
+not directly, I live more central, next to the city park. May I ask for the reason of your question?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Christof
+          </div>
+          <div class="time">
+            03/06/10 02:48:45 (9 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1427"></a>
+        <div class="id">
+          Message #1427
+        </div>
+        <div class="body">
+            <p>
+I was doing some testing in my map and found similar behavior. I check using a small data set found here.
+</p>
+<p>
+<a class="ext-link" href="http://cartosig.upv.es/es/recursos-sig/pgrouting-shooting-star-usage-example-turn-restriction"><span class="icon"> </span>http://cartosig.upv.es/es/recursos-sig/pgrouting-shooting-star-usage-example-turn-restriction</a>
+</p>
+<p>
+There is the sql script to create a small road. Also an image showing the route in the pdf.
+</p>
+<p>
+The problem is when you make a route  from link 7 to 12
+the route go back to the round about before go back to the correct route
+</p>
+<p>
+SELECT  * from shortest_path_shooting_star('SELECT gid as id, source::int4,target::int4,
+</p>
+<blockquote>
+<p>
+cost::double precision as cost, reverse_cost::double precision as reverse_cost, x1, y1, x2, y2 , rule, to_cost
+</p>
+</blockquote>
+<p>
+FROM wr',7,12, true, true);
+</p>
+<p>
+So is this the same case and i need to use the smart algorithm or im missing something else.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            juan.oropeza
+          </div>
+          <div class="time">
+            03/13/10 08:23:41 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1434"></a>
+        <div class="id">
+          Message #1434
+        </div>
+        <div class="body">
+            <p>
+I've come across similar anomalies using shortest_path_shooting_star. In testing I'm seeing numerous reverse direction routings over one way roads when using osm data for a major city.
+</p>
+<p>
+In general it appears that reverse_cost is not being considered for the bulk of these cases, and not just the start/end edges.
+</p>
+<p>
+To confirm this behavior with a smaller data set, I tried the davidgis test/demo data suggested by Juan [ <a class="ext-link" href="http://cartosig.upv.es/es/recursos-sig/pgrouting-shooting-star-usage-example-turn-restriction"><span class="icon"> </span>http://cartosig.upv.es/es/recursos-sig/pgrouting-shooting-star-usage-example-turn-restriction</a> ]. Here is the sql used and result:
+</p>
+<p>
+SELECT * FROM shortest_path_shooting_star('SELECT gid as id, source, target, cost, x1, y1, x2, y2, reverse_cost, rule, to_cost FROM wr', 20, 8 , true, true);
+</p>
+<p>
+vertex_id;edge_id;cost
+</p>
+<p>
+15;20;48.3246366252935
+16;18;38.0005743220152
+13;17;39.2224758594282
+14;15;39.4286821133412
+11;16;29.9822270236865
+12;13;38.6094358307609
+10;12;25.9044654619518
+8;11;60
+2;9;40
+1;7;53.8753258085636
+4;6;12.8311604873812
+29;5;10.6864968606796
+27;4;14.2572101668807
+6;8;62.5380849791951
+</p>
+<p>
+In the davidgis demo, the correct transition should be from edge 20 to edge 19 (not edge 18 as above), and so on.
+</p>
+<p>
+My platform is Win XP, Postgres 8.4, Postgis 1.4, pgRouting-1.03_pg-8.4.2 binaries.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            bdrees
+          </div>
+          <div class="time">
+            03/17/10 01:43:09 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1435"></a>
+        <div class="id">
+          Message #1435
+        </div>
+        <div class="body">
+            <p>
+Hi, my test for route 20-8 use edge 19. Same as the pdf document include it on the sample page.
+<br />
+</p>
+<p>
+I'm going to move my post to a new topic, because i think this sample can help new users get started on the shooting* function. Also as Daniel mention, is hard to read a topic so long.
+<br />
+</p>
+<p>
+My platform is:
+Windows Server 2003, PostgreSQL 8.3, Postgis 1.4, pgRouting-1.03_pg-8.3.7
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            juan.oropeza
+          </div>
+          <div class="time">
+            03/17/10 04:17:58 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1436"></a>
+        <div class="id">
+          Message #1436
+        </div>
+        <div class="body">
+            <p>
+I agree - I'll move this to a new thread.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            bdrees
+          </div>
+          <div class="time">
+            03/17/10 05:05:41 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/339?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/339?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

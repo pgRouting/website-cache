@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch10 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      WorkshopFOSS4G2008/ch10 – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch10?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../WorkshopFOSS4G2008.html" title="View parent page" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../WorkshopFOSS4G2008.html">Up</a></li><li><a href="../WikiStart.html">Start Page</a></li><li><a href="../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch10?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch10?action=diff&amp;version=1">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View WorkshopFOSS4G2008" href="../WorkshopFOSS4G2008.html">WorkshopFOSS4G2008</a><span class="pathentry sep">/</span><a class="pathentry" title="View WorkshopFOSS4G2008/ch10" href="ch10.html">ch10</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="osm2pgroutingdataconverter">osm2pgrouting data converter</h1>
+<p>
+This tool makes it easy to import <a class="missing wiki">OpenStreetMap?</a> data and use it with pgRouting.
+It creates topology automatically and creates tables for feature types and road 
+classes. 
+osm2pgrouting was primarily written by Daniel Wendt and is now hosted on the 
+pgRouting project site:
+<a href="../tools/osm2pgrouting.html">http://pgrouting.postlbs.org/wiki/tools/osm2pgrouting</a>
+</p>
+<h2 id="HowtoinstallUbuntu8.04">How to install (Ubuntu 8.04)</h2>
+<p>
+Check out the latest version from SVN repository:
+</p>
+<pre class="wiki">svn checkout http://pgrouting.postlbs.org/svn/pgrouting/tools/osm2pgrouting/trunk osm2pgrouting
+</pre><p>
+Required packages/libraries:
+</p>
+<p>
+1. PostgreSQL
+2. PostGIS
+3. pgRouting
+4. Boost library
+5. Expat library
+6. libpq library
+</p>
+<p>
+Note: if you already compiled pgRouting point 1. to 4. should already be 
+installed.
+</p>
+<p>
+Then compile
+</p>
+<pre class="wiki">cd osm2pgrouting
+make
+</pre><h2 id="Howtouse">How to use</h2>
+<p>
+1. First you need to create a database and add PostGIS and pgRouting functions:
+</p>
+<pre class="wiki">createdb -U postgres osm
+createlang -U postgres plpgsql osm
+
+psql -U postgres -f /usr/share/postgresql-8.3-postgis/lwpostgis.sql osm
+psql -U postgres -f /usr/share/postgresql-8.3-postgis/spatial_ref_sys.sql osm
+
+psql -U postgres -f /usr/share/postlbs/routing_core.sql osm
+psql -U postgres -f /usr/share/postlbs/routing_core_wrappers.sql osm
+psql -U postgres -f /usr/share/postlbs/routing_topology.sql osm
+</pre><p>
+2. You can define the features and attributes to be imported from the 
+<a class="missing wiki">OpenStreetMap?</a> XML file in the configuration file (default: mapconfig.xml)
+</p>
+<p>
+3. Open a terminal window and run osm2pgrouting with the following paramters
+</p>
+<pre class="wiki">./osm2pgrouting -file /home/foss4g/capetown_20080829.osm \
+				-conf mapconfig.xml \
+				-dbname osm \
+				-user postgres \
+				-clean
+</pre><p>
+Other available parameters are:
+</p>
+<pre class="wiki"> * required: 
+	-file 	&lt;file&gt;  	-- name of your osm xml file
+	-dbname &lt;dbname&gt; 	-- name of your database
+	-user 	&lt;user&gt; 		-- name of the user, which have write access to the database
+	-conf 	&lt;file&gt; 		-- name of your configuration xml file
+ * optional:
+	-host 	&lt;host&gt;  	-- host of your postgresql database (default: 127.0.0.1)
+	-port 	&lt;port&gt; 		-- port of your database (default: 5432)
+	-passwd &lt;passwd&gt; 	--  password for database access
+	-clean 				-- drop peviously created tables
+</pre><p>
+4. Connect to your database and see the tables that have been created
+</p>
+<pre class="wiki">psql -U postgres osm
+\d
+                 List of relations
+ Schema |        Name         |   Type   |  Owner   
+--------+---------------------+----------+----------
+ public | classes             | table    | postgres
+ public | geometry_columns    | table    | postgres
+ public | nodes               | table    | postgres
+ public | spatial_ref_sys     | table    | postgres
+ public | types               | table    | postgres
+ public | vertices_tmp        | table    | postgres
+ public | vertices_tmp_id_seq | sequence | postgres
+ public | ways                | table    | postgres
+(8 rows)
+</pre><p>
+Note: If tables are missing you might have forgotten to add PostGIS or pgRouting 
+functions to your database.
+</p>
+<p>
+Let's do some more advanced routing with those extra information about road
+types and road classes.
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch10?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("ch10.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch10 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

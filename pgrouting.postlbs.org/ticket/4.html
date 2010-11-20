@@ -1,0 +1,580 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/4 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:17:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #4 (Building pgrouting 1.0.0.a on win32 error with tsp_solver.cpp)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="216.html" title="Ticket #216" />
+        <link rel="last" href="109.html" title="Ticket #109" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/4?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/4?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/4?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="up" href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1" />
+        <link rel="next" href="82.html" title="Ticket #82" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="138.html" title="Ticket #138" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="216.html" title="Ticket #216">Previous Ticket</a></span></li><li><a href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1">Back to Query</a></li><li class="last"><span><a class="next" href="82.html" title="Ticket #82">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #4
+          <span class="status">(closed feature request: fixed)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-24T10%3A47%3A47%2B0900&amp;precision=second" title="2007-05-24T10:47:47+0900 in Timeline">3 years</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-12-17T03%3A37%3A24%2B0900&amp;precision=second" title="2008-12-17T03:37:24+0900 in Timeline">2 years</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">Building pgrouting 1.0.0.a on win32 error with tsp_solver.cpp</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">davidtecher</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">anton
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      major
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="missing milestone"></a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      pgRouting package
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      1.0.0a
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+Building gaul with Dev-c++ on win32 according to <a class="ext-link" href="http://gaul.sourceforge.net/windows-DevCPP.html"><span class="icon"> </span>http://gaul.sourceforge.net/windows-DevCPP.html</a>
+</p>
+<p>
+I got this error
+</p>
+<pre class="wiki">dllwrap  -o librouting.dll --dllname librouting.dll  --def routing.def dijkstra.o boost_wrapper.o astar.o astar_boost_wrapper.o drivedist.o boost_drivedist.o shooting_star.o shooting_star_boost_wrapper.o tsp.o tsp_solver.o   -Lc:/POSTGR~1/8222BD~1.4/lib -Lc:/POSTGR~1/8222BD~1.4/lib -lpostgres  -lstdc++ -L/usr/local/lib/libnn_util.a -L/usr/local/lib/gaul-util.a -L/usr/local/lib/gaul-devel.a -L/c/MinGW/lib -lpthread 
+tsp_solver.o(.text+0x168): In function `Z15tsp_mutate_swapP12population_tP8entity_tS2_':
+C:/msys/1.0/home/david/routing/tsp_solver.cpp:128: undefined reference to `random_int'
+tsp_solver.o(.text+0x188):C:/msys/1.0/home/david/routing/tsp_solver.cpp:134: undefined reference to `random_int'
+tsp_solver.o(.text+0x21a): In function `Z16tsp_mutate_shiftP12population_tP8entity_tS2_':
+C:/msys/1.0/home/david/routing/tsp_solver.cpp:164: undefined reference to `random_int'
+tsp_solver.o(.text+0x228):C:/msys/1.0/home/david/routing/tsp_solver.cpp:168: undefined reference to `random_int'
+tsp_solver.o(.text+0x2b0): In function `Z10tsp_mutateP12population_tP8entity_tS2_':
+C:/msys/1.0/home/david/routing/tsp_solver.cpp:199: undefined reference to `random_boolean_prob'
+tsp_solver.o(.text+0x361): In function `Z13tsp_crossoverP12population_tP8entity_tS2_S2_S2_':
+C:/msys/1.0/home/david/routing/tsp_solver.cpp:215: undefined reference to `random_boolean'
+tsp_solver.o(.text+0x4a8): In function `find_tsp_solution':
+C:/msys/1.0/home/david/routing/tsp_solver.cpp:285: undefined reference to `random_init'
+tsp_solver.o(.text+0x4cd):C:/msys/1.0/home/david/routing/tsp_solver.cpp:289: undefined reference to `ga_extinction'
+tsp_solver.o(.text+0x4da):C:/msys/1.0/home/david/routing/tsp_solver.cpp:291: undefined reference to `ga_select_two_randomrank'
+tsp_solver.o(.text+0x4e2):C:/msys/1.0/home/david/routing/tsp_solver.cpp:290: undefined reference to `random_seed'
+tsp_solver.o(.text+0x4f5):C:/msys/1.0/home/david/routing/tsp_solver.cpp:291: undefined reference to `ga_select_one_randomrank'
+tsp_solver.o(.text+0x554):C:/msys/1.0/home/david/routing/tsp_solver.cpp:291: undefined reference to `ga_genesis_integer'
+tsp_solver.o(.text+0x58a):C:/msys/1.0/home/david/routing/tsp_solver.cpp:310: undefined reference to `ga_population_set_parameters'
+tsp_solver.o(.text+0x596):C:/msys/1.0/home/david/routing/tsp_solver.cpp:319: undefined reference to `ga_evolution'
+tsp_solver.o(.text+0x5aa):C:/msys/1.0/home/david/routing/tsp_solver.cpp:325: undefined reference to `ga_get_entity_from_rank'
+tsp_solver.o(.text+0x5cc):C:/msys/1.0/home/david/routing/tsp_solver.cpp:327: undefined reference to `ga_get_entity_from_rank'
+tsp_solver.o(.text+0x5fa):C:/msys/1.0/home/david/routing/tsp_solver.cpp:332: undefined reference to `ga_get_entity_from_rank'
+collect2: ld returned 1 exit status
+c:\MinGW\bin\dllwrap.exe: c:\MinGW\bin\gcc exited with status 1
+make: *** [librouting.a] Error 1
+</pre>
+              </div>
+            </div>
+        </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-24T11%3A35%3A57%2B0900&amp;precision=second" title="2007-05-24T11:35:57+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>owner</strong>
+            set to <em>anton</em>
+        </li><li>
+          <strong>status</strong>
+              changed from <em>new</em> to <em>assigned</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  <span class="threading">
+                      follow-up:
+      <a href="#comment:3"><small>↓ 3</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-24T11%3A38%3A25%2B0900&amp;precision=second" title="2007-05-24T11:38:25+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+David,
+</p>
+<p>
+Did you try to use windows binaries for gaul from here - <a class="ext-link" href="http://prdownloads.sourceforge.net/gaul/gaul-devel-windows.zip?download"><span class="icon"> </span>http://prdownloads.sourceforge.net/gaul/gaul-devel-windows.zip?download</a> ?
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:2"><small>↑ 2</small></a>
+                        ;
+                      follow-up:
+      <a href="#comment:4"><small>↓ 4</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-24T12%3A05%3A36%2B0900&amp;precision=second" title="2007-05-24T12:05:36+0900 in Timeline">3 years</a> ago by davidtecher
+                </h3>
+      <div class="comment searchable">
+        <p>
+Replying to <a href="4.html#comment:2" title="Comment 2 for Ticket #4">anton</a>:
+</p>
+<blockquote class="citation">
+<p>
+ David,
+ 
+ Did you try to use windows binaries for gaul from here - <a class="ext-link" href="http://prdownloads.sourceforge.net/gaul/gaul-devel-windows.zip?download"><span class="icon"> </span>http://prdownloads.sourceforge.net/gaul/gaul-devel-windows.zip?download</a> ?
+ 
+</p>
+</blockquote>
+<p>
+Yes I did! I've tryed Dev-C++ to compil it
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:3"><small>↑ 3</small></a>
+                        ;
+                      follow-ups:
+      <a href="#comment:5"><small>↓ 5</small></a>
+      <a href="#comment:6"><small>↓ 6</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-24T12%3A14%3A12%2B0900&amp;precision=second" title="2007-05-24T12:14:12+0900 in Timeline">3 years</a> ago by davidtecher
+                </h3>
+      <div class="comment searchable">
+        <p>
+Replying to <a href="4.html#comment:3" title="Comment 3 for Ticket #4">davidtecher</a>:
+</p>
+<blockquote class="citation">
+<p>
+ Replying to <a href="4.html#comment:2" title="Comment 2 for Ticket #4">anton</a>:
+</p>
+<blockquote class="citation">
+<p>
+ David,
+ 
+ Did you try to use windows binaries for gaul from here - <a class="ext-link" href="http://prdownloads.sourceforge.net/gaul/gaul-devel-windows.zip?download"><span class="icon"> </span>http://prdownloads.sourceforge.net/gaul/gaul-devel-windows.zip?download</a> ?
+ 
+</p>
+</blockquote>
+<p>
+ Yes I did! I've tryed Dev-C++ to compil it
+</p>
+</blockquote>
+<p>
+Do you have the isntructions I should use in order to compiling it ? :)
+</p>
+<p>
+thanks
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:5">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:4"><small>↑ 4</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-24T12%3A17%3A41%2B0900&amp;precision=second" title="2007-05-24T12:17:41+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+Replying to <a href="4.html#comment:4" title="Comment 4 for Ticket #4">davidtecher</a>:
+</p>
+<blockquote class="citation">
+<p>
+ Replying to <a href="4.html#comment:3" title="Comment 3 for Ticket #4">davidtecher</a>:
+</p>
+<blockquote class="citation">
+<p>
+ Replying to <a href="4.html#comment:2" title="Comment 2 for Ticket #4">anton</a>:
+</p>
+<blockquote class="citation">
+<p>
+ David,
+ 
+ Did you try to use windows binaries for gaul from here - <a class="ext-link" href="http://prdownloads.sourceforge.net/gaul/gaul-devel-windows.zip?download"><span class="icon"> </span>http://prdownloads.sourceforge.net/gaul/gaul-devel-windows.zip?download</a> ?
+ 
+</p>
+</blockquote>
+<p>
+ Yes I did! I've tryed Dev-C++ to compil it
+</p>
+</blockquote>
+<p>
+ Do you have the isntructions I should use in order to compiling it ? :)
+ 
+ thanks
+</p>
+</blockquote>
+<p>
+I will ask our engineer who made win binaries before.
+Please, wait foe a while.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:6">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:4"><small>↑ 4</small></a>
+                        ;
+                      follow-up:
+      <a href="#comment:7"><small>↓ 7</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-24T18%3A14%3A12%2B0900&amp;precision=second" title="2007-05-24T18:14:12+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+Replying to <a href="4.html#comment:4" title="Comment 4 for Ticket #4">davidtecher</a>:
+</p>
+<blockquote class="citation">
+<p>
+ Replying to <a href="4.html#comment:3" title="Comment 3 for Ticket #4">davidtecher</a>:
+</p>
+<blockquote class="citation">
+<p>
+ Replying to <a href="4.html#comment:2" title="Comment 2 for Ticket #4">anton</a>:
+</p>
+<blockquote class="citation">
+<p>
+ David,
+ 
+ Did you try to use windows binaries for gaul from here - <a class="ext-link" href="http://prdownloads.sourceforge.net/gaul/gaul-devel-windows.zip?download"><span class="icon"> </span>http://prdownloads.sourceforge.net/gaul/gaul-devel-windows.zip?download</a> ?
+ 
+</p>
+</blockquote>
+<p>
+ Yes I did! I've tryed Dev-C++ to compil it
+</p>
+</blockquote>
+<p>
+ Do you have the isntructions I should use in order to compiling it ? :)
+ 
+ thanks
+</p>
+</blockquote>
+<p>
+Please look at <a class="missing wiki">CreateWindowsBinary?</a> page - there are instruction from the guy who made win binaries. Probably it will help.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:7">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:6"><small>↑ 6</small></a>
+                        ;
+                      follow-up:
+      <a href="#comment:8"><small>↓ 8</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-24T20%3A12%3A26%2B0900&amp;precision=second" title="2007-05-24T20:12:26+0900 in Timeline">3 years</a> ago by davidtecher
+                </h3>
+      <div class="comment searchable">
+        <p>
+Ok I will try it!
+</p>
+<p>
+Many thanks for this link!
+</p>
+<p>
+Kind regards.
+</p>
+<p>
+--david;
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:8">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:7"><small>↑ 7</small></a>
+                        ;
+                      follow-up:
+      <a href="#comment:9"><small>↓ 9</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-24T22%3A19%3A27%2B0900&amp;precision=second" title="2007-05-24T22:19:27+0900 in Timeline">3 years</a> ago by davidtecher
+                </h3>
+      <div class="comment searchable">
+        <p>
+OK It works :)
+</p>
+<p>
+Thanks! Since I'm on XP using Vmware, I will do a few tests using PostgreSQL 8.2.4, PostgreSQL 1.2.1 on a actual laptop with XP...
+</p>
+<p>
+I will send you my results after!
+</p>
+<p>
+;)
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:9">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:8"><small>↑ 8</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-05-25T09%3A59%3A45%2B0900&amp;precision=second" title="2007-05-25T09:59:45+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>assigned</em> to <em>closed</em>
+        </li><li>
+          <strong>resolution</strong>
+              set to <em>fixed</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Replying to <a href="4.html#comment:8" title="Comment 8 for Ticket #4">davidtecher</a>:
+</p>
+<blockquote class="citation">
+<p>
+ OK It works :)
+ 
+ Thanks! Since I'm on XP using Vmware, I will do a few tests using PostgreSQL 8.2.4, PostgreSQL 1.2.1 on a actual laptop with XP...
+ 
+ I will send you my results after!
+ 
+ ;)
+</p>
+</blockquote>
+<p>
+That's cool!
+If everything will be ok, can you compile pgRouting with dijkstra and send us binaries?
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:10">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-12-17T03%3A37%3A24%2B0900&amp;precision=second" title="2008-12-17T03:37:24+0900 in Timeline">2 years</a> ago by sunrise
+                </h3>
+      <div class="comment searchable">
+        This works ok for me.. but It probably needs feedback. <a href="http://www.sneakerright.com/"><font color="#000000">postlbs Air Jordan</font></a>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/4?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/4?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/4?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("4.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/4 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:17:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

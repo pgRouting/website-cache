@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/249 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/24.html" title="osm2pgrouting">osm2pgrouting</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>osm2pgrouting (#24) - Compliling problems osm2pgrouting (#249) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Compliling problems osm2pgrouting
+            </div>
+            <div class="body">
+              <p>
+Dear users,
+</p>
+<p>
+I try to compile osm2pgrouting on debian etch.
+</p>
+<p>
+I have succesfully installed postgresql, postgis and pgrouting.
+I get the ltest version of osm2pgrouting from svn, but when I do a "make" I get:
+</p>
+<p>
+g++ -c src/Export2DB.cpp src/math_functions.cpp src/Node.cpp src/OSMDocumentParserCallback.cpp src/Way.cpp src/OSMDocument.cpp src/Type.cpp src/Class.cpp src/Configuration.cpp src/ConfigurationParserCallback.cpp -I./ -Isrc -I/usr/include/pgsql -I/usr/include/postgresql -ggdb3
+In file included from src/Export2DB.cpp:22:
+</p>
+<p>
+src/Export2DB.h:25:22: error: libpq-fe.h: Datei oder Verzeichnis nicht gefunden
+</p>
+<p>
+src/Export2DB.h:84: error: ISO C++ forbids declaration of ‘PGconn’ with no type
+</p>
+<p>
+src/Export2DB.h:84: error: expected ‘;’ before ‘*’ token
+</p>
+<p>
+src/Export2DB.cpp: In constructor ‘Export2DB::Export2DB(std::string,
+</p>
+<p>
+std::string, std::string, std::string, std::string)’:
+</p>
+<p>
+src/Export2DB.cpp:27: error: class ‘Export2DB’ does not have any field named ‘mycon’
+</p>
+<p>
+src/Export2DB.cpp: In destructor ‘Export2DB::~Export2DB()’:
+</p>
+<p>
+src/Export2DB.cpp:38: error: ‘mycon’ was not declared in this scope
+</p>
+<p>
+src/Export2DB.cpp:38: error: ‘PQfinish’ was not declared in this scope
+</p>
+<p>
+src/Export2DB.cpp: In member function ‘int Export2DB::connect()’:
+</p>
+<p>
+src/Export2DB.cpp:45: error: ‘mycon’ was not declared in this scope
+</p>
+<p>
+src/Export2DB.cpp:45: error: ‘PQconnectdb’ was not declared in this scope
+</p>
+<p>
+etc. etc.
+</p>
+<p>
+Doesn anybody know what this means?
+Thank you in advance, Kai
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            04/19/09 00:45:28 (19 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/249?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/249?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message885"></a>
+        <div class="id">
+          Message #885
+        </div>
+        <div class="body">
+            <p>
+I think I have got it, I changed
+src/Export2DB.h and set the path to libpq-fe.h statically
+(don`t konw why it was not found, in etc/ld.so.conf.....it was set (and ldconfig done), well, anayway :-)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            04/19/09 01:27:39 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message905"></a>
+        <div class="id">
+          Message #905
+        </div>
+        <div class="body">
+            <p>
+The problem is, that some linux distributions install the header files in another folders. If I have some time, I will correct it with autotools.
+</p>
+<p>
+ldconfig is only setting up the cache, where to find the libraries (not the header files!).
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            murray
+          </div>
+          <div class="time">
+            04/24/09 17:18:20 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/249?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/249?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

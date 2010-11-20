@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/374 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - Error with librouting_dd when creating functions (#374) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Error with librouting_dd when creating functions
+            </div>
+            <div class="body">
+              <p>
+Today (2010-07-22) I compiled and installed pgrouting on Ubuntu 10.04 server with postgres-8.4 and postgis 1.5
+When I tried <tt>psql -f /usr/share/postlbs/routing_dd.sql [database]</tt> my postgres server stopped. The log shows this event as:
+</p>
+<pre class="wiki">terminate called after throwing an instance of 'CGAL::Assertion_exception'
+  what():  CGAL ERROR: assertion violation!
+Expr: -CGAL_IA_MUL(-1.1, 10.1) != CGAL_IA_MUL(1.1, 10.1)
+File: /usr/include/CGAL/Interval_nt.h
+Line: 158
+Explanation: Wrong rounding: did you forget the -frounding-math option if you use GCC?
+</pre><p>
+As using Ubuntu 10.04 I did use GCC 4.4.3 for the build. The build gave no errors, only a warning
+</p>
+<pre class="wiki">Scanning dependencies of target routing_dd
+[ 25%] Building C object extra/driving_distance/src/CMakeFiles/routing_dd.dir/alpha.o
+[ 33%] Building CXX object extra/driving_distance/src/CMakeFiles/routing_dd.dir/alpha_drivedist.o
+[ 41%] Building CXX object extra/driving_distance/src/CMakeFiles/routing_dd.dir/boost_drivedist.o
+In file included from /usr/include/c++/4.4/backward/hash_set:60,
+                 from /usr/include/boost/graph/adjacency_list.hpp:25,
+                 from /home/install-bin/pgrouting/extra/driving_distance/src/boost_drivedist.cpp:25:
+/usr/include/c++/4.4/backward/backward_warning.h:28:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+[ 50%] Building C object extra/driving_distance/src/CMakeFiles/routing_dd.dir/drivedist.o
+Linking CXX shared library ../../../lib/librouting_dd.so
+[ 50%] Built target routing_dd
+</pre><p>
+Hope my information helps to solve this problem. Will check in (and SVN checkout) later ;-)
+</p>
+<p>
+Bye from the Netherlands
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Martin
+          </div>
+          <div class="time">
+            07/23/10 06:39:51 (4 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/374?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/374?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1595"></a>
+        <div class="id">
+          Message #1595
+        </div>
+        <div class="body">
+            <p>
+Hi Martin,
+</p>
+<p>
+This looks like this problem here: <a href="../../ticket/204.html">http://pgrouting.postlbs.org/ticket/204</a>
+</p>
+<p>
+Unfortunately there is no solution yet. It only seems to happen with 64 bit OS.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            07/23/10 23:18:34 (4 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1597"></a>
+        <div class="id">
+          Message #1597
+        </div>
+        <div class="body">
+            <p>
+Thanks Daniel, for looking into my problem.
+</p>
+<p>
+Sorry I didn't find the ticket myself. I am not very much into bug-reporting and such on projects like this. Learning on the way ;-)
+</p>
+<p>
+Next time I will try to find first if there is already a ticket concerning my problem.
+</p>
+<p>
+Kind regards,
+</p>
+<p>
+Martin
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Martin
+          </div>
+          <div class="time">
+            07/26/10 20:21:09 (4 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1598"></a>
+        <div class="id">
+          Message #1598
+        </div>
+        <div class="body">
+            <p>
+Hi Martin,
+</p>
+<p>
+No problem at all. It also took me some time to find the ticket again ;-)<br />
+But it's good to know that this is the same problem and not another one.
+</p>
+<p>
+If you can find out any reason for it, that would be probably help a lot of people. You could make many friends. Anton or I haven't found any solution yet, but unfortunately can't put much effort in it at the moment because of other work. So for now we have to count on the community.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            07/27/10 01:50:43 (4 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/374?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/374?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

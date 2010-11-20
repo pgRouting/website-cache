@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/295 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - install problem on SLES 11 x86_64 (#295) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              install problem on SLES 11 x86_64
+            </div>
+            <div class="body">
+              <p>
+i'm trying installing pgrouting on sles 11 64 BIT
+</p>
+<p>
+boost-devel 1.36 is OK
+CGAL 3.3.1 is OK
+GAUL is OK
+CMAKE 2.6.4 is OK
+</p>
+<p>
+in pgroute 1.0.3 dir after <i>make VERBOSE=1</i> i get:
+</p>
+<p>
+/usr/local/bin/cmake -H/usr/local/src/pgrouting -B/usr/local/src/pgrouting --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/local/bin/cmake -E cmake_progress_start /usr/local/src/pgrouting/CMakeFiles /usr/local/src/pgrouting/CMakeFiles/progress.make
+make -f CMakeFiles/Makefile2 all
+make<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>: Entering directory `/usr/local/src/pgrouting'
+make -f core/src/CMakeFiles/routing.dir/build.make core/src/CMakeFiles/routing.dir/depend
+make<a class="changeset" href="../../changeset/2.html" title="initial">[2]</a>: Entering directory `/usr/local/src/pgrouting'
+cd /usr/local/src/pgrouting &amp;&amp; /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /usr/local/src/pgrouting /usr/local/src/pgrouting/core/src /usr/local/src/pgrouting /usr/local/src/pgrouting/core/src /usr/local/src/pgrouting/core/src/CMakeFiles/routing.dir/DependInfo.cmake --color=
+make<a class="changeset" href="../../changeset/2.html" title="initial">[2]</a>: Leaving directory `/usr/local/src/pgrouting'
+make -f core/src/CMakeFiles/routing.dir/build.make core/src/CMakeFiles/routing.dir/build
+make<a class="changeset" href="../../changeset/2.html" title="initial">[2]</a>: Entering directory `/usr/local/src/pgrouting'
+/usr/local/bin/cmake -E cmake_progress_report /usr/local/src/pgrouting/CMakeFiles 1
+[ 16%] Building C object core/src/CMakeFiles/routing.dir/dijkstra.o
+cd /usr/local/src/pgrouting/core/src &amp;&amp; /usr/bin/gcc  -Drouting_EXPORTS -O2 -g -fPIC -I/usr/local/pgsql/include/server -I/usr/local/src/pgrouting/core/src -I/usr/local/src/pgrouting/. -I/usr/local/src/pgrouting/core -I/usr/local/src/pgrouting/extra -I/usr/local/src/pgrouting/extra/tsp -I/usr/local/src/pgrouting/extra/tsp/src -I/usr/local/src/pgrouting/extra/driving_distance -I/usr/local/src/pgrouting/extra/driving_distance/src   -o CMakeFiles/routing.dir/dijkstra.o   -c /usr/local/src/pgrouting/core/src/dijkstra.c
+/usr/local/src/pgrouting/core/src/dijkstra.c: In function âfetch_edge_columnsâ:
+/usr/local/src/pgrouting/core/src/dijkstra.c:98: error: âINT4OIDâ undeclared (first use in this function)
+/usr/local/src/pgrouting/core/src/dijkstra.c:98: error: (Each undeclared identifier is reported only once
+/usr/local/src/pgrouting/core/src/dijkstra.c:98: error: for each function it appears in.)
+/usr/local/src/pgrouting/core/src/dijkstra.c:100: error: âFLOAT8OIDâ undeclared (first use in this function)
+make<a class="changeset" href="../../changeset/2.html" title="initial">[2]</a>: *** [core/src/CMakeFiles/routing.dir/dijkstra.o] Error 1
+make<a class="changeset" href="../../changeset/2.html" title="initial">[2]</a>: Leaving directory `/usr/local/src/pgrouting'
+make<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>: *** [core/src/CMakeFiles/routing.dir/all] Error 2
+make<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>: Leaving directory `/usr/local/src/pgrouting'
+make: *** [all] Error 2
+</p>
+<p>
+please help
+</p>
+<p>
+thanks
+</p>
+<p>
+christian
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            dev|null
+          </div>
+          <div class="time">
+            09/12/09 03:13:28 (14 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/295?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/295?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1073"></a>
+        <div class="id">
+          Message #1073
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+It looks like compiler complains about strange symbols in type and function names 'âFLOAT8OIDâ' instead of 'FLOAT8OID', 'âfetch_edge_columnsâ' instead of 'fetch_edge_columns' etc. It is always 'â' symbol and I have no idea where it came from (encoding problem?). Where did you get pgRouting source code from? Can you please check the source files and confirm it is really there? If it is so, just replace it with space and it should work.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            09/15/09 10:15:50 (14 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1149"></a>
+        <div class="id">
+          Message #1149
+        </div>
+        <div class="body">
+            <p>
+Hello! I wonder how &lt;a href=<a class="ext-link" href="http://babu.is/language/flowers1/fresh-hawaiian-flowers.html"><span class="icon"> </span>http://babu.is/language/flowers1/fresh-hawaiian-flowers.html</a>&gt;Fresh hawaiian flowers&lt;/a&gt; I had problems in installing the  now I want to make them fashionable. What colour of the &lt;a href=<a class="ext-link" href="http://babu.is/language/flowers1/flowers-brooklyn-ny.html"><span class="icon"> </span>http://babu.is/language/flowers1/flowers-brooklyn-ny.html</a>&gt;Flowers brooklyn ny&lt;/a&gt;  should I buy?
+</p>
+<p>
+&lt;a href=<a class="ext-link" href="http://babu.is/language/flowers1/map.html"><span class="icon"> </span>http://babu.is/language/flowers1/map.html</a>&gt;flowers&lt;/a&gt;
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            zoffneaffok
+          </div>
+          <div class="time">
+            10/21/09 01:42:37 (13 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/295?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/295?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

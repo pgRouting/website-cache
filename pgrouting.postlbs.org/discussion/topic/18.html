@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/18 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/21.html" title="package">package</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>package (#21) - Problem with pgRouting (#18) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Problem with pgRouting
+            </div>
+            <div class="body">
+              <p>
+I created a DB using Postgres (and Postgis) following the instruction on <a href="../../wiki/InstallationManual.html">http://pgrouting.postlbs.org/wiki/InstallationManual</a>
+</p>
+<p>
+Now I have a db named routingProva with a table named kanagawa.
+When I try to start the queries for Dykstra, A*, Shooting star, TSP and so on I have some problem.
+Launching Dykstra and A* from PL/SQL console provided by postgres I get this error:
+</p>
+<p>
+"cache lookup failed for type 611280"
+</p>
+<p>
+If I start the <a class="wiki" href="../../wiki/ShootingStar.html">ShootingStar</a> query on the server with postgres I have an Exception of this type:
+</p>
+<p>
+"Application (postgres) make a reference to memory ...........; the memory can be written"
+</p>
+<p>
+I I start the TSP query I get the same error than Shooting star but in this case the message tell that memory can be read!
+</p>
+<p>
+Anyone could hemp me, please?
+</p>
+<p>
+By
+Sandro
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            <a class="missing wiki">DarthSandr?</a>
+          </div>
+          <div class="time">
+            06/08/07 19:21:17 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/18?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/18?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message231"></a>
+        <div class="id">
+          Message #231
+        </div>
+        <div class="body">
+            <p>
+I got the same message "cache lookup failed for type..." [a number follows].
+As far as I see, test data (victoria) and functions seem correctly added to PostgreSQL 8.1. Everything seems set up fine, in accordance with the tutorial... but the infamous error message still persists.
+Thanks for your help,
+kind regards
+</p>
+<blockquote>
+<p>
+Vittorio
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            vitcol
+          </div>
+          <div class="time">
+            11/15/07 03:04:15 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message232"></a>
+        <div class="id">
+          Message #232
+        </div>
+        <div class="body">
+            <p>
+Could you tell us more about your installation?
+For example which OS do you use, do you use your own compiled PostgreSQL, etc..
+Are you using the latest pgRouting release?
+</p>
+<p>
+Otherwise it's hard to guess.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            11/15/07 11:14:24 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message235"></a>
+        <div class="id">
+          Message #235
+        </div>
+        <div class="body">
+            <p>
+Daniel,
+I am testing with
+</p>
+<p>
+*Windows XP Professional
+</p>
+<p>
+*the pgRouting binaries for Win32 from this site
+(<a class="ext-link" href="http://files.postlbs.org/pgrouting/binaries/pgRouting-1.0_win32.zip"><span class="icon"> </span>http://files.postlbs.org/pgrouting/binaries/pgRouting-1.0_win32.zip</a>). Such version provided files such as librouting.dll, routing_core_wrappers.sql and routing_core.sql - yes, I see there are several versions around with different namings, that confuses me a little.
+</p>
+<p>
+*PostgreSQL (with PostGIS) 8.1.10 binaries setup from the official site: I am not using 8.2.5 as I got the infamous error "PG_MAGIC_NUMBER", so I downgraded PostgreSQL.
+</p>
+<p>
+Configuration seems ok: thanks to several tutorial around, I was able abe to create the db, add the routing functions to the db, and load well known test dataset like "victoria" and "kanagawa" (that already contains source, target and the_geom columns).
+</p>
+<p>
+In short, a sequence like
+</p>
+<p>
+createdb -U postgres -E UTF-8 routing
+createlang -U postgres plpgsql routing  [redundant !]
+</p>
+<p>
+psql -U postgres routing  -f C:/Programmi/PostgreSQL/8.1/share/contrib/routing_core.sql
+</p>
+<p>
+psql -U postgres routing  -f C:/Programmi/PostgreSQL/8.1/share/contrib/routing_core_wrappers.sql
+</p>
+<p>
+psql -U postgres routing  -f C:/Programmi/PostgreSQL/8.1/share/contrib/routing_dd.sql
+</p>
+<p>
+psql -U postgres routing  -f C:/Programmi/PostgreSQL/8.1/share/contrib/routing_dd_wrappers.sql
+</p>
+<p>
+psql -U postgres routing  -f C:/Programmi/PostgreSQL/8.1/share/contrib/routing_tsp.sql
+</p>
+<p>
+psql -U postgres routing  -f C:/Programmi/PostgreSQL/8.1/share/contrib/routing_tsp_wrappers.sql
+</p>
+<p>
+shp2pgsql -D c:/setups/Kanagawa/routingj/data/kanagawa.shp kanagawa &gt; kanagawa.sql
+</p>
+<p>
+psql -U postgres routing -f kanagawa.sql
+</p>
+<p>
+create index gid_idx on kanagawa(gid);
+</p>
+<p>
+create index source_idx on kanagawa(source);
+</p>
+<p>
+create index target_idx on kanagawa(target);
+</p>
+<p>
+create index geom_idx on kanagawa using GIST (the_geom GIST_GEOMETRY_OPS);
+</p>
+<p>
+It seems data have been loaded succesfully.
+Unfortunately, any query like the one below via PostgreSQL Query Tool, would fail.
+</p>
+<p>
+SELECT * FROM shortest_path('SELECT gid AS id, source::int4,
+</p>
+<blockquote>
+<p>
+target::int4, length::double precision AS cost
+</p>
+</blockquote>
+<blockquote>
+<p>
+FROM kanagawa',2, 6, false, false);
+</p>
+</blockquote>
+<p>
+would result in "ERROR:  cache lookup failed for type 19392464" or similar number.
+</p>
+<p>
+Cheers,
+</p>
+<blockquote>
+<p>
+Vittorio
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            vitcol
+          </div>
+          <div class="time">
+            11/15/07 19:08:23 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message240"></a>
+        <div class="id">
+          Message #240
+        </div>
+        <div class="body">
+            <p>
+Executing createlang -U postgres plpgsql routing is not redundant at all! It adds Pl/pgSQL  to the routing database. And after that you need to execute:
+</p>
+<p>
+psql -U postgres -f postgis-1.2.1/lwpostgis.sql routing
+</p>
+<p>
+psql -U postgres -f postgis-1.2.1/spatial_ref_sys.sql routing
+</p>
+<p>
+to make the usage of PostGIS available for the routing database.
+</p>
+<p>
+And also tell me more about "PG_MAGIC_NUMBER", 'cause I thought we care about this problem (for me it works with version 8.2.4).
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            11/16/07 10:48:32 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message349"></a>
+        <div class="id">
+          Message #349
+        </div>
+        <div class="body">
+            <p>
+For the record, I got the same "cache lookup failed" error for a Dijkstra shortest_path command, using postgres/postgis 8.1.5/1.1.5, and upgrading to 8.2.6/1.3.2 solved it.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            jmckenna
+          </div>
+          <div class="time">
+            01/09/08 06:52:33 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message350"></a>
+        <div class="id">
+          Message #350
+        </div>
+        <div class="body">
+            <p>
+...and I should note that this was using the pgRouting-1.0.0_win32 binaries.
+</p>
+<p>
+-jeff
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            jmckenna
+          </div>
+          <div class="time">
+            01/09/08 06:54:37 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/18?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/18?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

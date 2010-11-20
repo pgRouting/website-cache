@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/239 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/16.html" title="dijkstra">dijkstra</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>dijkstra (#16) - Route Cost problems (#239) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Route Cost problems
+            </div>
+            <div class="body">
+              <p>
+I'm having problems putting weightings on roads. For this task I've selected a small area of my road network.
+</p>
+<p>
+I put a weighting of 1000 on one of the roads and the alternative route was not taken.
+</p>
+<p>
+SQL code for the table can be found here:
+<a class="ext-link" href="http://www.oconnorwebsites.net/newbridge.sql"><span class="icon"> </span>http://www.oconnorwebsites.net/newbridge.sql</a>
+</p>
+<p>
+There is a costing of 1000 on gid:15521 but is still routing right through it.
+</p>
+<p>
+Edit: This problem is with the algorithms
+dijkstra_sp_delta,
+astar_sp_delta and shootingstar_sp
+</p>
+<p>
+Thanks!
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            soconnor
+          </div>
+          <div class="time">
+            04/04/09 00:45:10 (20 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/239?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/239?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message842"></a>
+        <div class="id">
+          Message #842
+        </div>
+        <div class="body">
+            <p>
+Could you also post the SQL query with start point and end point, which doesn't work as expected?
+</p>
+<p>
+If this would be only the case for Dijkstra and A*, the reason could be that you have two (or more) possible links between two points A and B. The algorithm will always choose the first one no matter the cost you assign to the other one. This is not an issue with Shooting Star though.
+</p>
+<p>
+Another question: do you get correct results if you use the length as cost without weighting?
+</p>
+<p>
+One more idea as your file is called "newbridge": If you have a very sparse network (for example you want to route from one side of the river to the other side and not many bridges available), the bounding box value to select an area from the database might be too small, so the alternate bridge is not available in the area that the algorithm takes into account.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/04/09 16:10:59 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message854"></a>
+        <div class="id">
+          Message #854
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ Could you also post the SQL query with start point and end point, which doesn't work as expected?
+</p>
+</blockquote>
+<p>
+SELECT rt.gid, <a class="missing wiki">AsText?</a>(rt.the_geom) AS wkt,
+</p>
+<blockquote>
+<p>
+cost AS length, newbridge.id
+</p>
+</blockquote>
+<blockquote>
+<p>
+FROM newbridge,
+</p>
+<blockquote>
+<p>
+(SELECT gid, the_geom
+</p>
+<blockquote>
+<p>
+FROM shootingstar_sp(
+</p>
+<blockquote>
+<p>
+'newbridge',
+15517,
+14984,
+5000, 'length', true, true)
+</p>
+</blockquote>
+</blockquote>
+<p>
+) as rt
+</p>
+</blockquote>
+<p>
+WHERE newbridge.gid=rt.gid;
+</p>
+</blockquote>
+<p>
+Results of the above query are as follows:
+</p>
+<p>
+[GID   ] [WKT               ]  [LENGTH  ]
+</p>
+<p>
+15517 MULTILINESTRING....
+</p>
+<p>
+15490 MULTILINESTRING....
+</p>
+<p>
+15221 MULTILINESTRING.... 1000
+</p>
+<p>
+15206 MULTILINESTRING....
+</p>
+<p>
+14984 MULTILINESTRING....
+</p>
+<blockquote class="citation">
+<p>
+ If this would be only the case for Dijkstra and A*, the reason could be that you have two (or more) possible links between two points A and B. The algorithm will always choose the first one no matter the cost you assign to the other one. This is not an issue with Shooting Star though.
+</p>
+</blockquote>
+<p>
+The issue is with all the algorithms
+</p>
+<blockquote class="citation">
+<p>
+ Another question: do you get correct results if you use the length as cost without weighting?
+</p>
+</blockquote>
+<p>
+It's routing fine in terms of the shortest path in terms of length, but when I replaced the cost from length to my own values then the route has not changed and is still taking the shortest path. The cost seems to be irrelevant.
+</p>
+<blockquote class="citation">
+<p>
+ One more idea as your file is called "newbridge": If you have a very sparse network (for example you want to route from one side of the river to the other side and not many bridges available), the bounding box value to select an area from the database might be too small, so the alternate bridge is not available in the area that the algorithm takes into account.
+</p>
+</blockquote>
+<p>
+Just to clarify no bridges are involved with the file supplied. Thats the name of a townland in Ireland! I hand picked the area myself, so as to provide alternative routes of a route!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            soconnor
+          </div>
+          <div class="time">
+            04/05/09 23:40:32 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message856"></a>
+        <div class="id">
+          Message #856
+        </div>
+        <div class="body">
+            <p>
+Hi, your query is correct but you take just the length as cost.
+</p>
+<p>
+You could do something like this:
+</p>
+<pre class="wiki">SELECT rt.gid, AsText(rt.the_geom) AS wkt, cost AS mycost, newbridge.id
+    FROM newbridge,
+        (SELECT gid, the_geom
+            FROM shootingstar_sp(
+                'newbridge', 15517, 14984, 5000, '2*length+(somecost/2)', true, true)
+        ) as rt
+    WHERE newbridge.gid=rt.gid;
+</pre><p>
+Instead of '2*length+(somecost/2)' you can do any maths or even do a subselect. <br />
+We often take length in our examples, because it is usually available with even simple data and it returns a reasonable route. But you can mix the cost parameter as you like.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/06/09 14:13:58 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message858"></a>
+        <div class="id">
+          Message #858
+        </div>
+        <div class="body">
+            <p>
+I still get the same route. Maybe its due to the length of the roads? It seems like its just selecting the one road, whereas is should select the other road and come back in on the main road.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            soconnor
+          </div>
+          <div class="time">
+            04/07/09 19:35:15 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message859"></a>
+        <div class="id">
+          Message #859
+        </div>
+        <div class="body">
+            <p>
+Can you post your query?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/07/09 19:47:35 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message860"></a>
+        <div class="id">
+          Message #860
+        </div>
+        <div class="body">
+            <p>
+SELECT rt.gid, <a class="missing wiki">AsText?</a>(rt.the_geom) AS wkt, cost AS mycost, newbridge.id
+</p>
+<blockquote>
+<p>
+FROM newbridge,
+</p>
+<blockquote>
+<p>
+(SELECT gid, the_geom
+</p>
+<blockquote>
+<p>
+FROM shootingstar_sp(
+</p>
+<blockquote>
+<p>
+'newbridge', 15517, 14984, 5000, '2*length+(1000/2)', true, true)
+</p>
+</blockquote>
+</blockquote>
+<p>
+) as rt
+</p>
+</blockquote>
+<p>
+WHERE newbridge.gid=rt.gid;
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            soconnor
+          </div>
+          <div class="time">
+            04/07/09 19:51:58 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message861"></a>
+        <div class="id">
+          Message #861
+        </div>
+        <div class="body">
+            <p>
+I think you get this result, because it's correct. In your cost calculation still the only one parameter that matters is "length".
+</p>
+<p>
+Let's say you have an attribute "speed" for each road link (high for highways and low for residential roads).You could then calculate your cost as 'length*speed' ... just an example.
+</p>
+<p>
+If you had an attribute describing the road safety you could calculate the most safe route for example with 'length*(safety/speed)'. Probably makes no sense, just an example.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/07/09 19:59:05 (20 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/239?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/239?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

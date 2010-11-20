@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/315 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/23.html" title="data">data</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>data (#23) - many many questions… (#315) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              many many questions…
+            </div>
+            <div class="body">
+              <p>
+<strong>Hi folks,</strong>
+</p>
+<p>
+I've got some (more) questions.
+Before I start, I hope this is the right place to post this stuff and ... I'm german, so apolagize my bad english. bla.
+Some history: I spent lots of nights beside my intrinsic job to run my virtual car through the streets of Hamburg. One of the major problems was and still is that I'm running Windows instead of Linux. So osm2pgrouting was not part of my toolbox. I found out, that meanwhile the shape files from the geofabrik are of quite good quality so I decided to give my routing attempts a second chance.
+I'm still using the old version of 2007/2008 (postgres, postgis, pgrouting) but am wondering about some annoying issues:
+</p>
+<blockquote>
+<p>
+1) assign_vertex_id only seems to be able to handle srid -1 in combination
+with MULTILINESTRINGs. Any attempt to use LINESTRINGs failed. I was forced to
+modify the proc to handle srid 4326. Is this fixed in the latest versions?
+</p>
+</blockquote>
+<blockquote>
+<p>
+2) as I've never got the chance to see results from osm2pgrouting (no .. I
+don't want to bother my machine with any kind of VM) can you tell me what the
+major differences / advantages are? As I mentioned before, got quite goot
+results with the shapes from Geofabrik.
+</p>
+</blockquote>
+<blockquote>
+<p>
+3) I've seen here some higher versions of pgrouting for Windows but was
+wondering why they are ten times bigger than the those from the 1.0-Version.
+</p>
+</blockquote>
+<blockquote>
+<p>
+4) This is my most important question:
+Many OSM-streets are made of many vertices. (MULTI-)LINESTRING
+But if another street crosses, this cannot be routed except the crossing
+is at the start- or enpoints. e.g.
+</p>
+</blockquote>
+<pre class="wiki"> * (1)
+ |
+ * (2)
+ | \
+ |  \
+ |   \
+ *----*------*
+ (3)  (4)    (5)
+</pre><p>
+</p>
+<blockquote>
+<p>
+Street 1: (1),(2),(3),(4),(5)
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+Street 2: (2),(4)
+</p>
+</blockquote>
+<p>
+If you run shortest_path street 1 will never be chosen, because it does not crosses points (1) and (5).
+So my question is: Is there any script that handles segments of streets? Or is there a postres-funtion that can fix this problem? e.g. split these kind of graph into more segments?
+</p>
+<p>
+Regards
+</p>
+<p>
+<strong>PIMapper</strong>
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            11/28/09 04:45:19 (12 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/315?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/315?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1233"></a>
+        <div class="id">
+          Message #1233
+        </div>
+        <div class="body">
+            <p>
+Correction: Street 2 will never be chosen. - Sorry for that mistake.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            11/28/09 05:18:07 (12 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1234"></a>
+        <div class="id">
+          Message #1234
+        </div>
+        <div class="body">
+            <p>
+<strong>Here you can see the OSM-Problem:</strong>
+</p>
+<blockquote>
+<p>
+GREEN POINTS:
+calculated with <strong>assign_vertex_id</strong>
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+RED POINTS:
+my own postgis-layer showing those crossings that are
+neither startpoints nor endpoints.
+</p>
+</blockquote>
+<p>
+<a style="padding:0; border:none" href="http://www2.pic-upload.de/29.11.09/osrmu74wn2o.png"><img src="http://www2.pic-upload.de/29.11.09/osrmu74wn2o.png" alt="http://www2.pic-upload.de/29.11.09/osrmu74wn2o.png" title="http://www2.pic-upload.de/29.11.09/osrmu74wn2o.png" /></a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            11/30/09 00:25:25 (12 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1255"></a>
+        <div class="id">
+          Message #1255
+        </div>
+        <div class="body">
+            <p>
+Hello,
+</p>
+<p>
+You are using really ancient version of pgRouting indeed.
+What you can do is to check out the newest version from SVN and try to replace your old SQL files with newer ones.
+</p>
+<p>
+The new version of assign_vertex_id reads SRID value from geometry_columns table and you can specify snapping distance value in your projection units.
+</p>
+<p>
+Sorry for the late response.
+</p>
+<p>
+Anton.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/13/09 16:40:59 (11 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1262"></a>
+        <div class="id">
+          Message #1262
+        </div>
+        <div class="body">
+            <p>
+Hello Anton,
+</p>
+<p>
+yes, I've already figured out that there's a new interface for assign_vertex_id. But this is not my major problem anymore.
+My very problem is to detect the real topology. Without those missing crossings in the graphics above (red points).
+In the meantime I wrote some posgres/gis-functions to correct this data. I also wrote a new assign_vertex_id for my case. The original one operates on geoms with a distance. This is much too slow and in case of OSM-Data, not necessary.
+My function takes about 3 minutes too calculate the city of Hamburg. (about 15000 records) It is divided into 3 steps: 1) Splitting the original into two-points-line-segments, 2) decting crossings, start-end-points, and pure vertices  3) rearranging these infos into new geoms und building the topo on x-y-equality. (I don't use assign_vertex_id anymore, instead I operate on simple x-y-double - this is much faster)
+But for calculating a bigger area (e.g. complete germany) this is not a good approach either - except you are the proud owner of a monster-computer.
+So I'm still looking for a good program that can handle data in the range of 10 Mio-100 Mio records.
+Best choice: Java, because it runs everywhere.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            12/16/09 23:16:20 (11 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/315?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/315?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

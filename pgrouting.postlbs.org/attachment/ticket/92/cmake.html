@@ -1,0 +1,1087 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/92/cmake.diff by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Attachment – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../../wiki/TracGuide.html" />
+        <link rel="alternate" href="../../../raw-attachment/ticket/92/cmake.diff" type="text/x-diff; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="../../../ticket/92.html" title="Ticket #92" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/diff.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/code.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../../chrome/common/js/diff.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="last first"><a href="../../../ticket/92.html">Back to Ticket #92</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="attachment">
+        <h1><a href="../../../ticket/92.html">Ticket #92</a>: cmake.diff</h1>
+        <table id="info" summary="Description">
+          <tbody>
+            <tr>
+              <th scope="col">
+                File cmake.diff, <span title="10918 bytes">10.7 KB</span>
+                (added by takubo,  <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-01-07T02%3A15%3A46%2B0900&amp;precision=second" title="2008-01-07T02:15:46+0900 in Timeline">3 years</a> ago)
+              </th>
+            </tr>
+            <tr>
+              <td class="message searchable">
+                <p>
+patch for trunk(2007/1/7)
+</p>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="preview" class="searchable">
+    <div class="diff">
+  <ul class="entries">
+      <li class="entry">
+        <h2>
+          <a>CMakeLists.txt</a>
+        </h2>
+        <pre>=== CMakeLists.txt
+==================================================================</pre>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File CMakeLists.txt (revision 703)">
+                  </th>
+                  <th title="File CMakeLists.txt (local)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>5</th><th>5</th><td class="l"><span># PGROUTING version number.</span> </td>
+                  </tr><tr>
+                          <th>6</th><th>6</th><td class="l"><span>SET(PGROUTING_VERSION_MAJOR "1")</span> </td>
+                  </tr><tr>
+                          <th>7</th><th>7</th><td class="l"><span>SET(PGROUTING_VERSION_MINOR "0")</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>8</th><th> </th><td class="l"><span>SET(PGROUTING_VERSION_PATCH "<del>0</del>")</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>8</th><td class="r"><span>SET(PGROUTING_VERSION_PATCH "<ins>1</ins>")</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>9</th><th>9</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>10</th><th> </th><td class="l"><span>SET(PGROUTING_VERSION_STRING "${PGROUTING_VERSION_MAJOR}.${PGROUTING_VERSION_MINOR}.${PGROUTING_VERSION_PATCH}<del>-RC1</del>")</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>10</th><td class="r"><span>SET(PGROUTING_VERSION_STRING "${PGROUTING_VERSION_MAJOR}.${PGROUTING_VERSION_MINOR}.${PGROUTING_VERSION_PATCH}<ins></ins>")</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>11</th><th>11</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>12</th><th>12</th><td class="l"><span>add_subdirectory(cmake)</span> </td>
+                  </tr><tr>
+                          <th>13</th><th>13</th><td class="l"><span>SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L15">…</a></th>
+                  <th><a href="#L15">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>15</th><th>15</th><td class="l"><span>include (MacroLibrary)</span> </td>
+                  </tr><tr>
+                          <th>16</th><th>16</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>17</th><th>17</th><td class="l"><span>macro_optional_find_package(PostgreSQL)</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>18</th><td class="r"><ins>IF(NOT POSTGRESQL_FOUND)</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>19</th><td class="r"><ins>&nbsp; MESSAGE(FATAL ERROR " Please check your Boost installation.") </ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>20</th><td class="r"><ins>ENDIF(NOT POSTGRESQL_FOUND)</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>18</th><th>21</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>19</th><th>22</th><td class="l"><span>FIND_PACKAGE(Boost)</span> </td>
+                  </tr><tr>
+                          <th>20</th><th>23</th><td class="l"><span>IF(Boost_INCLUDE_DIRS)</span> </td>
+                  </tr><tr>
+                          <th>21</th><th>24</th><td class="l"><span>&nbsp; MESSAGE("Boost headers were found here: ${Boost_INCLUDE_DIR}")</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>25</th><td class="r"><ins>ELSE(Boost_INCLUDE_DIRS)</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>26</th><td class="r"><ins>&nbsp; MESSAGE(FATAL ERROR " Please check your Boost installation ") </ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>22</th><th>27</th><td class="l"><span>ENDIF(Boost_INCLUDE_DIRS)</span> </td>
+                  </tr><tr>
+                          <th>23</th><th>28</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>24</th><th>29</th><td class="l"><span>EXEC_PROGRAM(pg_config</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L57">…</a></th>
+                  <th><a href="#L62">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>57</th><th>62</th><td class="l"><span>OPTION(WITH_TSP "Build TSP library" OFF)</span> </td>
+                  </tr><tr>
+                          <th>58</th><th>63</th><td class="l"><span>OPTION(WITH_DD "Build Driving distance library" OFF)</span> </td>
+                  </tr><tr>
+                          <th>59</th><th>64</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="rem">
+                  <tr class="first">
+                          <th>60</th><th> </th><td class="l"><del># Recurse into the subdirectories.&nbsp; This does not actually</del> </td>
+                  </tr><tr>
+                          <th>61</th><th> </th><td class="l"><del># cause another cmake executable to run.&nbsp; The same process will walk through</del> </td>
+                  </tr><tr>
+                          <th>62</th><th> </th><td class="l"><del># the project's entire directory structure.</del> </td>
+                  </tr><tr>
+                          <th>63</th><th> </th><td class="l"><del>SUBDIRS(core/src)</del> </td>
+                  </tr><tr>
+                          <th>64</th><th> </th><td class="l"><del></del> </td>
+                  </tr><tr>
+                          <th>65</th><th> </th><td class="l"><del>IF(WITH_TSP)</del> </td>
+                  </tr><tr>
+                          <th>66</th><th> </th><td class="l"><del>ADD_SUBDIRECTORY(extra/tsp/src)</del> </td>
+                  </tr><tr>
+                          <th>67</th><th> </th><td class="l"><del>macro_optional_find_package(GAUL)</del> </td>
+                  </tr><tr>
+                          <th>68</th><th> </th><td class="l"><del>ENDIF(WITH_TSP)</del> </td>
+                  </tr><tr>
+                          <th>69</th><th> </th><td class="l"><del></del> </td>
+                  </tr><tr>
+                          <th>70</th><th> </th><td class="l"><del>IF(WITH_DD)</del> </td>
+                  </tr><tr>
+                          <th>71</th><th> </th><td class="l"><del>ADD_SUBDIRECTORY(extra/driving_distance/src)</del> </td>
+                  </tr><tr>
+                          <th>72</th><th> </th><td class="l"><del>macro_optional_find_package(CGAL)</del> </td>
+                  </tr><tr>
+                          <th>73</th><th> </th><td class="l"><del>ENDIF(WITH_DD)</del> </td>
+                  </tr><tr>
+                          <th>74</th><th> </th><td class="l"><del></del> </td>
+                  </tr><tr>
+                          <th>75</th><th> </th><td class="l"><del>#SET(LIBRARY_OUTPUT_PATH ${PGROUTING_BINARY_DIR}/lib)</del> </td>
+                  </tr><tr class="last">
+                          <th>76</th><th> </th><td class="l"><del></del> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>77</th><th>65</th><td class="l"><span>IF(UNIX)</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>78</th><th> </th><td class="l"><span>&nbsp; SET(LIBRARY_<del>OUTPUT</del>_PATH ${LIB_DIR})</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>66</th><td class="r"><span>&nbsp; SET(LIBRARY_<ins>INSTALL</ins>_PATH ${LIB_DIR})</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>79</th><th>67</th><td class="l"><span>&nbsp; SET(SQL_INSTALL_PATH /usr/share/postlbs)</span> </td>
+                  </tr><tr>
+                          <th>80</th><th>68</th><td class="l"><span>ELSE(UNIX)</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>81</th><th> </th><td class="l"><span>&nbsp; SET(LIBRARY_<del>OUTPUT</del>_PATH ${PGROUTING_BINARY_DIR}/lib)</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>69</th><td class="r"><span>&nbsp; SET(LIBRARY_<ins>INSTALL</ins>_PATH ${PGROUTING_BINARY_DIR}/lib)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>82</th><th>70</th><td class="l"><span>&nbsp; SET(SQL_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)</span> </td>
+                  </tr><tr>
+                          <th>83</th><th>71</th><td class="l"><span>ENDIF(UNIX)</span> </td>
+                  </tr><tr>
+                          <th>84</th><th>72</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>85</th><th>73</th><td class="l"><span>SET(PGROUTING_INCLUDE_DIRECTORIES ${PGROUTING_SOURCE_DIR}/core ${PGROUTING_SOURCE_DIR}/core/src ${PGROUTING_SOURCE_DIR}/extra ${PGROUTING_SOURCE_DIR}/extra/tsp ${PGROUTING_SOURCE_DIR}/extra/tsp/src ${PGROUTING_SOURCE_DIR}/extra/driving_distance ${PGROUTING_SOURCE_DIR}/extra/driving_distance/src</span> </td>
+                  </tr><tr>
+                          <th>86</th><th>74</th><td class="l"><span>)</span> </td>
+                  </tr><tr>
+                          <th>87</th><th>75</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>88</th><th> </th><td class="l"><span>INCLUDE_DIRECTORIES(. ${PGROUTING_INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS}/boost)</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>76</th><td class="r"><span>INCLUDE_DIRECTORIES(. ${PGROUTING_INCLUDE_DIRECTORIES} ${POSTGRESQL_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})</span> </td>
+                      </tr><tr>
+                        <th> </th><th>77</th><td class="r"><span>IF(WIN32)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>78</th><td class="r"><span>&nbsp; INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${POSTGRESQL_INCLUDE_DIR}/port/win32)</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>79</th><td class="r"><span>ENDIF(WIN32)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>89</th><th>80</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>81</th><td class="r"><ins># we need link libpostgres.a on win32 env</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>82</th><td class="r"><ins>IF(WIN32)</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>83</th><td class="r"><ins>&nbsp; LINK_DIRECTORIES(${LIB_DIR})</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>84</th><td class="r"><ins>&nbsp; LINK_LIBRARIES(postgres)</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>85</th><td class="r"><ins>ENDIF(WIN32)</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>86</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>90</th><th>87</th><td class="l"><span>SET(CMAKE_C_FLAGS "-O2 -g")</span> </td>
+                  </tr><tr>
+                          <th>91</th><th>88</th><td class="l"><span>SET(CMAKE_CXX_FLAGS "-O2 -g")</span> </td>
+                  </tr><tr>
+                          <th>92</th><th>89</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>93</th><th> </th><td class="l"><span>CONFIGURE_FILE(core/sql/routing_core.sql ${SQL_INSTALL_PATH}/routing_core.sql COPYONLY)</span> </td>
+                      </tr><tr>
+                        <th>94</th><th> </th><td class="l"><span>CONFIGURE_FILE(core/sql/routing_core_wrappers.sql ${SQL_INSTALL_PATH}/routing_core_wrappers.sql COPYONLY)</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>90</th><td class="r"><span># Recurse into the subdirectories.&nbsp; This does not actually</span> </td>
+                      </tr><tr>
+                        <th> </th><th>91</th><td class="r"><span># cause another cmake executable to run.&nbsp; The same process will walk through</span> </td>
+                      </tr><tr>
+                        <th> </th><th>92</th><td class="r"><span># the project's entire directory structure.</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>93</th><td class="r"><span>SUBDIRS(core)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>95</th><th>94</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>96</th><th>95</th><td class="l"><span>IF(WITH_TSP)</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>97</th><th> </th><td class="l"><span>CONFIGURE_FILE(extra/tsp/sql/routing_tsp.sql ${SQL_INSTALL_PATH}/routing_tsp.sql COPYONLY)</span> </td>
+                      </tr><tr>
+                        <th>98</th><th> </th><td class="l"><span>CONFIGURE_FILE(extra/tsp/sql/routing_tsp_wrappers.sql ${SQL_INSTALL_PATH}/routing_tsp_wrappers.sql COPYONLY)</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>96</th><td class="r"><span>&nbsp; macro_optional_find_package(GAUL)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>97</th><td class="r"><span>&nbsp; IF(NOT GAUL_FOUND)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>98</th><td class="r"><span>&nbsp; &nbsp; message(FATAL ERROR " Please check your gaul installation, or set correct path to GAUL_INCLUDE_DIR and GAUL_LIBRARIES.")</span> </td>
+                      </tr><tr>
+                        <th> </th><th>99</th><td class="r"><span>&nbsp; ENDIF(NOT GAUL_FOUND)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>100</th><td class="r"><span>&nbsp; INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${GAUL_INCLUDE_DIR})</span> </td>
+                      </tr><tr>
+                        <th> </th><th>101</th><td class="r"><span>&nbsp; LINK_LIBRARIES(${GAUL_LIBRARIES})</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>102</th><td class="r"><span>&nbsp; ADD_SUBDIRECTORY(extra/tsp)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>99</th><th>103</th><td class="l"><span>ENDIF(WITH_TSP)</span> </td>
+                  </tr><tr>
+                          <th>100</th><th>104</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>101</th><th>105</th><td class="l"><span>IF(WITH_DD)</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>102</th><th> </th><td class="l"><span>CONFIGURE_FILE(extra/driving_distance/sql/routing_dd.sql ${SQL_INSTALL_PATH}/routing_dd.sql COPYONLY)</span> </td>
+                      </tr><tr>
+                        <th>103</th><th> </th><td class="l"><span>CONFIGURE_FILE(extra/driving_distance/sql/routing_dd_wrappers.sql ${SQL_INSTALL_PATH}/routing_dd_wrappers.sql COPYONLY)</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>106</th><td class="r"><span>&nbsp; macro_optional_find_package(CGAL)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>107</th><td class="r"><span>&nbsp; IF(NOT CGAL_FOUND)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>108</th><td class="r"><span>&nbsp; &nbsp; message(FATAL ERROR " Please check your CGAL installation, or set correct path to CGAL_INCLUDE_DIR and CGAL_LIBRARIES.")</span> </td>
+                      </tr><tr>
+                        <th> </th><th>109</th><td class="r"><span>&nbsp; ENDIF(NOT CGAL_FOUND)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>110</th><td class="r"><span>&nbsp; INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${CGAL_INCLUDE_DIR})</span> </td>
+                      </tr><tr>
+                        <th> </th><th>111</th><td class="r"><span>&nbsp; LINK_LIBRARIES(${CGAL_LIBRARIES})</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>112</th><td class="r"><span>&nbsp; ADD_SUBDIRECTORY(extra/driving_distance)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>104</th><th>113</th><td class="l"><span>ENDIF(WITH_DD)</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>114</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>115</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>116</th><td class="r"><ins></ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>117</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>cmake/FindCGAL.cmake</a>
+        </h2>
+        <pre>=== cmake/FindCGAL.cmake
+==================================================================</pre>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File cmake/FindCGAL.cmake (revision 703)">
+                  </th>
+                  <th title="File cmake/FindCGAL.cmake (local)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>10</th><th>10</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>11</th><th>11</th><td class="l"><span>else(CGAL_INCLUDE_DIR AND CGAL_LIBRARIES)</span> </td>
+                  </tr><tr>
+                          <th>12</th><th>12</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>13</th><th> </th><td class="l"><span>&nbsp;FIND_PATH(CGAL_INCLUDE_DIR <del></del>basic.h</span> </td>
+                      </tr><tr>
+                        <th>14</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; /usr/include<del>/CGAL</del></span> </td>
+                      </tr><tr>
+                        <th>15</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; /usr/local/include<del>/CGAL</del></span> </td>
+                      </tr><tr>
+                        <th>16</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; $ENV{ProgramFiles}/CGAL/*/include<del>/CGAL</del></span> </td>
+                      </tr><tr>
+                        <th>17</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; $ENV{SystemDrive}/CGAL/*/include<del>/CGAL</del></span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>13</th><td class="r"><span>&nbsp;FIND_PATH(CGAL_INCLUDE_DIR <ins>CGAL/</ins>basic.h</span> </td>
+                      </tr><tr>
+                        <th> </th><th>14</th><td class="r"><span>&nbsp; &nbsp; &nbsp; /usr/include<ins></ins></span> </td>
+                      </tr><tr>
+                        <th> </th><th>15</th><td class="r"><span>&nbsp; &nbsp; &nbsp; /usr/local/include<ins></ins></span> </td>
+                      </tr><tr>
+                        <th> </th><th>16</th><td class="r"><span>&nbsp; &nbsp; &nbsp; $ENV{ProgramFiles}/CGAL/*/include<ins></ins></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>17</th><td class="r"><span>&nbsp; &nbsp; &nbsp; $ENV{SystemDrive}/CGAL/*/include<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>18</th><th>18</th><td class="l"><span>&nbsp; &nbsp; &nbsp; )</span> </td>
+                  </tr><tr>
+                          <th>19</th><th>19</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>20</th><th>20</th><td class="l"><span>&nbsp; find_library(CGAL_LIBRARIES NAMES CGAL libCGAL</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L25">…</a></th>
+                  <th><a href="#L25">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>25</th><th>25</th><td class="l"><span>&nbsp; &nbsp; &nbsp;/usr/lib64</span> </td>
+                  </tr><tr>
+                          <th>26</th><th>26</th><td class="l"><span>&nbsp; &nbsp; &nbsp;/usr/local/lib64</span> </td>
+                  </tr><tr>
+                          <th>27</th><th>27</th><td class="l"><span>&nbsp; &nbsp; &nbsp;/usr/lib64/CGAL</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>28</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp;$ENV{ProgramFiles}/CGAL/*/lib<del>/ms</del></span> </td>
+                      </tr><tr>
+                        <th>29</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp;$ENV{SystemDrive}/CGAL/*/lib<del>/ms</del></span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>28</th><td class="r"><span>&nbsp; &nbsp; &nbsp;$ENV{ProgramFiles}/CGAL/*/lib<ins></ins></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>29</th><td class="r"><span>&nbsp; &nbsp; &nbsp;$ENV{SystemDrive}/CGAL/*/lib<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>30</th><th>30</th><td class="l"><span>&nbsp; &nbsp; &nbsp;)</span> </td>
+                  </tr><tr>
+                          <th>31</th><th>31</th><td class="l"><span>&nbsp; &nbsp; &nbsp; </span> </td>
+                  </tr><tr>
+                          <th>32</th><th>32</th><td class="l"><span>&nbsp; if(CGAL_INCLUDE_DIR AND CGAL_LIBRARIES)</span> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>cmake/FindGAUL.cmake</a>
+        </h2>
+        <pre>=== cmake/FindGAUL.cmake
+==================================================================</pre>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File cmake/FindGAUL.cmake (revision 703)">
+                  </th>
+                  <th title="File cmake/FindGAUL.cmake (local)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>5</th><th>5</th><td class="l"><span>#&nbsp; GAUL_FOUND, If false, do not try to use GAUL.</span> </td>
+                  </tr><tr>
+                          <th>6</th><th>6</th><td class="l"><span>#</span> </td>
+                  </tr><tr>
+                          <th>7</th><th>7</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>8</th><th> </th><td class="l"><span>if(GAUL_<del></del>LIBRARIES)</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>8</th><td class="r"><span>if(GAUL_<ins>INCLUDE_DIR AND GAUL_</ins>LIBRARIES)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>9</th><th>9</th><td class="l"><span>&nbsp; &nbsp;set(GAUL_FOUND TRUE)</span> </td>
+                  </tr><tr>
+                          <th>10</th><th>10</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>11</th><th> </th><td class="l"><span>else(GAUL_<del></del>LIBRARIES)</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>11</th><td class="r"><span>else(GAUL_<ins>INCLUDE_DIR AND GAUL_</ins>LIBRARIES)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>12</th><th>12</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>13</th><td class="r"><ins>&nbsp; FIND_PATH(GAUL_INCLUDE_DIR gaul.h</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>14</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; /usr/include</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>15</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; /usr/local/include</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>16</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; $ENV{ProgramFiles}/gaul/*/include</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>17</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; $ENV{SystemDrive}/gaul/*/include</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>18</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; )</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>19</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>13</th><th>20</th><td class="l"><span>&nbsp; find_library(GAUL_LIBRARIES NAMES gaul gaul_util libgaul libgaul_util</span> </td>
+                  </tr><tr>
+                          <th>14</th><th>21</th><td class="l"><span>&nbsp; &nbsp; &nbsp;PATHS</span> </td>
+                  </tr><tr>
+                          <th>15</th><th>22</th><td class="l"><span>&nbsp; &nbsp; &nbsp;/usr/lib</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L18">…</a></th>
+                  <th><a href="#L25">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>18</th><th>25</th><td class="l"><span>&nbsp; &nbsp; &nbsp;/usr/lib64</span> </td>
+                  </tr><tr>
+                          <th>19</th><th>26</th><td class="l"><span>&nbsp; &nbsp; &nbsp;/usr/local/lib64</span> </td>
+                  </tr><tr>
+                          <th>20</th><th>27</th><td class="l"><span>&nbsp; &nbsp; &nbsp;/usr/lib64/gaul</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>21</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp;$ENV{ProgramFiles}/GAUL/*/lib/<del>ms</del></span> </td>
+                      </tr><tr>
+                        <th>22</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp;$ENV{SystemDrive}/GAUL/*/lib/<del>ms</del></span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>28</th><td class="r"><span>&nbsp; &nbsp; &nbsp;$ENV{ProgramFiles}/GAUL/*/lib/<ins></ins></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>29</th><td class="r"><span>&nbsp; &nbsp; &nbsp;$ENV{SystemDrive}/GAUL/*/lib/<ins></ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>23</th><th>30</th><td class="l"><span>&nbsp; &nbsp; &nbsp;)</span> </td>
+                  </tr><tr>
+                          <th>24</th><th>31</th><td class="l"><span>&nbsp; &nbsp; &nbsp; </span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>25</th><th> </th><td class="l"><span>&nbsp; if(GAUL_<del></del>LIBRARIES)</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>32</th><td class="r"><span>&nbsp; if(GAUL_<ins>INCLUDE_DIR AND GAUL_</ins>LIBRARIES)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>26</th><th>33</th><td class="l"><span>&nbsp; &nbsp; set(GAUL_FOUND TRUE)</span> </td>
+                  </tr><tr>
+                          <th>27</th><th>34</th><td class="l"><span>&nbsp; &nbsp; message(STATUS "Found GAUL: ${GAUL_LIBRARIES}")</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>28</th><th> </th><td class="l"><span>&nbsp; else(GAUL_<del></del>LIBRARIES)</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>35</th><td class="r"><span>&nbsp; else(GAUL_<ins>INCLUDE_DIR AND GAUL_</ins>LIBRARIES)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>29</th><th>36</th><td class="l"><span>&nbsp; &nbsp; set(GAUL_FOUND FALSE)</span> </td>
+                  </tr><tr>
+                          <th>30</th><th>37</th><td class="l"><span>&nbsp; &nbsp; message(STATUS "GAUL not found.")</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>31</th><th> </th><td class="l"><span>&nbsp; endif(GAUL_<del></del>LIBRARIES)</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>38</th><td class="r"><span>&nbsp; endif(GAUL_<ins>INCLUDE_DIR AND GAUL_</ins>LIBRARIES)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>32</th><th>39</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>33</th><th> </th><td class="l"><span>&nbsp; mark_as_advanced(GAUL_<del></del>LIBRARIES)</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>40</th><td class="r"><span>&nbsp; mark_as_advanced(GAUL_<ins>INCLUDE_DIR GAUL_</ins>LIBRARIES)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>34</th><th>41</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>35</th><th> </th><td class="l"><span>endif(GAUL_<del></del>LIBRARIES)</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>42</th><td class="r"><span>endif(GAUL_<ins>INCLUDE_DIR AND GAUL_</ins>LIBRARIES)</span> </td>
+                      </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>core/CMakeLists.txt</a>
+        </h2>
+        <pre>=== core/CMakeLists.txt
+==================================================================</pre>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File core/CMakeLists.txt (revision 703)">
+                  </th>
+                  <th title="File core/CMakeLists.txt (local)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="mod">
+                      <tr class="first">
+                        <th>1</th><th> </th><td class="l"><span>SUBDIRS(src)</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>1</th><td class="r"><span>SUBDIRS(src sql)</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>2</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>core/sql/CMakeLists.txt</a>
+        </h2>
+        <pre>=== core/sql/CMakeLists.txt
+==================================================================</pre>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File core/sql/CMakeLists.txt (revision 703)">
+                  </th>
+                  <th title="File core/sql/CMakeLists.txt (local)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>1</th><td class="r"><ins>INSTALL(FILES routing_core.sql DESTINATION ${SQL_INSTALL_PATH} )</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>2</th><td class="r"><ins>INSTALL(FILES routing_core_wrappers.sql DESTINATION ${SQL_INSTALL_PATH} )</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>3</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>core/src/CMakeLists.txt</a>
+        </h2>
+        <pre>=== core/src/CMakeLists.txt
+==================================================================</pre>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File core/src/CMakeLists.txt (revision 703)">
+                  </th>
+                  <th title="File core/src/CMakeLists.txt (local)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>1</th><td class="r"><ins></ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>2</th><td class="r"><ins>SET(LIBRARY_OUTPUT_PATH ../../lib/)</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>1</th><th>3</th><td class="l"><span>ADD_LIBRARY(routing SHARED dijkstra.c astar.c shooting_star.c boost_wrapper.cpp astar_boost_wrapper.cpp shooting_star_boost_wrapper.cpp)</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>4</th><td class="r"><ins>INSTALL(TARGETS routing DESTINATION ${LIBRARY_INSTALL_PATH})</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>2</th><th>5</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>3</th><th>6</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="rem">
+                  <tr class="last first">
+                          <th>4</th><th> </th><td class="l"><del></del> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>extra/driving_distance/CMakeLists.txt</a>
+        </h2>
+        <pre>=== extra/driving_distance/CMakeLists.txt
+==================================================================</pre>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File extra/driving_distance/CMakeLists.txt (revision 703)">
+                  </th>
+                  <th title="File extra/driving_distance/CMakeLists.txt (local)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="mod">
+                      <tr class="first">
+                        <th>1</th><th> </th><td class="l"><span>SUBDIRS(src<del></del>)</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>1</th><td class="r"><span>SUBDIRS(src<ins>&nbsp;sql</ins>)</span> </td>
+                      </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>extra/driving_distance/sql/CMakeLists.txt</a>
+        </h2>
+        <pre>=== extra/driving_distance/sql/CMakeLists.txt
+==================================================================</pre>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File extra/driving_distance/sql/CMakeLists.txt (revision 703)">
+                  </th>
+                  <th title="File extra/driving_distance/sql/CMakeLists.txt (local)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>1</th><td class="r"><ins>INSTALL(FILES routing_dd.sql DESTINATION ${SQL_INSTALL_PATH})</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>2</th><td class="r"><ins>INSTALL(FILES routing_dd_wrappers.sql DESTINATION ${SQL_INSTALL_PATH})</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>3</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>extra/driving_distance/src/CMakeLists.txt</a>
+        </h2>
+        <pre>=== extra/driving_distance/src/CMakeLists.txt
+==================================================================</pre>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File extra/driving_distance/src/CMakeLists.txt (revision 703)">
+                  </th>
+                  <th title="File extra/driving_distance/src/CMakeLists.txt (local)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="mod">
+                      <tr class="first">
+                        <th>1</th><th> </th><td class="l"><span>EXEC_PROGRAM(pg_config</span> </td>
+                      </tr><tr>
+                        <th>2</th><th> </th><td class="l"><span>&nbsp;ARGS --libdir</span> </td>
+                      </tr><tr>
+                        <th>3</th><th> </th><td class="l"><span>&nbsp;OUTPUT_VARIABLE LIB_DIR)</span> </td>
+                      </tr><tr>
+                        <th>4</th><th> </th><td class="l"><span></span> </td>
+                      </tr><tr>
+                        <th>5</th><th> </th><td class="l"><span>IF(LIB_DIR)</span> </td>
+                      </tr><tr>
+                        <th>6</th><th> </th><td class="l"><span>&nbsp; MESSAGE("Output directory for libraries is set to ${LIB_DIR}")</span> </td>
+                      </tr><tr>
+                        <th>7</th><th> </th><td class="l"><span>ELSE(LIB_DIR)</span> </td>
+                      </tr><tr>
+                        <th>8</th><th> </th><td class="l"><span>&nbsp; SET(LIB_DIR ${PGROUTING_BINARY_DIR}/lib)</span> </td>
+                      </tr><tr>
+                        <th>9</th><th> </th><td class="l"><span>&nbsp; MESSAGE("pg_config not found, output directory for libraries is set to ${PGROUTING_BINARY_DIR}/lib")</span> </td>
+                      </tr><tr>
+                        <th>10</th><th> </th><td class="l"><span>ENDIF(LIB_DIR)</span> </td>
+                      </tr><tr>
+                        <th>11</th><th> </th><td class="l"><span></span> </td>
+                      </tr><tr>
+                        <th>12</th><th> </th><td class="l"><span>IF(UNIX)</span> </td>
+                      </tr><tr>
+                        <th>13</th><th> </th><td class="l"><span>&nbsp; SET(LIBRARY_OUTPUT_PATH ${LIB_DIR})</span> </td>
+                      </tr><tr>
+                        <th>14</th><th> </th><td class="l"><span>&nbsp; SET(SQL_INSTALL_PATH /usr/share/postlbs)</span> </td>
+                      </tr><tr>
+                        <th>15</th><th> </th><td class="l"><span>ELSE(UNIX)</span> </td>
+                      </tr><tr>
+                        <th>16</th><th> </th><td class="l"><span>&nbsp; SET(LIBRARY_OUTPUT_PATH ${PGROUTING_BINARY_DIR}/lib)</span> </td>
+                      </tr><tr>
+                        <th>17</th><th> </th><td class="l"><span>&nbsp; SET(SQL_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)</span> </td>
+                      </tr><tr>
+                        <th>18</th><th> </th><td class="l"><span>ENDIF(UNIX)</span> </td>
+                      </tr><tr>
+                        <th>19</th><th> </th><td class="l"><span></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>1</th><td class="r"><span>SET(LIBRARY_OUTPUT_PATH ../../../lib/)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>20</th><th>2</th><td class="l"><span>ADD_LIBRARY(routing_dd SHARED alpha.c alpha_drivedist.cpp alpha.h boost_drivedist.cpp drivedist.c drivedist.h)</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>3</th><td class="r"><ins>INSTALL(TARGETS routing_dd DESTINATION ${LIBRARY_INSTALL_PATH})</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>21</th><th>4</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>22</th><th>5</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="rem">
+                  <tr class="first">
+                          <th>23</th><th> </th><td class="l"><del></del> </td>
+                  </tr><tr class="last">
+                          <th>24</th><th> </th><td class="l"><del></del> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>extra/tsp/CMakeLists.txt</a>
+        </h2>
+        <pre>=== extra/tsp/CMakeLists.txt
+==================================================================</pre>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File extra/tsp/CMakeLists.txt (revision 703)">
+                  </th>
+                  <th title="File extra/tsp/CMakeLists.txt (local)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="mod">
+                      <tr class="first">
+                        <th>1</th><th> </th><td class="l"><span>SUBDIRS(src<del></del>)</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>1</th><td class="r"><span>SUBDIRS(src<ins>&nbsp;sql</ins>)</span> </td>
+                      </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>extra/tsp/sql/CMakeLists.txt</a>
+        </h2>
+        <pre>=== extra/tsp/sql/CMakeLists.txt
+==================================================================</pre>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File extra/tsp/sql/CMakeLists.txt (revision 703)">
+                  </th>
+                  <th title="File extra/tsp/sql/CMakeLists.txt (local)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>1</th><td class="r"><ins>INSTALL(FILES routing_tsp.sql DESTINATION ${SQL_INSTALL_PATH})</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>2</th><td class="r"><ins>INSTALL(FILES routing_tsp_wrappers.sql DESTINATION ${SQL_INSTALL_PATH})</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>3</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>extra/tsp/src/CMakeLists.txt</a>
+        </h2>
+        <pre>=== extra/tsp/src/CMakeLists.txt
+==================================================================</pre>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File extra/tsp/src/CMakeLists.txt (revision 703)">
+                  </th>
+                  <th title="File extra/tsp/src/CMakeLists.txt (local)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="mod">
+                      <tr class="first">
+                        <th>1</th><th> </th><td class="l"><span>EXEC_PROGRAM(pg_config</span> </td>
+                      </tr><tr>
+                        <th>2</th><th> </th><td class="l"><span>&nbsp;ARGS --libdir</span> </td>
+                      </tr><tr>
+                        <th>3</th><th> </th><td class="l"><span>&nbsp;OUTPUT_VARIABLE LIB_DIR)</span> </td>
+                      </tr><tr>
+                        <th>4</th><th> </th><td class="l"><span></span> </td>
+                      </tr><tr>
+                        <th>5</th><th> </th><td class="l"><span>IF(LIB_DIR)</span> </td>
+                      </tr><tr>
+                        <th>6</th><th> </th><td class="l"><span>&nbsp; MESSAGE("Output directory for libraries is set to ${LIB_DIR}")</span> </td>
+                      </tr><tr>
+                        <th>7</th><th> </th><td class="l"><span>ELSE(LIB_DIR)</span> </td>
+                      </tr><tr>
+                        <th>8</th><th> </th><td class="l"><span>&nbsp; SET(LIB_DIR ${PGROUTING_BINARY_DIR}/lib)</span> </td>
+                      </tr><tr>
+                        <th>9</th><th> </th><td class="l"><span>&nbsp; MESSAGE("pg_config not found, output directory for libraries is set to ${PGROUTING_BINARY_DIR}/lib")</span> </td>
+                      </tr><tr>
+                        <th>10</th><th> </th><td class="l"><span>ENDIF(LIB_DIR)</span> </td>
+                      </tr><tr>
+                        <th>11</th><th> </th><td class="l"><span></span> </td>
+                      </tr><tr>
+                        <th>12</th><th> </th><td class="l"><span>IF(UNIX)</span> </td>
+                      </tr><tr>
+                        <th>13</th><th> </th><td class="l"><span>&nbsp; SET(LIBRARY_OUTPUT_PATH ${LIB_DIR})</span> </td>
+                      </tr><tr>
+                        <th>14</th><th> </th><td class="l"><span>&nbsp; SET(SQL_INSTALL_PATH /usr/share/postlbs)</span> </td>
+                      </tr><tr>
+                        <th>15</th><th> </th><td class="l"><span>ELSE(UNIX)</span> </td>
+                      </tr><tr>
+                        <th>16</th><th> </th><td class="l"><span>&nbsp; SET(LIBRARY_OUTPUT_PATH ${PGROUTING_BINARY_DIR}/lib)</span> </td>
+                      </tr><tr>
+                        <th>17</th><th> </th><td class="l"><span>&nbsp; SET(SQL_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)</span> </td>
+                      </tr><tr>
+                        <th>18</th><th> </th><td class="l"><span>ENDIF(UNIX)</span> </td>
+                      </tr><tr>
+                        <th>19</th><th> </th><td class="l"><span></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>1</th><td class="r"><span>SET(LIBRARY_OUTPUT_PATH ../../../lib/)</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>20</th><th>2</th><td class="l"><span>ADD_LIBRARY(routing_tsp SHARED tsp.c tsp.h tsp_solver.cpp)</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>3</th><td class="r"><ins>INSTALL(TARGETS routing_tsp DESTINATION ${LIBRARY_INSTALL_PATH})</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>4</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+  </ul>
+</div>
+        </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="../../../raw-attachment/ticket/92/cmake.diff">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("cmake.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/92/cmake.diff by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

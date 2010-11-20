@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/276 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/15.html" title="others">others</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>others (#15) - heuristic function i A* and Shooting Star (#276) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              heuristic function i A* and Shooting Star
+            </div>
+            <div class="body">
+              <p>
+Hi!
+</p>
+<p>
+Does anyone know, what <strong>heuristic function</strong> is used in A* and Shooting Star algorithm in pgRouting. I was trying to find it on the Internet, but I could not find any information. I know that the cost is:
+</p>
+<pre class="wiki">cost(s,e)= g(start, v) + h(v, end)
+</pre><p>
+but I do not know what is <i>h</i> function. I find some information that it may be a distance on straight line, form one vertex to another. But then it may use different approaches to identify distance:
+</p>
+<pre class="wiki">- Euclidean distance &gt; Sqrt(Dx²+Dy²+Dz²) ;
+- Manhattan distance &gt; |Dx|+|Dy|+|Dz| ;
+- Maximum distance &gt; Max(|Dx|, |Dy|, |Dz|).
+</pre><p>
+I found this in <a class="ext-link" href="http://matthewpulis.info/thesis.pdf"><span class="icon"> </span>http://matthewpulis.info/thesis.pdf</a>
+</p>
+<p>
+<strong>Can anyone please help me ?</strong>
+</p>
+<p>
+P.S. Sorry for my poor English :)
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            06/18/09 07:22:38 (17 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/276?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/276?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message973"></a>
+        <div class="id">
+          Message #973
+        </div>
+        <div class="body">
+            <p>
+Paul,
+</p>
+<p>
+Basically you're right. A* and Shooting* are "goal-oriented" ... not sure this is the correct term, maybe Anton will correct me.  <br />
+This means that when the algorithm needs to choose the next point, it not only takes into account the cost to get there but also the distance of the possible next points to visit to the end point. <br />
+So it might prefer a point closer to the final point even if the cost to get there is higher.
+</p>
+<p>
+The second cost (h), that takes into account the distance to the end point, is the heuristic component. There are different ways you can get that distance as you already wrote. You can change this and compile pgRouting again. You can also define how "strong" this heuristic component should be.
+</p>
+<p>
+PS: Because the performance improvement of the heuristic algorithms is quite low anyway, I'm not sure you can really see a difference in how you calculate your distance.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            06/18/09 09:21:29 (17 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message974"></a>
+        <div class="id">
+          Message #974
+        </div>
+        <div class="body">
+            <p>
+Hi!
+</p>
+<p>
+Thanks a lot for your reply, but I actually didn't get any answer :) I am not the developer, I am just a user, and I would like to know what heuristic is used in A* and Shooting Star. I used it in my application, and I am writing a master thesis about it. So I am guessing it is distance from the current point to the last point, on straight lint... right ?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            06/19/09 00:10:15 (17 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message975"></a>
+        <div class="id">
+          Message #975
+        </div>
+        <div class="body">
+            <p>
+Hi Pail,
+</p>
+<p>
+In A* we are using something similar to Manhattan function (|Dx|+|Dy|)/2
+<a href="../../browser/trunk/core/src/astar_boost_wrapper.html#L75">http://pgrouting.postlbs.org/browser/trunk/core/src/astar_boost_wrapper.cpp#L75</a>
+</p>
+<p>
+There you'll see other attempts commented out.
+</p>
+<p>
+We tried different heuristic function and for some reason (I don't remember now) decided that for a common road network this function is OK. Probably, it was historical reason.
+</p>
+<p>
+In Shooting* we are using Euclidian distance.
+<a href="../../browser/trunk/core/src/shooting_star_boost_wrapper.html#L100">http://pgrouting.postlbs.org/browser/trunk/core/src/shooting_star_boost_wrapper.cpp#L100</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            06/19/09 09:07:15 (17 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/276?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/276?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

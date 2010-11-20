@@ -1,0 +1,895 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/127 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:01:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #127 (Add functions to database fails when compiled with DD support)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="196.html" title="Ticket #196" />
+        <link rel="last" href="109.html" title="Ticket #109" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/127?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/127?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/127?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="up" href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1" />
+        <link rel="next" href="143.html" title="Ticket #143" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="138.html" title="Ticket #138" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="196.html" title="Ticket #196">Previous Ticket</a></span></li><li><a href="http://pgrouting.postlbs.org/report/9?USER=anonymous&amp;page=1">Back to Query</a></li><li class="last"><span><a class="next" href="143.html" title="Ticket #143">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #127
+          <span class="status">(closed bug report: fixed)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-09-01T10%3A16%3A37%2B0900&amp;precision=second" title="2008-09-01T10:16:37+0900 in Timeline">2 years</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-11-13T20%3A14%3A47%2B0900&amp;precision=second" title="2010-11-13T20:14:47+0900 in Timeline">7 days</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">Add functions to database fails when compiled with DD support</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">daniel</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">anton
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      critical
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="milestone" href="../milestone/Version%201.html">Version 1.1</a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      pgRouting package
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      trunk
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+Add functions to database fails when compiled with DD support.
+</p>
+<pre class="wiki">daniel@bougainvilla:~$ psql -U postgres -f /usr/share/postlbs/routing_core.sql routing2
+CREATE TYPE
+CREATE TYPE
+psql:/usr/share/postlbs/routing_core.sql:32: FEHLER:  konnte Bibliothek »/usr/lib/postgresql/8.3/lib/librouting.so« nicht laden: libgaul.so.0: cannot open shared object file: No such file or directory
+psql:/usr/share/postlbs/routing_core.sql:43: FEHLER:  konnte Bibliothek »/usr/lib/postgresql/8.3/lib/librouting.so« nicht laden: libgaul.so.0: cannot open shared object file: No such file or directory
+psql:/usr/share/postlbs/routing_core.sql:53: FEHLER:  konnte Bibliothek »/usr/lib/postgresql/8.3/lib/librouting.so« nicht laden: libgaul.so.0: cannot open shared object file: No such file or directory
+CREATE FUNCTION
+</pre>
+              </div>
+            </div>
+        </div>
+          <h2>Attachments</h2>
+          <div id="attachments">
+            <dl class="attachments">
+                <dt>
+      <a href="../attachment/ticket/127/CMakeLists.html" title="View attachment">CMakeLists.txt</a>
+      <a href="../raw-attachment/ticket/127/CMakeLists.txt" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="4033 bytes">3.9 KB</span>) - added by <em>anton</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-09-01T10%3A25%3A47%2B0900&amp;precision=second" title="2008-09-01T10:25:47+0900 in Timeline">2 years</a> ago.
+    </dt>
+            </dl>
+          </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  <span class="threading">
+                      follow-ups:
+      <a href="#comment:5"><small>↓ 5</small></a>
+      <a href="#comment:6"><small>↓ 6</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-09-01T10%3A18%3A14%2B0900&amp;precision=second" title="2008-09-01T10:18:14+0900 in Timeline">2 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>new</em> to <em>assigned</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Can you please try this CMakeList.txt?
+</p>
+<p>
+CMAKE_MINIMUM_REQUIRED(VERSION 2.3)
+PROJECT(PGROUTING)
+</p>
+<p>
+#-----------------------------------------------------------------------------
+# PGROUTING version number.
+SET(PGROUTING_VERSION_MAJOR "1")
+SET(PGROUTING_VERSION_MINOR "0")
+SET(PGROUTING_VERSION_PATCH "1")
+</p>
+<p>
+SET(PGROUTING_VERSION_STRING "${PGROUTING_VERSION_MAJOR}.${PGROUTING_VERSION_MINOR}.${PGROUTING_VERSION_PATCH}")
+</p>
+<p>
+add_subdirectory(cmake)
+SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+</p>
+<p>
+include (<a class="missing wiki">MacroLibrary?</a>)
+</p>
+<p>
+macro_optional_find_package(PostgreSQL)
+IF(NOT POSTGRESQL_FOUND)
+</p>
+<blockquote>
+<p>
+MESSAGE(FATAL ERROR " Please check your Boost installation.") 
+</p>
+</blockquote>
+<p>
+ENDIF(NOT POSTGRESQL_FOUND)
+</p>
+<p>
+FIND_PACKAGE(Boost)
+IF(Boost_INCLUDE_DIRS)
+</p>
+<blockquote>
+<p>
+MESSAGE("Boost headers were found here: ${Boost_INCLUDE_DIR}")
+</p>
+</blockquote>
+<p>
+ELSE(Boost_INCLUDE_DIRS)
+</p>
+<blockquote>
+<p>
+MESSAGE(FATAL ERROR " Please check your Boost installation ") 
+</p>
+</blockquote>
+<p>
+ENDIF(Boost_INCLUDE_DIRS)
+</p>
+<p>
+EXEC_PROGRAM(pg_config
+</p>
+<blockquote>
+<p>
+ARGS --pkglibdir
+OUTPUT_VARIABLE LIB_DIR)
+</p>
+</blockquote>
+<p>
+IF(LIB_DIR)
+</p>
+<blockquote>
+<p>
+MESSAGE("Output directory for libraries is set to ${LIB_DIR}")
+</p>
+</blockquote>
+<p>
+ELSE(LIB_DIR)
+</p>
+<blockquote>
+<p>
+SET(LIB_DIR ${PGROUTING_BINARY_DIR}/lib)
+MESSAGE("pg_config not found, output directory for libraries is set to ${PGROUTING_BINARY_DIR}/lib")
+</p>
+</blockquote>
+<p>
+ENDIF(LIB_DIR)
+</p>
+<p>
+if(PGROUTING_CORE_INCLUDE_DIR)
+</p>
+<blockquote>
+<p>
+set(PGROUTING_CORE_FOUND TRUE)
+</p>
+</blockquote>
+<p>
+else(PGROUTING_CORE_INCLUDE_DIR)
+</p>
+<blockquote>
+<p>
+FIND_PATH(PGROUTING_CORE_INCLUDE_DIR dijkstra.h
+</p>
+<blockquote>
+<p>
+PATHS
+${CMAKE_CURRENT_SOURCE_DIR}/core/src
+)
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+if(PGROUTING_CORE_INCLUDE_DIR)
+</p>
+<blockquote>
+<p>
+set(PGROUTING_CORE_FOUND TRUE)
+message(STATUS "Found PGROUTING_CORE core: ${PGROUTING_CORE_INCLUDE_DIR}")
+INCLUDE_DIRECTORIES(${PGROUTING_CORE_INCLUDE_DIR})
+</p>
+</blockquote>
+<p>
+else(PGROUTING_CORE_INCLUDE_DIR)
+</p>
+<blockquote>
+<p>
+set(PGROUTING_CORE_FOUND FALSE)
+message(STATUS "PGROUTING_CORE core not found.")
+</p>
+</blockquote>
+<p>
+endif(PGROUTING_CORE_INCLUDE_DIR)
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+mark_as_advanced(PGROUTING_CORE_INCLUDE_DIR)
+</p>
+</blockquote>
+</blockquote>
+<p>
+endif(PGROUTING_CORE_INCLUDE_DIR)
+</p>
+<p>
+OPTION(WITH_TSP "Build TSP library" OFF)
+OPTION(WITH_DD "Build Driving distance library" OFF)
+</p>
+<p>
+IF(UNIX)
+</p>
+<blockquote>
+<p>
+SET(LIBRARY_INSTALL_PATH ${LIB_DIR})
+SET(SQL_INSTALL_PATH /usr/share/postlbs)
+MESSAGE("Installation directory for libraries is set to ${LIBRARY_INSTALL_PATH} and for SQL files is set to ${SQL_INSTALL_PATH}")
+</p>
+</blockquote>
+<p>
+ELSE(UNIX)
+</p>
+<blockquote>
+<p>
+SET(LIBRARY_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)
+SET(SQL_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)
+</p>
+</blockquote>
+<p>
+ENDIF(UNIX)
+</p>
+<p>
+SET(PGROUTING_INCLUDE_DIRECTORIES ${PGROUTING_SOURCE_DIR}/core ${PGROUTING_SOURCE_DIR}/core/src
+)
+</p>
+<p>
+INCLUDE_DIRECTORIES(. ${PGROUTING_INCLUDE_DIRECTORIES} ${POSTGRESQL_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
+IF(WIN32)
+</p>
+<blockquote>
+<p>
+INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${POSTGRESQL_INCLUDE_DIR}/port/win32)
+</p>
+</blockquote>
+<p>
+ENDIF(WIN32)
+</p>
+<p>
+# we need link libpostgres.a on win32 env
+IF(WIN32)
+</p>
+<blockquote>
+<p>
+LINK_DIRECTORIES(${LIB_DIR})
+LINK_LIBRARIES(postgres)
+</p>
+</blockquote>
+<p>
+ENDIF(WIN32)
+</p>
+<p>
+SET(CMAKE_C_FLAGS "-O2 -g")
+SET(CMAKE_CXX_FLAGS "-O2 -g")
+</p>
+<p>
+# Recurse into the subdirectories.  This does not actually
+# cause another cmake executable to run.  The same process will walk through
+# the project's entire directory structure.
+SUBDIRS(core)
+</p>
+<p>
+IF(WITH_TSP)
+</p>
+<blockquote>
+<p>
+SET(TSP_INCLUDE_DIRECTORIES ${PGROUTING_SOURCE_DIR}/extra/tsp ${PGROUTING_SOURCE_DIR}/extra/tsp/src
+macro_optional_find_package(GAUL)
+IF(NOT GAUL_FOUND)
+</p>
+<blockquote>
+<p>
+message(FATAL ERROR " Please check your gaul installation, or set correct path to GAUL_INCLUDE_DIR and GAUL_LIBRARIES.")
+</p>
+</blockquote>
+<p>
+ENDIF(NOT GAUL_FOUND)
+INCLUDE_DIRECTORIES(${TSP_INCLUDE_DIRECTORIES} ${INCLUDE_DIRECTORIES} ${GAUL_INCLUDE_DIR})
+LINK_LIBRARIES(${GAUL_LIBRARIES} ${GAUL_UTIL_LIBRARIES})
+ADD_SUBDIRECTORY(extra/tsp)
+</p>
+</blockquote>
+<p>
+ENDIF(WITH_TSP)
+</p>
+<p>
+IF(WITH_DD)
+</p>
+<blockquote>
+<p>
+SET(DD_INCLUDE_DIRECTORIES ${PGROUTING_SOURCE_DIR}/extra/driving_distance ${PGROUTING_SOURCE_DIR}/extra/driving_distance/src
+macro_optional_find_package(CGAL)
+IF(NOT CGAL_FOUND)
+</p>
+<blockquote>
+<p>
+message(FATAL ERROR " Please check your CGAL installation, or set correct path to CGAL_INCLUDE_DIR and CGAL_LIBRARIES.")
+</p>
+</blockquote>
+<p>
+ENDIF(NOT CGAL_FOUND)
+INCLUDE_DIRECTORIES(${DD_INCLUDE_DIRECTORIES} ${INCLUDE_DIRECTORIES} ${CGAL_INCLUDE_DIR})
+LINK_LIBRARIES(${CGAL_LIBRARIES})
+ADD_SUBDIRECTORY(extra/driving_distance)
+</p>
+</blockquote>
+<p>
+ENDIF(WITH_DD)
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-09-01T10%3A25%3A47%2B0900&amp;precision=second" title="2008-09-01T10:25:47+0900 in Timeline">2 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/127/CMakeLists.html"><em>CMakeLists.txt</em></a>
+              <a href="../raw-attachment/ticket/127/CMakeLists.txt" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-09-01T11%3A43%3A00%2B0900&amp;precision=second" title="2008-09-01T11:43:00+0900 in Timeline">2 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>status</strong>
+              changed from <em>assigned</em> to <em>closed</em>
+        </li><li>
+          <strong>resolution</strong>
+              set to <em>fixed</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+Fixed with <a class="changeset" href="../changeset/203.html" title="cmake files fixed">[203]</a>
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-12-17T03%3A37%3A42%2B0900&amp;precision=second" title="2008-12-17T03:37:42+0900 in Timeline">2 years</a> ago by sunrise
+                </h3>
+      <div class="comment searchable">
+        This works ok for me.. but It probably needs feedback. <a href="http://www.sneakerright.com/"><font color="#000000">postlbs Air Jordan</font></a>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-01-27T00%3A55%3A48%2B0900&amp;precision=second" title="2010-01-27T00:55:48+0900 in Timeline">10 months</a> ago by diatman
+                </h3>
+      <div class="comment searchable">
+        <p>
+<a class="ext-link" href="http://www.diatfatburner.com/meridia/"><span class="icon"> </span>Meridia</a>
+<a class="ext-link" href="http://www.diatfatburner.com/l-carnitin/"><span class="icon"> </span>l carnitin</a>
+<a class="ext-link" href="http://www.diatfatburner.com/fatburner-pillen/"><span class="icon"> </span>fatburner</a>
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:5">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:1"><small>↑ 1</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-04-23T04%3A32%3A00%2B0900&amp;precision=second" title="2010-04-23T04:32:00+0900 in Timeline">7 months</a> ago by mike3050
+                </h3>
+      <div class="comment searchable">
+        <p>
+Replying to <a href="127.html#comment:1" title="Comment 1 for Ticket #127">anton</a>:
+</p>
+<blockquote class="citation">
+<p>
+ Can you please try this CMakeList.txt?
+ 
+ CMAKE_MINIMUM_REQUIRED(VERSION 2.3)
+ PROJECT(PGROUTING)
+ 
+ #-----------------------------------------------------------------------------
+ # PGROUTING version number.
+ SET(PGROUTING_VERSION_MAJOR "1")
+ SET(PGROUTING_VERSION_MINOR "0")
+ SET(PGROUTING_VERSION_PATCH "1")
+ 
+ SET(PGROUTING_VERSION_STRING "${PGROUTING_VERSION_MAJOR}.${PGROUTING_VERSION_MINOR}.${PGROUTING_VERSION_PATCH}")
+ 
+ add_subdirectory(cmake)
+ SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+ 
+ include (<a class="missing wiki">MacroLibrary?</a>)
+ 
+ macro_optional_find_package(PostgreSQL)
+ IF(NOT POSTGRESQL_FOUND)
+   MESSAGE(FATAL ERROR " Please check your Boost <a class="ext-link" href="http://cheapautoinsurancequotes.biz/"><span class="icon"> </span>cheap auto insurance quotes</a> installation.") 
+ ENDIF(NOT POSTGRESQL_FOUND)
+ 
+ FIND_PACKAGE(Boost)
+ IF(Boost_INCLUDE_DIRS)
+   MESSAGE("Boost headers were found here: ${Boost_INCLUDE_DIR}")
+ ELSE(Boost_INCLUDE_DIRS)
+   MESSAGE(FATAL ERROR " Please check your Boost installation ") 
+ ENDIF(Boost_INCLUDE_DIRS)
+ 
+ EXEC_PROGRAM(pg_config
+  ARGS --pkglibdir
+  OUTPUT_VARIABLE LIB_DIR)
+ 
+ IF(LIB_DIR)
+   MESSAGE("Output directory for libraries is set to ${LIB_DIR}")
+ ELSE(LIB_DIR)
+   SET(LIB_DIR ${PGROUTING_BINARY_DIR}/lib)
+   MESSAGE("pg_config not found, output directory for libraries is set to ${PGROUTING_BINARY_DIR}/lib")
+ ENDIF(LIB_DIR)
+ 
+ if(PGROUTING_CORE_INCLUDE_DIR)
+    set(PGROUTING_CORE_FOUND TRUE)
+ 
+ else(PGROUTING_CORE_INCLUDE_DIR)
+  FIND_PATH(PGROUTING_CORE_INCLUDE_DIR dijkstra.h
+       PATHS
+       ${CMAKE_CURRENT_SOURCE_DIR}/core/src
+       )
+ 
+   if(PGROUTING_CORE_INCLUDE_DIR)
+     set(PGROUTING_CORE_FOUND TRUE)
+     message(STATUS "Found PGROUTING_CORE core: ${PGROUTING_CORE_INCLUDE_DIR}")
+     INCLUDE_DIRECTORIES(${PGROUTING_CORE_INCLUDE_DIR})
+   else(PGROUTING_CORE_INCLUDE_DIR)
+     set(PGROUTING_CORE_FOUND FALSE)
+     message(STATUS "PGROUTING_CORE core not found.")
+   endif(PGROUTING_CORE_INCLUDE_DIR)
+ 
+   mark_as_advanced(PGROUTING_CORE_INCLUDE_DIR)
+ 
+ endif(PGROUTING_CORE_INCLUDE_DIR)
+ 
+ OPTION(WITH_TSP "Build TSP library" OFF)
+ OPTION(WITH_DD "Build Driving distance library" OFF)
+ 
+ IF(UNIX)
+   SET(LIBRARY_INSTALL_PATH ${LIB_DIR})
+   SET(SQL_INSTALL_PATH /usr/share/postlbs)
+   MESSAGE("Installation directory for libraries is set to ${LIBRARY_INSTALL_PATH} and for SQL files is set to ${SQL_INSTALL_PATH}")
+ ELSE(UNIX)
+   SET(LIBRARY_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)
+   SET(SQL_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)
+ ENDIF(UNIX)
+ 
+ SET(PGROUTING_INCLUDE_DIRECTORIES ${PGROUTING_SOURCE_DIR}/core ${PGROUTING_SOURCE_DIR}/core/src
+ )
+ 
+ INCLUDE_DIRECTORIES(. ${PGROUTING_INCLUDE_DIRECTORIES} ${POSTGRESQL_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
+ IF(WIN32)
+   INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${POSTGRESQL_INCLUDE_DIR}/port/win32)
+ ENDIF(WIN32)
+ 
+ # we need link libpostgres.a on win32 env
+ IF(WIN32)
+   LINK_DIRECTORIES(${LIB_DIR})
+   LINK_LIBRARIES(postgres)
+ ENDIF(WIN32)
+ 
+ SET(CMAKE_C_FLAGS "-O2 -g")
+ SET(CMAKE_CXX_FLAGS "-O2 -g")
+ 
+ # Recurse into the subdirectories.  This does not actually
+ # cause another cmake executable to run.  The same process will walk through
+ # the project's entire directory structure.
+ SUBDIRS(core)
+ 
+ IF(WITH_TSP)
+   SET(TSP_INCLUDE_DIRECTORIES ${PGROUTING_SOURCE_DIR}/extra/tsp ${PGROUTING_SOURCE_DIR}/extra/tsp/src
+   macro_optional_find_package(GAUL)
+   IF(NOT GAUL_FOUND)
+     message(FATAL ERROR " Please check your gaul installation, or set correct path to GAUL_INCLUDE_DIR and GAUL_LIBRARIES.")
+   ENDIF(NOT GAUL_FOUND)
+   INCLUDE_DIRECTORIES(${TSP_INCLUDE_DIRECTORIES} ${INCLUDE_DIRECTORIES} ${GAUL_INCLUDE_DIR})
+   LINK_LIBRARIES(${GAUL_LIBRARIES} ${GAUL_UTIL_LIBRARIES})
+   ADD_SUBDIRECTORY(extra/tsp)
+ ENDIF(WITH_TSP)
+ 
+ IF(WITH_DD)
+   SET(DD_INCLUDE_DIRECTORIES ${PGROUTING_SOURCE_DIR}/extra/driving_distance ${PGROUTING_SOURCE_DIR}/extra/driving_distance/src
+   macro_optional_find_package(CGAL)
+   IF(NOT CGAL_FOUND)
+     message(FATAL ERROR " Please check your CGAL installation, or set correct path to CGAL_INCLUDE_DIR and CGAL_LIBRARIES.")
+   ENDIF(NOT CGAL_FOUND)
+   INCLUDE_DIRECTORIES(${DD_INCLUDE_DIRECTORIES} ${INCLUDE_DIRECTORIES} ${CGAL_INCLUDE_DIR})
+   LINK_LIBRARIES(${CGAL_LIBRARIES})
+   ADD_SUBDIRECTORY(extra/driving_distance)
+ ENDIF(WITH_DD)
+</p>
+</blockquote>
+<p>
+That's really helped me.Thanks
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:6">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:1"><small>↑ 1</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-09-30T07%3A40%3A09%2B0900&amp;precision=second" title="2010-09-30T07:40:09+0900 in Timeline">7 weeks</a> ago by mike3050
+                </h3>
+      <div class="comment searchable">
+        <p>
+Replying to <a href="127.html#comment:1" title="Comment 1 for Ticket #127">anton</a>:
+</p>
+<blockquote class="citation">
+<p>
+ Can you please try this CMakeList.txt?
+ 
+ CMAKE_MINIMUM_REQUIRED(VERSION 2.3)
+ PROJECT(PGROUTING)
+ 
+ #-----------------------------------------------------------------------------
+ # PGROUTING version number.
+ SET(PGROUTING_VERSION_MAJOR "1")
+ SET(PGROUTING_VERSION_MINOR "0")
+ SET(PGROUTING_VERSION_PATCH "1")
+ 
+ SET(PGROUTING_VERSION_STRING "${PGROUTING_VERSION_MAJOR}.${PGROUTING_VERSION_MINOR}.${PGROUTING_VERSION_PATCH}")
+ 
+ add_subdirectory(cmake)
+ SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+ 
+ include (<a class="missing wiki">MacroLibrary?</a>)
+ 
+ macro_optional_find_package(PostgreSQL)
+ IF(NOT POSTGRESQL_FOUND)
+   MESSAGE(FATAL ERROR " Please check your Boost installation.") 
+ ENDIF(NOT POSTGRESQL_FOUND)
+ 
+ FIND_PACKAGE(Boost)
+ IF(Boost_INCLUDE_DIRS)
+   MESSAGE("Boost headers were found here: ${Boost_INCLUDE_DIR}")
+ ELSE(Boost_INCLUDE_DIRS)
+   MESSAGE(FATAL ERROR " Please check your Boost installation ") 
+ ENDIF(Boost_INCLUDE_DIRS)
+ 
+ EXEC_PROGRAM(pg_config
+  ARGS --pkglibdir
+  OUTPUT_VARIABLE LIB_DIR)
+ 
+ IF(LIB_DIR)
+   MESSAGE("Output directory for libraries is set to ${LIB_DIR}")
+ ELSE(LIB_DIR)
+   SET(LIB_DIR ${PGROUTING_BINARY_DIR}/lib)
+   MESSAGE("pg_config not found, output directory for libraries is set to ${PGROUTING_BINARY_DIR}/lib")
+ ENDIF(LIB_DIR)
+ 
+ if(PGROUTING_CORE_INCLUDE_DIR)
+    set(PGROUTING_CORE_FOUND TRUE)
+ 
+ else(PGROUTING_CORE_INCLUDE_DIR)
+  FIND_PATH(PGROUTING_CORE_INCLUDE_DIR dijkstra.h
+       PATHS
+       ${CMAKE_CURRENT_SOURCE_DIR}/core/src
+       )
+ 
+   if(PGROUTING_CORE_INCLUDE_DIR)
+     set(PGROUTING_CORE_FOUND TRUE)
+     message(STATUS "Found PGROUTING_CORE core: ${PGROUTING_CORE_INCLUDE_DIR}")
+     INCLUDE_DIRECTORIES(${PGROUTING_CORE_INCLUDE_DIR})
+   else(PGROUTING_CORE_INCLUDE_DIR)
+     set(PGROUTING_CORE_FOUND FALSE)
+     message(STATUS "PGROUTING_CORE core not found.")
+   endif(PGROUTING_CORE_INCLUDE_DIR)
+ 
+   mark_as_advanced(PGROUTING_CORE_INCLUDE_DIR)
+ 
+ endif(PGROUTING_CORE_INCLUDE_DIR)
+ 
+ OPTION(WITH_TSP "Build TSP library" OFF)
+ OPTION(WITH_DD "Build Driving distance library" OFF)
+ 
+ IF(UNIX)
+   SET(LIBRARY_INSTALL_PATH ${LIB_DIR})
+   SET(SQL_INSTALL_PATH /usr/share/postlbs)
+   MESSAGE("Installation directory for libraries is set to ${LIBRARY_INSTALL_PATH} and for SQL files is set to ${SQL_INSTALL_PATH}")
+ ELSE(UNIX)
+   SET(LIBRARY_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)
+   SET(SQL_INSTALL_PATH ${PGROUTING_BINARY_DIR}/lib)
+ ENDIF(UNIX)
+ 
+ SET(PGROUTING_INCLUDE_DIRECTORIES ${PGROUTING_SOURCE_DIR}/core ${PGROUTING_SOURCE_DIR}/core/src
+ )
+ 
+ INCLUDE_DIRECTORIES(. ${PGROUTING_INCLUDE_DIRECTORIES} ${POSTGRESQL_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
+ IF(WIN32)
+   INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${POSTGRESQL_INCLUDE_DIR}/port/win32)
+ ENDIF(WIN32)
+ 
+ # we need link libpostgres.a on <a class="ext-link" href="http://hfiainsurance.com/"><span class="icon"> </span>auto insurance quotes</a> win32 env
+ IF(WIN32)
+   LINK_DIRECTORIES(${LIB_DIR})
+   LINK_LIBRARIES(postgres)
+ ENDIF(WIN32)
+ 
+ SET(CMAKE_C_FLAGS "-O2 -g")
+ SET(CMAKE_CXX_FLAGS "-O2 -g")
+ 
+ # Recurse into the subdirectories.  This does not actually
+ # cause another cmake executable to run.  The same process will walk through
+ # the project's entire directory structure.
+ SUBDIRS(core)
+ 
+ IF(WITH_TSP)
+   SET(TSP_INCLUDE_DIRECTORIES ${PGROUTING_SOURCE_DIR}/extra/tsp ${PGROUTING_SOURCE_DIR}/extra/tsp/src
+   macro_optional_find_package(GAUL)
+   IF(NOT GAUL_FOUND)
+     message(FATAL ERROR " Please check your gaul installation, or set correct path to GAUL_INCLUDE_DIR and GAUL_LIBRARIES.")
+   ENDIF(NOT GAUL_FOUND)
+   INCLUDE_DIRECTORIES(${TSP_INCLUDE_DIRECTORIES} ${INCLUDE_DIRECTORIES} ${GAUL_INCLUDE_DIR})
+   LINK_LIBRARIES(${GAUL_LIBRARIES} ${GAUL_UTIL_LIBRARIES})
+   ADD_SUBDIRECTORY(extra/tsp)
+ ENDIF(WITH_TSP)
+ 
+ IF(WITH_DD)
+   SET(DD_INCLUDE_DIRECTORIES ${PGROUTING_SOURCE_DIR}/extra/driving_distance ${PGROUTING_SOURCE_DIR}/extra/driving_distance/src
+   macro_optional_find_package(CGAL)
+   IF(NOT CGAL_FOUND)
+     message(FATAL ERROR " Please check your CGAL installation, or set correct path to CGAL_INCLUDE_DIR and CGAL_LIBRARIES.")
+   ENDIF(NOT CGAL_FOUND)
+   INCLUDE_DIRECTORIES(${DD_INCLUDE_DIRECTORIES} ${INCLUDE_DIRECTORIES} ${CGAL_INCLUDE_DIR})
+   LINK_LIBRARIES(${CGAL_LIBRARIES})
+   ADD_SUBDIRECTORY(extra/driving_distance)
+ ENDIF(WITH_DD)
+</p>
+</blockquote>
+<p>
+Thank you
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:7">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-11-13T20%3A14%3A47%2B0900&amp;precision=second" title="2010-11-13T20:14:47+0900 in Timeline">7 days</a> ago by vedavyas
+                </h3>
+      <div class="comment searchable">
+        <p>
+This functions ok personally.. however it probably wants feedback. 
+<a class="ext-link" href="http://www.bestcoffeemakersworld.com/"><span class="icon"> </span>Best coffee makers world</a>
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/127?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/127?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/127?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("127.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/127 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:01:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

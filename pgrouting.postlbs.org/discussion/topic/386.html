@@ -1,0 +1,1983 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/386 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/22.html" title="demo">demo</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>demo (#22) - cant get back route on map - please help me (#386) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              cant get back route on map - please help me
+            </div>
+            <div class="body">
+              <p>
+I would like to ask you for help me with troublefinding with demo or workshop tutorial FOSS4G from 5.aug.2010. I followed tutorial and finaly map on the web works until I should get back result - route on the map. I tried almost everything and didnt find bug in my source. I think problem is between forwarding parameters to php and result back to javascript because php works separately fine when I put parameters by url (by $_GET). Also javascript work fine becasue when I put in final-routing.html in part of declaration of "store" variable to "url" parameter something like this (geojson): url:{"type":"<a class="missing wiki">MultiLineString?</a>","coordinates":[[[2.198332100000000,41.401535400000000],[2.199489200000000,41.402396799999998],[2.200376700000000,41.403057400000002],[2.201798100000000,41.404115500000003],[2.202900900000000,41.404936399999997],[2.203994900000000,41.405750800000000],[2.205156000000000,41.406615000000002],[2.206282500000000,41.407453500000003],[2.207234100000000,41.408161800000002],[2.207496000000000,41.408356800000000],[2.207745100000000,41.408542300000001],[2.208577300000000,41.409190199999998],[2.209733000000000,41.410021899999997],[2.210870300000000,41.410868399999998],[2.211984000000000,41.411697300000000],[2.212533300000000,41.412106100000003],[2.213132800000000,41.412552400000003],[2.214291500000000,41.413414799999998],[2.215261300000000,41.414136599999999],[2.215552400000000,41.414353200000001]]]}
+the route then was displayed on the map.
+But if I put back all original methods (&amp;_REQUEST) the system is not working. No route is shown on the map.
+Please can you help me with this.
+</p>
+<p>
+here are my codes :
+</p>
+<p>
+<strong>routing-final.html</strong>
+</p>
+<p>
+&lt;html&gt;
+&lt;head&gt;
+</p>
+<p>
+&lt;title&gt;A Basic <a class="missing wiki">GeoExt?</a> Page&lt;/title&gt;
+&lt;script src="Ext-3.2.1/adapter/ext/ext-base.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="Ext-3.2.1/ext-all.js"  type="text/javascript"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="Ext-3.2.1/resources/css/ext-all.css" /&gt;
+&lt;script src="<a class="missing wiki">OpenLayers?</a>-2.9.1/lib/OpenLayers.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="<a class="missing wiki">GeoExt?</a>-0.7/lib/GeoExt.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css"
+</p>
+<blockquote>
+<p>
+href="<a class="missing wiki">GeoExt?</a>-0.7/resources/css/geoext-all-debug.css" /&gt;
+</p>
+</blockquote>
+<p>
+&lt;script src="<a class="missing wiki">DrawPoints?</a>.js" type="text/javascript"&gt;&lt;/script&gt;
+</p>
+<p>
+&lt;script src="proj4js-1.0.1/lib/proj4js.js" type="text/javascript"&gt;&lt;/script&gt;
+</p>
+<p>
+&lt;script type="text/javascript"&gt;
+</p>
+<blockquote>
+<p>
+// global projection objects (uses the proj4js lib)
+var epsg_4326 = new <a class="missing wiki">OpenLayers?</a>.Projection("EPSG:4326"),
+</p>
+<blockquote>
+<p>
+epsg_900913 = new <a class="missing wiki">OpenLayers?</a>.Projection("EPSG:900913");
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+function pgrouting(store, layer, method) {
+</p>
+<blockquote>
+<p>
+if (layer.features.length == 2) {
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+// erase the previous route
+store.removeAll();
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+// transform the two geometries from EPSG:900913 to EPSG:4326
+var startpoint = layer.features<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>.geometry.clone();
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+startpoint.transform(epsg_900913, epsg_4326);
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+var finalpoint = layer.features<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>.geometry.clone();
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+finalpoint.transform(epsg_900913, epsg_4326);
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+// load to route
+store.load({
+</p>
+<blockquote>
+<p>
+params: {
+</p>
+<blockquote>
+<p>
+startpoint: startpoint.x + " " + startpoint.y,
+finalpoint: finalpoint.x + " " + finalpoint.y,
+method: method
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+});
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+}
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+}
+</p>
+</blockquote>
+<blockquote>
+<p>
+Ext.onReady(function() {
+</p>
+<blockquote>
+<p>
+// create the map panel
+var panel = new <a class="missing wiki">GeoExt?</a>.<a class="missing wiki">MapPanel?</a>({
+</p>
+<blockquote>
+<p>
+renderTo: "gxmap",
+map: {
+</p>
+<blockquote>
+<p>
+layers: [new <a class="missing wiki">OpenLayers?</a>.Layer.OSM("Simple OSM Map")]
+</p>
+</blockquote>
+<p>
+},
+center: [245300, 5070600],
+zoom: 11,
+height: 400,
+width: 600,
+title: "A Simple <a class="missing wiki">GeoExt?</a> Map"
+</p>
+</blockquote>
+<p>
+});
+var map = panel.map;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// create the layer where the route will be drawn
+var route_layer = new <a class="missing wiki">OpenLayers?</a>.Layer.Vector("route", {
+</p>
+<blockquote>
+<p>
+styleMap: new <a class="missing wiki">OpenLayers?</a>.<a class="missing wiki">StyleMap?</a>(new <a class="missing wiki">OpenLayers?</a>.Style({
+</p>
+<blockquote>
+<p>
+strokeColor: "#ff9933",
+strokeWidth: 7
+</p>
+</blockquote>
+<p>
+}))
+</p>
+</blockquote>
+<p>
+});
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// create the layer where the start and final points will be drawn
+var points_layer = new <a class="missing wiki">OpenLayers?</a>.Layer.Vector("points");
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// when a new point is added to the layer, call the pgrouting function
+points_layer.events.on({
+</p>
+<blockquote>
+<p>
+featureadded: function() {
+</p>
+<blockquote>
+<p>
+pgrouting(store, points_layer, method.getValue());
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+});
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// add the layers to the map
+map.addLayers([points_layer, route_layer]);
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// create the control to draw the points (see the <a class="missing wiki">DrawPoints?</a>.js file)
+var draw_points = new <a class="missing wiki">DrawPoints?</a>(points_layer);
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// create the control to move the points
+var drag_points = new <a class="missing wiki">OpenLayers?</a>.Control.<a class="missing wiki">DragFeature?</a>(points_layer, {
+</p>
+<blockquote>
+<p>
+autoActivate: true
+</p>
+</blockquote>
+<p>
+});
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// when a point is moved, call the pgrouting function
+drag_points.onComplete = function() {
+</p>
+<blockquote>
+<p>
+pgrouting(store, points_layer, method.getValue());
+</p>
+</blockquote>
+<p>
+};
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// add the controls to the map
+map.addControls([draw_points, drag_points]);
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// create the store to query the web service
+var store = new <a class="missing wiki">GeoExt?</a>.data.<a class="missing wiki">FeatureStore?</a>({
+</p>
+<blockquote>
+<p>
+layer: route_layer,
+fields: [
+</p>
+<blockquote>
+<p>
+{name: "length"}
+</p>
+</blockquote>
+<p>
+],
+proxy: new <a class="missing wiki">GeoExt?</a>.data.<a class="missing wiki">ProtocolProxy?</a>({
+</p>
+<blockquote>
+<p>
+protocol: new <a class="missing wiki">OpenLayers?</a>.Protocol.HTTP({
+</p>
+<blockquote>
+<p>
+url: "/pgrouting/php/pgrouting.php",
+format: new <a class="missing wiki">OpenLayers?</a>.Format.GeoJSON({
+</p>
+<blockquote>
+<p>
+internalProjection: epsg_900913,
+externalProjection: epsg_4326
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+})
+</p>
+</blockquote>
+<p>
+})
+</p>
+</blockquote>
+<p>
+})
+</p>
+</blockquote>
+<p>
+});
+</p>
+</blockquote>
+</blockquote>
+<p>
+/*
+var trasa = new <a class="missing wiki">OpenLayers?</a>.Layer.GML("My GeoJSON Layer", "<a class="ext-link" href="http://localhost/pgrouting/trasa.geojson"><span class="icon"> </span>http://localhost/pgrouting/trasa.geojson</a>", {format: <a class="missing wiki">OpenLayers?</a>.Format.GeoJSON});
+map.addLayers([trasa]);
+*/
+</p>
+<blockquote>
+<p>
+// create the method combo box
+var method = new Ext.form.<a class="missing wiki">ComboBox?</a>({
+</p>
+<blockquote>
+<p>
+renderTo: "method",
+triggerAction: "all",
+editable: false,
+forceSelection: true,
+store: [
+</p>
+<blockquote>
+<p>
+["SPD", "Shortest Path Dijkstra"],
+["SPA", "Shortest Path A*"],
+["SPS", "Shortest Path Shooting*"]
+</p>
+</blockquote>
+<p>
+],
+listeners: {
+</p>
+<blockquote>
+<p>
+select: function() {
+</p>
+<blockquote>
+<p>
+pgrouting(store, points_layer, method.getValue());
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+});
+// default method is Shortest Path Dijkstra
+method.setValue("SPD");
+</p>
+</blockquote>
+<blockquote>
+<p>
+});
+</p>
+</blockquote>
+<p>
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="gxmap"&gt;&lt;/div&gt;
+&lt;div id="method"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</p>
+<p>
+<strong>pgrouting.php
+</strong>
+&lt;?php
+</p>
+<blockquote>
+<p>
+// Database connection settings
+define("PG_DB"  , "routing");
+define("PG_HOST", "localhost");
+define("PG_USER", "postgres");
+define("PG_PORT", "5432");
+define("TABLE",   "ways");
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+// Retrieve start point
+</p>
+</blockquote>
+<p>
+$start = split(' ',$_REQUEST<a class="missing wiki">startpoint?</a>);
+</p>
+<blockquote>
+<p>
+$startPoint = array($start<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>, $start<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>);
+</p>
+</blockquote>
+<blockquote>
+<p>
+// Retrieve end point
+$end = split(' ',$_REQUEST<a class="missing wiki">finalpoint?</a>);
+$endPoint = array($end<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>, $end<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>);
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+// Find the nearest edge
+$startEdge = findNearestEdge($startPoint);
+$endEdge   = findNearestEdge($endPoint);
+</p>
+</blockquote>
+<blockquote>
+<p>
+// FUNCTION findNearestEdge
+function findNearestEdge($lonlat) {
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// Connect to database
+$con = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+$sql = "SELECT gid, source, target, the_geom,
+</p>
+<blockquote>
+<p>
+distance(the_geom, <a class="missing wiki">GeometryFromText?</a>(
+</p>
+<blockquote>
+<p>
+'POINT(".$lonlat<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>." ".$lonlat<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>.")', 4326)) AS dist
+</p>
+</blockquote>
+</blockquote>
+<p>
+FROM ".TABLE."
+WHERE the_geom &amp;&amp; setsrid(
+</p>
+<blockquote>
+<blockquote>
+<p>
+'BOX3D(".($lonlat<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>-0.1)."
+</p>
+<blockquote>
+<p>
+".($lonlat<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>-0.1).",
+".($lonlat<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>+0.1)."
+".($lonlat<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>+0.1).")'::box3d, 4326)
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+ORDER BY dist LIMIT 1";
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+$query = pg_query($con,$sql);
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+$edge<a class="missing wiki">gid?</a>      = pg_fetch_result($query, 0, 0);
+$edge<a class="missing wiki">source?</a>   = pg_fetch_result($query, 0, 1);
+$edge<a class="missing wiki">target?</a>   = pg_fetch_result($query, 0, 2);
+$edge<a class="missing wiki">the_geom?</a> = pg_fetch_result($query, 0, 3);
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// Close database connection
+pg_close($con);
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+return $edge;
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+// Select the routing algorithm
+switch($_REQUEST<a class="missing wiki">method?</a>) {
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+case 'SPD' : // Shortest Path Dijkstra
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+$sql = "SELECT rt.gid, ST_AsGeoJSON(rt.the_geom) AS geojson,
+</p>
+<blockquote>
+<p>
+length(rt.the_geom) AS length, ".TABLE.".gid
+</p>
+</blockquote>
+<p>
+FROM ".TABLE.",
+</p>
+<blockquote>
+<blockquote>
+<p>
+(SELECT gid, the_geom
+</p>
+<blockquote>
+<p>
+FROM dijkstra_sp_delta(
+</p>
+<blockquote>
+<p>
+'".TABLE."',
+".$startEdge<a class="missing wiki">source?</a>.",
+".$endEdge<a class="missing wiki">target?</a>.",
+0.1)
+</p>
+</blockquote>
+</blockquote>
+<p>
+) as rt
+</p>
+</blockquote>
+</blockquote>
+<p>
+WHERE ".TABLE.".gid=rt.gid;";
+</p>
+</blockquote>
+<p>
+break;
+</p>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<p>
+case 'SPA' : // Shortest Path A*
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+$sql = "SELECT rt.gid, ST_AsGeoJSON(rt.the_geom) AS geojson,
+</p>
+<blockquote>
+<p>
+length(rt.the_geom) AS length, ".TABLE.".gid
+</p>
+</blockquote>
+<p>
+FROM ".TABLE.",
+</p>
+<blockquote>
+<blockquote>
+<p>
+(SELECT gid, the_geom
+</p>
+<blockquote>
+<p>
+FROM astar_sp_delta(
+</p>
+<blockquote>
+<p>
+'".TABLE."',
+".$startEdge<a class="missing wiki">source?</a>.",
+".$endEdge<a class="missing wiki">target?</a>.",
+0.1)
+</p>
+</blockquote>
+</blockquote>
+<p>
+) as rt
+</p>
+</blockquote>
+</blockquote>
+<p>
+WHERE ".TABLE.".gid=rt.gid;";
+</p>
+</blockquote>
+<p>
+break;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+case 'SPS' : // Shortest Path Shooting*
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+$sql = "SELECT rt.gid, ST_AsGeoJSON(rt.the_geom) AS geojson,
+</p>
+<blockquote>
+<p>
+length(rt.the_geom) AS length, ".TABLE.".gid
+</p>
+</blockquote>
+<p>
+FROM ".TABLE.",
+</p>
+<blockquote>
+<blockquote>
+<p>
+(SELECT gid, the_geom
+</p>
+<blockquote>
+<p>
+FROM shootingstar_sp(
+</p>
+<blockquote>
+<p>
+'".TABLE."',
+".$startEdge<a class="missing wiki">gid?</a>.",
+".$endEdge<a class="missing wiki">gid?</a>.",
+0.1, 'length', true, true)
+</p>
+</blockquote>
+</blockquote>
+<p>
+) as rt
+</p>
+</blockquote>
+</blockquote>
+<p>
+WHERE ".TABLE.".gid=rt.gid;";
+</p>
+</blockquote>
+<p>
+break;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+} // close switch
+</p>
+</blockquote>
+<blockquote>
+<p>
+// Connect to database
+$dbcon = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);
+</p>
+</blockquote>
+<blockquote>
+<p>
+// Perform database query
+$query = pg_query($dbcon,$sql);
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+// Return route as GeoJSON
+$geojson = array(
+</p>
+<blockquote>
+<p>
+'type'      =&gt; '<a class="missing wiki">FeatureCollection?</a>',
+'features'  =&gt; array()
+</p>
+</blockquote>
+<p>
+);
+</p>
+</blockquote>
+<p>
+</p>
+<p>
+/*
+while ($row = pg_fetch_assoc($query)) {
+</p>
+<blockquote>
+<p>
+//echo "GID=" . $row<a class="missing wiki">gid?</a> . "&lt;/br&gt;";
+echo "GEOJSON=" . $row<a class="missing wiki">geojson?</a> . "&lt;/br&gt;";
+//echo "LENGTH=" . $row<a class="missing wiki">length?</a> . "&lt;/br&gt;";
+</p>
+</blockquote>
+<p>
+}
+*/
+</p>
+<blockquote>
+<p>
+// Add edges to GeoJSON array
+while($edge=pg_fetch_assoc($query)) {
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+$feature = array(
+</p>
+<blockquote>
+<p>
+'type' =&gt; 'Feature',
+'geometry' =&gt; json_decode($edge<a class="missing wiki">geojson?</a>, true),
+'crs' =&gt; array(
+</p>
+<blockquote>
+<p>
+'type' =&gt; 'EPSG',
+'properties' =&gt; array('code' =&gt; '4326')
+</p>
+</blockquote>
+<p>
+),
+'properties' =&gt; array(
+</p>
+<blockquote>
+<p>
+'id' =&gt; $edge<a class="missing wiki">id?</a>,
+'length' =&gt; $edge<a class="missing wiki">length?</a>
+</p>
+</blockquote>
+<p>
+)
+</p>
+</blockquote>
+<p>
+);
+</p>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<p>
+// Add feature array to feature collection array
+array_push($geojson<a class="missing wiki">features?</a>, $feature);
+</p>
+</blockquote>
+<p>
+}
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+// Close database connection
+</p>
+</blockquote>
+</blockquote>
+<p>
+pg_close($dbcon);
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+// Return routing result
+header('Content-type: application/json',true);
+echo json_encode($geojson);
+</p>
+</blockquote>
+<p>
+?&gt;
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            09/30/10 06:56:24 (7 weeks ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/386?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/386?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1641"></a>
+        <div class="id">
+          Message #1641
+        </div>
+        <div class="body">
+            <p>
+There is a wrong path in the AJAX call of the demo script. You can see that it can't find the PHP file when using a tool like <a class="missing wiki">FireBug?</a> for example. Sorry for that.
+</p>
+<p>
+I edited the script and updated the Ubuntu package, so you could update to the latest version with "sudo apt-get update" or just change the line like:
+</p>
+<pre class="wiki">var store = new GeoExt.data.FeatureStore({
+    layer: route_layer,
+    fields: [
+        {name: "length"}
+    ],
+    proxy: new GeoExt.data.ProtocolProxy({
+        protocol: new OpenLayers.Protocol.HTTP({
+            url: './php/pgrouting.php',
+            format: new OpenLayers.Format.GeoJSON({
+                internalProjection: epsg_900913,
+                externalProjection: epsg_4326
+            })
+        })
+    })
+});
+</pre><p>
+I just realized that the documentation on <a class="ext-link" href="http://download.osgeo.org/pgrouting/foss4g2010/workshop/"><span class="icon"> </span>http://download.osgeo.org/pgrouting/foss4g2010/workshop/</a> is still old. I will also upload the latest version.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            09/30/10 18:01:02 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1642"></a>
+        <div class="id">
+          Message #1642
+        </div>
+        <div class="body">
+            <p>
+thank you for quuick response for my problem.
+I changed that code you mentioned but it doesnt helped :(.
+</p>
+<p>
+Please, rest of my code is ok?
+</p>
+<p>
+In IE I get javacsript error on page load :
+<a class="missing wiki">OpenLayers?</a>. Format.GML.v3.prototype ha value null or is not object.
+Row:19, Char:1, Code:0, URI: <a class="ext-link" href="http://10.20.248.35/pgrouting/OpenLayers-2.9.1/lib/OpenLayers/Format/SOSGetObservation.js"><span class="icon"> </span>http://10.20.248.35/pgrouting/OpenLayers-2.9.1/lib/OpenLayers/Format/SOSGetObservation.js</a> and also for SOSGetFeatureOfInterest.js
+</p>
+<p>
+Even if this error apears in IE I can set up start an end points but route is not shown still.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            09/30/10 19:22:27 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1643"></a>
+        <div class="id">
+          Message #1643
+        </div>
+        <div class="body">
+            <p>
+Could you try your application in some other browser than IE? I have never tested the workshop with IE, because it doesn't install on Linux ;-)
+</p>
+<p>
+No, honestly, it's better to try some other browser than IE for debugging. I can't open your link btw.. Did you just get the files from OSgeo download server. I replaced them with the newer version and maybe you downloaded files when not everything was uploaded yet. Now it's finished.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            09/30/10 20:42:42 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1644"></a>
+        <div class="id">
+          Message #1644
+        </div>
+        <div class="body">
+            <p>
+Yes I already tried it also on firefox :) but still no route was displayed on the map.
+Just now I downloaded gz archiv with update workshop data and replace my website.
+Javascript error I mentioned now in IE disapeared :) (maybe cause before gz archive showing unxcpected end of archiv when I extracted it)  but display route problem still doesn work even on firefox.
+Link is not working because it is internal IP what I trying it on virtual server on CentOS.
+Can you advice me please how can I check if is problem in routing-final.html or in pgrouting.php?
+Or what should I check in Firebug?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            09/30/10 21:39:39 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1645"></a>
+        <div class="id">
+          Message #1645
+        </div>
+        <div class="body">
+            <p>
+You must make sure that all parts are working.
+</p>
+<ul><li>Is pgRouting correctly installed and workshop queries work?
+</li><li>PostgreSQL database extension for PHP loaded?
+</li><li>Can you make a request passing "start" and "end" parameter manually?
+</li></ul><p>
+routing-final.html should contain all necessary parts. With <a class="missing wiki">FireBug?</a> extension you can check Ajax requests with parameters sent and reply from the script.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/01/10 04:06:33 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1646"></a>
+        <div class="id">
+          Message #1646
+        </div>
+        <div class="body">
+            <p>
+workshop queries works ok.<br />
+</p>
+<p>
+connect from php to postgre works ok<br />
+I tried to set start and end point manualy in next php file and at the bottom I pasted result from this page.<br />
+Im not sure but I think there is something wrong with part of geojson generation... ???<br />
+</p>
+<p>
+<strong>PHP file :</strong><br />
+</p>
+<p>
+&lt;?php<br />
+</p>
+<blockquote>
+<p>
+// Database connection settings<br />
+define("PG_DB"  , "routing");<br />
+define("PG_HOST", "localhost");<br />
+define("PG_USER", "postgres");<br />
+define("PG_PORT", "5432"); <br />
+define("TABLE",   "ways");<br />
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// Retrieve start point<br />
+</p>
+</blockquote>
+<p>
+//$start = split(' ',$_REQUEST<a class="missing wiki">startpoint?</a>);<br />
+$startPoint = array(2.174728, 41.403317);<br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+// Retrieve end point<br />
+//$end = split(' ',$_REQUEST<a class="missing wiki">finalpoint?</a>);<br />
+$endPoint = array(2.19807, 41.4007418);<br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+// Find the nearest edge<br />
+$startEdge = findNearestEdge($startPoint);<br />
+$endEdge   = findNearestEdge($endPoint);<br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+// FUNCTION findNearestEdge<br />
+function findNearestEdge($lonlat) {<br />
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+// Connect to database<br />
+$con = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);<br />
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+$sql = "SELECT gid, source, target, the_geom, <br />
+</p>
+<blockquote>
+<p>
+distance(the_geom, <a class="missing wiki">GeometryFromText?</a>(<br />
+</p>
+<blockquote>
+<p>
+'POINT(".$lonlat<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>." ".$lonlat<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>.")', 4326)) AS dist <br />
+</p>
+</blockquote>
+</blockquote>
+<p>
+FROM ".TABLE."  <br />
+WHERE the_geom &amp;&amp; setsrid(<br />
+</p>
+<blockquote>
+<blockquote>
+<p>
+'BOX3D(".($lonlat<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>-0.1)." <br />
+</p>
+<blockquote>
+<p>
+".($lonlat<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>-0.1).", <br />
+".($lonlat<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>+0.1)." <br />
+".($lonlat<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>+0.1).")'::box3d, 4326) <br />
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+ORDER BY dist LIMIT 1";<br />
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+$query = pg_query($con,$sql);  <br />
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+$edge<a class="missing wiki">gid?</a>      = pg_fetch_result($query, 0, 0);  <br />
+$edge<a class="missing wiki">source?</a>   = pg_fetch_result($query, 0, 1);  <br />
+$edge<a class="missing wiki">target?</a>   = pg_fetch_result($query, 0, 2);  <br />
+$edge<a class="missing wiki">the_geom?</a> = pg_fetch_result($query, 0, 3);  <br />
+</p>
+</blockquote>
+</blockquote>
+<p>
+echo "edge=" . $edge<a class="missing wiki">gid?</a> . "&lt;/br&gt;";<br />
+echo "source=" . $edge<a class="missing wiki">source?</a> . "&lt;/br&gt;";<br />
+echo "target=" . $edge<a class="missing wiki">target?</a> . "&lt;/br&gt;";<br />
+echo "thegeom=" . $edge<a class="missing wiki">the_geom?</a> . "&lt;/br&gt;";<br />
+</p>
+<blockquote>
+<p>
+pg_close($con);<br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+return $edge;<br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+}<br />
+</p>
+</blockquote>
+<p>
+echo "startedge=" . $startEdge<a class="missing wiki">source?</a> . "&lt;/br&gt;";<br />
+echo "endedge=" . $endEdge<a class="missing wiki">target?</a> . "&lt;/br&gt;";<br />
+</p>
+<p>
+$sql2 = "SELECT rt.gid, ST_AsGeoJSON(rt.the_geom) AS geojson, <br />
+</p>
+<blockquote>
+<p>
+length(rt.the_geom) AS length, ".TABLE.".gid <br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+FROM ".TABLE.", <br />
+</p>
+<blockquote>
+<p>
+(SELECT gid, the_geom <br />
+</p>
+<blockquote>
+<p>
+FROM dijkstra_sp_delta(<br />
+</p>
+<blockquote>
+<p>
+'".TABLE."',<br />
+".$startEdge<a class="missing wiki">source?</a>.",<br />
+".$endEdge<a class="missing wiki">target?</a>.",<br />
+0.1)<br />
+</p>
+</blockquote>
+</blockquote>
+<p>
+) as rt <br />
+</p>
+</blockquote>
+<p>
+WHERE ".TABLE.".gid=rt.gid;";<br />
+</p>
+</blockquote>
+<p>
+// Connect to database<br />
+$con = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);<br />
+</p>
+<blockquote>
+<p>
+// Perform database query<br />
+$query2 = pg_query($con,$sql2);<br />
+</p>
+</blockquote>
+<p>
+while ($edge = pg_fetch_assoc($query2)) {<br />
+</p>
+<blockquote>
+<p>
+echo "GID=" . $edge<a class="missing wiki">gid?</a> . "&lt;/br&gt;";<br />
+echo "GEOJSON=" . $edge<a class="missing wiki">geojson?</a> . "&lt;/br&gt;";<br />
+echo "LENGTH=" . $edge<a class="missing wiki">length?</a> . "&lt;/br&gt;";<br />
+</p>
+</blockquote>
+<p>
+}<br />
+</p>
+<p>
+// Return route as GeoJSON<br />
+</p>
+<blockquote>
+<p>
+$geojson = array(<br />
+</p>
+<blockquote>
+<p>
+'type'      =&gt; '<a class="missing wiki">FeatureCollection?</a>',<br />
+'features'  =&gt; array()<br />
+</p>
+</blockquote>
+<p>
+); <br />
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+// Add edges to GeoJSON array<br />
+while($edge=pg_fetch_assoc($query2)) {  <br />
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+$feature = array(<br />
+</p>
+<blockquote>
+<p>
+'type' =&gt; 'Feature',<br />
+'geometry' =&gt; json_decode($edge<a class="missing wiki">geojson?</a>, true),<br />
+'crs' =&gt; array(<br />
+</p>
+<blockquote>
+<p>
+'type' =&gt; 'EPSG',<br />
+'properties' =&gt; array('code' =&gt; '4326')<br />
+</p>
+</blockquote>
+<p>
+),<br />
+'properties' =&gt; array(<br />
+</p>
+<blockquote>
+<p>
+'id' =&gt; $edge<a class="missing wiki">id?</a>,<br />
+'length' =&gt; $edge<a class="missing wiki">length?</a><br />
+</p>
+</blockquote>
+<p>
+)<br />
+</p>
+</blockquote>
+<p>
+);<br />
+</p>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<p>
+// Add feature array to feature collection array<br />
+array_push($geojson<a class="missing wiki">features?</a>, $feature);<br />
+</p>
+</blockquote>
+<p>
+}<br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+// Close database connection<br />
+pg_close($con);<br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+// Return routing result<br />
+</p>
+</blockquote>
+<blockquote>
+<p>
+header('Content-type: application/json',true);<br />
+echo json_encode($geojson);<br />
+</p>
+</blockquote>
+<p>
+?&gt;<br />
+</p>
+<p>
+<strong>RESULT on page :</strong><br />
+</p>
+<p>
+edge=419<br />
+source=385<br />
+target=386<br />
+thegeom=0105000020E6100000010000000102000000050000002A368BBC51600140923B1169C0B34440F84E71C1BE620140EDA06D90A4B34440C687D9CBB6630140EE9D2C1098B344402AE109BDFE640140497C934B88B34440FFB91E3B5E670140705E9CF86AB34440<br />
+</p>
+<p>
+edge=5279<br />
+source=2741<br />
+target=2732<br />
+thegeom=0105000020E6100000010000000102000000020000008D9944BDE0930140100DE60A4AB34440DCF9D9232F960140D897118365B34440<br />
+</p>
+<p>
+startedge=385<br />
+endedge=2732<br />
+GID=419<br />
+GEOJSON={"type":"<a class="missing wiki">MultiLineString?</a>","coordinates":[[[2.172030900000000,41.404309400000002],[2.173215400000000,41.403459599999998],[2.173688500000000,41.403078100000002],[2.174314000000000,41.402596899999999],[2.175472700000000,41.401702000000000]]]}<br />
+LENGTH=0.00431878690966869<br />
+GID=420<br />
+GEOJSON={"type":"<a class="missing wiki">MultiLineString?</a>","coordinates":[[[2.175472700000000,41.401702000000000],[2.176513500000000,41.400889800000002]]]}<br />
+LENGTH=0.00132020206029156<br />
+GID=940<br />
+GEOJSON={"type":"<a class="missing wiki">MultiLineString?</a>","coordinates":[[[2.180117800000000,41.401783100000003],[2.180268200000000,41.401668700000002],[2.180416800000000,41.401555799999997]]]}<br />
+LENGTH=0.000375587940415142<br />
+GID=941<br />
+GEOJSON={"type":"<a class="missing wiki">MultiLineString?</a>","coordinates":[[[2.180416800000000,41.401555799999997],[2.180468900000000,41.401516100000002],[2.181257400000000,41.400916600000002]]]}<br />
+LENGTH=0.00105602323574844<br />
+<br />
+</p>
+<p>
+..... and so on ....<br />
+<br />
+</p>
+<p>
+GID=5696<br />
+GEOJSON={"type":"<a class="missing wiki">MultiLineString?</a>","coordinates":[[[2.189371800000000,41.398126800000000],[2.190468700000000,41.397284499999998]]]}<br />
+LENGTH=0.00138298911781812<br />
+GID=5697<br />
+GEOJSON={"type":"<a class="missing wiki">MultiLineString?</a>","coordinates":[[[2.190468700000000,41.397284499999998],[2.191560200000000,41.396493200000002]]]}<br />
+LENGTH=0.00134815723860168<br />
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/01/10 19:37:37 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1647"></a>
+        <div class="id">
+          Message #1647
+        </div>
+        <div class="body">
+            <p>
+I think somewhere in this part :
+</p>
+<pre class="wiki">
+// Add edges to GeoJSON array
+   while($edge=pg_fetch_assoc($query2)) {
+      $feature = array(
+         'type' =&gt; 'Feature',
+         'geometry' =&gt; json_decode($edge['geojson'], true),
+         'crs' =&gt; array(
+            'type' =&gt; 'EPSG',
+            'properties' =&gt; array('code' =&gt; '4326')
+         ),
+         'properties' =&gt; array(
+            'id' =&gt; $edge['id'],
+            'length' =&gt; $edge['length']
+         )
+      );
+      // Add feature array to feature collection array
+      array_push($geojson['features'], $feature);
+   }
+</pre>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/01/10 20:03:25 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1648"></a>
+        <div class="id">
+          Message #1648
+        </div>
+        <div class="body">
+            <p>
+sorry I forgot to put previous example code in Code block brackets.....
+</p>
+<pre class="wiki">
+&gt; '''PHP file :'''[[BR]]
+&gt;
+&gt; &lt;?php[[BR]]
+&gt;
+&gt;    // Database connection settings[[BR]]
+&gt;    define("PG_DB"  , "routing");[[BR]]
+&gt;    define("PG_HOST", "localhost");[[BR]]
+&gt;    define("PG_USER", "postgres");[[BR]]
+&gt;    define("PG_PORT", "5432"); [[BR]]
+&gt;    define("TABLE",   "ways");[[BR]]
+&gt;
+&gt;      // Retrieve start point[[BR]]
+&gt;    //$start = split(' ',$_REQUEST['startpoint']);[[BR]]
+&gt;    $startPoint = array(2.174728, 41.403317);[[BR]]
+&gt;
+&gt;    // Retrieve end point[[BR]]
+&gt;    //$end = split(' ',$_REQUEST['finalpoint']);[[BR]]
+&gt;    $endPoint = array(2.19807, 41.4007418);[[BR]]
+&gt;
+&gt;    // Find the nearest edge[[BR]]
+&gt;    $startEdge = findNearestEdge($startPoint);[[BR]]
+&gt;    $endEdge   = findNearestEdge($endPoint);[[BR]]
+&gt;
+&gt;    // FUNCTION findNearestEdge[[BR]]
+&gt;    function findNearestEdge($lonlat) {[[BR]]
+&gt;
+&gt;       // Connect to database[[BR]]
+&gt;       $con = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);[[BR]]
+&gt;
+&gt;       $sql = "SELECT gid, source, target, the_geom, [[BR]]
+&gt; 		          distance(the_geom, GeometryFromText([[BR]]
+&gt; 	                   'POINT(".$lonlat[0]." ".$lonlat[1].")', 4326)) AS dist [[BR]]
+&gt; 	             FROM ".TABLE."  [[BR]]
+&gt; 	             WHERE the_geom &amp;&amp; setsrid([[BR]]
+&gt; 	                   'BOX3D(".($lonlat[0]-0.1)." [[BR]]
+&gt; 	                          ".($lonlat[1]-0.1).", [[BR]]
+&gt; 	                          ".($lonlat[0]+0.1)." [[BR]]
+&gt; 	                          ".($lonlat[1]+0.1).")'::box3d, 4326) [[BR]]
+&gt; 	             ORDER BY dist LIMIT 1";[[BR]]
+&gt;
+&gt;       $query = pg_query($con,$sql);  [[BR]]
+&gt;
+&gt;       $edge['gid']      = pg_fetch_result($query, 0, 0);  [[BR]]
+&gt;       $edge['source']   = pg_fetch_result($query, 0, 1);  [[BR]]
+&gt;       $edge['target']   = pg_fetch_result($query, 0, 2);  [[BR]]
+&gt;       $edge['the_geom'] = pg_fetch_result($query, 0, 3);  [[BR]]
+&gt;
+&gt; echo "edge=" . $edge['gid'] . "&lt;/br&gt;";[[BR]]
+&gt; echo "source=" . $edge['source'] . "&lt;/br&gt;";[[BR]]
+&gt; echo "target=" . $edge['target'] . "&lt;/br&gt;";[[BR]]
+&gt; echo "thegeom=" . $edge['the_geom'] . "&lt;/br&gt;";[[BR]]
+&gt;
+&gt;
+&gt;       pg_close($con);[[BR]]
+&gt;
+&gt;       return $edge;[[BR]]
+&gt;
+&gt;    }[[BR]]
+&gt;
+&gt;
+&gt; echo "startedge=" . $startEdge['source'] . "&lt;/br&gt;";[[BR]]
+&gt; echo "endedge=" . $endEdge['target'] . "&lt;/br&gt;";[[BR]]
+&gt;
+&gt;
+&gt;
+&gt;
+&gt;
+&gt; $sql2 = "SELECT rt.gid, ST_AsGeoJSON(rt.the_geom) AS geojson, [[BR]]
+&gt; 	                 length(rt.the_geom) AS length, ".TABLE.".gid [[BR]]
+&gt; 	              FROM ".TABLE.", [[BR]]
+&gt; 	                  (SELECT gid, the_geom [[BR]]
+&gt; 	                      FROM dijkstra_sp_delta([[BR]]
+&gt; 	                          '".TABLE."',[[BR]]
+&gt; 	                          ".$startEdge['source'].",[[BR]]
+&gt; 	                          ".$endEdge['target'].",[[BR]]
+&gt; 	                          0.1)[[BR]]
+&gt; 	                   ) as rt [[BR]]
+&gt; 	              WHERE ".TABLE.".gid=rt.gid;";[[BR]]
+&gt;
+&gt; // Connect to database[[BR]]
+&gt; $con = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);[[BR]]
+&gt;
+&gt;    // Perform database query[[BR]]
+&gt;    $query2 = pg_query($con,$sql2);[[BR]]
+&gt;
+&gt; while ($edge = pg_fetch_assoc($query2)) {[[BR]]
+&gt;   echo "GID=" . $edge['gid'] . "&lt;/br&gt;";[[BR]]
+&gt;   echo "GEOJSON=" . $edge['geojson'] . "&lt;/br&gt;";[[BR]]
+&gt;   echo "LENGTH=" . $edge['length'] . "&lt;/br&gt;";[[BR]]
+&gt; }[[BR]]
+&gt;
+&gt;
+&gt;
+&gt; // Return route as GeoJSON[[BR]]
+&gt;    $geojson = array([[BR]]
+&gt;       'type'      =&gt; 'FeatureCollection',[[BR]]
+&gt;       'features'  =&gt; array()[[BR]]
+&gt;    ); [[BR]]
+&gt;
+&gt;
+&gt;
+&gt;    // Add edges to GeoJSON array[[BR]]
+&gt;    while($edge=pg_fetch_assoc($query2)) {  [[BR]]
+&gt;
+&gt;       $feature = array([[BR]]
+&gt;          'type' =&gt; 'Feature',[[BR]]
+&gt;          'geometry' =&gt; json_decode($edge['geojson'], true),[[BR]]
+&gt;          'crs' =&gt; array([[BR]]
+&gt;             'type' =&gt; 'EPSG',[[BR]]
+&gt;             'properties' =&gt; array('code' =&gt; '4326')[[BR]]
+&gt;          ),[[BR]]
+&gt;          'properties' =&gt; array([[BR]]
+&gt;             'id' =&gt; $edge['id'],[[BR]]
+&gt;             'length' =&gt; $edge['length'][[BR]]
+&gt;          )[[BR]]
+&gt;       );[[BR]]
+&gt;
+&gt;       // Add feature array to feature collection array[[BR]]
+&gt;       array_push($geojson['features'], $feature);[[BR]]
+&gt;    }[[BR]]
+&gt;
+&gt;
+&gt;
+&gt;    // Close database connection[[BR]]
+&gt;    pg_close($con);[[BR]]
+&gt;
+&gt;    // Return routing result[[BR]]
+&gt;  header('Content-type: application/json',true);[[BR]]
+&gt;  echo json_encode($geojson);[[BR]]
+&gt;
+&gt;
+&gt; ?&gt;[[BR]]
+&gt;
+&gt;
+&gt;
+&gt; '''RESULT on page :'''[[BR]]
+&gt;
+&gt; edge=419[[BR]]
+&gt; source=385[[BR]]
+&gt; target=386[[BR]]
+&gt; thegeom=0105000020E6100000010000000102000000050000002A368BBC51600140923B1169C0B34440F84E71C1BE620140EDA06D90A4B34440C687D9CBB6630140EE9D2C1098B344402AE109BDFE640140497C934B88B34440FFB91E3B5E670140705E9CF86AB34440[[BR]]
+&gt;
+&gt; edge=5279[[BR]]
+&gt; source=2741[[BR]]
+&gt; target=2732[[BR]]
+&gt; thegeom=0105000020E6100000010000000102000000020000008D9944BDE0930140100DE60A4AB34440DCF9D9232F960140D897118365B34440[[BR]]
+&gt;
+&gt; startedge=385[[BR]]
+&gt; endedge=2732[[BR]]
+&gt; GID=419[[BR]]
+&gt; GEOJSON={"type":"MultiLineString","coordinates":[[[2.172030900000000,41.404309400000002],[2.173215400000000,41.403459599999998],[2.173688500000000,41.403078100000002],[2.174314000000000,41.402596899999999],[2.175472700000000,41.401702000000000]]]}[[BR]]
+&gt; LENGTH=0.00431878690966869[[BR]]
+&gt; GID=420[[BR]]
+&gt; GEOJSON={"type":"MultiLineString","coordinates":[[[2.175472700000000,41.401702000000000],[2.176513500000000,41.400889800000002]]]}[[BR]]
+&gt; LENGTH=0.00132020206029156[[BR]]
+&gt; GID=940[[BR]]
+&gt; GEOJSON={"type":"MultiLineString","coordinates":[[[2.180117800000000,41.401783100000003],[2.180268200000000,41.401668700000002],[2.180416800000000,41.401555799999997]]]}[[BR]]
+&gt; LENGTH=0.000375587940415142[[BR]]
+&gt; GID=941[[BR]]
+&gt; GEOJSON={"type":"MultiLineString","coordinates":[[[2.180416800000000,41.401555799999997],[2.180468900000000,41.401516100000002],[2.181257400000000,41.400916600000002]]]}[[BR]]
+&gt; LENGTH=0.00105602323574844[[BR]]
+&gt; [[BR]]
+&gt;
+&gt; ..... and so on ....[[BR]]
+&gt; [[BR]]
+&gt;
+&gt; GID=5696[[BR]]
+&gt; GEOJSON={"type":"MultiLineString","coordinates":[[[2.189371800000000,41.398126800000000],[2.190468700000000,41.397284499999998]]]}[[BR]]
+&gt; LENGTH=0.00138298911781812[[BR]]
+&gt; GID=5697[[BR]]
+&gt; GEOJSON={"type":"MultiLineString","coordinates":[[[2.190468700000000,41.397284499999998],[2.191560200000000,41.396493200000002]]]}[[BR]]
+&gt; LENGTH=0.00134815723860168[[BR]]
+</pre>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/01/10 20:06:36 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1650"></a>
+        <div class="id">
+          Message #1650
+        </div>
+        <div class="body">
+            <p>
+You said, you're using CentOS, right? Could you tell me your version of PostGIS/PHP?
+</p>
+<p>
+If something goes wrong with GeoJSON, could be that there is a problem with PHP function "json_encode()", which isn't available in older version of PHP or GeoJSON support of PostGIS (not available in old versions of PostGIS)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/01/10 21:15:26 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1651"></a>
+        <div class="id">
+          Message #1651
+        </div>
+        <div class="body">
+            <p>
+Yes I use CentOS.<br />
+postgis-1.3.6.-1.rehel5.i386<br />
+</p>
+<p>
+PHP 5.1.6.-27.el5.i386
+should I change some of this to another version?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/01/10 23:28:51 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1652"></a>
+        <div class="id">
+          Message #1652
+        </div>
+        <div class="body">
+            <p>
+You need to make sure that your PHP supports "json_encode()" (could be that your PHP version support doesn't this, but there is a workaround as far as I remember).<br />
+And PostGIS needs to support GeoJSON as well. Could be this comes with 1.4, but could be also in 1.3 already.
+</p>
+<p>
+I think it's easier for you to just try this with some sample script and test query, or try to look for older documentation of PHP/PostGIS.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/02/10 03:21:32 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1686"></a>
+        <div class="id">
+          Message #1686
+        </div>
+        <div class="body">
+            <p>
+I have all the requirements mentioned above.(PHP 5.2, GeoJSON support, PostGIS 1.5,...) but I still have this problem. The javascript couldn't call the php script. they both work independently but together they won't.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            farid1
+          </div>
+          <div class="time">
+            10/11/10 21:54:09 (6 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1687"></a>
+        <div class="id">
+          Message #1687
+        </div>
+        <div class="body">
+            <p>
+Then the path is still wrong and you should update to the latest version of the workshop.
+</p>
+<p>
+Try it with Firebug, try to call the URL to the PHP script with parameters directly to see what happens. Or if you have your version online, you can send a link.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/12/10 04:59:39 (6 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1688"></a>
+        <div class="id">
+          Message #1688
+        </div>
+        <div class="body">
+            <p>
+Finally I solved the problem. there wasn't any mistake with the path. When I tried to run the script in "php designer" I got this message:
+</p>
+<pre class="wiki">Warning: Cannot modify header information - headers already sent by (output started at C:\ms4w\Apache\htdocs\web\php\pgrouting.php:20) in C:\ms4w\Apache\htdocs\web\php\pgrouting.php on line 147 ... and the json array
+</pre><p>
+then I commented this line in php script:
+header('Content-type: application/json',true);
+</p>
+<p>
+and everythings work fine. :)
+</p>
+<p>
+Thank you Daniel, your comments helped me a lot.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            farid1
+          </div>
+          <div class="time">
+            10/12/10 06:26:02 (6 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1689"></a>
+        <div class="id">
+          Message #1689
+        </div>
+        <div class="body">
+            <p>
+OK, so it seems there is an issue when using Windows operating system. Thanks for sharing this with everyone!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            10/12/10 07:42:23 (6 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1654"></a>
+        <div class="id">
+          Message #1654
+        </div>
+        <div class="body">
+            <p>
+Daniel great thanks to you ;)<br />
+you have right ...my php was missing json extension. I installed it according <br />
+steps from <a class="ext-link" href="http://www.php.net/manual/en/json.installation.php"><span class="icon"> </span>http://www.php.net/manual/en/json.installation.php</a>.<br />
+</p>
+<p>
+PHP = 5.2 and &gt; has it by default.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            10/02/10 07:14:04 (7 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/386?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/386?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

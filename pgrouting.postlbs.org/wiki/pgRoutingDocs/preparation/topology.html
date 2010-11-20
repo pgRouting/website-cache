@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/pgRoutingDocs/preparation/topology by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      pgRoutingDocs/preparation/topology – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/pgRoutingDocs/preparation/topology?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../preparation.html" title="View parent page" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../preparation.html">Up</a></li><li><a href="../../WikiStart.html">Start Page</a></li><li><a href="../../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/pgRoutingDocs/preparation/topology?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/pgRoutingDocs/preparation/topology?action=diff&amp;version=1">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View pgRoutingDocs" href="../../pgRoutingDocs.html">pgRoutingDocs</a><span class="pathentry sep">/</span><a class="pathentry" title="View pgRoutingDocs/preparation" href="../preparation.html">preparation</a><span class="pathentry sep">/</span><a class="pathentry" title="View pgRoutingDocs/preparation/topology" href="topology.html">topology</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <div style="float: right; margin: 1em 1em 1em 2em; width: 27em; font-size: .9em">
+<div style="background-color: #fce4e3; border: 1px solid black; padding: 1em">
+<div>This page needs some review!</div>
+</div>
+</div>
+<h1 id="CreatingDataforRoutingApplications">Creating Data for Routing Applications</h1>
+<p>
+Routing Engines always require the source and target nodes for every line in order to create a search for the shortest path. Creating this data on line networks involves creating a topology on that network. 
+</p>
+<h2 id="GraphsDirectedunDirectedReverseCosts">Graphs, Directed, unDirected, Reverse Costs</h2>
+<p>
+The follow will hopefully explain a little bit about graphs and and how to use the directed and reverse cost arguments in the pgRouting function calls. If you use assign_vertex_id() to build your graph, it builds an undirected graph. Now you might have some oneway streets and you can create a reverse_cost column and start by populating it with the cost column values. Now you can treat you graph as a directed graph using the forward cost and reverse_cost for the cost to traverse an edge from A-B or B-A respectively. Since these values are all the same it is not very interesting, but if you have oneway streets you can now edit the cost or the reverse_cost values so that the wrong way has a very high cost. Many of the pgRouting function have boolean arguments <strong>directed</strong> and <strong>has_reverse_cost</strong>. If you set <strong>has_reverse_cost=true</strong>, you should also set <strong>directed=true</strong> or it will ignore your reverse costs.
+</p>
+<h2 id="pgRouting">pgRouting</h2>
+<p>
+pgRouting gives the ability to create the source-target (start-end nodes) information within PostgreSQL using assign_vertex_id():
+</p>
+<pre class="wiki">SELECT assign_vertex_id(table_name, snapping_range, geometry_column_name, edge_id_column_name);
+</pre><p>
+where table_name is the name of the edges table, nodes within snapping_range (value is in your current projection units) will be snapped, geometry_column_name is the name of the geometry column (usually 'the_geom'), edge_id_column_name is the name of the edge id column (usually gid).
+</p>
+<p>
+This function requires 'source' and 'target' integer fields.
+</p>
+<pre class="wiki">ALTER TABLE ways ADD COLUMN source integer;
+ALTER TABLE ways ADD COLUMN target integer;
+SELECT assign_vertex_id('ways', 0.00001, 'the_geom', 'gid');
+</pre><p>
+There is other software, that can be used to create a topology:
+</p>
+<h2 id="PostGIS">PostGIS</h2>
+<p>
+As of this writing, the latest <a class="ext-link" href="http://www.postgis.org/"><span class="icon"> </span>PostGIS</a> 1.1.2, has started adding a topology functionality. But it is still in a very alpha stage and there are very little documentation yet on how to create the topology. This page will be updated once the topology functionality becomes stable enough to use.
+</p>
+<h2 id="ArcInfo">ArcInfo</h2>
+<p>
+For those with an ArcInfo license, creating a topology is done by just issuing the BUILD command:
+</p>
+<pre class="wiki">build line {Coverage Name}
+</pre><p>
+and then exporting the coverage to a shape file, which can then be imported into PostGIS. The BUILD command will build fnode_, tnode_, length columns which can be renamed in PostgreSQL into source and target, and the length can be set as the intial cost.
+</p>
+<h2 id="GRASS">GRASS</h2>
+<p>
+<a class="ext-link" href="http://grass.itc.it/"><span class="icon"> </span>GRASS</a> can be used also to create a topology, but extracting the topology information and bringing it into PostgreSQL is not as simple as that of ArcInfo's since the topolgy information is not included into with the data set when it is exported to a shape file.
+</p>
+<p>
+The topolgy creation command "v.build" has a dump option though that will output the information into the stream which in turn can be piped into to a file. For example:
+</p>
+<pre class="wiki">v.build map=dourol option=build,dump &gt; dourokukan.txt 
+</pre><p>
+The output will be like this;
+</p>
+<pre class="wiki">---------- TOPOLOGY DUMP ----------
+N,S,E,W,T,B: 35.897887, 24.281578, 153.985841, 138.943042, 0.000000, 0.000000
+Nodes (148304 nodes, alive + dead ):
+node = 1, n_lines = 3, xy = 139.756532, 35.67451
+line = 1, type = 2, angle = -2.265356
+line = -20, type = 2, angle = -0.055499
+line = 8, type = 2, angle = 1.281166
+node = 2, n_lines = 3, xy = 139.756261, 35.674216
+line = -9, type = 2, angle = -2.827622
+line = 2, type = 2, angle = -1.878154
+...
+...
+...
+Lines (220672 lines, alive + dead ):
+line = 1, type = 2, offset = 14 n1 = 1, n2 = 2, left/area = 0, right = 0
+N,S,E,W,T,B: 35.674510, 35.674216, 139.756532, 139.756261, 0.000000, 0.000000
+line = 2, type = 2, offset = 79 n1 = 2, n2 = 3, left/area = 0, right = 0
+N,S,E,W,T,B: 35.674216, 35.672010, 139.756261, 139.755285, 0.000000, 0.000000
+line = 3, type = 2, offset = 160 n1 = 3, n2 = 4, left/area = 0, right = 0
+N,S,E,W,T,B: 35.672010, 35.671649, 139.755285, 139.755014, 0.000000, 0.000000
+</pre><p>
+ 
+A perl program like <a class="ext-link" href="http://files.postlbs.org/pgrouting/tools/table_topo.pl"><span class="icon"> </span>table_topo.pl</a> can be used to convert GRASS output into SQL files that will create node and line tables containing the topological information. These tables can then be linked into the PostGIS network table to create the source-target node information.
+</p>
+<p>
+<strong>Program</strong>
+</p>
+<p>
+Support topology <a href="../../../ticket/27.html">http://pgrouting.postlbs.org/ticket/27</a>
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/pgRoutingDocs/preparation/topology?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("topology.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/pgRoutingDocs/preparation/topology by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

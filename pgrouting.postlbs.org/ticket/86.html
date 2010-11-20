@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/86 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:16:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #86 (TSP with time constraints)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="85.html" title="Ticket #85" />
+        <link rel="last" href="218.html" title="Ticket #218" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/86?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/86?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/86?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="next" href="87.html" title="Ticket #87" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="1.html" title="Ticket #1" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="85.html" title="Ticket #85">Previous Ticket</a></span></li><li class="last"><span><a class="next" href="87.html" title="Ticket #87">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #86
+          <span class="status">(new feature request)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-17T13%3A27%3A54%2B0900&amp;precision=second" title="2007-11-17T13:27:54+0900 in Timeline">3 years</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-05-02T11%3A47%3A05%2B0900&amp;precision=second" title="2008-05-02T11:47:05+0900 in Timeline">3 years</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">TSP with time constraints</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">rodj59</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">somebody
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      major
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="missing milestone"></a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      TSP
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      1.0
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+There is another dimension to the TSP in that constraints may exist as to time intervals during which particular nodes or even arcs must be visited or traversed. There may also exist ordering constraints in respect of subsets of visited nodes.
+</p>
+<p>
+I'm thinking along the lines of dynamically prioritising the nodes &amp; using a constraint satisfaction system which would adjust the costs (distinct from current fields) of arc traversals dynamically in order to satisfy as many of the constraints as possible. There is a process I have used before which simply sums the costs associated with inconsistencies at (inconsistent) conclusion &amp; makes adjustments to priorities to restart the satisfaction cycle in the hope of achieving a more consistent result. The ability of a constraint to force a change in its state is determined by its priority relative the cumulative priority of other constraints either way.
+</p>
+<p>
+This process is essentially void of heuristics, but seems plausible for this task. Does anyone have any alternate ideas for this problem?
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Attachments</h2>
+          <div id="attachments">
+            <dl class="attachments">
+                <dt>
+      <a href="../attachment/ticket/86/tsp_seed_rjm.html" title="View attachment">tsp_seed_rjm.cpp</a>
+      <a href="../raw-attachment/ticket/86/tsp_seed_rjm.cpp" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="2519 bytes">2.5 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-17T19%3A18%3A27%2B0900&amp;precision=second" title="2007-12-17T19:18:27+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dd>
+                  You wouldn't want to use it this way but this is the idea.
+                </dd>
+                <dt>
+      <a href="../attachment/ticket/86/test_data.html" title="View attachment">test_data.sql</a>
+      <a href="../raw-attachment/ticket/86/test_data.sql" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="13495 bytes">13.2 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-20T13%3A26%3A15%2B0900&amp;precision=second" title="2008-04-20T13:26:15+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/86/TSP_mainloop.html" title="View attachment">TSP_mainloop.py</a>
+      <a href="../raw-attachment/ticket/86/TSP_mainloop.py" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="62096 bytes">60.6 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-29T22%3A41%3A30%2B0900&amp;precision=second" title="2008-04-29T22:41:30+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/86/TSP_rjm.html" title="View attachment">TSP_rjm.sql</a>
+      <a href="../raw-attachment/ticket/86/TSP_rjm.sql" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="47533 bytes">46.4 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-29T22%3A43%3A02%2B0900&amp;precision=second" title="2008-04-29T22:43:02+0900 in Timeline">3 years</a> ago.
+    </dt>
+            </dl>
+          </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-17T19%3A16%3A46%2B0900&amp;precision=second" title="2007-12-17T19:16:46+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+Every journey starts with the first step. A quick search yielded the idea that a good starting position is to arrange the path so that at each step, the destination added is the one which is closer to a destination already on the path than any other destination not already on the
+path. This seems to be intuitively what a person would probably do. 
+ 
+<br />
+The mechanism currently used for distance calculations is a bit simplistic. For serious application
+the actual travel distance by road is needed since, for example, rivers with limited crossing points
+may make two destinations appear closer together than they are. My preference,unless there are any better ideas, is to pass a distance calculation function into the tsp() function which it can then use to compute distances.
+<br />
+</p>
+<p>
+A note which should maybe be elsewhere, the gaul functions seem to crash if seeded too often on
+a small dataset, particularly for 3 destinations. I limited it to min(N*(N-1)-1,15) for N destinations.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-17T19%3A18%3A27%2B0900&amp;precision=second" title="2007-12-17T19:18:27+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/86/tsp_seed_rjm.html"><em>tsp_seed_rjm.cpp</em></a>
+              <a href="../raw-attachment/ticket/86/tsp_seed_rjm.cpp" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+You wouldn't want to use it this way but this is the idea.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-05T20%3A52%3A49%2B0900&amp;precision=second" title="2008-04-05T20:52:49+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+TSP_rjm.sql models a typical point-to-point transport operation. Presently only two basic types of job are supported : hourly and point-2-point.
+P2p jobs can be scheduled to overlap. Hourly jobs cannot.
+There is no facility at present for multi-stage point-2-point jobs.
+Presently all changes are made by moving only one destination at a time: hence path_links records must be created for all possibilities(even those not finally consistent).
+This is developers-only quality code.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-20T13%3A26%3A15%2B0900&amp;precision=second" title="2008-04-20T13:26:15+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/86/test_data.html"><em>test_data.sql</em></a>
+              <a href="../raw-attachment/ticket/86/test_data.sql" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-20T13%3A42%3A12%2B0900&amp;precision=second" title="2008-04-20T13:42:12+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+Still not clear whether this is viable. It would be possible to eliminate need for some temporarily inconsistent move options if path segmente of more than one destination at a time were also considered among the options.
+</p>
+<p>
+Concurrency is possible, though probably not at the path_dest node level since backtracking choices are essentially serial: concurrency here invites conflict. The exploration of costs of considered options may benefit more, through a fork &amp; join type of concurrency.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-29T22%3A41%3A30%2B0900&amp;precision=second" title="2008-04-29T22:41:30+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/86/TSP_mainloop.html"><em>TSP_mainloop.py</em></a>
+              <a href="../raw-attachment/ticket/86/TSP_mainloop.py" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-04-29T22%3A43%3A02%2B0900&amp;precision=second" title="2008-04-29T22:43:02+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/86/TSP_rjm.html"><em>TSP_rjm.sql</em></a>
+              <a href="../raw-attachment/ticket/86/TSP_rjm.sql" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-05-02T11%3A47%3A05%2B0900&amp;precision=second" title="2008-05-02T11:47:05+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+I don't have any more time for this. There are some obvious bugs in the last snapshot posted. The need is to make the priority assessment hone in on a solution more rapidly. The other option is to implement similar functions to scale the scoring function in the gaul-based TSP, though I suspect there will be too  much time wasted on futile evolutionary search.
+</p>
+
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/86?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/86?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/86?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("86.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/86 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:16:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

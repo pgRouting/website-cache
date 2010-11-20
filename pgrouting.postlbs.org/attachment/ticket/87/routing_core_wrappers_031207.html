@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/87/routing_core_wrappers_031207.patch by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Attachment – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../../wiki/TracGuide.html" />
+        <link rel="alternate" href="../../../raw-attachment/ticket/87/routing_core_wrappers_031207.patch" type="text/x-diff; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="../../../ticket/87.html" title="Ticket #87" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/diff.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/code.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../../chrome/common/js/diff.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="last first"><a href="../../../ticket/87.html">Back to Ticket #87</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="attachment">
+        <h1><a href="../../../ticket/87.html">Ticket #87</a>: routing_core_wrappers_031207.patch</h1>
+        <table id="info" summary="Description">
+          <tbody>
+            <tr>
+              <th scope="col">
+                File routing_core_wrappers_031207.patch, <span title="3322 bytes">3.2 KB</span>
+                (added by rodj59,  <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-03T20%3A32%3A28%2B0900&amp;precision=second" title="2007-12-03T20:32:28+0900 in Timeline">3 years</a> ago)
+              </th>
+            </tr>
+            <tr>
+              <td class="message searchable">
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="preview" class="searchable">
+    <div class="diff">
+  <ul class="entries">
+      <li class="entry">
+        <h2>
+          <a>.sql</a>
+        </h2>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File /mnt/hd/usr/share/postgresql/routing_core_wrappers.sql 2007-11-24 01:27:52.000000000 +1000">
+                      old
+                  </th>
+                  <th title="File /usr/share/postgresql/routing_core_wrappers_forthem.sql 2007-12-03 21:29:40.000000000 +1000">
+                      new
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>280</th><th>280</th><td class="l"><span>$$</span> </td>
+                  </tr><tr>
+                          <th>281</th><th>281</th><td class="l"><span>DECLARE </span> </td>
+                  </tr><tr>
+                          <th>282</th><th>282</th><td class="l"><span>BEGIN</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>283</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'select update_cost_from_distance('||quote_literal(geom_table) ||',''the_geom'',''length'')';</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>284</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; RETURN;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>285</th><td class="r"><ins>END;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>286</th><td class="r"><ins>$$</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>287</th><td class="r"><ins>LANGUAGE 'plpgsql' VOLATILE STRICT; </ins> </td>
+                  </tr><tr>
+                          <th> </th><th>288</th><td class="r"><ins>CREATE OR REPLACE FUNCTION update_cost_from_distance(geom_table varchar,geocol varchar) </ins> </td>
+                  </tr><tr>
+                          <th> </th><th>289</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp;RETURNS VOID AS</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>290</th><td class="r"><ins>$$</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>291</th><td class="r"><ins>DECLARE </ins> </td>
+                  </tr><tr>
+                          <th> </th><th>292</th><td class="r"><ins>BEGIN</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>293</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'select update_cost_from_distance('||quote_literal(geom_table) ||','||quote_literal(geocol)||',''length'')';</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>294</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; RETURN;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>295</th><td class="r"><ins>END;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>296</th><td class="r"><ins>$$</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>297</th><td class="r"><ins>LANGUAGE 'plpgsql' VOLATILE STRICT; </ins> </td>
+                  </tr><tr>
+                          <th> </th><th>298</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>299</th><td class="r"><ins>CREATE OR REPLACE FUNCTION update_cost_from_distance(geom_table varchar,geocol varchar,geodistfn varchar) </ins> </td>
+                  </tr><tr>
+                          <th> </th><th>300</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp;RETURNS VOID AS</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>301</th><td class="r"><ins>$$</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>302</th><td class="r"><ins>DECLARE </ins> </td>
+                  </tr><tr>
+                          <th> </th><th>303</th><td class="r"><ins>BEGIN</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>304</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'SELECT update_cost_from_distance('||quote_literal(geom_table)||','||quote_literal(geocol)||','||quote_literal(geodistfn)||',''cost'')';</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>305</th><td class="r"><ins>$$</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>306</th><td class="r"><ins>LANGUAGE 'plpgsql' VOLATILE STRICT; </ins> </td>
+                  </tr><tr>
+                          <th> </th><th>307</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>308</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>309</th><td class="r"><ins>CREATE OR REPLACE FUNCTION update_cost_from_distance(geom_table varchar,geocol varchar,geodistfn varchar,costcol varchar) </ins> </td>
+                  </tr><tr>
+                          <th> </th><th>310</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp;RETURNS VOID AS</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>311</th><td class="r"><ins>$$</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>312</th><td class="r"><ins>DECLARE </ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>313</th><td class="r"><ins>BEGIN</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>283</th><th>314</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; BEGIN</span> </td>
+                  </tr><tr>
+                          <th>284</th><th>315</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'CREATE INDEX ' || quote_ident(geom_table) || </span> </td>
+                  </tr><tr>
+                          <th>285</th><th>316</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '_edge_id_idx ON ' || quote_ident(geom_table) || </span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L289">…</a></th>
+                  <th><a href="#L320">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>289</th><th>320</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RAISE NOTICE 'Not creating index, already there';</span> </td>
+                  </tr><tr>
+                          <th>290</th><th>321</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; END;</span> </td>
+                  </tr><tr>
+                          <th>291</th><th>322</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>323</th><td class="r"><ins>&nbsp; &nbsp; BEGIN</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>324</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'ALTER TABLE '||quote_ident(geom_table)||'_edges&nbsp; add column '||quote_ident(costcol)||' double precision';</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>325</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; EXCEPTION</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>326</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WHEN DUPLICATE_COLUMN THEN</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>327</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RAISE NOTICE 'Not creating cost column, already there';</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>328</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; END;</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>292</th><th>329</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'UPDATE ' || quote_ident(geom_table) || </span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>293</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '_edges SET <del>cost = (SELECT sum( length( g.the_geom</del> ) ) FROM ' || </span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>330</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '_edges SET <ins>'||quote_ident(costcol)||' = (SELECT sum( '||quote_ident(geodistfn)||'( g.'||quote_ident(geocol)||'</ins> ) ) FROM ' || </span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>294</th><th>331</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; quote_ident(geom_table) || </span> </td>
+                  </tr><tr>
+                          <th>295</th><th>332</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ' g WHERE g.edge_id = id GROUP BY id)';</span> </td>
+                  </tr>
+            </tbody><tbody class="rem">
+                  <tr class="first">
+                          <th>296</th><th> </th><td class="l"><del></del> </td>
+                  </tr><tr class="last">
+                          <th>297</th><th> </th><td class="l"><del>&nbsp; &nbsp; &nbsp; &nbsp; RETURN;</del> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>298</th><th>333</th><td class="l"><span>END;</span> </td>
+                  </tr><tr>
+                          <th>299</th><th>334</th><td class="l"><span>$$</span> </td>
+                  </tr><tr>
+                          <th>300</th><th>335</th><td class="l"><span>LANGUAGE 'plpgsql' VOLATILE STRICT; </span> </td>
+                  </tr><tr>
+                          <th>301</th><th>336</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>337</th><td class="r"><ins>CREATE OR REPLACE FUNCTION time_wgs84(geom geometry,tname varchar,geocol varchar)</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>338</th><td class="r"><ins>RETURNS DOUBLE PRECISION AS</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>339</th><td class="r"><ins>$$</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>340</th><td class="r"><ins>DECLARE</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>341</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; len DOUBLE PRECISION;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>342</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; speed DOUBLE PRECISION;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>343</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; astxt varchar;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>344</th><td class="r"><ins>BEGIN</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>345</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SELECT length_wgs84(geom) into len;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>346</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SELECT astext(geom) into astxt;&nbsp; -- someone might know a better way to do this ???</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>347</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EXECUTE 'SELECT speed FROM '||quote_ident(tname)||' where astext('||quote_ident(geocol)||') = '||quote_literal(astxt) INTO speed ;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>348</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return (len/1000.0)/speed;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>349</th><td class="r"><ins>END</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>350</th><td class="r"><ins>$$</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>351</th><td class="r"><ins>LANGUAGE 'plpgsql' VOLATILE STRICT;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>352</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>353</th><td class="r"><ins>--</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>354</th><td class="r"><ins>-- A demo only function, neet to specify table name &amp; geometry column name for particlar app.</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>355</th><td class="r"><ins>--</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>356</th><td class="r"><ins>CREATE OR REPLACE FUNCTION time_wgs84(geom geometry)</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>357</th><td class="r"><ins>RETURNS DOUBLE PRECISION AS</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>358</th><td class="r"><ins>$$</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>359</th><td class="r"><ins>DECLARE</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>360</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; ans DOUBLE PRECISION;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>361</th><td class="r"><ins>BEGIN</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>362</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SELECT&nbsp; time_wgs84(geom,'splitroadnet','wkb_geometry') into ans;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>363</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return ans;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>364</th><td class="r"><ins>END</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>365</th><td class="r"><ins>$$</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>366</th><td class="r"><ins>LANGUAGE 'plpgsql' VOLATILE STRICT;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>367</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>368</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>369</th><td class="r"><ins>CREATE OR REPLACE FUNCTION length_wgs84(geom geometry)</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>370</th><td class="r"><ins>RETURNS DOUBLE PRECISION AS</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>371</th><td class="r"><ins>$$</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>372</th><td class="r"><ins>DECLARE</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>373</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; ans DOUBLE PRECISION;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>374</th><td class="r"><ins>BEGIN</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>375</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SELECT st_length_spheroid(geom,'SPHEROID["WGS_1984",6378173,298.257223563]') INTO ans;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>376</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return ans ;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>377</th><td class="r"><ins>END</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>378</th><td class="r"><ins>$$</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>379</th><td class="r"><ins>LANGUAGE 'plpgsql' VOLATILE STRICT;</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>302</th><th>380</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>303</th><th>381</th><td class="l"><span>CREATE TYPE geoms AS</span> </td>
+                  </tr><tr>
+                          <th>304</th><th>382</th><td class="l"><span>(</span> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+  </ul>
+</div>
+        </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="../../../raw-attachment/ticket/87/routing_core_wrappers_031207.patch">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("routing_core_wrappers_031207.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/87/routing_core_wrappers_031207.patch by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

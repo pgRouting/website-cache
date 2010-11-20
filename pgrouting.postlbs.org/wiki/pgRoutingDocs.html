@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/pgRoutingDocs by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      pgRoutingDocs – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/pgRoutingDocs?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/pgRoutingDocs?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/pgRoutingDocs?action=diff&amp;version=41">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <div style="float: right; margin: 1em 1em 1em 2em; width: 27em; font-size: .9em">
+<div style="background-color: #fce4e3; border: 1px solid black; padding: 1em">
+<div style="font-weight: bold">Quick Links:</div>
+<ul style="padding-left:15px">
+<li><a href="pgRoutingDocs.html">Documentation</a> -- Overview</li>
+<ul style="padding-left:25px">
+<li><a href="pgRoutingDocs/installation.html">Installation</a></li>
+<li><a href="pgRoutingDocs/preparation.html">Data Preparation</a></li>
+<li><a href="pgRoutingDocs/processing.html">Data Processing</a></li>
+<li><a href="pgRoutingDocs/output.html">Data Output</a></li>
+<li><a href="pgRoutingDocs/integration.html">Application Integration</a></li>
+<li><a href="tools.html">pgRouting Tools</a></li>
+</ul>
+<li><a href="pgRoutingDownload.html">Downloads</a> -- source code and sample data</li>
+<li><a href="pgRoutingDemo.html">Gallery</a> -- sample applications</li>
+<li><a href="pgRoutingSupport.html">Support</a> -- community and professional support</li>
+</ul>
+</div>
+<div style="background-color: #fce4e3; border: 1px solid black; padding: 1em; margin-top: 1.5em; margin-bottom: 1.5em">
+<div style="font-weight: bold">pgRouting Workshops:</div>
+<ul style="padding-left:15px">
+<li><a href="WorkshopFOSS4G2008.html">Workshop FOSS4G2008</a> [<a href="http://files.postlbs.org/foss4g2008/">downloads</a>]</li>
+<li><a href="WorkshopFOSS4G2007.html">Workshop FOSS4G2007</a> [<a href="http://files.postlbs.org/foss4g2007/">downloads</a>]</li>
+</ul>
+<div style="font-weight: bold">Developer Pages:</div>
+<ul style="padding-left:15px">
+<li><a href="GSoC2009.html">GSoC 2009</a> -- Google Summer of Code 2009</li>
+</ul>
+</div>
+</div>
+<h1 id="pgRoutingDocumentation">pgRouting Documentation</h1>
+<p>
+<a class="wiki" href="ja/pgRoutingDocs.html">日本語</a>
+</p>
+<p>
+Over the years the pgRouting wiki pages changed, increased and often became outdated. For users it seemed to be difficult to find the right information and for authors it was hard to maintain existing pages. So we decided (<a href="../discussion/22/252/921.html#912">http://pgrouting.postlbs.org/discussion/22/252/921#912</a>) to restructure the pgRouting documentation pages.
+</p>
+<p>
+The idea behind this layout is to collect short articles and recipies, that may help to solve common use cases.
+</p>
+<p>
+This is a community wiki, so feel free to add new wiki pages or edit existing one.<br />
+If you think something is wrong, hack the wiki!
+</p>
+<h2 id="TableofContents">Table of Contents</h2>
+<ul><li><a class="wiki" href="pgRoutingDocs/installation.html">Installation</a>
+</li></ul><ul><li><a class="wiki" href="pgRoutingDocs/preparation.html">Data preparation</a>
+<ul><li><a class="missing wiki">Import network data?</a>
+</li><li><a class="wiki" href="pgRoutingDocs/preparation/topology.html">Topology creation</a>
+</li><li><a class="wiki" href="pgRoutingDocs/preparation/validation.html">Data validation</a>
+</li></ul></li></ul><ul><li><a class="missing wiki">Data processing?</a>
+<ul><li><a class="missing wiki">Shortest Path algorithms?</a>
+<ul><li><a class="wiki" href="Dijkstra.html">Shortest Path Dijkstra</a> -- routing without heuristics
+</li><li><a class="wiki" href="AStar.html">Shortest Path A*</a> -- routing for large data sets (with heuristics)
+</li><li><a class="wiki" href="ShootingStar.html">Shortest Path Shooting Star</a> -- routing with turn restrictions
+</li><li><a class="wiki" href="TravellingSalesPerson.html">Traveling Sales person Problem solver (TSP)</a>
+</li><li><a class="wiki" href="DrivingDistance.html">Driving Distance calculation</a> 
+</li></ul></li><li><a class="missing wiki">Basic recipies?</a>
+</li><li><a class="wiki" href="pgRoutingDocs/processing/advanced.html">Advanced recipies</a>
+</li><li><a class="wiki" href="pgRoutingDocs/processing/database.html">PostgreSQL/PostGIS tips and tricks </a>
+</li></ul></li></ul><ul><li><a class="missing wiki">Data output?</a>
+<ul><li><a class="missing wiki">Post processing?</a>
+</li><li><a class="missing wiki">Driving directions?</a>
+</li></ul></li></ul><ul><li><a class="missing wiki">Application integration?</a>
+<ul><li><a class="missing wiki">OpenLayers?</a>
+</li><li><a class="wiki" href="MapServer.html">Mapserver</a>
+</li></ul></li></ul><ul><li><a class="wiki" href="tools.html">pgRouting tools</a>
+<ul><li><a class="wiki" href="tools/WebRoutingService.html">WebRoutingService</a>
+</li><li><a class="wiki" href="tools/osm2pgrouting.html">osm2pgrouting</a>
+</li></ul></li></ul><ul><li><a class="wiki" href="workshops.html">Workshops &amp; Tutorials</a>
+</li><li><a class="missing wiki">References &amp; Links?</a>
+</li></ul>
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/pgRoutingDocs?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("pgRoutingDocs.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/pgRoutingDocs by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

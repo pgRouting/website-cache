@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/1.x/InstallationManual by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      1.x/InstallationManual – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/1.x/InstallationManual?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../1.html" title="View parent page" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../1.html">Up</a></li><li><a href="../WikiStart.html">Start Page</a></li><li><a href="../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/1.x/InstallationManual?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/1.x/InstallationManual?action=diff&amp;version=11">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View 1.x" href="../1.html">1.x</a><span class="pathentry sep">/</span><a class="pathentry" title="View 1.x/InstallationManual" href="InstallationManual.html">InstallationManual</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="InstallationManual">Installation Manual</h1>
+<h2 id="Step1:Librariesinstallation">Step 1: Libraries installation</h2>
+<p>
+Compile and install PostgreSQL, PostGIS, Proj, GEOS, BGL and GAUL. Usually it is enough to execute:
+</p>
+<pre class="wiki"># ./configure 
+# make 
+# make install
+</pre><p>
+in corresponding directory.
+</p>
+<p>
+If you have BGL installed but the version is less than 1.33.0, just download the astar.hpp file from <a class="ext-link" href="http://www.boost.org/boost/graph/astar_search.hpp"><span class="icon"> </span>http://www.boost.org/boost/graph/astar_search.hpp</a> and copy it to <i>BOOST_PATH/graph</i> directory.
+</p>
+<h3 id="ForTravelingSalespersonProblemoptional">For Traveling Salesperson Problem  [optional]</h3>
+<p>
+The GAUL library should be compiled with --enable-slang=no option. Otherwise make sure you have slang.h installed in <i>/usr/include</i>. For more details please refer to corresponding <i>README</i> or <i>INSTALL</i> file.
+</p>
+<pre class="wiki"># ./configure --disable-slang
+</pre><h3 id="ForDrivingDistanceoptional">For Driving Distance [optional]</h3>
+<p>
+For CGAL, the compile option below can be used to create the library:
+</p>
+<pre class="wiki"># ./install_cgal --prefix=/usr --with-boost=n --without-autofind -ni /usr/bin/g++
+</pre><h4 id="CGALneedsspecialtreatment">CGAL needs special treatment!</h4>
+<p>
+After you install CGAL, you need to locate the directory with CGAL header files. In that directory you need to find <i>config</i> subdirectory.
+This directory contains one or more subdirectories with platform-dependent information.<br />
+It may look like this, for example:
+</p>
+<pre class="wiki">/
+|
++- usr
+  |
+  +- include
+     |
+     +- CGAL
+        |
+        +- config
+           |
+           +- i686_Linux-2.6_g++4.1.1
+           |  |
+           |  +- CGAL
+           |     |
+           |     +- compiler_config.h   &lt;&lt;&lt; this is the file you need
+           |
+           +- msvc7
+           |  |
+           |  +- CGAL
+           |     |
+           |     +- compiler_config.h
+           |
+          etc...
+</pre><p>
+ 
+All you need to do is to choose <i>compiler_config.h</i> for your platform and make a symlink or copy it to the main headers directory.<br />
+For example:
+</p>
+<pre class="wiki"># ln -s /usr/include/CGAL/config/i686_Linux-2.6_g++4.1.1/compiler_config.h /usr/include/CGAL/compiler_config.h
+</pre><h2 id="Step2:CompilingthepgRoutinglibrary">Step 2: Compiling the pgRouting library</h2>
+<ol><li><a class="wiki" href="../pgRoutingDownload.html">Get pgRouting source</a>
+</li><li>Change to pgRouting directory
+</li><li>Compile and install pgRouting
+</li></ol><ul><li>For pgRouting core (required)
+<pre class="wiki">cmake .
+make
+make install
+</pre></li></ul><ul><li>For pgRouting extras (optional)
+<pre class="wiki"># Add Traveling Salesperson functionality:  -DWITH_TSP=ON
+# Add Driving Distance functionality     :  -DWITH_DD=ON
+
+cmake -DWITH_TSP=ON -DWITH_DD=ON .
+make
+make install
+</pre></li></ul><p>
+If your program compiles but you get an error like the following one:
+</p>
+<pre class="wiki">error while loading shared libraries: libgaul.so.0: cannot open shared object file: No such file or directory
+</pre><ol><li>Add the library path (ie. /usr/local/pgsql/lib) to /etc/ld.co.conf
+</li><li>Run ldconfig
+</li></ol><p>
+Maybe you installeb PostgreSQL from Source-code, while compiling pgRouting you might get an error like
+</p>
+<pre class="wiki">  Output directory for libraries is set to sh: pg_config: command not found 
+  ....
+  ....ERROR: could not access file "$libdir/librouting
+</pre><p>
+Then you need to type at the shell-console:
+</p>
+<pre class="wiki">  export PATH="$PATH:/usr/local/pgsql/bin"
+</pre><p>
+....presuming you installed PostgreSQL at /usr/local/pgsql/bin
+</p>
+<h2 id="Step3:CreatearoutingdatabaseandloadPostGISandpgRoutingfunctions">Step 3: Create a routing database and load PostGIS and pgRouting functions</h2>
+<ol><li>Create a routing database and load PostGIS
+<pre class="wiki">createdb -U postgres -E UNICODE routing
+createlang -U postgres plpgsql routing
+
+psql -U postgres -f /path/to/postgis/lwpostgis.sql routing
+psql -U postgres -f /path/to/postgis/spatial_ref_sys.sql routing
+</pre></li></ol><ol start="2"><li>Add pgRouting core functions (required)
+<pre class="wiki">psql -U postgres -f /usr/share/postlbs/routing_core.sql routing
+psql -U postgres -f /usr/share/postlbs/routing_core_wrappers.sql routing
+</pre></li></ol><ol start="3"><li>Add pgRouting extra functions (optional)
+<pre class="wiki"># With TSP
+psql -U postgres -f /usr/share/postlbs/routing_tsp.sql routing
+psql -U postgres -f /usr/share/postlbs/routing_tsp_wrappers.sql routing
+
+# With Driving Distance
+psql -U postgres -f /usr/share/postlbs/routing_dd.sql routing
+psql -U postgres -f /usr/share/postlbs/routing_dd_wrappers.sql routing
+</pre></li></ol>
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/1.x/InstallationManual?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("InstallationManual.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/1.x/InstallationManual by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

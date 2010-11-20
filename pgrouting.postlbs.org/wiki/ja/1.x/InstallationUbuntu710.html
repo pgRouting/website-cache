@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/ja/1.x/InstallationUbuntu710 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      ja/1.x/InstallationUbuntu710 – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/ja/1.x/InstallationUbuntu710?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="../1.html" title="View parent page" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../1.html">Up</a></li><li><a href="../../WikiStart.html">Start Page</a></li><li><a href="../../TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/ja/1.x/InstallationUbuntu710?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/ja/1.x/InstallationUbuntu710?action=diff&amp;version=2">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <a class="pathentry" title="View ja" href="../../ja.html">ja</a><span class="pathentry sep">/</span><a class="pathentry" title="View ja/1.x" href="../1.html">1.x</a><span class="pathentry sep">/</span><a class="pathentry" title="View ja/1.x/InstallationUbuntu710" href="InstallationUbuntu710.html">InstallationUbuntu710</a>
+        <br style="clear: both" />
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="Ubuntu7.10Betaへのインストール">Ubuntu 7.10 Beta へのインストール</h1>
+<h2 id="a1.必要なパッケージのインストール">1. 必要なパッケージのインストール</h2>
+<pre class="wiki">sudo apt-get install build-essential subversion cmake
+sudo apt-get install libboost-graph*
+sudo apt-get install postgresql-8.2-postgis postgresql-server-dev-8.2 
+</pre><h2 id="a2.pgRoutingコア機能のコンパイル拡張機能なし">2. pgRoutingコア機能のコンパイル(拡張機能なし)</h2>
+<pre class="wiki">svn checkout http://pgrouting.postlbs.org/svn/pgrouting/tags/release-1.0 pgrouting
+
+cd pgrouting/
+sudo cmake .
+sudo make
+</pre><h2 id="a3.PostgreSQLのセットアップ">3. PostgreSQLのセットアップ</h2>
+<p>
+pg_hba.confファイルのlocal部分について、ident sameuserとなっている箇所をtrustに変更し、postgresユーザがローカル・データベースへの接続を行えるようにしてください。また設定を反映させるためにPostgreSQLを再起動してください。
+</p>
+<pre class="wiki">sudo gedit /etc/postgresql/8.2/main/pg_hba.conf 
+sudo /etc/init.d/postgresql-8.2 restart
+</pre><h2 id="a4.経路探索用データベースの作成">4. 経路探索用データベースの作成</h2>
+<pre class="wiki">createdb -U postgres routing
+createlang -U postgres plpgsql routing
+
+# PostGIS機能を検索用データベースに追加
+psql -U postgres -f /usr/share/postgresql-8.2-postgis/lwpostgis.sql routing
+psql -U postgres -f /usr/share/postgresql-8.2-postgis/spatial_ref_sys.sql routing
+
+# pgRouting機能を検索用データベースに追加
+psql -U postgres -f /usr/share/postlbs/routing_core.sql routing
+psql -U postgres -f /usr/share/postlbs/routing_core_wrappers.sql routing
+</pre>
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/ja/1.x/InstallationUbuntu710?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("InstallationUbuntu710.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/ja/1.x/InstallationUbuntu710 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:00:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

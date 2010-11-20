@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/100 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/17.html" title="astar">astar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>astar (#17) - Pgrouting 1.01 and shortest_path_astar2_as_geometry_internal_id (#100) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Pgrouting 1.01 and shortest_path_astar2_as_geometry_internal_id
+            </div>
+            <div class="body">
+              <p>
+Dear forum,
+</p>
+<p>
+it looks like that I have now enough time to get deeper in pgrouting and -hopefully- to be able to contribute to that project in a couple of month, in context of my dissertation.
+But by now I`m still a -more or less- Newbie......
+</p>
+<p>
+I try to use the following application:
+<a class="ext-link" href="http://www.tourismus-maps.de/behncke/routing_php/phtmls/routing_os_frida.phtml"><span class="icon"> </span>http://www.tourismus-maps.de/behncke/routing_php/phtmls/routing_os_frida.phtml</a>
+</p>
+<p>
+that works with the function:
+$sql="the_geom from (select gid, the_geom from ".
+</p>
+<blockquote>
+<p>
+"shortest_path_astar2_as_geometry_internal_id('fridastreets', ".
+$start.", ".$end.", ".$ll_x.", ".$ll_y.", ".$ur_x.", ".
+$ur_y.")) as g using unique gid using SRID=-1";
+</p>
+</blockquote>
+<p>
+that comes from that tutorial:
+<a class="ext-link" href="http://www.selbstverwaltung-bundesweit.de/mapserver/tutorial_routing_mapserver.zip"><span class="icon"> </span>http://www.selbstverwaltung-bundesweit.de/mapserver/tutorial_routing_mapserver.zip</a>
+</p>
+<p>
+But in my case I dont<tt>t work with Windows (it</tt>s Debian now) and it`s pgrouting
+1.01.
+</p>
+<p>
+Obviously there is no function like "shortest_path_astar2_as_geometry_internal_id" anomyore so I get an error message.
+</p>
+<p>
+How can I visualize now the routes?
+I mean, if I use something like:
+</p>
+<p>
+SELECT * FROM shortest_path_astar('SELECT gid AS id, source::int4,
+</p>
+<blockquote>
+<p>
+target::int4, length::double precision AS cost, x1, y1, x2, y2
+</p>
+</blockquote>
+<blockquote>
+<p>
+FROM dourol',3, 7, false, false);
+</p>
+</blockquote>
+<p>
+I get:
+</p>
+<blockquote>
+<p>
+vertex_id | edge_id | cost
+</p>
+</blockquote>
+<hr />
+<blockquote>
+<blockquote>
+<p>
+3 |       2 |    0.000763954363701041
+4 |      21 |    0.00150254971056274
+6 |       5 |    0.000417442425988342
+7 |      -1 |    0
+</p>
+</blockquote>
+</blockquote>
+<p>
+But for UMN <a class="wiki" href="../../wiki/MapServer.html">MapServer</a> I need at least "the_geom" with the geometry to visualize???
+</p>
+<p>
+Is there a way to change "shortest_path_astar2_as_geometry_internal_id" to another funtion that gives me the geometry???
+</p>
+<p>
+Thank you again.....
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            01/18/08 22:55:57 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/100?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/100?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message383"></a>
+        <div class="id">
+          Message #383
+        </div>
+        <div class="body">
+            <p>
+I tried to put the function from the source of pgRouting 1.0.0a in my database:
+</p>
+<p>
+CREATE OR REPLACE FUNCTION shortest_path_astar2_as_geometry_internal_id(
+</p>
+<blockquote>
+<p>
+varchar,int4, int4, float8, float8, float8, float8)
+RETURNS SETOF GEOMS AS
+</p>
+</blockquote>
+<p>
+$$
+DECLARE
+</p>
+<blockquote>
+<p>
+geom_table ALIAS FOR $1;
+sourceid ALIAS FOR $2;
+targetid ALIAS FOR $3;
+ll_x ALIAS FOR $4;
+ll_y ALIAS FOR $5;
+ur_x ALIAS FOR $6;
+ur_y ALIAS FOR $7;
+</p>
+</blockquote>
+<blockquote>
+<p>
+rec record;
+r record;
+path_result record;
+v_id integer;
+e_id integer;
+geom geoms;
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<p>
+srid integer;
+</p>
+</blockquote>
+<p>
+BEGIN
+</p>
+<blockquote>
+<p>
+FOR path_result IN EXECUTE 'SELECT gid,the_geom FROM '
+</p>
+<blockquote>
+<p>
+'shortest_path_astar2_as_geometry_internal_id_directed(<strong>
+</strong></p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+quote_ident(geom_table) <td> <strong>, ' </td><td> quote_literal(sourceid) </td><td> ', '
+</strong></p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+quote_literal(targetid) <td> ', ' </td><td> ll_x </td><td> ', ' </td><td> ll_y </td><td> ', '
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+ur_x <td> ', ' </td><td> ur_y </td><td> ', false, false)'
+</p>
+</blockquote>
+<p>
+LOOP
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+geom.gid      := path_result.gid;
+geom.the_geom := path_result.the_geom;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+RETURN NEXT geom;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+END LOOP;
+RETURN;
+</p>
+</blockquote>
+<p>
+END;
+$$
+LANGUAGE 'plpgsql' VOLATILE STRICT;
+</p>
+<p>
+But I still get the error message that the function doesn`t exist???
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            01/18/08 23:10:19 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message397"></a>
+        <div class="id">
+          Message #397
+        </div>
+        <div class="body">
+            <p>
+To the question how to visualize the routes:
+</p>
+<p>
+In <a class="wiki" href="../../wiki/MapServer.html">MapServer</a> it works like:
+DATA "the_geom from (SELECT gid, the_geom FROM astar_sp_delta('fridastreets', 5846, 4504, 3000)) as foo using unique gid using srid=-1"
+</p>
+<p>
+Of course its possible to write an own function with Pg/pgsql.
+I did like:
+</p>
+<p>
+CREATE OR REPLACE function give_me_geom(varchar,int,int)
+RETURNS SETOF GEOMS AS
+$$
+DECLARE
+table_name ALIAS FOR $1;
+source_id ALIAS FOR $2;
+target_id ALIAS FOR $3;
+id int;
+edge_id int;
+query text;
+pg_query record;
+r record;
+geom geoms;
+</p>
+<p>
+BEGIN
+id:=0;
+edge_id:=0;
+</p>
+<blockquote>
+<p>
+query := 'SELECT * FROM '
+</p>
+<blockquote>
+<p>
+'shortest_path_astar(<i>SELECT gid as id, source::integer, '
+'target::integer, length::double precision as cost, '
+'x1::double precision, y1::double precision, x2::double '
+'precision, y2::double precision '
+</i></p>
+<blockquote>
+<p>
+'FROM '
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+quote_ident(table_name)<td><strong>,'</td><td>source_id</td><td>','</td><td>target_id</td><td>',false,false)';
+</strong></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+</p>
+<p>
+FOR pg_query IN EXECUTE query LOOP
+</p>
+<blockquote>
+<p>
+edge_id:=pg_query.edge_id;
+</p>
+</blockquote>
+<blockquote>
+<p>
+FOR r IN EXECUTE 'SELECT gid,the_geom FROM '
+</p>
+<blockquote>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+quote_ident(table_name) <td> ' WHERE gid ='</td><td>edge_id</td><td><i> LOOP
+</i></p>
+<blockquote>
+<p>
+geom.gid := r.gid;
+</p>
+</blockquote>
+<p>
+geom.the_geom := r.the_geom;
+</p>
+<blockquote>
+<p>
+id := id+1;
+</p>
+<blockquote>
+<p>
+geom.id := id;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+RETURN NEXT geom;
+</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+END LOOP;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+END LOOP;
+</p>
+</blockquote>
+<p>
+RETURN;
+</p>
+<p>
+END;
+$$
+LANGUAGE 'plpgsql';
+</p>
+<p>
+.....and then
+DATA "the_geom from (SELECT gid, the_geom FROM give_me_geom('fridastreets', 5846, 4504) as foo using unique gid using srid=-1"
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            01/27/08 23:28:53 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message578"></a>
+        <div class="id">
+          Message #578
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+I have try to do tutorial : <a class="ext-link" href="http://www.selbstverwaltung-bundesweit.de/mapserver/tutorial_routing_mapserver.zip"><span class="icon"> </span>http://www.selbstverwaltung-bundesweit.de/mapserver/tutorial_routing_mapserver.zip</a>
+</p>
+<p>
+I have problems when run routing_os_frida.phtml because to appear error :
+Warning: <a class="wiki" href="../../wiki/MapServer.html">Error</a>: msDrawMap(): Failed to draw layer named 'path'. in C:\ms4w\Apache\htdocs\baru\phtmls\routing_os_frida.phtml on line 62
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+Warning: <a class="wiki" href="../../wiki/MapServer.html">Error</a>: msPOSTGISLayerWhichShapes(): Error executing POSTGIS SQL statement (in FETCH ALL): DECLARE mycursor BINARY CURSOR FOR SELECT asbinary(force_collection(force_2d(the_geom)),'NDR'),gid::text from (select gid, the_geom from shortest_path_astar2_as_geometry_internal_id('fridastreets', 7750, 5264, 3427000.25, 5785733.375, 3444004, 5802737.125)) as g WHERE the_geom &amp;&amp; setSRID('BOX3D(3427000.25 5785733.375,3444004 5802737.125)'::BOX3D, -1 ) -ERROR: operator does not exist: text <td> boolean LINE 1: ...l( $8 ) </td><td> ' , ' </td><td> quote_literal( $9 ) </td><td> ' , <strong></td><td> $10 </td><td>'... <sup> HINT: No operator matches the given name and argument type(s). You may need to add explicit type casts. QUERY: SELECT $1 </td><td> 'FROM ' </td><td> quote_ident( $2 ) </td><td> ' where setSRID(</sup></strong><sup>'BOX3D('</td><td> $3 </td><td>' '</td><td> $4 </td><td>','</td><td> $5 </td><td>' '</td><td> $6 </td><td>')<strong>'::BOX3D, ' </td><td> $7 </td><td> ') &amp;&amp; the_geom<i>, ' </td><td> quote_literal( $8 ) </td><td> ' , ' </td><td> quote_literal( $9 ) </td><td> ' , </i></strong><i></td><td> $10 </td><td><strong>, </strong></td><td> $11 </td><td><strong> ),' </td><td> in C:\ms4w\Apache\htdocs\baru\phtmls\routing_os_frida.phtml on line 62
+</strong></i></sup></p>
+<p>
+Fatal error: Call to a member function saveWebImage() on a non-object in C:\ms4w\Apache\htdocs\baru\phtmls\routing_os_frida.phtml on line 63
+</p>
+<p>
+I use work with Windows, pgRouting-1.0.0.a-0_win32, postgre 8.2.5 and  postgis-pg82-setup-1.3.3-1
+</p>
+<p>
+Thanks
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yuni
+          </div>
+          <div class="time">
+            08/25/08 14:22:39 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/100?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/100?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

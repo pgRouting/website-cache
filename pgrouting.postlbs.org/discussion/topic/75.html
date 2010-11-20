@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/75 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/20.html" title="tsp">tsp</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>tsp (#20) - using routing_tsp on linux (#75) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              using routing_tsp on linux
+            </div>
+            <div class="body">
+              <p>
+HI all
+</p>
+<p>
+when i install pgrouting with tsp module on linux, i have to change '$libdir/routing_tsp' to '$libdir/librouting_tsp' and move the librouting_tsp.so from /usr/lib to /usr/lib/pgsql (is that correct????).
+</p>
+<p>
+After this, when i try to run the routing_tsp.sql, i have the following message:
+</p>
+<blockquote>
+<p>
+psql -U postgres -f /usr/share/postlbs/routing_tsp.sql  routing
+</p>
+</blockquote>
+<p>
+psql:/usr/share/postlbs/routing_tsp.sql:28: ERROR:  could not load library "/usr/lib/pgsql/librouting_tsp.so": /usr/lib/pgsql/librouting_tsp.so: undefined symbol: ga_select_one_randomrank
+</p>
+<p>
+I already tried on ubuntu 7.10 and fedora 8 and i got the same error. Any idea on how to fix this error?
+</p>
+<p>
+Bughi.
+</p>
+<p>
+ps. sorry about my poor english. ;-)
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            bughi
+          </div>
+          <div class="time">
+            12/08/07 03:44:05 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/75?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/75?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message276"></a>
+        <div class="id">
+          Message #276
+        </div>
+        <div class="body">
+            <p>
+Which version of pgRouting are you using?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            12/08/07 13:02:04 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message281"></a>
+        <div class="id">
+          Message #281
+        </div>
+        <div class="body">
+            <p>
+I´ve exactly the same problem with "tsp":
+</p>
+<p>
+I´m using the following system and libs:
+</p>
+<p>
+opensuse-10.3
+</p>
+<p>
+postgresql-8.2.4
+</p>
+<p>
+postgis-1.3.2
+</p>
+<p>
+pgrouting-1.0
+</p>
+<p>
+boost(-devel)-1.33.1
+</p>
+<p>
+CGAL-3.2.1
+</p>
+<p>
+gaul-devel-0.1849-0
+</p>
+<p>
+With "dd" I´ve the following error, when I want to load the routing_dd.sql in my database:
+</p>
+<p>
+ERROR:  could not load library "/usr/lib/postgresql/librouting_dd.so": /usr/lib/postgresql/librouting_dd.so: undefined symbol: _ZN4CGALmiERKNS_8MP_FloatES2_
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            charon
+          </div>
+          <div class="time">
+            12/10/07 02:17:11 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1005"></a>
+        <div class="id">
+          Message #1005
+        </div>
+        <div class="body">
+            <p>
+I have a problem that could be similar.
+I can't find the library, but I'm sure I installed everything following the instruction for installation in ubuntu 9.04
+</p>
+<p>
+I do have the library librouting.sql, but not librouting_tsp.sql. Should I reinstall the TSP module?
+</p>
+<p>
+So, I use
+postgresql 8.3
+</p>
+<p>
+postgis 1.3.6
+</p>
+<p>
+pgrouting 1.03
+</p>
+<p>
+and I got the TSP from <a class="ext-link" href="http://downloads.sourceforge.net/gaul/gaul-devel-0.1849-0.tar.gz"><span class="icon"> </span>http://downloads.sourceforge.net/gaul/gaul-devel-0.1849-0.tar.gz</a> modtime=1114163427&amp;big_mirror=0
+</p>
+<p>
+so... any help will be very welcome.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ezquieta
+          </div>
+          <div class="time">
+            08/06/09 04:34:14 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1006"></a>
+        <div class="id">
+          Message #1006
+        </div>
+        <div class="body">
+            <p>
+Did you do as described here?<br />
+<a href="../../wiki/1.x/InstallationUbuntu904.html">http://pgrouting.postlbs.org/wiki/1.x/InstallationUbuntu904</a>
+</p>
+<p>
+It should work without problems. Did compile with TSP flag on?
+</p>
+<pre class="wiki">cmake -DWITH_TSP=ON
+</pre>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            08/06/09 09:22:19 (16 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/75?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/75?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

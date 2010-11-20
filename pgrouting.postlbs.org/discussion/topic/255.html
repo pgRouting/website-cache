@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/255 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/23.html" title="data">data</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>data (#23) - How to prepare road data before running assign_vertex_id (#255) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              How to prepare road data before running assign_vertex_id
+            </div>
+            <div class="body">
+              <p>
+Hi,
+I'm pretty new to everything geospatial related but been asked to get pgRouting to work with some road data I have for West Africa.
+</p>
+<p>
+Am I right in thinking that before I run assign_vertex_id I need to process my data so that all intersections are the junction of three or more lines i.e. if two roads AB and CD intersect in their middle at a point E then I need to replace them by 4 segments AE, EB, CE and ED before I can run one of the routing algorithms on them?
+</p>
+<p>
+And if this is so, what would be the best way of doing so (also need to keep all the attributes such as one-way information and road class on the new road segments) ?
+</p>
+<p>
+Any help would be much appreciated,
+</p>
+<p>
+Thanks
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            okouam
+          </div>
+          <div class="time">
+            04/27/09 01:01:18 (19 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/255?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/255?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message910"></a>
+        <div class="id">
+          Message #910
+        </div>
+        <div class="body">
+            <p>
+Look here: <a href="../../wiki/WorkshopFOSS4G2008/ch06.html#Createnetworktopology">http://pgrouting.postlbs.org/wiki/WorkshopFOSS4G2008/ch06#Createnetworktopology</a>
+</p>
+<p>
+If your network consists of linestrings (with geometry) you need to add source and target column. Then you can run the topology query. If your linestrings are badly digitalized you can increase the "tolerance" value to snap even start and end points of lines that are very close to each other but not connected.
+</p>
+<p>
+Which attributes you need depends on which algorithm you use. You can keep all attributes in one table, but you can also link to another table. I think it's a good idea to try the FOSS4G 2008 workshop once. It might answer many questions.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/27/09 16:24:53 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message915"></a>
+        <div class="id">
+          Message #915
+        </div>
+        <div class="body">
+            <p>
+Hi Daniel,
+</p>
+<p>
+Thanks for getting back to me, I went through the workshop but still
+unclear about how the initial dataset has to be presented. I think an
+example might make it clearer, not sure I've explained it properly.
+</p>
+<p>
+Say you have 2 linestrings  (-1 0, 1 0) and (0 1, 0 -1). They both
+intersect at (0 0) but will the topology query pick this up and create
+a vertex at (0 0) as well as new edges thus allowing me to find a
+route from (-1 0) to (0 -1)?
+</p>
+<p>
+Or do I need to replace the 2 original linestrings by 4 new
+linestrings (-1 0, 0 0), (0 1, 0 0), (1 0, 0 0) and (0 -1, 0 0) thus
+allowing the topology query to identify the vertex at (0 0)?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            okouam
+          </div>
+          <div class="time">
+            04/27/09 20:48:57 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message917"></a>
+        <div class="id">
+          Message #917
+        </div>
+        <div class="body">
+            <p>
+Hi Daniel,
+</p>
+<p>
+After some lucky googling (I was looking for something else entirely!) I found the answer I was looking for - <a class="ext-link" href="http://www.mail-archive.com/geotools-gt2-users@lists.sourceforge.net/msg00374.html"><span class="icon"> </span>http://www.mail-archive.com/geotools-gt2-users@lists.sourceforge.net/msg00374.html</a>. I guess my next question would be is there a script out there that splits the roads at intersections for me (while keeping attribute information, I'm trying to do it through <a class="missing wiki">OpenJump?</a> but lose all attribute information in the new layer and for some weird reason matching up the original and new layers just doesn't work)?
+</p>
+<p>
+Thanks again,
+Ollie
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            okouam
+          </div>
+          <div class="time">
+            04/28/09 06:41:53 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message919"></a>
+        <div class="id">
+          Message #919
+        </div>
+        <div class="body">
+            <p>
+Hi Ollie,
+</p>
+<p>
+It's a bit difficult to give a proper answer without knowing about your data.
+</p>
+<ul><li>If your data comes in Shape file format for example, you can use shp2psql to import the data into your database and you will get the linestring geometries automatically. Then you can run the assign_vertex_id function to create the topology.
+</li><li>If you use <a class="missing wiki">OpenStreetMap?</a> data for example, you can use the osm2pgrouting import tool and it will parse the XML, and you will end up with tables ready to use for pgRouting.
+</li></ul><p>
+I'm not sure how your data looks like. If you already have topology information (start ID and end ID) for each linestring you can use Dijkstra  algorithm even without running that topology function.<br />
+What this function actually does is, it takes start and end point of each of your linestrings and looks for other linestrings that have start/end at the same point or very close (tolerance), so they will then get the same ID assigned.
+</p>
+<p>
+Did this help? If not, you could post some of your data in the mailing list for example.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/28/09 09:20:31 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/255?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/255?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

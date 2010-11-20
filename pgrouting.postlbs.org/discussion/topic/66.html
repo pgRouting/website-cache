@@ -1,0 +1,813 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/66 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/22.html" title="demo">demo</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>demo (#22) - Shooting Star Tutorial (#66) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Shooting Star Tutorial
+            </div>
+            <div class="body">
+              <p>
+Hi,
+</p>
+<p>
+I am trying to get the hang of using pgRouting with my data. My first problem would be how can I get the x1,x2,y1,y2 values please? Are these the values displayed at the lower left area of QGis? The map extents? Should I give of the small edge that covers both points which the route is to be planned upon?
+</p>
+<p>
+Also how can I change my VERTEX point of the locations (using two firestations which are next to each other) to an integer type to use as source / target locations please?
+</p>
+<p>
+This is the info of firestation 1 - with building code 294 :
+56;56;0;"RFD <a class="assigned ticket" href="../../ticket/1.html" title="feature request: TSP should return to start point (assigned)">#1</a>";"220 S. Dawson St";"Raleigh";"M";2;0;0;0.000000000000000;0;1;0;0;0;1;"294";"RF";"RF01";58.000000000000000;"RF01";0.000000000000000;"0101000000753AE358169623415BAB9023D1760B41"
+And when I use astext for the the_geom : "POINT(641803.173608615 224986.142365779)"
+</p>
+<p>
+And this is for firestation 2 - with blgd code 264 :
+25;25;0;"RFD <a class="closed ticket" href="../../ticket/3.html" title="task: Create Wiki pages (closed: fixed)">#3</a>";"13 S. East St";"Raleigh";"M";1;0;0;0.000000000000000;0;0;1;0;0;1;"264";"RF";"RF03";27.000000000000000;"RF03";0.000000000000000;"0101000000214E7B95689E23415F6B2E505A7D0B41"
+And when I use astext() for the the_geom : "POINT(642868.291956369 225195.289151038)"
+</p>
+<p>
+Thanks alot beforehand for the time to read this post :)
+</p>
+<p>
+Regards
+</p>
+<p>
+Matthew
+</p>
+<hr />
+<p>
+This is the scheme of my streets table :
+</p>
+<p>
+-- Table: streets
+</p>
+<p>
+-- DROP TABLE streets;
+</p>
+<p>
+CREATE TABLE streets
+(
+</p>
+<blockquote>
+<p>
+gid serial NOT NULL,
+cat bigint,
+stseg bigint,
+stid bigint,
+stname character varying(80),
+dir_pre character varying(80),
+dir_suf character varying(80),
+stype character varying(80),
+"class" bigint,
+f_elev bigint,
+t_elev bigint,
+map character varying(80),
+priv character varying(80),
+frleft bigint,
+toleft bigint,
+frright bigint,
+toright bigint,
+frleft_a bigint,
+toleft_a bigint,
+frright_a bigint,
+toright_a bigint,
+stateroad bigint,
+cartoname character varying(80),
+corp character varying(80),
+speed bigint,
+one_way character varying(80),
+classname character varying(80),
+l_zipname character varying(80),
+r_zipname character varying(80),
+ft_cost numeric,
+tf_cost numeric,
+labelname character varying(80),
+f_node bigint,
+t_node bigint,
+cartolevel character varying(80),
+shape_len numeric,
+the_geom geometry,
+CONSTRAINT streets_pkey PRIMARY KEY (gid),
+CONSTRAINT enforce_dims_the_geom CHECK (ndims(the_geom) = 2),
+CONSTRAINT enforce_geotype_the_geom CHECK (geometrytype(the_geom) = 'MULTILINESTRING'::text OR the_geom IS NULL),
+CONSTRAINT enforce_srid_the_geom CHECK (srid(the_geom) = -1)
+</p>
+</blockquote>
+<p>
+)
+WITHOUT OIDS;
+ALTER TABLE streets OWNER TO yancho;
+</p>
+<p>
+And this is for my firestations table / layer :
+- Table: firestations
+</p>
+<p>
+-- DROP TABLE firestations;
+</p>
+<p>
+CREATE TABLE firestations
+(
+</p>
+<blockquote>
+<p>
+gid serial NOT NULL,
+cat bigint,
+id bigint,
+label character varying(80),
+"location" character varying(80),
+city character varying(80),
+mun_count character varying(80),
+pumpers bigint,
+pumper_tan bigint,
+tanker bigint,
+mini_pumpe numeric,
+rescue_ser bigint,
+aerial bigint,
+brush bigint,
+others bigint,
+water_resc bigint,
+muncoid bigint,
+bldgcode character varying(80),
+agency character varying(80),
+stationid character varying(80),
+recno numeric,
+cv_sid2 character varying(80),
+cvlag numeric,
+the_geom geometry,
+CONSTRAINT firestations_pkey PRIMARY KEY (gid),
+CONSTRAINT enforce_dims_the_geom CHECK (ndims(the_geom) = 2),
+CONSTRAINT enforce_geotype_the_geom CHECK (geometrytype(the_geom) = 'POINT'::text OR the_geom IS NULL),
+CONSTRAINT enforce_srid_the_geom CHECK (srid(the_geom) = -1)
+</p>
+</blockquote>
+<p>
+)
+WITHOUT OIDS;
+ALTER TABLE firestations OWNER TO yancho;
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/16/07 02:32:06 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/66?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/66?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message238"></a>
+        <div class="id">
+          Message #238
+        </div>
+        <div class="body">
+            <p>
+First of all you need to build a topology. It means that you should execute assign_vertex_id function which will assign vertex ids (see <a class="missing wiki">TopologyCreation?</a>).
+</p>
+<p>
+It is quite easy to get x1,x2,y1 and y2 values.
+</p>
+<p>
+x1 (x of the start point) = x(startpoint(the_geom))
+</p>
+<p>
+y1 (y of the start point) = y(startpoint(the_geom))
+</p>
+<p>
+x2 (x of the end point) = x(endpoint(the_geom))
+</p>
+<p>
+y2 (y of the end point) = y(endpoint(the_geom))
+</p>
+<p>
+Please, try it.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            11/16/07 10:18:51 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message242"></a>
+        <div class="id">
+          Message #242
+        </div>
+        <div class="body">
+            <p>
+Thanks anton for your help :)
+</p>
+<p>
+I followed the instructions on the Topology Creation Page (<a href="../../wiki/TopologyCreation.html">http://pgrouting.postlbs.org/wiki/TopologyCreation</a>).
+</p>
+<p>
+Basically, I ran these :
+</p>
+<p>
+GRASS 6.3.0RC1 (thesis):~ &gt; v.in.ogr dsn=/home/yancho/thesis_gis/GRASSDATA/streets.shp output=streets -o
+</p>
+<p>
+GRASS 6.3.0RC1 (thesis):~ &gt; v.build map=streets@yancho option=build,dump &gt; streets.txt
+</p>
+<p>
+./table_topo.pl streets streets.txt
+</p>
+<p>
+Is there anything I have to run more? There is nothing mentioned about the function assign_vertex_id function.
+</p>
+<p>
+This is the SQL Query I am trying .. anywhere you think I should correct and / or am understanding bad please?
+</p>
+<p>
+SELECT * FROM shortest_path_shooting_star
+</p>
+<p>
+('
+</p>
+<p>
+SELECT
+</p>
+<blockquote>
+<p>
+gid,
+(select the_geom as source from firestations where bldgcode = 294) as source,
+(select the_geom as target from firestations where bldgcode = 264) as target,
+length as cost,
+x(startpoint(the_geom)),
+y(startpoint(the_geom)),
+x(endpoint(the_geom)),
+y(endpoint(the_geom)),
+one_way,
+tf_cost
+</p>
+</blockquote>
+<p>
+FROM streets',
+</p>
+<p>
+36339,
+22921,
+true,
+false
+);
+</p>
+<p>
+Can be viewed here : <a class="ext-link" href="http://pastebin.com/d348d2949"><span class="icon"> </span>http://pastebin.com/d348d2949</a> The query returned JUST a ":" .. no errors nothing .. just a semi-colon-&gt; :
+</p>
+<p>
+Any corrections would be extremely helpful :) Thanks once more
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/16/07 20:05:52 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message243"></a>
+        <div class="id">
+          Message #243
+        </div>
+        <div class="body">
+            <p>
+*bump*
+</p>
+<p>
+Just would like to ask if someone has any other ideas please bring them forward :)
+</p>
+<p>
+Thanks beforehand
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/19/07 03:08:35 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message244"></a>
+        <div class="id">
+          Message #244
+        </div>
+        <div class="body">
+            <p>
+Try to look at <a href="../../wiki/Workshop-PrepareDikstra.html">http://pgrouting.postlbs.org/wiki/Workshop-PrepareDikstra</a> - it has an example of assign_vertex_id function invocation.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            11/19/07 09:25:49 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message246"></a>
+        <div class="id">
+          Message #246
+        </div>
+        <div class="body">
+            <p>
+Thanks again anton for the tip :)
+</p>
+<p>
+SELECT assign_vertex_id('victoria', 0.001, 'the_geom', 'gid');
+UPDATE victoria SET length = length(the_geom);
+</p>
+<p>
+what does the 0.001 reflect? if i keep it that number is it still good?
+</p>
+<p>
+Thanks again for the help :)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/19/07 09:28:07 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message248"></a>
+        <div class="id">
+          Message #248
+        </div>
+        <div class="body">
+            <p>
+That number means the snapping distance between vertices. If a distance between two vertices is shorter than this value, they will be snapped. If your projection is in meters, this value will mean 0.001 meter (or 0.001 degree, if your projection's units are degrees).
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            11/19/07 09:45:50 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message249"></a>
+        <div class="id">
+          Message #249
+        </div>
+        <div class="body">
+            <p>
+So if I keep it 0.01 its more then enough for everything right? My projection is m so no road can be smaller than that 0.01 so should be enough! :)
+</p>
+<p>
+So many thanks anton for your help :)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/19/07 09:49:04 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message250"></a>
+        <div class="id">
+          Message #250
+        </div>
+        <div class="body">
+            <p>
+Sure, it will be enough.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            11/19/07 10:05:43 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message251"></a>
+        <div class="id">
+          Message #251
+        </div>
+        <div class="body">
+            <p>
+This is the query I am trying : SELECT assign_vertex_id('streets', 0.001, 'the_geom', 'gid');
+</p>
+<p>
+This is the response :
+NOTICE:  CREATE TABLE will create implicit sequence "vertices_tmp_id_seq" for serial column "vertices_tmp.id"
+CONTEXT:  SQL statement "CREATE TABLE vertices_tmp (id serial)"
+PL/pgSQL function "assign_vertex_id" line 19 at execute statement
+</p>
+<p>
+ERROR: column "source" of relation "streets" does not exist
+SQL state: 42703
+Context: SQL statement "update streets SET source = 1, target = 2 WHERE gid =  1"
+PL/pgSQL function "assign_vertex_id" line 54 at execute statement
+</p>
+<p>
+This is my schema :
+-- Table: streets
+</p>
+<p>
+-- DROP TABLE streets;
+</p>
+<p>
+CREATE TABLE streets
+(
+</p>
+<blockquote>
+<p>
+gid serial NOT NULL,
+cat bigint,
+stseg bigint,
+stid bigint,
+stname character varying(80),
+dir_pre character varying(80),
+dir_suf character varying(80),
+stype character varying(80),
+"class" bigint,
+f_elev bigint,
+t_elev bigint,
+map character varying(80),
+priv character varying(80),
+frleft bigint,
+toleft bigint,
+frright bigint,
+toright bigint,
+frleft_a bigint,
+toleft_a bigint,
+frright_a bigint,
+toright_a bigint,
+stateroad bigint,
+cartoname character varying(80),
+corp character varying(80),
+speed bigint,
+one_way character varying(80),
+classname character varying(80),
+l_zipname character varying(80),
+r_zipname character varying(80),
+ft_cost numeric,
+tf_cost numeric,
+labelname character varying(80),
+f_node bigint,
+t_node bigint,
+cartolevel character varying(80),
+shape_len numeric,
+the_geom geometry,
+CONSTRAINT streets_pkey PRIMARY KEY (gid),
+CONSTRAINT enforce_dims_the_geom CHECK (ndims(the_geom) = 2),
+CONSTRAINT enforce_geotype_the_geom CHECK (geometrytype(the_geom) = 'MULTILINESTRING'::text OR the_geom IS NULL),
+CONSTRAINT enforce_srid_the_geom CHECK (srid(the_geom) = -1)
+</p>
+</blockquote>
+<p>
+)
+WITHOUT OIDS;
+ALTER TABLE streets OWNER TO yancho;
+</p>
+<p>
+Anything I need to change please?
+</p>
+<p>
+Thanks beforehand! :)
+</p>
+<p>
+Matthew
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/19/07 16:33:34 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message252"></a>
+        <div class="id">
+          Message #252
+        </div>
+        <div class="body">
+            <p>
+The link above, which Anton told you, would have answered you this question, too. It says:
+</p>
+<pre class="wiki">ALTER TABLE streets ADD COLUMN source integer;
+ALTER TABLE streets ADD COLUMN target integer;
+ALTER TABLE streets ADD COLUMN length double precision;
+</pre><p>
+Those columns need to be added before you run the assign_vertex_id function.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            11/19/07 17:18:56 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message256"></a>
+        <div class="id">
+          Message #256
+        </div>
+        <div class="body">
+            <p>
+Thanks alot for your help. It did work - I projected the route to the layers I had and worked perfect:)
+</p>
+<p>
+My last question would be please : How can I transform this point : 642884.15625, 225182.78125 (x,y) to a whole number so I can use it as a starting point, and the same for the second number so I use it as the ending point?
+</p>
+<p>
+Thanks and regards :)
+</p>
+<p>
+Matthew
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/20/07 00:57:20 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message254"></a>
+        <div class="id">
+          Message #254
+        </div>
+        <div class="body">
+            <p>
+Thanks daniel for your help :)
+</p>
+<p>
+The problem is after I successfuly added those commands I am getting another error :
+</p>
+<p>
+NOTICE:  CREATE TABLE will create implicit sequence "vertices_tmp_id_seq" for serial column "vertices_tmp.id"
+CONTEXT:  SQL statement "CREATE TABLE vertices_tmp (id serial)"
+PL/pgSQL function "assign_vertex_id" line 19 at execute statement
+</p>
+<p>
+ERROR: relation with OID 51307 does not exist
+SQL state: 42P01
+Context: SQL statement "SELECT  id, the_geom FROM vertices_tmp WHERE distance(the_geom,  $1 ) &lt;  $2 "
+PL/pgSQL function "point_to_id" line 7 at select into variables
+PL/pgSQL function "assign_vertex_id" line 50 at assignment
+</p>
+<p>
+This is the query I am using : SELECT assign_vertex_id('streets', 0.001, 'the_geom', 'gid');
+</p>
+<p>
+Sorry for all this troubles. Thanks for your help! :)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/19/07 18:52:05 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message255"></a>
+        <div class="id">
+          Message #255
+        </div>
+        <div class="body">
+            <p>
+Ok found out that the problem was due to that the function gets compiled only once per connection, so I had to reconnect :)
+</p>
+<p>
+Now it is just a matter of time to let it execute .. I screened it :)
+</p>
+<p>
+Thanks for ur assistance :)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/19/07 23:46:55 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message253"></a>
+        <div class="id">
+          Message #253
+        </div>
+        <div class="body">
+            <p>
+Sorry for double post :( darn Opera!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            yancho
+          </div>
+          <div class="time">
+            11/19/07 18:47:04 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/66?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/66?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,1567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/252 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/22.html" title="demo">demo</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>demo (#22) - Routing path not correct, how to get it right ?? (#252) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Routing path not correct, how to get it right ??
+            </div>
+            <div class="body">
+              <p>
+Hi !
+</p>
+<p>
+First sorry for my poor english :) My name is Paul. This is my second topic. In first time I got the answer :) (thanks to daniel)
+</p>
+<p>
+Now I am having some problem with the path that is given on my map.
+The rout that is drawing is not exacly correct. here is some examples.
+</p>
+<p>
+<a class="ext-link" href="http://img509.imageshack.us/img509/9250/routing.jpg"><span class="icon"> </span>http://img509.imageshack.us/img509/9250/routing.jpg</a>
+</p>
+<p>
+In the php file the method findingnearles looks like that:
+</p>
+<pre class="wiki">  function findNearestEdge($lonlat) {
+  	    // Connect to database
+    $con = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);
+	$lonlat1=$lonlat[0]-200;
+	$lonlat2=$lonlat[1]-200;
+	$lonlat3=$lonlat[0]+200;
+	$lonlat4=$lonlat[1]+200;
+    $sql = "SELECT gid, source, target, the_geom,
+			 distance(the_geom, GeometryFromText(
+                  'POINT(".$lonlat[0]." ".$lonlat[1].")', 900913)) AS dist
+            FROM ".TABLE."
+            WHERE the_geom &amp;&amp; setsrid(
+                  'BOX3D(".$lonlat1."
+                         ".$lonlat2.",
+                         ".$lonlat3."
+                         ".$lonlat4.")'::box3d, 900913)
+            ORDER BY dist LIMIT 1";
+    $query = pg_query($con,$sql);
+    $edge['gid']      = pg_fetch_result($query, 0, 0);
+    $edge['source']   = pg_fetch_result($query, 0, 1);
+    $edge['target']   = pg_fetch_result($query, 0, 2);
+    $edge['the_geom'] = pg_fetch_result($query, 0, 3);
+    // Close database connection
+    pg_close($con);
+    return $edge;
+  }
+</pre><p>
+Are there any parameters that I can change , that could help me ? Or maybe it is because of the shp that I have at the begging. I am not sure if for example road looks like this:
+</p>
+<pre class="wiki">- road
+* node
+= the vector layer, found path
+^ start point
+</pre><pre class="wiki">*-------*---------------------------* ...end
+</pre><p>
+and some click in the middle of the second road, like this
+</p>
+<pre class="wiki">*-------*------------^--------------* ...end
+</pre><p>
+then the roud on the map would looks like this
+</p>
+<pre class="wiki">*-------*------------^==============* ...end
+</pre><p>
+or maybe
+</p>
+<pre class="wiki">*-------*============^==============* ...end
+</pre><p>
+I hope you understand what I mean... Please help me understand all this stuff. I was hoping that it would be working like on the las example, for example something like that:
+</p>
+<p>
+<a class="ext-link" href="http://demo.postlbs.org/openrouting/web/geobase.html"><span class="icon"> </span>http://demo.postlbs.org/openrouting/web/geobase.html</a>
+</p>
+<p>
+or
+</p>
+<p>
+<a class="ext-link" href="http://demo.postlbs.org/openrouting/web/suuchi.html"><span class="icon"> </span>http://demo.postlbs.org/openrouting/web/suuchi.html</a>
+</p>
+<p>
+And I am also trying to figure it out how come in the pages that I mentioned before when I click and hold the left mouse button I can move the map, but in may page there is an option 'navigate', and when it is checked I can move my page, I just input start or end point. Any ideas how can I get rid of the 'navigation' option an just have start and end points. Thanks a lot for your help...
+</p>
+<p>
+Regards
+Paul
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/22/09 15:21:46 (19 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/252?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/252?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message902"></a>
+        <div class="id">
+          Message #902
+        </div>
+        <div class="body">
+            <p>
+Reply from daniel from page <a href="../22/251.html">http://pgrouting.postlbs.org/discussion/22/251</a>
+</p>
+<blockquote class="citation">
+<p>
+ In any case you're missing partial geometries, because shortest path algorithms don't split edges for you. You have to do this yourself and extend the PHP script or write a wrapper or whatever.
+ You can use two PostGIS functions for this as far as I remember: line_locate_point(<a class="missing wiki">LineString?</a>, Point) and line_substring(linestring, start, end) to get partial geometries. <br />
+ This way you can split your closest edge for start and end in two parts each.
+ You actually have a few cases then and need to add the correct line_substring to the start and end of your routing result (or you have to remove it).
+</p>
+</blockquote>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/22/09 15:25:22 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message903"></a>
+        <div class="id">
+          Message #903
+        </div>
+        <div class="body">
+            <p>
+Thank you for moving the topic here!
+</p>
+<p>
+Well, Anton wrote an extra wrapper some time ago for Shooting* algorithm, which actually does most things for you.
+</p>
+<p>
+We put that wrapper in the sandbox directory on SVN: <a href="../../browser/sandbox/wrappers/routing_core_smart.html">http://pgrouting.postlbs.org/browser/sandbox/wrappers/routing_core_smart.sql</a>
+</p>
+<p>
+It's not documented, so you need to read a bit in the source file probably. It's nothing official but works well.
+</p>
+<p>
+Function name is then shootingstar_sp_smart(parameters...). You can find parameter information in line 380.
+</p>
+<p>
+What you need for this is an entry in the "network_info" table, which is automatically created when you load the function.
+</p>
+<pre class="wiki">SELECT add_network_info('&lt;table name&gt;');
+</pre><p>
+It precalculates some parameters of your network table.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/22/09 15:53:13 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message906"></a>
+        <div class="id">
+          Message #906
+        </div>
+        <div class="body">
+            <p>
+Hi!
+</p>
+<p>
+Thanks a lot for all the clues, I really appreciate :) I was really reading a lot of stuff on the internet about segmentation of the line. I find some interesting information. I read some info about this function:
+</p>
+<pre class="wiki">line_locate_point();
+line_substring();
+</pre><p>
+But unfortunately I can't use them because as I found out that all my geometry in the base must be linestring , and I have multilinestring as you can see in the screen
+</p>
+<p>
+<a class="ext-link" href="http://img22.imageshack.us/img22/2484/dbase900913.jpg"><span class="icon"> </span>http://img22.imageshack.us/img22/2484/dbase900913.jpg</a>
+</p>
+<p>
+So I started to look for other function and I found out about function 'line_interpolate_point'. I try to use it but all I got were empty rows. I used like this.
+</p>
+<pre class="wiki">SELECT line_interpolate_point(GeometryN(the_geom,900913),
+line_locate_point(GeometryN(the_geom,900913),PointFromText('POINT(1725140.73233 6788749.88889)'))) FROM zielona_gora_routing
+</pre><p>
+I was also looking into file you gave me the link but I guess this is to difficult to me. I don't know what to do. I am so close to the end... I don't get it, why it wasn't included into tutorial!!! without that it's practically does not work. I also don't know where to put all this function that I found. I thinking that I have to update this function
+</p>
+<pre class="wiki">  function findNearestEdge($lonlat) {
+  	    // Connect to database
+    $con = pg_connect("dbname=".PG_DB." host=".PG_HOST." user=".PG_USER);
+	$lonlat1=$lonlat[0]-200;
+	$lonlat2=$lonlat[1]-200;
+	$lonlat3=$lonlat[0]+200;
+	$lonlat4=$lonlat[1]+200;
+    $sql = "SELECT gid, source, target, the_geom,
+			 distance(the_geom, GeometryFromText(
+                  'POINT(".$lonlat[0]." ".$lonlat[1].")', 900913)) AS dist
+            FROM ".TABLE."
+            WHERE the_geom &amp;&amp; setsrid(
+                  'BOX3D(".$lonlat1."
+                         ".$lonlat2.",
+                         ".$lonlat3."
+                         ".$lonlat4.")'::box3d, 900913)
+            ORDER BY dist LIMIT 1";
+    $query = pg_query($con,$sql);
+    $edge['gid']      = pg_fetch_result($query, 0, 0);
+    $edge['source']   = pg_fetch_result($query, 0, 1);
+    $edge['target']   = pg_fetch_result($query, 0, 2);
+    $edge['the_geom'] = pg_fetch_result($query, 0, 3);
+    // Close database connection
+    pg_close($con);
+    return $edge;
+  }
+</pre><p>
+but I have no clue how to do this. Can anyone please help me...
+</p>
+<p>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/24/09 21:49:07 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message909"></a>
+        <div class="id">
+          Message #909
+        </div>
+        <div class="body">
+            <p>
+Hi daniel !
+</p>
+<p>
+Finally I have done it !!!!!!!!!
+</p>
+<p>
+My path is now correct... What a great feeling. I had to chance a little bit the php code from that tutorial, but afters couple hours I managed to do this. Everything is working all right. I was thinking about writing about what I have done, maybe some tutorial or something, but I don't know even if I wrote it, it would be added to the forum, or tutorial pages. Now I have to focus on my master thesis, but in 2,3 month why not :)
+Thanks a lot for your help. I wouldn't have done it without your help.
+</p>
+<p>
+All the best
+Regards,
+Paul
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/27/09 00:17:22 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message911"></a>
+        <div class="id">
+          Message #911
+        </div>
+        <div class="body">
+            <p>
+Hi paweluz,
+</p>
+<p>
+Fine :-)
+It would be great to get that code, I`m working at the same step now :-)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            04/27/09 19:09:23 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message912"></a>
+        <div class="id">
+          Message #912
+        </div>
+        <div class="body">
+            <p>
+Hi Pawulez and Kai,
+</p>
+<p>
+Great to see you contributing to the project. It has always been our goal to get more people join the project, so in the future we might be be able to get an OSGeo project.
+</p>
+<p>
+I'm thinking how to organize the Wiki better. Tutorials are very popular as far as I can see, but it's quite hard to keep them updated. Also it doesn't help much to have too many of them, because people are just confused which one they should chose. Also it takes quite some time to write a complete one.
+</p>
+<p>
+So I wanted to ask you what you think about something we could call "pgRouting recipies": a collection of more or less short howto's, tips and tricks, code snippets, etc., which can be grouped, tagged, organized in several ways. If we can keep them modular, people could easily pick them as they need.
+</p>
+<p>
+I think this would help a lot to keep everything up-to-date. It's also much easier to contribute. Anyone has some experience with this?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/27/09 20:20:59 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message913"></a>
+        <div class="id">
+          Message #913
+        </div>
+        <div class="body">
+            <p>
+Hi Daniel,
+</p>
+<p>
+sounds like a good idea, I don`t have much knowledge about that kind of documentation but I really would like to contribute as far as I can.
+In the moment I try to write a function in plpgsql that solves the problem pawulez was talking in that discussion about, that will be a small recipe as well.
+</p>
+<p>
+In that semester our students are using pgrouting for a project, I will ask them how they handled the so-far-instructions and the help in the documentations, that could give some points what to change.
+</p>
+<p>
+Or what do you thing?
+Should we start directly in the next weaks to build a a new infrastructure?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            04/27/09 20:38:15 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message914"></a>
+        <div class="id">
+          Message #914
+        </div>
+        <div class="body">
+            <p>
+One thing I forgot, I thing it`s very important to have some "extensive" tutorials here, because there is so much stuff people
+need to know to handle pgRouting (SQL, PHP, Javascript, maybe <a class="wiki" href="../../wiki/MapServer.html">MapServer</a>, <a class="missing wiki">OpenLayers?</a> etc.), that coulds be an argumet against small "snippet-recipes" because many people don`t know how to handle it......
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            04/27/09 20:46:00 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message916"></a>
+        <div class="id">
+          Message #916
+        </div>
+        <div class="body">
+            <p>
+Hi daniel and Kai!
+</p>
+<p>
+I think it is a great idea to create something like "pgRouting recipies", some kinds of tips and stuff like this. But as Kai said I think tutorials are also needed. Without this tutorial
+</p>
+<p>
+<a class="ext-link" href="http://pgrouting.postlbs.orgwikiworkshopfoss4g2007/"><span class="icon"> </span>http://pgrouting.postlbs.orgwikiWorkshopFOSS4G2007</a>
+</p>
+<p>
+I wouldn't have done a thing! But as daniel said it is important to UPDATE them! I remember I was fighting with this line
+</p>
+<pre class="wiki">                OpenLayers.loadURL("./ax_routing.php",
+                                   OpenLayers.Util.getParameterString(result),
+                                   null,
+                                   displayRoute);
+</pre><p>
+for about 2,3 days, then I talk with my friends and they told me to do this in that way:
+</p>
+<pre class="wiki"> OpenLayers.loadURL("rout.php?startpoint="+startPoint.geometry.x+" "+startPoint.geometry.y+"&amp;finalpoint="+stopPoint.geometry.x+" "+stopPoint.geometry.y+"&amp;method="+l_method+"&amp;srid=900913",
+                                   OpenLayers.Util.getParameterString(result),
+                                   null,
+                                   displayRoute);
+</pre><p>
+After I handled with it, Kai gave me the link to his new tutorial and I found that now it was changed :) I still have a little error with the routing, but I don't know even how to ask the question because I don't know what is wrong :) I am going to write as soon as I can how I managed with everything... but I want everything to be working perfectly :) Thanks again to both of you for help :)
+</p>
+<p>
+Regards
+Paul
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/28/09 04:33:56 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message918"></a>
+        <div class="id">
+          Message #918
+        </div>
+        <div class="body">
+            <p>
+Good discussion, but we could move this to the mailing list. TRAC and this forum extension is little bit inconvenient, because most people won't be aware of this thread.
+</p>
+<p>
+Paul, I'm not sure you have signed up to the mailing list, so I post my answer here:
+</p>
+<p>
+Looking at the parts of the current tutorials, the <a class="missing wiki">OpenLayers?</a> part for example actually hasn't much to do with the library. But it's very useful, right?<br />
+But what if people want to use their own data and not <a class="missing wiki">OpenLayers?</a>?
+</p>
+<p>
+I think we could group documentation into parts like
+</p>
+<ul><li>Installation
+</li><li>Data preparation
+<ul><li>Import
+</li><li>Topology creation
+</li><li>Data validation (checks)
+</li></ul></li><li>Data processing
+<ul><li>pgRouting Basic recipies
+</li><li>pgRouting Advanced recipies
+</li><li>PostgreSQL/PostGIS tips and tricks
+</li></ul></li><li>Data output
+<ul><li>Postprocessing
+</li><li>Driving directions
+</li></ul></li><li>Application integration
+<ul><li><a class="missing wiki">OpenLayers?</a>
+</li><li>Mapserver
+</li><li>...
+</li></ul></li></ul><p>
+This way users get a guideline what needs to be done, but they can pick what they need. And it's less work to add additional recipies or correct errors.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/28/09 09:04:28 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message920"></a>
+        <div class="id">
+          Message #920
+        </div>
+        <div class="body">
+            <p>
+This overview looks good.
+Will you start to build that new structure?
+Shall I do it? In the next week I should have a couple of hours time for that.....
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            04/29/09 20:28:58 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message921"></a>
+        <div class="id">
+          Message #921
+        </div>
+        <div class="body">
+            <p>
+Hi!
+</p>
+<p>
+Daniel this looks really great! It is great that you both trying to make working with pgrouting easier :)
+</p>
+<p>
+I have done everything! All is working perfectly well. I think tomorrow I am going to write here in this thread...
+</p>
+<p>
+I have one more question. Actually not about implementation. I was curies if any of you knows any free jsp server, when I can put my page ? I am working with geoserver witch is written in java, so it's jps file, also as you know I have postgresql database and my main page is in *.php So it needs to support:
+- jsp (java) - application as war file
+- php
+- postgre sql
+Do you know any. I found eatj.com but it was just for 50 Mb and for a little time, so I could not use it. And it was really unstable. Maybe you know how to get acces to any server like that.... If you do , please do not hesitate to write to me
+</p>
+<p>
+Regards,
+Paul
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            04/30/09 06:18:52 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message924"></a>
+        <div class="id">
+          Message #924
+        </div>
+        <div class="body">
+            <p>
+Hi Paul,
+</p>
+<p>
+Not that I'm aware of free jsp hosting.
+Did you take a look at Google App Engine? <a class="ext-link" href="http://code.google.com/intl/en/appengine/"><span class="icon"> </span>http://code.google.com/intl/en/appengine/</a>
+</p>
+<p>
+It seems they support now Java, too. Never tried it though.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/30/09 09:50:45 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message923"></a>
+        <div class="id">
+          Message #923
+        </div>
+        <div class="body">
+            <p>
+Thank you for the offer, Kai!
+</p>
+<p>
+I think I will sort the existing documentation a little bit and setup a basic structure, if you don't mind.<br />
+But this is a wiki, so if you feel like you want to change something, go ahead.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            04/30/09 09:45:00 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message926"></a>
+        <div class="id">
+          Message #926
+        </div>
+        <div class="body">
+            <p>
+Hi!
+</p>
+<p>
+As I said before I  am going to write how I managed with getting the right path. When I done tutorial my path looked like this:
+</p>
+<p>
+<a class="ext-link" href="http://img509.imageshack.us/img509/9250/routing.jpg"><span class="icon"> </span>http://img509.imageshack.us/img509/9250/routing.jpg</a>
+</p>
+<p>
+That of course wasn't enough. I needed to to this correct, and I did. Steps:
+1. You have to split two edges in two parts. The start edges and the ending edges. Then you would be having 4 pieces. I did it in this way:
+</p>
+<pre class="wiki">  $sqlstart1 =  "Select astext(ST_LINE_SUBSTRING(
+                    ST_LineMerge(the_geom),
+                    0,  ST_line_locate_point(st_linemerge(the_geom),GeometryFromText(
+                  'POINT(".$startPoint[0]." ".$startPoint[1].")',900913)))) as begin from ".TABLE." where gid=".$startEdge['gid']."";
+  $sqlstart2 =  "Select astext(ST_LINE_SUBSTRING(
+                    ST_LineMerge(the_geom),
+                    ST_line_locate_point(st_linemerge(the_geom),GeometryFromText(
+                  'POINT(".$startPoint[0]." ".$startPoint[1].")',900913)),
+                    1)) as begin from  ".TABLE." where gid=".$startEdge['gid']."";
+  $sqlend1 =  "Select astext(ST_LINE_SUBSTRING(
+                    ST_LineMerge(the_geom),
+                    ST_line_locate_point(st_linemerge(the_geom),GeometryFromText(
+                  'POINT(".$endPoint[0]." ".$endPoint[1].")',900913)),
+                    1)) as ending from  ".TABLE." where gid=".$endEdge['gid']."";
+  $sqlend2 =  "Select astext(ST_LINE_SUBSTRING(
+                    ST_LineMerge(the_geom),
+                    0,  ST_line_locate_point(st_linemerge(the_geom),GeometryFromText(
+                  'POINT(".$endPoint[0]." ".$endPoint[1].")',900913)))) as ending from ".TABLE." where gid=".$endEdge['gid']."";
+</pre><p>
+As you can see I split the the start edge form 0 to start point to 1, and this same with ending edge.
+2. After you get the path from the Dijkstra or else algorithm you need to be sure that this path does not include two edges - the one with starting point and the one with ending point. I managed this with one if
+</p>
+<pre class="wiki">	if (($edge['wkt']!=$startEdge['the_geom'])and(($edge['wkt']!=$endEdge['the_geom'])))
+</pre><p>
+I don't know why but the starting and ending edge was sometimes added to result of routing algorithnm. Once there were added, and once not. So I used this if instruction
+3. Now in the main 'while' instruction under the 'if' I wrote before you need to find the edge thats touches the one from the start edge and the one from the end edge. Because now you have 4 edges (2 start and 2 end - you got them before with split instruction). Now each piece ypu have to check if its touch all the others edges from the routing path. I did it in this way
+</p>
+<pre class="wiki"> while($edge=pg_fetch_assoc($query_main))
+  {
+	if (($edge['wkt']!=$startEdge['the_geom'])and(($edge['wkt']!=$endEdge['the_geom'])))
+	{
+	    $sql =  "SELECT ST_Touches(GeometryFromText('{$edge['wkt']}'),GeometryFromText('$start1')) AS inter";
+		$query = pg_query($dbcon,$sql);
+		while($edge1=pg_fetch_assoc($query))
+		{
+			$startinter1=$edge1['inter'];
+			if ($startinter1=="t")
+			{
+				$first_edge=$start1;
+			}
+		}
+		$sql =  "Select ST_Touches(GeometryFromText('{$edge['wkt']}'),GeometryFromText('$start2')) as inter";
+		$query = pg_query($dbcon,$sql);
+		while($edge1=pg_fetch_assoc($query))
+		{
+			$startinter2=$edge1['inter'];
+			if ($startinter2=="t")
+			{
+				$first_edge=$start2;
+			}
+		}
+	    $sql =  "Select ST_Touches(GeometryFromText('{$edge['wkt']}'),GeometryFromText('$end1')) as inter";
+		$query = pg_query($dbcon,$sql);
+		while($edge1=pg_fetch_assoc($query))
+		{
+			$endinter1=$edge1['inter'];
+			if ($endinter1=="t")
+			{
+				$last_edge=$end1;
+			}
+		}
+		$sql =  "Select ST_Touches(GeometryFromText('{$edge['wkt']}'),GeometryFromText('$end2')) as inter";
+		$query = pg_query($dbcon,$sql);
+		while($edge1=pg_fetch_assoc($query))
+		{
+			$endinter2=$edge1['inter'];
+			if ($endinter2=="t")
+			{
+				$last_edge=$end2;
+			}
+		}
+		$pathlength += $edge['length'];
+	    $xml .= "\t&lt;edge id='".++$counter."'&gt;\n";
+		$xml .= "\t\t&lt;id&gt;".$edge['id']."&lt;/id&gt;\n";
+		$xml .= "\t\t&lt;wkt&gt;".$edge['wkt']."&lt;/wkt&gt;\n";
+		$xml .= "\t\t&lt;length&gt;".round(($pathlength/1000),3)."&lt;/length&gt;\n";
+		$xml .= "\t&lt;/edge&gt;\n";
+	}
+</pre><p>
+It is pretty easy. You should get 2 geometry - final and start. And that is pretty much everything. But it is not everything !!!!
+</p>
+<p>
+When you try to get the shortest path from the road created only with one geometry or with two geometry ten the program would give you an error. It is the situation when you trying to get the shortest path on one street or two streets that are next to each other. You have to :
+1. At beggining add
+</p>
+<pre class="wiki"> $startinter1=FALSE;
+  $startinter2=FALSE;
+  $endinter1=FALSE;
+  $endinter=FALSE;
+  $last_edge=FALSE;
+  $first_edge=FALSE;
+</pre><p>
+Then the situation with two geometries:
+</p>
+<pre class="wiki">if (($last_edge==false)and($startEdge['the_geom']!=$endEdge['the_geom']))
+	{
+		$sql =  "SELECT ST_Touches(GeometryFromText('$start1'),GeometryFromText('$end1')) AS inter";
+		$query = pg_query($dbcon,$sql);
+		while($edge1=pg_fetch_assoc($query))
+		{
+			$startinter1=$edge1['inter'];
+			if ($startinter1=="t")
+			{
+				$first_edge=$start1;
+				$last_edge=$end1;
+			}
+		}
+		$sql =  "Select ST_Touches(GeometryFromText('$start1'),GeometryFromText('$end2')) as inter";
+		$query = pg_query($dbcon,$sql);
+		while($edge1=pg_fetch_assoc($query))
+		{
+			$startinter2=$edge1['inter'];
+			if ($startinter2=="t")
+			{
+				$first_edge=$start1;
+				$last_edge=$end2;
+			}
+		}
+		$sql =  "SELECT ST_Touches(GeometryFromText('$start2'),GeometryFromText('$end1')) AS inter";
+		$query = pg_query($dbcon,$sql);
+		while($edge1=pg_fetch_assoc($query))
+		{
+			$endinter1=$edge1['inter'];
+			if ($endinter1=="t")
+			{
+				$first_edge=$start2;
+				$last_edge=$end1;
+			}
+		}
+		$sql =  "Select ST_Touches(GeometryFromText('$start2'),GeometryFromText('$end2')) as inter";
+		$query = pg_query($dbcon,$sql);
+		while($edge1=pg_fetch_assoc($query))
+		{
+			$endinter2=$edge1['inter'];
+			if ($endinter2=="t")
+			{
+				$first_edge=$start2;
+				$last_edge=$end2;
+			}
+		}
+	}
+</pre><p>
+And with one geometry
+</p>
+<pre class="wiki">	if (($last_edge==false)and($startEdge['the_geom']==$endEdge['the_geom']))
+	{
+		  $sqlmin1 =  "Select ST_line_locate_point(st_linemerge(the_geom)," .
+		  		"GeometryFromText('POINT(".$startPoint[0]." ".$startPoint[1].")',900913))as min from ".TABLE." where gid=".$startEdge['gid']."";
+		  $query = pg_query($dbcon,$sqlmin1);
+		  while($edge=pg_fetch_assoc($query))
+		  {
+				$min1=$edge['min'];
+		  }
+		  $sqlmin1 =  "Select ST_line_locate_point(st_linemerge(the_geom)," .
+		  		"GeometryFromText('POINT(".$endPoint[0]." ".$endPoint[1].")',900913))as min from ".TABLE." where gid=".$endEdge['gid']."";
+		  $query = pg_query($dbcon,$sqlmin1);
+		  while($edge=pg_fetch_assoc($query))
+		  {
+				$min2=$edge['min'];
+		  }
+		  if ($min1 &lt;$min2)
+		  {
+		  	  $sqlpoint_to_point =  "Select astext(ST_LINE_SUBSTRING(
+		                    ST_LineMerge(the_geom),
+		                    		$min1,
+		                    		 $min2)) as point from ".TABLE." where gid=".$endEdge['gid']."";
+		  }
+		  else
+		  {
+		      $sqlpoint_to_point =  "Select astext(ST_LINE_SUBSTRING(
+		                    ST_LineMerge(the_geom),
+		                    		$min2,
+		                    		 $min1)) as point from ".TABLE." where gid=".$endEdge['gid']."";
+		  }
+		  $query = pg_query($dbcon,$sqlpoint_to_point);
+		   while($edge=pg_fetch_assoc($query))
+		  {
+				$last_edge=$edge['point'];
+				$first_edge=$edge['point'];
+		  }
+	}
+</pre><p>
+You may of course make some function and the code would be much shorter. I don't think this is the fastest way but it is working !!!!!
+The screen ... maybe unnecessary but it LOOKS SO GREAT !!!:)
+<a class="ext-link" href="http://img147.imageshack.us/img147/2904/routingoki.jpg"><span class="icon"> </span>http://img147.imageshack.us/img147/2904/routingoki.jpg</a>
+</p>
+<p>
+So I think this is all. If you have any question don't hesitate to write
+</p>
+<p>
+Regards,
+Paul
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            05/01/09 03:49:28 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message927"></a>
+        <div class="id">
+          Message #927
+        </div>
+        <div class="body">
+            <p>
+I have one more questions. Do you know where can I have some documentation about pgRouting...
+</p>
+<p>
+especially for all the algorithms, how was it written, all the input parameters...I have to do some research for my master thesis, and it would help me a lot. e.g. the function I use:
+</p>
+<pre class="wiki">- assign_vertex_id
+- shortest_path_shooting_star
+- shortest_path_astar
+- shortest_path
+</pre><p>
+or maybe some others. I found only this page
+</p>
+<p>
+<a href="../../wiki/Dijkstra.html">http://pgrouting.postlbs.org/wiki/Dijkstra</a>
+</p>
+<p>
+Is the any manual, or pdf file, or maybe there were written any articles? If you aware of any please write to me
+</p>
+<p>
+Regards,
+Paul
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            05/01/09 03:50:42 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message928"></a>
+        <div class="id">
+          Message #928
+        </div>
+        <div class="body">
+            <p>
+Did you try to look at <a href="../../wiki/pgRoutingDocs.html">http://pgrouting.postlbs.org/wiki/pgRoutingDocs</a> already?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            05/01/09 17:04:36 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message929"></a>
+        <div class="id">
+          Message #929
+        </div>
+        <div class="body">
+            <p>
+Hi
+</p>
+<p>
+Yes, I have already found this page... I gave a link in my last post to this page, but thanks anyway :)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            paweluz
+          </div>
+          <div class="time">
+            05/01/09 19:59:25 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message933"></a>
+        <div class="id">
+          Message #933
+        </div>
+        <div class="body">
+            <p>
+I found also one solution to visualize the "real" geometry (pg_dijkstra)
+</p>
+<p>
+That function gives you the nearest point on a multiline (If you set a start point):
+</p>
+<hr />
+<p>
+CREATE OR REPLACE FUNCTION multiline_locate_point(amultils geometry,apoint
+geometry)
+</p>
+<blockquote>
+<p>
+RETURNS geometry AS
+</p>
+</blockquote>
+<p>
+$BODY$
+DECLARE
+</p>
+<blockquote>
+<p>
+mindistance float8;
+nearestlinestring geometry;
+nearestpoint geometry;
+i integer;
+</p>
+</blockquote>
+<p>
+BEGIN
+</p>
+<blockquote>
+<p>
+mindistance := (distance(apoint,amultils)+100);
+FOR i IN 1 .. <a class="missing wiki">NumGeometries?</a>(amultils) LOOP
+</p>
+<blockquote>
+<p>
+if distance(apoint,GeometryN(amultils,i)) &lt; mindistance THEN
+</p>
+<blockquote>
+<p>
+mindistance:=distance(apoint,GeometryN(amultils,i));
+nearestlinestring:=GeometryN(amultils,i);
+</p>
+</blockquote>
+<p>
+END IF;
+</p>
+</blockquote>
+<p>
+END LOOP;
+</p>
+</blockquote>
+<p>
+nearestpoint:=line_interpolate_point(nearestlinestring,line_locate_point(nearestlinestring,apoint));
+</p>
+<blockquote>
+<p>
+RETURN nearestpoint;
+</p>
+</blockquote>
+<p>
+END;
+$BODY$
+</p>
+<blockquote>
+<p>
+LANGUAGE 'plpgsql' IMMUTABLE STRICT;
+</p>
+</blockquote>
+<hr />
+<p>
+That value given back (it's the start-geometry of a route) is put into the following function which gives you the "new" geometry of the first Multiline (where the start_point is set).
+The new geometry goes from the intercept_point of the two database-geometries until the start-point, so it`s a "new"
+Multilinestring:
+</p>
+<p>
+CREATE OR REPLACE FUNCTION schnittpunkt(gid_a integer,gid_b integer,start geometry)
+</p>
+<blockquote>
+<p>
+RETURNS geometry AS
+</p>
+</blockquote>
+<p>
+$BODY$
+DECLARE
+intercept_point geometry;
+number_of_points integer;
+first_point_of_geometry geometry;
+j integer;
+point_geom geometry;
+line text;
+mywkt text;
+p text;
+new_factor integer;
+endgeometry geometry[] := '{}';
+</p>
+<p>
+BEGIN
+</p>
+<p>
+RAISE NOTICE 'Here we go........';
+</p>
+<p>
+--Give me the intercept point of two geometries we use......
+intercept_point:= ST_astext(intersection(a.the_geom, b.the_geom)) from (select the_geom from ways where gid=$1)a, (select the_geom from ways where gid = $2) b;
+</p>
+<p>
+RAISE NOTICE 'intercept_point %',astext(intercept_point);
+</p>
+<p>
+-- Give me the number of points  of the geometry we touch with the start-point
+number_of_points:=ST_NumPoints(the_geom) from ways where gid=$1;
+</p>
+<p>
+mywkt:=<i>;
+line:=</i>;
+</p>
+<p>
+RAISE NOTICE 'Numer of points in that geometry is %',number_of_points;
+</p>
+<p>
+first_point_of_geometry:=PointN(c.the_geom,1) from (select (the_geom) from ways where gid=$1)c,ways where gid=$1;
+</p>
+<p>
+-- If intercept_point and first point of geometry (with start point) is equal
+IF astext(intercept_point)=astext(first_point_of_geometry) THEN
+</p>
+<p>
+RAISE NOTICE 'Equal!!';
+</p>
+<p>
+FOR j IN 1 .. number_of_points LOOP
+</p>
+<p>
+point_geom:=PointN(c.the_geom,j) from (select (the_geom) from ways where gid=$1)c,ways where gid=$1;
+</p>
+<p>
+RAISE NOTICE 'Call: %',j;
+endgeometry[j]:=point_geom;
+</p>
+<p>
+RAISE NOTICE 'The point is %',astext(point_geom);
+</p>
+<p>
+line:=<i>;
+</i></p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+line:= line <td> X(endgeometry[j])</td><td>' '</td><td>Y(endgeometry[j])</td><td>', '</td><td>X(endgeometry[j-1])</td><td>' '</td><td>Y(endgeometry[j-1]);
+</p>
+<p>
+-- A line is build
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+line:='LINESTRING'<td>'(' </td><td> line </td><td> ')';
+</p>
+<p>
+SELECT INTO p ST_intersects(line,buffer($3,1));
+</p>
+<p>
+IF j=1 THEN
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+mywkt:= mywkt <td>X(endgeometry[j])</td><td>' '</td><td>Y(endgeometry[j])</td><td>', ';
+END IF;
+</p>
+<p>
+IF p!= 't' THEN
+RAISE NOTICE 'The start point does not touch a part of a multiline';
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+mywkt:= mywkt <td>X(endgeometry[j])</td><td>' '</td><td>Y(endgeometry[j])</td><td>', ';
+</p>
+<p>
+END IF;
+</p>
+<p>
+IF p = 't' THEN
+RAISE NOTICE 'Interesting: Start point touches part of multiline, we replace it!!';
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+mywkt:= mywkt <td>X($3)</td><td>' '</td><td>Y($3);
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+mywkt:='MULTILINESTRING'<td>'((' </td><td> mywkt </td><td> '))';
+RAISE NOTICE 'We have got the new geometry: %',mywkt;
+RETURN mywkt;
+END IF;
+</p>
+<p>
+END LOOP;
+</p>
+<p>
+ELSE
+</p>
+<p>
+-- Ok, intercept_point and first point of geometry (with start point)are not equal
+-- We have to go "thr other way round"
+</p>
+<p>
+FOR j IN 1 .. number_of_points LOOP
+</p>
+<p>
+new_factor:=number_of_points+1-j;
+</p>
+<p>
+point_geom:=PointN(c.the_geom,new_factor) from (select (the_geom) from ways where gid=$1)c,ways where gid=$1;
+</p>
+<p>
+RAISE NOTICE 'Call number: %',j;
+endgeometry[j]:=point_geom;
+</p>
+<p>
+RAISE NOTICE 'The point is at %',astext(point_geom);
+</p>
+<p>
+line:=<i>;
+</i></p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+line:= line <td> X(endgeometry[j])</td><td>' '</td><td>Y(endgeometry[j])</td><td>', '</td><td>X(endgeometry[j-1])</td><td>' '</td><td>Y(endgeometry[j-1]);
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+line:='LINESTRING'<td>'(' </td><td> line </td><td> ')';
+</p>
+<p>
+SELECT INTO p ST_intersects(line,buffer($3,1));
+</p>
+<p>
+IF j=1 THEN
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+mywkt:= mywkt <td>X(endgeometry[j])</td><td>' '</td><td>Y(endgeometry[j])</td><td>', ';
+END IF;
+</p>
+<p>
+IF p!= 't' THEN
+RAISE NOTICE 'The start point does not touch a part of a multiline';
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+mywkt:= mywkt <td>X(endgeometry[j])</td><td>' '</td><td>Y(endgeometry[j])</td><td>', ';
+</p>
+<p>
+END IF;
+</p>
+<p>
+IF p = 't' THEN
+RAISE NOTICE 'The start point touches a part of a multiline';
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+mywkt:= mywkt <td>X($3)</td><td>' '</td><td>Y($3);
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+mywkt:='MULTILINESTRING'<td>'((' </td><td> mywkt </td><td> '))';
+RAISE NOTICE 'The geometry is %',mywkt;
+RETURN mywkt;
+END IF;
+</p>
+<p>
+END LOOP;
+</p>
+<p>
+END IF;
+</p>
+<p>
+RETURN mywkt;
+</p>
+<p>
+END;
+$BODY$
+</p>
+<blockquote>
+<p>
+LANGUAGE 'plpgsql' IMMUTABLE STRICT;
+</p>
+</blockquote>
+<p>
+Function is called e.g.
+SELECT astext(schnittpunkt(2174,2175,'POINT(899129.095395082 6851009.00957939)'))
+</p>
+<p>
+I will clean up the code a bit, write the same for the end-point and put in in the recipies if I`m ready.
+</p>
+<p>
+Best regards, Kai
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            05/05/09 20:57:20 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message940"></a>
+        <div class="id">
+          Message #940
+        </div>
+        <div class="body">
+            <p>
+Hi Paul ,
+</p>
+<blockquote>
+<p>
+I am stuck with with the same issue of getting the accurate path.
+</p>
+</blockquote>
+<p>
+I have read your post and got some idea about it. My quetion is when I execute:
+Select astext(ST_LINE_SUBSTRING(ST_LineMerge(the_geom),
+0,  ST_line_locate_point(st_linemerge(the_geom),<a class="missing wiki">GeometryFromText?</a>(
+'POINT(46.66319622618476 24.70309900767372)',4326)))) as
+</p>
+<blockquote>
+<p>
+begin from myroad where gid=7130;
+</p>
+</blockquote>
+<p>
+POINT(46.66319622618476 24.70309900767372) -- the point which I gets when I click on to the start point on the map.
+gid = 7130 -- the gid  corresponding to the source  when executing :
+SELECT  source as src, target as trgt, distance(the_geom, <a class="missing wiki">GeometryFromText?</a>('POINT(46.66319622618476 24.70309900767372)', 4326))" +
+<dl><dt>" AS dist  FROM myroad WHERE the_geom &amp;&amp; setsrid('BOX3D("+ minBoundLat +" "+minBoundLon+","+ maxBoundLat+" "+maxBoundLon+")'</dt><dd>box3d, 4326) ORDER BY dist LIMIT 1;";
+</p>
+</dd></dl>
+<p>
+I get the output as :
+</p>
+<blockquote>
+<p>
+"LINESTRING(46.6643375667239 24.7034833681905,46.6636878360818 24.70321293342)"
+</p>
+</blockquote>
+<p>
+but I get te same line string output in my dijikstra query also
+"LINESTRING(46.6643375667239 24.7034833681905,46.6636878360818 24.70321293342)"
+</p>
+<p>
+Is my gid=7130 a wrong one? If so how to get correct gid.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            shafeer
+          </div>
+          <div class="time">
+            05/08/09 16:09:44 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message948"></a>
+        <div class="id">
+          Message #948
+        </div>
+        <div class="body">
+            <p>
+I have referred to the post by Paul (Message <a class="missing ticket">#926</a> ) and was able to draw the routing path exactly from the point I selected as start and end.
+But the issue which I found is that for some lines the start and the end point does not get drawn exactly.
+The issue which I later discovered was I was unable to choose which portion of the line should be considered to draw the route.
+(i.e) after executing the query below I got two different line strings.
+</p>
+<p>
+$sqlstart1 =  "Select astext(ST_LINE_SUBSTRING(
+</p>
+<blockquote>
+<p>
+ST_LineMerge(the_geom),
+0,  ST_line_locate_point(st_linemerge(the_geom),<a class="missing wiki">GeometryFromText?</a>(
+</p>
+</blockquote>
+<blockquote>
+<p>
+'POINT(".$startPoint<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>." ".$startPoint<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>.")',900913)))) as begin from ".TABLE." where gid=".$startEdge<a class="missing wiki">gid?</a>."";
+</p>
+</blockquote>
+<blockquote>
+<p>
+$sqlstart2 =  "Select astext(ST_LINE_SUBSTRING(
+</p>
+<blockquote>
+<p>
+ST_LineMerge(the_geom),
+ST_line_locate_point(st_linemerge(the_geom),<a class="missing wiki">GeometryFromText?</a>(
+</p>
+</blockquote>
+<p>
+'POINT(".$startPoint<a class="missing changeset" title="No changeset 0 in the repository">[0]</a>." ".$startPoint<a class="changeset" href="../../changeset/1.html" title="Initial import">[1]</a>.")',900913)),
+</p>
+<blockquote>
+<p>
+1)) as begin from  ".TABLE." where gid=".$startEdge<a class="missing wiki">gid?</a>."";
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+which when given as an input to
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+</blockquote>
+</blockquote>
+<p>
+SELECT ST_Touches(<a class="missing wiki">GeometryFromText?</a>('{$edge<a class="missing wiki">wkt?</a>}'),<a class="missing wiki">GeometryFromText?</a>('$start1' <td> ' '$sqlstart2' )) AS inter";
+</p>
+<p>
+for both   $sqlstart1    $sqlstart2  it returns "t" as output.
+So in this case I get confused with which Linestring to be considered to draw the routing path.
+Also in some cases even when I choose the linestring which yields "t" as output  for
+</p>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+SELECT ST_Touches(<a class="missing wiki">GeometryFromText?</a>('{$edge<a class="missing wiki">wkt?</a>}'),<a class="missing wiki">GeometryFromText?</a>('$start1' <td> ' '$sqlstart2' )) AS inter";
+my route drawn is incorrect.
+</p>
+<p>
+Please go through the link and find the screen shots of my routing:
+<a class="ext-link" href="http://shafeervc.wordpress.com/2009/05/13/pgrouting/"><span class="icon"> </span>http://shafeervc.wordpress.com/2009/05/13/pgrouting/</a>
+Compare those two images and suggest me a solution.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            shafeer
+          </div>
+          <div class="time">
+            05/13/09 20:40:30 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message950"></a>
+        <div class="id">
+          Message #950
+        </div>
+        <div class="body">
+            <p>
+There was a very good post in the PostGIS mailing list explaining this issue, I think: <a class="ext-link" href="http://postgis.refractions.net/pipermail/postgis-users/2009-April/023275.html"><span class="icon"> </span>http://postgis.refractions.net/pipermail/postgis-users/2009-April/023275.html</a>
+</p>
+<p>
+Otherwise as I desrcibed above, there is a "smart" wrapper in a sandbox, that does all this for you without splitting and merging lines later.
+</p>
+<p>
+I see that this topic grew quite a lot and it'S a bit hard to read now. Once time allows I'm thinking to write a Wiki page about the "smart" wrapper. If someone wants to volunteer on this, please go ahead.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            05/14/09 08:16:31 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/252?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/252?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/128 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/16.html" title="dijkstra">dijkstra</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>dijkstra (#16) - Doubts and sugestions (#128) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Doubts and sugestions
+            </div>
+            <div class="body">
+              <p>
+Hi!
+Congratulations for this fantastic set of routing tools!
+</p>
+<ul><li>Doubts and suggestions:
+</li></ul><ul><li>(1) I think there is an error on the tutorial concerning the use of assign_vertex_id() function. It uses 4 instead of 2 arguments;
+</li><li>(2) How about indexes use in this function;
+</li><li>(3) And last I found this error in the same method when using the default (-1) SRID value:
+</li></ul><p>
+ERROR:  new row for relation "vertices_tmp" violates check constraint "enforce_srid_the_geom"
+CONTEXT:  SQL statement "INSERT INTO vertices_tmp (the_geom) VALUES ( $1 )"
+PL/pgSQL function "point_to_id" line 13 at SQL statement
+PL/pgSQL function "assign_vertex_id_new" line 23 at assignment
+NOTICE:  CREATE TABLE will create implicit sequence "vertices_tmp_id_seq" for serial column "vertices_tmp.id"
+CONTEXT:  SQL statement "CREATE TABLE vertices_tmp ( id serial )"
+PL/pgSQL function "assign_vertex_id_new" line 13 at SQL statement
+</p>
+<blockquote>
+<p>
+Which I fixed conserving the same SRID as the input theme:
+</p>
+</blockquote>
+<p>
+CREATE OR REPLACE FUNCTION "public"."assign_vertexes" (geom_table varchar, tolerance double precision, srid integer) RETURNS "pg_catalog"."void" AS
+$body$
+DECLARE
+</p>
+<blockquote>
+<p>
+points record;
+source_id int;
+target_id int;
+</p>
+</blockquote>
+<p>
+BEGIN
+</p>
+<blockquote>
+<p>
+BEGIN
+</p>
+<blockquote>
+<p>
+DROP TABLE vertices_tmp;
+</p>
+</blockquote>
+<p>
+EXCEPTION
+</p>
+<blockquote>
+<p>
+WHEN UNDEFINED_TABLE THEN
+</p>
+</blockquote>
+<p>
+END;
+</p>
+</blockquote>
+<blockquote>
+<p>
+CREATE TABLE vertices_tmp (id SERIAL);
+</p>
+</blockquote>
+<p>
+</p>
+<blockquote>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+EXECUTE 'SELECT addGeometryColumn(<i>vertices_tmp</i>, <i>the_geom</i>, ' <td> quote_literal(srid) </td><td> ', <i>POINT</i>, 2) ';
+</p>
+</blockquote>
+<blockquote>
+<p>
+.
+.
+.
+</p>
+</blockquote>
+<blockquote>
+<p>
+Best regards
+::kamo
+</p>
+</blockquote>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            kamo
+          </div>
+          <div class="time">
+            04/17/08 13:07:49 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/128?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/128?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message460"></a>
+        <div class="id">
+          Message #460
+        </div>
+        <div class="body">
+            <p>
+Thank you!
+</p>
+<p>
+Yes, the documentation is a little bit outdated, sorry. It is funny, but assign_vertex_id is the function with biggest number of contributions grom the community. Your improvement also makes sense, so I will add it to the function.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            04/17/08 15:57:57 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/128?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/128?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

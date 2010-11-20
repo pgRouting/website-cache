@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracTickets by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracTickets – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/wiki/TracTickets?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li><a href="http://pgrouting.postlbs.org/wiki/TracTickets?action=history">History</a></li><li class="last"><a href="http://pgrouting.postlbs.org/wiki/TracTickets?action=diff&amp;version=3">Last Change</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <h1 id="TheTracTicketSystem">The Trac Ticket System</h1>
+<p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ul><li class="False"><a class="False" href="TracGuide.html">Index</a></li><li class="False"><a class="False" href="TracInstall.html">Installation</a></li><li class="False"><a class="False" href="TracInterfaceCustomization.html">Customization</a></li><li class="False"><a class="False" href="TracPlugins.html">Plugins</a></li><li class="False"><a class="False" href="TracUpgrade.html">Upgrading</a></li><li class="False"><a class="False" href="TracIni.html">Configuration</a></li><li class="False"><a class="False" href="TracAdmin.html">Administration</a></li><li class="False"><a class="False" href="TracBackup.html">Backup</a></li><li class="False"><a class="False" href="TracLogging.html">Logging</a></li><li class="False"><a class="False" href="TracPermissions.html">Permissions</a></li><li class="False"><a class="False" href="TracWiki.html">The Wiki</a></li><li class="False"><a class="False" href="WikiFormatting.html">Wiki Formatting</a></li><li class="False"><a class="False" href="TracTimeline.html">Timeline</a></li><li class="False"><a class="False" href="TracBrowser.html">Repository Browser</a></li><li class="False"><a class="False" href="TracRevisionLog.html">Revision Log</a></li><li class="False"><a class="False" href="TracChangeset.html">Changesets</a></li><li class="active"><a class="False" href="TracTickets.html">Tickets</a></li><li class="False"><a class="False" href="TracWorkflow.html">Workflow</a></li><li class="False"><a class="False" href="TracRoadmap.html">Roadmap</a></li><li class="False"><a class="False" href="TracQuery.html">Ticket Queries</a></li><li class="False"><a class="False" href="TracReports.html">Reports</a></li><li class="False"><a class="False" href="TracRss.html">RSS Support</a></li><li class="False"><a class="False" href="TracNotification.html">Notification</a></li></ul></div><p>
+</p>
+<p>
+The Trac ticket database provides simple but effective tracking of issues and bugs within a project.
+</p>
+<p>
+As the central project management element of Trac, tickets are used for <strong>project tasks</strong>, <strong>feature requests</strong>, <strong>bug reports</strong> and <strong>software support issues</strong>. 
+</p>
+<p>
+As with the <a class="wiki" href="TracWiki.html">TracWiki</a>, this subsystem has been designed with the goal of making user contribution and participation as simple as possible. It should be as easy as possible to report bugs, ask questions and suggest improvements.
+</p>
+<p>
+An issue is assigned to a person who must resolve it or reassign the ticket to someone else.
+All tickets can be edited, annotated, assigned, prioritized and discussed at any time.
+</p>
+<h2 id="TicketFields">Ticket Fields</h2>
+<p>
+A  ticket contains the following information attributes:
+ 
+</p>
+<ul><li><strong>Reporter</strong> - The author of the ticket.
+</li><li><strong>Type</strong> - The nature of the ticket (for example, defect or enhancement request)
+</li></ul><ul><li><strong>Component</strong> - The project module or subsystem this ticket concerns.
+</li><li><strong>Version</strong> - Version of the project that this ticket pertains to.
+</li><li><strong>Keywords</strong> - Keywords that a ticket is marked with.  Useful for searching and report generation.
+</li></ul><ul><li><strong>Priority</strong> - The importance of this issue, ranging from <i>trivial</i> to <i>blocker</i>.
+</li><li><strong>Milestone</strong> - When this issue should be resolved at the latest.
+</li><li><strong>Assigned to/Owner</strong> - Principal person responsible for handling the issue.
+</li><li><strong>Cc</strong> - A comma-separated list of other users or E-Mail addresses to notify. <i>Note that this does not imply responsiblity or any other policy.</i>
+</li></ul><p>
+ 
+</p>
+<ul><li><strong>Resolution</strong> - Reason for why a ticket was closed. One of <tt>fixed</tt>, <tt>invalid</tt>, <tt>wontfix</tt>, <tt>duplicate</tt>, <tt>worksforme</tt>.
+</li><li><strong>Status</strong> - What is the current status? One of <tt>new</tt>, <tt>assigned</tt>, <tt>closed</tt>, <tt>reopened</tt>.
+</li><li><strong>Summary</strong> - A brief description summarizing the problem or issue.
+</li><li><strong>Description</strong> - The body of the ticket. A good description should be specific, descriptive and to the point.
+</li></ul><p>
+<strong>Note:</strong> Versions of Trac prior to 0.9 did not have the <i>type</i> field, but instead provided a <i>severity</i> field and different default values for the <i>priority</i> field. This change was done to simplify the ticket model by removing the somewhat blurry distinction between <i>priority</i> and <i>severity</i>. However, the old model is still available if you prefer it: just add/modify the default values of the <i>priority</i> and <i>severity</i>, and optionally hide the <i>type</i> field by removing all the possible values through <a class="wiki" href="TracAdmin.html">trac-admin</a>.
+</p>
+<p>
+<strong>Note:</strong> the <a class="ext-link" href="http://trac.edgewall.org/intertrac/TicketTypes" title="TicketTypes in Trac project trac"><span class="icon"> </span>type</a>, <a class="ext-link" href="http://trac.edgewall.org/intertrac/TicketComponent" title="TicketComponent in Trac project trac"><span class="icon"> </span>component</a>, version, priority and severity fields can be managed with <a class="wiki" href="TracAdmin.html">trac-admin</a> or with the <a class="ext-link" href="http://trac.edgewall.org/intertrac/WebAdmin" title="WebAdmin in Trac project trac"><span class="icon"> </span>WebAdmin</a> plugin.
+</p>
+<p>
+<strong>Note:</strong> Description of the builtin <i>priority</i> values is available at <a class="ext-link" href="http://trac.edgewall.org/intertrac/TicketTypes%23Whyistheseverityfieldgone" title="TicketTypes#Whyistheseverityfieldgone in Trac project trac"><span class="icon"> </span>TicketTypes</a>
+</p>
+<h2 id="ChangingandCommentingTickets">Changing and Commenting Tickets</h2>
+<p>
+Once a ticket has been entered into Trac, you can at any time change the
+information by <strong>annotating</strong> the bug. This means changes and comments to
+the ticket are logged as a part of the ticket itself.
+</p>
+<p>
+When viewing a ticket, the history of changes will appear below the main ticket area.
+</p>
+<p>
+<i>In the Trac project, we use ticket comments to discuss issues and tasks. This makes
+understanding the motivation behind a design- or implementation choice easier,
+when returning to it later.</i>
+</p>
+<p>
+<strong>Note:</strong> An important feature is being able to use <a class="wiki" href="TracLinks.html">TracLinks</a> and
+<a class="wiki" href="WikiFormatting.html">WikiFormatting</a> in ticket descriptions and comments. Use <a class="wiki" href="TracLinks.html">TracLinks</a> to refer to
+other issues, changesets or files to make your ticket more specific and easier
+to understand.
+</p>
+<p>
+<strong>Note:</strong> See <a class="wiki" href="TracNotification.html">TracNotification</a> for how to configure email notifications of ticket changes.
+</p>
+<p>
+<strong>Note:</strong> See <a class="wiki" href="TracWorkflow.html">TracWorkflow</a> for information about the state transitions (ticket lifecycle), and how this workflow can be customized.
+</p>
+<h2 id="DefaultValuesforDrop-DownFields">Default Values for Drop-Down Fields</h2>
+<p>
+The option selected by default for the various drop-down fields can be set in <a class="wiki" href="TracIni.html">trac.ini</a>, in the <tt>[ticket]</tt> section:
+</p>
+<ul><li><tt>default_component</tt>: Name of the component selected by default
+</li><li><tt>default_milestone</tt>: Name of the default milestone
+</li><li><tt>default_priority</tt>: Default priority value
+</li><li><tt>default_severity</tt>: Default severity value
+</li><li><tt>default_type</tt>: Default ticket type
+</li><li><tt>default_version</tt>: Name of the default version
+</li></ul><p>
+If any of these options are omitted, the default value will either be the first in the list, or an empty value, depending on whether the field in question is required to be set.
+</p>
+<h2 id="HidingFieldsandAddingCustomFields">Hiding Fields and Adding Custom Fields</h2>
+<p>
+Many of the default ticket fields can be hidden from the ticket web interface simply by removing all the possible values through <a class="wiki" href="TracAdmin.html">trac-admin</a>. This of course only applies to drop-down fields, such as <i>type</i>, <i>priority</i>, <i>severity</i>, <i>component</i>, <i>version</i> and <i>milestone</i>.
+</p>
+<p>
+Trac also lets you add your own custom ticket fields. See <a class="wiki" href="TracTicketsCustomFields.html">TracTicketsCustomFields</a> for more information.
+</p>
+<h2 id="Assign-toasDrop-DownList">Assign-to as Drop-Down List</h2>
+<p>
+If the list of possible ticket owners is finite, you can change the <i>assign-to</i> ticket field from a text input to a drop-down list. This is done by setting the <tt>restrict_owner</tt> option of the <tt>[ticket]</tt> section in <a class="wiki" href="TracIni.html">trac.ini</a> to “true”. In that case, Trac will use the list of all users who have accessed the project to populate the drop-down field.
+</p>
+<p>
+To appear in the dropdown list, a user needs be registered with the project, <i>i.e.</i> a user session should exist in the database. Such an entry is automatically created in the database the first time the user submits a change in the project, for example when editing the user's details in the <i>Settings</i> page, or simply by authenticating if the user has a login. Also, the user must have <tt>TICKET_MODIFY</tt> <a class="wiki" href="TracPermissions.html">permissions</a>.
+</p>
+<p>
+<strong>Note:</strong> See <a class="ext-link" href="http://pacopablo.com/wiki/pacopablo/blog/set-assign-to-drop-down"><span class="icon"> </span>Populating Assign To Drop Down</a> on how to add user entries at database level
+</p>
+<p>
+<strong>Note 2:</strong> If you need serious flexibility and aren't afraid of a little plugin coding of your own, see <a class="ext-link" href="http://trac-hacks.org/wiki/FlexibleAssignToPlugin"><span class="icon"> </span>FlexibleAssignTo</a> (disclosure: I'm the author)
+</p>
+<h2 id="PresetValuesforNewTickets">Preset Values for New Tickets</h2>
+<p>
+To create a link to the new-ticket form filled with preset values, you need to call the <tt>/newticket?</tt> URL with variable=value separated by &amp;. 
+</p>
+<p>
+Possible variables are :
+</p>
+<ul><li><strong>type</strong> - The type droplist
+</li><li><strong>reporter</strong> - Name or email of the reporter
+</li><li><strong>summary</strong> - Summary line for the ticket
+</li><li><strong>description</strong> - Long description of the ticket
+</li><li><strong>component</strong> - The component droplist
+</li><li><strong>version</strong> - The version droplist
+</li><li><strong>severity</strong> - The severity droplist
+</li><li><strong>keywords</strong> - The keywords 
+</li><li><strong>priority</strong> - The priority droplist
+</li><li><strong>milestone</strong> - The milestone droplist
+</li><li><strong>owner</strong> - The person responsible for the ticket
+</li><li><strong>cc</strong> - The list of emails for notifying about the ticket change
+</li></ul><p>
+<strong>Example:</strong> <i>/trac/newticket?summary=Compile%20Error&amp;version=1.0&amp;component=gui</i><br />
+</p>
+<hr />
+<p>
+See also:  <a class="wiki" href="TracGuide.html">TracGuide</a>, <a class="wiki" href="TracWiki.html">TracWiki</a>, <a class="wiki" href="TracTicketsCustomFields.html">TracTicketsCustomFields</a>, <a class="wiki" href="TracNotification.html">TracNotification</a>, <a class="wiki" href="TracReports.html">TracReports</a>, <a class="wiki" href="TracQuery.html">TracQuery</a>
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/wiki/TracTickets?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("TracTickets.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/wiki/TracTickets by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

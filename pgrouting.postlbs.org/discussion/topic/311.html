@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/311 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/24.html" title="osm2pgrouting">osm2pgrouting</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>osm2pgrouting (#24) - problems with XMLParser.cpp (#311) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              problems with XMLParser.cpp
+            </div>
+            <div class="body">
+              <p>
+When I try to make osm2pgrouting i get the following :
+</p>
+<pre class="wiki">g++ -c src/Export2DB.cpp src/math_functions.cpp src/Node.cpp src/OSMDocumentParserCallback.cpp src/Way.cpp src/OSMDocument.cpp src/Type.cpp src/Class.cpp src/Configuration.cpp src/ConfigurationParserCallback.cpp -I./ -Isrc -I/usr/include/pgsql -I/usr/include/postgresql -ggdb3
+g++ -c src/XMLParser.cpp -I./ -Isrc -I/usr/include/pgsql -I/usr/include/postgresql -ggdb3
+src/XMLParser.cpp: In member function ‘int xml::XMLParser::Parse(xml::XMLParserCallback&amp;, const char*)’:
+src/XMLParser.cpp:49: error: ‘fopen’ was not declared in this scope
+src/XMLParser.cpp:62: error: ‘BUFSIZ’ was not declared in this scope
+src/XMLParser.cpp:63: error: ‘buf’ was not declared in this scope
+src/XMLParser.cpp:63: error: ‘fread’ was not declared in this scope
+src/XMLParser.cpp:68: error: ‘stderr’ was not declared in this scope
+src/XMLParser.cpp:71: error: ‘fprintf’ was not declared in this scope
+src/XMLParser.cpp:72: error: ‘fclose’ was not declared in this scope
+src/XMLParser.cpp:79: error: ‘fclose’ was not declared in this scope
+make: *** [all] Error 1
+</pre><p>
+Don't really understand it.
+</p>
+<p>
+Can anyone help ?
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            maisafie
+          </div>
+          <div class="time">
+            11/03/09 23:52:52 (13 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/311?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/311?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1232"></a>
+        <div class="id">
+          Message #1232
+        </div>
+        <div class="body">
+            <p>
+I get same error attempting to build trunk (<a href="../../svn/pgrouting/tools/osm2pgrouting/trunk/index.html">http://pgrouting.postlbs.org/svn/pgrouting/tools/osm2pgrouting/trunk</a>). I'm working in Ubuntu 9.10. Did you ever resolve this problem?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            elvi@adc
+          </div>
+          <div class="time">
+            11/26/09 01:03:27 (12 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message1243"></a>
+        <div class="id">
+          Message #1243
+        </div>
+        <div class="body">
+            <p>
+i am having the same issue here i am using ubuntu 9.10 also please let me know how you resolved this issue if you did
+</p>
+<p>
+thanks
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            basselnehme
+          </div>
+          <div class="time">
+            12/10/09 09:06:50 (12 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1244"></a>
+        <div class="id">
+          Message #1244
+        </div>
+        <div class="body">
+            <p>
+alright. i sorted it out. you just have to add the following to every CPP file in the SRC directory.
+</p>
+<p>
+#include &lt;cstdio&gt; // &lt;&lt; add this line to the beginning of every CPP file.
+</p>
+<p>
+apparently there is a bug in the new GCC or something.
+</p>
+<p>
+hope this helps
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            basselnehme
+          </div>
+          <div class="time">
+            12/10/09 09:20:11 (12 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1424"></a>
+        <div class="id">
+          Message #1424
+        </div>
+        <div class="body">
+            <p>
+Ubuntu 9.04 here as well.
+</p>
+<p>
+Still not fixed in trunk as of 12.3.2010.
+Quick-fix was to add #include "stdio.h" to src/XMLPArser.cpp
+</p>
+<p>
+Didn't have to change any other cpp-file to compile. OSM-data for a complete
+country (cloudmade) was imported using osm2pgrouting after compile.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            bgrotan
+          </div>
+          <div class="time">
+            03/12/10 21:33:08 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1426"></a>
+        <div class="id">
+          Message #1426
+        </div>
+        <div class="body">
+            <p>
+Would be great to have a ticket for that, best with a patch if possible. I at least haven't been aware of this thread until now. Must have missed it.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            03/13/10 00:12:27 (8 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1556"></a>
+        <div class="id">
+          Message #1556
+        </div>
+        <div class="body">
+            <p>
+See ticket <a class="closed ticket" href="../../ticket/211.html" title="bug report: osm2pgrouting: failed to build with gcc 4.4.3 (closed: fixed)">#211</a>. Patch applied (<a class="changeset" href="../../changeset/357.html" title="Ticket #211: applied miising include patch">changeset:357</a>), thanks to fredj!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            07/01/10 15:22:52 (5 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/311?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/311?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

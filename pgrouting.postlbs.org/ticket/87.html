@@ -1,0 +1,887 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/ticket/87 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:16:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+          #87 (Bugs/mods in sql scripts)
+     – pgRouting
+    </title>
+        <link rel="search" href="../search.html" />
+        <link rel="prev" href="86.html" title="Ticket #86" />
+        <link rel="last" href="218.html" title="Ticket #218" />
+        <link rel="help" href="../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/ticket/87?format=csv" type="text/csv" class="csv" title="Comma-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/87?format=tab" type="text/tab-separated-values" class="tab" title="Tab-delimited Text" /><link rel="alternate" href="http://pgrouting.postlbs.org/ticket/87?format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="next" href="88.html" title="Ticket #88" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/ticket.css" type="text/css" />
+        <link rel="first" href="1.html" title="Ticket #1" />
+        <link rel="shortcut icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../chrome/common/js/trac.js"></script><script type="text/javascript" src="../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../chrome/common/js/wikitoolbar.js"></script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("div.description").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+        $("#changelog h3.change").addAnchor("Link to this change");
+        /* only enable control elements for the currently selected action */
+        var actions = $("#action input[name='action']");
+        function updateActionFields() {
+          actions.each(function () {
+            $(this).siblings().find("*[@id]").enable($(this).checked());
+            $(this).siblings().filter("*[@id]").enable($(this).checked());
+          });
+        }
+        actions.click(updateActionFields);
+        updateActionFields();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="../prefs.html">Preferences</a></li><li class="last"><a href="../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../wiki.html">Home</a></li><li><a href="../timeline.html">Timeline</a></li><li><a href="../roadmap.html">Roadmap</a></li><li><a href="../browser.html">Browse Source</a></li><li class="active"><a href="../report.html">View Tickets</a></li><li><a href="../search.html">Search</a></li><li class="last"><a href="../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span>&larr; <a class="prev" href="86.html" title="Ticket #86">Previous Ticket</a></span></li><li class="last"><span><a class="next" href="88.html" title="Ticket #88">Next Ticket</a> &rarr;</span></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="ticket">
+      <h1>
+              Ticket #87
+          <span class="status">(assigned bug report)</span>
+      </h1>
+      <!-- Do not show the ticket (pre)view when the user first comes to the "New Ticket" page.
+           Wait until they hit preview. -->
+        <!-- Ticket Box (ticket fields along with description) -->
+        <div id="ticket">
+          <div class="date">
+            <p>Opened <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-21T02%3A08%3A09%2B0900&amp;precision=second" title="2007-11-21T02:08:09+0900 in Timeline">3 years</a> ago</p>
+            <p>Last modified <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-08-16T14%3A47%3A10%2B0900&amp;precision=second" title="2009-08-16T14:47:10+0900 in Timeline">15 months</a> ago</p>
+          </div>
+          <!-- use a placeholder if it's a new ticket -->
+          <h2 class="summary searchable">Bugs/mods in sql scripts</h2>
+          <table class="properties">
+            <tr>
+              <th id="h_reporter">Reported by:</th>
+              <td headers="h_reporter" class="searchable">rodj59</td>
+              <th id="h_owner">Owned by:</th>
+              <td headers="h_owner">anton
+              </td>
+            </tr>
+            <tr>
+                <th id="h_priority">
+                  Priority:
+                </th>
+                <td headers="h_priority">
+                      minor
+                </td>
+                <th id="h_milestone">
+                  Milestone:
+                </th>
+                <td headers="h_milestone">
+                      <a class="milestone" href="../milestone/Version%201.html">Version 1.1</a>
+                </td>
+            </tr><tr>
+                <th id="h_component">
+                  Component:
+                </th>
+                <td headers="h_component">
+                      pgRouting package
+                </td>
+                <th id="h_version">
+                  Version:
+                </th>
+                <td headers="h_version">
+                      1.0
+                </td>
+            </tr><tr>
+                <th id="h_keywords">
+                  Keywords:
+                </th>
+                <td headers="h_keywords" class="searchable">
+                </td>
+                <th id="h_cc">
+                  Cc:
+                </th>
+                <td headers="h_cc" class="searchable">
+                </td>
+            </tr>
+          </table>
+            <div class="description">
+              <h3 id="comment:description">
+                Description
+              </h3>
+              <div class="searchable">
+                <p>
+The function assign_vertex_id() seems to be missing from the 1.0 version; likewise for shortest_path_as_geometry. Was there any reason for these omissions?
+With the 6.2.2 version of GRASS, exports into PostgreSQL tend to create LINESTRINGS not MULTILINESTRINGS;
+though you can convert them, a few generalisations let the functions in the tutorial 
+work on LINESTRINGS as well as MULTILINESTRINGS. The direct exports into PostgreSQL seem to capture more data than exports to shapefiles etc.
+Also, it's a bit tedious having to add the columns in by hand so I have modified them to create 
+the needed columns automatically. 
+There is a bug in some versions of postgis (eg.1.3.1) which causes endpoint() to crash the system. I have included a trivial (though less efficient) workaround.
+Overloading some of the functions allows extra convenience with choices of column
+names.
+There also seemed to be some non-functional code which I deleted.
+This stuff has not been extensively tested: treat with caution. There may be consequences which I
+haven't yet considered.
+There is a general inconsistency between use or source/source_id &amp; target/target_id. A decision needs to be made as to which to use.
+I'm attaching the whole files since it could get messy.
+</p>
+
+              </div>
+            </div>
+        </div>
+          <h2>Attachments</h2>
+          <div id="attachments">
+            <dl class="attachments">
+                <dt>
+      <a href="../attachment/ticket/87/routing_core.html" title="View attachment">routing_core.sql</a>
+      <a href="../raw-attachment/ticket/87/routing_core.sql" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="11247 bytes">11.0 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-21T02%3A09%3A14%2B0900&amp;precision=second" title="2007-11-21T02:09:14+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/87/routing_core.2.html" title="View attachment">routing_core.2.sql</a>
+      <a href="../raw-attachment/ticket/87/routing_core.2.sql" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="11247 bytes">11.0 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-21T02%3A09%3A36%2B0900&amp;precision=second" title="2007-11-21T02:09:36+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/87/routing_core_wrappers.html" title="View attachment">routing_core_wrappers.sql</a>
+      <a href="../raw-attachment/ticket/87/routing_core_wrappers.sql" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="34985 bytes">34.2 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-21T02%3A10%3A07%2B0900&amp;precision=second" title="2007-11-21T02:10:07+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/87/routing_core_031207.html" title="View attachment">routing_core_031207.patch</a>
+      <a href="../raw-attachment/ticket/87/routing_core_031207.patch" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="1350 bytes">1.3 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-03T20%3A20%3A59%2B0900&amp;precision=second" title="2007-12-03T20:20:59+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/87/routing_core_wrappers_031207.html" title="View attachment">routing_core_wrappers_031207.patch</a>
+      <a href="../raw-attachment/ticket/87/routing_core_wrappers_031207.patch" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="3322 bytes">3.2 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-03T20%3A32%3A28%2B0900&amp;precision=second" title="2007-12-03T20:32:28+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/87/newpatch.html" title="View attachment">newpatch.patch</a>
+      <a href="../raw-attachment/ticket/87/newpatch.patch" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="396 bytes">396 bytes</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-12T10%3A55%3A32%2B0900&amp;precision=second" title="2007-12-12T10:55:32+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/87/routing_core_wrappers_141207.patch.html" title="View attachment">routing_core_wrappers_141207.patch.forthem</a>
+      <a href="../raw-attachment/ticket/87/routing_core_wrappers_141207.patch.forthem" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="6038 bytes">5.9 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-14T19%3A39%3A29%2B0900&amp;precision=second" title="2007-12-14T19:39:29+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dd>
+                  This applies to original file in this ticket.
+                </dd>
+                <dt>
+      <a href="../attachment/ticket/87/routing_core_141207.html" title="View attachment">routing_core_141207.patch</a>
+      <a href="../raw-attachment/ticket/87/routing_core_141207.patch" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="8305 bytes">8.1 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-14T19%3A40%3A55%2B0900&amp;precision=second" title="2007-12-14T19:40:55+0900 in Timeline">3 years</a> ago.
+    </dt>
+                <dt>
+      <a href="../attachment/ticket/87/sql_mods.tar.html" title="View attachment">sql_mods.tar.gz</a>
+      <a href="../raw-attachment/ticket/87/sql_mods.tar.tar" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+      (<span title="14033 bytes">13.7 KB</span>) - added by <em>rodj59</em>
+      <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-07-28T12%3A05%3A21%2B0900&amp;precision=second" title="2010-07-28T12:05:21+0900 in Timeline">4 months</a> ago.
+    </dt>
+            </dl>
+          </div>
+          <h2>Change History</h2>
+          <div id="changelog">
+            <form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-21T02%3A09%3A14%2B0900&amp;precision=second" title="2007-11-21T02:09:14+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/87/routing_core.html"><em>routing_core.sql</em></a>
+              <a href="../raw-attachment/ticket/87/routing_core.sql" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-21T02%3A09%3A36%2B0900&amp;precision=second" title="2007-11-21T02:09:36+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/87/routing_core.2.html"><em>routing_core.2.sql</em></a>
+              <a href="../raw-attachment/ticket/87/routing_core.2.sql" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-21T02%3A10%3A07%2B0900&amp;precision=second" title="2007-11-21T02:10:07+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/87/routing_core_wrappers.html"><em>routing_core_wrappers.sql</em></a>
+              <a href="../raw-attachment/ticket/87/routing_core_wrappers.sql" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:1">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-21T09%3A22%3A25%2B0900&amp;precision=second" title="2007-11-21T09:22:25+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>owner</strong>
+            set to <em>anton</em>
+        </li><li>
+          <strong>status</strong>
+              changed from <em>new</em> to <em>assigned</em>
+        </li><li>
+          <strong>milestone</strong>
+              set to <em>Version 1.1</em>
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+assign_vertex_id() function is not missing - it still exists in routing_core_wrappers.sql file (even in that one you posted here).
+</p>
+<p>
+OK, I will test your files.
+Thanks!
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:2">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-11-22T16%3A46%3A32%2B0900&amp;precision=second" title="2007-11-22T16:46:32+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+Yes it should have been shortest_path_as_geometry() instead of not as well as.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-03T20%3A20%3A59%2B0900&amp;precision=second" title="2007-12-03T20:20:59+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/87/routing_core_031207.html"><em>routing_core_031207.patch</em></a>
+              <a href="../raw-attachment/ticket/87/routing_core_031207.patch" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:3">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-03T20%3A24%3A07%2B0900&amp;precision=second" title="2007-12-03T20:24:07+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+Some fixes in the patch files: apply to files included here no originals.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-03T20%3A32%3A28%2B0900&amp;precision=second" title="2007-12-03T20:32:28+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/87/routing_core_wrappers_031207.html"><em>routing_core_wrappers_031207.patch</em></a>
+              <a href="../raw-attachment/ticket/87/routing_core_wrappers_031207.patch" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-12T10%3A55%3A32%2B0900&amp;precision=second" title="2007-12-12T10:55:32+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/87/newpatch.html"><em>newpatch.patch</em></a>
+              <a href="../raw-attachment/ticket/87/newpatch.patch" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:4">
+                  <span class="threading">
+                      follow-up:
+      <a href="#comment:5"><small>↓ 5</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-13T04%3A13%3A47%2B0900&amp;precision=second" title="2007-12-13T04:13:47+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+Could anyone please verify the following interpretation of graph,graph_vertices,graph_edges:-
+graph
+</p>
+<hr />
+<blockquote>
+<p>
+source_id: points to (geom_id) in graph_vertices
+</p>
+</blockquote>
+<p>
+        
+</p>
+<blockquote>
+<p>
+target_id:  points to (geom_id) in graph_vertices
+</p>
+</blockquote>
+<p>
+        
+</p>
+<blockquote>
+<p>
+edge_id:    points to (id) in graph_edges
+</p>
+</blockquote>
+<p>
+        
+</p>
+<blockquote>
+<p>
+wkb_geometry(or the_geom): linestring of the arc
+</p>
+</blockquote>
+<p>
+graph_vertices
+</p>
+<hr />
+<blockquote>
+<p>
+id:                    primary key, reverse links to graph_edge's source or target column
+geom_id:          links to graph's source_id or target_id
+wkb_geometry: point geometry of an endpoint of wkb_geometry in splitroadnet whose 
+</p>
+<blockquote>
+<p>
+source_id or target_id matches geom_id
+</p>
+</blockquote>
+</blockquote>
+<p>
+graph_edges
+</p>
+<hr />
+<blockquote>
+<p>
+id :        primary key, reverse links to edge_id field of corresponding graph row
+</p>
+</blockquote>
+<p>
+        
+</p>
+<blockquote>
+<p>
+source:  links to graph's geom_id column for the source endpoint
+</p>
+</blockquote>
+<p>
+        
+</p>
+<blockquote>
+<p>
+target:   links to graph's geom_id column for the target endpoint
+</p>
+</blockquote>
+<hr />
+<p>
+Implications , something is wrong in shortest_path_as_geometry() eg.
+</p>
+<p>
+CREATE OR REPLACE FUNCTION shortest_path_as_geometry(geom_table varchar, 
+</p>
+<blockquote>
+<p>
+geom_source anyelement,geom_target anyelement,geomcol varchar,costcol varchar) 
+RETURNS SETOF GEOMS AS
+</p>
+</blockquote>
+<p>
+$$
+DECLARE 
+</p>
+<blockquote>
+<p>
+r record;
+source int4;
+target int4;
+path_result record;
+v_id integer;
+e_id integer;
+geom geoms;
+</p>
+</blockquote>
+<p>
+BEGIN
+</p>
+<blockquote>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+FOR r IN EXECUTE 'SELECT id FROM ' <td> quote_ident(geom_table) 
+</p>
+<blockquote>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+'_vertices WHERE id = ' <td> quote_literal(geom_source) LOOP
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+source = r.id;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+END LOOP;
+</p>
+</blockquote>
+<blockquote>
+<p>
+IF source IS NULL THEN
+</p>
+<blockquote>
+<p>
+RAISE EXCEPTION 'Can<i>t find source edge';
+</i></p>
+</blockquote>
+<p>
+END IF;
+</p>
+</blockquote>
+<blockquote>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+FOR r IN EXECUTE 'SELECT id FROM ' <td> quote_ident(geom_table) 
+</p>
+<blockquote>
+<table class="wiki">
+<tr></td></tr></table>
+<p>
+'_vertices WHERE id = ' <td> quote_literal(geom_target) LOOP
+</p>
+<blockquote>
+<p>
+target = r.id;
+</p>
+</blockquote>
+</blockquote>
+<p>
+END LOOP;
+</p>
+</blockquote>
+<blockquote>
+<p>
+IF target IS NULL THEN
+</p>
+<blockquote>
+<p>
+RAISE EXCEPTION 'Can<i>t find target edge';
+</i></p>
+</blockquote>
+<p>
+END IF;
+</p>
+</blockquote>
+<p>
+        
+</p>
+<blockquote>
+<p>
+FOR geom IN SELECT * FROM 
+</p>
+<blockquote>
+<p>
+shortest_path_as_geometry_internal_id(geom_table, 
+</p>
+<blockquote>
+<p>
+source, target,geomcol,costcol) LOOP
+</p>
+</blockquote>
+<p>
+RETURN NEXT geom;
+</p>
+</blockquote>
+<p>
+END LOOP;
+</p>
+</blockquote>
+<blockquote>
+<p>
+RETURN;
+</p>
+</blockquote>
+<p>
+END;
+$$
+LANGUAGE 'plpgsql' VOLATILE STRICT; 
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:5">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:4"><small>↑ 4</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-13T10%3A29%3A41%2B0900&amp;precision=second" title="2007-12-13T10:29:41+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+Why do you need vertices table?
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:6">
+                  <span class="threading">
+                      follow-up:
+      <a href="#comment:7"><small>↓ 7</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-14T13%3A08%3A53%2B0900&amp;precision=second" title="2007-12-14T13:08:53+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+I didn't write the function, only changed geom_id to id since that's what it needs to be in this case unless the tables have been wrongly constructed.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:7">
+                  <span class="threading">
+                        in reply to:
+      <a href="#comment:6"><small>↑ 6</small></a>
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-14T13%3A49%3A30%2B0900&amp;precision=second" title="2007-12-14T13:49:30+0900 in Timeline">3 years</a> ago by anton
+                </h3>
+      <div class="comment searchable">
+        <p>
+Ah! I see.
+Thanks! I will test it.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:8">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-14T14%3A04%3A15%2B0900&amp;precision=second" title="2007-12-14T14:04:15+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+To make it work, change the loop in <br />
+</p>
+<pre class="wiki">-----------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION shortest_path_as_geometry_internal_id(
+       geom_table varchar, source int4, target int4,geomcol varchar,costcol varchar) 
+       RETURNS SETOF GEOMS AS
+$$
+
+</pre><p>
+<br />
+with<br />
+</p>
+<pre class="wiki">		
+	query := 'SELECT a.edge_id as gid,'||quote_ident(geomcol)||' as the_geom FROM ' ||
+          'shortest_path(''SELECT source ,id,  target, ' || quote_ident(costcol)||
+          ' as cost from '||quote_ident(geom_table)||'_edges'','||source||','||target||',false,false)' ||
+			' a, '||quote_ident(geom_table)||' b where b.edge_id = a.edge_id';
+	  
+	FOR path_result IN EXECUTE query
+
+</pre>
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-14T19%3A39%3A29%2B0900&amp;precision=second" title="2007-12-14T19:39:29+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/87/routing_core_wrappers_141207.patch.html"><em>routing_core_wrappers_141207.patch.forthem</em></a>
+              <a href="../raw-attachment/ticket/87/routing_core_wrappers_141207.patch.forthem" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        <p>
+This applies to original file in this ticket.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-14T19%3A40%3A55%2B0900&amp;precision=second" title="2007-12-14T19:40:55+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/87/routing_core_141207.html"><em>routing_core_141207.patch</em></a>
+              <a href="../raw-attachment/ticket/87/routing_core_141207.patch" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:9">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2007-12-14T20%3A00%3A34%2B0900&amp;precision=second" title="2007-12-14T20:00:34+0900 in Timeline">3 years</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+You can get driving distance for example by
+<br />
+</p>
+<p>
+select sum(length_wgs84(the_geom)) from shortest_path_as_geometry('splitroadnet',182,547,'wkb_geometry','length_gd')
+</p>
+<p>
+<br />
+I haven't taken into account usage of non-integer indexes since much of the original code ignores this possibility.
+<br />
+It might be an idea to have a "contributed" code repository somewhere?
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:10">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-12-17T03%3A37%3A42%2B0900&amp;precision=second" title="2008-12-17T03:37:42+0900 in Timeline">2 years</a> ago by sunrise
+                </h3>
+      <div class="comment searchable">
+        This works ok for me.. but It probably needs feedback. <a href="http://www.sneakerright.com/"><font color="#000000">postlbs Air Jordan</font></a>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change" id="comment:11">
+                  <span class="threading">
+                     
+                  </span>
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2009-08-16T14%3A47%3A10%2B0900&amp;precision=second" title="2009-08-16T14:47:10+0900 in Timeline">15 months</a> ago by rodj59
+                </h3>
+      <div class="comment searchable">
+        <p>
+Adapted to ver 1.3 &amp; for osm. Not fully tested. This version uses source/target rather than source_id/target_id. The files should be loaded in after the standard ones.
+</p>
+
+      </div>
+              </div>
+            </form><form method="get" action="#comment" class="printableform">
+              <div class="change">
+                <h3 class="change">
+                  Changed <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-07-28T12%3A05%3A21%2B0900&amp;precision=second" title="2010-07-28T12:05:21+0900 in Timeline">4 months</a> ago by rodj59
+                </h3>
+      <ul class="changes">
+        <li>
+          <strong>attachment</strong>
+              <a href="../attachment/ticket/87/sql_mods.tar.html"><em>sql_mods.tar.gz</em></a>
+              <a href="../raw-attachment/ticket/87/sql_mods.tar.tar" title="Download" class="trac-rawlink"><img src="../chrome/common/download.png" alt="Download" /></a>
+              added
+        </li>
+      </ul>
+      <div class="comment searchable">
+        
+      </div>
+              </div>
+            </form>
+          </div>
+      <div id="help">
+        <strong>Note:</strong> See
+        <a href="../wiki/TracTickets.html">TracTickets</a> for help on using
+        tickets.
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/87?format=csv" class="csv">Comma-delimited Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/87?format=tab" class="tab">Tab-delimited Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/ticket/87?format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("87.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/ticket/87 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:17:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

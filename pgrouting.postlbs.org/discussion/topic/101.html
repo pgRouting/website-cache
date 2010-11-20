@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/101 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/20.html" title="tsp">tsp</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>tsp (#20) - <a class="missing wiki">PgRouting?</a> 1.0.0a cannont find GAUL (#101) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              <a class="missing wiki">PgRouting?</a> 1.0.0a cannont find GAUL
+            </div>
+            <div class="body">
+              <p>
+Dear forum,
+my aim is to use a bit older pgRouting-Version to use the function
+"shortest_path_astar2_as_geometry_internal_id" to visualize a route with <a class="wiki" href="../../wiki/MapServer.html">MapServer</a>.
+At the end I wan`t - for a moment - throw out all the other functions and data, just to understand better the way pgRouting works (Mainly the connection between
+C/C++ and plpgsql - I find it really difficult in the moment).
+</p>
+<p>
+I work on Debian Etch. The problem is, if I do "configure" I get:
+</p>
+<p>
+configure: checking for CGAL ...
+find: /usr/share/CGAL: No such file or directory
+find: /usr/make: No such file or directory
+configure: checking for GAUL ...
+configure: error: ** /usr/include/gaul or /usr/lib64/libgaul.a can not be found **
+</p>
+<p>
+What I don`t understand. I have installed the debian etch -packages of CGAL
+and I have installed GAUL with ./configure --prefix=/usr/include/gaul.
+</p>
+<p>
+What can be the reason for that??
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            01/21/08 05:20:39 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/101?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/101?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message386"></a>
+        <div class="id">
+          Message #386
+        </div>
+        <div class="body">
+            <p>
+I have got it, it was:
+</p>
+<blockquote>
+<p>
+./configure --with-gaul=/usr/include/gaul
+</p>
+</blockquote>
+<p>
+But I wonder: For what are CGAL und GAUL used?
+Does pgRouting works with the algorithms of these libraries?
+I thought the algorithms are written separately?
+</p>
+<p>
+Thank you again, Kai
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            01/21/08 05:41:05 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message387"></a>
+        <div class="id">
+          Message #387
+        </div>
+        <div class="body">
+            <p>
+GAUL is used for the Traveling Salesperson implementation, CGAL is used for calculating the Driving Distance polygon.
+</p>
+<p>
+May I ask, why your aim is to use a bit older version of pgRouting? In general newer version are more stable and include bug fixes. So you might even want to try the SVN trunk version or at least the 1.0 release.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            01/21/08 09:09:43 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message392"></a>
+        <div class="id">
+          Message #392
+        </div>
+        <div class="body">
+            <p>
+Hi Daniel, thank you again. Well, in the moment I find it so difficult to get the start, there are so many questions. But I think, nevertheless, I will start with a newer version (though an older version would have less code).
+</p>
+<p>
+The biggest question I have is: How can I visualize a route for example like
+shortest_path_astar in <a class="wiki" href="../../wiki/MapServer.html">MapServer</a>:
+</p>
+<p>
+SELECT * FROM shortest_path_astar('SELECT gid AS id, source::int4,
+</p>
+<blockquote>
+<p>
+target::int4, length::double precision AS cost, x1, y1, x2, y2
+</p>
+</blockquote>
+<blockquote>
+<p>
+FROM dourol',3, 7, false, false);
+</p>
+</blockquote>
+<p>
+...gives me vertex_id, edge_id and cost. But how can I get to "the_geom" that I need to visualize it in <a class="wiki" href="../../wiki/MapServer.html">MapServer</a>???
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            01/21/08 17:16:14 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message398"></a>
+        <div class="id">
+          Message #398
+        </div>
+        <div class="body">
+            <p>
+To the question how to visualize the routes:
+</p>
+<p>
+In <a class="wiki" href="../../wiki/MapServer.html">MapServer</a> it works like: DATA "the_geom from (SELECT gid, the_geom FROM astar_sp_delta('fridastreets', 5846, 4504, 3000)) as foo using unique gid using srid=-1"
+</p>
+<p>
+Of course its possible to write an own function with Pg/pgsql. I did like:
+</p>
+<p>
+CREATE OR REPLACE function give_me_geom(varchar,int,int) RETURNS SETOF GEOMS AS $$ DECLARE table_name ALIAS FOR $1; source_id ALIAS FOR $2; target_id ALIAS FOR $3; id int; edge_id int; query text; pg_query record; r record; geom geoms;
+</p>
+<p>
+BEGIN id:=0; edge_id:=0;
+</p>
+<blockquote>
+<p>
+query := 'SELECT * FROM '
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+'shortest_path_astar(SELECT gid as id, source::integer, ' 'target::integer, length::double precision as cost, ' 'x1::double precision, y1::double precision, x2::double ' 'precision, y2::double precision '
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+'FROM '
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+quote_ident(table_name),'source_id','target_id',false,false)';
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+FOR pg_query IN EXECUTE query LOOP
+</p>
+<blockquote>
+<p>
+edge_id:=pg_query.edge_id;
+</p>
+</blockquote>
+<blockquote>
+<p>
+FOR r IN EXECUTE 'SELECT gid,the_geom FROM '
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+quote_ident(table_name) ' WHERE gid ='edge_id LOOP
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+geom.gid := r.gid;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+geom.the_geom := r.the_geom;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+id := id+1;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>
+geom.id := id;
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+RETURN NEXT geom;
+</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+END LOOP;
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+END LOOP;
+</p>
+</blockquote>
+<p>
+RETURN;
+</p>
+<p>
+END; $$ LANGUAGE 'plpgsql';
+</p>
+<p>
+.....and then DATA "the_geom from (SELECT gid, the_geom FROM give_me_geom('fridastreets', 5846, 4504) as foo using unique gid using srid=-1"
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Kai-Behncke
+          </div>
+          <div class="time">
+            01/27/08 23:30:19 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/101?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/101?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

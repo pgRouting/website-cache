@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/384 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/24.html" title="osm2pgrouting">osm2pgrouting</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>osm2pgrouting (#24) - Time of the generation of the map of the Europe by means of tool osm2pgrouting (#384) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Time of the generation of the map of the Europe by means of tool osm2pgrouting
+            </div>
+            <div class="body">
+              <p>
+Could you tell, please, how much time should take the generation of European roads with help of tool osm2pgrouting on server Dell <a class="missing wiki">PowerEdge?</a> 1850.
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Arnor
+          </div>
+          <div class="time">
+            09/23/10 00:28:20 (2 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/384?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/384?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1632"></a>
+        <div class="id">
+          Message #1632
+        </div>
+        <div class="body">
+            <p>
+This is probably not possible, because it would require too much RAM. (You could try to increase your SWAP partition to several GB, but I don't know how much it requires for Europe). But in any case it will take quite some time.
+</p>
+<p>
+There is another converter called osm2po, but I wasn't able to import all Europe either, which might work with newer versions.
+</p>
+<p>
+To be able to convert large networks, it would be probably required to modify osm2pgrouting to write to HDD temporary and not to store all in memory. Ideas, contribution or sponsorship welcome! ;-)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            09/24/10 20:54:37 (8 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1633"></a>
+        <div class="id">
+          Message #1633
+        </div>
+        <div class="body">
+            <p>
+Puhh. Why? osm2po should manage this.
+I had no problems under my old XP-Home-Box (2 Gig RAM)
+If there was a problem please let me know.
+</p>
+<p>
+Regards,
+</p>
+<p>
+Carsten
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            09/26/10 06:27:17 (8 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1634"></a>
+        <div class="id">
+          Message #1634
+        </div>
+        <div class="body">
+            <p>
+Hi Carsten,
+</p>
+<p>
+I forgot to inform you, but when I tried to import once Europe slice by slice (because all at once wasn't possible), I still run into errors. So I made the slices, which failed to process smaller and smaller, but it seemed not to be a problem of the size, but maybe some error within the data (some parsing error?).
+</p>
+<p>
+I run it under Ubuntu 10.04 on a large server with plenty of RAM, so thi shouldn't be the problem. Maybe it's a problem with Linux, some characters that Linux doesn't like but Windows doesn't care about.
+</p>
+<p>
+I downloaded europe.osm from Cloudmade server and then run like this:
+</p>
+<pre class="wiki">java -Xmx3072M -jar osm2po-free-1.1.6-signed.jar /var/www/europe.osm prefix=eu pid=0 crop=34.0,-32.0,5.0,70.0
+java -Xmx3072M -jar osm2po-free-1.1.6-signed.jar /var/www/europe.osm prefix=eu pid=1 crop=5.0,-32.0,14.0,70.0 merge=0
+java -Xmx3072M -jar osm2po-free-1.1.6-signed.jar /var/www/europe.osm prefix=eu pid=2 crop=14.0,-32.0,23.0,70.0 merge=1
+java -Xmx3072M -jar osm2po-free-1.1.6-signed.jar /var/www/europe.osm prefix=eu pid=3 crop=23.0,-32.0,32.0,70.0 merge=2
+java -Xmx3072M -jar osm2po-free-1.1.6-signed.jar /var/www/europe.osm prefix=eu pid=4 crop=32.0,-32.0,41.0,70.0 merge=3
+java -Xmx3072M -jar osm2po-free-1.1.6-signed.jar /var/www/europe.osm prefix=eu pid=5 crop=41.0,-32.0,43.0,70.0 merge=4
+java -Xmx3072M -jar osm2po-free-1.1.6-signed.jar /var/www/europe.osm prefix=eu pid=6 crop=43.0,-32.0,46.0,70.0 merge=5
+java -Xmx3072M -jar osm2po-free-1.1.6-signed.jar /var/www/europe.osm prefix=eu pid=7 crop=50.0,-32.0,55.0,70.0 merge=6
+java -Xmx3072M -jar osm2po-free-1.1.6-signed.jar /var/www/europe.osm prefix=eu pid=8 crop=59.0,-32.0,64.0,70.0 merge=7
+java -Xmx3072M -jar osm2po-free-1.1.6-signed.jar /var/www/europe.osm prefix=eu pid=9 crop=68.0,-32.0,73.0,70.0 merge=8
+java -Xmx3072M -jar osm2po-free-1.1.6-signed.jar /var/www/europe.osm prefix=eu pid=10 crop=77.0,-32.0,83.0,70.0 merge=9
+</pre><p>
+I tried other variations and it didsn't matter if you merge or not (I also merged a list).
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            09/26/10 20:48:04 (8 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1635"></a>
+        <div class="id">
+          Message #1635
+        </div>
+        <div class="body">
+            <p>
+Hey Daniel,
+</p>
+<p>
+<a class="missing wiki">LongJohn?</a> also told me, that there are encoding-problems with some Linux distributions. I couldn't reproduce this on my Fedora8 under Virtual PC.
+Nethertheless. I know I have written a lot in my PDF-Document about cropping and merging. But it is not necessary if you want to convert Europe in one piece.
+Newer Versions use a greedy caching technique, so if the first tile doesn't run into an <a class="missing wiki">OutOfMemory?</a> the remaining tiles shouldn't step into this trap, either.
+Tipp: The best choice is to convert the highways only extract from Cloudmade.
+The only critical area is around London. But a 5x5-Buffer should work on your big box.
+</p>
+<p>
+Try this:
+</p>
+<pre class="wiki">java -Xmx2048m -jar osm2po-xxx.jar prefix=eu tileSize=5x5 path/to/europe-highways.osm
+</pre><p>
+If an <a class="missing wiki">OutOfMemory?</a> occurs, try tileSize=4x5 or 4x4 or increase Xmx.
+</p>
+<p>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            09/27/10 00:40:06 (8 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1636"></a>
+        <div class="id">
+          Message #1636
+        </div>
+        <div class="body">
+            <p>
+"decrease" of course ;-)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            09/27/10 00:47:38 (8 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1638"></a>
+        <div class="id">
+          Message #1638
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ "decrease" of course ;-)
+</p>
+</blockquote>
+<p>
+Of course "increase" !!!!
+</p>
+<p>
+Damn!!! How can I delete nonsense comments here???
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pimapper
+          </div>
+          <div class="time">
+            09/27/10 00:51:29 (8 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message1639"></a>
+        <div class="id">
+          Message #1639
+        </div>
+        <div class="body">
+            <p>
+don't worry, no need to delete ... seems like it's disabled by default. I will check.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            09/27/10 06:40:57 (8 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/384?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/384?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

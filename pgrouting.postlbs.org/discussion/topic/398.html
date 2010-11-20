@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/398 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:57:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/17.html" title="astar">astar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>astar (#17) - Generated path is not shortest path ...?!?! (#398) - Message List</h1>
+      <div class="topic ">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Generated path is not shortest path ...?!?!
+            </div>
+            <div class="body">
+              <p>
+Id like to ask you for advice where could be problem with my dataset or procedure.<br />
+I have roads with length, to_cost, reverse_cost columns with same values equals to length of the_geom.<br />
+I used this query :<br />
+</p>
+<pre class="wiki">INSERT INTO route(the_geom, source, target) SELECT roads5.the_geom, roads5.source, roads5.target FROM roads5,
+(SELECT * FROM shortest_path_astar('SELECT gid AS id, source, target, to_cost AS cost, reverse_cost, x1, y1, x2, y2 FROM
+roads5',".$startEdge['source'].",".$endEdge['target'].", true, true)) as rt where roads5.gid = rt.edge_id;
+</pre><p>
+<br />
+</p>
+<p>
+and result is here:<br />
+<a class="ext-link" href="http://www.imgplace.com/viewimg215/9978/55test.png"><span class="icon"> </span>http://www.imgplace.com/viewimg215/9978/55test.png</a>
+<br />
+</p>
+<p>
+Aparently this generated route is not shortest.<br />
+</p>
+<p>
+When I set to cost and reverse cost to same value I would expect that algorithm will not consider any oneway restriction and find shortest route. Am I right?<br />
+please advice me where could be a problem.<br />
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            11/01/10 17:51:15 (3 weeks ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies ">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/398?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/398?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li>
+        <a name="message1738"></a>
+        <div class="id">
+          Message #1738
+        </div>
+        <div class="body">
+            <p>
+Would it be possible to add information about the direction of your oneway streets (and where the oneway streets are) to the map?
+</p>
+<p>
+I suppose that if you set all costs to length, it will not take oneway streets into account. to_cost by the way is only used for turn restrictions in Shooting Star.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            11/02/10 00:01:16 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li>
+        <a name="message1744"></a>
+        <div class="id">
+          Message #1744
+        </div>
+        <div class="body">
+            <p>
+Daniel, can I ask you what should happened if I set to_cost or reverse_cost to -1 ?<br />
+</p>
+<p>
+thank in advance for answer
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            11/05/10 00:21:47 (2 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li>
+        <a name="message1739"></a>
+        <div class="id">
+          Message #1739
+        </div>
+        <div class="body">
+            <p>
+here I put picture where with green lines are shown oneway roads a purple is restricted roads. Red one is route generated by previous sql query.<br />
+<a class="ext-link" href="http://www.imgplace.com/viewimg576/8242/18test2.png"><span class="icon"> </span>http://www.imgplace.com/viewimg576/8242/18test2.png</a>
+<br />
+<br />
+...and here is shown route on google where you can see direction of oneways :
+<br />
+<a class="ext-link" href="http://www.imgplace.com/viewimg215/1420/66test4.png"><span class="icon"> </span>http://www.imgplace.com/viewimg215/1420/66test4.png</a>
+<br />
+<br />
+....here is route what should be generated like shortest one ...becasue all cost was set up to length of the segment so oneway roads should not be considered.<br />
+<a class="ext-link" href="http://www.imgplace.com/viewing576/6193/23test3.png"><span class="icon"> </span>http://www.imgplace.com/viewing576/6193/23test3.png</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            11/02/10 01:05:36 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li><li>
+        <a name="message1740"></a>
+        <div class="id">
+          Message #1740
+        </div>
+        <div class="body">
+            <p>
+and when I just change sql query to  (on same dataset):
+<br />
+</p>
+<pre class="wiki">SELECT rt.gid AS id, ST_AsGeoJSON(rt.the_geom) AS geojson, length(rt.the_geom) AS length, roads5.on AS nazov, roads5.gid FROM roads5,(SELECT gid, the_geom FROM astar_sp_directed('roads5',".$startEdge['source'].",".$endEdge['target'].",true, true)) as rt WHERE roads5.gid=rt.gid;
+</pre><p>
+<br />
+...I got quite nice result ..I mean this route look very shortest one....
+<br />
+<a class="ext-link" href="http://www.imgplace.com/viewimg401/6527/21test5.png"><span class="icon"> </span>http://www.imgplace.com/viewimg401/6527/21test5.png</a>
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Dzouzeph
+          </div>
+          <div class="time">
+            11/02/10 01:16:38 (3 weeks ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/398?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/398?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

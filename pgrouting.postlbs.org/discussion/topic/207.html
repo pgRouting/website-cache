@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/207 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/17.html" title="astar">astar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>astar (#17) - <a class="missing wiki">PgRouting?</a> using A-Star (#207) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              <a class="missing wiki">PgRouting?</a> using A-Star
+            </div>
+            <div class="body">
+              <p>
+Hello
+I am having some problem with pgrouting.
+</p>
+<p>
+My geometry column has srid = 4326.
+</p>
+<p>
+First I tried to get the nearest edge by calling this function
+</p>
+<p>
+SELECT gid, source, target, the_geom, distance(the_geom, <a class="missing wiki">GeometryFromText?</a>('POINT(" + Long + " " + Lat + ")',4326)) As distance
+FROM  irouting WHERE the_geom &amp;&amp; SETSRID(BOX3D(<a class="missing wiki">GeometryFromText?</a>('" + polygon + "'))::BOX3D,4326) ORDER BY distance LIMIT 1;
+</p>
+<p>
+And I passed
+</p>
+<p>
+Long = 114.90625845458985 and Lat = 4.8664399002813763 as my source
+and
+Long = 114.92273794677735 and Lat = 4.8760529373907513 as my target.
+</p>
+<p>
+And my polygon was created from
+</p>
+<p>
+string polygon = "POLYGON((" + minX + " " + minY + ", " + minX + " " + maxY + ", " + maxX + " " + maxY + ", " + maxX + " " + minY + ", " + minX + " " + minY + "))";
+where
+double minY = Long - 200;
+double minX = Lat - 200;
+double maxY = Long + 200;
+double maxX = Lat + 200;
+</p>
+<p>
+The output for source was this
+gid = 4014
+source = 10057
+target = 10058
+length = 0.00099061620750021573
+the_geom = 0102000020E610000005000000664E97C5C4B95C400AA359D93E7413409A417C60C7B95C40703FE081017413404CA4349BC7B95C40A453573ECB731340B9C2BB5CC4B95C4093A8177C9A7313402B508BC1C3B95C40B66801DA56731340
+</p>
+<p>
+And the output for Target was
+gid = 3672
+source = 3745
+target = 3746
+length = 0.000017282466802851143
+the_geom = 0102000020E610000007000000CCEF3499F1BA5C403B6D8D08C681134034BC5983F7BA5C40257497C459811340B64C86E3F9BA5C405F7F129F3B811340F38E537424BB5C407C26FBE76980134085EE92382BBB5C40D2393FC571801340B1A206D330BB5C409E08E23C9C801340319A95ED43BB5C4036B05582C5811340
+</p>
+<p>
+Finally, I called a function to do the routing by passing my source edge and end edge
+<a class="missing wiki">SourceEdge?</a>= 10057
+<a class="missing wiki">TargetEdge?</a> = 3746
+</p>
+<p>
+When I called this function, to get the route
+SELECT rt.gid As gid, <a class="missing wiki">AsText?</a>(rt.the_geom) As wkt, length(rt.the_geom) As length FROM irouting As tb,length(rt.the_geom) As length FROM irouting  As tb,
+(SELECT gid, the_geom FROM astar_sp_delta('irouting', " + <a class="missing wiki">SourceEdge?</a> + ", " + <a class="missing wiki">TargetEdge?</a>  + ", 0.001)) As rt WHERE tb.gid = rt.gid;
+</p>
+<p>
+The result was null. Which means there is no matching start edge and end edge. How can i resolve this?
+Please any suggestion would be highly appreciated.
+</p>
+<p>
+Thank you
+</p>
+<p>
+ilotus
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            ilotus
+          </div>
+          <div class="time">
+            01/07/09 12:07:08 (23 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/207?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/207?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message749"></a>
+        <div class="id">
+          Message #749
+        </div>
+        <div class="body">
+            <p>
+Since you're using A* (same for Dijkstra) you you need a <strong>Node ID</strong> as start and end point. Only Shooting* takes <strong>Edge ID's</strong> as start and end. <br />
+This is because A* and Dijkstra search the shortest path from node to node, but Shoooting* from edge to edge.
+</p>
+<p>
+So just take the start or end point of your start/end edge and it should work.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            01/07/09 15:46:40 (23 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/207?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/207?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

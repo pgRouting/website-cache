@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/364 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/25.html" title="wrs">wrs</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>wrs (#25) - Compile Error - Type mismatch: cannot convert from Object to Parameter (#364) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Compile Error - Type mismatch: cannot convert from Object to Parameter
+            </div>
+            <div class="body">
+              <p>
+[rylan@gapp01 wrs]$ ./compile.sh
+</p>
+<hr />
+<p>
+1. ERROR in src/jp/co/orkney/restlet/WebRouting.java (at line 169)
+</p>
+<blockquote>
+<p>
+parameter = configuration.getParameters().get(i);
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup>
+</p>
+</blockquote>
+</blockquote>
+<p>
+Type mismatch: cannot convert from Object to Parameter
+</p>
+<hr />
+<p>
+2. ERROR in src/jp/co/orkney/restlet/WebRouting.java (at line 171)
+</p>
+<blockquote>
+<p>
+parameter = configuration.getProvider().getAuthService().getParameters().get(
+</p>
+<blockquote>
+<p>
+i - configuration.getParameters().size());
+</p>
+</blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup>
+</sup></p>
+</blockquote>
+<p>
+Type mismatch: cannot convert from Object to Parameter
+</p>
+<hr />
+<hr />
+<p>
+3. ERROR in src/jp/co/orkney/restlet/util/Configuration.java (at line 86)
+</p>
+<blockquote>
+<p>
+public Vector&lt;Provider&gt; providers;
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup><sup></sup>
+</p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<p>
+4. ERROR in src/jp/co/orkney/restlet/util/Configuration.java (at line 135)
+</p>
+<blockquote>
+<p>
+@<a class="missing wiki">SuppressWarnings?</a>("unchecked")
+<sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup></sup><sup>
+</sup></p>
+</blockquote>
+<p>
+Syntax error, annotations are only available if source level is 1.5
+</p>
+<hr />
+<p>
+5. ERROR in src/jp/co/orkney/restlet/util/Configuration.java (at line 570)
+</p>
+<blockquote>
+<p>
+public Vector&lt;Parameter&gt; getParameters()
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup><sup></sup><sup>
+</sup></p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<hr />
+<p>
+6. ERROR in src/jp/co/orkney/restlet/util/Edge.java (at line 10)
+</p>
+<blockquote>
+<p>
+private Vector&lt;Point&gt; points;
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup>
+</sup></p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<p>
+7. ERROR in src/jp/co/orkney/restlet/util/Edge.java (at line 47)
+</p>
+<blockquote>
+<p>
+public Vector&lt;Point&gt; getPoints() {
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup>
+</sup></p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<hr />
+<p>
+8. ERROR in src/jp/co/orkney/restlet/util/Provider.java (at line 40)
+</p>
+<blockquote>
+<p>
+private Vector&lt;Service&gt; services;
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup><sup>
+</sup></p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<p>
+9. ERROR in src/jp/co/orkney/restlet/util/Provider.java (at line 83)
+</p>
+<blockquote>
+<p>
+public Vector&lt;Service&gt; getServices()
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup><sup>
+</sup></p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<p>
+10. ERROR in src/jp/co/orkney/restlet/util/Provider.java (at line 94)
+</p>
+<blockquote>
+<p>
+public void setServices(Vector&lt;Service&gt; services)
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup><sup>
+</sup></p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<hr />
+<p>
+11. ERROR in src/jp/co/orkney/restlet/util/Service.java (at line 49)
+</p>
+<blockquote>
+<p>
+private Vector&lt;Parameter&gt; parameters;
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup><sup></sup><sup>
+</sup></p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<p>
+12. ERROR in src/jp/co/orkney/restlet/util/Service.java (at line 50)
+</p>
+<blockquote>
+<p>
+private Vector&lt;Format&gt; formats;
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup>
+</p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<p>
+13. ERROR in src/jp/co/orkney/restlet/util/Service.java (at line 94)
+</p>
+<blockquote>
+<p>
+public Service(String name, String dataProjection, String[] sqlQuery, boolean isEnable, Vector&lt;Parameter&gt; parameters, Vector&lt;Format&gt; formats,
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup><sup></sup><sup>
+</sup></p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<p>
+14. ERROR in src/jp/co/orkney/restlet/util/Service.java (at line 94)
+</p>
+<blockquote>
+<p>
+public Service(String name, String dataProjection, String[] sqlQuery, boolean isEnable, Vector&lt;Parameter&gt; parameters, Vector&lt;Format&gt; formats,
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup>
+</p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<p>
+15. ERROR in src/jp/co/orkney/restlet/util/Service.java (at line 259)
+</p>
+<blockquote>
+<p>
+public Vector&lt;Parameter&gt; getParameters()
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup><sup></sup><sup>
+</sup></p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<p>
+16. ERROR in src/jp/co/orkney/restlet/util/Service.java (at line 304)
+</p>
+<blockquote>
+<p>
+public void setParameters(Vector&lt;Parameter&gt; parameters)
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup><sup></sup><sup>
+</sup></p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<p>
+17. ERROR in src/jp/co/orkney/restlet/util/Service.java (at line 329)
+</p>
+<blockquote>
+<p>
+public Vector&lt;Format&gt; getFormats()
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup>
+</p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<p>
+18. ERROR in src/jp/co/orkney/restlet/util/Service.java (at line 340)
+</p>
+<blockquote>
+<p>
+public void setFormats(Vector&lt;Format&gt; formats)
+</p>
+<blockquote>
+<p>
+<sup></sup><sup></sup><sup></sup>
+</p>
+</blockquote>
+</blockquote>
+<p>
+Syntax error, parameterized types are only available if source level is 1.5
+</p>
+<hr />
+<p>
+18 problems (18 errors)
+</p>
+<p>
+[rylan@gapp01 wrs]$ uname -a
+Linux gapp01.selfawaregames.com 2.6.27.24-170.2.68.fc10.i686 <a class="assigned ticket" href="../../ticket/1.html" title="feature request: TSP should return to start point (assigned)">#1</a> SMP Wed May 20 23:10:16 EDT 2009 i686 i686 i386 GNU/Linux
+</p>
+<p>
+[rylan@gapp01 wrs]$ rpm -qa | grep -i java
+java-1.5.0-gcj-1.5.0.0-23.fc10.i386
+gcc-java-4.3.2-7.i386
+java_cup-0.10k-1.i386
+tzdata-java-2009k-2.fc10.noarch
+java-1.6.0-openjdk-1.6.0.0-21.b16.fc10.i386
+java-1.5.0-gcj-devel-1.5.0.0-23.fc10.i386
+</p>
+<p>
+[rylan@gapp01 wrs]$ svn info
+Path: .
+URL: <a href="../../svn/pgrouting/tools/routingservice/trunk/index.html">http://pgrouting.postlbs.org/svn/pgrouting/tools/routingservice/trunk</a>
+Repository Root: <a href="../../svn/pgrouting/index.html">http://pgrouting.postlbs.org/svn/pgrouting</a>
+Repository UUID: d21bcd6f-0036-404f-87c1-d983b28855fd
+Revision: 356
+Node Kind: directory
+Schedule: normal
+Last Changed Author: daniel
+Last Changed Rev: 288
+Last Changed Date: 2009-04-05 21:47:48 -0700 (Sun, 05 Apr 2009)
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            krazik
+          </div>
+          <div class="time">
+            05/26/10 04:06:12 (6 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/364?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/364?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message1510"></a>
+        <div class="id">
+          Message #1510
+        </div>
+        <div class="body">
+            <p>
+Added "-1.5" to javac in compile.sh and that fixed it.
+</p>
+<p>
+still get a number of warnings about unused code, but it compiles and run
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            krazik
+          </div>
+          <div class="time">
+            05/26/10 04:55:22 (6 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/364?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/364?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/261 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/24.html" title="osm2pgrouting">osm2pgrouting</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>osm2pgrouting (#24) - Import Error (#261) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Import Error
+            </div>
+            <div class="body">
+              <p>
+I'm attempting to import the Minnesota - United States OSM dataset.  I run into the following error during the import process:
+</p>
+<pre class="wiki">root@db:~/osm2pgrouting# ./osm2pgrouting -file ~bobcat/minnesota.osm -conf mapconfig.xml  -dbname osm -user postgres -clean
+host=127.0.0.1 user=postgres dbname=osm port=5432
+connection success
+Trying to load config file mapconfig.xml
+Trying to parse config
+SE for &lt;configuration&gt;
+SE for &lt;type&gt;
+...
+...
+class name = roundabout
+class id = 401
+class id = 401 name = roundabout added to type name=junction
+Trying to load data
+Trying to parse data
+not well-formed (invalid token) at line 20234194
+*** glibc detected *** ./osm2pgrouting: double free or corruption (!prev): 0x0000000000bb3920 ***
+======= Backtrace: =========
+/lib/libc.so.6[0x7ffa68c32cb8]
+/lib/libc.so.6(cfree+0x76)[0x7ffa68c35276]
+/lib/libc.so.6(fclose+0x151)[0x7ffa68c22d21]
+./osm2pgrouting[0x40f693]
+./osm2pgrouting[0x403e42]
+/lib/libc.so.6(__libc_start_main+0xe6)[0x7ffa68bd95a6]
+./osm2pgrouting[0x4032d9]
+</pre><p>
+It seems like this might be because of in improperly formatted data file, but even so it seems like there could be a more graceful failure and error message.
+</p>
+<p>
+Carl
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Carl
+          </div>
+          <div class="time">
+            05/07/09 01:30:40 (19 months ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/261?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/261?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message937"></a>
+        <div class="id">
+          Message #937
+        </div>
+        <div class="body">
+            <blockquote class="citation">
+<p>
+ It seems like this might be because of in improperly formatted data file, but even so it seems like there could be a more graceful failure and error message.
+</p>
+</blockquote>
+<p>
+You're right. We wished Google would have assigned more slots for this year's GSoC to improve the importing tool. It was contributed last year to pgRouting and we would be glad someone could work on this.
+</p>
+<p>
+I never saw this error yet. Does it work when you try it with other data than Minnesota? Maybe another country's data?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            05/07/09 20:50:59 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message938"></a>
+        <div class="id">
+          Message #938
+        </div>
+        <div class="body">
+            <p>
+That is ironic - I am trying to import the Minnesota OSM data to aid in my GSoC project.
+</p>
+<p>
+I tried the Rhode Island data which imported fine, so did Wisconsin.  I tried the Minnesota - Highways file from Cloudmade instead of the whole MN file and it seemed to get further but then run out of memory, going to up the memory for my VM and try again.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Carl
+          </div>
+          <div class="time">
+            05/08/09 05:41:10 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message939"></a>
+        <div class="id">
+          Message #939
+        </div>
+        <div class="body">
+            <p>
+Hi Carl,
+</p>
+<p>
+Congratulations! I just saw that your proposal was accepted through OSM. That's cool! I was already thinking whether it is you or another Carl. Sorry for not having send you some feedback yet. Just too busy recently.
+</p>
+<p>
+Well, it seems like you run into this issue: <a class="new ticket" href="../../ticket/140.html" title="bug report: osm2pgrouting running out or memory (new)">#140</a> <br />
+And unfortunately there is not much we can help at the moment to solve this.
+</p>
+<p>
+The problem is that all data is loaded to memory to process, which is not good. Would be nice to write to a temporary table instead before running out of memory.
+</p>
+<p>
+Ugly, but what you could do is (if you use Linux) to increase your SWAP partition to as much as you need, so you can load all the data and process it. I once made a 8GB Swap partition and filled it completely when trying to import a complete country. But if you have a big HDD you could just make it bigger.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            05/08/09 14:53:03 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message941"></a>
+        <div class="id">
+          Message #941
+        </div>
+        <div class="body">
+            <p>
+Yes, that is the issue I am having now.  My VM died yesterday, I ended up having to reboot the whole system, ended up with a corrupt (virtual) hard drive.  Once I get another VM going with pgRouting, I'll try both upping the memory to 2GB or so and giving it plenty if swap space if that is still needed.
+</p>
+<p>
+Thanks for the help.  I'm hoping to do some cool things with pgRouting and driving data. I might have some contributions to make back to pgRouting too - as there are some functions I will need that could probably be useful for pgRouting in general.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            Carl
+          </div>
+          <div class="time">
+            05/09/09 01:34:15 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message947"></a>
+        <div class="id">
+          Message #947
+        </div>
+        <div class="body">
+            <p>
+Hi Carl,
+</p>
+<p>
+Personally I'm very interested in your project, because I'm also active OSM mapper in Yokohama. If you have something to contribute, that would be more than welcome! For an Open Source project it's all about the number of users/developers and its activity. pgRouting will never become that big, but we would like to have more different people activly involved so we might be able to fullfill the requirements to become an official OSGeo project. From our side there is no problem to extend the library with new tools, so if you have any idea here, please let me know.
+</p>
+<p>
+My community work is supported also by my company, but of course customer projects must have priority (quite a lot at the moment). Anyway, just ask in the forum or in the mailing list if you have a problem or want to discuss something, and at least Anton or I will try to help.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            daniel
+          </div>
+          <div class="time">
+            05/12/09 07:35:04 (19 months ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/261?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/261?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/27 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/16.html" title="dijkstra">dijkstra</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>dijkstra (#16) - Dijkstra problem (execution of algorithm not complete) (#27) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              Dijkstra problem (execution of algorithm not complete)
+            </div>
+            <div class="body">
+              <p>
+First of all this is great work and great idea. Smooth install easy data prepare ... Works on postgres :)
+</p>
+<p>
+I got one or two questions.
+</p>
+<p>
+1)
+I have load table with 600000 lines in postgres. When I exec  shortest_path function it works only if A an B point are within certain air distance else query returns empty resultset ?
+</p>
+<p>
+2)
+Why is A* slower then a Djikstra algorithm. It should be faster if you consider heuristic (I supposse F=G+H where G is actual cost from start node to current node and H is air distance from current node to end node) ?
+</p>
+<p>
+3) Is it possible to load graph dinamicly with parameter let we say radius.
+Sample: if I travel from A to B. On start create graph within radius start node, when succesors of current best node are out of radius , build another graph within radius of that node ... So you would build many small graphs until you reach end node.
+</p>
+<p>
+Im no expert at all in route algorithms, so I maybe ask dummy question, but I am very interested in this project because idea is great.
+</p>
+<p>
+--pixna--
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pixna
+          </div>
+          <div class="time">
+            07/12/07 22:43:35 (3 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/27?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/27?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message97"></a>
+        <div class="id">
+          Message #97
+        </div>
+        <div class="body">
+            <p>
+Hi,
+</p>
+<p>
+Thank you, we are doing our best to make pgRouting better.
+</p>
+<p>
+1) It sounds strange to me, 'cause there are no distance limitations in pgRouting. Probably A and B are not connected at all, so algorithm couldn't find any route between them.
+</p>
+<p>
+2) Well, total execution time of any shortest path function consists of two parts - data loading time and shortest path calculation time. In case of Dijkstra data loading time is shorter, 'cause it doesn't need to load vertices' coordinates. A* shortes path calculation time COULD BE shorter (in a worst case it equals to calculation time for Dijkstra) and it depends on graph density, number of edges between A and B and other things, but in needs to load coordinates for each vertex in a graph which takes more time. That's why we have both algorithms in pgRouting - Dijkstra can be better in one case and A* in another. By the way, did you try wrapper functions from routing_postgis.sql file? There you can find functions which are clipping a boundary box out of entire graph to reduce a number of edges to load.
+</p>
+<p>
+3) Again, wrapper functions could be an answer. They don't load data dynamicaly, but they reduce a number of edges to load, and it can improve a performance.
+</p>
+<p>
+Thank you once again, stay tuned :)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/13/07 10:26:20 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message98"></a>
+        <div class="id">
+          Message #98
+        </div>
+        <div class="body">
+            <p>
+U re right. Distances are not the reason why I get empty resultset. It seems that A an B are not connectet. But i build topology with arcinfo and there seems to be ok. I take a look again.
+</p>
+<p>
+Tx for all your ansvers. There will be new questions soon. :)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pixna
+          </div>
+          <div class="time">
+            07/13/07 16:23:16 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message99"></a>
+        <div class="id">
+          Message #99
+        </div>
+        <div class="body">
+            <p>
+You are welcome!
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/13/07 16:40:43 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message103"></a>
+        <div class="id">
+          Message #103
+        </div>
+        <div class="body">
+            <p>
+Hmm. Topology is ok. I try it with my own algorithm a*. Maybe i dont understand how to use it.
+</p>
+<p>
+1) I build topology in arcinfo.
+</p>
+<p>
+build roads line;
+build roads node;
+</p>
+<p>
+--data otput--
+"Fnode_","Tnode_","Length"
+12,7,39
+12,14,28.816
+14,15,36.248
+15,13,25.488
+15,6,147.234
+</p>
+<p>
+Then i import data in postgres.
+</p>
+<p>
+fnode_ rename to source
+tnode_ rename to target
+</p>
+<p>
+i calculate x1 x2 y1 y2
+</p>
+<p>
+X(<a class="missing wiki">StartPoint?</a>(the_geom)) = x1
+Y(<a class="missing wiki">StartPoint?</a>(the_geom)) = y1
+X(<a class="missing wiki">EndPoint?</a>(the_geom)) = x2
+Y(<a class="missing wiki">EndPoint?</a>(the_geom)) = y2
+</p>
+<p>
+then I exec
+</p>
+<p>
+SELECT * FROM
+shortest_path
+('SELECT
+</p>
+<blockquote>
+<p>
+unique_id AS id,
+source::int4 AS source,
+target::int4 AS target,
+MINUTES AS cost,
+</p>
+<blockquote>
+<p>
+x1,
+y1,
+x2,
+y2
+</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>
+FROM roads',428131, 258271, false, false
+</p>
+</blockquote>
+<p>
+) ;
+</p>
+<p>
+428131 = value from source aka fnode_
+258271 = value from target aka tnode_
+</p>
+<p>
+works for while and returns empty result set no messages.
+</p>
+<p>
+Any clue ?
+</p>
+<p>
+Pix
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pixna
+          </div>
+          <div class="time">
+            07/17/07 04:25:53 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message104"></a>
+        <div class="id">
+          Message #104
+        </div>
+        <div class="body">
+            <p>
+Can you send me a dump of your table to 'anton &lt;at&gt; orkney &lt;dot&gt; co &lt;dot&gt; jp'?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/17/07 11:03:18 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message105"></a>
+        <div class="id">
+          Message #105
+        </div>
+        <div class="body">
+            <p>
+Oh f.. my mistake. When I import shape to postgres some roads doesn't import. Because im from Slovenia we have some chars like ŠČŽ and roads witch contains that chars contains utf conv err. So graph was broken. My astar works directly on shape so it finds path :(.  When i fix file with iconv things start work like charm. Im testing it on my laptop. I have 532142 roads in table and djikstra found A to B on max air distance within 15 sec. Im about to try it on 2 core server with 8 gb of ram. Score will be posted.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pixna
+          </div>
+          <div class="time">
+            07/17/07 16:35:30 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message106"></a>
+        <div class="id">
+          Message #106
+        </div>
+        <div class="body">
+            <p>
+Hooray!!! :)
+</p>
+<p>
+But 15 sec is a little bit slow. Did you try wrapper functions I told you about?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/17/07 16:42:40 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message108"></a>
+        <div class="id">
+          Message #108
+        </div>
+        <div class="body">
+            <p>
+Yes.
+SELECT <a class="missing wiki">AsText?</a>(roads.the_geom),name FROM
+</p>
+<blockquote>
+<p>
+shortest_path_dijkstra1_as_geometry_internal_id
+(
+'roads',$from, $to,300000
+) AS T1  INNER JOIN roads on roads.gid=T1.gid;
+</p>
+</blockquote>
+<p>
+But it would be helpful if i knew what is the meaning of fourth param. If it's too small path is not returned.
+</p>
+<p>
+Do you have any idea (suggestion) how to get directions from optimisation (turn left right go straight).
+</p>
+<p>
+Im thinkin to write php class witch will contains all sql func + wraped func
+in style
+</p>
+<p>
+result will be xml with path.
+</p>
+<p>
+Pix
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pixna
+          </div>
+          <div class="time">
+            07/18/07 16:03:44 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message109"></a>
+        <div class="id">
+          Message #109
+        </div>
+        <div class="body">
+            <p>
+Fourth parameter means the distance between start/end point and the border of a boundary box which clips out a piece of data to load. The value depends on your projection - it can be in meters or degrees (300 km in your case, I guess, and it is way too much).
+</p>
+<p>
+What about directions, it is pretty tricky. Of course, you can check coordinates of each edge in the result and tell the direction of turn, but what if you will have a crossing of four or five edges? Which one goes where?
+There can be one street at the right side, two streets at the left side and one street can lead straight.
+</p>
+<p>
+I think you need a list of landmarks to link directions to. In that case you can tell 'turn left to St. Paul street' or 'go strait across Blue Bridge'.
+</p>
+<p>
+We want to implement this feature, so we will really appreciate if you would like to contribute something to pgRouting.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/18/07 16:55:18 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message110"></a>
+        <div class="id">
+          Message #110
+        </div>
+        <div class="body">
+            <p>
+Im writin php class for routing with pgRouting now. Im going to solwe problem this way. When I get back sorted route, I check corners betwen depart line and arrival line. Something like this:
+</p>
+<p>
+-- calculates angle between three points (arrival, cross and depart) in degrees
+-- angle is opened from arrival point to depart point counter clockwise
+-- angle values around 90 indicate perpendicular right turns on path from arrival via cross to depart point
+-- angle values around 270 indicate perpendicular left turns on path from arrival via cross to depart point
+SELECT
+</p>
+<blockquote>
+<p>
+MOD((360
+</p>
+<blockquote>
+<p>
++ (azimuth(<a class="missing wiki">GeomFromText?</a> ('POINT (3 4) ',-1), <a class="missing wiki">GeomFromText?</a> ('POINT (5 7) ',-1)))/pi()*180 -- cross point, arrival point
+</p>
+</blockquote>
+</blockquote>
+<ul><li>(azimuth(<a class="missing wiki">GeomFromText?</a> ('POINT (3 4) ',-1), <a class="missing wiki">GeomFromText?</a> ('POINT (6 3) ',-1)))/pi()*180 -- cross point, depart point
+)::integer,
+</li></ul><blockquote>
+<p>
+360) AS angle_deg
+</p>
+</blockquote>
+<p>
+What are u thinkin about ?
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pixna
+          </div>
+          <div class="time">
+            07/19/07 18:02:12 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message111"></a>
+        <div class="id">
+          Message #111
+        </div>
+        <div class="body">
+            <p>
+Well, it could work for simple crossings. But I still thing it is better to incorporate at least street names to make a result look like "turn left to XXX street".
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            07/23/07 10:03:18 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message100"></a>
+        <div class="id">
+          Message #100
+        </div>
+        <div class="body">
+            <p>
+ 
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            pixna
+          </div>
+          <div class="time">
+            07/13/07 20:06:51 (3 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/27?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/27?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/browser/tools/routingservice/trunk/src/jp/co/orkney/restlet/geo/DrivingDistance.java by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 06:02:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      /tools/routingservice/trunk/src/jp/co/orkney/restlet/geo/DrivingDistance.java – pgRouting
+    </title>
+        <link rel="search" href="../../../../../../../../../../search.html" />
+        <link rel="help" href="../../../../../../../../../../wiki/TracGuide.html" />
+        <link rel="alternate" href="http://pgrouting.postlbs.org/browser/tools/routingservice/trunk/src/jp/co/orkney/restlet/geo/DrivingDistance.java?format=txt" type="text/plain" title="Plain Text" /><link rel="alternate" href="../../../../../../../../../../export/358/tools/routingservice/trunk/src/jp/co/orkney/restlet/geo/DrivingDistance.java" type="text/x-java; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="../geo.html" title="Parent directory" />
+        <link rel="start" href="../../../../../../../../../../wiki.html" />
+        <link rel="stylesheet" href="../../../../../../../../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../../../../../../../../chrome/common/css/code.css" type="text/css" /><link rel="stylesheet" href="../../../../../../../../../../chrome/common/css/browser.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../../../../../../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../../../../../../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../../../../../../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../../../../../../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../../../../../../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../../../../../../../../chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".trac-toggledeleted").show().click(function() {
+                  $(this).siblings().find(".trac-deleted").toggle();
+                  return false;
+        }).click();
+        $("#jumploc input").hide();
+        $("#jumploc select").change(function () {
+          this.parentNode.parentNode.submit();
+        });
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../../../../../../../../index.html"><img src="../../../../../../../../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../../../../../../../../login.html">Login</a></li><li><a href="../../../../../../../../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../../../../../../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../../../../../../../../wiki.html">Home</a></li><li><a href="../../../../../../../../../../timeline.html">Timeline</a></li><li><a href="../../../../../../../../../../roadmap.html">Roadmap</a></li><li class="active"><a href="../../../../../../../../../../browser.html">Browse Source</a></li><li><a href="../../../../../../../../../../report.html">View Tickets</a></li><li><a href="../../../../../../../../../../search.html">Search</a></li><li class="last"><a href="../../../../../../../../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../../../../../../../../../changeset/167/branches/routingservice/src/jp/co/orkney/restlet/geo/DrivingDistance.html">Last Change</a></li><li><a href="http://pgrouting.postlbs.org/browser/branches/routingservice/src/jp/co/orkney/restlet/geo/DrivingDistance.java?annotate=blame&amp;rev=167" title="Annotate each line with the last changed revision (this can be time consuming...)">Annotate</a></li><li class="last"><a href="../../../../../../../../../../log/tools/routingservice/trunk/src/jp/co/orkney/restlet/geo/DrivingDistance.html">Revision Log</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="browser">
+      <h1>
+    <a class="pathentry first" title="Go to root directory" href="../../../../../../../../../../browser.html">root</a><span class="pathentry sep">/</span><a class="pathentry" title="View tools" href="../../../../../../../../../tools.html">tools</a><span class="pathentry sep">/</span><a class="pathentry" title="View routingservice" href="../../../../../../../../routingservice.html">routingservice</a><span class="pathentry sep">/</span><a class="pathentry" title="View trunk" href="../../../../../../../trunk.html">trunk</a><span class="pathentry sep">/</span><a class="pathentry" title="View src" href="../../../../../../src.html">src</a><span class="pathentry sep">/</span><a class="pathentry" title="View jp" href="../../../../../jp.html">jp</a><span class="pathentry sep">/</span><a class="pathentry" title="View co" href="../../../../co.html">co</a><span class="pathentry sep">/</span><a class="pathentry" title="View orkney" href="../../../orkney.html">orkney</a><span class="pathentry sep">/</span><a class="pathentry" title="View restlet" href="../../restlet.html">restlet</a><span class="pathentry sep">/</span><a class="pathentry" title="View geo" href="../geo.html">geo</a><span class="pathentry sep">/</span><a class="pathentry" title="View DrivingDistance.java" href="DrivingDistance.html">DrivingDistance.java</a>
+    <br style="clear: both" />
+  </h1>
+      <div id="jumprev">
+        <form action="#" method="get">
+          <div>
+            <label for="rev">
+              View revision:</label>
+            <input type="text" id="rev" name="rev" size="6" />
+          </div>
+        </form>
+      </div>
+      <div id="jumploc">
+        <form action="#" method="get">
+          <div class="buttons">
+            <label for="preselected">Visit:</label>
+            <select id="preselected" name="preselected">
+              <option selected="selected"></option>
+              <optgroup label="branches">
+                <option value="/browser/trunk">trunk</option><option value="/browser/branches/anton">branches/anton</option><option value="/browser/branches/daniel">branches/daniel</option><option value="/browser/branches/debug">branches/debug</option><option value="/browser/branches/pgrouting-extra">branches/pgrouting-extra</option><option value="/browser/branches/pgrouting-light">branches/pgrouting-light</option><option value="/browser/branches/workshop">branches/workshop</option>
+              </optgroup><optgroup label="tags">
+                <option value="/browser/tags/release-1.0?rev=58">tags/release-1.0</option><option value="/browser/tags/release-1.0-beta?rev=52">tags/release-1.0-beta</option><option value="/browser/tags/release-1.0-rc1?rev=51">tags/release-1.0-rc1</option><option value="/browser/tags/release-1.02?rev=162">tags/release-1.02</option><option value="/browser/tags/release-1.03?rev=218">tags/release-1.03</option>
+              </optgroup>
+            </select>
+            <input type="submit" value="Go!" title="Jump to the chosen preselected path" />
+          </div>
+        </form>
+      </div>
+      <table id="info" summary="Revision info">
+        <tr>
+          <th scope="col">
+            Revision <a href="../../../../../../../../../../changeset/167.html">167</a>, <span title="6646 bytes">6.5 KB</span>
+            (checked in by anton, <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2008-05-09T10%3A46%3A18%2B0900&amp;precision=second" title="2008-05-09T10:46:18+0900 in Timeline">3 years</a> ago)
+          </th>
+        </tr>
+        <tr>
+          <td class="message searchable">
+              <p>
+Some code cleaning with less logs<br />
+</p>
+          </td>
+        </tr>
+      </table>
+      <div id="preview" class="searchable">
+    <table class="code"><thead><tr><th class="lineno" title="Line numbers">Line</th><th class="content"> </th></tr></thead><tbody><tr><th id="L1"><a href="#L1">1</a></th><td>/**</td></tr><tr><th id="L2"><a href="#L2">2</a></th><td> * Copyright (c) 2007 Orkney, Inc. &lt;http://www.orkney.co.jp/&gt;</td></tr><tr><th id="L3"><a href="#L3">3</a></th><td> * </td></tr><tr><th id="L4"><a href="#L4">4</a></th><td> * This program is free software: you can redistribute it and/or modify</td></tr><tr><th id="L5"><a href="#L5">5</a></th><td> * it under the terms of the GNU General Public License as published by</td></tr><tr><th id="L6"><a href="#L6">6</a></th><td> * the Free Software Foundation, either version 3 of the License, or</td></tr><tr><th id="L7"><a href="#L7">7</a></th><td> * (at your option) any later version.</td></tr><tr><th id="L8"><a href="#L8">8</a></th><td> * </td></tr><tr><th id="L9"><a href="#L9">9</a></th><td> * This program is distributed in the hope that it will be useful,</td></tr><tr><th id="L10"><a href="#L10">10</a></th><td> * but WITHOUT ANY WARRANTY; without even the implied warranty of</td></tr><tr><th id="L11"><a href="#L11">11</a></th><td> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</td></tr><tr><th id="L12"><a href="#L12">12</a></th><td> * GNU General Public License for more details.</td></tr><tr><th id="L13"><a href="#L13">13</a></th><td> * </td></tr><tr><th id="L14"><a href="#L14">14</a></th><td> * You should have received a copy of the GNU General Public License</td></tr><tr><th id="L15"><a href="#L15">15</a></th><td> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</td></tr><tr><th id="L16"><a href="#L16">16</a></th><td> */</td></tr><tr><th id="L17"><a href="#L17">17</a></th><td></td></tr><tr><th id="L18"><a href="#L18">18</a></th><td>package jp.co.orkney.restlet.geo;</td></tr><tr><th id="L19"><a href="#L19">19</a></th><td></td></tr><tr><th id="L20"><a href="#L20">20</a></th><td>import java.sql.ResultSet;</td></tr><tr><th id="L21"><a href="#L21">21</a></th><td>import java.sql.SQLException;</td></tr><tr><th id="L22"><a href="#L22">22</a></th><td></td></tr><tr><th id="L23"><a href="#L23">23</a></th><td>import org.antlr.stringtemplate.StringTemplate;</td></tr><tr><th id="L24"><a href="#L24">24</a></th><td>import org.json.JSONException;</td></tr><tr><th id="L25"><a href="#L25">25</a></th><td></td></tr><tr><th id="L26"><a href="#L26">26</a></th><td>import jp.co.orkney.restlet.util.Configuration;</td></tr><tr><th id="L27"><a href="#L27">27</a></th><td>import jp.co.orkney.restlet.util.DatabaseConnection;</td></tr><tr><th id="L28"><a href="#L28">28</a></th><td>import jp.co.orkney.restlet.util.IOHelper;</td></tr><tr><th id="L29"><a href="#L29">29</a></th><td>import jp.co.orkney.restlet.util.Log;</td></tr><tr><th id="L30"><a href="#L30">30</a></th><td>import jp.co.orkney.restlet.util.Point;</td></tr><tr><th id="L31"><a href="#L31">31</a></th><td></td></tr><tr><th id="L32"><a href="#L32">32</a></th><td>/**</td></tr><tr><th id="L33"><a href="#L33">33</a></th><td> * &lt;b&gt;DrivingDistance is a class which represents a "driving distance isoline"</td></tr><tr><th id="L34"><a href="#L34">34</a></th><td> * algorithm.&lt;/b&gt;</td></tr><tr><th id="L35"><a href="#L35">35</a></th><td> * &lt;p&gt;</td></tr><tr><th id="L36"><a href="#L36">36</a></th><td> * "driving distance" algorithm follows these steps:</td></tr><tr><th id="L37"><a href="#L37">37</a></th><td> * &lt;ul&gt;</td></tr><tr><th id="L38"><a href="#L38">38</a></th><td> * &lt;li&gt;Extract X and Y&lt;/li&gt;</td></tr><tr><th id="L39"><a href="#L39">39</a></th><td> * &lt;li&gt;Start the database connection&lt;/li&gt;</td></tr><tr><th id="L40"><a href="#L40">40</a></th><td> * &lt;li&gt;Make the query&lt;/li&gt;</td></tr><tr><th id="L41"><a href="#L41">41</a></th><td> * &lt;li&gt;Send the query to the database&lt;/li&gt;</td></tr><tr><th id="L42"><a href="#L42">42</a></th><td> * &lt;li&gt;Transform the result in the specified format&lt;/li&gt;</td></tr><tr><th id="L43"><a href="#L43">43</a></th><td> * &lt;li&gt;Close the database connection&lt;/li&gt;</td></tr><tr><th id="L44"><a href="#L44">44</a></th><td> * &lt;/ul&gt;</td></tr><tr><th id="L45"><a href="#L45">45</a></th><td> * To do these steps, DrivingDistance class calls some method in IOHelper and</td></tr><tr><th id="L46"><a href="#L46">46</a></th><td> * DatabaseConnection</td></tr><tr><th id="L47"><a href="#L47">47</a></th><td> * &lt;/p&gt;</td></tr><tr><th id="L48"><a href="#L48">48</a></th><td> * </td></tr><tr><th id="L49"><a href="#L49">49</a></th><td> * @author Matthieu Bilbille - Orkney Inc.</td></tr><tr><th id="L50"><a href="#L50">50</a></th><td> * @version 1.0</td></tr><tr><th id="L51"><a href="#L51">51</a></th><td> * @see IOHelper</td></tr><tr><th id="L52"><a href="#L52">52</a></th><td> * @see DatabaseConnection</td></tr><tr><th id="L53"><a href="#L53">53</a></th><td> */</td></tr><tr><th id="L54"><a href="#L54">54</a></th><td>public class DrivingDistance extends GeoAction</td></tr><tr><th id="L55"><a href="#L55">55</a></th><td>{</td></tr><tr><th id="L56"><a href="#L56">56</a></th><td>        private float speed;</td></tr><tr><th id="L57"><a href="#L57">57</a></th><td>        private float time;</td></tr><tr><th id="L58"><a href="#L58">58</a></th><td>        private float length;</td></tr><tr><th id="L59"><a href="#L59">59</a></th><td></td></tr><tr><th id="L60"><a href="#L60">60</a></th><td></td></tr><tr><th id="L61"><a href="#L61">61</a></th><td>        /**</td></tr><tr><th id="L62"><a href="#L62">62</a></th><td>         * Constructor DrivingDistance</td></tr><tr><th id="L63"><a href="#L63">63</a></th><td>         * &lt;p&gt;</td></tr><tr><th id="L64"><a href="#L64">64</a></th><td>         * Creates a new DrivingDistance object using the specified Configuration</td></tr><tr><th id="L65"><a href="#L65">65</a></th><td>         * object and extracts X and Y from the data provides by GET or POST request</td></tr><tr><th id="L66"><a href="#L66">66</a></th><td>         * into a new point.</td></tr><tr><th id="L67"><a href="#L67">67</a></th><td>         * &lt;/p&gt;</td></tr><tr><th id="L68"><a href="#L68">68</a></th><td>         * </td></tr><tr><th id="L69"><a href="#L69">69</a></th><td>         * @param configuration</td></tr><tr><th id="L70"><a href="#L70">70</a></th><td>         *            the current configuration</td></tr><tr><th id="L71"><a href="#L71">71</a></th><td>         */</td></tr><tr><th id="L72"><a href="#L72">72</a></th><td>        public DrivingDistance(Configuration configuration, DatabaseConnection databaseConnection, IOHelper ioHelper, Log log)</td></tr><tr><th id="L73"><a href="#L73">73</a></th><td>        {</td></tr><tr><th id="L74"><a href="#L74">74</a></th><td>                super(configuration, databaseConnection, ioHelper, log);</td></tr><tr><th id="L75"><a href="#L75">75</a></th><td>                </td></tr><tr><th id="L76"><a href="#L76">76</a></th><td>                name = "Driving distance";</td></tr><tr><th id="L77"><a href="#L77">77</a></th><td></td></tr><tr><th id="L78"><a href="#L78">78</a></th><td>                // extract method for Geojson format</td></tr><tr><th id="L79"><a href="#L79">79</a></th><td>                if (this.configuration.getFormatIn().getName().equals("geojson"))</td></tr><tr><th id="L80"><a href="#L80">80</a></th><td>                {</td></tr><tr><th id="L81"><a href="#L81">81</a></th><td>                        point = ioHelper.extractGEOJSONPxPy(this.configuration.getService().getParameter("point").getValue());</td></tr><tr><th id="L82"><a href="#L82">82</a></th><td>                }</td></tr><tr><th id="L83"><a href="#L83">83</a></th><td>                // extract method for Gml format</td></tr><tr><th id="L84"><a href="#L84">84</a></th><td>                else if (this.configuration.getFormatIn().getName().equals("gml"))</td></tr><tr><th id="L85"><a href="#L85">85</a></th><td>                {</td></tr><tr><th id="L86"><a href="#L86">86</a></th><td>                        point = ioHelper.extractGMLPxPy(this.configuration.getService().getParameter("point").getValue());</td></tr><tr><th id="L87"><a href="#L87">87</a></th><td>                }</td></tr><tr><th id="L88"><a href="#L88">88</a></th><td>                // extract method for lonlat format</td></tr><tr><th id="L89"><a href="#L89">89</a></th><td>                else if (this.configuration.getFormatIn().getName().equals("lonlat"))</td></tr><tr><th id="L90"><a href="#L90">90</a></th><td>                {</td></tr><tr><th id="L91"><a href="#L91">91</a></th><td>                        point = ioHelper.extractLONLATPxPy(this.configuration.getService().getParameter("point").getValue());</td></tr><tr><th id="L92"><a href="#L92">92</a></th><td>                }</td></tr><tr><th id="L93"><a href="#L93">93</a></th><td>                // extract method for wkt format</td></tr><tr><th id="L94"><a href="#L94">94</a></th><td>                else if (this.configuration.getFormatIn().getName().equals("wkt"))</td></tr><tr><th id="L95"><a href="#L95">95</a></th><td>                {</td></tr><tr><th id="L96"><a href="#L96">96</a></th><td>                        point = ioHelper.extractWKTPxPy(this.configuration.getService().getParameter("point").getValue());</td></tr><tr><th id="L97"><a href="#L97">97</a></th><td>                }</td></tr><tr><th id="L98"><a href="#L98">98</a></th><td>                // extract method for kml format</td></tr><tr><th id="L99"><a href="#L99">99</a></th><td>                else if (this.configuration.getFormatIn().getName().equals("kml"))</td></tr><tr><th id="L100"><a href="#L100">100</a></th><td>                {</td></tr><tr><th id="L101"><a href="#L101">101</a></th><td>                        point = ioHelper.extractKMLPxPy(this.configuration.getService().getParameter("point").getValue());</td></tr><tr><th id="L102"><a href="#L102">102</a></th><td>                }</td></tr><tr><th id="L103"><a href="#L103">103</a></th><td></td></tr><tr><th id="L104"><a href="#L104">104</a></th><td>                if (this.configuration.getService().getParameter("speed").getValue() != null)</td></tr><tr><th id="L105"><a href="#L105">105</a></th><td>                {</td></tr><tr><th id="L106"><a href="#L106">106</a></th><td>                        speed = Float.parseFloat(this.configuration.getService().getParameter("speed").getValue());</td></tr><tr><th id="L107"><a href="#L107">107</a></th><td>                }</td></tr><tr><th id="L108"><a href="#L108">108</a></th><td>                else</td></tr><tr><th id="L109"><a href="#L109">109</a></th><td>                {</td></tr><tr><th id="L110"><a href="#L110">110</a></th><td>                        speed = 0;</td></tr><tr><th id="L111"><a href="#L111">111</a></th><td>                }</td></tr><tr><th id="L112"><a href="#L112">112</a></th><td></td></tr><tr><th id="L113"><a href="#L113">113</a></th><td>                if (this.configuration.getService().getParameter("time").getValue() != null)</td></tr><tr><th id="L114"><a href="#L114">114</a></th><td>                {</td></tr><tr><th id="L115"><a href="#L115">115</a></th><td>                        time = Float.parseFloat(this.configuration.getService().getParameter("time").getValue());</td></tr><tr><th id="L116"><a href="#L116">116</a></th><td>                }</td></tr><tr><th id="L117"><a href="#L117">117</a></th><td>                else</td></tr><tr><th id="L118"><a href="#L118">118</a></th><td>                {</td></tr><tr><th id="L119"><a href="#L119">119</a></th><td>                        time = 0;</td></tr><tr><th id="L120"><a href="#L120">120</a></th><td>                }</td></tr><tr><th id="L121"><a href="#L121">121</a></th><td></td></tr><tr><th id="L122"><a href="#L122">122</a></th><td>                if (this.configuration.getService().getParameter("length").getValue() != null)</td></tr><tr><th id="L123"><a href="#L123">123</a></th><td>                {</td></tr><tr><th id="L124"><a href="#L124">124</a></th><td>                        length = Float.parseFloat(this.configuration.getService().getParameter("length").getValue());</td></tr><tr><th id="L125"><a href="#L125">125</a></th><td>                }</td></tr><tr><th id="L126"><a href="#L126">126</a></th><td>                else</td></tr><tr><th id="L127"><a href="#L127">127</a></th><td>                {</td></tr><tr><th id="L128"><a href="#L128">128</a></th><td>                        length = 0;</td></tr><tr><th id="L129"><a href="#L129">129</a></th><td>                }</td></tr><tr><th id="L130"><a href="#L130">130</a></th><td>        }</td></tr><tr><th id="L131"><a href="#L131">131</a></th><td></td></tr><tr><th id="L132"><a href="#L132">132</a></th><td>        /**</td></tr><tr><th id="L133"><a href="#L133">133</a></th><td>         * Gets the result of the driving distance algorithm</td></tr><tr><th id="L134"><a href="#L134">134</a></th><td>         * </td></tr><tr><th id="L135"><a href="#L135">135</a></th><td>         * @return this closest edge's result</td></tr><tr><th id="L136"><a href="#L136">136</a></th><td>         */</td></tr><tr><th id="L137"><a href="#L137">137</a></th><td>        public String get()</td></tr><tr><th id="L138"><a href="#L138">138</a></th><td>        {</td></tr><tr><th id="L139"><a href="#L139">139</a></th><td>                return result;</td></tr><tr><th id="L140"><a href="#L140">140</a></th><td>        }</td></tr><tr><th id="L141"><a href="#L141">141</a></th><td></td></tr><tr><th id="L142"><a href="#L142">142</a></th><td>        /**</td></tr><tr><th id="L143"><a href="#L143">143</a></th><td>         * Starts the "driving distance" algorithm</td></tr><tr><th id="L144"><a href="#L144">144</a></th><td>         * </td></tr><tr><th id="L145"><a href="#L145">145</a></th><td>         * @throws SQLException</td></tr><tr><th id="L146"><a href="#L146">146</a></th><td>         *             Error to send the query to the database</td></tr><tr><th id="L147"><a href="#L147">147</a></th><td>         * @throws JSONException</td></tr><tr><th id="L148"><a href="#L148">148</a></th><td>         *             Error to transform the result in Geojson format</td></tr><tr><th id="L149"><a href="#L149">149</a></th><td>         */</td></tr><tr><th id="L150"><a href="#L150">150</a></th><td>        public void start() throws SQLException, JSONException</td></tr><tr><th id="L151"><a href="#L151">151</a></th><td>        {</td></tr><tr><th id="L152"><a href="#L152">152</a></th><td>                StringTemplate query = ioHelper.getQuery();</td></tr><tr><th id="L153"><a href="#L153">153</a></th><td>                float bboxSize = Float.parseFloat(configuration.getService().getParameter("bbox").getValue());</td></tr><tr><th id="L154"><a href="#L154">154</a></th><td>                float distance = 0;</td></tr><tr><th id="L155"><a href="#L155">155</a></th><td>                // I can not specify both TIME and LENGTH for driving distance</td></tr><tr><th id="L156"><a href="#L156">156</a></th><td>                // algorithms</td></tr><tr><th id="L157"><a href="#L157">157</a></th><td>                if (time &gt; 0)</td></tr><tr><th id="L158"><a href="#L158">158</a></th><td>                {</td></tr><tr><th id="L159"><a href="#L159">159</a></th><td>                        distance = time * speed;</td></tr><tr><th id="L160"><a href="#L160">160</a></th><td>                }</td></tr><tr><th id="L161"><a href="#L161">161</a></th><td>                else</td></tr><tr><th id="L162"><a href="#L162">162</a></th><td>                {</td></tr><tr><th id="L163"><a href="#L163">163</a></th><td>                        distance = length;</td></tr><tr><th id="L164"><a href="#L164">164</a></th><td>                }</td></tr><tr><th id="L165"><a href="#L165">165</a></th><td>                // Makes the SQL query</td></tr><tr><th id="L166"><a href="#L166">166</a></th><td>                query.setAttribute("sonPx", point.getX());</td></tr><tr><th id="L167"><a href="#L167">167</a></th><td>                query.setAttribute("sonPy", point.getY());</td></tr><tr><th id="L168"><a href="#L168">168</a></th><td>                query.setAttribute("bbox", bboxSize);</td></tr><tr><th id="L169"><a href="#L169">169</a></th><td>                query.setAttribute("distance", distance);</td></tr><tr><th id="L170"><a href="#L170">170</a></th><td>                query.setAttribute("sridProvider", configuration.getService().getDataProjection());</td></tr><tr><th id="L171"><a href="#L171">171</a></th><td>                query.setAttribute("sridIn", configuration.getService().getParameter("sridInput").getValue());</td></tr><tr><th id="L172"><a href="#L172">172</a></th><td>                query.setAttribute("sridOut", configuration.getService().getParameter("sridOutput").getValue());</td></tr><tr><th id="L173"><a href="#L173">173</a></th><td></td></tr><tr><th id="L174"><a href="#L174">174</a></th><td>                // System.out.println(query.toString());</td></tr><tr><th id="L175"><a href="#L175">175</a></th><td>                log.write(query.toString(), 2);</td></tr><tr><th id="L176"><a href="#L176">176</a></th><td>                ResultSet rs = databaseConnection.getResult(configuration.getService(), query.toString());</td></tr><tr><th id="L177"><a href="#L177">177</a></th><td></td></tr><tr><th id="L178"><a href="#L178">178</a></th><td>                String reqId = configuration.getService().getParameter("request_id").getValue();</td></tr><tr><th id="L179"><a href="#L179">179</a></th><td>                </td></tr><tr><th id="L180"><a href="#L180">180</a></th><td>                // Converts the SQL Result in Geojson</td></tr><tr><th id="L181"><a href="#L181">181</a></th><td>                if (configuration.getFormatOut().getName().equals("geojson"))</td></tr><tr><th id="L182"><a href="#L182">182</a></th><td>                {</td></tr><tr><th id="L183"><a href="#L183">183</a></th><td>                        result = ioHelper.drivingDistanceGEOJSONResult(rs, reqId);</td></tr><tr><th id="L184"><a href="#L184">184</a></th><td>                }</td></tr><tr><th id="L185"><a href="#L185">185</a></th><td>                // Converts the SQL Result in HTML</td></tr><tr><th id="L186"><a href="#L186">186</a></th><td>                else if (configuration.getFormatOut().getName().equals("html"))</td></tr><tr><th id="L187"><a href="#L187">187</a></th><td>                {</td></tr><tr><th id="L188"><a href="#L188">188</a></th><td>                        result = ioHelper.drivingDistanceHTMLResult(rs, point, reqId);</td></tr><tr><th id="L189"><a href="#L189">189</a></th><td>                }</td></tr><tr><th id="L190"><a href="#L190">190</a></th><td>                // Converts the SQL Result in XML</td></tr><tr><th id="L191"><a href="#L191">191</a></th><td>                else if (configuration.getFormatOut().getName().equals("xml"))</td></tr><tr><th id="L192"><a href="#L192">192</a></th><td>                {</td></tr><tr><th id="L193"><a href="#L193">193</a></th><td>                        result = ioHelper.drivingDistanceXMLResult(rs, reqId);</td></tr><tr><th id="L194"><a href="#L194">194</a></th><td>                }</td></tr><tr><th id="L195"><a href="#L195">195</a></th><td>                // Converts the SQL Result in GML</td></tr><tr><th id="L196"><a href="#L196">196</a></th><td>                else if (configuration.getFormatOut().getName().equals("gml"))</td></tr><tr><th id="L197"><a href="#L197">197</a></th><td>                {</td></tr><tr><th id="L198"><a href="#L198">198</a></th><td>                        result = ioHelper.drivingDistanceGMLResult(rs, reqId);</td></tr><tr><th id="L199"><a href="#L199">199</a></th><td>                }</td></tr><tr><th id="L200"><a href="#L200">200</a></th><td>                // Converts the SQL Result in WKT</td></tr><tr><th id="L201"><a href="#L201">201</a></th><td>                else if (configuration.getFormatOut().getName().equals("wkt"))</td></tr><tr><th id="L202"><a href="#L202">202</a></th><td>                {</td></tr><tr><th id="L203"><a href="#L203">203</a></th><td>                        result = ioHelper.drivingDistanceWKTResult(rs);</td></tr><tr><th id="L204"><a href="#L204">204</a></th><td>                }</td></tr><tr><th id="L205"><a href="#L205">205</a></th><td>                // Converts the SQL Result in KML</td></tr><tr><th id="L206"><a href="#L206">206</a></th><td>                else if (configuration.getFormatOut().getName().equals("kml"))</td></tr><tr><th id="L207"><a href="#L207">207</a></th><td>                {</td></tr><tr><th id="L208"><a href="#L208">208</a></th><td>                        result = ioHelper.drivingDistanceKMLResult(rs);</td></tr><tr><th id="L209"><a href="#L209">209</a></th><td>                }</td></tr><tr><th id="L210"><a href="#L210">210</a></th><td>        }</td></tr><tr><th id="L211"><a href="#L211">211</a></th><td>}</td></tr></tbody></table>
+      </div>
+      <div id="help">
+        <strong>Note:</strong> See <a href="../../../../../../../../../../wiki/TracBrowser.html">TracBrowser</a>
+        for help on using the browser.
+      </div>
+      <div id="anydiff">
+        <form action="http://pgrouting.postlbs.org/diff" method="get">
+          <div class="buttons">
+            <input type="hidden" name="new_path" value="/tools/routingservice/trunk/src/jp/co/orkney/restlet/geo/DrivingDistance.java" />
+            <input type="hidden" name="old_path" value="/tools/routingservice/trunk/src/jp/co/orkney/restlet/geo/DrivingDistance.java" />
+            <input type="hidden" name="new_rev" />
+            <input type="hidden" name="old_rev" />
+            <input type="submit" value="View changes..." title="Select paths and revs for Diff" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://pgrouting.postlbs.org/browser/tools/routingservice/trunk/src/jp/co/orkney/restlet/geo/DrivingDistance.java?format=txt">Plain Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="../../../../../../../../../../export/358/tools/routingservice/trunk/src/jp/co/orkney/restlet/geo/DrivingDistance.java">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../../../../../../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../../../../../../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("DrivingDistance.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/browser/tools/routingservice/trunk/src/jp/co/orkney/restlet/geo/DrivingDistance.java by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 06:02:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

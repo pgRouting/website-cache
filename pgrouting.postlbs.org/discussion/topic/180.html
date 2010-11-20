@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/discussion/topic/180 by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 01:59:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Message List – pgRouting
+    </title>
+        <link rel="search" href="../../search.html" />
+        <link rel="help" href="../../wiki/TracGuide.html" />
+        <link rel="start" href="../../wiki.html" />
+        <link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/discussion.css" type="text/css" /><link rel="stylesheet" href="../../chrome/discussion/css/admin.css" type="text/css" />
+        <link rel="shortcut icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../chrome/common/js/wikitoolbar.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../index.html"><img src="../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../login.html">Login</a></li><li><a href="../../prefs.html">Preferences</a></li><li class="last"><a href="../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../wiki.html">Home</a></li><li><a href="../../timeline.html">Timeline</a></li><li><a href="../../roadmap.html">Roadmap</a></li><li><a href="../../browser.html">Browse Source</a></li><li><a href="../../report.html">View Tickets</a></li><li><a href="../../search.html">Search</a></li><li class="last active"><a href="../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><a href="../../discussion.html">Forum Index</a></li><li class="last"><a href="../forum/18.html" title="shootingstar">shootingstar</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="discussion searchable">
+      <div id="message-list" class="message-list">
+        <h1>shootingstar (#18) - shooting*: unusual routes compared with Dijkstra. (#180) - Message List</h1>
+      <div class="topic new">
+        <a name="topic"></a>
+        <div class="header">
+            <div class="subject">
+              shooting*: unusual routes compared with Dijkstra.
+            </div>
+            <div class="body">
+              <p>
+Hi
+</p>
+<p>
+I've been experimenting with this shooting star algorithm because I need to model turn restrictions in my application. I love the functionality, but have experienced some unusual results.
+</p>
+<p>
+My edge cost table includes 'cost', 'reverse_cost', 'to_cost' and 'rule' for every edge. When I calculate a route from edgeA to edgeB using shooting star, the routes are very poor when compared to Dijkstra (from corresponding vertexA to vertexB). The main concern is that whilst Dijkstra correctly follows major roads (with relatively low costs), shooting* returns routes which often deviate onto minor roads with relatively high costs. This happens even if I leave to_cost empty for all edges, so the effect should not be caused by the influence of turn restrictions.
+</p>
+<p>
+I am unable to find out if the cause is due to:
+1. Shooting* not taking account of edge costs.
+2. shooting* is a *directed* shortest path algorithm, and so gives low priority to edges that are not directly aligned with the target.
+</p>
+<p>
+In a perfect world I'd like to see Dijkstra with turn restrictions: are there plans for this?
+</p>
+<p>
+I'd appreciate advise if possible. I can submit examples if required.
+</p>
+<p>
+Thx to all for work on pgRouting. This is a great package
+David
+</p>
+            </div>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            the_nerdling
+          </div>
+          <div class="time">
+            10/13/08 22:03:26 (2 years ago)
+          </div>
+        </div>
+      </div>
+      <div class="replies new">
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/180?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/180?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        <ul class="reply">
+    <li class="new">
+        <a name="message614"></a>
+        <div class="id">
+          Message #614
+        </div>
+        <div class="body">
+            <p>
+Hi David,
+</p>
+<p>
+You're right - Shooting* is directed (or else turn restrictions make no sense), which means that if your graph is directed *without* reverse cost, it will never pass through any edge against its direction. If your graph is directed *with* reverse cost, it should be OK.
+</p>
+<p>
+I guess you call the function with 'has_reverse_cost' parameter set to false.
+So, my suggestion is to call with two last parameters set to 'true'.
+</p>
+<p>
+Unfortunately, Dijkstra with turn restriction is impossible to implement.
+Dijkstra and A* are vertex based, which means that each vertex can be visited only once, which makes some turn restriction cases invalid (for example P-turns).
+</p>
+<p>
+Shooting* is well tested algorithm and its result doesn't differ so much from Dijkstra or A*. Believe me or not, but it uses the same cost evaluation function as Dijkstra and A*.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/14/08 11:21:31 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message615"></a>
+        <div class="id">
+          Message #615
+        </div>
+        <div class="body">
+            <p>
+Hi Anton
+</p>
+<p>
+Thx for fast response. It looks like shooting star is what I need so I'm keen to get these problems fixed. I've got some more information and would appreciate it if you can help diagnose.
+</p>
+<p>
+1. My graph has reverse_cost and I call the shooting star algorithm with 'has_reverse_cost' set to true. The line of php where I define the sql is copied below ($edge1 and $edge2 are set from user clicks and db queries). Not sure if there is some other problem in there?
+</p>
+<blockquote class="citation">
+<p>
+ ... select edge_id,cost from shortest_path_shooting_star('SELECT gid AS id, source::int4, target::int4, cost::float8, reverse_cost::float8, x(node1) as x1, y(node1) as y1, x(node2) as x2, y(node2) as y2, rule, to_cost from edgecosts order by id',".$edge1.", ".$edge2.", true, true)
+</p>
+</blockquote>
+<p>
+2. The routes returned by Dijkstra and shooting star are very different. Compare
+<a class="ext-link" href="http://www.soi.city.ac.uk/~dmm/temp/dijkstra.png"><span class="icon"> </span>http://www.soi.city.ac.uk/~dmm/temp/dijkstra.png</a> and
+<a class="ext-link" href="http://www.soi.city.ac.uk/~dmm/temp/shootstar.png"><span class="icon"> </span>http://www.soi.city.ac.uk/~dmm/temp/shootstar.png</a>:
+Dijkstra sticks to main roads as expected. Shooting* deviates from them. The resulting costs show shooting* is returning poor routes: 2456secs cost vs 1488secs for Dijkstra. Something isn't right here.
+</p>
+<p>
+3. Shooting * appears to be cost-aware: compare
+<a class="ext-link" href="http://www.soi.city.ac.uk/~dmm/temp/shootstarHiCost.png"><span class="icon"> </span>http://www.soi.city.ac.uk/~dmm/temp/shootstarHiCost.png</a> and
+<a class="ext-link" href="http://www.soi.city.ac.uk/~dmm/temp/shootstarRegCost.png"><span class="icon"> </span>http://www.soi.city.ac.uk/~dmm/temp/shootstarRegCost.png</a>.
+When I set an edge to have very high cost and reverse_cost, an alternative route avoiding that edge is returned.
+</p>
+<p>
+Again any advice you can offer is greatly appreciated.
+</p>
+<p>
+Many thanks
+David
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            the_nerdling
+          </div>
+          <div class="time">
+            10/14/08 18:47:22 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message616"></a>
+        <div class="id">
+          Message #616
+        </div>
+        <div class="body">
+            <p>
+Hi David,
+</p>
+<p>
+Hmmm... It really looks different.
+</p>
+<p>
+Can you please also post the string where you call Dijkstra?
+Are you using plain cost value? 'Cause for me it looks like weighted shortest path search.
+</p>
+<p>
+It would be also nice if you can share your data - just a small piece were the behavior of Shooting* differs.
+</p>
+<p>
+Can you also run A* with your data? If a result would be the same as for Shooting*, I can tell you the reason.
+</p>
+<p>
+About cost awareness - I didn't really understand you. Of course it is cost-aware! It is exactly what shortest path algorithms were made for :)
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/14/08 19:14:09 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message621"></a>
+        <div class="id">
+          Message #621
+        </div>
+        <div class="body">
+            <p>
+Hi Anton
+</p>
+<blockquote class="citation">
+<p>
+ Can you please also post the string where you call Dijkstra? Are you using plain cost value? 'Cause for me it looks like weighted shortest path search.
+</p>
+</blockquote>
+<p>
+PHP sample for shortest_path
+"select vertex_id,cost from shortest_path('SELECT gid AS id, source::int4, target::int4, cost::double precision, reverse_cost::double precision from edgecosts',".$node1.", ".$node2.", true, true)"
+</p>
+<p>
+In my edgecost table, units for the cost values are seconds, calculated from a speed estimate for class of road and edge length. Given your later post, I suspect this might be the problem? I want my routes to reflect fastest routes, so wish to retain a cost based on time, rather than spatial distance.
+</p>
+<blockquote class="citation">
+<p>
+ It would be also nice if you can share your data - just a small piece were the behavior of Shooting* differs.
+</p>
+</blockquote>
+<p>
+I've extracted about 200 edges from the DB which demonstrate the diff between shooting * and Dijkstra. You can download from (pls do not distribute)
+<a class="ext-link" href="http://www.soi.city.ac.uk/~dmm/temp/edgecostsample.csv"><span class="icon"> </span>http://www.soi.city.ac.uk/~dmm/temp/edgecostsample.csv</a>
+</p>
+<p>
+The first surprise is that using this subset of edges as the src for shooting* gives a different route than for when using shooting* with the complete table of edges. In both cases however, the path is suboptimal, compared to Dijkstra. I can post examples for this (images and start / end nodes/edges used).
+</p>
+<blockquote class="citation">
+<p>
+ Can you also run A* with your data? If a result would be the same as for Shooting*, I can tell you the reason.
+</p>
+</blockquote>
+<p>
+I have experienced similar problems in the past with A Star, and can reimplement for this edgecost table is this helps.
+</p>
+<p>
+Let me know if you need further diagnostics, and thx for your help.
+David
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            the_nerdling
+          </div>
+          <div class="time">
+            10/16/08 19:53:32 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li><li class="new">
+        <a name="message617"></a>
+        <div class="id">
+          Message #617
+        </div>
+        <div class="body">
+            <p>
+Hi David,
+</p>
+<p>
+You didn't reply with your results, so I decided to give you one more hint.
+Your Shooting* path shows that heuristic function value for each edge are higher than cost value. The most probable reason is using different units for cost and coordinates. I guess that you reprojected your data (from degrees to meters or way around), but forgot about length.
+</p>
+<p>
+So, please check it.
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/15/08 17:17:41 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message622"></a>
+        <div class="id">
+          Message #622
+        </div>
+        <div class="body">
+            <p>
+Hi Anton
+</p>
+<p>
+I think using alternative units for cost and coordinates is the issue.
+</p>
+<p>
+I have changed my cost units from seconds to millisecs, and the routes returned by shooting* are now very similar to those that I would expect from Dijkstra.
+</p>
+<p>
+David
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            the_nerdling
+          </div>
+          <div class="time">
+            10/16/08 21:26:16 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+    <li class="new">
+        <a name="message625"></a>
+        <div class="id">
+          Message #625
+        </div>
+        <div class="body">
+            <p>
+Hi David,
+</p>
+<p>
+So, it's what I thought.
+</p>
+<p>
+If you don't want to bother with heuristics, you can change heuristic function of distance_heuristic class (shooting_star_boost_wrapper.cpp) and make it return constant value (let's say 0).
+</p>
+        </div>
+        <div class="controls">
+        </div>
+        <div class="footer">
+          <div class="author">
+            anton
+          </div>
+          <div class="time">
+            10/16/08 22:58:42 (2 years ago)
+          </div>
+        </div>
+      <ul class="reply">
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+        <li></li>
+      </ul>
+    </li>
+          <li></li>
+        </ul>
+    <div class="set-display">
+      Tree View
+      <a href="http://pgrouting.postlbs.org/discussion/topic/180?discussion_action=set-display;display=flat-desc#topic">Flat View (newer first)</a>
+      <a href="http://pgrouting.postlbs.org/discussion/topic/180?discussion_action=set-display;display=flat-asc#topic">Flat View (older first)</a>
+    </div>
+        
+        <div class="attachments">
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  </body>

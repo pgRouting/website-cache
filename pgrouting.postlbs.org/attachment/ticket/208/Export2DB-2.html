@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/208/Export2DB.diff by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Attachment – pgRouting
+    </title>
+        <link rel="search" href="../../../search.html" />
+        <link rel="help" href="../../../wiki/TracGuide.html" />
+        <link rel="alternate" href="../../../raw-attachment/ticket/208/Export2DB.diff" type="text/x-diff; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="../../../ticket/208.html" title="Ticket #208" />
+        <link rel="start" href="../../../wiki.html" />
+        <link rel="stylesheet" href="../../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/diff.css" type="text/css" /><link rel="stylesheet" href="../../../chrome/common/css/code.css" type="text/css" />
+        <link rel="shortcut icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+        <link rel="icon" href="../../../chrome/site/pgRouting.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../../../search/opensearchhtml.html" title="Search pgRouting" />
+    <script type="text/javascript" src="../../../chrome/common/js/jquery.js"></script><script type="text/javascript" src="../../../chrome/common/js/trac.js"></script><script type="text/javascript" src="../../../chrome/common/js/search.js"></script><script type="text/javascript" src="../../../chrome/common/js/diff.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../../chrome/site/css/style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../../../index.html"><img src="../../../chrome/site/slonik2_11.gif" alt="" height="126" /></a>
+      </div>
+      <form id="search" action="http://pgrouting.postlbs.org/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../login.html">Login</a></li><li><a href="../../../prefs.html">Preferences</a></li><li class="last"><a href="../../../register.html">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="../../../wiki.html">Home</a></li><li><a href="../../../timeline.html">Timeline</a></li><li><a href="../../../roadmap.html">Roadmap</a></li><li><a href="../../../browser.html">Browse Source</a></li><li><a href="../../../report.html">View Tickets</a></li><li><a href="../../../search.html">Search</a></li><li class="last"><a href="../../../discussion.html">Forum</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="last first"><a href="../../../ticket/208.html">Back to Ticket #208</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="attachment">
+        <h1><a href="../../../ticket/208.html">Ticket #208</a>: Export2DB.diff</h1>
+        <table id="info" summary="Description">
+          <tbody>
+            <tr>
+              <th scope="col">
+                File Export2DB.diff, <span title="3928 bytes">3.8 KB</span>
+                (added by calinm,  <a class="timeline" href="http://pgrouting.postlbs.org/timeline?from=2010-06-14T10%3A54%3A39%2B0900&amp;precision=second" title="2010-06-14T10:54:39+0900 in Timeline">5 months</a> ago)
+              </th>
+            </tr>
+            <tr>
+              <td class="message searchable">
+                <p>
+Diff
+</p>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="preview" class="searchable">
+    <div class="diff">
+  <ul class="entries">
+      <li class="entry">
+        <h2>
+          <a>Export2DB.cpp</a>
+        </h2>
+        <table class="inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File Export2DB.cpp (revision 356)">
+                  </th>
+                  <th title="File Export2DB.cpp (working copy)">
+                  </th>
+                  <th> </th>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>65</th><th>65</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>66</th><th>66</th><td class="l"><span>}</span> </td>
+                  </tr><tr>
+                          <th>67</th><th>67</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>68</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>68</th><th>69</th><td class="l"><span>void Export2DB::createTables()</span> </td>
+                  </tr><tr>
+                          <th>69</th><th>70</th><td class="l"><span>{</span> </td>
+                  </tr><tr>
+                          <th>70</th><th>71</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; PGresult *result = PQexec(mycon, "CREATE TABLE nodes (ID integer PRIMARY KEY,&nbsp; lon decimal(11,8), lat decimal(11,8), numOfUse smallint);");</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>72</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; if (PQresultStatus(result) != PGRES_COMMAND_OK)</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>73</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; {</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>74</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cerr &lt;&lt; "create Nodes failed: " </ins> </td>
+                  </tr><tr>
+                          <th> </th><th>75</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;&lt; PQerrorMessage(mycon) </ins> </td>
+                  </tr><tr>
+                          <th> </th><th>76</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;&lt; std::endl;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>77</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PQclear(result);</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>78</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; }</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>79</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>71</th><th>80</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "Nodes table created" &lt;&lt; std::endl;</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>72</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; result = PQexec(mycon, "CREATE TABLE ways (gid integer, class_id integer, length double precision, name char(200), x1 double precision, y1 double precision, x2 double precision,y2 double precision, reverse_cost double precision,rule text, to_cost double precision, PRIMARY KEY(gid)); SELECT AddGeometryColumn('ways','the_geom',4326,'MULTILINESTRING',2);");</span> </td>
+                      </tr><tr>
+                        <th>73</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "Ways table created" &lt;&lt; std::endl;</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>81</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; result = PQexec(mycon, "CREATE TABLE ways (gid integer, class_id integer not null, length double precision, name char(200), x1 double precision, y1 double precision, x2 double precision,y2 double precision, reverse_cost double precision,rule text, to_cost double precision, PRIMARY KEY(gid)); SELECT AddGeometryColumn('ways','the_geom',4326,'MULTILINESTRING',2);");</span> </td>
+                      </tr><tr>
+                        <th> </th><th>82</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; if (PQresultStatus(result) != PGRES_COMMAND_OK)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>83</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                      </tr><tr>
+                        <th> </th><th>84</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cerr &lt;&lt; "create ways failed: " </span> </td>
+                      </tr><tr>
+                        <th> </th><th>85</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;&lt; PQerrorMessage(mycon) </span> </td>
+                      </tr><tr>
+                        <th> </th><th>86</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;&lt; std::endl;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>87</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PQclear(result);</span> </td>
+                      </tr><tr>
+                        <th> </th><th>88</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; } else {</span> </td>
+                      </tr><tr>
+                        <th> </th><th>89</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "Ways table created" &lt;&lt; std::endl;</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>90</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>74</th><th>91</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; result = PQexec(mycon, "CREATE TABLE types (id integer, name char(200));");</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>75</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "Types table created" &lt;&lt; std::endl;</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>92</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; if (PQresultStatus(result) != PGRES_COMMAND_OK)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>93</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                      </tr><tr>
+                        <th> </th><th>94</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cerr &lt;&lt; "create types failed: " </span> </td>
+                      </tr><tr>
+                        <th> </th><th>95</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;&lt; PQerrorMessage(mycon) </span> </td>
+                      </tr><tr>
+                        <th> </th><th>96</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;&lt; std::endl;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>97</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PQclear(result);</span> </td>
+                      </tr><tr>
+                        <th> </th><th>98</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; } else {</span> </td>
+                      </tr><tr>
+                        <th> </th><th>99</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "Types table created" &lt;&lt; std::endl;</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>100</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>76</th><th>101</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; result = PQexec(mycon, "CREATE TABLE classes (id integer, type_id integer, name char(200), cost double precision);");</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>77</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "Classes table created" &lt;&lt; std::endl;&nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>102</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; if (PQresultStatus(result) != PGRES_COMMAND_OK)</span> </td>
+                      </tr><tr>
+                        <th> </th><th>103</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; {</span> </td>
+                      </tr><tr>
+                        <th> </th><th>104</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cerr &lt;&lt; "create classes failed: " </span> </td>
+                      </tr><tr>
+                        <th> </th><th>105</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;&lt; PQerrorMessage(mycon) </span> </td>
+                      </tr><tr>
+                        <th> </th><th>106</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;&lt; std::endl;</span> </td>
+                      </tr><tr>
+                        <th> </th><th>107</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PQclear(result);</span> </td>
+                      </tr><tr>
+                        <th> </th><th>108</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; } else {</span> </td>
+                      </tr><tr>
+                        <th> </th><th>109</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; "Classes table created" &lt;&lt; std::endl;&nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>110</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>78</th><th>111</th><td class="l"><span>}</span> </td>
+                  </tr><tr>
+                          <th>79</th><th>112</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>80</th><th>113</th><td class="l"><span>void Export2DB::dropTables()</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L110">…</a></th>
+                  <th><a href="#L143">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>110</th><th>143</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; query+=", name";</span> </td>
+                  </tr><tr>
+                          <th>111</th><th>144</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; query+=") values(";</span> </td>
+                  </tr><tr>
+                          <th>112</th><th>145</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>113</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; query+=boost::lexical_cast&lt;std::string&gt;(way-&gt;id) + ", (SELECT id FROM classes WHERE name ='" + boost::lexical_cast&lt;std::string&gt;(way-&gt;clss) + "')," + boost::lexical_cast&lt;std::string&gt;(way-&gt;length) + "," </span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>146</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; query+=boost::lexical_cast&lt;std::string&gt;(way-&gt;id) + </span> </td>
+                      </tr><tr>
+                        <th> </th><th>147</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ", (SELECT id FROM classes WHERE name ='" + boost::lexical_cast&lt;std::string&gt;(way-&gt;clss) + "' and type_id = (select id from types where name='"+ boost::lexical_cast&lt;std::string&gt;(way-&gt;type) + "'))," </span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>148</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; + boost::lexical_cast&lt;std::string&gt;(way-&gt;length) + "," </span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>114</th><th>149</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ boost::lexical_cast&lt;std::string&gt;(way-&gt;m_NodeRefs.front()-&gt;lon) + ","+ boost::lexical_cast&lt;std::string&gt;(way-&gt;m_NodeRefs.front()-&gt;lat) + ","</span> </td>
+                  </tr><tr>
+                          <th>115</th><th>150</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ boost::lexical_cast&lt;std::string&gt;(way-&gt;m_NodeRefs.back()-&gt;lon)&nbsp; + ","+ boost::lexical_cast&lt;std::string&gt;(way-&gt;m_NodeRefs.back()-&gt;lat) + ",";</span> </td>
+                  </tr><tr>
+                          <th>116</th><th>151</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; query+="GeometryFromText('" + way-&gt;geom +"', 4326)";</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L129">…</a></th>
+                  <th><a href="#L164">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>129</th><th>164</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; query+=");";</span> </td>
+                  </tr><tr>
+                          <th>130</th><th>165</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //std::cout &lt;&lt; query &lt;&lt;std::endl;</span> </td>
+                  </tr><tr>
+                          <th>131</th><th>166</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; PGresult *result = PQexec(mycon, query.c_str());</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>167</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; if (PQresultStatus(result) != PGRES_COMMAND_OK)</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>168</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; {</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>169</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cerr &lt;&lt; "create Nodes failed: " </ins> </td>
+                  </tr><tr>
+                          <th> </th><th>170</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;&lt; PQerrorMessage(mycon) </ins> </td>
+                  </tr><tr>
+                          <th> </th><th>171</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;&lt; std::endl;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>172</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; std::cerr &lt;&lt; "SQL:" &lt;&lt; std::endl &lt;&lt; query &lt;&lt; std::endl;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>173</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PQclear(result);</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>174</th><td class="r"><ins>&nbsp; &nbsp; &nbsp; &nbsp; }</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>132</th><th>175</th><td class="l"><span>}</span> </td>
+                  </tr><tr>
+                          <th>133</th><th>176</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>134</th><th>177</th><td class="l"><span>void Export2DB::exportType(Type* type)</span> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+  </ul>
+</div>
+        </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="../../../raw-attachment/ticket/208/Export2DB.diff">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="../../../about.html"><strong>Trac 0.11.5rc1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">pgRouting is a project of PostLBS <br /><a href="http://www.postlbs.org/">http://www.postlbs.org/</a></p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-9766327-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("Export2DB-2.html\/\/pgrouting.postlbs.org") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('%5e.html\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+</body>
+
+<!-- Mirrored from pgrouting.postlbs.org/attachment/ticket/208/Export2DB.diff by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 20 Nov 2010 02:36:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>
